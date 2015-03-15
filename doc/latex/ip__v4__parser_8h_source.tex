@@ -1,0 +1,117 @@
+\hypertarget{ip__v4__parser_8h_source}{\section{ip\-\_\-v4\-\_\-parser.\-h}
+}
+
+\begin{DoxyCode}
+00001 
+00007 \textcolor{preprocessor}{#ifndef IP\_V4\_PARSER\_H\_20120818172442392}
+00008 \textcolor{preprocessor}{}\textcolor{preprocessor}{#define IP\_V4\_PARSER\_H\_20120818172442392}
+00009 \textcolor{preprocessor}{}\textcolor{preprocessor}{#include "\hyperlink{ip__v4__entity_8h}{hryky/ip/ip_v4_entity.h}"}
+00010 \textcolor{preprocessor}{#include "\hyperlink{ip__v4__common_8h}{hryky/ip/ip_v4_common.h}"}
+00011 \textcolor{preprocessor}{#include "\hyperlink{parser_8h}{hryky/parser.h}"}
+00012 \textcolor{preprocessor}{#include "\hyperlink{vector_8h}{hryky/vector.h}"}
+00013 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00014 \textcolor{comment}{// macro definition}
+00015 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00016 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00017 \textcolor{comment}{// namespace}
+00018 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00019 \textcolor{keyword}{namespace }hryky
+00020 \{
+00021 \textcolor{keyword}{namespace }ip
+00022 \{
+00023 \textcolor{keyword}{namespace }v4
+00024 \{
+00026     \textcolor{keyword}{class }Parser;
+00027 
+00028     \textcolor{keyword}{typedef} Parser parser\_type;
+00029 
+00030 \textcolor{keyword}{namespace }kmyacc
+00031 \{
+00032 \textcolor{preprocessor}{#include "hryky/ip/ip\_v4.y.h"}
+00033 \}
+00034 
+00035 \} \textcolor{comment}{// namespace v4}
+00036 \} \textcolor{comment}{// namespace ip}
+00037 \} \textcolor{comment}{// namespace hryky}
+00038 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00039 \textcolor{comment}{// class declarations}
+00040 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+\hypertarget{ip__v4__parser_8h_source_l00044}{}\hyperlink{classhryky_1_1ip_1_1v4_1_1_parser}{00044} \textcolor{comment}{}\textcolor{keyword}{class }\hyperlink{classhryky_1_1ip_1_1v4_1_1_parser}{hryky::ip::v4::Parser}
+00045     : \textcolor{keyword}{public} \hyperlink{classhryky_1_1parser_1_1_base}{hryky::parser::Base}<
+00046         hryky::ip::v4::kmyacc::Parser<hryky::ip::v4::Parser> >
+00047 \{
+00048 \textcolor{keyword}{public} :
+00049 
+\hypertarget{ip__v4__parser_8h_source_l00050}{}\hyperlink{classhryky_1_1ip_1_1v4_1_1_parser_ab85551348aa8cf5c7da65859d0d0448f}{00050}     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1ip_1_1v4_1_1_parser}{Parser} \hyperlink{classhryky_1_1ip_1_1v4_1_1_parser_ab85551348aa8cf5c7da65859d0d0448f}{this_type};
+00051     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1parser_1_1_base}{hryky::parser::Base<kmyacc::Parser<this_type>} > \hyperlink{classhryky_1_1parser_1_1_base}{base_type};
+00052 
+00058     \textcolor{keyword}{template} <\textcolor{keywordtype}{size\_t} Size>
+00059     \textcolor{keywordtype}{size\_t} \hyperlink{classhryky_1_1ip_1_1v4_1_1_parser_a95e8f941786866793f1947c4423ccab4}{operator()}(\hyperlink{namespacehryky_a488cba8b666be33ccca70e819684e3c8}{octet_type} \textcolor{keyword}{const} (&octets)[Size]);
+00060     
+00061 \textcolor{keyword}{protected} :
+00062 
+00063 \textcolor{keyword}{private} :
+00064 
+00065 \};
+00066 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00067 \textcolor{comment}{// class specializations}
+00068 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00069 \textcolor{keyword}{namespace }hryky
+00070 \{
+00071 \textcolor{keyword}{namespace }ip
+00072 \{
+00073 \textcolor{keyword}{namespace }v4
+00074 \{
+00075 \} \textcolor{comment}{// namespace v4}
+00076 \} \textcolor{comment}{// namespace ip}
+00077 \} \textcolor{comment}{// namespace hryky}
+00078 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00079 \textcolor{comment}{// public member functions}
+00080 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00086 \textcolor{comment}{}\textcolor{keyword}{template} <\textcolor{keywordtype}{size\_t} Size>
+\hypertarget{ip__v4__parser_8h_source_l00087}{}\hyperlink{classhryky_1_1ip_1_1v4_1_1_parser_a95e8f941786866793f1947c4423ccab4}{00087} \textcolor{keywordtype}{size\_t} \hyperlink{classhryky_1_1ip_1_1v4_1_1_parser_a95e8f941786866793f1947c4423ccab4}{hryky::ip::v4::Parser::operator()}(\hyperlink{namespacehryky_a488cba8b666be33ccca70e819684e3c8}{octet_type} \textcolor{keyword}{const} (&octets)[Size])
+00088 \{
+00089     \textcolor{keywordflow}{return} this->parse(\hyperlink{classhryky_1_1_range}{Range<octet_type const *>}(&octets[0], &octets[Size]));
+00090 \}
+00091 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00092 \textcolor{comment}{// protected member functions}
+00093 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00094 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00095 \textcolor{comment}{// private member functions}
+00096 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00097 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00098 \textcolor{comment}{// global function prototypes}
+00099 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00100 \textcolor{keyword}{namespace }hryky
+00101 \{
+00102 \textcolor{keyword}{namespace }ip
+00103 \{
+00104 \textcolor{keyword}{namespace }v4
+00105 \{
+00106 \} \textcolor{comment}{// namespace v4}
+00107 \} \textcolor{comment}{// namespace ip}
+00108 \} \textcolor{comment}{// namespace hryky}
+00109 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00110 \textcolor{comment}{// global function definitions}
+00111 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00112 \textcolor{preprocessor}{#endif // IP\_V4\_PARSER\_H\_20120818172442392}
+00113 \textcolor{preprocessor}{}\textcolor{comment}{// end of file}
+\end{DoxyCode}

@@ -1,0 +1,113 @@
+\hypertarget{http_8h_source}{\section{http.\-h}
+}
+
+\begin{DoxyCode}
+00001 
+00007 \textcolor{preprocessor}{#ifndef HTTP\_H\_20120602152935312}
+00008 \textcolor{preprocessor}{}\textcolor{preprocessor}{#define HTTP\_H\_20120602152935312}
+00009 \textcolor{preprocessor}{}
+00010 \textcolor{preprocessor}{#include "\hyperlink{http__body__entity_8h}{hryky/http/http_body_entity.h}"}
+00011 \textcolor{preprocessor}{#include "\hyperlink{http__entity_8h}{hryky/http/http_entity.h}"}
+00012 \textcolor{preprocessor}{#include "\hyperlink{http__header__accept__charset__content__entity_8h}{hryky/http/http_header_accept_charset_content_entity.h}"}
+00013 \textcolor{preprocessor}{#include "\hyperlink{http__header__accept__charset__entity_8h}{hryky/http/http_header_accept_charset_entity.h}"}
+00014 \textcolor{preprocessor}{#include "\hyperlink{http__header__accept__content__entity_8h}{hryky/http/http_header_accept_content_entity.h}"}
+00015 \textcolor{preprocessor}{#include "\hyperlink{http__header__accept__encoding__content__entity_8h}{hryky/http/http_header_accept_encoding_content_entity.h}"}
+00016 \textcolor{preprocessor}{#include "\hyperlink{http__header__accept__encoding__entity_8h}{hryky/http/http_header_accept_encoding_entity.h}"}
+00017 \textcolor{preprocessor}{#include "\hyperlink{http__header__accept__entity_8h}{hryky/http/http_header_accept_entity.h}"}
+00018 \textcolor{preprocessor}{#include "\hyperlink{http__header__accept__extension__common_8h}{hryky/http/http_header_accept_extension_common.h}"}
+00019 \textcolor{preprocessor}{#include "\hyperlink{http__header__accept__extension__entity_8h}{hryky/http/http_header_accept_extension_entity.h}"}
+00020 \textcolor{preprocessor}{#include "\hyperlink{http__header__accept__language__content__entity_8h}{hryky/http/http_header_accept_language_content_entity.h}"}
+00021 \textcolor{preprocessor}{#include "\hyperlink{http__header__accept__language__entity_8h}{hryky/http/http_header_accept_language_entity.h}"}
+00022 \textcolor{preprocessor}{#include "\hyperlink{http__header__accept__params__entity_8h}{hryky/http/http_header_accept_params_entity.h}"}
+00023 \textcolor{preprocessor}{#include "\hyperlink{http__header__cache__common_8h}{hryky/http/http_header_cache_common.h}"}
+00024 \textcolor{preprocessor}{#include "\hyperlink{http__header__cache__control__common_8h}{hryky/http/http_header_cache_control_common.h}"}
+00025 \textcolor{preprocessor}{#include "\hyperlink{http__header__cache__control__entity_8h}{hryky/http/http_header_cache_control_entity.h}"}
+00026 \textcolor{preprocessor}{#include "\hyperlink{http__header__cache__directive__adapter_8h}{hryky/http/http_header_cache_directive_adapter.h}"}
+00027 \textcolor{preprocessor}{#include "hryky/http/http\_header\_cache\_directive\_base.h"}
+00028 \textcolor{preprocessor}{#include "\hyperlink{http__header__cache__directive__common_8h}{hryky/http/http_header_cache_directive_common.h}"}
+00029 \textcolor{preprocessor}{#include "\hyperlink{http__header__cache__directive__dispatcher__apply_8h}{hryky/http/http_header_cache_directive_dispatcher_apply.h}"}
+00030 \textcolor{preprocessor}{#include "\hyperlink{http__header__cache__directive__dispatcher__base_8h}{hryky/http/http_header_cache_directive_dispatcher_base.h}"}
+00031 \textcolor{preprocessor}{#include "\hyperlink{http__header__cache__directive__field_8h}{hryky/http/http_header_cache_directive_field.h}"}
+00032 \textcolor{preprocessor}{#include "\hyperlink{http__header__cache__directive__second_8h}{hryky/http/http_header_cache_directive_second.h}"}
+00033 \textcolor{preprocessor}{#include "\hyperlink{http__header__cache__directive__specifier_8h}{hryky/http/http_header_cache_directive_specifier.h}"}
+00034 \textcolor{preprocessor}{#include "\hyperlink{http__header__comment__base_8h}{hryky/http/http_header_comment_base.h}"}
+00035 \textcolor{preprocessor}{#include "\hyperlink{http__header__comment__adapter_8h}{hryky/http/http_header_comment_adapter.h}"}
+00036 \textcolor{preprocessor}{#include "\hyperlink{http__header__comment__sequence_8h}{hryky/http/http_header_comment_sequence.h}"}
+00037 \textcolor{preprocessor}{#include "\hyperlink{http__header__comment__string_8h}{hryky/http/http_header_comment_string.h}"}
+00038 \textcolor{preprocessor}{#include "\hyperlink{http__header__common_8h}{hryky/http/http_header_common.h}"}
+00039 \textcolor{preprocessor}{#include "\hyperlink{http__header__connection__common_8h}{hryky/http/http_header_connection_common.h}"}
+00040 \textcolor{preprocessor}{#include "\hyperlink{http__header__connection__entity_8h}{hryky/http/http_header_connection_entity.h}"}
+00041 \textcolor{preprocessor}{#include "\hyperlink{http__header__content__common_8h}{hryky/http/http_header_content_common.h}"}
+00042 \textcolor{preprocessor}{#include "\hyperlink{http__header__content__length__entity_8h}{hryky/http/http_header_content_length_entity.h}"}
+00043 \textcolor{preprocessor}{#include "\hyperlink{http__header__content__type__entity_8h}{hryky/http/http_header_content_type_entity.h}"}
+00044 \textcolor{preprocessor}{#include "hryky/http/http\_header\_date\_entity.h"}
+00045 \textcolor{preprocessor}{#include "\hyperlink{http__header__entity_8h}{hryky/http/http_header_entity.h}"}
+00046 \textcolor{preprocessor}{#include "\hyperlink{http__header__expires__entity_8h}{hryky/http/http_header_expires_entity.h}"}
+00047 \textcolor{preprocessor}{#include "\hyperlink{http__header__field__adapter_8h}{hryky/http/http_header_field_adapter.h}"}
+00048 \textcolor{preprocessor}{#include "\hyperlink{http__header__field__base_8h}{hryky/http/http_header_field_base.h}"}
+00049 \textcolor{preprocessor}{#include "\hyperlink{http__header__field__common_8h}{hryky/http/http_header_field_common.h}"}
+00050 \textcolor{preprocessor}{#include "\hyperlink{http__header__field__dispatcher__apply_8h}{hryky/http/http_header_field_dispatcher_apply.h}"}
+00051 \textcolor{preprocessor}{#include "\hyperlink{http__header__field__dispatcher__base_8h}{hryky/http/http_header_field_dispatcher_base.h}"}
+00052 \textcolor{preprocessor}{#include "\hyperlink{http__header__field__extension__common_8h}{hryky/http/http_header_field_extension_common.h}"}
+00053 \textcolor{preprocessor}{#include "\hyperlink{http__header__field__extension__entity_8h}{hryky/http/http_header_field_extension_entity.h}"}
+00054 \textcolor{preprocessor}{#include "\hyperlink{http__header__host__entity_8h}{hryky/http/http_header_host_entity.h}"}
+00055 \textcolor{preprocessor}{#include "\hyperlink{http__header__language__common_8h}{hryky/http/http_header_language_common.h}"}
+00056 \textcolor{preprocessor}{#include "\hyperlink{http__header__language__entity_8h}{hryky/http/http_header_language_entity.h}"}
+00057 \textcolor{preprocessor}{#include "\hyperlink{http__header__location__entity_8h}{hryky/http/http_header_location_entity.h}"}
+00058 \textcolor{preprocessor}{#include "\hyperlink{http__header__media__type__common_8h}{hryky/http/http_header_media_type_common.h}"}
+00059 \textcolor{preprocessor}{#include "\hyperlink{http__header__media__type__entity_8h}{hryky/http/http_header_media_type_entity.h}"}
+00060 \textcolor{preprocessor}{#include "\hyperlink{http__header__parameter__common_8h}{hryky/http/http_header_parameter_common.h}"}
+00061 \textcolor{preprocessor}{#include "\hyperlink{http__header__parameter__entity_8h}{hryky/http/http_header_parameter_entity.h}"}
+00062 \textcolor{preprocessor}{#include "\hyperlink{http__header__product__comment__adapter_8h}{hryky/http/http_header_product_comment_adapter.h}"}
+00063 \textcolor{preprocessor}{#include "\hyperlink{http__header__product__comment__base_8h}{hryky/http/http_header_product_comment_base.h}"}
+00064 \textcolor{preprocessor}{#include "\hyperlink{http__header__product__comment__dispatcher__base_8h}{hryky/http/http_header_product_comment_dispatcher_base.h}"}
+00065 \textcolor{preprocessor}{#include "\hyperlink{http__header__product__comment__dispatcher__apply_8h}{hryky/http/http_header_product_comment_dispatcher_apply.h}"}
+00066 \textcolor{preprocessor}{#include "\hyperlink{http__header__product__entity_8h}{hryky/http/http_header_product_entity.h}"}
+00067 \textcolor{preprocessor}{#include "\hyperlink{http__header__server__entity_8h}{hryky/http/http_header_server_entity.h}"}
+00068 \textcolor{preprocessor}{#include "\hyperlink{http__header__user__agent__entity_8h}{hryky/http/http_header_user_agent_entity.h}"}
+00069 \textcolor{preprocessor}{#include "\hyperlink{http__method__common_8h}{hryky/http/http_method_common.h}"}
+00070 \textcolor{preprocessor}{#include "\hyperlink{http__method__entity_8h}{hryky/http/http_method_entity.h}"}
+00071 \textcolor{preprocessor}{#include "\hyperlink{http__parser__common_8h}{hryky/http/http_parser_common.h}"}
+00072 \textcolor{preprocessor}{#include "\hyperlink{http__request__entity_8h}{hryky/http/http_request_entity.h}"}
+00073 \textcolor{preprocessor}{#include "\hyperlink{http__request__line__entity_8h}{hryky/http/http_request_line_entity.h}"}
+00074 \textcolor{preprocessor}{#include "\hyperlink{http__seconds__common_8h}{hryky/http/http_seconds_common.h}"}
+00075 \textcolor{preprocessor}{#include "\hyperlink{http__seconds__entity_8h}{hryky/http/http_seconds_entity.h}"}
+00076 \textcolor{preprocessor}{#include "\hyperlink{http__stream_8h}{hryky/http/http_stream.h}"}
+00077 \textcolor{preprocessor}{#include "\hyperlink{http__version__entity_8h}{hryky/http/http_version_entity.h}"}
+00078 \textcolor{preprocessor}{#include "\hyperlink{http__parser_8h}{hryky/http/http_parser.h}"}
+00079 
+00080 
+00081 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00082 \textcolor{comment}{// macro definition}
+00083 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00084 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00085 \textcolor{comment}{// namespace}
+00086 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00087 \textcolor{keyword}{namespace }hryky
+00088 \{
+00090 \textcolor{keyword}{namespace }http
+00091 \{
+00092 \} \textcolor{comment}{// namespace http}
+00093 \} \textcolor{comment}{// namespace hryky}
+00094 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00095 \textcolor{comment}{// struct declaration}
+00096 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00097 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00098 \textcolor{comment}{// class declaration}
+00099 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00100 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00101 \textcolor{comment}{// function definition}
+00102 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00103 \textcolor{preprocessor}{#endif // HTTP\_H\_20120602152935312}
+00104 \textcolor{preprocessor}{}\textcolor{comment}{// end of file}
+\end{DoxyCode}

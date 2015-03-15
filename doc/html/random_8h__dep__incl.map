@@ -1,0 +1,9 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$testing__random_8h.html" title="initializes the generator of pseudo random number." alt="" coords="365,80,488,107"/>
+<area shape="rect" id="node5" href="$testing_8h.html" title="testing modules." alt="" coords="347,155,419,181"/>
+<area shape="rect" id="node11" href="$testing__random_8cpp.html" title="initializes the generator of pseudo random number." alt="" coords="473,304,609,331"/>
+<area shape="rect" id="node7" href="$testing_2src_2precompiled_8h_source.html" title="precompiled.h" alt="" coords="323,229,425,256"/>
+<area shape="rect" id="node9" href="$testing__log_8cpp.html" title="outputs the log of the unit test at the end of scope." alt="" coords="5,304,115,331"/>
+<area shape="rect" id="node13" href="$testing__registry_8cpp.html" title="the collection of all tests." alt="" coords="140,304,276,331"/>
+<area shape="rect" id="node15" href="$testing__unit__base_8cpp.html" title="base class to test one module." alt="" coords="300,304,449,331"/>
+</map>

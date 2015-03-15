@@ -1,0 +1,67 @@
+\hypertarget{swap_8h_source}{\section{swap.\-h}
+}
+
+\begin{DoxyCode}
+00001 
+00007 \textcolor{preprocessor}{#ifndef SWAP\_H\_20130105173839401}
+00008 \textcolor{preprocessor}{}\textcolor{preprocessor}{#define SWAP\_H\_20130105173839401}
+00009 \textcolor{preprocessor}{}\textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00010 \textcolor{comment}{// macro definition}
+00011 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00012 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00013 \textcolor{comment}{// namespace}
+00014 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00015 \textcolor{keyword}{namespace }hryky
+00016 \{
+00017 \} \textcolor{comment}{// namespace hryky}
+00018 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00019 \textcolor{comment}{// struct declaration}
+00020 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00021 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00022 \textcolor{comment}{// class declaration}
+00023 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00024 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00025 \textcolor{comment}{// global function prototypes}
+00026 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00027 \textcolor{keyword}{namespace }hryky
+00028 \{
+00030     \textcolor{keyword}{template} < \textcolor{keyword}{typename} ValueT >
+00031     \textcolor{keywordtype}{void} \hyperlink{namespacehryky_add9c1c1fdfda07cd47bcb7c16d3a823a}{hryky_swap}(ValueT & lhs, ValueT & rhs);
+00032 
+00033 \} \textcolor{comment}{// namespace hryky}
+00034 \textcolor{keyword}{namespace }hryky\_swap\_impl
+00035 \{
+00037     \textcolor{keyword}{template} < \textcolor{keyword}{typename} ValueT >
+00038     \textcolor{keywordtype}{void} impl(ValueT & lhs, ValueT & rhs);
+00039 
+00040 \} \textcolor{comment}{// namespace hryky\_swap\_impl}
+00041 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00042 \textcolor{comment}{// global function definitions}
+00043 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00047 \textcolor{comment}{}\textcolor{keyword}{template} < \textcolor{keyword}{typename} ValueT >
+\hypertarget{swap_8h_source_l00048}{}\hyperlink{namespacehryky_add9c1c1fdfda07cd47bcb7c16d3a823a}{00048} \textcolor{keywordtype}{void} \hyperlink{namespacehryky_add9c1c1fdfda07cd47bcb7c16d3a823a}{hryky::hryky_swap}(ValueT & lhs, ValueT & rhs)
+00049 \{
+00050     hryky\_swap\_impl::impl(lhs, rhs);
+00051 \}
+00055 \textcolor{keyword}{template} < \textcolor{keyword}{typename} ValueT >
+00056 \textcolor{keywordtype}{void} hryky\_swap\_impl::impl(ValueT & lhs, ValueT & rhs)
+00057 \{
+00058     \textcolor{keyword}{using namespace }std;
+00059     
+00060     \hyperlink{namespacehryky_a4282146df5ea2b68cb667896a2205909}{swap}(lhs, rhs);
+00061 \}
+00062 \textcolor{preprocessor}{#endif // SWAP\_H\_20130105173839401}
+00063 \textcolor{preprocessor}{}\textcolor{comment}{// end of file}
+\end{DoxyCode}

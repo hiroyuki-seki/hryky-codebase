@@ -1,0 +1,114 @@
+\hypertarget{http__header__comment__adapter_8h_source}{\section{http\-\_\-header\-\_\-comment\-\_\-adapter.\-h}
+}
+
+\begin{DoxyCode}
+00001 
+00007 \textcolor{preprocessor}{#ifndef HTTP\_HEADER\_COMMENT\_ADAPTER\_H\_20130113170003375}
+00008 \textcolor{preprocessor}{}\textcolor{preprocessor}{#define HTTP\_HEADER\_COMMENT\_ADAPTER\_H\_20130113170003375}
+00009 \textcolor{preprocessor}{}\textcolor{preprocessor}{#include "\hyperlink{adapter_8h}{hryky/adapter.h}"}
+00010 \textcolor{preprocessor}{#include "\hyperlink{http__header__comment__base_8h}{hryky/http/http_header_comment_base.h}"}
+00011 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00012 \textcolor{comment}{// macro definition}
+00013 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00014 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00015 \textcolor{comment}{// namespace}
+00016 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00017 \textcolor{keyword}{namespace }hryky
+00018 \{
+00019 \textcolor{keyword}{namespace }http
+00020 \{
+00021 \textcolor{keyword}{namespace }header
+00022 \{
+00023 \textcolor{keyword}{namespace }comment
+00024 \{
+00026     \textcolor{keyword}{template} <\textcolor{keyword}{typename} ValueT>
+00027     \textcolor{keyword}{class }Adapter;
+00028 
+00029 \} \textcolor{comment}{// namespace comment}
+00030 
+00031 \} \textcolor{comment}{// namespace header}
+00032 \} \textcolor{comment}{// namespace http}
+00033 \} \textcolor{comment}{// namespace hryky}
+00034 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00035 \textcolor{comment}{// class declarations}
+00036 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00040 \textcolor{comment}{}\textcolor{keyword}{template} <\textcolor{keyword}{typename} ValueT>
+\hypertarget{http__header__comment__adapter_8h_source_l00041}{}\hyperlink{classhryky_1_1http_1_1header_1_1comment_1_1_adapter}{00041} \textcolor{keyword}{class }\hyperlink{classhryky_1_1http_1_1header_1_1comment_1_1_adapter}{hryky::http::header::comment::Adapter}
+00042     : \textcolor{keyword}{public} \hyperlink{classhryky_1_1_adapter}{hryky::Adapter}<Base, ValueT>
+00043 \{
+00044 \textcolor{keyword}{public} :
+00045 
+\hypertarget{http__header__comment__adapter_8h_source_l00046}{}\hyperlink{classhryky_1_1http_1_1header_1_1comment_1_1_adapter_aae55ab21278edd5eb0f15405ea162ad7}{00046}     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1_adapter}{hryky::Adapter<Base, ValueT>} \hyperlink{classhryky_1_1http_1_1header_1_1comment_1_1_adapter_aae55ab21278edd5eb0f15405ea162ad7}{base_type};
+00047 
+00049     \hyperlink{classhryky_1_1_adapter_aad569390e8fc9963c8849cbd0c59bea9}{Adapter}(const\_reference src);
+00050 
+00051 \};
+00052 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00053 \textcolor{comment}{// class specializations}
+00054 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00055 \textcolor{keyword}{namespace }hryky
+00056 \{
+00057 \textcolor{keyword}{namespace }http
+00058 \{
+00059 \textcolor{keyword}{namespace }header
+00060 \{
+00061 \textcolor{keyword}{namespace }comment
+00062 \{
+00063 \} \textcolor{comment}{// namespace comment}
+00064 \} \textcolor{comment}{// namespace header}
+00065 \} \textcolor{comment}{// namespace http}
+00066 \} \textcolor{comment}{// namespace hryky}
+00067 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00068 \textcolor{comment}{// public member functions}
+00069 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00073 \textcolor{comment}{}\textcolor{keyword}{template} <\textcolor{keyword}{typename} ValueT>
+\hypertarget{http__header__comment__adapter_8h_source_l00074}{}\hyperlink{classhryky_1_1http_1_1header_1_1comment_1_1_adapter_a60a3f04c64b4ff8e8a657c3a66b31cd9}{00074} \hyperlink{classhryky_1_1_adapter_aad569390e8fc9963c8849cbd0c59bea9}{hryky::http::header::comment::Adapter<ValueT>::Adapter}(const\_reference src)
+00075     : \hyperlink{classhryky_1_1_adapter}{base_type}(src)
+00076 \{
+00077 \}
+00078 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00079 \textcolor{comment}{// protected member functions}
+00080 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00081 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00082 \textcolor{comment}{// private member functions}
+00083 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00084 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00085 \textcolor{comment}{// global function prototypes}
+00086 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00087 \textcolor{keyword}{namespace }hryky
+00088 \{
+00089 \textcolor{keyword}{namespace }http
+00090 \{
+00091 \textcolor{keyword}{namespace }header
+00092 \{
+00093 \textcolor{keyword}{namespace }comment
+00094 \{
+00095 \} \textcolor{comment}{// namespace comment}
+00096 \} \textcolor{comment}{// namespace header}
+00097 \} \textcolor{comment}{// namespace http}
+00098 \} \textcolor{comment}{// namespace hryky}
+00099 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00100 \textcolor{comment}{// global function definitions}
+00101 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00102 \textcolor{preprocessor}{#endif // HTTP\_HEADER\_COMMENT\_ADAPTER\_H\_20130113170003375}
+00103 \textcolor{preprocessor}{}\textcolor{comment}{// end of file}
+00104 
+\end{DoxyCode}

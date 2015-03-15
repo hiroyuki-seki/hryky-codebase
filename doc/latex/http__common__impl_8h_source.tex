@@ -1,0 +1,81 @@
+\hypertarget{http__common__impl_8h_source}{\section{http\-\_\-common\-\_\-impl.\-h}
+}
+
+\begin{DoxyCode}
+00001 
+00007 \textcolor{preprocessor}{#ifndef HTTP\_COMMON\_IMPL\_H\_20120716050223876}
+00008 \textcolor{preprocessor}{}\textcolor{preprocessor}{#define HTTP\_COMMON\_IMPL\_H\_20120716050223876}
+00009 \textcolor{preprocessor}{}\textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00010 \textcolor{comment}{// macro definition}
+00011 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+\hypertarget{http__common__impl_8h_source_l00013}{}\hyperlink{http__common__impl_8h_a0433cc14ceeb13b5a5cf6b9230cd8c91}{00013} \textcolor{comment}{}\textcolor{preprocessor}{#define hryky\_case\_http\_separator \(\backslash\)}
+00014 \textcolor{preprocessor}{    '(': case ')': case '<': case '>': case '@': case ',': case ';': case ':': 
+      \(\backslash\)}
+00015 \textcolor{preprocessor}{case '\(\backslash\)\(\backslash\)': case '"': case '/': case '[': case ']': case '?': case '=': \(\backslash\)}
+00016 \textcolor{preprocessor}{case '\{': case '\}': case ascii::sp\_: case ascii::ht\_}
+00017 \textcolor{preprocessor}{}
+\hypertarget{http__common__impl_8h_source_l00019}{}\hyperlink{http__common__impl_8h_a7044fbb7756079537c2473dbc32a125e}{00019} \textcolor{preprocessor}{#define hryky\_case\_http\_token \(\backslash\)}
+00020 \textcolor{preprocessor}{    hryky\_case\_ascii\_alpha: case hryky\_case\_ascii\_digit: case '!': case '#': \(\backslash\)}
+00021 \textcolor{preprocessor}{case '$': case '%': case '&': case '\(\backslash\)'': case '*': case '+': case '-': \(\backslash\)}
+00022 \textcolor{preprocessor}{case '.': case '^': case '\_': case '`': case '|': case '~'}
+00023 \textcolor{preprocessor}{}
+\hypertarget{http__common__impl_8h_source_l00025}{}\hyperlink{http__common__impl_8h_ac46249c2d8c0adc9f9f6e60d6f71822c}{00025} \textcolor{preprocessor}{#define hryky\_case\_http\_not\_text \(\backslash\)}
+00026 \textcolor{preprocessor}{0x00: }\textcolor{comment}{/*NUL*/} case 0x01: \textcolor{comment}{/*SOH*/} case 0x02: \textcolor{comment}{/*STX*/}case 0x03: \textcolor{comment}{/*ETX*/} \(\backslash\)
+00027 case 0x04: \textcolor{comment}{/*EOT*/} case 0x05: \textcolor{comment}{/*ENQ*/} case 0x06: \textcolor{comment}{/*ACK*/} case 0x07: \textcolor{comment}{/*BEL*/} \(\backslash\)
+00028 case 0x08: \textcolor{comment}{/*BS*/} \textcolor{comment}{/*case 0x09: HT*/} \textcolor{comment}{/*case 0x0A: LF*/} case 0x0B: \textcolor{comment}{/*VT*/} \(\backslash\)
+00029 case 0x0C: \textcolor{comment}{/*FF*/} \textcolor{comment}{/*case 0x0D: CR*/} case 0x0E: \textcolor{comment}{/*SO*/} case 0x0F: \textcolor{comment}{/*SI*/} \(\backslash\)
+00030 case 0x10: \textcolor{comment}{/*DLE*/} case 0x11: \textcolor{comment}{/*DC1*/} case 0x12: \textcolor{comment}{/*DC2*/} case 0x13: \textcolor{comment}{/*DC3*/} \(\backslash\)
+00031 case 0x14: \textcolor{comment}{/*DC4*/} case 0x15: \textcolor{comment}{/*NAK*/} case 0x16: \textcolor{comment}{/*SYN*/} case 0x17: \textcolor{comment}{/*ETB*/} \(\backslash\)
+00032 case 0x18: \textcolor{comment}{/*CAN*/} case 0x19: \textcolor{comment}{/*EM*/} case 0x1A: \textcolor{comment}{/*SUB*/} case 0x1B: \textcolor{comment}{/*ESC*/} \(\backslash\)
+00033 case 0x1C: \textcolor{comment}{/*FS*/} case 0x1D: \textcolor{comment}{/*GS*/} case 0x1E: \textcolor{comment}{/*RS*/} case 0x1F: \textcolor{comment}{/*US*/} \(\backslash\)
+00034 case 0x7F \textcolor{comment}{/*DEL*/}
+00035 
+00036 
+00037 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00038 \textcolor{comment}{// namespace}
+00039 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00040 \textcolor{keyword}{namespace }hryky
+00041 \{
+00042 \textcolor{keyword}{namespace }http
+00043 \{
+00044 \} \textcolor{comment}{// namespace http}
+00045 \} \textcolor{comment}{// namespace hryky}
+00046 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00047 \textcolor{comment}{// struct declaration}
+00048 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00049 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00050 \textcolor{comment}{// class declaration}
+00051 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00052 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00053 \textcolor{comment}{// global function prototypes}
+00054 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00055 \textcolor{keyword}{namespace }hryky
+00056 \{
+00057 \textcolor{keyword}{namespace }http
+00058 \{
+00060     \textcolor{keywordtype}{bool} \hyperlink{namespacehryky_1_1http_a6ddc3f4da8f8a139b2710f91d20e2f2b}{is_separator}(\hyperlink{namespacehryky_a488cba8b666be33ccca70e819684e3c8}{octet_type} \textcolor{keyword}{const} octet);
+00061 
+00063     \textcolor{keywordtype}{bool} \hyperlink{namespacehryky_1_1http_a95a557831e38d08a9a5093725975e10e}{is_token_char}(\hyperlink{namespacehryky_a488cba8b666be33ccca70e819684e3c8}{octet_type} \textcolor{keyword}{const} octet);
+00064 
+00066     \textcolor{keywordtype}{bool} \hyperlink{namespacehryky_1_1http_afcbf4f8e1cb971d2c408fcaec24f23cc}{is_text_char}(\hyperlink{namespacehryky_a488cba8b666be33ccca70e819684e3c8}{octet_type} \textcolor{keyword}{const} octet);
+00067 
+00068 \} \textcolor{comment}{// namespace http}
+00069 \} \textcolor{comment}{// namespace hryky}
+00070 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00071 \textcolor{comment}{// global function definitions}
+00072 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00073 \textcolor{preprocessor}{#endif // HTTP\_COMMON\_IMPL\_H\_20120716050223876}
+00074 \textcolor{preprocessor}{}\textcolor{comment}{// end of file}
+\end{DoxyCode}

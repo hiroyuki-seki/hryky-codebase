@@ -1,0 +1,128 @@
+\hypertarget{exclusion__lock_8h_source}{\section{exclusion\-\_\-lock.\-h}
+}
+
+\begin{DoxyCode}
+00001 
+00009 \textcolor{preprocessor}{#ifndef EXCLUSION\_LOCK\_H\_20120417231208633}
+00010 \textcolor{preprocessor}{}\textcolor{preprocessor}{#define EXCLUSION\_LOCK\_H\_20120417231208633}
+00011 \textcolor{preprocessor}{}\textcolor{preprocessor}{#include "\hyperlink{null_8h}{hryky/gp/null.h}"}
+00012 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00013 \textcolor{comment}{// macro definition}
+00014 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00015 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00016 \textcolor{comment}{// namespace}
+00017 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00018 \textcolor{keyword}{namespace }hryky
+00019 \{
+00020 \textcolor{keyword}{namespace }exclusion
+00021 \{
+00023     \textcolor{keyword}{template} < \textcolor{keyword}{typename} LockableT >
+00024     \textcolor{keyword}{class }Lock;
+00025 \}
+00026 \}
+00027 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00028 \textcolor{comment}{// class declarations}
+00029 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00033 \textcolor{comment}{}\textcolor{keyword}{template} < \textcolor{keyword}{typename} LockableT >
+\hypertarget{exclusion__lock_8h_source_l00034}{}\hyperlink{classhryky_1_1exclusion_1_1_lock}{00034} \textcolor{keyword}{class }\hyperlink{classhryky_1_1exclusion_1_1_lock}{hryky::exclusion::Lock}
+00035 \{
+00036 \textcolor{keyword}{public} :
+00037 
+\hypertarget{exclusion__lock_8h_source_l00038}{}\hyperlink{classhryky_1_1exclusion_1_1_lock_a56d8dcfe2f3ba647f586c526031c56e6}{00038}     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1exclusion_1_1_lock}{Lock<LockableT>}     \hyperlink{classhryky_1_1exclusion_1_1_lock_a56d8dcfe2f3ba647f586c526031c56e6}{this_type};
+00039     \textcolor{keyword}{typedef} LockableT           lockable\_type;
+00040 
+\hypertarget{exclusion__lock_8h_source_l00042}{}\hyperlink{classhryky_1_1exclusion_1_1_lock_a742be489a570c6005ea504e815433a97}{00042}     \textcolor{keyword}{explicit} \hyperlink{classhryky_1_1exclusion_1_1_lock_a742be489a570c6005ea504e815433a97}{Lock}(lockable\_type & lockable)
+00043         : lockable\_(lockable) \{
+00044         this->lockable\_.lock();
+00045     \}
+00046 
+\hypertarget{exclusion__lock_8h_source_l00048}{}\hyperlink{classhryky_1_1exclusion_1_1_lock_a24f3970c57a46e9b03315ee858aa6a71}{00048}     \hyperlink{classhryky_1_1exclusion_1_1_lock_a24f3970c57a46e9b03315ee858aa6a71}{~Lock}() \{
+00049         this->lockable\_.unlock();
+00050     \}
+00051 
+00052 \textcolor{keyword}{protected} :
+00053 
+00054 \textcolor{keyword}{private} :
+00055 
+00057     \textcolor{keyword}{explicit} \hyperlink{classhryky_1_1exclusion_1_1_lock_a742be489a570c6005ea504e815433a97}{Lock}(\hyperlink{classhryky_1_1exclusion_1_1_lock}{Lock} \textcolor{keyword}{const} &);
+00058 
+00060     \hyperlink{classhryky_1_1exclusion_1_1_lock}{Lock} & operator=(\hyperlink{classhryky_1_1exclusion_1_1_lock}{Lock} \textcolor{keyword}{const} & rhs);
+00061 
+00062     LockableT &    lockable\_;
+00063 
+00064 \};
+00065 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00066 \textcolor{comment}{// class specializations}
+00067 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00068 \textcolor{keyword}{namespace }hryky
+00069 \{
+00070 \textcolor{keyword}{namespace }exclusion
+00071 \{
+00075 \textcolor{keyword}{template} <>
+\hypertarget{exclusion__lock_8h_source_l00076}{}\hyperlink{classhryky_1_1exclusion_1_1_lock_3_01_null_01_4}{00076} \textcolor{keyword}{class }\hyperlink{classhryky_1_1exclusion_1_1_lock}{Lock}<\hyperlink{classhryky_1_1_null}{Null}>
+00077 \{
+00078 \textcolor{keyword}{public} :
+00079 
+\hypertarget{exclusion__lock_8h_source_l00080}{}\hyperlink{classhryky_1_1exclusion_1_1_lock_3_01_null_01_4_ad79e43236a5dc738e5428276388c135a}{00080}     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1exclusion_1_1_lock_3_01_null_01_4}{Lock<Null>}  \hyperlink{classhryky_1_1exclusion_1_1_lock_3_01_null_01_4_ad79e43236a5dc738e5428276388c135a}{this_type};
+00081     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1_null}{Null}        \hyperlink{classhryky_1_1_null}{lockable_type};
+00082 
+\hypertarget{exclusion__lock_8h_source_l00084}{}\hyperlink{classhryky_1_1exclusion_1_1_lock_3_01_null_01_4_ad752a87340c841e26e5c9d9dbc486326}{00084}     \textcolor{keyword}{explicit} \hyperlink{classhryky_1_1exclusion_1_1_lock_3_01_null_01_4_ad752a87340c841e26e5c9d9dbc486326}{Lock}(\hyperlink{classhryky_1_1_null}{lockable_type} &) \{
+00085     \}
+00086 
+\hypertarget{exclusion__lock_8h_source_l00088}{}\hyperlink{classhryky_1_1exclusion_1_1_lock_3_01_null_01_4_a95e2cdc49825965bf6eaf5d4d16cff01}{00088}     \hyperlink{classhryky_1_1exclusion_1_1_lock_3_01_null_01_4_a95e2cdc49825965bf6eaf5d4d16cff01}{~Lock}() \{
+00089     \}
+00090 
+00091 \textcolor{keyword}{protected} :
+00092 
+00093 \textcolor{keyword}{private} :
+00094 
+00096     \textcolor{keyword}{explicit} \hyperlink{classhryky_1_1exclusion_1_1_lock_a742be489a570c6005ea504e815433a97}{Lock}(\hyperlink{classhryky_1_1exclusion_1_1_lock}{Lock} \textcolor{keyword}{const} &);
+00097 
+00099     \hyperlink{classhryky_1_1exclusion_1_1_lock}{Lock} & operator=(\hyperlink{classhryky_1_1exclusion_1_1_lock}{Lock} \textcolor{keyword}{const} & rhs);
+00100 
+00101 \};
+00102 \}
+00103 \}
+00104 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00105 \textcolor{comment}{// public member functions}
+00106 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00107 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00108 \textcolor{comment}{// protected member functions}
+00109 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00110 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00111 \textcolor{comment}{// private member functions}
+00112 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00113 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00114 \textcolor{comment}{// global function prototypes}
+00115 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00116 \textcolor{keyword}{namespace }hryky
+00117 \{
+00118 \textcolor{keyword}{namespace }exclusion
+00119 \{
+00120 \}
+00121 \}
+00122 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00123 \textcolor{comment}{// global function definitions}
+00124 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00125 \textcolor{preprocessor}{#endif // EXCLUSION\_LOCK\_H\_20120417231208633}
+00126 \textcolor{preprocessor}{}
+00127 \textcolor{comment}{// end of file}
+\end{DoxyCode}

@@ -1,0 +1,138 @@
+\hypertarget{http__header__comment__string_8h_source}{\section{http\-\_\-header\-\_\-comment\-\_\-string.\-h}
+}
+
+\begin{DoxyCode}
+00001 
+00007 \textcolor{preprocessor}{#ifndef HTTP\_HEADER\_COMMENT\_STRING\_H\_20130109235057660}
+00008 \textcolor{preprocessor}{}\textcolor{preprocessor}{#define HTTP\_HEADER\_COMMENT\_STRING\_H\_20130109235057660}
+00009 \textcolor{preprocessor}{}\textcolor{preprocessor}{#include "\hyperlink{vector_8h}{hryky/vector.h}"}
+00010 \textcolor{preprocessor}{#include "\hyperlink{memory__heap__base_8h}{hryky/memory/heap/memory_heap_base.h}"}
+00011 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00012 \textcolor{comment}{// macro definition}
+00013 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00014 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00015 \textcolor{comment}{// namespace}
+00016 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00017 \textcolor{keyword}{namespace }hryky
+00018 \{
+00019 \textcolor{keyword}{namespace }http
+00020 \{
+00021 \textcolor{keyword}{namespace }header
+00022 \{
+00023 \textcolor{keyword}{namespace }comment
+00024 \{
+00026     \textcolor{keyword}{class }String;
+00027 
+00028     \textcolor{keyword}{typedef} String string\_type;
+00029 
+00030 \} \textcolor{comment}{// namespace comment}
+00031 \} \textcolor{comment}{// namespace header}
+00032 \} \textcolor{comment}{// namespace http}
+00033 \} \textcolor{comment}{// namespace hryky}
+00034 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00035 \textcolor{comment}{// class declarations}
+00036 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+\hypertarget{http__header__comment__string_8h_source_l00040}{}\hyperlink{classhryky_1_1http_1_1header_1_1comment_1_1_string}{00040} \textcolor{comment}{}\textcolor{keyword}{class }\hyperlink{classhryky_1_1http_1_1header_1_1comment_1_1_string}{hryky::http::header::comment::String}
+00041 \{
+00042 \textcolor{keyword}{public} :
+00043 
+\hypertarget{http__header__comment__string_8h_source_l00044}{}\hyperlink{classhryky_1_1http_1_1header_1_1comment_1_1_string_ad669eebb23e95ec308a0964fb7863a24}{00044}     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1http_1_1header_1_1comment_1_1_string}{String} \hyperlink{classhryky_1_1http_1_1header_1_1comment_1_1_string_ad669eebb23e95ec308a0964fb7863a24}{this_type};
+00045 
+00047     \hyperlink{classhryky_1_1http_1_1header_1_1comment_1_1_string_ad63bf0d61ca6715dec26eb355126d4ec}{String}();
+00048 
+00050     \hyperlink{classhryky_1_1http_1_1header_1_1comment_1_1_string_ad63bf0d61ca6715dec26eb355126d4ec}{String}(\hyperlink{classhryky_1_1http_1_1header_1_1comment_1_1_string}{this_type} \textcolor{keyword}{const} &);
+00051 
+00053     \hyperlink{classhryky_1_1http_1_1header_1_1comment_1_1_string_ad63bf0d61ca6715dec26eb355126d4ec}{String}(\hyperlink{classhryky_1_1http_1_1header_1_1comment_1_1_string}{this_type} && rhs);
+00054 
+00056     \hyperlink{classhryky_1_1http_1_1header_1_1comment_1_1_string_ad63bf0d61ca6715dec26eb355126d4ec}{String}(\hyperlink{classhryky_1_1memory_1_1heap_1_1_base}{memory::heap_type} \textcolor{keyword}{const} \hyperlink{namespacehryky_1_1memory_1_1global_a6fc6103f67c837aa0f39b359588409cd}{heap});
+00057 
+00059     \hyperlink{classhryky_1_1http_1_1header_1_1comment_1_1_string_a26517cc29abe8ee31a16c0570fdf786e}{~String}();
+00060 
+\hypertarget{http__header__comment__string_8h_source_l00062}{}\hyperlink{classhryky_1_1http_1_1header_1_1comment_1_1_string_aa6b90b498bdb77124114af53eb61e011}{00062}     \hyperlink{classhryky_1_1http_1_1header_1_1comment_1_1_string_aa6b90b498bdb77124114af53eb61e011}{hryky_assign_op};
+00063 
+00065     \textcolor{keywordtype}{void} \hyperlink{classhryky_1_1http_1_1header_1_1comment_1_1_string_a71526c288578a8290a0e08f66991dd8f}{clear}();
+00066 
+00068     \hyperlink{classhryky_1_1_intrusive_ptr}{reduction_type} \hyperlink{classhryky_1_1http_1_1header_1_1comment_1_1_string_a59c3fd586cd488fc78ad6b6d29913a9e}{reduce}(\hyperlink{classhryky_1_1reduction_1_1_string}{reduction::name_type} \textcolor{keyword}{const} & name) \textcolor{keyword}{const};
+00069 
+00071     \textcolor{keywordtype}{void} \hyperlink{classhryky_1_1http_1_1header_1_1comment_1_1_string_a7e6234917bddeefa33386917af759c46}{swap}(\hyperlink{classhryky_1_1http_1_1header_1_1comment_1_1_string}{this_type} & src);
+00072 
+00074     \textcolor{keywordtype}{bool} \hyperlink{classhryky_1_1http_1_1header_1_1comment_1_1_string_a35b55a5317edcf01589cf5a71cf57dc2}{push_back}(\hyperlink{namespacehryky_a488cba8b666be33ccca70e819684e3c8}{octet_type} \textcolor{keyword}{const} octet);
+00075 
+00076 \textcolor{keyword}{protected} :
+00077 
+00078 \textcolor{keyword}{private} :
+00079 
+00080     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1_vector}{Vector<octet_type>} \hyperlink{classhryky_1_1_vector}{octets_type};
+00081 
+00082     \hyperlink{classhryky_1_1_vector}{octets_type} octets\_;
+00083 
+00084 \};
+00085 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00086 \textcolor{comment}{// class specializations}
+00087 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00088 \textcolor{keyword}{namespace }hryky
+00089 \{
+00090 \textcolor{keyword}{namespace }http
+00091 \{
+00092 \textcolor{keyword}{namespace }header
+00093 \{
+00094 \textcolor{keyword}{namespace }comment
+00095 \{
+00096 \} \textcolor{comment}{// namespace comment}
+00097 \} \textcolor{comment}{// namespace header}
+00098 \} \textcolor{comment}{// namespace http}
+00099 \} \textcolor{comment}{// namespace hryky}
+00100 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00101 \textcolor{comment}{// public member functions}
+00102 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00103 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00104 \textcolor{comment}{// protected member functions}
+00105 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00106 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00107 \textcolor{comment}{// private member functions}
+00108 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00109 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00110 \textcolor{comment}{// global function prototypes}
+00111 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00112 \textcolor{keyword}{namespace }hryky
+00113 \{
+00114 \textcolor{keyword}{namespace }http
+00115 \{
+00116 \textcolor{keyword}{namespace }header
+00117 \{
+00118 \textcolor{keyword}{namespace }comment
+00119 \{
+00121     \hyperlink{namespacehryky_a343a9a4c36a586be5c2693156200eadc}{reduction_type} \hyperlink{namespacehryky_1_1http_a08fc36a78a8e2908140fcd102829a566}{reduce}(
+00122         \hyperlink{namespacehryky_1_1reduction_ac686c30a4c8d196bbd0f05629a6b921f}{reduction::name_type} \textcolor{keyword}{const} & name, String \textcolor{keyword}{const} & src);
+00123 
+00125     \textcolor{keywordtype}{void} \hyperlink{namespacehryky_1_1http_a38e62595ad532d18fbc65ceb61973aec}{swap}(
+00126         String & lhs, String & rhs);
+00127 
+00128 \} \textcolor{comment}{// namespace comment}
+00129 \} \textcolor{comment}{// namespace header}
+00130 \} \textcolor{comment}{// namespace http}
+00131 \} \textcolor{comment}{// namespace hryky}
+00132 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00133 \textcolor{comment}{// global function definitions}
+00134 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00135 \textcolor{preprocessor}{#endif // HTTP\_HEADER\_COMMENT\_STRING\_H\_20130109235057660}
+00136 \textcolor{preprocessor}{}\textcolor{comment}{// end of file}
+\end{DoxyCode}

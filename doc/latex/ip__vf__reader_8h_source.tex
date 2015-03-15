@@ -1,0 +1,152 @@
+\hypertarget{ip__vf__reader_8h_source}{\section{ip\-\_\-vf\-\_\-reader.\-h}
+}
+
+\begin{DoxyCode}
+00001 
+00008 \textcolor{preprocessor}{#ifndef IP\_VF\_READER\_H\_20120818191150466}
+00009 \textcolor{preprocessor}{}\textcolor{preprocessor}{#define IP\_VF\_READER\_H\_20120818191150466}
+00010 \textcolor{preprocessor}{}\textcolor{preprocessor}{#include "\hyperlink{memory__heap__base_8h}{hryky/memory/heap/memory_heap_base.h}"}
+00011 \textcolor{preprocessor}{#include "\hyperlink{ip__v4__reader_8h}{hryky/ip/ip_v4_reader.h}"}
+00012 \textcolor{preprocessor}{#include "\hyperlink{ip__v6__reader_8h}{hryky/ip/ip_v6_reader.h}"}
+00013 \textcolor{preprocessor}{#include "\hyperlink{vector_8h}{hryky/vector.h}"}
+00014 \textcolor{preprocessor}{#include "\hyperlink{kind_8h}{hryky/kind.h}"}
+00015 \textcolor{preprocessor}{#include "\hyperlink{log__format__common_8h}{hryky/log/log_format_common.h}"}
+00016 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00017 \textcolor{comment}{// macro definition}
+00018 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00019 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00020 \textcolor{comment}{// namespace}
+00021 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00022 \textcolor{keyword}{namespace }hryky
+00023 \{
+00024 \textcolor{keyword}{namespace }ip
+00025 \{
+00026 \textcolor{keyword}{namespace }vf
+00027 \{
+00029     \textcolor{keyword}{class }Reader;
+00030 
+00031 \} \textcolor{comment}{// namespace vf}
+00032 \} \textcolor{comment}{// namespace ip}
+00033 \} \textcolor{comment}{// namespace hryky}
+00034 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00035 \textcolor{comment}{// class declarations}
+00036 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+\hypertarget{ip__vf__reader_8h_source_l00041}{}\hyperlink{classhryky_1_1ip_1_1vf_1_1_reader}{00041} \textcolor{comment}{}\textcolor{keyword}{class }\hyperlink{classhryky_1_1ip_1_1vf_1_1_reader}{hryky::ip::vf::Reader}
+00042 \{
+00043 \textcolor{keyword}{public} :
+00044 
+\hypertarget{ip__vf__reader_8h_source_l00045}{}\hyperlink{classhryky_1_1ip_1_1vf_1_1_reader_a6a4fdf2ae2b33a48f43ae2aafaa93e12}{00045}     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1ip_1_1vf_1_1_reader}{Reader} \hyperlink{classhryky_1_1ip_1_1vf_1_1_reader_a6a4fdf2ae2b33a48f43ae2aafaa93e12}{this_type};
+00046     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1memory_1_1heap_1_1_base}{memory::heap_type} \hyperlink{classhryky_1_1memory_1_1heap_1_1_base}{heap_type};
+00047 
+00049     \hyperlink{classhryky_1_1ip_1_1vf_1_1_reader}{Reader}(\hyperlink{classhryky_1_1memory_1_1heap_1_1_base}{heap_type} \hyperlink{namespacehryky_1_1memory_1_1global_a0c3d3bf3913b6ffe9da2aaf1171261df}{heap});
+00050 
+00052     \hyperlink{classhryky_1_1ip_1_1vf_1_1_reader}{Reader}(\hyperlink{classhryky_1_1ip_1_1vf_1_1_reader}{this_type} \textcolor{keyword}{const} & rhs);
+00053 
+00055     \hyperlink{classhryky_1_1ip_1_1vf_1_1_reader_a13e350dac66e1fd0dcb485ce1895709d}{~Reader}();
+00056 
+00058     \hyperlink{classhryky_1_1ip_1_1vf_1_1_reader}{Reader} & \hyperlink{classhryky_1_1ip_1_1vf_1_1_reader_a6ec695008d2617a5a726be466cdad785}{operator=}(\hyperlink{classhryky_1_1ip_1_1vf_1_1_reader}{this_type} \textcolor{keyword}{const} & rhs);
+00059 
+00061     \textcolor{keywordtype}{void} \hyperlink{classhryky_1_1ip_1_1vf_1_1_reader_a059be0871ad10978729566ad7eddbb43}{clear}();
+00062 
+00064     uint32\_t \hyperlink{classhryky_1_1ip_1_1vf_1_1_reader_a2656318ec01f84fa71260a0fa49e5ff5}{version}() \textcolor{keyword}{const};
+00065 
+00067     \hyperlink{classhryky_1_1ip_1_1v4_1_1_entity}{v4::Entity} \textcolor{keyword}{const} & \hyperlink{classhryky_1_1ip_1_1vf_1_1_reader_a9ab8c098a7c01ac5467730a819a04ee1}{ipv4}() \textcolor{keyword}{const};
+00068 
+00070     \hyperlink{classhryky_1_1ip_1_1v6_1_1_entity}{v6::Entity} \textcolor{keyword}{const} & \hyperlink{classhryky_1_1ip_1_1vf_1_1_reader_a3380d0502e52243ccc333b24f028f7ba}{ipv6}() \textcolor{keyword}{const};
+00071 
+00073     \textcolor{keywordtype}{bool} \hyperlink{classhryky_1_1ip_1_1vf_1_1_reader_adac9f081774a69bc7fa6b18539a6ebd5}{operator()}(\hyperlink{namespacehryky_a488cba8b666be33ccca70e819684e3c8}{octet_type} \textcolor{keyword}{const} octet);
+00074 
+00076     \textcolor{keywordtype}{bool} \hyperlink{classhryky_1_1ip_1_1vf_1_1_reader_a59a5c5906aba0306b5ecce2af1c5a29c}{complete}();
+00077 
+00079     \hyperlink{classhryky_1_1_intrusive_ptr}{log::format_type} \hyperlink{classhryky_1_1ip_1_1vf_1_1_reader_aed01f2ee6c18a65cbd8157dc55e886e0}{log}(\hyperlink{namespacehryky_1_1log_1_1format_ab7408d1e2ed2d648dbf9bba69eb74288}{log::format::name_type} \textcolor{keyword}{const} & name) \textcolor{keyword}{const};
+00080 
+00081 \textcolor{keyword}{protected} :
+00082 
+00084     \textcolor{keywordtype}{void} \hyperlink{classhryky_1_1ip_1_1vf_1_1_reader_a98d317cff2543d6ff18784dd9d20aae2}{swap}(\hyperlink{classhryky_1_1ip_1_1vf_1_1_reader}{this_type} & src);
+00085 
+00086 \textcolor{keyword}{private} :
+00087 
+00088     \textcolor{keyword}{struct }State
+00089     \{
+00090         \textcolor{keyword}{enum} Raw
+00091         \{
+00092             begin\_,
+00093             begin\_version\_,
+00094             version\_,
+00095             ipv4\_,
+00096             ipv6\_,
+00097             complete\_,
+00098         \};
+00099     \};
+00100     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1_kind}{Kind<State::Raw, State::begin_>} state\_type;
+00101     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1_vector}{Vector<octet_type>} buffer\_type;
+00102 
+00104     Reader();
+00105 
+00106     buffer\_type buffer\_;
+00107     \hyperlink{classhryky_1_1ip_1_1v4_1_1_reader}{v4::Reader}  ipv4\_reader\_;
+00108     \hyperlink{classhryky_1_1ip_1_1v6_1_1_reader}{v6::Reader}  ipv6\_reader\_;
+00109     state\_type  state\_;
+00110     uint32\_t    version\_;
+00111 
+00112 \};
+00113 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00114 \textcolor{comment}{// class specializations}
+00115 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00116 \textcolor{keyword}{namespace }hryky
+00117 \{
+00118 \textcolor{keyword}{namespace }ip
+00119 \{
+00120 \textcolor{keyword}{namespace }vf
+00121 \{
+00122 \} \textcolor{comment}{// namespace vf}
+00123 \} \textcolor{comment}{// namespace ip}
+00124 \} \textcolor{comment}{// namespace hryky}
+00125 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00126 \textcolor{comment}{// public member functions}
+00127 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00128 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00129 \textcolor{comment}{// protected member functions}
+00130 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00131 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00132 \textcolor{comment}{// private member functions}
+00133 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00134 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00135 \textcolor{comment}{// global function prototypes}
+00136 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00137 \textcolor{keyword}{namespace }hryky
+00138 \{
+00139 \textcolor{keyword}{namespace }ip
+00140 \{
+00141 \textcolor{keyword}{namespace }vf
+00142 \{
+00144     \hyperlink{namespacehryky_1_1log_ad50448c3f934f1eacd5c1bcffe8111e1}{log::format_type} \hyperlink{namespacehryky_afd615217f648ff164bc40fb82166d959}{make_format}(
+00145         \hyperlink{namespacehryky_1_1log_1_1format_ab7408d1e2ed2d648dbf9bba69eb74288}{log::format::name_type} \textcolor{keyword}{const} & name, Reader \textcolor{keyword}{const} & src);
+00146 
+00147 \} \textcolor{comment}{// namespace vf}
+00148 \} \textcolor{comment}{// namespace ip}
+00149 \} \textcolor{comment}{// namespace hryky}
+00150 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00151 \textcolor{comment}{// global function definitions}
+00152 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00153 \textcolor{preprocessor}{#endif // IP\_VF\_READER\_H\_20120818191150466}
+00154 \textcolor{preprocessor}{}\textcolor{comment}{// end of file}
+\end{DoxyCode}

@@ -1,0 +1,41 @@
+/**
+  @file     <module_name>.cpp
+  @brief    The precompiled source for <module_name>.
+  @author   HRYKY
+  @version  $Id: hryky-template.l 291 2013-12-23 10:14:05Z hryky.private@gmail.com $
+ */
+#include "precompiled.h"
+//------------------------------------------------------------------------------
+// defines macros.
+//------------------------------------------------------------------------------
+//------------------------------------------------------------------------------
+// defines types.
+//------------------------------------------------------------------------------
+namespace hryky
+{
+namespace <module_name>
+{
+namespace
+{
+} // namespace "anonymous"
+} // namespace <module_name>
+} // namespace hryky
+//------------------------------------------------------------------------------
+// defines global functions.
+//------------------------------------------------------------------------------
+//------------------------------------------------------------------------------
+// defines functions used in this file.
+//------------------------------------------------------------------------------
+namespace hryky
+{
+namespace <module_name>
+{
+namespace
+{
+} // namespace "anonymous"
+} // namespace <module_name>
+} // namespace hryky
+//------------------------------------------------------------------------------
+// explicit instantiation
+//------------------------------------------------------------------------------
+// end of file

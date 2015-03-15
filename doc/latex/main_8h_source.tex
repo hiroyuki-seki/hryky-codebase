@@ -1,0 +1,105 @@
+\hypertarget{main_8h_source}{\section{main.\-h}
+}
+
+\begin{DoxyCode}
+00001 
+00007 \textcolor{preprocessor}{#ifndef MAIN\_H\_20120226102124098}
+00008 \textcolor{preprocessor}{}\textcolor{preprocessor}{#define MAIN\_H\_20120226102124098}
+00009 \textcolor{preprocessor}{}\textcolor{preprocessor}{#include <boost/exception/all.hpp>}
+00010 \textcolor{preprocessor}{#include "\hyperlink{common_8h}{hryky/common.h}"}
+00011 \textcolor{preprocessor}{#include "\hyperlink{debug__common_8h}{hryky/debug/debug_common.h}"}
+00012 \textcolor{preprocessor}{#include "\hyperlink{gp_8h}{hryky/gp.h}"}
+00013 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00014 \textcolor{comment}{// macro definition}
+00015 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00016 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00017 \textcolor{comment}{// namespace}
+00018 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00019 \textcolor{keyword}{namespace }hryky
+00020 \{
+00032     \textcolor{keyword}{template} < \textcolor{keyword}{typename} MainFuncT >
+00033     \textcolor{keywordtype}{int} \hyperlink{namespacehryky_acf43d20e6c0b5e4b54931d42b46443a1}{main}(
+00034         \textcolor{keywordtype}{int} argc,
+00035         \textcolor{keywordtype}{char} \textcolor{keyword}{const} * \textcolor{keyword}{const} argv[],
+00036         \textcolor{keyword}{typename} AsParameter<MainFuncT>::type func);
+00037 
+\hypertarget{main_8h_source_l00039}{}\hyperlink{namespacehryky_a9135850015ed231a278a8871bef3d80e}{00039}     \textcolor{keyword}{typedef} int (*\hyperlink{namespacehryky_a9135850015ed231a278a8871bef3d80e}{main_func_pointer})(int, \textcolor{keywordtype}{char} \textcolor{keyword}{const} * \textcolor{keyword}{const} []);
+00040 
+00049     \textcolor{keywordtype}{int} \hyperlink{namespacehryky_acf43d20e6c0b5e4b54931d42b46443a1}{main}(\textcolor{keywordtype}{int} argc, \textcolor{keywordtype}{char} \textcolor{keyword}{const} * \textcolor{keyword}{const} argv[], \hyperlink{namespacehryky_a9135850015ed231a278a8871bef3d80e}{main_func_pointer} func);
+00050 
+00051 \}
+00052 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00053 \textcolor{comment}{// struct declaration}
+00054 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00055 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00056 \textcolor{comment}{// class declaration}
+00057 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00058 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00059 \textcolor{comment}{// function definition}
+00060 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00064 \textcolor{comment}{}\textcolor{keyword}{template} < \textcolor{keyword}{typename} MainFuncT >
+\hypertarget{main_8h_source_l00065}{}\hyperlink{namespacehryky_acf43d20e6c0b5e4b54931d42b46443a1}{00065} \textcolor{keywordtype}{int} \hyperlink{namespacehryky_acf43d20e6c0b5e4b54931d42b46443a1}{hryky::main}(
+00066     \textcolor{keywordtype}{int} \textcolor{keyword}{const} argc,
+00067     \textcolor{keywordtype}{char} \textcolor{keyword}{const} * \textcolor{keyword}{const} argv[],
+00068     \textcolor{keyword}{typename} AsParameter<MainFuncT>::type func)
+00069 \{
+00070 \textcolor{preprocessor}{#if HRYKY\_USE\_EXCEPTION}
+00071 \textcolor{preprocessor}{}    \textcolor{keywordflow}{try}
+00072 \textcolor{preprocessor}{#endif // HRYKY\_USE\_EXCEPTION}
+00073 \textcolor{preprocessor}{}    \{
+00074         \textcolor{keywordflow}{return} func(argc, argv);
+00075     \}
+00076 \textcolor{preprocessor}{#if HRYKY\_USE\_EXCEPTION}
+00077 \textcolor{preprocessor}{}    \textcolor{keywordflow}{catch} (boost::exception \textcolor{keyword}{const} & exception) \{
+00078         std::ostringstream os;
+00079         os << boost::diagnostic\_information(exception);
+00080         hryky\_debug\_output(os.str().c\_str());
+00081     \}
+00082     \textcolor{keywordflow}{catch} (std::string \textcolor{keyword}{const} & msg) \{
+00083         std::ostringstream os;
+00084         os << \textcolor{stringliteral}{"exception as string : "} << msg;
+00085         hryky\_debug\_output(msg.c\_str());
+00086     \}
+00087     \textcolor{keywordflow}{catch} (std::out\_of\_range \textcolor{keyword}{const} & exception) \{
+00088         std::ostringstream os;
+00089         os << \textcolor{stringliteral}{"std::out\_of\_range : "} << exception.what();
+00090         hryky\_debug\_output(os.str().c\_str());
+00091     \}
+00092     \textcolor{keywordflow}{catch} (std::bad\_alloc \textcolor{keyword}{const} & exception) \{
+00093         std::ostringstream os;
+00094         os << \textcolor{stringliteral}{"std::bad\_alloc : "} << exception.what();
+00095         hryky\_debug\_output(os.str().c\_str());
+00096     \}
+00097     \textcolor{keywordflow}{catch} (std::exception \textcolor{keyword}{const} & exception) \{
+00098         std::ostringstream os;
+00099         os << \textcolor{stringliteral}{"std::exception : "} << exception.what();
+00100         hryky\_debug\_output(os.str().c\_str());
+00101     \}
+00102     \textcolor{keywordflow}{catch} (...) \{
+00103         std::ostringstream os;
+00104         os << \textcolor{stringliteral}{"unexpected exception"};
+00105         hryky\_debug\_output(os.str().c\_str());
+00106     \}
+00107     hryky\_debug\_output(\textcolor{stringliteral}{"\(\backslash\)n"});
+00108     
+00109     \textcolor{keywordflow}{return} 1;
+00110 \textcolor{preprocessor}{#endif // HRYKY\_USE\_EXCEPTION}
+00111 \textcolor{preprocessor}{}\}
+\hypertarget{main_8h_source_l00115}{}\hyperlink{namespacehryky_a67f55b393c526ea5965bc45873f9fd88}{00115} \textcolor{keyword}{inline} \textcolor{keywordtype}{int} \hyperlink{namespacehryky_acf43d20e6c0b5e4b54931d42b46443a1}{hryky::main}(\textcolor{keywordtype}{int} argc, \textcolor{keywordtype}{char} \textcolor{keyword}{const} * \textcolor{keyword}{const} argv[], \hyperlink{namespacehryky_a9135850015ed231a278a8871bef3d80e}{main_func_pointer} 
+      func)
+00116 \{
+00117     \textcolor{keywordflow}{return} hryky::main<main\_func\_pointer>(argc, argv, func);
+00118 \}
+00119 \textcolor{preprocessor}{#endif // MAIN\_H\_20120226102124098}
+00120 \textcolor{preprocessor}{}\textcolor{comment}{// end of file}
+\end{DoxyCode}

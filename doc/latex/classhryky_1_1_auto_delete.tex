@@ -1,0 +1,82 @@
+\hypertarget{classhryky_1_1_auto_delete}{\section{hryky\-:\-:Auto\-Delete$<$ Instance\-T $>$ Class Template Reference}
+\label{classhryky_1_1_auto_delete}\index{hryky\-::\-Auto\-Delete$<$ Instance\-T $>$@{hryky\-::\-Auto\-Delete$<$ Instance\-T $>$}}
+}
+
+
+delete an instance when the current scope exits.  
+
+
+
+
+{\ttfamily \#include $<$raii.\-h$>$}
+
+
+
+Inheritance diagram for hryky\-:\-:Auto\-Delete$<$ Instance\-T $>$\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=234pt]{classhryky_1_1_auto_delete__inherit__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classhryky_1_1_auto_delete_a046a60ad465f3c9546be9c5f75bae542}{typedef \hyperlink{classhryky_1_1_noncopyable}{Noncopyable} \hyperlink{classhryky_1_1_auto_delete_a046a60ad465f3c9546be9c5f75bae542}{base\-\_\-type}}\label{classhryky_1_1_auto_delete_a046a60ad465f3c9546be9c5f75bae542}
+
+\begin{DoxyCompactList}\small\item\em base class of inheritance. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1_auto_delete_aae29dd8e7906c2000fae094e3da5360c}{typedef \hyperlink{classhryky_1_1_auto_delete}{Auto\-Delete} \hyperlink{classhryky_1_1_auto_delete_aae29dd8e7906c2000fae094e3da5360c}{this\-\_\-type}}\label{classhryky_1_1_auto_delete_aae29dd8e7906c2000fae094e3da5360c}
+
+\begin{DoxyCompactList}\small\item\em self. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classhryky_1_1_auto_delete_ac25a04d5b8fcc449def4a1e5bf6fba5b}{Auto\-Delete} (Instance\-T $\ast$instance)
+\begin{DoxyCompactList}\small\item\em constructor with a deleted instance. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1_auto_delete_acd5b8c66807b7eb7bd60e943e06ad899}{void \hyperlink{classhryky_1_1_auto_delete_acd5b8c66807b7eb7bd60e943e06ad899}{disable} ()}\label{classhryky_1_1_auto_delete_acd5b8c66807b7eb7bd60e943e06ad899}
+
+\begin{DoxyCompactList}\small\item\em cancels the deletion. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1_auto_delete_a23a4916d0f5df04a5ce8840cb5c6a156}{\hyperlink{classhryky_1_1_auto_delete_a23a4916d0f5df04a5ce8840cb5c6a156}{$\sim$\-Auto\-Delete} ()}\label{classhryky_1_1_auto_delete_a23a4916d0f5df04a5ce8840cb5c6a156}
+
+\begin{DoxyCompactList}\small\item\em destructor \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Types}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classhryky_1_1_noncopyable_aaf87abb55f700af85ecb0895f6178821}{typedef \hyperlink{classhryky_1_1_noncopyable}{Noncopyable} $\ast$ \hyperlink{classhryky_1_1_noncopyable_aaf87abb55f700af85ecb0895f6178821}{instance\-\_\-type}}\label{classhryky_1_1_noncopyable_aaf87abb55f700af85ecb0895f6178821}
+
+\begin{DoxyCompactList}\small\item\em instance type \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$typename Instance\-T$>$class hryky\-::\-Auto\-Delete$<$ Instance\-T $>$}
+
+delete an instance when the current scope exits. 
+
+
+\begin{DoxyItemize}
+\item The method of deleting is 'delete' operator. 
+\end{DoxyItemize}
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classhryky_1_1_auto_delete_ac25a04d5b8fcc449def4a1e5bf6fba5b}{\index{hryky\-::\-Auto\-Delete@{hryky\-::\-Auto\-Delete}!Auto\-Delete@{Auto\-Delete}}
+\index{Auto\-Delete@{Auto\-Delete}!hryky::AutoDelete@{hryky\-::\-Auto\-Delete}}
+\subsubsection[{Auto\-Delete}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Instance\-T $>$ {\bf hryky\-::\-Auto\-Delete}$<$ Instance\-T $>$\-::{\bf Auto\-Delete} (
+\begin{DoxyParamCaption}
+\item[{Instance\-T $\ast$}]{instance}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}\label{classhryky_1_1_auto_delete_ac25a04d5b8fcc449def4a1e5bf6fba5b}
+
+
+constructor with a deleted instance. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em instance} & is the pointer of the instance to be deleted. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{raii_8h}{raii.\-h}\end{DoxyCompactItemize}

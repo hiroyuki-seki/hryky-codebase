@@ -1,0 +1,136 @@
+\hypertarget{http__header__location__entity_8h_source}{\section{http\-\_\-header\-\_\-location\-\_\-entity.\-h}
+}
+
+\begin{DoxyCode}
+00001 
+00007 \textcolor{preprocessor}{#ifndef HTTP\_HEADER\_LOCATION\_ENTITY\_H\_20130114145808290}
+00008 \textcolor{preprocessor}{}\textcolor{preprocessor}{#define HTTP\_HEADER\_LOCATION\_ENTITY\_H\_20130114145808290}
+00009 \textcolor{preprocessor}{}\textcolor{preprocessor}{#include "\hyperlink{uri_8h}{hryky/uri.h}"}
+00010 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00011 \textcolor{comment}{// macro definition}
+00012 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00013 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00014 \textcolor{comment}{// namespace}
+00015 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00016 \textcolor{keyword}{namespace }hryky
+00017 \{
+00018 \textcolor{keyword}{namespace }http
+00019 \{
+00020 \textcolor{keyword}{namespace }header
+00021 \{
+00022 \textcolor{keyword}{namespace }location
+00023 \{
+00025     \textcolor{keyword}{class }Entity;
+00026 
+00027 \} \textcolor{comment}{// namespace location}
+00028 
+00029 \textcolor{keyword}{typedef} location::Entity location\_type;
+00030 
+00031 \} \textcolor{comment}{// namespace header}
+00032 \} \textcolor{comment}{// namespace http}
+00033 \} \textcolor{comment}{// namespace hryky}
+00034 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00035 \textcolor{comment}{// class declarations}
+00036 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+\hypertarget{http__header__location__entity_8h_source_l00040}{}\hyperlink{classhryky_1_1http_1_1header_1_1location_1_1_entity}{00040} \textcolor{comment}{}\textcolor{keyword}{class }\hyperlink{classhryky_1_1http_1_1header_1_1location_1_1_entity}{hryky::http::header::location::Entity}
+00041 \{
+00042 \textcolor{keyword}{public} :
+00043 
+\hypertarget{http__header__location__entity_8h_source_l00044}{}\hyperlink{classhryky_1_1http_1_1header_1_1location_1_1_entity_a49f0f7642755afebfca2a040ba041853}{00044}     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1http_1_1header_1_1location_1_1_entity}{Entity} \hyperlink{classhryky_1_1http_1_1header_1_1location_1_1_entity_a49f0f7642755afebfca2a040ba041853}{this_type};
+00045 
+00047     \hyperlink{classhryky_1_1http_1_1header_1_1location_1_1_entity_a9220106f0ef8303b24c1992ed504ef47}{Entity}();
+00048 
+00050     \hyperlink{classhryky_1_1http_1_1header_1_1location_1_1_entity_a9220106f0ef8303b24c1992ed504ef47}{Entity}(\hyperlink{classhryky_1_1http_1_1header_1_1location_1_1_entity}{this_type} \textcolor{keyword}{const} &);
+00051 
+00053     \hyperlink{classhryky_1_1http_1_1header_1_1location_1_1_entity_a9220106f0ef8303b24c1992ed504ef47}{Entity}(\hyperlink{classhryky_1_1http_1_1header_1_1location_1_1_entity}{this_type} && rhs);
+00054 
+00056     \hyperlink{classhryky_1_1http_1_1header_1_1location_1_1_entity_a9220106f0ef8303b24c1992ed504ef47}{Entity}(\hyperlink{classhryky_1_1memory_1_1heap_1_1_base}{memory::heap_type} \textcolor{keyword}{const} \hyperlink{namespacehryky_1_1memory_1_1global_a6fc6103f67c837aa0f39b359588409cd}{heap});
+00057 
+00059     \hyperlink{classhryky_1_1http_1_1header_1_1location_1_1_entity_a92560267526dc1a1dd0e6f9bfb2aaaff}{~Entity}();
+00060 
+\hypertarget{http__header__location__entity_8h_source_l00062}{}\hyperlink{classhryky_1_1http_1_1header_1_1location_1_1_entity_a1a819958215d08a3d71f68f770ee09c1}{00062}     \hyperlink{classhryky_1_1http_1_1header_1_1location_1_1_entity_a1a819958215d08a3d71f68f770ee09c1}{hryky_assign_op};
+00063 
+00065     \textcolor{keywordtype}{void} \hyperlink{classhryky_1_1http_1_1header_1_1location_1_1_entity_ababcd62ea7d9e73f20669f47c0dbb99b}{clear}();
+00066 
+00068     \hyperlink{classhryky_1_1_intrusive_ptr}{reduction_type} \hyperlink{classhryky_1_1http_1_1header_1_1location_1_1_entity_a37c73fc94b190fec95f699a309eb4587}{reduce}(\hyperlink{classhryky_1_1reduction_1_1_string}{reduction::name_type} \textcolor{keyword}{const} & name) \textcolor{keyword}{const};
+00069 
+00071     \textcolor{keywordtype}{void} \hyperlink{classhryky_1_1http_1_1header_1_1location_1_1_entity_a413119d6c436cd9ff95f63d08aada66e}{swap}(\hyperlink{classhryky_1_1http_1_1header_1_1location_1_1_entity}{this_type} & src);
+00072 
+00074     \textcolor{keywordtype}{void} \hyperlink{classhryky_1_1http_1_1header_1_1location_1_1_entity_a8a0ddf2f49740f3b1450a7de8a0d5cf7}{uri}(\hyperlink{classhryky_1_1uri_1_1_entity}{uri_type} \textcolor{keyword}{const} & src);
+00075 
+00076 \textcolor{keyword}{protected} :
+00077 
+00078 \textcolor{keyword}{private} :
+00079 
+00080     \hyperlink{classhryky_1_1uri_1_1_entity}{uri_type} uri\_;
+00081 
+00082 \};
+00083 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00084 \textcolor{comment}{// class specializations}
+00085 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00086 \textcolor{keyword}{namespace }hryky
+00087 \{
+00088 \textcolor{keyword}{namespace }http
+00089 \{
+00090 \textcolor{keyword}{namespace }header
+00091 \{
+00092 \textcolor{keyword}{namespace }location
+00093 \{
+00094 \} \textcolor{comment}{// namespace location}
+00095 \} \textcolor{comment}{// namespace header}
+00096 \} \textcolor{comment}{// namespace http}
+00097 \} \textcolor{comment}{// namespace hryky}
+00098 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00099 \textcolor{comment}{// public member functions}
+00100 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00101 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00102 \textcolor{comment}{// protected member functions}
+00103 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00104 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00105 \textcolor{comment}{// private member functions}
+00106 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00107 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00108 \textcolor{comment}{// global function prototypes}
+00109 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00110 \textcolor{keyword}{namespace }hryky
+00111 \{
+00112 \textcolor{keyword}{namespace }http
+00113 \{
+00114 \textcolor{keyword}{namespace }header
+00115 \{
+00116 \textcolor{keyword}{namespace }location
+00117 \{
+00119     \hyperlink{namespacehryky_a343a9a4c36a586be5c2693156200eadc}{reduction_type} \hyperlink{namespacehryky_1_1http_a08fc36a78a8e2908140fcd102829a566}{reduce}(
+00120         \hyperlink{namespacehryky_1_1reduction_ac686c30a4c8d196bbd0f05629a6b921f}{reduction::name_type} \textcolor{keyword}{const} & name, Entity \textcolor{keyword}{const} & src);
+00121 
+00123     \textcolor{keywordtype}{void} \hyperlink{namespacehryky_1_1http_a38e62595ad532d18fbc65ceb61973aec}{swap}(
+00124         Entity & lhs, Entity & rhs);
+00125 
+00126 \} \textcolor{comment}{// namespace location}
+00127 \} \textcolor{comment}{// namespace header}
+00128 \} \textcolor{comment}{// namespace http}
+00129 \} \textcolor{comment}{// namespace hryky}
+00130 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00131 \textcolor{comment}{// global function definitions}
+00132 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00133 \textcolor{preprocessor}{#endif // HTTP\_HEADER\_LOCATION\_ENTITY\_H\_20130114145808290}
+00134 \textcolor{preprocessor}{}\textcolor{comment}{// end of file}
+\end{DoxyCode}

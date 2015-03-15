@@ -1,0 +1,105 @@
+\hypertarget{log__format__base_8h_source}{\section{log\-\_\-format\-\_\-base.\-h}
+}
+
+\begin{DoxyCode}
+00001 
+00008 \textcolor{preprocessor}{#ifndef LOG\_FORMAT\_BASE\_H\_20111228003551691}
+00009 \textcolor{preprocessor}{}\textcolor{preprocessor}{#define LOG\_FORMAT\_BASE\_H\_20111228003551691}
+00010 \textcolor{preprocessor}{}\textcolor{preprocessor}{#include "\hyperlink{log__format__common_8h}{hryky/log/log_format_common.h}"}
+00011 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00012 \textcolor{comment}{// macro definition}
+00013 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00014 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00015 \textcolor{comment}{// namespace}
+00016 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00017 \textcolor{keyword}{namespace }hryky
+00018 \{
+00019 \textcolor{keyword}{namespace }log
+00020 \{
+\hypertarget{log__format__base_8h_source_l00021}{}\hyperlink{namespacehryky_1_1log_1_1format}{00021} \textcolor{keyword}{namespace }format
+00022 \{
+00024     \textcolor{keyword}{class }\hyperlink{classhryky_1_1log_1_1format_1_1_base}{Base};
+00025 
+00027     \textcolor{keywordtype}{void} \hyperlink{namespacehryky_1_1log_1_1format_a8c68e3857a07b98886447e4885fd7dec}{intrusive_ptr_add_ref}(\hyperlink{classhryky_1_1log_1_1format_1_1_base}{Base} * ptr);
+00028 
+00030     \textcolor{keywordtype}{void} \hyperlink{namespacehryky_1_1log_1_1format_a6c8a33920b836a83719293661e02f060}{intrusive_ptr_release}(\hyperlink{classhryky_1_1log_1_1format_1_1_base}{Base} * ptr);
+00031 
+00032     \textcolor{keyword}{class }Indent;
+00033 
+00035     std::ostream & \hyperlink{namespacehryky_1_1log_1_1format_ad214f866f3f6ebc919c87f9f03132f17}{operator<<}(std::ostream & lhs, \hyperlink{classhryky_1_1log_1_1format_1_1_base}{Base} \textcolor{keyword}{const} & rhs);
+00036 \}
+00037 \}
+00038 \}
+00039 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00040 \textcolor{comment}{// class declaration}
+00041 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+\hypertarget{log__format__base_8h_source_l00046}{}\hyperlink{classhryky_1_1log_1_1format_1_1_base}{00046} \textcolor{comment}{}\textcolor{keyword}{class }\hyperlink{classhryky_1_1log_1_1format_1_1_base}{hryky::log::format::Base}
+00047 \{
+00048 \textcolor{keyword}{public} :
+00049 
+\hypertarget{log__format__base_8h_source_l00051}{}\hyperlink{classhryky_1_1log_1_1format_1_1_base_acacc58d55c7531c1cc87f81b8578d7da}{00051}     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1log_1_1format_1_1_base}{hryky::log::format::Base} \hyperlink{classhryky_1_1log_1_1format_1_1_base_acacc58d55c7531c1cc87f81b8578d7da}{this_type};
+00052 
+00054     std::ostream & \hyperlink{classhryky_1_1log_1_1format_1_1_base_a9036ce4ca367b322c9f41365ee249cb1}{print}(std::ostream & out, Indent \textcolor{keyword}{const} & indent) \textcolor{keyword}{const};
+00055 
+00056 \textcolor{keyword}{protected} :
+00057 
+00059     \hyperlink{classhryky_1_1log_1_1format_1_1_base_a19356ccdd96c0bd9d57f7f3b38296ebc}{Base}();
+00060 
+00062     \textcolor{keyword}{explicit} \hyperlink{classhryky_1_1log_1_1format_1_1_base_a19356ccdd96c0bd9d57f7f3b38296ebc}{Base}(\hyperlink{namespacehryky_1_1log_1_1format_ab7408d1e2ed2d648dbf9bba69eb74288}{name_type} \textcolor{keyword}{const} & name);
+00063 
+00071     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \hyperlink{classhryky_1_1log_1_1format_1_1_base_af1f3f2984f1a130ca7fd927c62d73ac0}{delete_self}();
+00072 
+00074     \textcolor{keyword}{virtual} \hyperlink{classhryky_1_1log_1_1format_1_1_base_a7c0d161f6e0b177e9d04dd04f8f5353f}{~Base}();
+00075 
+00076 \textcolor{keyword}{private} :
+00077 
+00078     \textcolor{keyword}{friend} std::ostream & \hyperlink{classhryky_1_1log_1_1format_1_1_base_aa738ea49e07d128ff8dce7c20cb9285d}{operator<<}(
+00079         std::ostream & lhs, \hyperlink{classhryky_1_1log_1_1format_1_1_base}{hryky::log::format::Base} \textcolor{keyword}{const} & rhs);
+00080 
+00081     \textcolor{keyword}{friend} \textcolor{keywordtype}{void} \hyperlink{classhryky_1_1log_1_1format_1_1_base_abf514baa69ca1c3228441e8614f59a34}{intrusive_ptr_add_ref}(\hyperlink{classhryky_1_1log_1_1format_1_1_base}{Base} *);
+00082     \textcolor{keyword}{friend} \textcolor{keywordtype}{void} \hyperlink{classhryky_1_1log_1_1format_1_1_base_a5687cea108416379e4c11f156f2e6c95}{intrusive_ptr_release}(\hyperlink{classhryky_1_1log_1_1format_1_1_base}{Base} *);
+00083 
+00085     \textcolor{keyword}{virtual} std::ostream & print\_value(std::ostream & out, Indent \textcolor{keyword}{const} & 
+      indent) \textcolor{keyword}{const} = 0;
+00086 
+00088     \textcolor{keyword}{explicit} \hyperlink{classhryky_1_1log_1_1format_1_1_base_a19356ccdd96c0bd9d57f7f3b38296ebc}{Base}(\hyperlink{classhryky_1_1log_1_1format_1_1_base}{Base} \textcolor{keyword}{const} &);
+00089 
+00091     \hyperlink{classhryky_1_1log_1_1format_1_1_base}{Base} & operator=(\hyperlink{classhryky_1_1log_1_1format_1_1_base}{Base} \textcolor{keyword}{const} &rhs);
+00092 
+00094     \textcolor{keywordtype}{void} add\_ref();
+00095 
+00097     \textcolor{keywordtype}{void} release();
+00098 
+00099     \hyperlink{namespacehryky_1_1log_1_1format_ab7408d1e2ed2d648dbf9bba69eb74288}{name_type}   name\_;
+00100     \textcolor{keywordtype}{size\_t}      referred\_;
+00101 
+00102 \};
+00103 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00104 \textcolor{comment}{// public member functions}
+00105 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00106 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00107 \textcolor{comment}{// protected member functions}
+00108 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00109 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00110 \textcolor{comment}{// private member functions}
+00111 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00112 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00113 \textcolor{comment}{// inline functions}
+00114 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00115 \textcolor{preprocessor}{#endif // LOG\_FORMAT\_BASE\_H\_20111228003551691}
+00116 \textcolor{preprocessor}{}\textcolor{comment}{// end of file}
+\end{DoxyCode}

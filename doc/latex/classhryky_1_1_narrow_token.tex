@@ -1,0 +1,99 @@
+\hypertarget{classhryky_1_1_narrow_token}{\section{hryky\-:\-:Narrow\-Token$<$ Result\-T, Size $>$ Class Template Reference}
+\label{classhryky_1_1_narrow_token}\index{hryky\-::\-Narrow\-Token$<$ Result\-T, Size $>$@{hryky\-::\-Narrow\-Token$<$ Result\-T, Size $>$}}
+}
+
+
+narrows down candidates by sequence of values.  
+
+
+
+
+{\ttfamily \#include $<$narrow\-\_\-token.\-h$>$}
+
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classhryky_1_1_narrow_token_a8ef24a463e656c6201d12dc48d566c58}{typedef \hyperlink{classhryky_1_1_narrow_token}{Narrow\-Token}$<$ Result\-T, \\*
+Size $>$ \hyperlink{classhryky_1_1_narrow_token_a8ef24a463e656c6201d12dc48d566c58}{this\-\_\-type}}\label{classhryky_1_1_narrow_token_a8ef24a463e656c6201d12dc48d566c58}
+
+\begin{DoxyCompactList}\small\item\em self. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classhryky_1_1_narrow_token_a85f5dc5a4b422c3251139e60cf7fef0d}{void \hyperlink{classhryky_1_1_narrow_token_a85f5dc5a4b422c3251139e60cf7fef0d}{clear} ()}\label{classhryky_1_1_narrow_token_a85f5dc5a4b422c3251139e60cf7fef0d}
+
+\begin{DoxyCompactList}\small\item\em releases the internal resources. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1_narrow_token_a1d27594be3e660ad6a085bf7e7f4d980}{size\-\_\-t \hyperlink{classhryky_1_1_narrow_token_a1d27594be3e660ad6a085bf7e7f4d980}{length} () const }\label{classhryky_1_1_narrow_token_a1d27594be3e660ad6a085bf7e7f4d980}
+
+\begin{DoxyCompactList}\small\item\em retrieves the current length of read values. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1_narrow_token_a1ce8a8fce4830b8bdb73f9a4bb22a6ad}{\hyperlink{classhryky_1_1_narrow_token_a1ce8a8fce4830b8bdb73f9a4bb22a6ad}{Narrow\-Token} ()}\label{classhryky_1_1_narrow_token_a1ce8a8fce4830b8bdb73f9a4bb22a6ad}
+
+\begin{DoxyCompactList}\small\item\em default constructor. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1_narrow_token_ad60e6cb2513b59434f85506aefd4db63}{\hyperlink{classhryky_1_1_narrow_token_ad60e6cb2513b59434f85506aefd4db63}{Narrow\-Token} (\hyperlink{classhryky_1_1_narrow_token_a8ef24a463e656c6201d12dc48d566c58}{this\-\_\-type} const \&)}\label{classhryky_1_1_narrow_token_ad60e6cb2513b59434f85506aefd4db63}
+
+\begin{DoxyCompactList}\small\item\em copy constructor. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1_narrow_token_a708b7d695e675848be5e8f871a61ce3f}{\hyperlink{classhryky_1_1_narrow_token_a708b7d695e675848be5e8f871a61ce3f}{Narrow\-Token} (\hyperlink{classhryky_1_1_narrow_token_a8ef24a463e656c6201d12dc48d566c58}{this\-\_\-type} \&\&rhs)}\label{classhryky_1_1_narrow_token_a708b7d695e675848be5e8f871a61ce3f}
+
+\begin{DoxyCompactList}\small\item\em copy constructor by rvalue reference. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Value\-T , typename Tokens\-T $>$ }\\size\-\_\-t \hyperlink{classhryky_1_1_narrow_token_ada653c645c09f84ab73cec2ebcbc5a4c}{operator()} (Value\-T const src, Tokens\-T const \&tokens)
+\begin{DoxyCompactList}\small\item\em narrows down candidates by a value. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1_narrow_token_a6fe8945316c749abbed245cb7d3b8914}{{\footnotesize template$<$typename Input\-Iterator , typename Tokens\-T $>$ }\\void \hyperlink{classhryky_1_1_narrow_token_a6fe8945316c749abbed245cb7d3b8914}{operator()} (Input\-Iterator begin, Input\-Iterator end, Tokens\-T const \&tokens)}\label{classhryky_1_1_narrow_token_a6fe8945316c749abbed245cb7d3b8914}
+
+\begin{DoxyCompactList}\small\item\em narrows down candidates by the range of values. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1_narrow_token_a26077cf647e46c7482990337560504fa}{\hyperlink{namespacehryky_a343a9a4c36a586be5c2693156200eadc}{reduction\-\_\-type} \hyperlink{classhryky_1_1_narrow_token_a26077cf647e46c7482990337560504fa}{reduce} (\hyperlink{namespacehryky_1_1reduction_ac686c30a4c8d196bbd0f05629a6b921f}{reduction\-::name\-\_\-type} const \&name) const }\label{classhryky_1_1_narrow_token_a26077cf647e46c7482990337560504fa}
+
+\begin{DoxyCompactList}\small\item\em decomposes the instance to primitive objects. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1_narrow_token_af36664ab981d8d2616f8c0c99d145506}{result\-\_\-type \hyperlink{classhryky_1_1_narrow_token_af36664ab981d8d2616f8c0c99d145506}{result} () const }\label{classhryky_1_1_narrow_token_af36664ab981d8d2616f8c0c99d145506}
+
+\begin{DoxyCompactList}\small\item\em retrieves the result of narrowing. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1_narrow_token_a141661722b4c90ec9699fd9511c612ab}{void \hyperlink{classhryky_1_1_narrow_token_a141661722b4c90ec9699fd9511c612ab}{swap} (\hyperlink{classhryky_1_1_narrow_token_a8ef24a463e656c6201d12dc48d566c58}{this\-\_\-type} \&src)}\label{classhryky_1_1_narrow_token_a141661722b4c90ec9699fd9511c612ab}
+
+\begin{DoxyCompactList}\small\item\em interchanges the each internal resources of two instances. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1_narrow_token_a52b08c0ec3f338bea935f6659b456b09}{\hyperlink{classhryky_1_1_narrow_token_a52b08c0ec3f338bea935f6659b456b09}{$\sim$\-Narrow\-Token} ()}\label{classhryky_1_1_narrow_token_a52b08c0ec3f338bea935f6659b456b09}
+
+\begin{DoxyCompactList}\small\item\em destructor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classhryky_1_1_narrow_token_ae7559074062ed5f2d6249c6730545552}{\hyperlink{classhryky_1_1_narrow_token_ae7559074062ed5f2d6249c6730545552}{hryky\-\_\-assign\-\_\-op}}\label{classhryky_1_1_narrow_token_ae7559074062ed5f2d6249c6730545552}
+
+\begin{DoxyCompactList}\small\item\em assignment operator. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$typename Result\-T, size\-\_\-t Size = Result\-T\-::num\-\_\-$>$class hryky\-::\-Narrow\-Token$<$ Result\-T, Size $>$}
+
+narrows down candidates by sequence of values. 
+
+\subsection{Member Function Documentation}
+\hypertarget{classhryky_1_1_narrow_token_ada653c645c09f84ab73cec2ebcbc5a4c}{\index{hryky\-::\-Narrow\-Token@{hryky\-::\-Narrow\-Token}!operator()@{operator()}}
+\index{operator()@{operator()}!hryky::NarrowToken@{hryky\-::\-Narrow\-Token}}
+\subsubsection[{operator()}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Result\-T , size\-\_\-t Size$>$ template$<$typename Value\-T , typename Tokens\-T $>$ size\-\_\-t {\bf hryky\-::\-Narrow\-Token}$<$ Result\-T, Size $>$\-::operator() (
+\begin{DoxyParamCaption}
+\item[{Value\-T const}]{src, }
+\item[{Tokens\-T const \&}]{tokens}
+\end{DoxyParamCaption}
+)}}\label{classhryky_1_1_narrow_token_ada653c645c09f84ab73cec2ebcbc5a4c}
+
+
+narrows down candidates by a value. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em src} & is a value of sequence. \\
+\hline
+{\em tokens} & is the container of compared tokens. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the number of candidates narrowed down by {\itshape src\/}.
+\end{DoxyReturn}
+Tokens\-T must have operator\mbox{[}\mbox{]} to retrieve a value compared to src. 
+
+References \hyperlink{classhryky_1_1_literal_string_af2221b58fef20ed4d474891681995c97}{hryky\-::\-Literal\-String\-::size()}.
+
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{narrow__token_8h}{narrow\-\_\-token.\-h}\end{DoxyCompactItemize}

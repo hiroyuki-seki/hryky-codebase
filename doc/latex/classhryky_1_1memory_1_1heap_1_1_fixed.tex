@@ -1,0 +1,326 @@
+\hypertarget{classhryky_1_1memory_1_1heap_1_1_fixed}{\section{hryky\-:\-:memory\-:\-:heap\-:\-:Fixed Class Reference}
+\label{classhryky_1_1memory_1_1heap_1_1_fixed}\index{hryky\-::memory\-::heap\-::\-Fixed@{hryky\-::memory\-::heap\-::\-Fixed}}
+}
+
+
+memory allocation for fixed length units.  
+
+
+
+
+{\ttfamily \#include $<$memory\-\_\-heap\-\_\-fixed.\-h$>$}
+
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structhryky_1_1memory_1_1heap_1_1_fixed_1_1_address}{Address}
+\begin{DoxyCompactList}\small\item\em the information of a address allocated from \hyperlink{classhryky_1_1memory_1_1heap_1_1_fixed}{hryky\-::memory\-::heap\-::\-Fixed}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \{ \hyperlink{classhryky_1_1memory_1_1heap_1_1_fixed_a49ff1ac7fdf4d300ad8006669e670d4ca3b7bf349f23c89c7715a49a6007eed98}{min\-\_\-alignment\-\_\-} =  3, 
+\hyperlink{classhryky_1_1memory_1_1heap_1_1_fixed_a49ff1ac7fdf4d300ad8006669e670d4ca2f4cc5163f2c1c7f6561e777a1eb2a6a}{min\-\_\-unit\-\_\-size\-\_\-} =  (1 $<$$<$ min\-\_\-alignment\-\_\-)
+ \}
+\item 
+\hypertarget{classhryky_1_1memory_1_1heap_1_1_fixed_a5031234bccd24fe2b2ea6ff6ae5cdcdd}{typedef uint64\-\_\-t \hyperlink{classhryky_1_1memory_1_1heap_1_1_fixed_a5031234bccd24fe2b2ea6ff6ae5cdcdd}{index\-\_\-type}}\label{classhryky_1_1memory_1_1heap_1_1_fixed_a5031234bccd24fe2b2ea6ff6ae5cdcdd}
+
+\begin{DoxyCompactList}\small\item\em index of units array \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1memory_1_1heap_1_1_fixed_aa25fb42c495f84747ede7cd1ccf1116b}{typedef \hyperlink{classhryky_1_1memory_1_1heap_1_1_fixed}{Fixed} \hyperlink{classhryky_1_1memory_1_1heap_1_1_fixed_aa25fb42c495f84747ede7cd1ccf1116b}{this\-\_\-type}}\label{classhryky_1_1memory_1_1heap_1_1_fixed_aa25fb42c495f84747ede7cd1ccf1116b}
+
+\begin{DoxyCompactList}\small\item\em self \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void $\ast$ \hyperlink{classhryky_1_1memory_1_1heap_1_1_fixed_a21b5ff89f04031b010eb1fdbb00ca86a}{allocate} ()
+\begin{DoxyCompactList}\small\item\em finds a free unit. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1memory_1_1heap_1_1_fixed_afa7069f796ddd28d963aa6ee4b03bb6d}{\hyperlink{classhryky_1_1memory_1_1heap_1_1_fixed_a5031234bccd24fe2b2ea6ff6ae5cdcdd}{index\-\_\-type} \hyperlink{classhryky_1_1memory_1_1heap_1_1_fixed_afa7069f796ddd28d963aa6ee4b03bb6d}{allocated\-\_\-size} () const }\label{classhryky_1_1memory_1_1heap_1_1_fixed_afa7069f796ddd28d963aa6ee4b03bb6d}
+
+\begin{DoxyCompactList}\small\item\em gets the number of allocated units. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1memory_1_1heap_1_1_fixed_a4473e3ff52c5a696edb13f4df7f8e643}{\hyperlink{classhryky_1_1memory_1_1heap_1_1_fixed_a5031234bccd24fe2b2ea6ff6ae5cdcdd}{index\-\_\-type} \hyperlink{classhryky_1_1memory_1_1heap_1_1_fixed_a4473e3ff52c5a696edb13f4df7f8e643}{available\-\_\-size} () const }\label{classhryky_1_1memory_1_1heap_1_1_fixed_a4473e3ff52c5a696edb13f4df7f8e643}
+
+\begin{DoxyCompactList}\small\item\em gets the number of available units. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1memory_1_1heap_1_1_fixed_ab54fe4316023e4528a2cf9b1b959af6c}{\hyperlink{classhryky_1_1memory_1_1heap_1_1_fixed_a5031234bccd24fe2b2ea6ff6ae5cdcdd}{index\-\_\-type} \hyperlink{classhryky_1_1memory_1_1heap_1_1_fixed_ab54fe4316023e4528a2cf9b1b959af6c}{capacity} () const }\label{classhryky_1_1memory_1_1heap_1_1_fixed_ab54fe4316023e4528a2cf9b1b959af6c}
+
+\begin{DoxyCompactList}\small\item\em gets the number of all units. \end{DoxyCompactList}\item 
+bool \hyperlink{classhryky_1_1memory_1_1heap_1_1_fixed_a878f3a61bf397f27c40ec6638b88bd49}{deallocate} (void $\ast$src)
+\begin{DoxyCompactList}\small\item\em marks a unit as unused. \end{DoxyCompactList}\item 
+\hyperlink{classhryky_1_1memory_1_1heap_1_1_fixed_ab063172ff9026356d34cac6dc39a207a}{Fixed} ()
+\begin{DoxyCompactList}\small\item\em default constructor \end{DoxyCompactList}\item 
+\hyperlink{namespacehryky_a343a9a4c36a586be5c2693156200eadc}{reduction\-\_\-type} \hyperlink{classhryky_1_1memory_1_1heap_1_1_fixed_ae7e05d5e6c2e2f83e1d593f4eab28bd7}{reduce} (\hyperlink{namespacehryky_1_1reduction_ac686c30a4c8d196bbd0f05629a6b921f}{reduction\-::name\-\_\-type} const \&name) const 
+\begin{DoxyCompactList}\small\item\em outputs the information of this instance. \end{DoxyCompactList}\item 
+\hyperlink{namespacehryky_a343a9a4c36a586be5c2693156200eadc}{reduction\-\_\-type} \hyperlink{classhryky_1_1memory_1_1heap_1_1_fixed_a2bf9c59881f3e171d4e78b7fc0393f64}{reduce} (\hyperlink{namespacehryky_1_1reduction_ac686c30a4c8d196bbd0f05629a6b921f}{reduction\-::name\-\_\-type} const \&name, void const $\ast$address) const 
+\begin{DoxyCompactList}\small\item\em outputs the information of an address allocated from \hyperlink{classhryky_1_1memory_1_1heap_1_1_fixed}{hryky\-::memory\-::heap\-::\-Fixed}. \end{DoxyCompactList}\item 
+bool \hyperlink{classhryky_1_1memory_1_1heap_1_1_fixed_a8ca3a34f0e32b9aa3175b0a76da9c72c}{reset} (void $\ast$buffer, size\-\_\-t \hyperlink{classhryky_1_1memory_1_1heap_1_1_fixed_adb07b62b615fd87ae28633a824635465}{buffer\-\_\-size}, size\-\_\-t unit\-\_\-size)
+\begin{DoxyCompactList}\small\item\em sets up initial buffer. \end{DoxyCompactList}\item 
+bool \hyperlink{classhryky_1_1memory_1_1heap_1_1_fixed_ae411a2003a15fe4db249a988df97f9d5}{verify} () const 
+\begin{DoxyCompactList}\small\item\em checks the validity of the internal data. \end{DoxyCompactList}\item 
+bool \hyperlink{classhryky_1_1memory_1_1heap_1_1_fixed_a9b9899cee38766e2987d2938991c6050}{verify} (void const $\ast$src) const 
+\begin{DoxyCompactList}\small\item\em verifies allocated address. \end{DoxyCompactList}\item 
+\hyperlink{classhryky_1_1memory_1_1heap_1_1_fixed_abe57aea352000043830af34cf978c804}{$\sim$\-Fixed} ()
+\begin{DoxyCompactList}\small\item\em destrunctor \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static size\-\_\-t \hyperlink{classhryky_1_1memory_1_1heap_1_1_fixed_adb07b62b615fd87ae28633a824635465}{buffer\-\_\-size} (size\-\_\-t unit\-\_\-size, \hyperlink{classhryky_1_1memory_1_1heap_1_1_fixed_a5031234bccd24fe2b2ea6ff6ae5cdcdd}{index\-\_\-type} num)
+\begin{DoxyCompactList}\small\item\em estimates the required size of buffer. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+memory allocation for fixed length units. \begin{Desc}
+\item[Examples\-: ]\par
+\hyperlink{test_memory_heap_fixed_8cpp-example}{test\-\_\-memory\-\_\-heap\-\_\-fixed.\-cpp}.\end{Desc}
+
+
+\subsection{Member Enumeration Documentation}
+\hypertarget{classhryky_1_1memory_1_1heap_1_1_fixed_a49ff1ac7fdf4d300ad8006669e670d4c}{\subsubsection[{anonymous enum}]{\setlength{\rightskip}{0pt plus 5cm}anonymous enum}}\label{classhryky_1_1memory_1_1heap_1_1_fixed_a49ff1ac7fdf4d300ad8006669e670d4c}
+\begin{Desc}
+\item[Enumerator\-: ]\par
+\begin{description}
+\index{min\-\_\-alignment\-\_\-@{min\-\_\-alignment\-\_\-}!hryky\-::memory\-::heap\-::\-Fixed@{hryky\-::memory\-::heap\-::\-Fixed}}\index{hryky\-::memory\-::heap\-::\-Fixed@{hryky\-::memory\-::heap\-::\-Fixed}!min\-\_\-alignment\-\_\-@{min\-\_\-alignment\-\_\-}}\item[{\em 
+\hypertarget{classhryky_1_1memory_1_1heap_1_1_fixed_a49ff1ac7fdf4d300ad8006669e670d4ca3b7bf349f23c89c7715a49a6007eed98}{min\-\_\-alignment\-\_\-}\label{classhryky_1_1memory_1_1heap_1_1_fixed_a49ff1ac7fdf4d300ad8006669e670d4ca3b7bf349f23c89c7715a49a6007eed98}
+}]minimum address alignment in bits \index{min\-\_\-unit\-\_\-size\-\_\-@{min\-\_\-unit\-\_\-size\-\_\-}!hryky\-::memory\-::heap\-::\-Fixed@{hryky\-::memory\-::heap\-::\-Fixed}}\index{hryky\-::memory\-::heap\-::\-Fixed@{hryky\-::memory\-::heap\-::\-Fixed}!min\-\_\-unit\-\_\-size\-\_\-@{min\-\_\-unit\-\_\-size\-\_\-}}\item[{\em 
+\hypertarget{classhryky_1_1memory_1_1heap_1_1_fixed_a49ff1ac7fdf4d300ad8006669e670d4ca2f4cc5163f2c1c7f6561e777a1eb2a6a}{min\-\_\-unit\-\_\-size\-\_\-}\label{classhryky_1_1memory_1_1heap_1_1_fixed_a49ff1ac7fdf4d300ad8006669e670d4ca2f4cc5163f2c1c7f6561e777a1eb2a6a}
+}]minimum size of one unit in bytes \end{description}
+\end{Desc}
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classhryky_1_1memory_1_1heap_1_1_fixed_ab063172ff9026356d34cac6dc39a207a}{\index{hryky\-::memory\-::heap\-::\-Fixed@{hryky\-::memory\-::heap\-::\-Fixed}!Fixed@{Fixed}}
+\index{Fixed@{Fixed}!hryky::memory::heap::Fixed@{hryky\-::memory\-::heap\-::\-Fixed}}
+\subsubsection[{Fixed}]{\setlength{\rightskip}{0pt plus 5cm}{\bf hryky\-::memory\-::heap\-::\-Fixed\-::\-Fixed} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}explicit\mbox{]}}}}\label{classhryky_1_1memory_1_1heap_1_1_fixed_ab063172ff9026356d34cac6dc39a207a}
+
+
+default constructor 
+
+constructor. \hypertarget{classhryky_1_1memory_1_1heap_1_1_fixed_abe57aea352000043830af34cf978c804}{\index{hryky\-::memory\-::heap\-::\-Fixed@{hryky\-::memory\-::heap\-::\-Fixed}!$\sim$\-Fixed@{$\sim$\-Fixed}}
+\index{$\sim$\-Fixed@{$\sim$\-Fixed}!hryky::memory::heap::Fixed@{hryky\-::memory\-::heap\-::\-Fixed}}
+\subsubsection[{$\sim$\-Fixed}]{\setlength{\rightskip}{0pt plus 5cm}{\bf hryky\-::memory\-::heap\-::\-Fixed\-::$\sim$\-Fixed} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classhryky_1_1memory_1_1heap_1_1_fixed_abe57aea352000043830af34cf978c804}
+
+
+destrunctor 
+
+destrunctor. 
+
+\subsection{Member Function Documentation}
+\hypertarget{classhryky_1_1memory_1_1heap_1_1_fixed_a21b5ff89f04031b010eb1fdbb00ca86a}{\index{hryky\-::memory\-::heap\-::\-Fixed@{hryky\-::memory\-::heap\-::\-Fixed}!allocate@{allocate}}
+\index{allocate@{allocate}!hryky::memory::heap::Fixed@{hryky\-::memory\-::heap\-::\-Fixed}}
+\subsubsection[{allocate}]{\setlength{\rightskip}{0pt plus 5cm}void $\ast$ {\bf hryky\-::memory\-::heap\-::\-Fixed\-::allocate} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classhryky_1_1memory_1_1heap_1_1_fixed_a21b5ff89f04031b010eb1fdbb00ca86a}
+
+
+finds a free unit. 
+
+
+\begin{DoxyRetVals}{Return values}
+{\em H\-R\-Y\-K\-Y\-\_\-\-N\-U\-L\-L\-P\-T\-R} & failure \\
+\hline
+{\em !\-H\-R\-Y\-K\-Y\-\_\-\-N\-U\-L\-L\-P\-T\-R} & The address to an allocated unit.\\
+\hline
+\end{DoxyRetVals}
+
+\begin{DoxyItemize}
+\item The returned address is fixed length. The length is {\itshape unit\-\_\-size\/} which you passed to \hyperlink{classhryky_1_1memory_1_1heap_1_1_fixed_a8ca3a34f0e32b9aa3175b0a76da9c72c}{reset()}. 
+\end{DoxyItemize}
+
+References \hyperlink{common_8h_a4cd4ac09cfcdbd6b30ee69afc156e210}{H\-R\-Y\-K\-Y\-\_\-\-N\-U\-L\-L\-P\-T\-R}.
+
+\hypertarget{classhryky_1_1memory_1_1heap_1_1_fixed_adb07b62b615fd87ae28633a824635465}{\index{hryky\-::memory\-::heap\-::\-Fixed@{hryky\-::memory\-::heap\-::\-Fixed}!buffer\-\_\-size@{buffer\-\_\-size}}
+\index{buffer\-\_\-size@{buffer\-\_\-size}!hryky::memory::heap::Fixed@{hryky\-::memory\-::heap\-::\-Fixed}}
+\subsubsection[{buffer\-\_\-size}]{\setlength{\rightskip}{0pt plus 5cm}size\-\_\-t {\bf hryky\-::memory\-::heap\-::\-Fixed\-::buffer\-\_\-size} (
+\begin{DoxyParamCaption}
+\item[{size\-\_\-t}]{unit\-\_\-size, }
+\item[{{\bf index\-\_\-type}}]{num}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}}\label{classhryky_1_1memory_1_1heap_1_1_fixed_adb07b62b615fd87ae28633a824635465}
+
+
+estimates the required size of buffer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em unit\-\_\-size} & The size of one allocation unit in bytes \\
+\hline
+{\em num} & The number of the units \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The enough size to allocate units in bytes
+\end{DoxyReturn}
+
+\begin{DoxyItemize}
+\item When you pass the returned value of this function to \hyperlink{classhryky_1_1memory_1_1heap_1_1_fixed_a8ca3a34f0e32b9aa3175b0a76da9c72c}{Fixed\-::reset()} as {\itshape buffer\-\_\-size\/}, you should pass an address which is aligned on at least (1 $<$$<$ \hyperlink{classhryky_1_1memory_1_1heap_1_1_fixed_a49ff1ac7fdf4d300ad8006669e670d4ca3b7bf349f23c89c7715a49a6007eed98}{Fixed\-::min\-\_\-alignment\-\_\-}) bytes. If not, the size of units that you can allocate is less than {\itshape num\/}. 
+\end{DoxyItemize}\hypertarget{classhryky_1_1memory_1_1heap_1_1_fixed_a878f3a61bf397f27c40ec6638b88bd49}{\index{hryky\-::memory\-::heap\-::\-Fixed@{hryky\-::memory\-::heap\-::\-Fixed}!deallocate@{deallocate}}
+\index{deallocate@{deallocate}!hryky::memory::heap::Fixed@{hryky\-::memory\-::heap\-::\-Fixed}}
+\subsubsection[{deallocate}]{\setlength{\rightskip}{0pt plus 5cm}bool {\bf hryky\-::memory\-::heap\-::\-Fixed\-::deallocate} (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{src}
+\end{DoxyParamCaption}
+)}}\label{classhryky_1_1memory_1_1heap_1_1_fixed_a878f3a61bf397f27c40ec6638b88bd49}
+
+
+marks a unit as unused. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em src} & The address allocated by this instance \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+success and failure 
+\end{DoxyReturn}
+
+
+References \hyperlink{log__writer__common_8h_ae5ad3dabb33f594695ef40753cb78aad}{hryky\-\_\-log\-\_\-err}, and \hyperlink{namespacehryky_1_1reduction_ac5eae270cf8047b294dc4ff3e5e11a79}{hryky\-::reduction\-::map()}.
+
+\hypertarget{classhryky_1_1memory_1_1heap_1_1_fixed_ae7e05d5e6c2e2f83e1d593f4eab28bd7}{\index{hryky\-::memory\-::heap\-::\-Fixed@{hryky\-::memory\-::heap\-::\-Fixed}!reduce@{reduce}}
+\index{reduce@{reduce}!hryky::memory::heap::Fixed@{hryky\-::memory\-::heap\-::\-Fixed}}
+\subsubsection[{reduce}]{\setlength{\rightskip}{0pt plus 5cm}{\bf hryky\-::reduction\-\_\-type} {\bf hryky\-::memory\-::heap\-::\-Fixed\-::reduce} (
+\begin{DoxyParamCaption}
+\item[{{\bf reduction\-::name\-\_\-type} const \&}]{name}
+\end{DoxyParamCaption}
+) const}}\label{classhryky_1_1memory_1_1heap_1_1_fixed_ae7e05d5e6c2e2f83e1d593f4eab28bd7}
+
+
+outputs the information of this instance. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & is the key of key-\/value pair. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+an element of logging format. 
+\end{DoxyReturn}
+
+
+References \hyperlink{namespacehryky_1_1reduction_ac5eae270cf8047b294dc4ff3e5e11a79}{hryky\-::reduction\-::map()}.
+
+
+
+Referenced by \hyperlink{namespacehryky_1_1memory_1_1heap_a3338ac1ff48a602ce216dec92a614f87}{hryky\-::memory\-::heap\-::reduce()}.
+
+\hypertarget{classhryky_1_1memory_1_1heap_1_1_fixed_a2bf9c59881f3e171d4e78b7fc0393f64}{\index{hryky\-::memory\-::heap\-::\-Fixed@{hryky\-::memory\-::heap\-::\-Fixed}!reduce@{reduce}}
+\index{reduce@{reduce}!hryky::memory::heap::Fixed@{hryky\-::memory\-::heap\-::\-Fixed}}
+\subsubsection[{reduce}]{\setlength{\rightskip}{0pt plus 5cm}{\bf hryky\-::reduction\-\_\-type} {\bf hryky\-::memory\-::heap\-::\-Fixed\-::reduce} (
+\begin{DoxyParamCaption}
+\item[{{\bf reduction\-::name\-\_\-type} const \&}]{name, }
+\item[{void const $\ast$}]{address}
+\end{DoxyParamCaption}
+) const}}\label{classhryky_1_1memory_1_1heap_1_1_fixed_a2bf9c59881f3e171d4e78b7fc0393f64}
+
+
+outputs the information of an address allocated from \hyperlink{classhryky_1_1memory_1_1heap_1_1_fixed}{hryky\-::memory\-::heap\-::\-Fixed}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & is the key of key-\/value pair. \\
+\hline
+{\em address} & will be the address allocated by this instance. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+an element of logging format. 
+\end{DoxyReturn}
+
+
+References \hyperlink{namespacehryky_1_1reduction_ac5eae270cf8047b294dc4ff3e5e11a79}{hryky\-::reduction\-::map()}.
+
+\hypertarget{classhryky_1_1memory_1_1heap_1_1_fixed_a8ca3a34f0e32b9aa3175b0a76da9c72c}{\index{hryky\-::memory\-::heap\-::\-Fixed@{hryky\-::memory\-::heap\-::\-Fixed}!reset@{reset}}
+\index{reset@{reset}!hryky::memory::heap::Fixed@{hryky\-::memory\-::heap\-::\-Fixed}}
+\subsubsection[{reset}]{\setlength{\rightskip}{0pt plus 5cm}bool {\bf hryky\-::memory\-::heap\-::\-Fixed\-::reset} (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{buffer, }
+\item[{size\-\_\-t}]{buffer\-\_\-size, }
+\item[{size\-\_\-t}]{unit\-\_\-size}
+\end{DoxyParamCaption}
+)}}\label{classhryky_1_1memory_1_1heap_1_1_fixed_a8ca3a34f0e32b9aa3175b0a76da9c72c}
+
+
+sets up initial buffer. 
+
+sets up an initial buffer.
+
+
+\begin{DoxyParams}{Parameters}
+{\em buffer} & An address on which allocation units are placed \\
+\hline
+{\em buffer\-\_\-size} & the size of {\itshape buffer\/} \\
+\hline
+{\em unit\-\_\-size} & The size of one allocation unit in bytes \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+success and failure 
+\end{DoxyReturn}
+\begin{DoxyAttention}{Attention}
+
+\begin{DoxyItemize}
+\item If you want to use entire region of {\itshape buffer\/}, you must adhere to the following items.
+\begin{DoxyItemize}
+\item {\itshape buffer\/} must be alinged on (1 $<$$<$ \hyperlink{classhryky_1_1memory_1_1heap_1_1_fixed_a49ff1ac7fdf4d300ad8006669e670d4ca3b7bf349f23c89c7715a49a6007eed98}{Fixed\-::min\-\_\-alignment\-\_\-}) bytes.
+\item {\itshape unit\-\_\-size\/} must be in multiple of \hyperlink{classhryky_1_1memory_1_1heap_1_1_fixed_a49ff1ac7fdf4d300ad8006669e670d4ca2f4cc5163f2c1c7f6561e777a1eb2a6a}{Fixed\-::min\-\_\-unit\-\_\-size\-\_\-}. 
+\end{DoxyItemize}
+\end{DoxyItemize}
+\end{DoxyAttention}
+
+
+References \hyperlink{namespacehryky_a7ddd0f39f2f0953fe7e3cbaedaf98644}{hryky\-::align\-\_\-ceil()}, \hyperlink{log__writer__common_8h_ae5ad3dabb33f594695ef40753cb78aad}{hryky\-\_\-log\-\_\-err}, \hyperlink{namespacehryky_1_1reduction_ac5eae270cf8047b294dc4ff3e5e11a79}{hryky\-::reduction\-::map()}, and \hyperlink{classhryky_1_1memory_1_1heap_1_1_fixed_a49ff1ac7fdf4d300ad8006669e670d4ca3b7bf349f23c89c7715a49a6007eed98}{min\-\_\-alignment\-\_\-}.
+
+\hypertarget{classhryky_1_1memory_1_1heap_1_1_fixed_ae411a2003a15fe4db249a988df97f9d5}{\index{hryky\-::memory\-::heap\-::\-Fixed@{hryky\-::memory\-::heap\-::\-Fixed}!verify@{verify}}
+\index{verify@{verify}!hryky::memory::heap::Fixed@{hryky\-::memory\-::heap\-::\-Fixed}}
+\subsubsection[{verify}]{\setlength{\rightskip}{0pt plus 5cm}bool {\bf hryky\-::memory\-::heap\-::\-Fixed\-::verify} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classhryky_1_1memory_1_1heap_1_1_fixed_ae411a2003a15fe4db249a988df97f9d5}
+
+
+checks the validity of the internal data. 
+
+\begin{DoxyReturn}{Returns}
+valid and invalid
+\end{DoxyReturn}
+
+\begin{DoxyItemize}
+\item This function checks whether the internal information is corrupted. 
+\end{DoxyItemize}
+
+References \hyperlink{log__writer__common_8h_ae5ad3dabb33f594695ef40753cb78aad}{hryky\-\_\-log\-\_\-err}, and \hyperlink{namespacehryky_1_1reduction_ac5eae270cf8047b294dc4ff3e5e11a79}{hryky\-::reduction\-::map()}.
+
+\hypertarget{classhryky_1_1memory_1_1heap_1_1_fixed_a9b9899cee38766e2987d2938991c6050}{\index{hryky\-::memory\-::heap\-::\-Fixed@{hryky\-::memory\-::heap\-::\-Fixed}!verify@{verify}}
+\index{verify@{verify}!hryky::memory::heap::Fixed@{hryky\-::memory\-::heap\-::\-Fixed}}
+\subsubsection[{verify}]{\setlength{\rightskip}{0pt plus 5cm}bool {\bf hryky\-::memory\-::heap\-::\-Fixed\-::verify} (
+\begin{DoxyParamCaption}
+\item[{void const $\ast$}]{src}
+\end{DoxyParamCaption}
+) const}}\label{classhryky_1_1memory_1_1heap_1_1_fixed_a9b9899cee38766e2987d2938991c6050}
+
+
+verifies allocated address. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em src} & an address allocated from this instance\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyItemize}
+\item This function confirms that the passed address is under the management of this instance. 
+\end{DoxyItemize}
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{memory__heap__fixed_8h}{memory\-\_\-heap\-\_\-fixed.\-h}\item 
+\hyperlink{memory__heap__fixed_8cpp}{memory\-\_\-heap\-\_\-fixed.\-cpp}\end{DoxyCompactItemize}

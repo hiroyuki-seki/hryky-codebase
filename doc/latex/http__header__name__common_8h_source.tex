@@ -1,0 +1,202 @@
+\hypertarget{http__header__name__common_8h_source}{\section{http\-\_\-header\-\_\-name\-\_\-common.\-h}
+}
+
+\begin{DoxyCode}
+00001 
+00008 \textcolor{preprocessor}{#ifndef HTTP\_HEADER\_NAME\_COMMON\_H\_20120908165811373}
+00009 \textcolor{preprocessor}{}\textcolor{preprocessor}{#define HTTP\_HEADER\_NAME\_COMMON\_H\_20120908165811373}
+00010 \textcolor{preprocessor}{}\textcolor{preprocessor}{#include "\hyperlink{kind_8h}{hryky/kind.h}"}
+00011 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00012 \textcolor{comment}{// macro definition}
+00013 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00014 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00015 \textcolor{comment}{// namespace}
+00016 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00017 \textcolor{keyword}{namespace }hryky
+00018 \{
+00019 \textcolor{keyword}{namespace }http
+00020 \{
+00021 \textcolor{keyword}{namespace }header
+00022 \{
+00023 \textcolor{keyword}{namespace }name
+00024 \{
+00025     \textcolor{keyword}{struct }Kind
+00026     \{
+00027         \textcolor{keyword}{enum} Raw
+00028         \{
+00029             \textcolor{comment}{// general-header}
+00030             begin\_,
+00031             general\_header\_begin\_   = begin\_,
+00032             cache\_control\_          = general\_header\_begin\_,
+00033             connection\_,
+00034             date\_,
+00035             pragma\_,
+00036             trailer\_,
+00037             transfer\_encoding\_,
+00038             upgrade\_,
+00039             via\_,
+00040             warning\_,
+00041             general\_header\_end\_,
+00042 
+00043             \textcolor{comment}{// request-header}
+00044             request\_header\_begin\_   = general\_header\_end\_,
+00045             accept\_                 = request\_header\_begin\_,
+00046             accept\_charset\_,
+00047             accept\_encoding\_,
+00048             accept\_language\_,
+00049             authorization\_,
+00050             expect\_,
+00051             from\_,
+00052             host\_,
+00053             if\_match\_,
+00054             if\_modified\_since\_,
+00055             if\_none\_match\_,
+00056             if\_range\_,
+00057             if\_unmodifed\_since\_,
+00058             max\_forwards\_,
+00059             proxy\_authorization\_,
+00060             range\_,
+00061             referer\_,
+00062             te\_,
+00063             user\_agent\_,
+00064             request\_header\_end\_,
+00065 
+00066             \textcolor{comment}{// response-header}
+00067             response\_header\_begin\_  = request\_header\_end\_,
+00068             accept\_range\_           = response\_header\_begin\_,
+00069             age\_,
+00070             etag\_,
+00071             location\_,
+00072             proxy\_authenticate\_,
+00073             refer\_after\_,
+00074             server\_,
+00075             vary\_,
+00076             www\_authenticate\_,
+00077             response\_header\_end\_,
+00078 
+00079             \textcolor{comment}{// entity-header}
+00080             entity\_header\_begin\_    = response\_header\_end\_,
+00081             allow\_                  = entity\_header\_begin\_,
+00082             content\_encoding\_,
+00083             content\_language\_,
+00084             content\_length\_,
+00085             content\_location\_,
+00086             content\_md5\_,
+00087             content\_range\_,
+00088             content\_type\_,
+00089             expires\_,
+00090             last\_modified\_,
+00091             entity\_header\_end\_,
+00092             end\_                    = entity\_header\_end\_,
+00093 
+00094             num\_                    = end\_,
+00095 
+00096             extension\_header\_,
+00097             invalid\_,
+00098         \};
+00099     \};
+00100     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1_kind}{hryky::Kind<Kind::Raw, Kind::extension_header_>} kind\_type;
+00101 
+00102     LiteralString \textcolor{keyword}{const} g\_tokens[Kind::num\_] = \{
+00103         \textcolor{comment}{// general-header}
+00104         \hyperlink{common_8h_a9ab2728caa46163f328bd32fe4d9ff12}{HRYKY_LITERAL_STRING}(cache\_control),
+00105         \hyperlink{common_8h_a9ab2728caa46163f328bd32fe4d9ff12}{HRYKY_LITERAL_STRING}(connection),
+00106         \hyperlink{common_8h_a9ab2728caa46163f328bd32fe4d9ff12}{HRYKY_LITERAL_STRING}(date),
+00107         \hyperlink{common_8h_a9ab2728caa46163f328bd32fe4d9ff12}{HRYKY_LITERAL_STRING}(pragma),
+00108         \hyperlink{common_8h_a9ab2728caa46163f328bd32fe4d9ff12}{HRYKY_LITERAL_STRING}(trailer),
+00109         \hyperlink{common_8h_a9ab2728caa46163f328bd32fe4d9ff12}{HRYKY_LITERAL_STRING}(transfer\_encoding),
+00110         \hyperlink{common_8h_a9ab2728caa46163f328bd32fe4d9ff12}{HRYKY_LITERAL_STRING}(upgrade),
+00111         \hyperlink{common_8h_a9ab2728caa46163f328bd32fe4d9ff12}{HRYKY_LITERAL_STRING}(via),
+00112         \hyperlink{common_8h_a9ab2728caa46163f328bd32fe4d9ff12}{HRYKY_LITERAL_STRING}(warning),
+00113 
+00114         \textcolor{comment}{// request-header}
+00115         \hyperlink{common_8h_a9ab2728caa46163f328bd32fe4d9ff12}{HRYKY_LITERAL_STRING}(accept),
+00116         \hyperlink{common_8h_a9ab2728caa46163f328bd32fe4d9ff12}{HRYKY_LITERAL_STRING}(accept\_charset),
+00117         \hyperlink{common_8h_a9ab2728caa46163f328bd32fe4d9ff12}{HRYKY_LITERAL_STRING}(accept\_encoding),
+00118         \hyperlink{common_8h_a9ab2728caa46163f328bd32fe4d9ff12}{HRYKY_LITERAL_STRING}(accept\_language),
+00119         \hyperlink{common_8h_a9ab2728caa46163f328bd32fe4d9ff12}{HRYKY_LITERAL_STRING}(authorization),
+00120         \hyperlink{common_8h_a9ab2728caa46163f328bd32fe4d9ff12}{HRYKY_LITERAL_STRING}(expect),
+00121         \hyperlink{common_8h_a9ab2728caa46163f328bd32fe4d9ff12}{HRYKY_LITERAL_STRING}(from),
+00122         \hyperlink{common_8h_a9ab2728caa46163f328bd32fe4d9ff12}{HRYKY_LITERAL_STRING}(host),
+00123         \hyperlink{common_8h_a9ab2728caa46163f328bd32fe4d9ff12}{HRYKY_LITERAL_STRING}(if\_match),
+00124         \hyperlink{common_8h_a9ab2728caa46163f328bd32fe4d9ff12}{HRYKY_LITERAL_STRING}(if\_modified\_since),
+00125         \hyperlink{common_8h_a9ab2728caa46163f328bd32fe4d9ff12}{HRYKY_LITERAL_STRING}(if\_none\_match),
+00126         \hyperlink{common_8h_a9ab2728caa46163f328bd32fe4d9ff12}{HRYKY_LITERAL_STRING}(if\_range),
+00127         \hyperlink{common_8h_a9ab2728caa46163f328bd32fe4d9ff12}{HRYKY_LITERAL_STRING}(if\_unmodifed\_since),
+00128         \hyperlink{common_8h_a9ab2728caa46163f328bd32fe4d9ff12}{HRYKY_LITERAL_STRING}(max\_forwards),
+00129         \hyperlink{common_8h_a9ab2728caa46163f328bd32fe4d9ff12}{HRYKY_LITERAL_STRING}(proxy\_authorization),
+00130         \hyperlink{common_8h_a9ab2728caa46163f328bd32fe4d9ff12}{HRYKY_LITERAL_STRING}(\hyperlink{namespacehryky_a6093192359bc9630d58d6158bd0178f4}{range}),
+00131         \hyperlink{common_8h_a9ab2728caa46163f328bd32fe4d9ff12}{HRYKY_LITERAL_STRING}(referer),
+00132         \hyperlink{common_8h_a9ab2728caa46163f328bd32fe4d9ff12}{HRYKY_LITERAL_STRING}(te),
+00133         \hyperlink{common_8h_a9ab2728caa46163f328bd32fe4d9ff12}{HRYKY_LITERAL_STRING}(user\_agent),
+00134 
+00135         \textcolor{comment}{// response-header}
+00136         \hyperlink{common_8h_a9ab2728caa46163f328bd32fe4d9ff12}{HRYKY_LITERAL_STRING}(accept\_range),
+00137         \hyperlink{common_8h_a9ab2728caa46163f328bd32fe4d9ff12}{HRYKY_LITERAL_STRING}(age),
+00138         \hyperlink{common_8h_a9ab2728caa46163f328bd32fe4d9ff12}{HRYKY_LITERAL_STRING}(etag),
+00139         \hyperlink{common_8h_a9ab2728caa46163f328bd32fe4d9ff12}{HRYKY_LITERAL_STRING}(location),
+00140         \hyperlink{common_8h_a9ab2728caa46163f328bd32fe4d9ff12}{HRYKY_LITERAL_STRING}(proxy\_authenticate),
+00141         \hyperlink{common_8h_a9ab2728caa46163f328bd32fe4d9ff12}{HRYKY_LITERAL_STRING}(refer\_after),
+00142         \hyperlink{common_8h_a9ab2728caa46163f328bd32fe4d9ff12}{HRYKY_LITERAL_STRING}(server),
+00143         \hyperlink{common_8h_a9ab2728caa46163f328bd32fe4d9ff12}{HRYKY_LITERAL_STRING}(vary),
+00144         \hyperlink{common_8h_a9ab2728caa46163f328bd32fe4d9ff12}{HRYKY_LITERAL_STRING}(www\_authenticate),
+00145 
+00146         \textcolor{comment}{// entity-header}
+00147         \hyperlink{common_8h_a9ab2728caa46163f328bd32fe4d9ff12}{HRYKY_LITERAL_STRING}(allow),
+00148         \hyperlink{common_8h_a9ab2728caa46163f328bd32fe4d9ff12}{HRYKY_LITERAL_STRING}(content\_encoding),
+00149         \hyperlink{common_8h_a9ab2728caa46163f328bd32fe4d9ff12}{HRYKY_LITERAL_STRING}(content\_language),
+00150         \hyperlink{common_8h_a9ab2728caa46163f328bd32fe4d9ff12}{HRYKY_LITERAL_STRING}(content\_length),
+00151         \hyperlink{common_8h_a9ab2728caa46163f328bd32fe4d9ff12}{HRYKY_LITERAL_STRING}(content\_location),
+00152         \hyperlink{common_8h_a9ab2728caa46163f328bd32fe4d9ff12}{HRYKY_LITERAL_STRING}(content\_md5),
+00153         \hyperlink{common_8h_a9ab2728caa46163f328bd32fe4d9ff12}{HRYKY_LITERAL_STRING}(content\_range),
+00154         \hyperlink{common_8h_a9ab2728caa46163f328bd32fe4d9ff12}{HRYKY_LITERAL_STRING}(content\_type),
+00155         \hyperlink{common_8h_a9ab2728caa46163f328bd32fe4d9ff12}{HRYKY_LITERAL_STRING}(expires),
+00156         \hyperlink{common_8h_a9ab2728caa46163f328bd32fe4d9ff12}{HRYKY_LITERAL_STRING}(last\_modified),
+00157     \};
+00158 
+00159 \} \textcolor{comment}{// namespace name}
+00160 \} \textcolor{comment}{// namespace header}
+00161 \} \textcolor{comment}{// namespace http}
+00162 \} \textcolor{comment}{// namespace hryky}
+00163 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00164 \textcolor{comment}{// struct declaration}
+00165 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00166 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00167 \textcolor{comment}{// class declaration}
+00168 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00169 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00170 \textcolor{comment}{// global function prototypes}
+00171 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00172 \textcolor{keyword}{namespace }hryky
+00173 \{
+00174 \textcolor{keyword}{namespace }http
+00175 \{
+00176 \textcolor{keyword}{namespace }header
+00177 \{
+00178 \textcolor{keyword}{namespace }name
+00179 \{
+00181     \hyperlink{namespacehryky_1_1log_ad50448c3f934f1eacd5c1bcffe8111e1}{log::format_type} \hyperlink{namespacehryky_afd615217f648ff164bc40fb82166d959}{make_format}(
+00182         \hyperlink{namespacehryky_1_1log_1_1format_ab7408d1e2ed2d648dbf9bba69eb74288}{log::format::name_type} \textcolor{keyword}{const} & name, kind\_type \textcolor{keyword}{const} & src);
+00183 
+00184 \} \textcolor{comment}{// namespace name}
+00185 \} \textcolor{comment}{// namespace header}
+00186 \} \textcolor{comment}{// namespace http}
+00187 \} \textcolor{comment}{// namespace hryky}
+00188 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00189 \textcolor{comment}{// global function definitions}
+00190 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00191 \textcolor{preprocessor}{#endif // HTTP\_HEADER\_NAME\_COMMON\_H\_20120908165811373}
+00192 \textcolor{preprocessor}{}\textcolor{comment}{// end of file}
+\end{DoxyCode}

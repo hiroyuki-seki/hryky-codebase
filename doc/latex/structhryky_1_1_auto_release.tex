@@ -1,0 +1,80 @@
+\hypertarget{structhryky_1_1_auto_release}{\section{hryky\-:\-:Auto\-Release$<$ Resource\-T $>$ Struct Template Reference}
+\label{structhryky_1_1_auto_release}\index{hryky\-::\-Auto\-Release$<$ Resource\-T $>$@{hryky\-::\-Auto\-Release$<$ Resource\-T $>$}}
+}
+
+
+releases a resource when the current scope exits.  
+
+
+
+
+{\ttfamily \#include $<$raii.\-h$>$}
+
+
+
+Inheritance diagram for hryky\-:\-:Auto\-Release$<$ Resource\-T $>$\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=246pt]{structhryky_1_1_auto_release__inherit__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classhryky_1_1_noncopyable_aaf87abb55f700af85ecb0895f6178821}{typedef \hyperlink{classhryky_1_1_noncopyable}{Noncopyable} $\ast$ \hyperlink{classhryky_1_1_noncopyable_aaf87abb55f700af85ecb0895f6178821}{instance\-\_\-type}}\label{classhryky_1_1_noncopyable_aaf87abb55f700af85ecb0895f6178821}
+
+\begin{DoxyCompactList}\small\item\em instance type \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1_noncopyable_acf13ad1c98a76247a561dff514979da5}{typedef \hyperlink{classhryky_1_1_noncopyable}{hryky\-::\-Noncopyable} \hyperlink{classhryky_1_1_noncopyable_acf13ad1c98a76247a561dff514979da5}{this\-\_\-type}}\label{classhryky_1_1_noncopyable_acf13ad1c98a76247a561dff514979da5}
+
+\begin{DoxyCompactList}\small\item\em self \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structhryky_1_1_auto_release_a2ca03b9a40a76106b96a3b112e470a15}{Auto\-Release} (Resource\-T $\ast$ptr)
+\begin{DoxyCompactList}\small\item\em constructor with a released pointer. \end{DoxyCompactList}\item 
+\hypertarget{structhryky_1_1_auto_release_ac65949fad34210bc5e981daadf36fab1}{void \hyperlink{structhryky_1_1_auto_release_ac65949fad34210bc5e981daadf36fab1}{disable} ()}\label{structhryky_1_1_auto_release_ac65949fad34210bc5e981daadf36fab1}
+
+\begin{DoxyCompactList}\small\item\em cancels the deallocation. \end{DoxyCompactList}\item 
+\hypertarget{structhryky_1_1_auto_release_ac8b9d3b97aeb9bc2c27783161e2df552}{\hyperlink{structhryky_1_1_auto_release_ac8b9d3b97aeb9bc2c27783161e2df552}{$\sim$\-Auto\-Release} ()}\label{structhryky_1_1_auto_release_ac8b9d3b97aeb9bc2c27783161e2df552}
+
+\begin{DoxyCompactList}\small\item\em destructor \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$class Resource\-T$>$struct hryky\-::\-Auto\-Release$<$ Resource\-T $>$}
+
+releases a resource when the current scope exits. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Resource\-T} & is the type of released resouce.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyItemize}
+\item the template parameter {\itshape Release\-T\/} must have the member function \hyperlink{namespacehryky_a9bdf380c3703ef316b807edae92a930a}{release()}. 
+\end{DoxyItemize}
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{structhryky_1_1_auto_release_a2ca03b9a40a76106b96a3b112e470a15}{\index{hryky\-::\-Auto\-Release@{hryky\-::\-Auto\-Release}!Auto\-Release@{Auto\-Release}}
+\index{Auto\-Release@{Auto\-Release}!hryky::AutoRelease@{hryky\-::\-Auto\-Release}}
+\subsubsection[{Auto\-Release}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Resource\-T $>$ {\bf hryky\-::\-Auto\-Release}$<$ Resource\-T $>$\-::{\bf Auto\-Release} (
+\begin{DoxyParamCaption}
+\item[{Resource\-T $\ast$}]{ptr}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}\label{structhryky_1_1_auto_release_a2ca03b9a40a76106b96a3b112e470a15}
+
+
+constructor with a released pointer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ptr} & is the pointer of the instance to be released. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this struct was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{raii_8h}{raii.\-h}\end{DoxyCompactItemize}

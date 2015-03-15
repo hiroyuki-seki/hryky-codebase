@@ -1,0 +1,51 @@
+\hypertarget{namespacehryky_1_1memory_1_1heap}{\section{hryky\-:\-:memory\-:\-:heap Namespace Reference}
+\label{namespacehryky_1_1memory_1_1heap}\index{hryky\-::memory\-::heap@{hryky\-::memory\-::heap}}
+}
+
+
+modules of dynamic memory allocation.  
+
+
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classhryky_1_1memory_1_1heap_1_1_adapter}{Adapter}
+\begin{DoxyCompactList}\small\item\em facilitate the definition of a derived class from \hyperlink{classhryky_1_1memory_1_1heap_1_1_base}{hryky\-::memory\-::heap\-::\-Base}. \end{DoxyCompactList}\item 
+class \hyperlink{classhryky_1_1memory_1_1heap_1_1_arbitrary}{Arbitrary}
+\begin{DoxyCompactList}\small\item\em 'not' thread-\/safe memory allocation for usage in one thread. \end{DoxyCompactList}\item 
+class \hyperlink{classhryky_1_1memory_1_1heap_1_1_base}{Base}
+\begin{DoxyCompactList}\small\item\em interface of dynamic memory allocation. \end{DoxyCompactList}\item 
+class \hyperlink{classhryky_1_1memory_1_1heap_1_1_fixed}{Fixed}
+\begin{DoxyCompactList}\small\item\em memory allocation for fixed length units. \end{DoxyCompactList}\item 
+class \hyperlink{classhryky_1_1memory_1_1heap_1_1_lock}{Lock}
+\begin{DoxyCompactList}\small\item\em performs the exclusion control at the allocation and deallocation of heap. \end{DoxyCompactList}\item 
+class \hyperlink{classhryky_1_1memory_1_1heap_1_1_standard}{Standard}
+\begin{DoxyCompactList}\small\item\em allocates memory by std\-::malloc and deallocates it by std\-::free. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{namespacehryky_1_1memory_1_1heap_a3338ac1ff48a602ce216dec92a614f87}{\hyperlink{namespacehryky_a343a9a4c36a586be5c2693156200eadc}{reduction\-\_\-type} \hyperlink{namespacehryky_1_1memory_1_1heap_a3338ac1ff48a602ce216dec92a614f87}{reduce} (\hyperlink{namespacehryky_1_1reduction_ac686c30a4c8d196bbd0f05629a6b921f}{reduction\-::name\-\_\-type} const \&name, \hyperlink{classhryky_1_1memory_1_1heap_1_1_fixed}{Fixed} const \&src)}\label{namespacehryky_1_1memory_1_1heap_a3338ac1ff48a602ce216dec92a614f87}
+
+\begin{DoxyCompactList}\small\item\em outputs the information of \hyperlink{classhryky_1_1memory_1_1heap_1_1_fixed}{hryky\-::memory\-::heap\-::\-Fixed}. \end{DoxyCompactList}\item 
+\hypertarget{namespacehryky_1_1memory_1_1heap_a5ff1dd8b45684d0e443a6706a1c9a732}{\hyperlink{namespacehryky_a343a9a4c36a586be5c2693156200eadc}{reduction\-\_\-type} \hyperlink{namespacehryky_1_1memory_1_1heap_a5ff1dd8b45684d0e443a6706a1c9a732}{reduce} (\hyperlink{namespacehryky_1_1reduction_ac686c30a4c8d196bbd0f05629a6b921f}{reduction\-::name\-\_\-type} const \&name, \hyperlink{structhryky_1_1memory_1_1heap_1_1_fixed_1_1_address}{Fixed\-::\-Address} const \&src)}\label{namespacehryky_1_1memory_1_1heap_a5ff1dd8b45684d0e443a6706a1c9a732}
+
+\begin{DoxyCompactList}\small\item\em outputs the information of an address allocated from \hyperlink{classhryky_1_1memory_1_1heap_1_1_fixed}{hryky\-::memory\-::heap\-::\-Fixed}. \end{DoxyCompactList}\item 
+\hypertarget{namespacehryky_1_1memory_1_1heap_aa4df42a3456c681bd0b3c0e44fced36b}{{\footnotesize template$<$typename Offset\-T $>$ }\\\hyperlink{namespacehryky_a343a9a4c36a586be5c2693156200eadc}{reduction\-\_\-type} \hyperlink{namespacehryky_1_1memory_1_1heap_aa4df42a3456c681bd0b3c0e44fced36b}{reduce} (\hyperlink{namespacehryky_1_1reduction_ac686c30a4c8d196bbd0f05629a6b921f}{reduction\-::name\-\_\-type} const \&name, \hyperlink{classhryky_1_1memory_1_1heap_1_1_arbitrary}{Arbitrary}$<$ Offset\-T $>$ const \&heap)}\label{namespacehryky_1_1memory_1_1heap_aa4df42a3456c681bd0b3c0e44fced36b}
+
+\begin{DoxyCompactList}\small\item\em output the information of \hyperlink{classhryky_1_1memory_1_1heap_1_1_arbitrary}{hryky\-::memory\-::heap\-::\-Arbitrary}. \end{DoxyCompactList}\item 
+\hypertarget{namespacehryky_1_1memory_1_1heap_a1d7e2f4f8ed9a481d8438f7fbfca83e4}{\hyperlink{namespacehryky_a343a9a4c36a586be5c2693156200eadc}{reduction\-\_\-type} \hyperlink{namespacehryky_1_1memory_1_1heap_a1d7e2f4f8ed9a481d8438f7fbfca83e4}{reduce} (\hyperlink{namespacehryky_1_1reduction_ac686c30a4c8d196bbd0f05629a6b921f}{reduction\-::name\-\_\-type} const \&name, \hyperlink{classhryky_1_1memory_1_1heap_1_1_arbitrary}{Arbitrary}$<$ uint8\-\_\-t $>$\-::Address const \&address)}\label{namespacehryky_1_1memory_1_1heap_a1d7e2f4f8ed9a481d8438f7fbfca83e4}
+
+\begin{DoxyCompactList}\small\item\em outputs the information of \hyperlink{structhryky_1_1memory_1_1heap_1_1_arbitrary_1_1_address}{hryky\-::memory\-::heap\-::\-Arbitrary\-::\-Address}. \end{DoxyCompactList}\item 
+\hypertarget{namespacehryky_1_1memory_1_1heap_a06cc3e810841bb578362b99fa764ee65}{\hyperlink{namespacehryky_a343a9a4c36a586be5c2693156200eadc}{reduction\-\_\-type} \hyperlink{namespacehryky_1_1memory_1_1heap_a06cc3e810841bb578362b99fa764ee65}{reduce} (\hyperlink{namespacehryky_1_1reduction_ac686c30a4c8d196bbd0f05629a6b921f}{reduction\-::name\-\_\-type} const \&name, \hyperlink{classhryky_1_1memory_1_1heap_1_1_arbitrary}{Arbitrary}$<$ uint16\-\_\-t $>$\-::Address const \&address)}\label{namespacehryky_1_1memory_1_1heap_a06cc3e810841bb578362b99fa764ee65}
+
+\begin{DoxyCompactList}\small\item\em outputs the information of \hyperlink{structhryky_1_1memory_1_1heap_1_1_arbitrary_1_1_address}{hryky\-::memory\-::heap\-::\-Arbitrary\-::\-Address}. \end{DoxyCompactList}\item 
+\hypertarget{namespacehryky_1_1memory_1_1heap_ad4c8fb151f03e2346c65228b484c71cc}{\hyperlink{namespacehryky_a343a9a4c36a586be5c2693156200eadc}{reduction\-\_\-type} \hyperlink{namespacehryky_1_1memory_1_1heap_ad4c8fb151f03e2346c65228b484c71cc}{reduce} (\hyperlink{namespacehryky_1_1reduction_ac686c30a4c8d196bbd0f05629a6b921f}{reduction\-::name\-\_\-type} const \&name, \hyperlink{classhryky_1_1memory_1_1heap_1_1_arbitrary}{Arbitrary}$<$ uint32\-\_\-t $>$\-::Address const \&address)}\label{namespacehryky_1_1memory_1_1heap_ad4c8fb151f03e2346c65228b484c71cc}
+
+\begin{DoxyCompactList}\small\item\em outputs the information of \hyperlink{structhryky_1_1memory_1_1heap_1_1_arbitrary_1_1_address}{hryky\-::memory\-::heap\-::\-Arbitrary\-::\-Address}. \end{DoxyCompactList}\item 
+\hypertarget{namespacehryky_1_1memory_1_1heap_afeb2dd0bfeaf9e1ec2a81916a4e03066}{\hyperlink{namespacehryky_a343a9a4c36a586be5c2693156200eadc}{reduction\-\_\-type} \hyperlink{namespacehryky_1_1memory_1_1heap_afeb2dd0bfeaf9e1ec2a81916a4e03066}{reduce} (\hyperlink{namespacehryky_1_1reduction_ac686c30a4c8d196bbd0f05629a6b921f}{reduction\-::name\-\_\-type} const \&name, \hyperlink{classhryky_1_1memory_1_1heap_1_1_arbitrary}{Arbitrary}$<$ uint64\-\_\-t $>$\-::Address const \&address)}\label{namespacehryky_1_1memory_1_1heap_afeb2dd0bfeaf9e1ec2a81916a4e03066}
+
+\begin{DoxyCompactList}\small\item\em outputs the information of \hyperlink{structhryky_1_1memory_1_1heap_1_1_arbitrary_1_1_address}{hryky\-::memory\-::heap\-::\-Arbitrary\-::\-Address}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+modules of dynamic memory allocation. 

@@ -1,0 +1,6 @@
+<map id="G" name="G">
+<area shape="rect" id="node2" href="$classhryky_1_1task_1_1distributor_1_1_impl.html" title="{hryky::task::distributor::Impl\&lt; worker::Batch\&lt; TaskT \&gt; \&gt;\n||+ reduce()\l# Impl()\l# implement()\l# worker()\l# worker()\l# workers_begin()\l# workers_begin()\l# workers_end()\l# workers_end()\l# ~Impl()\l}" alt="" coords="5,729,352,938"/>
+<area shape="rect" id="node4" href="$classhryky_1_1task_1_1distributor_1_1_base.html" title="attaches workers to the concurrent units." alt="" coords="47,149,237,403"/>
+<area shape="rect" id="node8" href="$classhryky_1_1task_1_1distributor_1_1_impl.html" title="base class of implementation for task::distributor::Base." alt="" coords="165,454,421,663"/>
+<area shape="rect" id="node6" href="$classhryky_1_1_noncopyable.html" title="forbid copy of class instance." alt="" coords="74,6,211,98"/>
+</map>

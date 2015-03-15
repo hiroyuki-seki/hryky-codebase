@@ -1,0 +1,63 @@
+\hypertarget{namespacehryky_1_1scale}{\section{hryky\-:\-:scale Namespace Reference}
+\label{namespacehryky_1_1scale}\index{hryky\-::scale@{hryky\-::scale}}
+}
+
+
+The modules for dealing with unit systems.  
+
+
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classhryky_1_1scale_1_1_entity}{Entity}
+\begin{DoxyCompactList}\small\item\em retains the value on the scale. \end{DoxyCompactList}\item 
+class \hyperlink{classhryky_1_1scale_1_1_is_lower}{Is\-Lower}
+\begin{DoxyCompactList}\small\item\em confirms whether L\-H\-S is on the lower scale than R\-H\-S. \end{DoxyCompactList}\item 
+class \hyperlink{classhryky_1_1scale_1_1_is_lower_equal}{Is\-Lower\-Equal}
+\begin{DoxyCompactList}\small\item\em confirms whether L\-H\-S is on the scale lower than or equal to the one of R\-H\-S. \end{DoxyCompactList}\item 
+class \hyperlink{classhryky_1_1scale_1_1_is_lower_equal_3_01hryky_1_1_null_00_01_rhs_t_01_4}{Is\-Lower\-Equal$<$ hryky\-::\-Null, Rhs\-T $>$}
+\begin{DoxyCompactList}\small\item\em specializes when the L\-H\-S has no more higher type. \end{DoxyCompactList}\item 
+class \hyperlink{classhryky_1_1scale_1_1_lower_of}{Lower\-Of}
+\begin{DoxyCompactList}\small\item\em retrieves the lower type from two scales. \end{DoxyCompactList}\item 
+class \hyperlink{classhryky_1_1scale_1_1_lower_of_3_01_lhs_t_00_01_rhs_t_00_01true_01_4}{Lower\-Of$<$ Lhs\-T, Rhs\-T, true $>$}
+\begin{DoxyCompactList}\small\item\em specializes \hyperlink{classhryky_1_1scale_1_1_lower_of}{Lower\-Of} of which L\-H\-S is on the lower scale. \end{DoxyCompactList}\item 
+class \hyperlink{classhryky_1_1scale_1_1_radix}{Radix}
+\begin{DoxyCompactList}\small\item\em retrieves the radix from a lower scale to a higher scale. \end{DoxyCompactList}\item 
+class \hyperlink{classhryky_1_1scale_1_1_radix_3_01_value_t_00_01_value_t_01_4}{Radix$<$ Value\-T, Value\-T $>$}
+\begin{DoxyCompactList}\small\item\em specializes if the template arguments are same. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{namespacehryky_1_1scale_ac2fe4df99c737fa954907b456a705f75}{{\footnotesize template$<$typename Lhs\-T , typename Rhs\-T $>$ }\\Lhs\-T \hyperlink{namespacehryky_1_1scale_ac2fe4df99c737fa954907b456a705f75}{add} (Lhs\-T const \&lhs, Rhs\-T const \&rhs, typename \hyperlink{classhryky_1_1_enable_if}{Enable\-If}$<$ \hyperlink{classhryky_1_1scale_1_1_is_lower_equal}{scale\-::\-Is\-Lower\-Equal}$<$ typename Lhs\-T\-::higher\-\_\-type, Rhs\-T $>$ $>$\-::type $\ast$=\hyperlink{common_8h_a4cd4ac09cfcdbd6b30ee69afc156e210}{H\-R\-Y\-K\-Y\-\_\-\-N\-U\-L\-L\-P\-T\-R})}\label{namespacehryky_1_1scale_ac2fe4df99c737fa954907b456a705f75}
+
+\begin{DoxyCompactList}\small\item\em adds the two scales. The L\-H\-S is on the lower scale. \end{DoxyCompactList}\item 
+\hypertarget{namespacehryky_1_1scale_ad9e9b8df1f0e41c8de221227e2ea1a8f}{{\footnotesize template$<$typename Lhs\-T , typename Rhs\-T $>$ }\\Rhs\-T \hyperlink{namespacehryky_1_1scale_ad9e9b8df1f0e41c8de221227e2ea1a8f}{add} (Lhs\-T const \&lhs, Rhs\-T const \&rhs, typename \hyperlink{classhryky_1_1_enable_if}{Enable\-If}$<$ \hyperlink{classhryky_1_1scale_1_1_is_lower_equal}{scale\-::\-Is\-Lower\-Equal}$<$ typename Rhs\-T\-::higher\-\_\-type, Lhs\-T $>$ $>$\-::type $\ast$=\hyperlink{common_8h_a4cd4ac09cfcdbd6b30ee69afc156e210}{H\-R\-Y\-K\-Y\-\_\-\-N\-U\-L\-L\-P\-T\-R})}\label{namespacehryky_1_1scale_ad9e9b8df1f0e41c8de221227e2ea1a8f}
+
+\begin{DoxyCompactList}\small\item\em adds the two scales. The L\-H\-S is on the higher scale. \end{DoxyCompactList}\item 
+\hypertarget{namespacehryky_1_1scale_a6bbb1a80e433741768d3590c888ff644}{{\footnotesize template$<$typename Raw\-T , typename Higher\-T , hryky\-::int64\-\_\-t Radix$>$ }\\\hyperlink{namespacehryky_a343a9a4c36a586be5c2693156200eadc}{reduction\-\_\-type} \hyperlink{namespacehryky_1_1scale_a6bbb1a80e433741768d3590c888ff644}{reduce} (\hyperlink{namespacehryky_1_1reduction_ac686c30a4c8d196bbd0f05629a6b921f}{reduction\-::name\-\_\-type} const \&name, \hyperlink{classhryky_1_1scale_1_1_entity}{Entity}$<$ Raw\-T, Higher\-T, \hyperlink{classhryky_1_1scale_1_1_radix}{Radix} $>$ const \&src)}\label{namespacehryky_1_1scale_a6bbb1a80e433741768d3590c888ff644}
+
+\begin{DoxyCompactList}\small\item\em decomposes the instance to primitive objects. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Raw\-T , typename Higher\-T , hryky\-::int64\-\_\-t Radix$>$ }\\void \hyperlink{namespacehryky_1_1scale_ae4a4f26481f5a12c26e0d3c93f1d1bbc}{swap} (\hyperlink{classhryky_1_1scale_1_1_entity}{Entity}$<$ Raw\-T, Higher\-T, \hyperlink{classhryky_1_1scale_1_1_radix}{Radix} $>$ \&lhs, \hyperlink{classhryky_1_1scale_1_1_entity}{Entity}$<$ Raw\-T, Higher\-T, \hyperlink{classhryky_1_1scale_1_1_radix}{Radix} $>$ \&rhs)
+\begin{DoxyCompactList}\small\item\em interchanges two instances of same type. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The modules for dealing with unit systems. 
+
+\subsection{Function Documentation}
+\hypertarget{namespacehryky_1_1scale_ae4a4f26481f5a12c26e0d3c93f1d1bbc}{\index{hryky\-::scale@{hryky\-::scale}!swap@{swap}}
+\index{swap@{swap}!hryky::scale@{hryky\-::scale}}
+\subsubsection[{swap}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Raw\-T , typename Higher\-T , hryky\-::int64\-\_\-t Radix$>$ void {\bf hryky\-::scale\-::swap} (
+\begin{DoxyParamCaption}
+\item[{Entity$<$ Raw\-T, Higher\-T, Radix $>$ \&}]{lhs, }
+\item[{Entity$<$ Raw\-T, Higher\-T, Radix $>$ \&}]{rhs}
+\end{DoxyParamCaption}
+)}}\label{namespacehryky_1_1scale_ae4a4f26481f5a12c26e0d3c93f1d1bbc}
+
+
+interchanges two instances of same type. 
+
+interchanges two instances of the same type. 
+
+References \hyperlink{classhryky_1_1scale_1_1_entity_a8ec8cc49ba0fd7e19cfe2ed714d62663}{hryky\-::scale\-::\-Entity$<$ Raw\-T, Higher\-T, Radix $>$\-::swap()}.
+

@@ -1,0 +1,125 @@
+\hypertarget{classhryky_1_1task_1_1worker_1_1_quicksort}{\section{hryky\-:\-:task\-:\-:worker\-:\-:Quicksort$<$ Task\-T $>$ Class Template Reference}
+\label{classhryky_1_1task_1_1worker_1_1_quicksort}\index{hryky\-::task\-::worker\-::\-Quicksort$<$ Task\-T $>$@{hryky\-::task\-::worker\-::\-Quicksort$<$ Task\-T $>$}}
+}
+
+
+executes quick-\/sort concurrently.  
+
+
+
+
+{\ttfamily \#include $<$task\-\_\-worker\-\_\-quicksort.\-h$>$}
+
+
+
+Inheritance diagram for hryky\-:\-:task\-:\-:worker\-:\-:Quicksort$<$ Task\-T $>$\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classhryky_1_1task_1_1worker_1_1_quicksort__inherit__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classhryky_1_1task_1_1worker_1_1_quicksort_a66107236443ebbc9c89e26e5c60ca971}{typedef \hyperlink{classhryky_1_1task_1_1worker_1_1_batch}{Batch}$<$ Task\-T $>$ \hyperlink{classhryky_1_1task_1_1worker_1_1_quicksort_a66107236443ebbc9c89e26e5c60ca971}{base\-\_\-type}}\label{classhryky_1_1task_1_1worker_1_1_quicksort_a66107236443ebbc9c89e26e5c60ca971}
+
+\begin{DoxyCompactList}\small\item\em base class of inheritance \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1task_1_1worker_1_1_quicksort_aec488952d4395530a3a8d566cd44f858}{typedef \hyperlink{classhryky_1_1task_1_1distributor_1_1_batch}{distributor\-::\-Batch}\\*
+$<$ \hyperlink{classhryky_1_1_noncopyable_acf13ad1c98a76247a561dff514979da5}{this\-\_\-type} $>$ \hyperlink{classhryky_1_1task_1_1worker_1_1_quicksort_aec488952d4395530a3a8d566cd44f858}{distributor\-\_\-type}}\label{classhryky_1_1task_1_1worker_1_1_quicksort_aec488952d4395530a3a8d566cd44f858}
+
+\begin{DoxyCompactList}\small\item\em type of distributor \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1task_1_1worker_1_1_quicksort_a9f519e4e780042569287c6120af6d77f}{typedef \hyperlink{classhryky_1_1task_1_1worker_1_1_quicksort}{Quicksort}$<$ Task\-T $>$ \hyperlink{classhryky_1_1task_1_1worker_1_1_quicksort_a9f519e4e780042569287c6120af6d77f}{this\-\_\-type}}\label{classhryky_1_1task_1_1worker_1_1_quicksort_a9f519e4e780042569287c6120af6d77f}
+
+\begin{DoxyCompactList}\small\item\em self \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{group__task_gaef74f2d2dd44b8e13f615963ea1e1f0f}{append} (task\-\_\-const\-\_\-reference task)
+\begin{DoxyCompactList}\small\item\em appends a task. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Input\-Iterator $>$ }\\bool \hyperlink{group__task_gabb7f26f7fde9cb631988f9cf906d499f}{append} (Input\-Iterator begin, Input\-Iterator end)
+\begin{DoxyCompactList}\small\item\em appends multiple tasks. \end{DoxyCompactList}\item 
+bool \hyperlink{classhryky_1_1task_1_1worker_1_1_base_ae17d5723d8aa5567ea6a47b67f8133c4}{attach} ()
+\begin{DoxyCompactList}\small\item\em attaches itself to the corresponding thread. \end{DoxyCompactList}\item 
+\hyperlink{classhryky_1_1task_1_1distributor_1_1_batch}{distributor\-\_\-type} \hyperlink{classhryky_1_1task_1_1worker_1_1_batch_ae524443d01bdfe8db31bd6f01a983388}{distributor} () const 
+\begin{DoxyCompactList}\small\item\em retrieves own distributor. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1task_1_1worker_1_1_base_aa39b31ced492faec5dd3b6478b0a98df}{void \hyperlink{classhryky_1_1task_1_1worker_1_1_base_aa39b31ced492faec5dd3b6478b0a98df}{error} ()}\label{classhryky_1_1task_1_1worker_1_1_base_aa39b31ced492faec5dd3b6478b0a98df}
+
+\begin{DoxyCompactList}\small\item\em notifies that some error occurs. \end{DoxyCompactList}\item 
+bool \hyperlink{group__task_ga88b1f6b27be23acb9fd42203d7cd3933}{reset} (\hyperlink{structhryky_1_1task_1_1worker_1_1_base_1_1_reset_parameter}{Reset\-Parameter} const \&param)
+\begin{DoxyCompactList}\small\item\em clears and recreates resources. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classhryky_1_1task_1_1worker_1_1_quicksort_a2f82a35614b7daa8948dc5856dc64b0d}{bool \hyperlink{classhryky_1_1task_1_1worker_1_1_quicksort_a2f82a35614b7daa8948dc5856dc64b0d}{initialize} ()}\label{classhryky_1_1task_1_1worker_1_1_quicksort_a2f82a35614b7daa8948dc5856dc64b0d}
+
+\begin{DoxyCompactList}\small\item\em initialization \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1task_1_1worker_1_1_quicksort_af065760a86205148c6d2a70dd1cbf08e}{\hyperlink{classhryky_1_1task_1_1worker_1_1_quicksort_af065760a86205148c6d2a70dd1cbf08e}{Quicksort} ()}\label{classhryky_1_1task_1_1worker_1_1_quicksort_af065760a86205148c6d2a70dd1cbf08e}
+
+\begin{DoxyCompactList}\small\item\em default constructor \end{DoxyCompactList}\item 
+virtual void \hyperlink{group__task_ga1f7366c2252fb0c7a7c8dc6f92a31e88}{run\-\_\-impl} ()
+\begin{DoxyCompactList}\small\item\em executes tasks \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1task_1_1worker_1_1_quicksort_aeebf7ccb7a536109be5af4c5069bedfd}{virtual \hyperlink{classhryky_1_1task_1_1worker_1_1_quicksort_aeebf7ccb7a536109be5af4c5069bedfd}{$\sim$\-Quicksort} ()}\label{classhryky_1_1task_1_1worker_1_1_quicksort_aeebf7ccb7a536109be5af4c5069bedfd}
+
+\begin{DoxyCompactList}\small\item\em destructor \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$typename Task\-T$>$class hryky\-::task\-::worker\-::\-Quicksort$<$ Task\-T $>$}
+
+executes quick-\/sort concurrently. 
+
+\subsection{Member Function Documentation}
+\hypertarget{classhryky_1_1task_1_1worker_1_1_base_ae17d5723d8aa5567ea6a47b67f8133c4}{\index{hryky\-::task\-::worker\-::\-Quicksort@{hryky\-::task\-::worker\-::\-Quicksort}!attach@{attach}}
+\index{attach@{attach}!hryky::task::worker::Quicksort@{hryky\-::task\-::worker\-::\-Quicksort}}
+\subsubsection[{attach}]{\setlength{\rightskip}{0pt plus 5cm}bool {\bf Base\-::attach} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inherited\mbox{]}}}}\label{classhryky_1_1task_1_1worker_1_1_base_ae17d5723d8aa5567ea6a47b67f8133c4}
+
+
+attaches itself to the corresponding thread. 
+
+\begin{DoxyReturn}{Returns}
+success or failure.
+\end{DoxyReturn}
+
+\begin{DoxyItemize}
+\item This function becomes effective immediately.
+\end{DoxyItemize}
+
+\begin{DoxyAttention}{Attention}
+
+\begin{DoxyItemize}
+\item you must not call this function again while the worker is attached to the concurrent unit. 
+\end{DoxyItemize}
+\end{DoxyAttention}
+
+
+References \hyperlink{log__writer__common_8h_ae5ad3dabb33f594695ef40753cb78aad}{hryky\-\_\-log\-\_\-err}, \hyperlink{log__writer__common_8h_a1a150b0b31f517e34b4f6604348f3cbf}{hryky\-\_\-log\-\_\-warning}, \hyperlink{common_8h_a4cd4ac09cfcdbd6b30ee69afc156e210}{H\-R\-Y\-K\-Y\-\_\-\-N\-U\-L\-L\-P\-T\-R}, and \hyperlink{reduction__common_8h_afc72326c9900838c5db40438318794dd}{hryky\-\_\-reduce()}.
+
+
+
+Referenced by \hyperlink{group__task_ga54ecf037362d5f476c1cd9a984c1b720}{hryky\-::task\-::distributor\-::\-Batch$<$ Task\-T $>$\-::attach\-\_\-with()}.
+
+\hypertarget{classhryky_1_1task_1_1worker_1_1_batch_ae524443d01bdfe8db31bd6f01a983388}{\index{hryky\-::task\-::worker\-::\-Quicksort@{hryky\-::task\-::worker\-::\-Quicksort}!distributor@{distributor}}
+\index{distributor@{distributor}!hryky::task::worker::Quicksort@{hryky\-::task\-::worker\-::\-Quicksort}}
+\subsubsection[{distributor}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Task\-T$>$ {\bf distributor\-\_\-type} {\bf hryky\-::task\-::worker\-::\-Batch}$<$ Task\-T $>$\-::{\bf distributor} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline, inherited\mbox{]}}}}\label{classhryky_1_1task_1_1worker_1_1_batch_ae524443d01bdfe8db31bd6f01a983388}
+
+
+retrieves own distributor. 
+
+\begin{DoxyReturn}{Returns}
+distributor which distributes this instance. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{task__worker__quicksort_8h}{task\-\_\-worker\-\_\-quicksort.\-h}\end{DoxyCompactItemize}

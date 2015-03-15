@@ -1,0 +1,5 @@
+<map id="G" name="G">
+<area shape="rect" id="node2" href="$classhryky_1_1_adapter.html" title="{hryky::Adapter\&lt; writer::Base, ValueT \&gt;\n|+ hryky_assign_op\l|+ Adapter()\l+ Adapter()\l+ Adapter()\l+ Adapter()\l+ clear()\l+ reduce()\l+ swap()\l+ value()\l+ value()\l+ ~Adapter()\l}" alt="" coords="45,281,293,490"/>
+<area shape="rect" id="node4" href="$classhryky_1_1writer_1_1_base.html" title="base class to write data polymorphically." alt="" coords="5,21,136,201"/>
+<area shape="rect" id="node6" href="$classhryky_1_1_adapter.html" title="provides the interface in behalf of the valueementation." alt="" coords="160,6,376,215"/>
+</map>

@@ -1,0 +1,88 @@
+\hypertarget{opengl__version_8h_source}{\section{opengl\-\_\-version.\-h}
+}
+
+\begin{DoxyCode}
+00001 
+00007 \textcolor{preprocessor}{#ifndef OPENGL\_VERSION\_H\_20120220133049229}
+00008 \textcolor{preprocessor}{}\textcolor{preprocessor}{#define OPENGL\_VERSION\_H\_20120220133049229}
+00009 \textcolor{preprocessor}{}\textcolor{preprocessor}{#include "\hyperlink{reduction__common_8h}{hryky/reduction/reduction_common.h}"}
+00010 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00011 \textcolor{comment}{// macro definition}
+00012 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00013 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00014 \textcolor{comment}{// namespace}
+00015 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00016 \textcolor{keyword}{namespace }hryky
+00017 \{
+00018 \textcolor{keyword}{namespace }opengl
+00019 \{
+00021     \textcolor{keyword}{class }Version;
+00022 
+00024     Version \hyperlink{namespacehryky_1_1opengl_ad642afa7961d36eaceb81c1c75b9476d}{version_2_1}();
+00025 
+00027     Version \hyperlink{namespacehryky_1_1opengl_add161d3235f18e84c734bf3a28c2f80e}{version_3_2}();
+00028 
+00030     Version \hyperlink{namespacehryky_1_1opengl_a09e05bdbe6b5618bc752e8f9933722f0}{version_4_1}();
+00031 
+00033     \hyperlink{namespacehryky_a343a9a4c36a586be5c2693156200eadc}{reduction_type} \hyperlink{namespacehryky_1_1opengl_a1f50a28d54b84ea181f698a67dca08e1}{reduce}(
+00034         \hyperlink{namespacehryky_1_1reduction_ac686c30a4c8d196bbd0f05629a6b921f}{reduction::name_type} \textcolor{keyword}{const} & name, Version \textcolor{keyword}{const} & version);
+00035 
+00036 \}
+00037 \}
+00038 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00039 \textcolor{comment}{// class declaration}
+00040 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+\hypertarget{opengl__version_8h_source_l00044}{}\hyperlink{classhryky_1_1opengl_1_1_version}{00044} \textcolor{comment}{}\textcolor{keyword}{class }\hyperlink{classhryky_1_1opengl_1_1_version}{hryky::opengl::Version}
+00045 \{
+00046 \textcolor{keyword}{public} :
+00047 
+\hypertarget{opengl__version_8h_source_l00048}{}\hyperlink{classhryky_1_1opengl_1_1_version_a0ce0b6237bec7d7bd202655afbb7bc6a}{00048}     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1opengl_1_1_version}{hryky::opengl::Version}  \hyperlink{classhryky_1_1opengl_1_1_version_a0ce0b6237bec7d7bd202655afbb7bc6a}{this_type};  
+\hypertarget{opengl__version_8h_source_l00049}{}\hyperlink{classhryky_1_1opengl_1_1_version_ae789e987d102cbfb66372e180bd14c41}{00049}     \textcolor{keyword}{typedef} uint8\_t                 \hyperlink{classhryky_1_1opengl_1_1_version_ae789e987d102cbfb66372e180bd14c41}{major_type}; 
+\hypertarget{opengl__version_8h_source_l00050}{}\hyperlink{classhryky_1_1opengl_1_1_version_a88027fbb69404c3549a4582a41b2962d}{00050}     \textcolor{keyword}{typedef} uint8\_t                 \hyperlink{classhryky_1_1opengl_1_1_version_a88027fbb69404c3549a4582a41b2962d}{minor_type}; 
+00051 
+00053     \textcolor{keyword}{explicit} \hyperlink{classhryky_1_1opengl_1_1_version_a7e065b2fd2f952e81d2f140df0ef0e50}{Version}();
+00054 
+00056     \hyperlink{classhryky_1_1opengl_1_1_version_a7e065b2fd2f952e81d2f140df0ef0e50}{Version}(\hyperlink{classhryky_1_1opengl_1_1_version_ae789e987d102cbfb66372e180bd14c41}{major_type} \hyperlink{classhryky_1_1opengl_1_1_version_adc87944fb27f42abddc4d8f29bbbd659}{major}, \hyperlink{classhryky_1_1opengl_1_1_version_a88027fbb69404c3549a4582a41b2962d}{minor_type} \hyperlink{classhryky_1_1opengl_1_1_version_a8e010714976a018de146a42802ba8385}{minor});
+00057 
+00059     \textcolor{keywordtype}{bool} \hyperlink{classhryky_1_1opengl_1_1_version_a1f97f6812c309d9889c4ebd6bfe2d7bb}{operator<}(\hyperlink{classhryky_1_1opengl_1_1_version}{this_type} \textcolor{keyword}{const} & rhs) \textcolor{keyword}{const};
+00060 
+00062     \textcolor{keywordtype}{bool} \hyperlink{classhryky_1_1opengl_1_1_version_a8ddeea468d8764708668ae97da23c258}{operator<=}(\hyperlink{classhryky_1_1opengl_1_1_version}{this_type} \textcolor{keyword}{const} & rhs) \textcolor{keyword}{const};
+00063 
+00065     \textcolor{keywordtype}{bool} \hyperlink{classhryky_1_1opengl_1_1_version_a03efa8d8d30fed0e2fabc80dac77cd89}{operator==}(\hyperlink{classhryky_1_1opengl_1_1_version}{this_type} \textcolor{keyword}{const} & rhs) \textcolor{keyword}{const};
+00066 
+00068     \hyperlink{classhryky_1_1opengl_1_1_version_ae789e987d102cbfb66372e180bd14c41}{Version::major_type} \hyperlink{classhryky_1_1opengl_1_1_version_adc87944fb27f42abddc4d8f29bbbd659}{major}() \textcolor{keyword}{const};
+00069 
+00071     \hyperlink{classhryky_1_1opengl_1_1_version_a88027fbb69404c3549a4582a41b2962d}{Version::minor_type} \hyperlink{classhryky_1_1opengl_1_1_version_a8e010714976a018de146a42802ba8385}{minor}() \textcolor{keyword}{const};
+00072 
+00073 \textcolor{keyword}{protected} :
+00074 
+00075 \textcolor{keyword}{private} :
+00076 
+00077     uint8\_t     major\_;
+00078     uint8\_t     minor\_;
+00079 
+00080 \};
+00081 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00082 \textcolor{comment}{// public member functions}
+00083 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00084 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00085 \textcolor{comment}{// protected member functions}
+00086 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00087 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00088 \textcolor{comment}{// private member functions}
+00089 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00090 \textcolor{preprocessor}{#endif // OPENGL\_VERSION\_H\_20120220133049229}
+00091 \textcolor{preprocessor}{}\textcolor{comment}{// end of file}
+\end{DoxyCode}

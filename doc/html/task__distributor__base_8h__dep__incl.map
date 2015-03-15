@@ -1,0 +1,11 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$task__distributor__impl_8h.html" title="base class of implementation for task::distributor::Base." alt="" coords="341,80,493,107"/>
+<area shape="rect" id="node7" href="$task_8h.html" title="task modules." alt="" coords="385,229,444,256"/>
+<area shape="rect" id="node15" href="$task__distributor__base_8cpp.html" title="attaches workers to the concurrent units." alt="" coords="515,379,685,405"/>
+<area shape="rect" id="node5" href="$task__distributor__batch_8h.html" title="manages workers which executes multiple tasks." alt="" coords="334,155,495,181"/>
+<area shape="rect" id="node9" href="$hryky_8h.html" title="include the entire headers of hryky&#45;codebase." alt="" coords="274,304,339,331"/>
+<area shape="rect" id="node11" href="$task_2src_2precompiled_8h_source.html" title="precompiled.h" alt="" coords="363,304,465,331"/>
+<area shape="rect" id="node13" href="$task__concurrency_8cpp.html" title="manages concurrent units." alt="" coords="5,379,155,405"/>
+<area shape="rect" id="node17" href="$task__sequence_8cpp.html" title="manages workers in a thread." alt="" coords="179,379,313,405"/>
+<area shape="rect" id="node19" href="$task__worker__base_8cpp.html" title="executes tasks." alt="" coords="339,379,491,405"/>
+</map>

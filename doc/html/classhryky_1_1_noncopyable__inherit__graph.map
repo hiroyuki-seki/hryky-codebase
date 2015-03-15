@@ -1,0 +1,38 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$classhryky_1_1_auto_delete.html" title="delete an instance when the current scope exits." alt="" coords="5,223,211,329"/>
+<area shape="rect" id="node5" href="$structhryky_1_1_auto_free.html" title="deallocate a pointer when the current scope exits." alt="" coords="236,223,351,329"/>
+<area shape="rect" id="node7" href="$structhryky_1_1_auto_func.html" title="calls a function when the current scope exits." alt="" coords="375,223,576,329"/>
+<area shape="rect" id="node9" href="$structhryky_1_1_auto_func1.html" title="calls a function when the current scope exits." alt="" coords="601,223,852,329"/>
+<area shape="rect" id="node11" href="$structhryky_1_1_auto_func2.html" title="calls a function when the current scope exits." alt="" coords="877,223,1168,329"/>
+<area shape="rect" id="node13" href="$structhryky_1_1_auto_release.html" title="releases a resource when the current scope exits." alt="" coords="1193,223,1415,329"/>
+<area shape="rect" id="node15" href="$structhryky_1_1clock_1_1_auto_elapsed.html" title="measures an elapsed time out at the end of the scope." alt="" coords="1439,230,1613,322"/>
+<area shape="rect" id="node17" href="$classhryky_1_1display_1_1_config.html" title="retains the configuration of display." alt="" coords="1639,208,1785,344"/>
+<area shape="rect" id="node19" href="$structhryky_1_1display_1_1_environment_1_1_reset_parameter.html" title="parameters for reset()." alt="" coords="1810,237,2093,315"/>
+<area shape="rect" id="node21" href="$structhryky_1_1display_1_1_mode_1_1_reset_parameter.html" title="parameters for reset()" alt="" coords="2119,237,2364,315"/>
+<area shape="rect" id="node23" href="$classhryky_1_1exclusion_1_1_counter.html" title="joinable counter." alt="" coords="2388,164,2559,388"/>
+<area shape="rect" id="node25" href="$structhryky_1_1graphics_1_1_module_1_1_reset_parameter.html" title="parameters for reset()" alt="" coords="2583,237,2845,315"/>
+<area shape="rect" id="node27" href="$structhryky_1_1log_1_1_auto_elapsed.html" title="logs an elapsed time out at the end of the scope." alt="" coords="2870,230,3031,322"/>
+<area shape="rect" id="node29" href="$structhryky_1_1log_1_1writer_1_1_push.html" title="assigns a new log writer, and restores the previous log writer at the end of the scope." alt="" coords="3055,230,3211,322"/>
+<area shape="rect" id="node31" href="$structhryky_1_1memory_1_1heap_1_1_arbitrary_1_1_address.html" title="wrapper to print an address allocated from heap " alt="" coords="3236,223,3559,329"/>
+<area shape="rect" id="node33" href="$structhryky_1_1memory_1_1heap_1_1_fixed_1_1_address.html" title="the information of a address allocated from hryky::memory::heap::Fixed." alt="" coords="3583,223,3824,329"/>
+<area shape="rect" id="node35" href="$classhryky_1_1task_1_1_concurrency.html" title="manages concurrency units." alt="" coords="3849,186,4017,366"/>
+<area shape="rect" id="node37" href="$structhryky_1_1task_1_1_concurrency_1_1_reset_parameter.html" title="the parameters of reset()" alt="" coords="4042,237,4312,315"/>
+<area shape="rect" id="node39" href="$classhryky_1_1task_1_1distributor_1_1_base.html" title="attaches workers to the concurrent units." alt="" coords="4337,149,4527,403"/>
+<area shape="rect" id="node48" href="$structhryky_1_1task_1_1distributor_1_1_base_1_1_reset_parameter.html" title="the set of parameters to reset" alt="" coords="4551,237,4843,315"/>
+<area shape="rect" id="node50" href="$structhryky_1_1task_1_1_sequence_1_1_reset_parameter.html" title="parameters for reset()" alt="" coords="4867,208,5121,344"/>
+<area shape="rect" id="node52" href="$classhryky_1_1task_1_1worker_1_1_base.html" title="executes tasks." alt="" coords="5147,193,5317,359"/>
+<area shape="rect" id="node58" href="$classhryky_1_1task_1_1worker_1_1_base_1_1_detach.html" title="allows to call detach() from the concurrent unit." alt="" coords="5342,237,5561,315"/>
+<area shape="rect" id="node60" href="$structhryky_1_1task_1_1worker_1_1_base_1_1_reset_parameter.html" title="parameter for reset()" alt="" coords="5586,237,5859,315"/>
+<area shape="rect" id="node64" href="$classhryky_1_1task_1_1worker_1_1_base_1_1_run.html" title="allows to call run() from the concurrent unit." alt="" coords="5884,237,6087,315"/>
+<area shape="rect" id="node66" href="$classhryky_1_1thread_1_1_pool_1_1_inactivate.html" title="the wrapper to call inactivate()." alt="" coords="6111,237,6305,315"/>
+<area shape="rect" id="node68" href="$structhryky_1_1thread_1_1_pool_1_1_reset_parameter.html" title="parameters for reset()" alt="" coords="6329,223,6564,329"/>
+<area shape="rect" id="node70" href="$classhryky_1_1thread_1_1_pool_1_1_terminate.html" title="the wrapper to call terminate()." alt="" coords="6588,237,6785,315"/>
+<area shape="rect" id="node72" href="$classhryky_1_1thread_1_1_resource.html" title="holds the resource of concurrent unit." alt="" coords="6810,179,6971,373"/>
+<area shape="rect" id="node74" href="$structhryky_1_1thread_1_1_resource_1_1_reset_parameter.html" title="parameters for reset()." alt="" coords="6995,230,7257,322"/>
+<area shape="rect" id="node41" href="$classhryky_1_1task_1_1distributor_1_1_impl.html" title="base class of implementation for task::distributor::Base." alt="" coords="4163,475,4420,685"/>
+<area shape="rect" id="node43" href="$classhryky_1_1task_1_1distributor_1_1_impl.html" title="{hryky::task::distributor::Impl\&lt; worker::Batch\&lt; TaskT \&gt; \&gt;\n||+ reduce()\l# Impl()\l# implement()\l# worker()\l# worker()\l# workers_begin()\l# workers_begin()\l# workers_end()\l# workers_end()\l# ~Impl()\l}" alt="" coords="4203,771,4549,981"/>
+<area shape="rect" id="node45" href="$classhryky_1_1task_1_1distributor_1_1_batch.html" title="manages workers which executes multiple tasks." alt="" coords="4249,1033,4503,1183"/>
+<area shape="rect" id="node54" href="$classhryky_1_1task_1_1worker_1_1_batch.html" title="executes tasks in common use." alt="" coords="5115,453,5349,707"/>
+<area shape="rect" id="node56" href="$classhryky_1_1task_1_1worker_1_1_quicksort.html" title="executes quick&#45;sort concurrently." alt="" coords="5104,823,5360,929"/>
+<area shape="rect" id="node62" href="$structhryky_1_1task_1_1worker_1_1_batch_1_1_reset_parameter.html" title="parameter for reset()." alt="" coords="5555,519,5891,641"/>
+</map>

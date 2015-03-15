@@ -1,0 +1,70 @@
+\hypertarget{geometry__coord__cartesian_8h}{\section{geometry\-\_\-coord\-\_\-cartesian.\-h File Reference}
+\label{geometry__coord__cartesian_8h}\index{geometry\-\_\-coord\-\_\-cartesian.\-h@{geometry\-\_\-coord\-\_\-cartesian.\-h}}
+}
+
+
+retains the information of a coordinate specified by Cartesian coordinate system.  
+
+
+{\ttfamily \#include \char`\"{}hryky/reduction/reduction\-\_\-map.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}hryky/reduction/reduction\-\_\-array.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}hryky/array.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}hryky/foreach.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}hryky/gp.\-h\char`\"{}}\\*
+This graph shows which files directly or indirectly include this file\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{geometry__coord__cartesian_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classhryky_1_1geometry_1_1coord_1_1_cartesian}{hryky\-::geometry\-::coord\-::\-Cartesian$<$ Value\-T, Dimension $>$}
+\begin{DoxyCompactList}\small\item\em retains the information of a coordinate specified by \hyperlink{classhryky_1_1geometry_1_1coord_1_1_cartesian}{Cartesian} coordinate system. \end{DoxyCompactList}\item 
+class \hyperlink{classhryky_1_1geometry_1_1coord_1_1_cartesian2_d}{hryky\-::geometry\-::coord\-::\-Cartesian2\-D$<$ Value\-T $>$}
+\begin{DoxyCompactList}\small\item\em retains the two-\/dimensional coordinate specified by \hyperlink{classhryky_1_1geometry_1_1coord_1_1_cartesian}{Cartesian} coordinate system. \end{DoxyCompactList}\item 
+class \hyperlink{classhryky_1_1geometry_1_1coord_1_1_cartesian3_d}{hryky\-::geometry\-::coord\-::\-Cartesian3\-D$<$ Value\-T $>$}
+\begin{DoxyCompactList}\small\item\em retains the three-\/dimensional coordinate specified by \hyperlink{classhryky_1_1geometry_1_1coord_1_1_cartesian}{Cartesian} coordinate system. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \hyperlink{namespacehryky}{hryky}
+\begin{DoxyCompactList}\small\item\em the root of all namespaces in hryky-\/codebase. \end{DoxyCompactList}\item 
+namespace \hyperlink{namespacehryky_1_1geometry}{hryky\-::geometry}
+\begin{DoxyCompactList}\small\item\em modules for processing geometry. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{namespacehryky_1_1geometry_1_1coord_abb9c90ed56c9c8c14944ba2b99fddac8}{{\footnotesize template$<$typename Value\-T , size\-\_\-t Dimension$>$ }\\Cartesian$<$ Value\-T, Dimension $>$ {\bfseries hryky\-::geometry\-::coord\-::operator-\/} (Cartesian$<$ Value\-T, Dimension $>$ const \&lhs, Cartesian$<$ Value\-T, Dimension $>$ const \&rhs)}\label{namespacehryky_1_1geometry_1_1coord_abb9c90ed56c9c8c14944ba2b99fddac8}
+
+\begin{DoxyCompactList}\small\item\em retrieves the difference of each coordinate. \end{DoxyCompactList}\item 
+\hypertarget{namespacehryky_1_1geometry_1_1coord_a2a252e09d408aa2b7034bc32efdb669c}{{\footnotesize template$<$typename Value\-T $>$ }\\Cartesian2\-D$<$ Value\-T $>$ {\bfseries hryky\-::geometry\-::coord\-::operator-\/} (Cartesian2\-D$<$ Value\-T $>$ const \&lhs, Cartesian2\-D$<$ Value\-T $>$ const \&rhs)}\label{namespacehryky_1_1geometry_1_1coord_a2a252e09d408aa2b7034bc32efdb669c}
+
+\begin{DoxyCompactList}\small\item\em retrieves the difference of each coordinate of \hyperlink{classhryky_1_1geometry_1_1coord_1_1_cartesian2_d}{Cartesian2\-D}. \end{DoxyCompactList}\item 
+\hypertarget{namespacehryky_1_1geometry_1_1coord_ac1393a72a2e0fa3b4b5a9385686c4ab0}{{\footnotesize template$<$typename Value\-T , size\-\_\-t Dimension$>$ }\\reduction\-\_\-type {\bfseries hryky\-::geometry\-::coord\-::reduce} (reduction\-::name\-\_\-type const \&name, Cartesian$<$ Value\-T, Dimension $>$ const \&cartesian)}\label{namespacehryky_1_1geometry_1_1coord_ac1393a72a2e0fa3b4b5a9385686c4ab0}
+
+\begin{DoxyCompactList}\small\item\em outputs the information of \hyperlink{classhryky_1_1geometry_1_1coord_1_1_cartesian}{Cartesian} as text. \end{DoxyCompactList}\item 
+\hypertarget{namespacehryky_1_1geometry_1_1coord_a811efdde6a60c07a0bce8297ed866445}{{\footnotesize template$<$typename Value\-T $>$ }\\reduction\-\_\-type {\bfseries hryky\-::geometry\-::coord\-::reduce} (reduction\-::name\-\_\-type const \&name, Cartesian2\-D$<$ Value\-T $>$ const \&cartesian)}\label{namespacehryky_1_1geometry_1_1coord_a811efdde6a60c07a0bce8297ed866445}
+
+\begin{DoxyCompactList}\small\item\em outputs the information of \hyperlink{classhryky_1_1geometry_1_1coord_1_1_cartesian2_d}{Cartesian2\-D} as text. \end{DoxyCompactList}\item 
+\hypertarget{namespacehryky_1_1geometry_1_1coord_aeaf872e6dfb077ad0aa35e05c140efd9}{{\footnotesize template$<$typename Value\-T $>$ }\\reduction\-\_\-type {\bfseries hryky\-::geometry\-::coord\-::reduce} (reduction\-::name\-\_\-type const \&name, Cartesian3\-D$<$ Value\-T $>$ const \&cartesian)}\label{namespacehryky_1_1geometry_1_1coord_aeaf872e6dfb077ad0aa35e05c140efd9}
+
+\begin{DoxyCompactList}\small\item\em outputs the information of \hyperlink{classhryky_1_1geometry_1_1coord_1_1_cartesian3_d}{Cartesian3\-D} as text. \end{DoxyCompactList}\item 
+\hypertarget{namespacehryky_1_1geometry_1_1coord_ac9ee75e6237b86597c62b980bad4bcae}{{\footnotesize template$<$typename Value\-T $>$ }\\void {\bfseries hryky\-::geometry\-::coord\-::swap} (Cartesian2\-D$<$ Value\-T $>$ \&lhs, Cartesian2\-D$<$ Value\-T $>$ \&rhs)}\label{namespacehryky_1_1geometry_1_1coord_ac9ee75e6237b86597c62b980bad4bcae}
+
+\begin{DoxyCompactList}\small\item\em interchanges values. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+retains the information of a coordinate specified by Cartesian coordinate system. \begin{DoxyAuthor}{Author}
+H\-R\-Y\-K\-Y 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+
+\end{DoxyVersion}
+\begin{DoxyParagraph}{Id\-:}
+\hyperlink{geometry__coord__cartesian_8h}{geometry\-\_\-coord\-\_\-cartesian.\-h} 150 2013-\/02-\/10 10\-:08\-:03\-Z \href{mailto:hryky.private@gmail.com}{\tt hryky.\-private@gmail.\-com} 
+\end{DoxyParagraph}

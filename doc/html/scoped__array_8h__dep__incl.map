@@ -1,0 +1,10 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$task__concurrency_8h.html" title="manages concurrency units." alt="" coords="328,80,464,107"/>
+<area shape="rect" id="node5" href="$task_8h.html" title="task modules." alt="" coords="323,155,381,181"/>
+<area shape="rect" id="node11" href="$task__concurrency_8cpp.html" title="manages concurrent units." alt="" coords="5,304,155,331"/>
+<area shape="rect" id="node13" href="$task__distributor__base_8cpp.html" title="attaches workers to the concurrent units." alt="" coords="356,304,527,331"/>
+<area shape="rect" id="node15" href="$task__sequence_8cpp.html" title="manages workers in a thread." alt="" coords="551,304,685,331"/>
+<area shape="rect" id="node7" href="$hryky_8h.html" title="include the entire headers of hryky&#45;codebase." alt="" coords="211,229,276,256"/>
+<area shape="rect" id="node9" href="$task_2src_2precompiled_8h_source.html" title="precompiled.h" alt="" coords="301,229,403,256"/>
+<area shape="rect" id="node17" href="$task__worker__base_8cpp.html" title="executes tasks." alt="" coords="180,304,332,331"/>
+</map>

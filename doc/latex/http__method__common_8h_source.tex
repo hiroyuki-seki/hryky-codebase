@@ -1,0 +1,96 @@
+\hypertarget{http__method__common_8h_source}{\section{http\-\_\-method\-\_\-common.\-h}
+}
+
+\begin{DoxyCode}
+00001 
+00007 \textcolor{preprocessor}{#ifndef HTTP\_METHOD\_COMMON\_H\_20120718004910700}
+00008 \textcolor{preprocessor}{}\textcolor{preprocessor}{#define HTTP\_METHOD\_COMMON\_H\_20120718004910700}
+00009 \textcolor{preprocessor}{}\textcolor{preprocessor}{#include "\hyperlink{kind_8h}{hryky/kind.h}"}
+00010 \textcolor{preprocessor}{#include "\hyperlink{reduction__common_8h}{hryky/reduction/reduction_common.h}"}
+00011 \textcolor{preprocessor}{#include "\hyperlink{range_8h}{hryky/range.h}"}
+00012 \textcolor{preprocessor}{#include "\hyperlink{foreach_8h}{hryky/foreach.h}"}
+00013 \textcolor{preprocessor}{#include "\hyperlink{literal__string_8h}{hryky/literal_string.h}"}
+00014 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00015 \textcolor{comment}{// macro definition}
+00016 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00017 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00018 \textcolor{comment}{// namespace}
+00019 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00020 \textcolor{keyword}{namespace }hryky
+00021 \{
+00022 \textcolor{keyword}{namespace }http
+00023 \{
+00024 \textcolor{keyword}{namespace }method
+00025 \{
+00026     \textcolor{keyword}{struct }Kind \{
+00027         \textcolor{keyword}{enum} Raw \{
+00028             options\_,
+00029             get\_,
+00030             head\_,
+00031             post\_,
+00032             put\_,
+00033             delete\_,
+00034             trace\_,
+00035             connect\_,
+00036 
+00037             num\_,
+00038 
+00039             extension\_ = num\_,
+00040             invalid\_,
+00041         \};
+00042     \};
+00043     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1_kind}{hryky::Kind<Kind, Kind::invalid_>} kind\_type;
+00044 
+00045     LiteralString \textcolor{keyword}{const} tokens\_[Kind::num\_] = \{
+00046         LiteralString(\textcolor{stringliteral}{"OPTIONS"}),
+00047         LiteralString(\textcolor{stringliteral}{"GET"}),
+00048         LiteralString(\textcolor{stringliteral}{"HEAD"}),
+00049         LiteralString(\textcolor{stringliteral}{"POST"}),
+00050         LiteralString(\textcolor{stringliteral}{"PUT"}),
+00051         LiteralString(\textcolor{stringliteral}{"DELETE"}),
+00052         LiteralString(\textcolor{stringliteral}{"TRACE"}),
+00053         LiteralString(\textcolor{stringliteral}{"CONNECT"}),
+00054     \};
+00055 
+00056 \} \textcolor{comment}{// namespace method}
+00057 \} \textcolor{comment}{// namespace http}
+00058 \} \textcolor{comment}{// namespace hryky}
+00059 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00060 \textcolor{comment}{// struct declaration}
+00061 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00062 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00063 \textcolor{comment}{// class declaration}
+00064 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00065 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00066 \textcolor{comment}{// global function prototypes}
+00067 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00068 \textcolor{keyword}{namespace }hryky
+00069 \{
+00070 \textcolor{keyword}{namespace }http
+00071 \{
+00072 \textcolor{keyword}{namespace }method
+00073 \{
+00075     \hyperlink{namespacehryky_a343a9a4c36a586be5c2693156200eadc}{reduction_type} \hyperlink{namespacehryky_1_1http_a08fc36a78a8e2908140fcd102829a566}{reduce}(
+00076         \hyperlink{namespacehryky_1_1reduction_ac686c30a4c8d196bbd0f05629a6b921f}{reduction::name_type} \textcolor{keyword}{const} & name, kind\_type \textcolor{keyword}{const} & src);
+00077 
+00078 \} \textcolor{comment}{// namespace method}
+00079 \} \textcolor{comment}{// namespace http}
+00080 \} \textcolor{comment}{// namespace hryky}
+00081 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00082 \textcolor{comment}{// global function definitions}
+00083 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00084 \textcolor{preprocessor}{#endif // HTTP\_METHOD\_COMMON\_H\_20120718004910700}
+00085 \textcolor{preprocessor}{}\textcolor{comment}{// end of file}
+\end{DoxyCode}

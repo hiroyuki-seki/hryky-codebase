@@ -1,0 +1,85 @@
+\hypertarget{is__floating__point_8h_source}{\section{is\-\_\-floating\-\_\-point.\-h}
+}
+
+\begin{DoxyCode}
+00001 
+00007 \textcolor{preprocessor}{#ifndef TYPE\_IS\_FLOATING\_POINT\_H\_20120923203457524}
+00008 \textcolor{preprocessor}{}\textcolor{preprocessor}{#define TYPE\_IS\_FLOATING\_POINT\_H\_20120923203457524}
+00009 \textcolor{preprocessor}{}\textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00010 \textcolor{comment}{// macro definition}
+00011 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00012 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00013 \textcolor{comment}{// namespace}
+00014 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00015 \textcolor{keyword}{namespace }hryky
+00016 \{
+00018     \textcolor{keyword}{template} < \textcolor{keyword}{typename} ValueT >
+00019     \textcolor{keyword}{class }IsFloatingPoint;
+00020 
+00021 \} \textcolor{comment}{// namespace hryky}
+00022 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00023 \textcolor{comment}{// class declarations}
+00024 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00028 \textcolor{comment}{}\textcolor{keyword}{template} < \textcolor{keyword}{typename} ValueT >
+\hypertarget{is__floating__point_8h_source_l00029}{}\hyperlink{classhryky_1_1_is_floating_point}{00029} \textcolor{keyword}{class }\hyperlink{classhryky_1_1_is_floating_point}{hryky::IsFloatingPoint}
+00030 \{
+00031 \textcolor{keyword}{public} :
+00032     \textcolor{keyword}{static} \textcolor{keywordtype}{bool} \textcolor{keyword}{const} value = \textcolor{keyword}{false};
+00033 \};
+00034 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00035 \textcolor{comment}{// class specializations}
+00036 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00037 \textcolor{keyword}{namespace }hryky
+00038 \{
+00042 \textcolor{keyword}{template} <>
+\hypertarget{is__floating__point_8h_source_l00043}{}\hyperlink{classhryky_1_1hryky_1_1_is_floating_point_3_01float_01_4}{00043} \textcolor{keyword}{class }\hyperlink{classhryky_1_1_is_floating_point}{hryky::IsFloatingPoint}<float>
+00044 \{
+00045 \textcolor{keyword}{public} :
+00046     \textcolor{keyword}{static} \textcolor{keywordtype}{bool} \textcolor{keyword}{const} value = \textcolor{keyword}{true};
+00047 \};
+00051 \textcolor{keyword}{template} <>
+\hypertarget{is__floating__point_8h_source_l00052}{}\hyperlink{classhryky_1_1hryky_1_1_is_floating_point_3_01double_01_4}{00052} \textcolor{keyword}{class }\hyperlink{classhryky_1_1_is_floating_point}{hryky::IsFloatingPoint}<double>
+00053 \{
+00054 \textcolor{keyword}{public} :
+00055     \textcolor{keyword}{static} \textcolor{keywordtype}{bool} \textcolor{keyword}{const} value = \textcolor{keyword}{true};
+00056 \};
+00057 \} \textcolor{comment}{// namespace hryky}
+00058 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00059 \textcolor{comment}{// public member functions}
+00060 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00061 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00062 \textcolor{comment}{// protected member functions}
+00063 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00064 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00065 \textcolor{comment}{// private member functions}
+00066 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00067 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00068 \textcolor{comment}{// global function prototypes}
+00069 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00070 \textcolor{keyword}{namespace }hryky
+00071 \{
+00072 \} \textcolor{comment}{// namespace hryky}
+00073 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00074 \textcolor{comment}{// global function definitions}
+00075 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00076 \textcolor{preprocessor}{#endif // TYPE\_IS\_FLOATING\_POINT\_H\_20120923203457524}
+00077 \textcolor{preprocessor}{}\textcolor{comment}{// end of file}
+\end{DoxyCode}

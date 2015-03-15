@@ -1,0 +1,146 @@
+\hypertarget{graphics__window_8h_source}{\section{graphics\-\_\-window.\-h}
+}
+
+\begin{DoxyCode}
+00001 
+00007 \textcolor{preprocessor}{#ifndef GRAPHICS\_WINDOW\_H\_20120213151241300}
+00008 \textcolor{preprocessor}{}\textcolor{preprocessor}{#define GRAPHICS\_WINDOW\_H\_20120213151241300}
+00009 \textcolor{preprocessor}{}\textcolor{preprocessor}{#include "hryky/config.h"}
+00010 \textcolor{preprocessor}{#if HRYKY\_USE\_SDL}
+00011 \textcolor{preprocessor}{}\textcolor{preprocessor}{#include "\hyperlink{sdl_8h}{hryky/sdl.h}"}
+00012 \textcolor{preprocessor}{#include "\hyperlink{geometry__rect_8h}{hryky/geometry/geometry_rect.h}"}
+00013 \textcolor{preprocessor}{#include "\hyperlink{geometry__coord__cartesian_8h}{hryky/geometry/geometry_coord_cartesian.h}"}
+00014 \textcolor{preprocessor}{#include "\hyperlink{opengl__version_8h}{hryky/opengl/opengl_version.h}"}
+00015 \textcolor{preprocessor}{#include "\hyperlink{pixel__format_8h}{hryky/pixel/pixel_format.h}"}
+00016 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00017 \textcolor{comment}{// macro definition}
+00018 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00019 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00020 \textcolor{comment}{// namespace}
+00021 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00022 \textcolor{keyword}{namespace }hryky
+00023 \{
+00024 \textcolor{keyword}{namespace }graphics
+00025 \{
+00027     \textcolor{keyword}{class }Window;
+00028 
+00029     \textcolor{keyword}{class }Module;
+00030 \}
+00031 \}
+00032 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00033 \textcolor{comment}{// class declaration}
+00034 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00038 \textcolor{comment}{}\textcolor{keyword}{class }hryky::graphics::Window
+00039 \{
+00040 \textcolor{keyword}{public} :
+00041 
+00043     \textcolor{keyword}{typedef} hryky::graphics::Window this\_type;
+00044 
+00046     \textcolor{keyword}{typedef} std::string             title\_type;
+00047 
+00049     \textcolor{keyword}{typedef} geometry::Rect< geometry::coord::Cartesian2D<int32\_t> >
+00050         region\_type;
+00051 
+00053     \textcolor{keyword}{struct }ResetParameter : Noncopyable
+00054     \{
+00055         \textcolor{keyword}{typedef} ResetParameter this\_type;
+00056         
+00057         ResetParameter(Module & module)
+00058             : module\_(module)
+00059               , region\_(
+00060                   region\_type::value\_type(0, 0),
+00061                   region\_type::value\_type(1024, 768))
+00062               , title\_()
+00063               , opengl\_version\_()
+00064               , hide\_(false) \{
+00065         \}
+00066         
+00067     \textcolor{keyword}{private}:
+00068         \hyperlink{common_8h_aa006947a022e09b05cfdf88588cd72eb}{hryky_accessor_read}(Module &,           module);
+00069         \hyperlink{common_8h_a53c1a7f63ecaf9a35fedc7c6ca996e84}{hryky_accessor_row}(region\_type,         region);
+00070         \hyperlink{common_8h_a53c1a7f63ecaf9a35fedc7c6ca996e84}{hryky_accessor_row}(title\_type,          title);
+00071         \hyperlink{common_8h_a53c1a7f63ecaf9a35fedc7c6ca996e84}{hryky_accessor_row}(opengl::Version,     opengl\_version);
+00072         \hyperlink{common_8h_a53c1a7f63ecaf9a35fedc7c6ca996e84}{hryky_accessor_row}(\textcolor{keywordtype}{bool},                hide);
+00073     \};
+00074 
+00076     \textcolor{keyword}{struct }FullscreenParameter : Noncopyable
+00077     \{
+00078         FullscreenParameter(
+00079             \textcolor{keywordtype}{size\_t} \textcolor{keyword}{const} width,
+00080             \textcolor{keywordtype}{size\_t} \textcolor{keyword}{const} height)
+00081             : width\_(width)
+00082               , height\_(height)
+00083               , refresh\_rate\_(60)
+00084               , format\_(pixel::Format::r8g8b8\_)
+00085         \{\}
+00086         
+00087     \textcolor{keyword}{private} :
+00088         \hyperlink{common_8h_aa006947a022e09b05cfdf88588cd72eb}{hryky_accessor_read}(\textcolor{keywordtype}{size\_t}, width);
+00089         \hyperlink{common_8h_aa006947a022e09b05cfdf88588cd72eb}{hryky_accessor_read}(\textcolor{keywordtype}{size\_t}, height);
+00090         \hyperlink{common_8h_a53c1a7f63ecaf9a35fedc7c6ca996e84}{hryky_accessor_row}(pixel::Format, format);
+00091         \hyperlink{common_8h_a53c1a7f63ecaf9a35fedc7c6ca996e84}{hryky_accessor_row}(uint16\_t, refresh\_rate);
+00092     \};
+00093 
+00095     \textcolor{keyword}{explicit} Window();
+00096 
+00098     ~Window();
+00099 
+00101     \textcolor{keywordtype}{bool} reset(ResetParameter \textcolor{keyword}{const} & param);
+00102 
+00104     \textcolor{keywordtype}{void} update();
+00105 
+00107     \textcolor{keywordtype}{bool} fullscreen(FullscreenParameter \textcolor{keyword}{const} & param);
+00108 
+00110     opengl::Version \textcolor{keyword}{const} & opengl\_version() \textcolor{keyword}{const};
+00111 
+00112 \textcolor{keyword}{protected} :
+00113 
+00114 \textcolor{keyword}{private} :
+00115 
+00117     \textcolor{keyword}{explicit} Window(Window \textcolor{keyword}{const} &);
+00118 
+00120     Window & operator=(Window \textcolor{keyword}{const} & rhs);
+00121 
+00123     \textcolor{keywordtype}{void} \hyperlink{namespacehryky_aa201297ea9530da954a7230be71cc19d}{clear}();
+00124 
+00125     SDL\_Window *        sdl\_window\_;
+00126     opengl::Version     opengl\_version\_;
+00127     region\_type         region\_;
+00128     SDL\_GLContext       opengl\_context\_;
+00129 
+00130     \textcolor{keyword}{union}
+00131     \{
+00132         uint32\_t    flags\_;
+00133         \textcolor{keyword}{struct}
+00134         \{
+00135             \textcolor{keywordtype}{bool}    fullscreen\_:1;
+00136             \textcolor{keywordtype}{bool}    opengl\_context\_:1;
+00137         \} flag\_;
+00138     \};
+00139 
+00140 \};
+00141 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00142 \textcolor{comment}{// public member functions}
+00143 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00144 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00145 \textcolor{comment}{// protected member functions}
+00146 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00147 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00148 \textcolor{comment}{// private member functions}
+00149 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00150 \textcolor{preprocessor}{#endif // HRYKY\_USE\_SDL}
+00151 \textcolor{preprocessor}{}\textcolor{preprocessor}{#endif // GRAPHICS\_WINDOW\_H\_20120213151241300}
+00152 \textcolor{preprocessor}{}\textcolor{comment}{// end of file}
+\end{DoxyCode}

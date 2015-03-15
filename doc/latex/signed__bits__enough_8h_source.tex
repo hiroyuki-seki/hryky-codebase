@@ -1,0 +1,95 @@
+\hypertarget{signed__bits__enough_8h_source}{\section{signed\-\_\-bits\-\_\-enough.\-h}
+}
+
+\begin{DoxyCode}
+00001 
+00007 \textcolor{preprocessor}{#ifndef SIGNED\_BITS\_ENOUGH\_H\_20130119135745248}
+00008 \textcolor{preprocessor}{}\textcolor{preprocessor}{#define SIGNED\_BITS\_ENOUGH\_H\_20130119135745248}
+00009 \textcolor{preprocessor}{}\textcolor{preprocessor}{#include "\hyperlink{unsigned__bits__enough_8h}{hryky/integer/unsigned_bits_enough.h}"}
+00010 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00011 \textcolor{comment}{// macro definition}
+00012 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00013 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00014 \textcolor{comment}{// namespace}
+00015 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00016 \textcolor{keyword}{namespace }hryky
+00017 \{
+00019     \textcolor{keyword}{template} <\textcolor{keywordtype}{int}64\_t S\textcolor{keywordtype}{int}Value, \textcolor{keyword}{typename} BitsT>
+00020     \textcolor{keyword}{class }SignedBitsEnough;
+00021 
+00022 \} \textcolor{comment}{// namespace hryky}
+00023 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00024 \textcolor{comment}{// class declarations}
+00025 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00029 \textcolor{comment}{}\textcolor{keyword}{template} <\textcolor{keywordtype}{int}64\_t S\textcolor{keywordtype}{int}Value, \textcolor{keyword}{typename} BitsT = u\textcolor{keywordtype}{int}32\_t>
+\hypertarget{signed__bits__enough_8h_source_l00030}{}\hyperlink{classhryky_1_1_signed_bits_enough}{00030} \textcolor{keyword}{class }\hyperlink{classhryky_1_1_signed_bits_enough}{hryky::SignedBitsEnough}
+00031 \{
+00032 \textcolor{keyword}{public} :
+00033 
+00034     \textcolor{keyword}{static} BitsT \textcolor{keyword}{const} value = (
+00035         0 > SintValue ?
+00036         \hyperlink{classhryky_1_1_unsigned_bits_enough}{UnsignedBitsEnough<~SintValue>::value} :
+00037         \hyperlink{classhryky_1_1_unsigned_bits_enough}{UnsignedBitsEnough<SintValue>::value}) + 1u;
+00038 
+00039 \};
+00040 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00041 \textcolor{comment}{// class specializations}
+00042 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00043 \textcolor{keyword}{namespace }hryky
+00044 \{
+00048 \textcolor{keyword}{template} <\textcolor{keyword}{typename} BitsT>
+\hypertarget{signed__bits__enough_8h_source_l00049}{}\hyperlink{classhryky_1_1hryky_1_1_signed_bits_enough_3_010_00_01_bits_t_01_4}{00049} \textcolor{keyword}{class }\hyperlink{classhryky_1_1_signed_bits_enough}{hryky::SignedBitsEnough}<0, BitsT>
+00050 \{
+00051 \textcolor{keyword}{public} :
+00052 
+00053     \textcolor{keyword}{static} BitsT \textcolor{keyword}{const} value = 1u;
+00054 
+00055 \};
+00059 \textcolor{keyword}{template} <\textcolor{keyword}{typename} BitsT>
+\hypertarget{signed__bits__enough_8h_source_l00060}{}\hyperlink{classhryky_1_1hryky_1_1_signed_bits_enough_3-1_00_01_bits_t_01_4}{00060} \textcolor{keyword}{class }\hyperlink{classhryky_1_1_signed_bits_enough}{hryky::SignedBitsEnough}<-1, BitsT>
+00061 \{
+00062 \textcolor{keyword}{public} :
+00063 
+00064     \textcolor{keyword}{static} BitsT \textcolor{keyword}{const} value = 1u;
+00065 
+00066 \};
+00067 \} \textcolor{comment}{// namespace hryky}
+00068 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00069 \textcolor{comment}{// public member functions}
+00070 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00071 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00072 \textcolor{comment}{// protected member functions}
+00073 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00074 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00075 \textcolor{comment}{// private member functions}
+00076 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00077 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00078 \textcolor{comment}{// global function prototypes}
+00079 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00080 \textcolor{keyword}{namespace }hryky
+00081 \{
+00082 \} \textcolor{comment}{// namespace hryky}
+00083 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00084 \textcolor{comment}{// global function definitions}
+00085 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00086 \textcolor{preprocessor}{#endif // SIGNED\_BITS\_ENOUGH\_H\_20130119135745248}
+00087 \textcolor{preprocessor}{}\textcolor{comment}{// end of file}
+\end{DoxyCode}

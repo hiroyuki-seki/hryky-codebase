@@ -1,0 +1,48 @@
+/**
+  @file         config.h
+  @brief        project configuration.
+  @author       HRYKY
+  @version      $Id$
+ */
+#ifndef HRYKY_CODEBASE_CONFIG_H
+#define HRYKY_CODEBASE_CONFIG_H
+//----------------------------------------------------------------
+// macro definition
+//----------------------------------------------------------------
+#define HRYKY_CODEBASE_VERSION_MAJOR    (0x@hryky_codebase_VERSION_MAJOR@)
+#define HRYKY_CODEBASE_VERSION_MINOR    (0x@hryky_codebase_VERSION_MINOR@)
+#define HRYKY_CODEBASE_VERSION_PATCH    (0x@hryky_codebase_VERSION_PATCH@)
+#define HRYKY_CODEBASE_VERSION          (0x@hryky_codebase_VERSION_MAJOR@@hryky_codebase_VERSION_MINOR@@hryky_codebase_VERSION_PATCH@)
+#define HRYKY_ARCH64                    (@arch64@)
+#define HRYKY_USE_EXCEPTION             (@use_exception@)
+#define HRYKY_USE_VARIADIC_TEMPLATE     (@use_variadic_template@)
+#define HRYKY_USE_STD_RESULT_OF         (@use_std_result_of@)
+#define HRYKY_SUPPORT_DELETED_FUNCTION  (@support_deleted_function@)
+
+#if defined(_WIN32)
+#   define WINVER                       @HRYKY_WINVER@
+#   define _WIN32_WINNT                 @HRYKY_WINNT@
+#   define NTDDI_VERSION                @HRYKY_NTDDI_VERSION@
+
+#   if !(WINVER == _WIN32_WINNT && WINVER == (NTDDI_VERSION >> 16))
+#       error Macros for Windows Version are invalid.
+#   endif
+
+#endif
+//----------------------------------------------------------------
+// namespace
+//----------------------------------------------------------------
+namespace hryky
+{
+}
+//----------------------------------------------------------------
+// struct declaration
+//----------------------------------------------------------------
+//----------------------------------------------------------------
+// class declaration
+//----------------------------------------------------------------
+//----------------------------------------------------------------
+// function definition
+//----------------------------------------------------------------
+#endif // HRYKY_CODEBASE_CONFIG_H
+// end of file

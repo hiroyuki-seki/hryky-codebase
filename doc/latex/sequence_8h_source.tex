@@ -1,0 +1,303 @@
+\hypertarget{sequence_8h_source}{\section{sequence.\-h}
+}
+
+\begin{DoxyCode}
+00001 
+00007 \textcolor{preprocessor}{#ifndef SEQUENCE\_H\_20120203191458468}
+00008 \textcolor{preprocessor}{}\textcolor{preprocessor}{#define SEQUENCE\_H\_20120203191458468}
+00009 \textcolor{preprocessor}{}\textcolor{preprocessor}{#include "\hyperlink{gp_8h}{hryky/gp.h}"}
+00010 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00011 \textcolor{comment}{// macro definition}
+00012 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00013 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00014 \textcolor{comment}{// namespace}
+00015 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00016 \textcolor{keyword}{namespace }hryky
+00017 \{
+00019     \textcolor{keyword}{template} < \textcolor{keyword}{typename} FirstT, \textcolor{keyword}{typename} RestT >
+00020     \textcolor{keyword}{class }Sequence;
+00021     
+00023     \textcolor{keyword}{template} < \textcolor{keyword}{typename} Arg1T >
+00024     \textcolor{keyword}{class }Sequence1;
+00025 
+00027     \textcolor{keyword}{template} < \textcolor{keyword}{typename} Arg1T, \textcolor{keyword}{typename} Arg2T >
+00028     \textcolor{keyword}{class }Sequence2;
+00029 
+00031     \textcolor{keyword}{template} < \textcolor{keyword}{typename} Arg1T, \textcolor{keyword}{typename} Arg2T, \textcolor{keyword}{typename} Arg3T >
+00032     \textcolor{keyword}{class }Sequence3;
+00033 
+00035     \textcolor{keyword}{template} < \textcolor{keyword}{typename} Arg1T, \textcolor{keyword}{typename} Arg2T, \textcolor{keyword}{typename} Arg3T, \textcolor{keyword}{typename} Arg4T >
+00036     \textcolor{keyword}{class }Sequence4;
+00037 
+00039     \textcolor{keyword}{template} <\textcolor{keyword}{typename} Arg1T>
+00040     Sequence1<Arg1T> \hyperlink{namespacehryky_a7f53e66b99b4eadc301227b9330ff1af}{sequence1}(
+00041         Arg1T \textcolor{keyword}{const} & arg1);
+00042 
+00044     \textcolor{keyword}{template} <\textcolor{keyword}{typename} Arg1T, \textcolor{keyword}{typename} Arg2T>
+00045     Sequence2<Arg1T, Arg2T> \hyperlink{namespacehryky_af306f38c62df81dd0dc791c0ee2665b2}{sequence2}(
+00046         Arg1T \textcolor{keyword}{const} & arg1,
+00047         Arg2T \textcolor{keyword}{const} & arg2);
+00048 
+00050     \textcolor{keyword}{template} <\textcolor{keyword}{typename} Arg1T, \textcolor{keyword}{typename} Arg2T, \textcolor{keyword}{typename} Arg3T>
+00051     Sequence3<Arg1T, Arg2T, Arg3T> \hyperlink{namespacehryky_a1e9f18a60e3a0425ac6d6496219b35c8}{sequence3}(
+00052         Arg1T \textcolor{keyword}{const} & arg1,
+00053         Arg2T \textcolor{keyword}{const} & arg2,
+00054         Arg3T \textcolor{keyword}{const} & arg3);
+00055 
+00057     \textcolor{keyword}{template} <\textcolor{keyword}{typename} Arg1T, \textcolor{keyword}{typename} Arg2T, \textcolor{keyword}{typename} Arg3T, \textcolor{keyword}{typename} Arg4T>
+00058     Sequence4<Arg1T, Arg2T, Arg3T, Arg4T> \hyperlink{namespacehryky_a2107ad509c2a26ac350cb1d10ad6c453}{sequence4}(
+00059         Arg1T \textcolor{keyword}{const} & arg1,
+00060         Arg2T \textcolor{keyword}{const} & arg2,
+00061         Arg3T \textcolor{keyword}{const} & arg3,
+00062         Arg4T \textcolor{keyword}{const} & arg4);
+00063 
+00064 \}
+00065 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00066 \textcolor{comment}{// class declaration}
+00067 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00071 \textcolor{comment}{}\textcolor{keyword}{template} < \textcolor{keyword}{typename} FirstT = hryky::Null, \textcolor{keyword}{typename} RestT = hryky::Null >
+\hypertarget{sequence_8h_source_l00072}{}\hyperlink{classhryky_1_1_sequence}{00072} \textcolor{keyword}{class }\hyperlink{classhryky_1_1_sequence}{hryky::Sequence}
+00073 \{
+00074 \textcolor{keyword}{public} :
+00075     
+\hypertarget{sequence_8h_source_l00076}{}\hyperlink{classhryky_1_1_sequence_a704472ea381b81a30c2412c5a8d49074}{00076}     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1_sequence}{hryky::Sequence<FirstT, RestT>}          \hyperlink{classhryky_1_1_sequence_a704472ea381b81a30c2412c5a8d49074}{this_type};
+00077 
+00078     \textcolor{keyword}{typedef} FirstT  first\_type;
+00079     \textcolor{keyword}{typedef} RestT   \hyperlink{classhryky_1_1_sequence}{rest_type};
+00080     
+00081     \textcolor{keyword}{typedef} \textcolor{keyword}{typename} AsParameter<first\_type>::type  first\_param\_type;
+00082     \textcolor{keyword}{typedef} \textcolor{keyword}{typename} AsParameter<rest\_type>::type   rest\_param\_type;
+00083 
+\hypertarget{sequence_8h_source_l00085}{}\hyperlink{classhryky_1_1_sequence_a562adf14504f2d6569dae23904f411fb}{00085}     \textcolor{keyword}{explicit} \hyperlink{classhryky_1_1_sequence_a562adf14504f2d6569dae23904f411fb}{Sequence}() : first\_(), rest\_() \{\}
+00086 
+\hypertarget{sequence_8h_source_l00088}{}\hyperlink{classhryky_1_1_sequence_a7eabbf44a92adfa4a80d317cf2995933}{00088}     \textcolor{keyword}{explicit} \hyperlink{classhryky_1_1_sequence_a562adf14504f2d6569dae23904f411fb}{Sequence}(first\_param\_type \hyperlink{classhryky_1_1_sequence_a881ed830dc76f92d29fe8feea122339b}{first}, rest\_param\_type \hyperlink{classhryky_1_1_sequence_a11e616cd4cfe41751bbaa350fca3dcb1}{rest})
+00089         : first\_(first), rest\_(rest)
+00090     \{\}
+00091 
+\hypertarget{sequence_8h_source_l00093}{}\hyperlink{classhryky_1_1_sequence_aac310a64b02ed738475d88f238f0f651}{00093}     \hyperlink{classhryky_1_1_sequence_aac310a64b02ed738475d88f238f0f651}{~Sequence}() \{\};
+00094 
+\hypertarget{sequence_8h_source_l00096}{}\hyperlink{classhryky_1_1_sequence_a881ed830dc76f92d29fe8feea122339b}{00096}     first\_param\_type \hyperlink{classhryky_1_1_sequence_a881ed830dc76f92d29fe8feea122339b}{first}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} this->first\_; \}
+00097 
+\hypertarget{sequence_8h_source_l00099}{}\hyperlink{classhryky_1_1_sequence_a11e616cd4cfe41751bbaa350fca3dcb1}{00099}     rest\_param\_type \hyperlink{classhryky_1_1_sequence_a11e616cd4cfe41751bbaa350fca3dcb1}{rest}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} this->rest\_; \}
+00100 
+00102     std::ostream & \hyperlink{classhryky_1_1_sequence_a8443de2eb918764c345a86b40dd888db}{print}(std::ostream & out, \textcolor{keywordtype}{char} \textcolor{keyword}{const} * delimiter) \textcolor{keyword}{const};
+00103 
+00104 \textcolor{keyword}{protected} :
+00105 
+00106 \textcolor{keyword}{private} :
+00107 
+00108     first\_type  first\_;
+00109     rest\_type   rest\_;
+00110 
+00111 \};
+00115 \textcolor{keyword}{template} <>
+\hypertarget{sequence_8h_source_l00116}{}\hyperlink{classhryky_1_1_sequence_3_01hryky_1_1_null_00_01hryky_1_1_null_01_4}{00116} \textcolor{keyword}{class }\hyperlink{classhryky_1_1_sequence}{hryky::Sequence}<hryky::\hyperlink{classhryky_1_1_null}{Null}, \hyperlink{classhryky_1_1_null}{hryky::Null}>
+00117 \{
+00118 \textcolor{keyword}{public} :
+00119 
+\hypertarget{sequence_8h_source_l00121}{}\hyperlink{classhryky_1_1_sequence_3_01hryky_1_1_null_00_01hryky_1_1_null_01_4_a134e0cd5fc5770786dfbc9733481c2f8}{00121}     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1_sequence}{hryky::Sequence<>} \hyperlink{classhryky_1_1_sequence_3_01hryky_1_1_null_00_01hryky_1_1_null_01_4_a134e0cd5fc5770786dfbc9733481c2f8}{this_type};
+00122 
+\hypertarget{sequence_8h_source_l00124}{}\hyperlink{classhryky_1_1_sequence_3_01hryky_1_1_null_00_01hryky_1_1_null_01_4_a2fffbf28d512e8908cf45420925965da}{00124}     \textcolor{keyword}{explicit} \hyperlink{classhryky_1_1_sequence_3_01hryky_1_1_null_00_01hryky_1_1_null_01_4_a2fffbf28d512e8908cf45420925965da}{Sequence}() \{\}
+00125 
+\hypertarget{sequence_8h_source_l00127}{}\hyperlink{classhryky_1_1_sequence_3_01hryky_1_1_null_00_01hryky_1_1_null_01_4_a38b99780ac2d691209e002b8cc550bf4}{00127}     \hyperlink{classhryky_1_1_sequence_3_01hryky_1_1_null_00_01hryky_1_1_null_01_4_a38b99780ac2d691209e002b8cc550bf4}{~Sequence}() \{\};
+00128 
+00130     std::ostream & \hyperlink{classhryky_1_1_sequence_a8443de2eb918764c345a86b40dd888db}{print}(std::ostream & out, \textcolor{keywordtype}{char} \textcolor{keyword}{const} * delimiter) \textcolor{keyword}{const};
+00131 
+00132 \textcolor{keyword}{protected} :
+00133 
+00134 \textcolor{keyword}{private} :
+00135 
+00136 \};
+00140 \textcolor{keyword}{template} <\textcolor{keyword}{typename} FirstT>
+\hypertarget{sequence_8h_source_l00141}{}\hyperlink{classhryky_1_1_sequence_3_01_first_t_00_01hryky_1_1_null_01_4}{00141} \textcolor{keyword}{class }\hyperlink{classhryky_1_1_sequence}{hryky::Sequence}<FirstT, hryky::\hyperlink{classhryky_1_1_null}{Null} >
+00142 \{
+00143 \textcolor{keyword}{public} :
+00144 
+00145     
+\hypertarget{sequence_8h_source_l00146}{}\hyperlink{classhryky_1_1_sequence_3_01_first_t_00_01hryky_1_1_null_01_4_a531b9af90406628444e691463b0611a4}{00146}     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1_sequence}{hryky::Sequence<FirstT>} \hyperlink{classhryky_1_1_sequence_3_01_first_t_00_01hryky_1_1_null_01_4_a531b9af90406628444e691463b0611a4}{this_type};
+00147 
+00148     \textcolor{keyword}{typedef} FirstT          first\_type;
+00149     
+00150     \textcolor{keyword}{typedef} \textcolor{keyword}{typename} AsParameter<first\_type>::type     first\_param\_type;
+00151 
+\hypertarget{sequence_8h_source_l00153}{}\hyperlink{classhryky_1_1_sequence_3_01_first_t_00_01hryky_1_1_null_01_4_aa8343b1c7af4fdbf63b05fd02097a75d}{00153}     \textcolor{keyword}{explicit} \hyperlink{classhryky_1_1_sequence_3_01_first_t_00_01hryky_1_1_null_01_4_aa8343b1c7af4fdbf63b05fd02097a75d}{Sequence}() : first\_() \{\};
+00154 
+\hypertarget{sequence_8h_source_l00156}{}\hyperlink{classhryky_1_1_sequence_3_01_first_t_00_01hryky_1_1_null_01_4_a6cb80a121c5181868da8e9b1f76ee6bf}{00156}     \hyperlink{classhryky_1_1_sequence_a562adf14504f2d6569dae23904f411fb}{Sequence}(first\_param\_type \hyperlink{classhryky_1_1_sequence_a881ed830dc76f92d29fe8feea122339b}{first})
+00157         : first\_(first)
+00158     \{\}
+00159     
+\hypertarget{sequence_8h_source_l00161}{}\hyperlink{classhryky_1_1_sequence_3_01_first_t_00_01hryky_1_1_null_01_4_a513cb75c7f1820fa373a21016d999511}{00161}     \hyperlink{classhryky_1_1_sequence_3_01_first_t_00_01hryky_1_1_null_01_4_a513cb75c7f1820fa373a21016d999511}{~Sequence}() \{\};
+00162 
+\hypertarget{sequence_8h_source_l00164}{}\hyperlink{classhryky_1_1_sequence_3_01_first_t_00_01hryky_1_1_null_01_4_a0d8ae11dc1440e58f69c5004dca414c6}{00164}     first\_param\_type \hyperlink{classhryky_1_1_sequence_3_01_first_t_00_01hryky_1_1_null_01_4_a0d8ae11dc1440e58f69c5004dca414c6}{first}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} this->first\_; \}
+00165 
+00167     std::ostream & \hyperlink{classhryky_1_1_sequence_a8443de2eb918764c345a86b40dd888db}{print}(std::ostream & out, \textcolor{keywordtype}{char} \textcolor{keyword}{const} * delimiter) \textcolor{keyword}{const};
+00168 
+00169 \textcolor{keyword}{protected} :
+00170 
+00171 \textcolor{keyword}{private} :
+00172 
+00173     first\_type  first\_;
+00174 
+00175 \};
+00179 \textcolor{keyword}{template} < \textcolor{keyword}{typename} Arg1T >
+\hypertarget{sequence_8h_source_l00180}{}\hyperlink{classhryky_1_1_sequence1}{00180} \textcolor{keyword}{class }\hyperlink{classhryky_1_1_sequence1}{hryky::Sequence1}
+00181     : \textcolor{keyword}{public} \hyperlink{classhryky_1_1_sequence}{hryky::Sequence}< Arg1T >
+00182 \{
+00183 \textcolor{keyword}{public} :
+00184 
+\hypertarget{sequence_8h_source_l00185}{}\hyperlink{classhryky_1_1_sequence1_af451c286d34abda4db99b95d9bd6622d}{00185}     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1_sequence1}{hryky::Sequence1<Arg1T>} \hyperlink{classhryky_1_1_sequence1_af451c286d34abda4db99b95d9bd6622d}{this_type};
+00186     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1_sequence}{hryky::Sequence<Arg1T>}  \hyperlink{classhryky_1_1_sequence}{base_type};
+00187 
+\hypertarget{sequence_8h_source_l00189}{}\hyperlink{classhryky_1_1_sequence1_af6ec5e1dc6fc01498290565fd24d1e84}{00189}     \hyperlink{classhryky_1_1_sequence1_af6ec5e1dc6fc01498290565fd24d1e84}{Sequence1}(\textcolor{keyword}{typename} AsParameter<Arg1T>::type arg1)
+00190         : \hyperlink{classhryky_1_1_sequence}{base_type}(arg1)
+00191     \{\}
+00192 
+00193 \textcolor{keyword}{protected} :
+00194 
+00195 \textcolor{keyword}{private} :
+00196 
+00197 \};
+00201 \textcolor{keyword}{template} < \textcolor{keyword}{typename} Arg1T, \textcolor{keyword}{typename} Arg2T >
+\hypertarget{sequence_8h_source_l00202}{}\hyperlink{classhryky_1_1_sequence2}{00202} \textcolor{keyword}{class }\hyperlink{classhryky_1_1_sequence2}{hryky::Sequence2}
+00203     : \textcolor{keyword}{public} \hyperlink{classhryky_1_1_sequence}{hryky::Sequence}< Arg1T, Arg2T >
+00204 \{
+00205 \textcolor{keyword}{public} :
+00206 
+\hypertarget{sequence_8h_source_l00208}{}\hyperlink{classhryky_1_1_sequence2_ab80d86270054fa12859ed8019bae8151}{00208}     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1_sequence2}{hryky::Sequence2<Arg1T, Arg2T>} \hyperlink{classhryky_1_1_sequence2_ab80d86270054fa12859ed8019bae8151}{this_type};
+00209     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1_sequence}{hryky::Sequence<Arg1T, Arg2T>}  \hyperlink{classhryky_1_1_sequence}{base_type};
+00210 
+\hypertarget{sequence_8h_source_l00212}{}\hyperlink{classhryky_1_1_sequence2_a01295f421c467db5698331fb474b3650}{00212}     \hyperlink{classhryky_1_1_sequence2_a01295f421c467db5698331fb474b3650}{Sequence2}(
+00213         \textcolor{keyword}{typename} AsParameter<Arg1T>::type arg1,
+00214         \textcolor{keyword}{typename} AsParameter<Arg2T>::type arg2)
+00215         : \hyperlink{classhryky_1_1_sequence}{base_type}(arg1, arg2)
+00216     \{\}
+00217 
+00218 \textcolor{keyword}{protected} :
+00219 
+00220 \textcolor{keyword}{private} :
+00221 
+00222 \};
+00226 \textcolor{keyword}{template} < \textcolor{keyword}{typename} Arg1T, \textcolor{keyword}{typename} Arg2T, \textcolor{keyword}{typename} Arg3T >
+\hypertarget{sequence_8h_source_l00227}{}\hyperlink{classhryky_1_1_sequence3}{00227} \textcolor{keyword}{class }\hyperlink{classhryky_1_1_sequence3}{hryky::Sequence3}
+00228     : \textcolor{keyword}{public} \hyperlink{classhryky_1_1_sequence}{hryky::Sequence}<Arg1T, Sequence<Arg2T, Arg3T > >
+00229 \{
+00230 \textcolor{keyword}{public} :
+00231 
+00233     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1_sequence3}{Sequence3<Arg1T, Arg2T, Arg3T>}
+\hypertarget{sequence_8h_source_l00234}{}\hyperlink{classhryky_1_1_sequence3_abf8d5757d430fa46f0569253fe17dc74}{00234}         \hyperlink{classhryky_1_1_sequence3_abf8d5757d430fa46f0569253fe17dc74}{this_type};
+00235     
+00236     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1_sequence}{Sequence<Arg1T, Sequence<Arg2T, Arg3T>} >
+00237         \hyperlink{classhryky_1_1_sequence}{base_type};
+00238 
+\hypertarget{sequence_8h_source_l00240}{}\hyperlink{classhryky_1_1_sequence3_a90abb731407f77fd27ee683a325ac863}{00240}     \hyperlink{classhryky_1_1_sequence3_a90abb731407f77fd27ee683a325ac863}{Sequence3}(
+00241         \textcolor{keyword}{typename} AsParameter<Arg1T>::type arg1,
+00242         \textcolor{keyword}{typename} AsParameter<Arg2T>::type arg2,
+00243         \textcolor{keyword}{typename} AsParameter<Arg3T>::type arg3)
+00244         : \hyperlink{classhryky_1_1_sequence}{base_type}(
+00245             arg1, \hyperlink{classhryky_1_1_sequence}{base_type}::\hyperlink{classhryky_1_1_sequence}{rest_type}(arg2, arg3))
+00246     \{\}
+00247 
+00248 \textcolor{keyword}{protected} :
+00249 
+00250 \textcolor{keyword}{private} :
+00251 
+00252 \};
+00256 \textcolor{keyword}{template} < \textcolor{keyword}{typename} Arg1T, \textcolor{keyword}{typename} Arg2T, \textcolor{keyword}{typename} Arg3T, \textcolor{keyword}{typename} Arg4T >
+\hypertarget{sequence_8h_source_l00257}{}\hyperlink{classhryky_1_1_sequence4}{00257} \textcolor{keyword}{class }\hyperlink{classhryky_1_1_sequence4}{hryky::Sequence4}
+00258     : \textcolor{keyword}{public} \hyperlink{classhryky_1_1_sequence}{hryky::Sequence}<Arg1T, Sequence<Arg2T, Sequence<Arg3T, Arg4T > > >
+00259 \{
+00260 \textcolor{keyword}{public} :
+00261 
+00263     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1_sequence4}{Sequence4<Arg1T, Arg2T, Arg3T, Arg4T>}
+\hypertarget{sequence_8h_source_l00264}{}\hyperlink{classhryky_1_1_sequence4_a6a1a7284ea57c3c45cf5ac0f64869897}{00264}         \hyperlink{classhryky_1_1_sequence4_a6a1a7284ea57c3c45cf5ac0f64869897}{this_type};
+00265     
+00266     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1_sequence}{Sequence<Arg1T, Sequence<Arg2T, Sequence<Arg3T, Arg4T >} > >
+00267         \hyperlink{classhryky_1_1_sequence}{base_type};
+00268 
+\hypertarget{sequence_8h_source_l00270}{}\hyperlink{classhryky_1_1_sequence4_af3dd49d3f0e7a40b6b0334e54e8c3bc5}{00270}     \hyperlink{classhryky_1_1_sequence4_af3dd49d3f0e7a40b6b0334e54e8c3bc5}{Sequence4}(
+00271         \textcolor{keyword}{typename} AsParameter<Arg1T>::type arg1,
+00272         \textcolor{keyword}{typename} AsParameter<Arg2T>::type arg2,
+00273         \textcolor{keyword}{typename} AsParameter<Arg3T>::type arg3,
+00274         \textcolor{keyword}{typename} AsParameter<Arg4T>::type arg4)
+00275         : \hyperlink{classhryky_1_1_sequence}{base_type}(
+00276             arg1, \hyperlink{classhryky_1_1_sequence}{base_type}::\hyperlink{classhryky_1_1_sequence}{rest_type}(
+00277                 arg2, \hyperlink{classhryky_1_1_sequence}{base_type}::\hyperlink{classhryky_1_1_sequence}{rest_type}::\hyperlink{classhryky_1_1_sequence}{rest_type}(
+00278                     arg3, arg4)))
+00279     \{\}
+00280 
+00281 \textcolor{keyword}{protected} :
+00282 
+00283 \textcolor{keyword}{private} :
+00284 
+00285 \};
+00286 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00287 \textcolor{comment}{// public member functions}
+00288 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00292 \textcolor{comment}{}\textcolor{keyword}{template} < \textcolor{keyword}{typename} FirstT, \textcolor{keyword}{typename} RestT >
+\hypertarget{sequence_8h_source_l00293}{}\hyperlink{classhryky_1_1_sequence_a8443de2eb918764c345a86b40dd888db}{00293} std::ostream & \hyperlink{classhryky_1_1_sequence_a8443de2eb918764c345a86b40dd888db}{hryky::Sequence<FirstT, RestT>::print}(
+00294     std::ostream & out, \textcolor{keywordtype}{char} \textcolor{keyword}{const} * delimiter)\textcolor{keyword}{ const}
+00295 \textcolor{keyword}{}\{
+00296     out << this->first\_ << delimiter;
+00297     this->rest\_.print(out, delimiter);
+00298     \textcolor{keywordflow}{return} out;
+00299 \}
+\hypertarget{sequence_8h_source_l00303}{}\hyperlink{classhryky_1_1_sequence_3_01hryky_1_1_null_00_01hryky_1_1_null_01_4_a418fe8226cd08488f37dfd780d99a069}{00303} \textcolor{keyword}{inline} std::ostream & \hyperlink{classhryky_1_1_sequence_a8443de2eb918764c345a86b40dd888db}{hryky::Sequence<hryky::Null, hryky::Null>::print}(
+00304     std::ostream & out, \textcolor{keywordtype}{char} \textcolor{keyword}{const} * delimiter)\textcolor{keyword}{ const}
+00305 \textcolor{keyword}{}\{
+00306     \textcolor{keywordflow}{return} out;
+00307 \}
+00311 \textcolor{keyword}{template} <\textcolor{keyword}{typename} FirstT>
+00312 std::ostream & \hyperlink{classhryky_1_1_sequence}{hryky::Sequence<FirstT>::print}(
+00313     std::ostream & out, \textcolor{keywordtype}{char} \textcolor{keyword}{const} * delimiter)\textcolor{keyword}{ const}
+00314 \textcolor{keyword}{}\{
+00315     out << this->first\_;
+00316     \textcolor{keywordflow}{return} out;
+00317 \}
+00318 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00319 \textcolor{comment}{// protected member functions}
+00320 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00321 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00322 \textcolor{comment}{// private member functions}
+00323 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00324 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00325 \textcolor{comment}{// global functions}
+00326 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00330 \textcolor{comment}{}\textcolor{keyword}{template} < \textcolor{keyword}{typename} Arg1T >
+\hypertarget{sequence_8h_source_l00331}{}\hyperlink{namespacehryky_a7f53e66b99b4eadc301227b9330ff1af}{00331} \hyperlink{classhryky_1_1_sequence1}{hryky::Sequence1<Arg1T>} \hyperlink{namespacehryky_a7f53e66b99b4eadc301227b9330ff1af}{hryky::sequence1}(
+00332     Arg1T \textcolor{keyword}{const} & arg1)
+00333 \{
+00334     \textcolor{keywordflow}{return} \hyperlink{classhryky_1_1_sequence1}{Sequence1<Arg1T>}(arg1);
+00335 \}
+00339 \textcolor{keyword}{template} < \textcolor{keyword}{typename} Arg1T, \textcolor{keyword}{typename} Arg2T >
+\hypertarget{sequence_8h_source_l00340}{}\hyperlink{namespacehryky_af306f38c62df81dd0dc791c0ee2665b2}{00340} \hyperlink{classhryky_1_1_sequence2}{hryky::Sequence2<Arg1T, Arg2T>} \hyperlink{namespacehryky_af306f38c62df81dd0dc791c0ee2665b2}{hryky::sequence2}(
+00341     Arg1T \textcolor{keyword}{const} & arg1,
+00342     Arg2T \textcolor{keyword}{const} & arg2)
+00343 \{
+00344     \textcolor{keywordflow}{return} \hyperlink{classhryky_1_1_sequence2}{Sequence2<Arg1T, Arg2T>}(arg1, arg2);
+00345 \}
+00349 \textcolor{keyword}{template} < \textcolor{keyword}{typename} Arg1T, \textcolor{keyword}{typename} Arg2T, \textcolor{keyword}{typename} Arg3T, \textcolor{keyword}{typename} Arg4T >
+\hypertarget{sequence_8h_source_l00350}{}\hyperlink{namespacehryky_a2107ad509c2a26ac350cb1d10ad6c453}{00350} \hyperlink{classhryky_1_1_sequence4}{hryky::Sequence4<Arg1T, Arg2T, Arg3T, Arg4T>} \hyperlink{namespacehryky_a2107ad509c2a26ac350cb1d10ad6c453}{hryky::sequence4}(
+00351     Arg1T \textcolor{keyword}{const} & arg1,
+00352     Arg2T \textcolor{keyword}{const} & arg2,
+00353     Arg3T \textcolor{keyword}{const} & arg3,
+00354     Arg4T \textcolor{keyword}{const} & arg4)
+00355 \{
+00356     \textcolor{keywordflow}{return} \hyperlink{classhryky_1_1_sequence4}{Sequence4<Arg1T, Arg2T, Arg3T, Arg4T>}(arg1, arg2, arg3, arg4);
+00357 \}
+00358 \textcolor{preprocessor}{#endif // SEQUENCE\_H\_20120203191458468}
+00359 \textcolor{preprocessor}{}\textcolor{comment}{// end of file}
+\end{DoxyCode}

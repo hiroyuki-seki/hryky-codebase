@@ -1,0 +1,67 @@
+\hypertarget{classhryky_1_1http_1_1body_1_1_reader}{\section{hryky\-:\-:http\-:\-:body\-:\-:Reader Class Reference}
+\label{classhryky_1_1http_1_1body_1_1_reader}\index{hryky\-::http\-::body\-::\-Reader@{hryky\-::http\-::body\-::\-Reader}}
+}
+
+
+reads a message-\/body of H\-T\-T\-P.  
+
+
+
+
+{\ttfamily \#include $<$http\-\_\-body\-\_\-reader.\-h$>$}
+
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classhryky_1_1http_1_1body_1_1_reader_ab81eae48a1c2e78cf613bffd7180400c}{typedef \hyperlink{classhryky_1_1http_1_1body_1_1_reader}{Reader} \hyperlink{classhryky_1_1http_1_1body_1_1_reader_ab81eae48a1c2e78cf613bffd7180400c}{this\-\_\-type}}\label{classhryky_1_1http_1_1body_1_1_reader_ab81eae48a1c2e78cf613bffd7180400c}
+
+\begin{DoxyCompactList}\small\item\em self. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classhryky_1_1http_1_1body_1_1_reader_a68e5c48b02b4a6a3f854cf18b19f6ae5}{void \hyperlink{classhryky_1_1http_1_1body_1_1_reader_a68e5c48b02b4a6a3f854cf18b19f6ae5}{clear} ()}\label{classhryky_1_1http_1_1body_1_1_reader_a68e5c48b02b4a6a3f854cf18b19f6ae5}
+
+\begin{DoxyCompactList}\small\item\em resets the internal resources. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1http_1_1body_1_1_reader_afa01cb8ef57b5b038067c0a3f12758c9}{bool \hyperlink{classhryky_1_1http_1_1body_1_1_reader_afa01cb8ef57b5b038067c0a3f12758c9}{complete} ()}\label{classhryky_1_1http_1_1body_1_1_reader_afa01cb8ef57b5b038067c0a3f12758c9}
+
+\begin{DoxyCompactList}\small\item\em completes the parsing at the current state. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1http_1_1body_1_1_reader_a94cf6a5f213d0a426f2bb9a324fbcb54}{void \hyperlink{classhryky_1_1http_1_1body_1_1_reader_a94cf6a5f213d0a426f2bb9a324fbcb54}{entity} (\hyperlink{classhryky_1_1http_1_1body_1_1_entity}{Entity} $\ast$src)}\label{classhryky_1_1http_1_1body_1_1_reader_a94cf6a5f213d0a426f2bb9a324fbcb54}
+
+\begin{DoxyCompactList}\small\item\em assign a message-\/body of H\-T\-T\-P Message. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1http_1_1body_1_1_reader_a8b198deb36ef9002b55e374b23eb014f}{\hyperlink{namespacehryky_1_1log_ad50448c3f934f1eacd5c1bcffe8111e1}{log\-::format\-\_\-type} \hyperlink{classhryky_1_1http_1_1body_1_1_reader_a8b198deb36ef9002b55e374b23eb014f}{log} (\hyperlink{namespacehryky_1_1log_1_1format_ab7408d1e2ed2d648dbf9bba69eb74288}{log\-::format\-::name\-\_\-type} const \&name) const }\label{classhryky_1_1http_1_1body_1_1_reader_a8b198deb36ef9002b55e374b23eb014f}
+
+\begin{DoxyCompactList}\small\item\em outputs the information formatted as string. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1http_1_1body_1_1_reader_ad4d2652c7eadff1662f3f8930763c7f8}{bool \hyperlink{classhryky_1_1http_1_1body_1_1_reader_ad4d2652c7eadff1662f3f8930763c7f8}{operator()} (\hyperlink{namespacehryky_a488cba8b666be33ccca70e819684e3c8}{octet\-\_\-type} const octet)}\label{classhryky_1_1http_1_1body_1_1_reader_ad4d2652c7eadff1662f3f8930763c7f8}
+
+\begin{DoxyCompactList}\small\item\em parses a character. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1http_1_1body_1_1_reader_ac60966b4dd971bea794a2ed96594dc38}{\hyperlink{classhryky_1_1http_1_1body_1_1_reader_ab81eae48a1c2e78cf613bffd7180400c}{this\-\_\-type} \& \hyperlink{classhryky_1_1http_1_1body_1_1_reader_ac60966b4dd971bea794a2ed96594dc38}{operator=} (\hyperlink{classhryky_1_1http_1_1body_1_1_reader_ab81eae48a1c2e78cf613bffd7180400c}{this\-\_\-type} const \&rhs)}\label{classhryky_1_1http_1_1body_1_1_reader_ac60966b4dd971bea794a2ed96594dc38}
+
+\begin{DoxyCompactList}\small\item\em assignment operator. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1http_1_1body_1_1_reader_a11c78e377d01829af26b11201b4082a6}{\hyperlink{classhryky_1_1http_1_1body_1_1_reader_a11c78e377d01829af26b11201b4082a6}{Reader} (\hyperlink{classhryky_1_1memory_1_1heap_1_1_base}{heap\-\_\-type} heap)}\label{classhryky_1_1http_1_1body_1_1_reader_a11c78e377d01829af26b11201b4082a6}
+
+\begin{DoxyCompactList}\small\item\em constructor. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1http_1_1body_1_1_reader_a4c5bee72958016b27434d8b40db50586}{\hyperlink{classhryky_1_1http_1_1body_1_1_reader_a4c5bee72958016b27434d8b40db50586}{Reader} (\hyperlink{classhryky_1_1http_1_1body_1_1_reader_ab81eae48a1c2e78cf613bffd7180400c}{this\-\_\-type} const \&)}\label{classhryky_1_1http_1_1body_1_1_reader_a4c5bee72958016b27434d8b40db50586}
+
+\begin{DoxyCompactList}\small\item\em copy constructor. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1http_1_1body_1_1_reader_af61ffe0181b1f2c24cec9befcf46b793}{\hyperlink{classhryky_1_1http_1_1body_1_1_reader_af61ffe0181b1f2c24cec9befcf46b793}{$\sim$\-Reader} ()}\label{classhryky_1_1http_1_1body_1_1_reader_af61ffe0181b1f2c24cec9befcf46b793}
+
+\begin{DoxyCompactList}\small\item\em destructor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classhryky_1_1http_1_1body_1_1_reader_a9c6a58755c47e91cbe61085af6c54144}{void \hyperlink{classhryky_1_1http_1_1body_1_1_reader_a9c6a58755c47e91cbe61085af6c54144}{swap} (\hyperlink{classhryky_1_1http_1_1body_1_1_reader_ab81eae48a1c2e78cf613bffd7180400c}{this\-\_\-type} \&src)}\label{classhryky_1_1http_1_1body_1_1_reader_a9c6a58755c47e91cbe61085af6c54144}
+
+\begin{DoxyCompactList}\small\item\em exchanges the each internal resources of two instances. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+reads a message-\/body of H\-T\-T\-P. 
+
+\begin{DoxySince}{Since}
+2012-\/09-\/07\-T00\-:17\-:24+0900 
+\end{DoxySince}
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{http__body__reader_8h}{http\-\_\-body\-\_\-reader.\-h}\end{DoxyCompactItemize}

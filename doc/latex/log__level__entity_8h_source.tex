@@ -1,0 +1,131 @@
+\hypertarget{log__level__entity_8h_source}{\section{log\-\_\-level\-\_\-entity.\-h}
+}
+
+\begin{DoxyCode}
+00001 
+00007 \textcolor{preprocessor}{#ifndef LOG\_LEVEL\_ENTITY\_H\_20120121111702136}
+00008 \textcolor{preprocessor}{}\textcolor{preprocessor}{#define LOG\_LEVEL\_ENTITY\_H\_20120121111702136}
+00009 \textcolor{preprocessor}{}\textcolor{preprocessor}{#include "\hyperlink{literal__string_8h}{hryky/literal_string.h}"}
+00010 \textcolor{preprocessor}{#include "\hyperlink{log__level__common_8h}{hryky/log/log_level_common.h}"}
+00011 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00012 \textcolor{comment}{// macro definition}
+00013 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00014 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00015 \textcolor{comment}{// namespace}
+00016 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00017 \textcolor{keyword}{namespace }hryky
+00018 \{
+00019     \textcolor{keyword}{class }LiteralString;
+00020     
+00021 \textcolor{keyword}{namespace }log
+00022 \{
+00023 \textcolor{keyword}{namespace }level
+00024 \{
+00026     \textcolor{keyword}{class }Entity;
+00027 
+00028 \} \textcolor{comment}{// namespace level}
+00029 
+00030 \textcolor{keyword}{typedef} level::Entity level\_type;
+00031 
+00032 \} \textcolor{comment}{// namespace log}
+00033 \} \textcolor{comment}{// namespace hryky}
+00034 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00035 \textcolor{comment}{// class declaration}
+00036 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+\hypertarget{log__level__entity_8h_source_l00040}{}\hyperlink{classhryky_1_1log_1_1level_1_1_entity}{00040} \textcolor{comment}{}\textcolor{keyword}{class }\hyperlink{classhryky_1_1log_1_1level_1_1_entity}{hryky::log::level::Entity}
+00041 \{
+00042 \textcolor{keyword}{public} :
+00043 
+\hypertarget{log__level__entity_8h_source_l00045}{}\hyperlink{classhryky_1_1log_1_1level_1_1_entity_a0d62d1d88c70320c6187fc9580077fea}{00045}     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1log_1_1level_1_1_entity}{hryky::log::level::Entity} \hyperlink{classhryky_1_1log_1_1level_1_1_entity_a0d62d1d88c70320c6187fc9580077fea}{this_type};
+00046 
+00048     \textcolor{keyword}{explicit} \hyperlink{classhryky_1_1log_1_1level_1_1_entity_a362bef946c5f6869f60f5dc2a92fd22c}{Entity}();
+00049 
+00051     \hyperlink{classhryky_1_1log_1_1level_1_1_entity_a362bef946c5f6869f60f5dc2a92fd22c}{Entity}(\hyperlink{classhryky_1_1_kind}{kind_type} kind);
+00052 
+00054     \textcolor{keyword}{explicit} \hyperlink{classhryky_1_1log_1_1level_1_1_entity_a362bef946c5f6869f60f5dc2a92fd22c}{Entity}(\hyperlink{classhryky_1_1log_1_1level_1_1_entity}{Entity} \textcolor{keyword}{const} &);
+00055 
+00057     \hyperlink{classhryky_1_1log_1_1level_1_1_entity_a362bef946c5f6869f60f5dc2a92fd22c}{Entity}(\hyperlink{classhryky_1_1log_1_1level_1_1_entity}{this_type} && rhs);
+00058 
+\hypertarget{log__level__entity_8h_source_l00060}{}\hyperlink{classhryky_1_1log_1_1level_1_1_entity_a94ae81f0efad80334548ef476491af8e}{00060}     \hyperlink{classhryky_1_1log_1_1level_1_1_entity_a94ae81f0efad80334548ef476491af8e}{hryky_assign_op};
+00061 
+00063     \hyperlink{classhryky_1_1log_1_1level_1_1_entity_a3805e2493a1de7c54631d4081109b6d7}{~Entity}();
+00064 
+00066     \hyperlink{classhryky_1_1_literal_string}{LiteralString} \textcolor{keyword}{const} & \hyperlink{classhryky_1_1log_1_1level_1_1_entity_a610700e8acba66750fe4e32d8a36832c}{str}() \textcolor{keyword}{const};
+00067 
+00069     \textcolor{keywordtype}{bool} \hyperlink{classhryky_1_1log_1_1level_1_1_entity_aac74619040af7f4dbb92c707e7ce18ef}{operator<}(\hyperlink{classhryky_1_1log_1_1level_1_1_entity}{this_type} \textcolor{keyword}{const} & rhs) \textcolor{keyword}{const};
+00070 
+00072     \textcolor{keywordtype}{bool} \hyperlink{classhryky_1_1log_1_1level_1_1_entity_a5ab80c8f25b3a5a958deff9d6e21d086}{operator>}(\hyperlink{classhryky_1_1log_1_1level_1_1_entity}{this_type} \textcolor{keyword}{const} & rhs) \textcolor{keyword}{const};
+00073 
+00075     \textcolor{keywordtype}{void} \hyperlink{classhryky_1_1log_1_1level_1_1_entity_a7882840070ffabd547f2b5e0e462eebb}{swap}(\hyperlink{classhryky_1_1log_1_1level_1_1_entity}{this_type} & src);
+00076 
+00078     \textcolor{keyword}{template} <\textcolor{keyword}{typename} StreamT>
+00079     StreamT & \hyperlink{classhryky_1_1log_1_1level_1_1_entity_aec2195adf72a8ac59a3bc065e1a6f1e9}{write_to}(StreamT & stream) \textcolor{keyword}{const};
+00080 
+00081 \textcolor{keyword}{protected} :
+00082 
+00083 \textcolor{keyword}{private} :
+00084 
+00085     \hyperlink{classhryky_1_1_kind}{kind_type}   kind\_;
+00086 
+00087 \};
+00088 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00089 \textcolor{comment}{// public member functions}
+00090 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00094 \textcolor{comment}{}\textcolor{keyword}{template} <\textcolor{keyword}{typename} StreamT>
+\hypertarget{log__level__entity_8h_source_l00095}{}\hyperlink{classhryky_1_1log_1_1level_1_1_entity_aec2195adf72a8ac59a3bc065e1a6f1e9}{00095} StreamT & \hyperlink{classhryky_1_1log_1_1level_1_1_entity_aec2195adf72a8ac59a3bc065e1a6f1e9}{hryky::log::level::Entity::write_to}(StreamT & stream)\textcolor{keyword}{ const}
+00096 \textcolor{keyword}{}\{
+00097     stream << this->kind\_ << \textcolor{stringliteral}{" : "};
+00098     
+00099     \textcolor{keywordflow}{return} stream;
+00100 \}
+00101 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00102 \textcolor{comment}{// protected member functions}
+00103 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00104 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00105 \textcolor{comment}{// private member functions}
+00106 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00107 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00108 \textcolor{comment}{// global function prototypes}
+00109 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00110 \textcolor{keyword}{namespace }hryky
+00111 \{
+00112 \textcolor{keyword}{namespace }log
+00113 \{
+00114 \textcolor{keyword}{namespace }level
+00115 \{
+00116 \} \textcolor{comment}{// namespace level}
+00117 \} \textcolor{comment}{// namespace log}
+00118 \} \textcolor{comment}{// namespace hryky}
+00119 \textcolor{keyword}{namespace }std
+00120 \{
+00122     \textcolor{keyword}{template} <\textcolor{keyword}{typename} StreamT>
+00123     StreamT & operator<<(StreamT & lhs, \hyperlink{classhryky_1_1log_1_1level_1_1_entity}{hryky::log::level::Entity} \textcolor{keyword}{const} & rhs);
+00124 
+00125 \} \textcolor{comment}{// namespace std}
+00126 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00127 \textcolor{comment}{// global function definitions}
+00128 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00132 \textcolor{comment}{}\textcolor{keyword}{template} <\textcolor{keyword}{typename} StreamT>
+00133 StreamT & std::operator<<(StreamT & lhs, \hyperlink{classhryky_1_1log_1_1level_1_1_entity}{hryky::log::level::Entity} \textcolor{keyword}{const} & rhs)
+00134 \{
+00135     \textcolor{keywordflow}{return} rhs.\hyperlink{classhryky_1_1log_1_1level_1_1_entity_aec2195adf72a8ac59a3bc065e1a6f1e9}{write_to}(lhs);
+00136 \}
+00137 \textcolor{preprocessor}{#endif // LOG\_LEVEL\_ENTITY\_H\_20120121111702136}
+00138 \textcolor{preprocessor}{}\textcolor{comment}{// end of file}
+\end{DoxyCode}

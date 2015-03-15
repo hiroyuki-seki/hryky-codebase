@@ -1,0 +1,114 @@
+\hypertarget{testing__unit__base_8h_source}{\section{testing\-\_\-unit\-\_\-base.\-h}
+}
+
+\begin{DoxyCode}
+00001 
+00007 \textcolor{preprocessor}{#ifndef TESTING\_UNIT\_BASE\_H\_20120428133331231}
+00008 \textcolor{preprocessor}{}\textcolor{preprocessor}{#define TESTING\_UNIT\_BASE\_H\_20120428133331231}
+00009 \textcolor{preprocessor}{}\textcolor{preprocessor}{#include "\hyperlink{type_8h}{hryky/type.h}"}
+00010 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00011 \textcolor{comment}{// macro definition}
+00012 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00013 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00014 \textcolor{comment}{// namespace}
+00015 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00016 \textcolor{keyword}{namespace }hryky
+00017 \{
+00018 \textcolor{keyword}{namespace }testing
+00019 \{
+00020     \textcolor{keyword}{class }Registry;
+00021 
+00022 \textcolor{keyword}{namespace }unit
+00023 \{
+00025     \textcolor{keyword}{class }Base;
+00026 
+00027 \} \textcolor{comment}{// namespace unit}
+00028 \} \textcolor{comment}{// namespace testing}
+00029 \} \textcolor{comment}{// namespace hryky}
+00030 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00031 \textcolor{comment}{// class declarations}
+00032 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+\hypertarget{testing__unit__base_8h_source_l00036}{}\hyperlink{classhryky_1_1testing_1_1unit_1_1_base}{00036} \textcolor{comment}{}\textcolor{keyword}{class }\hyperlink{classhryky_1_1testing_1_1unit_1_1_base}{hryky::testing::unit::Base}
+00037 \{
+00038 \textcolor{keyword}{public} :
+00039 
+\hypertarget{testing__unit__base_8h_source_l00040}{}\hyperlink{classhryky_1_1testing_1_1unit_1_1_base_a5424efb7b586101378315945147e85ef}{00040}     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1testing_1_1unit_1_1_base}{Base}        \hyperlink{classhryky_1_1testing_1_1unit_1_1_base_a5424efb7b586101378315945147e85ef}{this_type};
+00041     \textcolor{keyword}{typedef} std::string name\_type;
+00042     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1testing_1_1_registry}{Registry} &  \hyperlink{classhryky_1_1testing_1_1_registry}{registry_type};
+00043 
+00045     \hyperlink{classhryky_1_1testing_1_1unit_1_1_base}{Base}(\textcolor{keywordtype}{char} \textcolor{keyword}{const} * \hyperlink{classhryky_1_1testing_1_1unit_1_1_base_ae8fab2ba0d99923c9600ee6ba8460da1}{name});
+00046 
+00048     \hyperlink{classhryky_1_1testing_1_1unit_1_1_base}{Base}(\hyperlink{classhryky_1_1testing_1_1_registry}{registry_type} registry, \textcolor{keywordtype}{char} \textcolor{keyword}{const} * \textcolor{keyword}{const} \hyperlink{classhryky_1_1testing_1_1unit_1_1_base_ae8fab2ba0d99923c9600ee6ba8460da1}{name});
+00049 
+00051     \textcolor{keyword}{virtual} \hyperlink{classhryky_1_1testing_1_1unit_1_1_base_a722da881b6c70cfcbde9243abcfbf334}{~Base}();
+00052 
+00054     \textcolor{keywordtype}{bool} \hyperlink{classhryky_1_1testing_1_1unit_1_1_base_a5f4df2667df36f034b69d2be14b7c1a5}{run}();
+00055 
+00057     name\_type \textcolor{keyword}{const} & \hyperlink{classhryky_1_1testing_1_1unit_1_1_base_ae8fab2ba0d99923c9600ee6ba8460da1}{name}() \textcolor{keyword}{const};
+00058 
+00059 \textcolor{keyword}{protected} :
+00060 
+00061 \textcolor{keyword}{private} :
+00062 
+00064     \textcolor{keyword}{explicit} \hyperlink{classhryky_1_1testing_1_1unit_1_1_base}{Base}();
+00065 
+00067     \textcolor{keyword}{explicit} \hyperlink{classhryky_1_1testing_1_1unit_1_1_base}{Base}(\hyperlink{classhryky_1_1testing_1_1unit_1_1_base}{this_type} \textcolor{keyword}{const} &);
+00068 
+00069     \hyperlink{classhryky_1_1testing_1_1unit_1_1_base}{this_type} & operator=(\hyperlink{classhryky_1_1testing_1_1unit_1_1_base}{this_type} \textcolor{keyword}{const} &);
+00070 
+00072     \textcolor{keyword}{virtual} \textcolor{keywordtype}{bool} run\_impl() = 0;
+00073     
+00074     name\_type   name\_;
+00075 \};
+00076 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00077 \textcolor{comment}{// class specializations}
+00078 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00079 \textcolor{keyword}{namespace}
+00080 \{
+00081 \} \textcolor{comment}{// namespace "anonymous"}
+00082 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00083 \textcolor{comment}{// public member functions}
+00084 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00085 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00086 \textcolor{comment}{// protected member functions}
+00087 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00088 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00089 \textcolor{comment}{// private member functions}
+00090 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00091 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00092 \textcolor{comment}{// global function prototypes}
+00093 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00094 \textcolor{keyword}{namespace }hryky
+00095 \{
+00096 \textcolor{keyword}{namespace }testing
+00097 \{
+00098 \textcolor{keyword}{namespace }unit
+00099 \{
+00100 
+00101 \} \textcolor{comment}{// namespace unit}
+00102 \} \textcolor{comment}{// namespace testing}
+00103 \} \textcolor{comment}{// namespace hryky}
+00104 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00105 \textcolor{comment}{// global function definitions}
+00106 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00107 \textcolor{preprocessor}{#endif // TESTING\_UNIT\_BASE\_H\_20120428133331231}
+00108 \textcolor{preprocessor}{}\textcolor{comment}{// end of file}
+\end{DoxyCode}

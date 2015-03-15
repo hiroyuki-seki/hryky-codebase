@@ -1,0 +1,76 @@
+\hypertarget{thread__common_8h_source}{\section{thread\-\_\-common.\-h}
+}
+
+\begin{DoxyCode}
+00001 
+00007 \textcolor{preprocessor}{#ifndef THREAD\_COMMON\_H\_20120218180633421}
+00008 \textcolor{preprocessor}{}\textcolor{preprocessor}{#define THREAD\_COMMON\_H\_20120218180633421}
+00009 \textcolor{preprocessor}{}\textcolor{preprocessor}{#if HRYKY\_USE\_BOOST\_EXCLUSION}
+00010 \textcolor{preprocessor}{}\textcolor{preprocessor}{#   include <boost/thread.hpp>}
+00011 \textcolor{preprocessor}{#else}
+00012 \textcolor{preprocessor}{}\textcolor{preprocessor}{#   include <thread>}
+00013 \textcolor{preprocessor}{#endif}
+00014 \textcolor{preprocessor}{}\textcolor{preprocessor}{#include "\hyperlink{chrono_8h}{hryky/chrono.h}"}
+00015 \textcolor{preprocessor}{#include "\hyperlink{reduction__common_8h}{hryky/reduction/reduction_common.h}"}
+00016 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00017 \textcolor{comment}{// macro definition}
+00018 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00019 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00020 \textcolor{comment}{// namespace}
+00021 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00022 \textcolor{keyword}{namespace }hryky
+00023 \{
+00024 \textcolor{keyword}{namespace }thread
+00025 \{
+00026     \textcolor{keyword}{typedef} chrono::milliseconds\_type           duration\_type;
+00027     \textcolor{keyword}{typedef} chrono::seconds\_type                seconds\_type;
+00028     
+00029 \textcolor{preprocessor}{#if HRYKY\_USE\_BOOST\_THREAD}
+00030 \textcolor{preprocessor}{}    \textcolor{keyword}{typedef} boost::thread::id                   id\_type;
+00031     \textcolor{keyword}{typedef} boost::thread::native\_handle\_type   native\_handle\_type;
+00032     \textcolor{keyword}{namespace }this\_thread = boost::this\_thread;
+00033 \textcolor{preprocessor}{#else}
+00034 \textcolor{preprocessor}{}    \textcolor{keyword}{typedef} std::thread::id                     id\_type;
+00035     \textcolor{keyword}{typedef} std::thread::native\_handle\_type     native\_handle\_type;
+00036     \textcolor{keyword}{namespace }this\_thread = std::this\_thread;
+00037 \textcolor{preprocessor}{#endif}
+00038 \textcolor{preprocessor}{}\}
+00039 \}
+00040 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00041 \textcolor{comment}{// struct declaration}
+00042 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00043 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00044 \textcolor{comment}{// class declaration}
+00045 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00046 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00047 \textcolor{comment}{// global function prototypes}
+00048 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00049 \textcolor{keyword}{namespace }hryky
+00050 \{
+00052     \hyperlink{namespacehryky_a343a9a4c36a586be5c2693156200eadc}{reduction_type} \hyperlink{namespacehryky_af41cb3af6766761da0ff21b84527a52c}{reduce}(
+00053         \hyperlink{namespacehryky_1_1reduction_ac686c30a4c8d196bbd0f05629a6b921f}{reduction::name_type} \textcolor{keyword}{const} & name, thread::id\_type \textcolor{keyword}{const} & src);
+00054 
+00055 \textcolor{keyword}{namespace }thread
+00056 \{
+00058     \textcolor{keywordtype}{unsigned} \hyperlink{namespacehryky_1_1thread_aecfbde694375a1c24e081c7c785e52a1}{hardware_concurrency}();
+00059 
+00060 \} \textcolor{comment}{// namespace thread}
+00061 \} \textcolor{comment}{// namespace hryky}
+00062 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00063 \textcolor{comment}{// function definition}
+00064 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00065 \textcolor{preprocessor}{#endif // THREAD\_COMMON\_H\_20120218180633421}
+00066 \textcolor{preprocessor}{}\textcolor{comment}{// end of file}
+\end{DoxyCode}

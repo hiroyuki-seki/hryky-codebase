@@ -1,0 +1,74 @@
+\hypertarget{chrono__common_8h_source}{\section{chrono\-\_\-common.\-h}
+}
+
+\begin{DoxyCode}
+00001 
+00007 \textcolor{preprocessor}{#ifndef CHRONO\_COMMON\_H\_20120218175644414}
+00008 \textcolor{preprocessor}{}\textcolor{preprocessor}{#define CHRONO\_COMMON\_H\_20120218175644414}
+00009 \textcolor{preprocessor}{}\textcolor{preprocessor}{#include <chrono>}
+00010 \textcolor{preprocessor}{#include "\hyperlink{reduction__common_8h}{hryky/reduction/reduction_common.h}"}
+00011 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00012 \textcolor{comment}{// macro definition}
+00013 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00014 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00015 \textcolor{comment}{// namespace}
+00016 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00017 \textcolor{keyword}{namespace }hryky
+00018 \{
+\hypertarget{chrono__common_8h_source_l00019}{}\hyperlink{namespacehryky_1_1chrono}{00019} \textcolor{keyword}{namespace }chrono
+00020 \{
+00021     \textcolor{keyword}{typedef} std::chrono::duration<int32\_t, std::ratio<86400> > day\_type;
+00022     \textcolor{keyword}{typedef} std::chrono::hours hours\_type;
+00023     \textcolor{keyword}{typedef} std::chrono::minutes minutes\_type;
+00024     \textcolor{keyword}{typedef} std::chrono::seconds seconds\_type;
+00025     \textcolor{keyword}{typedef} std::chrono::milliseconds milliseconds\_type;
+00026     \textcolor{keyword}{typedef} std::chrono::microseconds  microseconds\_type;
+00027     \textcolor{keyword}{typedef} std::chrono::nanoseconds nanoseconds\_type;
+00028 
+00029 \}
+00030 \}
+00031 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00032 \textcolor{comment}{// struct declaration}
+00033 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00034 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00035 \textcolor{comment}{// class declaration}
+00036 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00037 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00038 \textcolor{comment}{// function prototypes}
+00039 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00040 \textcolor{keyword}{namespace }hryky
+00041 \{
+00043     \textcolor{keyword}{template} <\textcolor{keyword}{typename} Rep, \textcolor{keyword}{typename} Period>
+00044     \hyperlink{classhryky_1_1_intrusive_ptr}{hryky::reduction_type} \hyperlink{namespacehryky_af41cb3af6766761da0ff21b84527a52c}{reduce}(
+00045         \hyperlink{namespacehryky_1_1reduction_ac686c30a4c8d196bbd0f05629a6b921f}{reduction::name_type} \textcolor{keyword}{const} & name,
+00046         std::chrono::duration<Rep, Period> \textcolor{keyword}{const} & src);
+00047 
+00048 \textcolor{keyword}{namespace }chrono
+00049 \{
+00050 \} \textcolor{comment}{// namespace chrono}
+00051 \} \textcolor{comment}{// namespace hryky}
+00052 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00053 \textcolor{comment}{// function definition}
+00054 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00058 \textcolor{comment}{}\textcolor{keyword}{template} <\textcolor{keyword}{typename} Rep, \textcolor{keyword}{typename} Period>
+\hypertarget{chrono__common_8h_source_l00059}{}\hyperlink{namespacehryky_af41cb3af6766761da0ff21b84527a52c}{00059} \hyperlink{classhryky_1_1_intrusive_ptr}{hryky::reduction_type} \hyperlink{namespacehryky_af41cb3af6766761da0ff21b84527a52c}{hryky::reduce}(
+00060     \hyperlink{classhryky_1_1reduction_1_1_string}{reduction::name_type} \textcolor{keyword}{const} & name,
+00061     std::chrono::duration<Rep, Period> \textcolor{keyword}{const} & src)
+00062 \{
+00063     \textcolor{keywordflow}{return} \hyperlink{reduction__common_8h_afc72326c9900838c5db40438318794dd}{hryky_reduce}(name, src.count());
+00064 \}
+00065 \textcolor{preprocessor}{#endif // CHRONO\_COMMON\_H\_20120218175644414}
+00066 \textcolor{preprocessor}{}\textcolor{comment}{// end of file}
+\end{DoxyCode}

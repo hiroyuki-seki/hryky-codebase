@@ -1,0 +1,51 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$uri__authority__entity_8h.html" title="retains the information of an authority of URI." alt="" coords="5376,80,5518,107"/>
+<area shape="rect" id="node111" href="$uri__port__entity_8cpp.html" title="retains the information about the &#39;port&#39; of URI." alt="" coords="5689,453,5818,480"/>
+<area shape="rect" id="node5" href="$uri__hierarchy__entity_8h.html" title="retains the information about the &#39;hier&#45;part&#39; of URI." alt="" coords="5330,155,5477,181"/>
+<area shape="rect" id="node9" href="$uri_8h.html" title="modules to handle URI." alt="" coords="861,304,907,331"/>
+<area shape="rect" id="node101" href="$uri__authority__entity_8cpp.html" title="retains the information of an authority of URI." alt="" coords="5507,453,5665,480"/>
+<area shape="rect" id="node7" href="$uri__entity_8h.html" title="retains the information of URI." alt="" coords="5205,229,5291,256"/>
+<area shape="rect" id="node109" href="$uri__hierarchy__entity_8cpp.html" title="retains the information about the &#39;hier&#45;part&#39; of URI." alt="" coords="5323,453,5483,480"/>
+<area shape="rect" id="node105" href="$uri__entity_8cpp.html" title="retains the information of URI." alt="" coords="5199,453,5298,480"/>
+<area shape="rect" id="node11" href="$http__header__entity_8h.html" title="retains message&#45;headers of HTTP Message." alt="" coords="517,379,657,405"/>
+<area shape="rect" id="node17" href="$http__header__parser_8h.html" title="parses a text string of HTTP Message." alt="" coords="431,528,575,555"/>
+<area shape="rect" id="node24" href="$http__request__entity_8h.html" title="retains the information of HTTP Request." alt="" coords="233,453,377,480"/>
+<area shape="rect" id="node33" href="$http__header__host__entity_8h.html" title="retains the information of &#39;host&#39; field of HTTP header." alt="" coords="1005,453,1177,480"/>
+<area shape="rect" id="node42" href="$http__header__location__entity_8h.html" title="retains the information for &#39;Location&#39; field of HTTP Header." alt="" coords="789,453,981,480"/>
+<area shape="rect" id="node50" href="$http__request__line__entity_8h.html" title="retains the information of the first line of HTTP Request Message." alt="" coords="30,379,201,405"/>
+<area shape="rect" id="node55" href="$uri_2src_2precompiled_8h_source.html" title="precompiled.h" alt="" coords="3237,379,3339,405"/>
+<area shape="rect" id="node13" href="$http__header__field__dispatcher__apply_8h.html" title="applies the implementation of field to HTTP Header." alt="" coords="783,603,1018,629"/>
+<area shape="rect" id="node15" href="$http_8h.html" title="modules to manage HTTP." alt="" coords="667,677,721,704"/>
+<area shape="rect" id="node31" href="$http__header__entity_8cpp.html" title="retains message&#45;headers of HTTP Message." alt="" coords="451,453,606,480"/>
+<area shape="rect" id="node19" href="$http__parser_8h.html" title="writes out a HTTP Message." alt="" coords="323,603,422,629"/>
+<area shape="rect" id="node22" href="$http__header__parser_8cpp.html" title="parses a text string of HTTP Message." alt="" coords="447,603,605,629"/>
+<area shape="rect" id="node28" href="$http__request__entity_8cpp.html" title="retains the information of HTTP Request." alt="" coords="248,528,406,555"/>
+<area shape="rect" id="node35" href="$http__header__field__dispatcher__base_8h.html" title="base class to be dispatched the class derived from http::header::field::Base." alt="" coords="1013,528,1246,555"/>
+<area shape="rect" id="node40" href="$http__header__host__entity_8cpp.html" title="retains the information of &#39;host&#39; field of HTTP header." alt="" coords="1322,528,1509,555"/>
+<area shape="rect" id="node46" href="$http__header__location__entity_8cpp.html" title="retains the information for &#39;Location&#39; field of HTTP Header." alt="" coords="783,528,989,555"/>
+<area shape="rect" id="node53" href="$http__request__line__entity_8cpp.html" title="retains the information of the first line of HTTP Request Message." alt="" coords="23,453,207,480"/>
+<area shape="rect" id="node57" href="$ascii__common_8cpp.html" title="utility for US&#45;ASCII." alt="" coords="1925,453,2055,480"/>
+<area shape="rect" id="node59" href="$chrono__common_8cpp.html" title="common definition for hryky::chrono module." alt="" coords="2080,453,2222,480"/>
+<area shape="rect" id="node61" href="$common_8cpp.html" title="common definitions." alt="" coords="2247,453,2343,480"/>
+<area shape="rect" id="node63" href="$hamming__weight_8cpp.html" title="counts the number of non&#45;zero values." alt="" coords="2369,453,2513,480"/>
+<area shape="rect" id="node65" href="$indent_8cpp.html" title="indents a line of log." alt="" coords="2537,453,2619,480"/>
+<area shape="rect" id="node67" href="$literal__string_8cpp.html" title="retains a literal string." alt="" coords="2643,453,2761,480"/>
+<area shape="rect" id="node69" href="$precompiled_8cpp.html" title="source to generate a precompiled header." alt="" coords="2785,453,2902,480"/>
+<area shape="rect" id="node71" href="$date__entity_8cpp.html" title="retains a month and a day." alt="" coords="2927,453,3037,480"/>
+<area shape="rect" id="node73" href="$debug__common_8cpp.html" title="common definitions of debug module." alt="" coords="3062,453,3201,480"/>
+<area shape="rect" id="node75" href="$debug__source_8cpp.html" title="retains a debugging information of source position." alt="" coords="3225,453,3353,480"/>
+<area shape="rect" id="node77" href="$error__base_8cpp.html" title="retains arbitary data polymorphically." alt="" coords="3377,453,3485,480"/>
+<area shape="rect" id="node79" href="$error__common_8cpp.html" title="common definitions for hryky::error module." alt="" coords="3510,453,3641,480"/>
+<area shape="rect" id="node81" href="$error__holder_8cpp.html" title="retains the pointer to an instance of error::Base." alt="" coords="3665,453,3779,480"/>
+<area shape="rect" id="node83" href="$error__string_8cpp.html" title="holds the string about the error as string." alt="" coords="3803,453,3915,480"/>
+<area shape="rect" id="node85" href="$file__descriptor__entity_8cpp.html" title="retains a file descriptor." alt="" coords="3940,453,4106,480"/>
+<area shape="rect" id="node87" href="$file__descriptor__mode_8cpp.html" title="retains the access mode for file descriptor." alt="" coords="4131,453,4297,480"/>
+<area shape="rect" id="node89" href="$file__descriptor__entity_8win32_8cpp.html" title="retains a file descripter for Win32." alt="" coords="4322,453,4525,480"/>
+<area shape="rect" id="node91" href="$file__descriptor__mode_8win32_8cpp.html" title="retains the access mode for file descriptor for Win32." alt="" coords="4549,453,4751,480"/>
+<area shape="rect" id="node93" href="$memory__global__common_8cpp.html" title="retains a heap for global new/delete." alt="" coords="4775,453,4967,480"/>
+<area shape="rect" id="node95" href="$memory__heap__arbitrary_8cpp.html" title="&#39;not&#39; thread&#45;safe memory allocation for usage in one thread." alt="" coords="4992,453,5174,480"/>
+<area shape="rect" id="node97" href="$memory__heap__fixed_8cpp.html" title="memory allocation for fixed length units." alt="" coords="1202,453,1365,480"/>
+<area shape="rect" id="node99" href="$memory__heap__standard_8cpp.html" title="allocates memory by std::malloc and deallocates it by std::free." alt="" coords="1389,453,1575,480"/>
+<area shape="rect" id="node103" href="$uri__common_8cpp.html" title="common definitions for hryky::uri." alt="" coords="1600,453,1718,480"/>
+<area shape="rect" id="node107" href="$uri__fragment__entity_8cpp.html" title="retains the information about the fragment part of URI." alt="" coords="1743,453,1901,480"/>
+</map>

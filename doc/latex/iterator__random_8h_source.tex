@@ -1,0 +1,425 @@
+\hypertarget{iterator__random_8h_source}{\section{iterator\-\_\-random.\-h}
+}
+
+\begin{DoxyCode}
+00001 
+00007 \textcolor{preprocessor}{#ifndef ITERATOR\_RANDOM\_H\_20120226093912068}
+00008 \textcolor{preprocessor}{}\textcolor{preprocessor}{#define ITERATOR\_RANDOM\_H\_20120226093912068}
+00009 \textcolor{preprocessor}{}\textcolor{preprocessor}{#include <iterator>}
+00010 \textcolor{preprocessor}{#include "\hyperlink{common_8h}{hryky/common.h}"}
+00011 \textcolor{preprocessor}{#include "\hyperlink{add__const_8h}{hryky/gp/add_const.h}"}
+00012 \textcolor{preprocessor}{#include "\hyperlink{add__pointer_8h}{hryky/gp/add_pointer.h}"}
+00013 \textcolor{preprocessor}{#include "\hyperlink{add__reference_8h}{hryky/gp/add_reference.h}"}
+00014 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00015 \textcolor{comment}{// macro definition}
+00016 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00017 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00018 \textcolor{comment}{// namespace}
+00019 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00020 \textcolor{keyword}{namespace }hryky
+00021 \{
+00022 \textcolor{keyword}{namespace }iterator
+00023 \{
+00024 \textcolor{keyword}{namespace }random
+00025 \{
+00027     \textcolor{keyword}{template} <
+00028         \textcolor{keyword}{typename} ContainerT,
+00029         \textcolor{keyword}{typename} ValueT,
+00030         \textcolor{keyword}{typename} PointerT,
+00031         \textcolor{keyword}{typename} ReferenceT >
+00032     \textcolor{keyword}{class }Base;
+00033     
+00035     \textcolor{keyword}{template} <
+00036         \textcolor{keyword}{typename} ContainerT,
+00037         \textcolor{keyword}{typename} ValueT,
+00038         \textcolor{keyword}{typename} PointerT,
+00039         \textcolor{keyword}{typename} ReferenceT >
+00040     \textcolor{keyword}{class }Mutable;
+00041     
+00043     \textcolor{keyword}{template} <
+00044         \textcolor{keyword}{typename} ContainerT,
+00045         \textcolor{keyword}{typename} ValueT,
+00046         \textcolor{keyword}{typename} PointerT,
+00047         \textcolor{keyword}{typename} ReferenceT,
+00048         \textcolor{keyword}{typename} ConstPointerT,
+00049         \textcolor{keyword}{typename} ConstReferenceT
+00050         >
+00051     \textcolor{keyword}{class }Immutable;
+00052     
+00053 \}
+00054 \}
+00055 \}
+00056 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00057 \textcolor{comment}{// class declaration}
+00058 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00062 \textcolor{comment}{}\textcolor{keyword}{template} <
+00063     \textcolor{keyword}{typename} ContainerT, 
+00064     \textcolor{keyword}{typename} ValueT = \textcolor{keyword}{typename} ContainerT::value\_type,
+00065     \textcolor{keyword}{typename} PointerT = \textcolor{keyword}{typename} ContainerT::pointer,
+00066     \textcolor{keyword}{typename} ReferenceT = \textcolor{keyword}{typename} ContainerT::reference
+00067     >
+\hypertarget{iterator__random_8h_source_l00068}{}\hyperlink{classhryky_1_1iterator_1_1random_1_1_base}{00068} \textcolor{keyword}{class }\hyperlink{classhryky_1_1iterator_1_1random_1_1_base}{hryky::iterator::random::Base}
+00069     : \textcolor{keyword}{public} std::iterator<
+00070         std::random\_access\_iterator\_tag,
+00071         ValueT,
+00072         std::ptrdiff\_t,
+00073         PointerT,
+00074         ReferenceT>
+00075 \{
+00076 \textcolor{keyword}{public} :
+00077     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1iterator_1_1random_1_1_base}{Base<ContainerT, ValueT, PointerT, ReferenceT>} \hyperlink{classhryky_1_1iterator_1_1random_1_1_base}{this_type};
+00078     \textcolor{keyword}{typedef} \textcolor{keyword}{typename} \hyperlink{namespacehryky_1_1display_a88ee3bfa154cce4c6715af0c3f53d062}{ContainerT::size_type} size\_type;
+00079     \textcolor{keyword}{typedef} \textcolor{keyword}{typename} \hyperlink{classhryky_1_1_add_pointer}{AddPointer<ContainerT>::type} container\_pointer;
+00080 
+\hypertarget{iterator__random_8h_source_l00082}{}\hyperlink{classhryky_1_1iterator_1_1random_1_1_base_a81d186e541d1475dedaa204f1ae5d321}{00082}     \hyperlink{classhryky_1_1iterator_1_1random_1_1_base_a81d186e541d1475dedaa204f1ae5d321}{Base}() : container\_() \{\}
+00083 
+\hypertarget{iterator__random_8h_source_l00085}{}\hyperlink{classhryky_1_1iterator_1_1random_1_1_base_a0845b57755dfd114fbd1d9c658b415fa}{00085}     \hyperlink{classhryky_1_1iterator_1_1random_1_1_base_a81d186e541d1475dedaa204f1ae5d321}{Base}(
+00086         container\_pointer \textcolor{keyword}{const} container,
+00087         size\_type \textcolor{keyword}{const} pos)
+00088         : container\_(container), pos\_(pos)
+00089     \{\}
+00090 
+\hypertarget{iterator__random_8h_source_l00092}{}\hyperlink{classhryky_1_1iterator_1_1random_1_1_base_a68224dc6ab2753f1d8123d854c46ef2f}{00092}     \hyperlink{classhryky_1_1iterator_1_1random_1_1_base_a81d186e541d1475dedaa204f1ae5d321}{Base}(\hyperlink{classhryky_1_1iterator_1_1random_1_1_base}{this_type} \textcolor{keyword}{const} & rhs)
+00093         : container\_(rhs.container\_), pos\_(rhs.pos\_)
+00094     \{\}
+00095 
+\hypertarget{iterator__random_8h_source_l00097}{}\hyperlink{classhryky_1_1iterator_1_1random_1_1_base_a3fc3be5c70c5f2e46d4494c3dbf40598}{00097}     \hyperlink{classhryky_1_1iterator_1_1random_1_1_base_a3fc3be5c70c5f2e46d4494c3dbf40598}{hryky_assign_op};
+00098 
+\hypertarget{iterator__random_8h_source_l00100}{}\hyperlink{classhryky_1_1iterator_1_1random_1_1_base_afe603f85c127d1dd979117e8f6358081}{00100}     \textcolor{keywordtype}{bool} \hyperlink{classhryky_1_1iterator_1_1random_1_1_base_afe603f85c127d1dd979117e8f6358081}{operator==}(\hyperlink{classhryky_1_1iterator_1_1random_1_1_base}{this_type} \textcolor{keyword}{const} & rhs)\textcolor{keyword}{ const}
+00101 \textcolor{keyword}{    }\{
+00102         \textcolor{keywordflow}{return} this->container\_ == rhs.container\_
+00103             && this->pos\_ == rhs.pos\_;
+00104     \}
+00105 
+\hypertarget{iterator__random_8h_source_l00107}{}\hyperlink{classhryky_1_1iterator_1_1random_1_1_base_a7b9bf1ad652b48849f90785bc8408a10}{00107}     \textcolor{keywordtype}{bool} \hyperlink{classhryky_1_1iterator_1_1random_1_1_base_a7b9bf1ad652b48849f90785bc8408a10}{operator!=}(\hyperlink{classhryky_1_1iterator_1_1random_1_1_base}{this_type} \textcolor{keyword}{const} & rhs)\textcolor{keyword}{ const}
+00108 \textcolor{keyword}{    }\{
+00109         \textcolor{keywordflow}{return} !this->\hyperlink{classhryky_1_1iterator_1_1random_1_1_base_afe603f85c127d1dd979117e8f6358081}{operator==}(rhs);
+00110     \}
+00111 
+\hypertarget{iterator__random_8h_source_l00113}{}\hyperlink{classhryky_1_1iterator_1_1random_1_1_base_ac855b032c30109ee9e8c2fa3796c2990}{00113}     reference \hyperlink{classhryky_1_1iterator_1_1random_1_1_base_ac855b032c30109ee9e8c2fa3796c2990}{operator*}()\textcolor{keyword}{ const}
+00114 \textcolor{keyword}{    }\{
+00115         \textcolor{keywordflow}{return} (*this->container\_)[this->pos\_];
+00116     \}
+00117 
+\hypertarget{iterator__random_8h_source_l00119}{}\hyperlink{classhryky_1_1iterator_1_1random_1_1_base_a4be097a80786abe9cda9e1ec876e68e3}{00119}     pointer \hyperlink{classhryky_1_1iterator_1_1random_1_1_base_a4be097a80786abe9cda9e1ec876e68e3}{operator->}()\textcolor{keyword}{ const}
+00120 \textcolor{keyword}{    }\{
+00121         \textcolor{keywordflow}{return} &this->\hyperlink{classhryky_1_1iterator_1_1random_1_1_base_ac855b032c30109ee9e8c2fa3796c2990}{operator*}();
+00122     \}
+00123 
+\hypertarget{iterator__random_8h_source_l00125}{}\hyperlink{classhryky_1_1iterator_1_1random_1_1_base_a0c758ff331507eb57f757ac475bdf987}{00125}     difference\_type \hyperlink{classhryky_1_1iterator_1_1random_1_1_base_a0c758ff331507eb57f757ac475bdf987}{operator-}(\hyperlink{classhryky_1_1iterator_1_1random_1_1_base}{this_type} \textcolor{keyword}{const} & rhs)\textcolor{keyword}{ const}
+00126 \textcolor{keyword}{    }\{
+00127         \textcolor{keywordflow}{return} this->pos\_ - rhs.pos\_;
+00128     \}
+00129 
+\hypertarget{iterator__random_8h_source_l00131}{}\hyperlink{classhryky_1_1iterator_1_1random_1_1_base_adf522aec140d767c5488ce54ec41549d}{00131}     \textcolor{keywordtype}{bool} \hyperlink{classhryky_1_1iterator_1_1random_1_1_base_adf522aec140d767c5488ce54ec41549d}{operator<}(\hyperlink{classhryky_1_1iterator_1_1random_1_1_base}{this_type} \textcolor{keyword}{const} & rhs)\textcolor{keyword}{ const}
+00132 \textcolor{keyword}{    }\{
+00133         \textcolor{keywordflow}{return} this->pos\_ < rhs.pos\_;
+00134     \}
+00135 
+\hypertarget{iterator__random_8h_source_l00137}{}\hyperlink{classhryky_1_1iterator_1_1random_1_1_base_a528de4c9b17108a17926d500b2d113c2}{00137}     \textcolor{keywordtype}{bool} \hyperlink{classhryky_1_1iterator_1_1random_1_1_base_a528de4c9b17108a17926d500b2d113c2}{operator>}(\hyperlink{classhryky_1_1iterator_1_1random_1_1_base}{this_type} \textcolor{keyword}{const} & rhs)\textcolor{keyword}{ const}
+00138 \textcolor{keyword}{    }\{
+00139         \textcolor{keywordflow}{return} this->pos\_ > rhs.pos\_;
+00140     \}
+00141 
+\hypertarget{iterator__random_8h_source_l00143}{}\hyperlink{classhryky_1_1iterator_1_1random_1_1_base_a7cc3555dda27b56d69da8fc058bb1488}{00143}     \textcolor{keywordtype}{bool} \hyperlink{classhryky_1_1iterator_1_1random_1_1_base_a7cc3555dda27b56d69da8fc058bb1488}{operator<=}(\hyperlink{classhryky_1_1iterator_1_1random_1_1_base}{this_type} \textcolor{keyword}{const} & rhs)\textcolor{keyword}{ const}
+00144 \textcolor{keyword}{    }\{
+00145         \textcolor{keywordflow}{return} this->pos\_ <= rhs.pos\_;
+00146     \}
+00147 
+\hypertarget{iterator__random_8h_source_l00149}{}\hyperlink{classhryky_1_1iterator_1_1random_1_1_base_a6beeb3ec5cb1442f1ab8cd9dbe58a4f5}{00149}     \textcolor{keywordtype}{bool} \hyperlink{classhryky_1_1iterator_1_1random_1_1_base_a6beeb3ec5cb1442f1ab8cd9dbe58a4f5}{operator>=}(\hyperlink{classhryky_1_1iterator_1_1random_1_1_base}{this_type} \textcolor{keyword}{const} & rhs)\textcolor{keyword}{ const}
+00150 \textcolor{keyword}{    }\{
+00151         \textcolor{keywordflow}{return} this->pos\_ >= rhs.pos\_;
+00152     \}
+00153 
+\hypertarget{iterator__random_8h_source_l00155}{}\hyperlink{classhryky_1_1iterator_1_1random_1_1_base_a6988b0fcaf2cd0113ff4ae48de9aafb9}{00155}     reference \hyperlink{classhryky_1_1iterator_1_1random_1_1_base_a6988b0fcaf2cd0113ff4ae48de9aafb9}{operator[]}(difference\_type index)\textcolor{keyword}{ const}
+00156 \textcolor{keyword}{    }\{
+00157         \textcolor{keywordflow}{return} (*this->container\_)[this->pos\_ + index];
+00158     \}
+00159 
+\hypertarget{iterator__random_8h_source_l00161}{}\hyperlink{classhryky_1_1iterator_1_1random_1_1_base_acc5694bc21edc91c97d8b55d80b6f110}{00161}     \textcolor{keywordtype}{void} \hyperlink{classhryky_1_1iterator_1_1random_1_1_base_acc5694bc21edc91c97d8b55d80b6f110}{swap}(\hyperlink{classhryky_1_1iterator_1_1random_1_1_base}{this_type} & src)
+00162     \{
+00163         \hyperlink{namespacehryky_add9c1c1fdfda07cd47bcb7c16d3a823a}{hryky_swap}(this->container\_, src.container\_);
+00164         \hyperlink{namespacehryky_add9c1c1fdfda07cd47bcb7c16d3a823a}{hryky_swap}(this->pos\_, src.pos\_);
+00165     \}
+00166 
+00167     container\_pointer container()\textcolor{keyword}{ const}
+00168 \textcolor{keyword}{    }\{
+00169         \textcolor{keywordflow}{return} this->container\_;
+00170     \}
+00171 
+00172     size\_type pos()\textcolor{keyword}{ const}
+00173 \textcolor{keyword}{    }\{
+00174         \textcolor{keywordflow}{return} this->pos\_;
+00175     \}
+00176 
+00177 \textcolor{keyword}{protected} :
+00178 
+00179     container\_pointer container\_;
+00180     size\_type pos\_;
+00181 
+00182 \};
+00186 \textcolor{keyword}{template} <
+00187     \textcolor{keyword}{typename} ContainerT,
+00188     \textcolor{keyword}{typename} ValueT = \textcolor{keyword}{typename} ContainerT::value\_type,
+00189     \textcolor{keyword}{typename} PointerT = \textcolor{keyword}{typename} ContainerT::pointer,
+00190     \textcolor{keyword}{typename} ReferenceT = \textcolor{keyword}{typename} ContainerT::reference
+00191     >
+\hypertarget{iterator__random_8h_source_l00192}{}\hyperlink{classhryky_1_1iterator_1_1random_1_1_mutable}{00192} \textcolor{keyword}{class }\hyperlink{classhryky_1_1iterator_1_1random_1_1_mutable}{hryky::iterator::random::Mutable}
+00193     : \textcolor{keyword}{public} \hyperlink{classhryky_1_1iterator_1_1random_1_1_base}{hryky::iterator::random::Base}<
+00194         ContainerT, ValueT, PointerT, ReferenceT>
+00195 \{
+00196 \textcolor{keyword}{public} :
+00197     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1iterator_1_1random_1_1_mutable}{Mutable<ContainerT, ValueT, PointerT, ReferenceT>}   \hyperlink{classhryky_1_1iterator_1_1random_1_1_base}{this_type};
+00198     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1iterator_1_1random_1_1_base}{Base<ContainerT, ValueT, PointerT, ReferenceT>}      \hyperlink{classhryky_1_1iterator_1_1random_1_1_base}{base_type};
+00199 
+\hypertarget{iterator__random_8h_source_l00201}{}\hyperlink{classhryky_1_1iterator_1_1random_1_1_mutable_ac8ccf7588f3abe88b6783e0a95c6790d}{00201}     \hyperlink{classhryky_1_1iterator_1_1random_1_1_mutable_ac8ccf7588f3abe88b6783e0a95c6790d}{Mutable}() : \hyperlink{classhryky_1_1iterator_1_1random_1_1_base}{base_type}() \{\}
+00202 
+\hypertarget{iterator__random_8h_source_l00204}{}\hyperlink{classhryky_1_1iterator_1_1random_1_1_mutable_a8a8832f608ad573cb29d12dfde87d678}{00204}     \hyperlink{classhryky_1_1iterator_1_1random_1_1_mutable_ac8ccf7588f3abe88b6783e0a95c6790d}{Mutable}(container\_pointer \textcolor{keyword}{const} container, size\_type \textcolor{keyword}{const} pos)
+00205         : \hyperlink{classhryky_1_1iterator_1_1random_1_1_base}{base_type}(container, pos)
+00206     \{\}
+00207 
+\hypertarget{iterator__random_8h_source_l00209}{}\hyperlink{classhryky_1_1iterator_1_1random_1_1_mutable_a57390bbb8d56d37423e3606706ba97a7}{00209}     \hyperlink{classhryky_1_1iterator_1_1random_1_1_mutable_ac8ccf7588f3abe88b6783e0a95c6790d}{Mutable}(\hyperlink{classhryky_1_1iterator_1_1random_1_1_base}{this_type} \textcolor{keyword}{const} & rhs)
+00210         : \hyperlink{classhryky_1_1iterator_1_1random_1_1_base}{base_type}(rhs)
+00211     \{\}
+00212 
+\hypertarget{iterator__random_8h_source_l00214}{}\hyperlink{classhryky_1_1iterator_1_1random_1_1_mutable_ac1e70ec0ba93282454b2328ab60c24d6}{00214}     \hyperlink{classhryky_1_1iterator_1_1random_1_1_base}{this_type} & \hyperlink{classhryky_1_1iterator_1_1random_1_1_mutable_ac1e70ec0ba93282454b2328ab60c24d6}{operator=}(\hyperlink{classhryky_1_1iterator_1_1random_1_1_base}{this_type} \textcolor{keyword}{const} & rhs) \{
+00215         \textcolor{keywordflow}{if} (\textcolor{keyword}{this} == &rhs) \{ \textcolor{keywordflow}{return} *\textcolor{keyword}{this}; \}
+00216         this->\hyperlink{classhryky_1_1iterator_1_1random_1_1_mutable_ac1e70ec0ba93282454b2328ab60c24d6}{base_type::operator=}(rhs);
+00217         \textcolor{keywordflow}{return} *\textcolor{keyword}{this};
+00218     \}
+00219 
+\hypertarget{iterator__random_8h_source_l00221}{}\hyperlink{classhryky_1_1iterator_1_1random_1_1_mutable_af561d4103310bca192b75651c62d0635}{00221}     \hyperlink{classhryky_1_1iterator_1_1random_1_1_base}{this_type} & \hyperlink{classhryky_1_1iterator_1_1random_1_1_mutable_af561d4103310bca192b75651c62d0635}{operator++}()
+00222     \{
+00223         ++this->pos\_;
+00224         \textcolor{keywordflow}{return} *\textcolor{keyword}{this};
+00225     \}
+00226 
+\hypertarget{iterator__random_8h_source_l00228}{}\hyperlink{classhryky_1_1iterator_1_1random_1_1_mutable_a7b5b2bafc864fa20e4e56c2b1caccb7d}{00228}     \hyperlink{classhryky_1_1iterator_1_1random_1_1_base}{this_type} \hyperlink{classhryky_1_1iterator_1_1random_1_1_mutable_af561d4103310bca192b75651c62d0635}{operator++}(\textcolor{keywordtype}{int})
+00229     \{
+00230         \hyperlink{classhryky_1_1iterator_1_1random_1_1_base}{this_type} tmp(*\textcolor{keyword}{this});
+00231         ++this->pos\_;
+00232         \textcolor{keywordflow}{return} tmp;
+00233     \}
+00234 
+\hypertarget{iterator__random_8h_source_l00236}{}\hyperlink{classhryky_1_1iterator_1_1random_1_1_mutable_aeb7d7eca75ae367eef9465c8d0631a41}{00236}     \hyperlink{classhryky_1_1iterator_1_1random_1_1_base}{this_type} & \hyperlink{classhryky_1_1iterator_1_1random_1_1_mutable_aeb7d7eca75ae367eef9465c8d0631a41}{operator--}()
+00237     \{
+00238         --this->pos\_;
+00239         \textcolor{keywordflow}{return} *\textcolor{keyword}{this};
+00240     \}
+00241 
+\hypertarget{iterator__random_8h_source_l00243}{}\hyperlink{classhryky_1_1iterator_1_1random_1_1_mutable_aecf53314d5db537d35f89418bf2f1ccd}{00243}     \hyperlink{classhryky_1_1iterator_1_1random_1_1_base}{this_type} \hyperlink{classhryky_1_1iterator_1_1random_1_1_mutable_aeb7d7eca75ae367eef9465c8d0631a41}{operator--}(\textcolor{keywordtype}{int})
+00244     \{
+00245         \hyperlink{classhryky_1_1iterator_1_1random_1_1_base}{this_type} tmp(*\textcolor{keyword}{this});
+00246         --this->pos\_;
+00247         \textcolor{keywordflow}{return} tmp;
+00248     \}
+00249 
+\hypertarget{iterator__random_8h_source_l00251}{}\hyperlink{classhryky_1_1iterator_1_1random_1_1_mutable_abd4e1893982f6dea5c556b7b9028da05}{00251}     \hyperlink{classhryky_1_1iterator_1_1random_1_1_base}{this_type} \hyperlink{classhryky_1_1iterator_1_1random_1_1_mutable_abd4e1893982f6dea5c556b7b9028da05}{operator+}(difference\_type rhs)\textcolor{keyword}{ const}
+00252 \textcolor{keyword}{    }\{
+00253         \textcolor{keywordflow}{return} \hyperlink{classhryky_1_1iterator_1_1random_1_1_base}{this_type}(this->container\_, this->pos\_ + rhs);
+00254     \}
+00255 
+\hypertarget{iterator__random_8h_source_l00257}{}\hyperlink{classhryky_1_1iterator_1_1random_1_1_mutable_acbc46577879f80298ea9b7da5c521926}{00257}     \hyperlink{classhryky_1_1iterator_1_1random_1_1_base}{this_type} \hyperlink{classhryky_1_1iterator_1_1random_1_1_mutable_acbc46577879f80298ea9b7da5c521926}{operator-}(difference\_type rhs)\textcolor{keyword}{ const}
+00258 \textcolor{keyword}{    }\{
+00259         \textcolor{keywordflow}{return} \hyperlink{classhryky_1_1iterator_1_1random_1_1_base}{this_type}(this->container\_, this->pos\_ - rhs);
+00260     \}
+00261 
+\hypertarget{iterator__random_8h_source_l00263}{}\hyperlink{classhryky_1_1iterator_1_1random_1_1_mutable_a0bf0d1dff828498261fae9c8d574da01}{00263}     difference\_type \hyperlink{classhryky_1_1iterator_1_1random_1_1_mutable_acbc46577879f80298ea9b7da5c521926}{operator-}(\hyperlink{classhryky_1_1iterator_1_1random_1_1_base}{this_type} \textcolor{keyword}{const} & rhs)\textcolor{keyword}{ const}
+00264 \textcolor{keyword}{    }\{
+00265         \textcolor{keywordflow}{return} this->\hyperlink{classhryky_1_1iterator_1_1random_1_1_base_a0c758ff331507eb57f757ac475bdf987}{base_type::operator-}(rhs);
+00266     \}
+00267 
+\hypertarget{iterator__random_8h_source_l00269}{}\hyperlink{classhryky_1_1iterator_1_1random_1_1_mutable_abd79f5602af209d1df8f48e886c10fa4}{00269}     \hyperlink{classhryky_1_1iterator_1_1random_1_1_base}{this_type} & \hyperlink{classhryky_1_1iterator_1_1random_1_1_mutable_abd79f5602af209d1df8f48e886c10fa4}{operator+=}(difference\_type rhs)
+00270     \{
+00271         this->pos\_ += rhs;
+00272         \textcolor{keywordflow}{return} *\textcolor{keyword}{this};
+00273     \}
+00274 
+\hypertarget{iterator__random_8h_source_l00276}{}\hyperlink{classhryky_1_1iterator_1_1random_1_1_mutable_aed7712523cb7c6f9935f6ffdd6e5a76d}{00276}     \hyperlink{classhryky_1_1iterator_1_1random_1_1_base}{this_type} & \hyperlink{classhryky_1_1iterator_1_1random_1_1_mutable_aed7712523cb7c6f9935f6ffdd6e5a76d}{operator-=}(difference\_type rhs)
+00277     \{
+00278         this->pos\_ -= rhs;
+00279         \textcolor{keywordflow}{return} *\textcolor{keyword}{this};
+00280     \}
+00281 
+00282 \};
+00286 \textcolor{keyword}{template} <
+00287     \textcolor{keyword}{typename} ContainerT,
+00288     \textcolor{keyword}{typename} ValueT = \textcolor{keyword}{typename} ContainerT::value\_type,
+00289     \textcolor{keyword}{typename} PointerT = \textcolor{keyword}{typename} ContainerT::pointer,
+00290     \textcolor{keyword}{typename} ReferenceT = \textcolor{keyword}{typename} ContainerT::reference,
+00291     \textcolor{keyword}{typename} ConstPointerT = \textcolor{keyword}{typename} ContainerT::const\_pointer,
+00292     \textcolor{keyword}{typename} ConstReferenceT = \textcolor{keyword}{typename} ContainerT::const\_reference
+00293     >
+\hypertarget{iterator__random_8h_source_l00294}{}\hyperlink{classhryky_1_1iterator_1_1random_1_1_immutable}{00294} \textcolor{keyword}{class }\hyperlink{classhryky_1_1iterator_1_1random_1_1_immutable}{hryky::iterator::random::Immutable}
+00295     : \textcolor{keyword}{public} \hyperlink{classhryky_1_1iterator_1_1random_1_1_base}{hryky::iterator::random::Base}<
+00296         typename hryky::AddConst<ContainerT>::type,
+00297         typename hryky::AddConst<ValueT>::type,
+00298         ConstPointerT,
+00299         ConstReferenceT>
+00300 \{
+00301 \textcolor{keyword}{public} :
+00302 
+00303     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1iterator_1_1random_1_1_immutable}{Immutable}<
+00304         ContainerT, ValueT, PointerT, ReferenceT, ConstPointerT, 
+      ConstReferenceT>
+00305             \hyperlink{classhryky_1_1iterator_1_1random_1_1_immutable}{this_type};
+00306     
+00307     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1iterator_1_1random_1_1_base}{Base}<
+00308         \textcolor{keyword}{typename} \hyperlink{classhryky_1_1_add_const}{AddConst<ContainerT>::type},
+00309         \textcolor{keyword}{typename} \hyperlink{classhryky_1_1_add_const_adb29046fcfdac9d716cb5cb3c28d42ac}{AddConst<ValueT>::type},
+00310         ConstPointerT,
+00311         ConstReferenceT>
+00312             \hyperlink{classhryky_1_1iterator_1_1random_1_1_base}{base_type};
+00313 
+00314     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1iterator_1_1random_1_1_mutable}{Mutable<ContainerT, ValueT, PointerT, ReferenceT>}
+00315         \hyperlink{classhryky_1_1iterator_1_1random_1_1_mutable}{mutable_type};
+00316     
+\hypertarget{iterator__random_8h_source_l00318}{}\hyperlink{classhryky_1_1iterator_1_1random_1_1_immutable_a2beb96e03bda518e125d7dba45cf0aaa}{00318}     \hyperlink{classhryky_1_1iterator_1_1random_1_1_immutable_a2beb96e03bda518e125d7dba45cf0aaa}{Immutable}()
+00319         : \hyperlink{classhryky_1_1iterator_1_1random_1_1_base}{base_type}()
+00320     \{\}
+00321 
+\hypertarget{iterator__random_8h_source_l00323}{}\hyperlink{classhryky_1_1iterator_1_1random_1_1_immutable_a7b0ce10cf94aeca0c9f47de9ddfc6a46}{00323}     \hyperlink{classhryky_1_1iterator_1_1random_1_1_immutable_a2beb96e03bda518e125d7dba45cf0aaa}{Immutable}(\hyperlink{classhryky_1_1iterator_1_1random_1_1_immutable}{this_type} \textcolor{keyword}{const} & rhs)
+00324         : \hyperlink{classhryky_1_1iterator_1_1random_1_1_base}{base_type}(rhs)
+00325     \{\}
+00326 
+\hypertarget{iterator__random_8h_source_l00328}{}\hyperlink{classhryky_1_1iterator_1_1random_1_1_immutable_a6143628ffb64b7782b4f4138ec846b74}{00328}     \hyperlink{classhryky_1_1iterator_1_1random_1_1_immutable_a2beb96e03bda518e125d7dba45cf0aaa}{Immutable}(
+00329         container\_pointer container,
+00330         size\_type \textcolor{keyword}{const} pos)
+00331         : \hyperlink{classhryky_1_1iterator_1_1random_1_1_base}{base_type}(container, pos)
+00332     \{\}
+00333 
+\hypertarget{iterator__random_8h_source_l00335}{}\hyperlink{classhryky_1_1iterator_1_1random_1_1_immutable_aa73e85ff6af376adf25ddae321cc1deb}{00335}     \hyperlink{classhryky_1_1iterator_1_1random_1_1_immutable_a2beb96e03bda518e125d7dba45cf0aaa}{Immutable}(\hyperlink{classhryky_1_1iterator_1_1random_1_1_mutable}{mutable_type} \textcolor{keyword}{const} & rhs)
+00336         : \hyperlink{classhryky_1_1iterator_1_1random_1_1_base}{base_type}(rhs.container(), rhs.pos())
+00337     \{\}
+00338 
+\hypertarget{iterator__random_8h_source_l00340}{}\hyperlink{classhryky_1_1iterator_1_1random_1_1_immutable_a88bf073019ff6ed5c6b9f9d06935a9cc}{00340}     \hyperlink{classhryky_1_1iterator_1_1random_1_1_immutable}{this_type} & \hyperlink{classhryky_1_1iterator_1_1random_1_1_immutable_a88bf073019ff6ed5c6b9f9d06935a9cc}{operator=}(\hyperlink{classhryky_1_1iterator_1_1random_1_1_immutable}{this_type} \textcolor{keyword}{const} & rhs) \{
+00341         this->\hyperlink{classhryky_1_1iterator_1_1random_1_1_immutable_a88bf073019ff6ed5c6b9f9d06935a9cc}{base_type::operator=}(rhs);
+00342         \textcolor{keywordflow}{return} *\textcolor{keyword}{this};
+00343     \}
+00344 
+\hypertarget{iterator__random_8h_source_l00346}{}\hyperlink{classhryky_1_1iterator_1_1random_1_1_immutable_a2b2973ea032a20de9e236e14fd5845aa}{00346}     \hyperlink{classhryky_1_1iterator_1_1random_1_1_immutable}{this_type} & \hyperlink{classhryky_1_1iterator_1_1random_1_1_immutable_a2b2973ea032a20de9e236e14fd5845aa}{operator=}(\hyperlink{classhryky_1_1iterator_1_1random_1_1_mutable}{mutable_type} \textcolor{keyword}{const} & rhs) \{
+00347         this->\hyperlink{classhryky_1_1iterator_1_1random_1_1_immutable_a88bf073019ff6ed5c6b9f9d06935a9cc}{base_type::operator=}(\hyperlink{classhryky_1_1iterator_1_1random_1_1_base}{base_type}(rhs.container(), rhs.pos()));
+00348         \textcolor{keywordflow}{return} *\textcolor{keyword}{this};
+00349     \}
+00350 
+\hypertarget{iterator__random_8h_source_l00352}{}\hyperlink{classhryky_1_1iterator_1_1random_1_1_immutable_a1642081b1aefc085cff155f3f04f28eb}{00352}     \hyperlink{classhryky_1_1iterator_1_1random_1_1_immutable}{this_type} & \hyperlink{classhryky_1_1iterator_1_1random_1_1_immutable_a1642081b1aefc085cff155f3f04f28eb}{operator++}()
+00353     \{
+00354         ++this->pos\_;
+00355         \textcolor{keywordflow}{return} *\textcolor{keyword}{this};
+00356     \}
+00357 
+\hypertarget{iterator__random_8h_source_l00359}{}\hyperlink{classhryky_1_1iterator_1_1random_1_1_immutable_ab3639d2c86b6b854aac65418752d15ba}{00359}     \hyperlink{classhryky_1_1iterator_1_1random_1_1_immutable}{this_type} \hyperlink{classhryky_1_1iterator_1_1random_1_1_immutable_a1642081b1aefc085cff155f3f04f28eb}{operator++}(\textcolor{keywordtype}{int})
+00360     \{
+00361         \hyperlink{classhryky_1_1iterator_1_1random_1_1_immutable}{this_type} tmp(*\textcolor{keyword}{this});
+00362         ++this->pos\_;
+00363         \textcolor{keywordflow}{return} tmp;
+00364     \}
+00365 
+\hypertarget{iterator__random_8h_source_l00367}{}\hyperlink{classhryky_1_1iterator_1_1random_1_1_immutable_a5f42e036f02b7ced95b62840747304ed}{00367}     \hyperlink{classhryky_1_1iterator_1_1random_1_1_immutable}{this_type} & \hyperlink{classhryky_1_1iterator_1_1random_1_1_immutable_a5f42e036f02b7ced95b62840747304ed}{operator--}()
+00368     \{
+00369         --this->pos\_;
+00370         \textcolor{keywordflow}{return} *\textcolor{keyword}{this};
+00371     \}
+00372 
+\hypertarget{iterator__random_8h_source_l00374}{}\hyperlink{classhryky_1_1iterator_1_1random_1_1_immutable_af428dd825dab4d1e8d5e1360b4255649}{00374}     \hyperlink{classhryky_1_1iterator_1_1random_1_1_immutable}{this_type} \hyperlink{classhryky_1_1iterator_1_1random_1_1_immutable_a5f42e036f02b7ced95b62840747304ed}{operator--}(\textcolor{keywordtype}{int})
+00375     \{
+00376         \hyperlink{classhryky_1_1iterator_1_1random_1_1_immutable}{this_type} tmp(*\textcolor{keyword}{this});
+00377         --this->pos\_;
+00378         \textcolor{keywordflow}{return} tmp;
+00379     \}
+00380 
+\hypertarget{iterator__random_8h_source_l00382}{}\hyperlink{classhryky_1_1iterator_1_1random_1_1_immutable_a2150edc3a8adf84c8fa458d1de006e48}{00382}     \hyperlink{classhryky_1_1iterator_1_1random_1_1_immutable}{this_type} \hyperlink{classhryky_1_1iterator_1_1random_1_1_immutable_a2150edc3a8adf84c8fa458d1de006e48}{operator+}(difference\_type rhs)\textcolor{keyword}{ const}
+00383 \textcolor{keyword}{    }\{
+00384         \textcolor{keywordflow}{return} \hyperlink{classhryky_1_1iterator_1_1random_1_1_immutable}{this_type}(this->container\_, this->pos\_ + rhs);
+00385     \}
+00386 
+\hypertarget{iterator__random_8h_source_l00388}{}\hyperlink{classhryky_1_1iterator_1_1random_1_1_immutable_a0cb0f445a3d92c45818ac76da7c4ce2d}{00388}     \hyperlink{classhryky_1_1iterator_1_1random_1_1_immutable}{this_type} \hyperlink{classhryky_1_1iterator_1_1random_1_1_immutable_a0cb0f445a3d92c45818ac76da7c4ce2d}{operator-}(difference\_type rhs)\textcolor{keyword}{ const}
+00389 \textcolor{keyword}{    }\{
+00390         \textcolor{keywordflow}{return} \hyperlink{classhryky_1_1iterator_1_1random_1_1_immutable}{this_type}(this->container\_, this->pos\_ - rhs);
+00391     \}
+00392 
+\hypertarget{iterator__random_8h_source_l00394}{}\hyperlink{classhryky_1_1iterator_1_1random_1_1_immutable_a4cb8b0595118827f6f82e36bf5cd18f7}{00394}     difference\_type \hyperlink{classhryky_1_1iterator_1_1random_1_1_immutable_a0cb0f445a3d92c45818ac76da7c4ce2d}{operator-}(\hyperlink{classhryky_1_1iterator_1_1random_1_1_immutable}{this_type} \textcolor{keyword}{const} & rhs)\textcolor{keyword}{ const}
+00395 \textcolor{keyword}{    }\{
+00396         \textcolor{keywordflow}{return} this->\hyperlink{classhryky_1_1iterator_1_1random_1_1_base_a0c758ff331507eb57f757ac475bdf987}{base_type::operator-}(rhs);
+00397     \}
+00398 
+\hypertarget{iterator__random_8h_source_l00400}{}\hyperlink{classhryky_1_1iterator_1_1random_1_1_immutable_aba1ed8aa231d59c1c3e57f5bec2e177f}{00400}     \hyperlink{classhryky_1_1iterator_1_1random_1_1_immutable}{this_type} & \hyperlink{classhryky_1_1iterator_1_1random_1_1_immutable_aba1ed8aa231d59c1c3e57f5bec2e177f}{operator+=}(difference\_type rhs)
+00401     \{
+00402         this->pos\_ += rhs;
+00403         \textcolor{keywordflow}{return} *\textcolor{keyword}{this};
+00404     \}
+00405 
+\hypertarget{iterator__random_8h_source_l00407}{}\hyperlink{classhryky_1_1iterator_1_1random_1_1_immutable_a770e915a3a02d5ca88db4fe8efca1ebb}{00407}     \hyperlink{classhryky_1_1iterator_1_1random_1_1_immutable}{this_type} & \hyperlink{classhryky_1_1iterator_1_1random_1_1_immutable_a770e915a3a02d5ca88db4fe8efca1ebb}{operator-=}(difference\_type rhs)
+00408     \{
+00409         this->pos\_ -= rhs;
+00410         \textcolor{keywordflow}{return} *\textcolor{keyword}{this};
+00411     \}
+00412 
+00413 \};
+00414 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00415 \textcolor{comment}{// public member functions}
+00416 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00417 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00418 \textcolor{comment}{// protected member functions}
+00419 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00420 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00421 \textcolor{comment}{// private member functions}
+00422 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00423 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00424 \textcolor{comment}{// global function prototypes}
+00425 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00426 \textcolor{keyword}{namespace }hryky
+00427 \{
+00428 \textcolor{keyword}{namespace }iterator
+00429 \{
+00430 \textcolor{keyword}{namespace }random
+00431 \{
+00433     \textcolor{keyword}{template} <
+00434         \textcolor{keyword}{typename} ContainerT,
+00435         \textcolor{keyword}{typename} ValueT,
+00436         \textcolor{keyword}{typename} PointerT,
+00437         \textcolor{keyword}{typename} ReferenceT >
+00438     Mutable<ContainerT, ValueT, PointerT, ReferenceT> operator+(
+00439         \textcolor{keyword}{typename} Mutable<
+00440             ContainerT, ValueT, PointerT, ReferenceT>::difference\_type lhs,
+00441         Mutable<ContainerT, ValueT, PointerT, ReferenceT> \textcolor{keyword}{const} & rhs);
+00442     
+00443 \} \textcolor{comment}{// namespace random}
+00444 \} \textcolor{comment}{// namespace iterator}
+00445 \} \textcolor{comment}{// namespace hryky}
+00446 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00447 \textcolor{comment}{// global function definitions}
+00448 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00452 \textcolor{comment}{}\textcolor{keyword}{template} <
+00453     \textcolor{keyword}{typename} ContainerT,
+00454     \textcolor{keyword}{typename} ValueT,
+00455     \textcolor{keyword}{typename} PointerT,
+00456     \textcolor{keyword}{typename} ReferenceT >
+00457 \hyperlink{classhryky_1_1iterator_1_1random_1_1_mutable}{hryky::iterator::random::Mutable<ContainerT, ValueT, PointerT, ReferenceT>}
+00458 hryky::iterator::random::operator+(
+00459     \textcolor{keyword}{typename} Mutable<
+00460         ContainerT, ValueT, PointerT, ReferenceT>::difference\_type lhs,
+00461     Mutable<
+00462         ContainerT, ValueT, PointerT, ReferenceT> \textcolor{keyword}{const} & rhs)
+00463 \{
+00464     \textcolor{keywordflow}{return} rhs + lhs;
+00465 \}
+00466 \textcolor{preprocessor}{#endif // ITERATOR\_RANDOM\_H\_20120226093912068}
+00467 \textcolor{preprocessor}{}\textcolor{comment}{// end of file}
+\end{DoxyCode}

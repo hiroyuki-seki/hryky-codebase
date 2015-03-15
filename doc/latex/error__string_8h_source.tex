@@ -1,0 +1,118 @@
+\hypertarget{error__string_8h_source}{\section{error\-\_\-string.\-h}
+}
+
+\begin{DoxyCode}
+00001 
+00007 \textcolor{preprocessor}{#ifndef ERROR\_STRING\_H\_20120610122417183}
+00008 \textcolor{preprocessor}{}\textcolor{preprocessor}{#define ERROR\_STRING\_H\_20120610122417183}
+00009 \textcolor{preprocessor}{}\textcolor{preprocessor}{#include "\hyperlink{error__base_8h}{hryky/error/error_base.h}"}
+00010 \textcolor{preprocessor}{#include "\hyperlink{string_8h}{hryky/string.h}"}
+00011 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00012 \textcolor{comment}{// macro definition}
+00013 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00014 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00015 \textcolor{comment}{// namespace}
+00016 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00017 \textcolor{keyword}{namespace }hryky
+00018 \{
+00019 \textcolor{keyword}{namespace }error
+00020 \{
+00022     \textcolor{keyword}{class }String;
+00023 
+00024 \} \textcolor{comment}{// namespace error}
+00025 \} \textcolor{comment}{// namespace hryky}
+00026 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00027 \textcolor{comment}{// class declarations}
+00028 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+\hypertarget{error__string_8h_source_l00032}{}\hyperlink{classhryky_1_1error_1_1_string}{00032} \textcolor{comment}{}\textcolor{keyword}{class }\hyperlink{classhryky_1_1error_1_1_string}{hryky::error::String}
+00033     : \textcolor{keyword}{public} \hyperlink{classhryky_1_1error_1_1_base}{hryky::error::Base}
+00034 \{
+00035 \textcolor{keyword}{public} :
+00036 
+\hypertarget{error__string_8h_source_l00037}{}\hyperlink{classhryky_1_1error_1_1_string_ab43687266760ba76199e5e67df0d9592}{00037}     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1error_1_1_base}{Base}                                \hyperlink{classhryky_1_1error_1_1_string_ab43687266760ba76199e5e67df0d9592}{base_type};
+\hypertarget{error__string_8h_source_l00038}{}\hyperlink{classhryky_1_1error_1_1_string_a40dda5bd7d3b68cc8ec2577e4d67e8a9}{00038}     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1error_1_1_string}{String}                              \hyperlink{classhryky_1_1error_1_1_string_a40dda5bd7d3b68cc8ec2577e4d67e8a9}{this_type};
+00039     \textcolor{keyword}{typedef} hryky::String<>::allocator\_type     allocator\_type;
+00040 
+00042     \hyperlink{classhryky_1_1error_1_1_string_afd94f4070319d5cc07a85ee9f2c85e6a}{String}();
+00043 
+00045     \hyperlink{classhryky_1_1error_1_1_string_afd94f4070319d5cc07a85ee9f2c85e6a}{String}(allocator\_type allocator);
+00046 
+00048     \hyperlink{classhryky_1_1error_1_1_string_afd94f4070319d5cc07a85ee9f2c85e6a}{String}(
+00049         \textcolor{keywordtype}{char} \textcolor{keyword}{const} * src,
+00050         \textcolor{keywordtype}{size\_t} \textcolor{keyword}{const} src\_size,
+00051         allocator\_type allocator = allocator\_type());
+00052 
+00054     \hyperlink{classhryky_1_1error_1_1_string_afd94f4070319d5cc07a85ee9f2c85e6a}{String}(
+00055         \textcolor{keywordtype}{char} \textcolor{keyword}{const} * src,
+00056         allocator\_type allocator = allocator\_type());
+00057 
+00059     \textcolor{keyword}{virtual} \hyperlink{classhryky_1_1error_1_1_string_a08d09aaa1e6f02645a67929656396353}{~String}();
+00060 
+00061 \textcolor{keyword}{protected} :
+00062 
+00063 \textcolor{keyword}{private} :
+00064 
+00065     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1_string}{hryky::String<>} \hyperlink{classhryky_1_1_string}{string_type};
+00066 
+00068     \textcolor{keyword}{explicit} \hyperlink{classhryky_1_1error_1_1_string_afd94f4070319d5cc07a85ee9f2c85e6a}{String}(\hyperlink{classhryky_1_1error_1_1_base}{this_type} \textcolor{keyword}{const} &);
+00069 
+00071     \textcolor{comment}{// hryky\_rvalue\_constructor(String);}
+00072 
+00073     \hyperlink{classhryky_1_1error_1_1_base}{this_type} & operator=(\hyperlink{classhryky_1_1error_1_1_base}{this_type} \textcolor{keyword}{const} &);
+00074 
+00076     \textcolor{keyword}{virtual} \textcolor{keywordtype}{char} \textcolor{keyword}{const} * what\_impl() \textcolor{keyword}{const};
+00077 
+00078     \hyperlink{classhryky_1_1_string}{string_type} raw\_;
+00079 
+00080 \};
+00081 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00082 \textcolor{comment}{// class specializations}
+00083 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00084 \textcolor{keyword}{namespace }hryky
+00085 \{
+00086 \textcolor{keyword}{namespace }error
+00087 \{
+00088 \} \textcolor{comment}{// namespace error}
+00089 \} \textcolor{comment}{// namespace hryky}
+00090 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00091 \textcolor{comment}{// public member functions}
+00092 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00093 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00094 \textcolor{comment}{// protected member functions}
+00095 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00096 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00097 \textcolor{comment}{// private member functions}
+00098 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00099 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00100 \textcolor{comment}{// global function prototypes}
+00101 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00102 \textcolor{keyword}{namespace }hryky
+00103 \{
+00104 \textcolor{keyword}{namespace }error
+00105 \{
+00106 \} \textcolor{comment}{// namespace error}
+00107 \} \textcolor{comment}{// namespace hryky}
+00108 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00109 \textcolor{comment}{// global function definitions}
+00110 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00111 \textcolor{preprocessor}{#endif // ERROR\_STRING\_H\_20120610122417183}
+00112 \textcolor{preprocessor}{}\textcolor{comment}{// end of file}
+\end{DoxyCode}

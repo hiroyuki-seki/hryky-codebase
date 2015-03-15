@@ -1,0 +1,262 @@
+\hypertarget{narrow__token_8h_source}{\section{narrow\-\_\-token.\-h}
+}
+
+\begin{DoxyCode}
+00001 
+00007 \textcolor{preprocessor}{#ifndef NARROW\_TOKEN\_H\_20120922201005507}
+00008 \textcolor{preprocessor}{}\textcolor{preprocessor}{#define NARROW\_TOKEN\_H\_20120922201005507}
+00009 \textcolor{preprocessor}{}\textcolor{preprocessor}{#include "\hyperlink{foreach_8h}{hryky/foreach.h}"}
+00010 \textcolor{preprocessor}{#include "\hyperlink{range_8h}{hryky/range.h}"}
+00011 \textcolor{preprocessor}{#include "\hyperlink{fixed__vector_8h}{hryky/fixed_vector.h}"}
+00012 \textcolor{preprocessor}{#include "\hyperlink{reduction__common_8h}{hryky/reduction/reduction_common.h}"}
+00013 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00014 \textcolor{comment}{// macro definition}
+00015 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00016 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00017 \textcolor{comment}{// namespace}
+00018 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00019 \textcolor{keyword}{namespace }hryky
+00020 \{
+00022     \textcolor{keyword}{template} < \textcolor{keyword}{typename} ResultT, \textcolor{keywordtype}{size\_t} Size >
+00023     \textcolor{keyword}{class }NarrowToken;
+00024 
+00025 \} \textcolor{comment}{// namespace hryky}
+00026 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00027 \textcolor{comment}{// class declarations}
+00028 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00032 \textcolor{comment}{}\textcolor{keyword}{template} < \textcolor{keyword}{typename} ResultT, \textcolor{keywordtype}{size\_t} Size = ResultT::num\_ >
+\hypertarget{narrow__token_8h_source_l00033}{}\hyperlink{classhryky_1_1_narrow_token}{00033} \textcolor{keyword}{class }\hyperlink{classhryky_1_1_narrow_token}{hryky::NarrowToken}
+00034 \{
+00035 \textcolor{keyword}{public} :
+00036 
+\hypertarget{narrow__token_8h_source_l00037}{}\hyperlink{classhryky_1_1_narrow_token_a8ef24a463e656c6201d12dc48d566c58}{00037}     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1_narrow_token}{NarrowToken<ResultT, Size>}  \hyperlink{classhryky_1_1_narrow_token_a8ef24a463e656c6201d12dc48d566c58}{this_type};
+00038     \textcolor{keyword}{typedef} \textcolor{keyword}{typename} ResultT::raw\_type  raw\_type;
+00039     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1_fixed_vector}{FixedVector<raw_type, Size>} \hyperlink{classhryky_1_1_fixed_vector}{candidates_type};
+00040     \textcolor{keyword}{typedef} ResultT                     result\_type;
+00041 
+00043     \hyperlink{classhryky_1_1_narrow_token_a1ce8a8fce4830b8bdb73f9a4bb22a6ad}{NarrowToken}();
+00044 
+00046     \hyperlink{classhryky_1_1_narrow_token_a1ce8a8fce4830b8bdb73f9a4bb22a6ad}{NarrowToken}(\hyperlink{classhryky_1_1_narrow_token}{this_type} \textcolor{keyword}{const} &);
+00047 
+00049     \hyperlink{classhryky_1_1_narrow_token_a1ce8a8fce4830b8bdb73f9a4bb22a6ad}{NarrowToken}(\hyperlink{classhryky_1_1_narrow_token}{this_type} && rhs);
+00050 
+00052     \hyperlink{classhryky_1_1_narrow_token_a52b08c0ec3f338bea935f6659b456b09}{~NarrowToken}();
+00053 
+\hypertarget{narrow__token_8h_source_l00055}{}\hyperlink{classhryky_1_1_narrow_token_ae7559074062ed5f2d6249c6730545552}{00055}     \hyperlink{classhryky_1_1_narrow_token_ae7559074062ed5f2d6249c6730545552}{hryky_assign_op};
+00056 
+00058     \textcolor{keywordtype}{void} \hyperlink{classhryky_1_1_narrow_token_a85f5dc5a4b422c3251139e60cf7fef0d}{clear}();
+00059 
+00061     \hyperlink{classhryky_1_1_intrusive_ptr}{reduction_type} \hyperlink{classhryky_1_1_narrow_token_a26077cf647e46c7482990337560504fa}{reduce}(\hyperlink{classhryky_1_1reduction_1_1_string}{reduction::name_type} \textcolor{keyword}{const} & name) \textcolor{keyword}{const};
+00062 
+00064     \textcolor{keywordtype}{void} \hyperlink{classhryky_1_1_narrow_token_a141661722b4c90ec9699fd9511c612ab}{swap}(\hyperlink{classhryky_1_1_narrow_token}{this_type} & src);
+00065 
+00074     \textcolor{keyword}{template} < \textcolor{keyword}{typename} ValueT, \textcolor{keyword}{typename} TokensT >
+00075     \textcolor{keywordtype}{size\_t} \hyperlink{classhryky_1_1_narrow_token_ada653c645c09f84ab73cec2ebcbc5a4c}{operator()}(ValueT \textcolor{keyword}{const} src, TokensT \textcolor{keyword}{const} & tokens);
+00076 
+00080     \textcolor{keyword}{template} < \textcolor{keyword}{typename} InputIterator, \textcolor{keyword}{typename} TokensT >
+00081     \textcolor{keywordtype}{void} \hyperlink{classhryky_1_1_narrow_token_ada653c645c09f84ab73cec2ebcbc5a4c}{operator()}(
+00082         InputIterator begin, InputIterator end, TokensT \textcolor{keyword}{const} & tokens);
+00083 
+00085     result\_type \hyperlink{classhryky_1_1_narrow_token_af36664ab981d8d2616f8c0c99d145506}{result}() \textcolor{keyword}{const};
+00086 
+00088     \textcolor{keywordtype}{size\_t} \hyperlink{classhryky_1_1_narrow_token_a1d27594be3e660ad6a085bf7e7f4d980}{length}() \textcolor{keyword}{const};
+00089 
+00090 \textcolor{keyword}{protected} :
+00091 
+00092 \textcolor{keyword}{private} :
+00093 
+00095     \textcolor{keywordtype}{void} clear\_candidates();
+00096 
+00097     \hyperlink{classhryky_1_1_fixed_vector}{candidates_type} candidates\_;
+00098     result\_type     result\_;
+00099     \textcolor{keywordtype}{size\_t}          length\_;
+00100 
+00101 \};
+00102 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00103 \textcolor{comment}{// class specializations}
+00104 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00105 \textcolor{keyword}{namespace }hryky
+00106 \{
+00107 \} \textcolor{comment}{// namespace hryky}
+00108 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00109 \textcolor{comment}{// public member functions}
+00110 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00114 \textcolor{comment}{}\textcolor{keyword}{template} < \textcolor{keyword}{typename} ResultT, \textcolor{keywordtype}{size\_t} Size >
+\hypertarget{narrow__token_8h_source_l00115}{}\hyperlink{classhryky_1_1_narrow_token_a1ce8a8fce4830b8bdb73f9a4bb22a6ad}{00115} \hyperlink{classhryky_1_1_narrow_token_a1ce8a8fce4830b8bdb73f9a4bb22a6ad}{hryky::NarrowToken<ResultT, Size>::NarrowToken}()
+00116     : candidates\_()
+00117       , result\_()
+00118       , length\_()
+00119 \{
+00120     this->clear\_candidates();
+00121 \}
+00125 \textcolor{keyword}{template} < \textcolor{keyword}{typename} ResultT, \textcolor{keywordtype}{size\_t} Size >
+\hypertarget{narrow__token_8h_source_l00126}{}\hyperlink{classhryky_1_1_narrow_token_ad60e6cb2513b59434f85506aefd4db63}{00126} \hyperlink{classhryky_1_1_narrow_token}{hryky::NarrowToken<ResultT, Size>::NarrowToken}(\hyperlink{classhryky_1_1_narrow_token}{this_type} \textcolor{keyword}{const} & rhs)
+00127     : candidates\_(rhs.candidates\_)
+00128       , result\_(rhs.result\_)
+00129       , length\_(rhs.length\_)
+00130 \{
+00131 \}
+00135 \textcolor{keyword}{template} <\textcolor{keyword}{typename} ResultT, \textcolor{keywordtype}{size\_t} Size>
+\hypertarget{narrow__token_8h_source_l00136}{}\hyperlink{classhryky_1_1_narrow_token_a708b7d695e675848be5e8f871a61ce3f}{00136} \hyperlink{classhryky_1_1_narrow_token}{hryky::NarrowToken<ResultT, Size>::NarrowToken}(\hyperlink{classhryky_1_1_narrow_token}{this_type} && rhs)
+00137     : hryky\_rvalue\_init(candidates)
+00138       , hryky\_rvalue\_init(result)
+00139       , hryky\_rvalue\_init(length)
+00140 \{
+00141 \}
+00145 \textcolor{keyword}{template} < \textcolor{keyword}{typename} ResultT, \textcolor{keywordtype}{size\_t} Size >
+\hypertarget{narrow__token_8h_source_l00146}{}\hyperlink{classhryky_1_1_narrow_token_a52b08c0ec3f338bea935f6659b456b09}{00146} \hyperlink{classhryky_1_1_narrow_token}{hryky::NarrowToken<ResultT, Size>::~NarrowToken}()
+00147 \{
+00148 \}
+00152 \textcolor{keyword}{template} < \textcolor{keyword}{typename} ResultT, \textcolor{keywordtype}{size\_t} Size >
+\hypertarget{narrow__token_8h_source_l00153}{}\hyperlink{classhryky_1_1_narrow_token_a85f5dc5a4b422c3251139e60cf7fef0d}{00153} \textcolor{keywordtype}{void} \hyperlink{namespacehryky_aa201297ea9530da954a7230be71cc19d}{hryky::NarrowToken<ResultT, Size>::clear}()
+00154 \{
+00155     this->length\_ = size\_t();
+00156     this->result\_ = result\_type();
+00157 
+00158     this->clear\_candidates();
+00159 \}
+00163 \textcolor{keyword}{template} < \textcolor{keyword}{typename} ResultT, \textcolor{keywordtype}{size\_t} Size >
+\hypertarget{narrow__token_8h_source_l00164}{}\hyperlink{classhryky_1_1_narrow_token_a141661722b4c90ec9699fd9511c612ab}{00164} \textcolor{keywordtype}{void} \hyperlink{namespacehryky_a4282146df5ea2b68cb667896a2205909}{hryky::NarrowToken<ResultT, Size>::swap}(\hyperlink{classhryky_1_1_narrow_token}{this_type} & src)
+00165 \{
+00166     \hyperlink{namespacehryky_add9c1c1fdfda07cd47bcb7c16d3a823a}{hryky_swap}(this->candidates\_, src.candidates\_);
+00167     \hyperlink{namespacehryky_add9c1c1fdfda07cd47bcb7c16d3a823a}{hryky_swap}(this->result\_, src.result\_);
+00168     \hyperlink{namespacehryky_add9c1c1fdfda07cd47bcb7c16d3a823a}{hryky_swap}(this->length\_, src.length\_);
+00169 \}
+00173 \textcolor{keyword}{template} < \textcolor{keyword}{typename} ResultT, \textcolor{keywordtype}{size\_t} Size >
+\hypertarget{narrow__token_8h_source_l00174}{}\hyperlink{classhryky_1_1_narrow_token_a26077cf647e46c7482990337560504fa}{00174} \hyperlink{classhryky_1_1_intrusive_ptr}{hryky::reduction_type} \hyperlink{namespacehryky_af41cb3af6766761da0ff21b84527a52c}{hryky::NarrowToken<ResultT, Size>::reduce}(
+00175     \hyperlink{classhryky_1_1reduction_1_1_string}{reduction::name_type} \textcolor{keyword}{const} & name)\textcolor{keyword}{ const}
+00176 \textcolor{keyword}{}\{
+00177     \hyperlink{classhryky_1_1_intrusive_ptr}{reduction::map_type} \hyperlink{namespacehryky_1_1reduction_ac5eae270cf8047b294dc4ff3e5e11a79}{map} = \hyperlink{namespacehryky_1_1reduction_ac5eae270cf8047b294dc4ff3e5e11a79}{reduction::map}(name);
+00178 
+00179     ((*map)
+00180      .append(\textcolor{stringliteral}{"result"}, this->result\_)
+00181      .append(\textcolor{stringliteral}{"length"}, this->length\_)
+00182      .append(\textcolor{stringliteral}{"candidates"}, this->candidates\_)
+00183      );
+00184     
+00185     \textcolor{keywordflow}{return} \hyperlink{namespacehryky_1_1reduction_ac5eae270cf8047b294dc4ff3e5e11a79}{map};
+00186 \}
+00190 \textcolor{keyword}{template} < \textcolor{keyword}{typename} ResultT, \textcolor{keywordtype}{size\_t} Size >
+00191 \textcolor{keyword}{template} < \textcolor{keyword}{typename} ValueT, \textcolor{keyword}{typename} TokensT >
+\hypertarget{narrow__token_8h_source_l00192}{}\hyperlink{classhryky_1_1_narrow_token_ada653c645c09f84ab73cec2ebcbc5a4c}{00192} \textcolor{keywordtype}{size\_t} \hyperlink{classhryky_1_1_narrow_token}{hryky::NarrowToken<ResultT, Size>::operator()}(
+00193     ValueT \textcolor{keyword}{const} src, TokensT \textcolor{keyword}{const} & tokens)
+00194 \{
+00195     \textcolor{keywordtype}{size\_t} candidates\_size = 0;
+00196     result\_type result;
+00197     \hyperlink{classhryky_1_1_foreach}{Foreach<candidates_type>} \textcolor{keywordflow}{foreach}(this->candidates\_);
+00198     \textcolor{keywordflow}{for} (; \textcolor{keywordflow}{foreach}.valid(); ++\textcolor{keywordflow}{foreach}) \{
+00199         raw\_type \textcolor{keyword}{const} kind = *\textcolor{keywordflow}{foreach};
+00200         \hyperlink{classhryky_1_1_literal_string}{LiteralString} \textcolor{keyword}{const} & token = tokens[kind];
+00201         
+00202         \textcolor{keywordflow}{if} (token.\hyperlink{classhryky_1_1_literal_string_af2221b58fef20ed4d474891681995c97}{size}() <= this->length\_) \{
+00203             \textcolor{keywordflow}{continue};
+00204         \}
+00205 
+00206         \textcolor{keywordflow}{if} (token[this->length\_] != src) \{
+00207             \textcolor{keywordflow}{continue};
+00208         \}
+00209 
+00210         \textcolor{comment}{// overwrites the iterating container.}
+00211         this->candidates\_[candidates\_size++] = kind;
+00212 
+00213         \textcolor{keywordflow}{if} (this->length\_ + 1 == token.\hyperlink{classhryky_1_1_literal_string_af2221b58fef20ed4d474891681995c97}{size}()) \{
+00214             result = kind;
+00215         \}
+00216     \}
+00217 
+00218     ++this->length\_;
+00219 
+00220     this->result\_ = result;
+00221 
+00222     this->candidates\_.resize(candidates\_size);
+00223     
+00224     \textcolor{keywordflow}{return} candidates\_size;
+00225 \}
+00229 \textcolor{keyword}{template} < \textcolor{keyword}{typename} ResultT, \textcolor{keywordtype}{size\_t} Size >
+00230 \textcolor{keyword}{template} < \textcolor{keyword}{typename} InputIterator, \textcolor{keyword}{typename} TokensT >
+\hypertarget{narrow__token_8h_source_l00231}{}\hyperlink{classhryky_1_1_narrow_token_a6fe8945316c749abbed245cb7d3b8914}{00231} \textcolor{keywordtype}{void} \hyperlink{classhryky_1_1_narrow_token}{hryky::NarrowToken<ResultT, Size>::operator()}(
+00232     InputIterator begin, InputIterator end, TokensT \textcolor{keyword}{const} & tokens)
+00233 \{
+00234     \hyperlink{classhryky_1_1_foreach}{Foreach<Range<InputIterator>} > \textcolor{keywordflow}{foreach}(\hyperlink{namespacehryky_a6093192359bc9630d58d6158bd0178f4}{range}(begin, end));
+00235     \textcolor{keywordflow}{for} (; \textcolor{keywordflow}{foreach}.valid(); ++\textcolor{keywordflow}{foreach}) \{
+00236         (*this)(*\textcolor{keywordflow}{foreach}, tokens);
+00237     \}
+00238 \}
+00242 \textcolor{keyword}{template} < \textcolor{keyword}{typename} ResultT, \textcolor{keywordtype}{size\_t} Size >
+\hypertarget{narrow__token_8h_source_l00243}{}\hyperlink{classhryky_1_1_narrow_token_af36664ab981d8d2616f8c0c99d145506}{00243} ResultT \hyperlink{classhryky_1_1_narrow_token}{hryky::NarrowToken<ResultT, Size>::result}()\textcolor{keyword}{ const}
+00244 \textcolor{keyword}{}\{
+00245     \textcolor{keywordflow}{return} this->result\_;
+00246 \}
+00250 \textcolor{keyword}{template} < \textcolor{keyword}{typename} ResultT, \textcolor{keywordtype}{size\_t} Size >
+\hypertarget{narrow__token_8h_source_l00251}{}\hyperlink{classhryky_1_1_narrow_token_a1d27594be3e660ad6a085bf7e7f4d980}{00251} \textcolor{keywordtype}{size\_t} \hyperlink{classhryky_1_1_narrow_token}{hryky::NarrowToken<ResultT, Size>::length}()\textcolor{keyword}{ const}
+00252 \textcolor{keyword}{}\{
+00253     \textcolor{keywordflow}{return} this->length\_;
+00254 \}
+00255 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00256 \textcolor{comment}{// protected member functions}
+00257 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00258 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00259 \textcolor{comment}{// private member functions}
+00260 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00264 \textcolor{comment}{}\textcolor{keyword}{template} < \textcolor{keyword}{typename} ResultT, \textcolor{keywordtype}{size\_t} Size >
+00265 \textcolor{keywordtype}{void} \hyperlink{classhryky_1_1_narrow_token}{hryky::NarrowToken<ResultT, Size>::clear_candidates}()
+00266 \{
+00267     this->candidates\_.resize(Size);
+00268     \hyperlink{classhryky_1_1_foreach}{Foreach<candidates_type>} \textcolor{keywordflow}{foreach}(this->candidates\_);
+00269     \textcolor{keywordflow}{for} (; \textcolor{keywordflow}{foreach}.valid(); ++\textcolor{keywordflow}{foreach}) \{
+00270         *\textcolor{keywordflow}{foreach} = \textcolor{keyword}{static\_cast<}raw\_type\textcolor{keyword}{>}(\textcolor{keywordflow}{foreach}.offset());
+00271     \}
+00272 \}
+00273 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00274 \textcolor{comment}{// global function prototypes}
+00275 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00276 \textcolor{keyword}{namespace }hryky
+00277 \{
+00279     \textcolor{keyword}{template} < \textcolor{keyword}{typename} ResultT, \textcolor{keywordtype}{size\_t} Size >
+00280     \hyperlink{namespacehryky_a343a9a4c36a586be5c2693156200eadc}{reduction_type} \hyperlink{namespacehryky_af41cb3af6766761da0ff21b84527a52c}{reduce}(
+00281         \hyperlink{namespacehryky_1_1reduction_ac686c30a4c8d196bbd0f05629a6b921f}{reduction::name_type} \textcolor{keyword}{const} & name,
+00282         NarrowToken<ResultT, Size> \textcolor{keyword}{const} & src);
+00283 
+00285     \textcolor{keyword}{template} < \textcolor{keyword}{typename} ResultT, \textcolor{keywordtype}{size\_t} Size >
+00286     \textcolor{keywordtype}{void} \hyperlink{namespacehryky_a4282146df5ea2b68cb667896a2205909}{swap}(
+00287         NarrowToken<ResultT, Size> & lhs,
+00288         NarrowToken<ResultT, Size> & rhs);
+00289 
+00290 \} \textcolor{comment}{// namespace hryky}
+00291 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00292 \textcolor{comment}{// global function definitions}
+00293 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00297 \textcolor{comment}{}\textcolor{keyword}{template} < \textcolor{keyword}{typename} ResultT, \textcolor{keywordtype}{size\_t} Size >
+\hypertarget{narrow__token_8h_source_l00298}{}\hyperlink{namespacehryky_a5245acc3760966a01a0bf0eddbba7b11}{00298} \hyperlink{classhryky_1_1_intrusive_ptr}{hryky::reduction_type} \hyperlink{namespacehryky_af41cb3af6766761da0ff21b84527a52c}{hryky::reduce}(
+00299     \hyperlink{classhryky_1_1reduction_1_1_string}{reduction::name_type} \textcolor{keyword}{const} & name,
+00300     \hyperlink{classhryky_1_1_narrow_token}{NarrowToken<ResultT, Size>} \textcolor{keyword}{const} & src)
+00301 \{
+00302     \textcolor{keywordflow}{return} src.\hyperlink{classhryky_1_1_narrow_token_a26077cf647e46c7482990337560504fa}{reduce}(name);
+00303 \}
+00307 \textcolor{keyword}{template} < \textcolor{keyword}{typename} ResultT, \textcolor{keywordtype}{size\_t} Size >
+\hypertarget{narrow__token_8h_source_l00308}{}\hyperlink{namespacehryky_ae6f86b24f33103abda6e0c6a57406d9d}{00308} \textcolor{keywordtype}{void} \hyperlink{namespacehryky_a4282146df5ea2b68cb667896a2205909}{hryky::swap}(
+00309     \hyperlink{classhryky_1_1_narrow_token}{NarrowToken<ResultT, Size>} & lhs, \hyperlink{classhryky_1_1_narrow_token}{NarrowToken<ResultT, Size>} & rhs)
+00310 \{
+00311     lhs.\hyperlink{classhryky_1_1_narrow_token_a141661722b4c90ec9699fd9511c612ab}{swap}(rhs);
+00312 \}
+00313 \textcolor{preprocessor}{#endif // NARROW\_TOKEN\_H\_20120922201005507}
+00314 \textcolor{preprocessor}{}\textcolor{comment}{// end of file}
+\end{DoxyCode}

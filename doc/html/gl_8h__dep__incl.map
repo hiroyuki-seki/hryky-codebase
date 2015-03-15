@@ -1,0 +1,29 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$sdl_8h.html" title="common definition for using SDL." alt="" coords="296,80,347,107"/>
+<area shape="rect" id="node66" href="$opengl__common_8h.html" title="common definitions of OpenGL module." alt="" coords="919,80,1047,107"/>
+<area shape="rect" id="node68" href="$opengl__module_8h.html" title="manages OpenGL module." alt="" coords="1023,155,1143,181"/>
+<area shape="rect" id="node5" href="$display__mode_8h.html" title="retains the information of the resolution and color format of a display." alt="" coords="165,379,277,405"/>
+<area shape="rect" id="node21" href="$display__environment_8cpp.html" title="collects the available display environments." alt="" coords="326,827,489,853"/>
+<area shape="rect" id="node25" href="$display__screen_8cpp.html" title="retains the information of each display screen." alt="" coords="5,827,139,853"/>
+<area shape="rect" id="node38" href="$graphics__module_8cpp.html" title="manages graphics module." alt="" coords="249,155,393,181"/>
+<area shape="rect" id="node40" href="$pixel__format_8h.html" title="represents pixel format." alt="" coords="459,155,561,181"/>
+<area shape="rect" id="node62" href="$pixel__format_8cpp.html" title="represents pixel format." alt="" coords="787,379,904,405"/>
+<area shape="rect" id="node7" href="$display__screen_8h.html" title="retains the information of each display screen." alt="" coords="353,453,473,480"/>
+<area shape="rect" id="node13" href="$display_8h.html" title="collection of the display modules." alt="" coords="385,677,460,704"/>
+<area shape="rect" id="node23" href="$display__mode_8cpp.html" title="retains the information of the resolution and color format of a display." alt="" coords="171,827,297,853"/>
+<area shape="rect" id="node9" href="$display__driver_8h.html" title="retains the information of each display driver." alt="" coords="506,528,616,555"/>
+<area shape="rect" id="node11" href="$display__environment_8h.html" title="collects the available display environments." alt="" coords="511,603,661,629"/>
+<area shape="rect" id="node19" href="$display__driver_8cpp.html" title="retains the information of each display driver." alt="" coords="515,827,640,853"/>
+<area shape="rect" id="node15" href="$display_2src_2precompiled_8h_source.html" title="precompiled.h" alt="" coords="371,752,473,779"/>
+<area shape="rect" id="node17" href="$display__common_8cpp.html" title="common definitions of display module." alt="" coords="833,827,977,853"/>
+<area shape="rect" id="node27" href="$display__traverser_8cpp.html" title="traverses the all display modes in the environment." alt="" coords="664,827,808,853"/>
+<area shape="rect" id="node42" href="$display__common_8h.html" title="common definitions of display module." alt="" coords="445,229,576,256"/>
+<area shape="rect" id="node58" href="$pixel_8h.html" title="collection of the pixel modules." alt="" coords="805,229,864,256"/>
+<area shape="rect" id="node44" href="$display__config_8h.html" title="retains the configuration of display." alt="" coords="308,304,423,331"/>
+<area shape="rect" id="node51" href="$display__traverser_8h.html" title="traverses the all display configurations in the environment." alt="" coords="737,603,868,629"/>
+<area shape="rect" id="node60" href="$pixel_2src_2precompiled_8h_source.html" title="precompiled.h" alt="" coords="794,304,896,331"/>
+<area shape="rect" id="node70" href="$opengl_8h.html" title="collection of OpenGL module." alt="" coords="1018,229,1088,256"/>
+<area shape="rect" id="node72" href="$opengl_2src_2precompiled_8h_source.html" title="precompiled.h" alt="" coords="1002,304,1104,331"/>
+<area shape="rect" id="node74" href="$opengl__module_8cpp.html" title="manages OpenGL module." alt="" coords="957,379,1091,405"/>
+<area shape="rect" id="node76" href="$opengl__version_8cpp.html" title="deals with the version of OpenGL." alt="" coords="1115,379,1247,405"/>
+</map>

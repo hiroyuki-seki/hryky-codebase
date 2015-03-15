@@ -1,0 +1,16 @@
+/**
+  @file         graphics_query.proto
+  @brief        serialization of the quries for graphics module.
+  @since        2012-04-15T18:27:36+0900
+  @author       HRYKY
+  @version      $Id$
+ */
+package hryky.graphics.proto;
+
+message Query {
+	enum Kind {
+		none_   = 0;
+		clear_  = 1;
+	}
+	required Kind kind_ = 1;
+}

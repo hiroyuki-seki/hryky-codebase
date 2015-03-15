@@ -1,0 +1,122 @@
+\hypertarget{remove__pointer_8h_source}{\section{remove\-\_\-pointer.\-h}
+}
+
+\begin{DoxyCode}
+00001 
+00009 \textcolor{preprocessor}{#ifndef TYPE\_REMOVE\_POINTER\_H\_20120226104330113}
+00010 \textcolor{preprocessor}{}\textcolor{preprocessor}{#define TYPE\_REMOVE\_POINTER\_H\_20120226104330113}
+00011 \textcolor{preprocessor}{}\textcolor{preprocessor}{#include "\hyperlink{add__reference_8h}{hryky/gp/add_reference.h}"}
+00012 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00013 \textcolor{comment}{// macro definition}
+00014 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00015 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00016 \textcolor{comment}{// namespace}
+00017 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00018 \textcolor{keyword}{namespace }hryky
+00019 \{
+00021     \textcolor{keyword}{template} < \textcolor{keyword}{typename} Po\textcolor{keywordtype}{int}erT >
+00022     \textcolor{keyword}{class }RemovePointer;
+00023     
+00024 \}
+00025 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00026 \textcolor{comment}{// class declaration}
+00027 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00031 \textcolor{comment}{}\textcolor{keyword}{template} < \textcolor{keyword}{typename} ValueT >
+\hypertarget{remove__pointer_8h_source_l00032}{}\hyperlink{classhryky_1_1_remove_pointer}{00032} \textcolor{keyword}{class }\hyperlink{classhryky_1_1_remove_pointer}{hryky::RemovePointer}
+00033 \{
+00034 \textcolor{keyword}{public} :
+00035 
+\hypertarget{remove__pointer_8h_source_l00037}{}\hyperlink{classhryky_1_1_remove_pointer_a7137db713acb2cd6b5a368ee5cca3842}{00037}     \textcolor{keyword}{typedef} ValueT                                  \hyperlink{classhryky_1_1_remove_pointer_a7137db713acb2cd6b5a368ee5cca3842}{type};
+00038     
+00039     \textcolor{keyword}{typedef} \textcolor{keyword}{typename} \hyperlink{classhryky_1_1_add_reference_a4b90c1381625432ba6152b7388bc4399}{AddReference<ValueT>::type}     reference;
+00040     \textcolor{keyword}{typedef} reference                               result\_type;
+00041 
+00042     \hyperlink{classhryky_1_1_remove_pointer}{RemovePointer}(reference value) : value\_(value) \{\}
+00043 
+00044     result\_type operator()()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} this->value\_; \}
+00045 
+00046 \textcolor{keyword}{private} :
+00047     reference   value\_;
+00048 
+00049 \};
+00050 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00051 \textcolor{comment}{// class specialization}
+00052 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00053 \textcolor{keyword}{namespace }hryky
+00054 \{
+00062 \textcolor{keyword}{template} < \textcolor{keyword}{typename} ValueT >
+00063 \textcolor{keyword}{class }RemovePointer<ValueT *>
+00064 \{
+00065 \textcolor{keyword}{public} :
+00066 
+00067     \textcolor{keyword}{typedef} ValueT                                  type;
+00068     \textcolor{keyword}{typedef} ValueT *                                pointer;
+00069     \textcolor{keyword}{typedef} \textcolor{keyword}{typename} AddReference<ValueT>::type     result\_type;
+00070 
+00071     RemovePointer(pointer ptr) : ptr\_(ptr) \{\}
+00072 
+00073     result\_type operator()()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} *this->ptr\_; \}
+00074 
+00075 \textcolor{keyword}{private} :
+00076     pointer     ptr\_;
+00077 
+00078 \};
+00079 \}
+00080 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00081 \textcolor{comment}{// public member functions}
+00082 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00083 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00084 \textcolor{comment}{// protected member functions}
+00085 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00086 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00087 \textcolor{comment}{// private member functions}
+00088 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00089 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00090 \textcolor{comment}{// global function prototypes}
+00091 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00092 \textcolor{keyword}{namespace }hryky
+00093 \{
+00100     \textcolor{keyword}{template} < \textcolor{keyword}{typename} ValueT >
+00101     \textcolor{keyword}{typename} RemovePointer<ValueT *>::result\_type \hyperlink{group__generic__programming_ga74adf3223a4335c89d64f985d0bcc29e}{dereference}(ValueT * src);
+00102 
+00112     \textcolor{keyword}{template} < \textcolor{keyword}{typename} ValueT >
+00113     \textcolor{keyword}{typename} RemovePointer<ValueT>::result\_type \hyperlink{group__generic__programming_ga74adf3223a4335c89d64f985d0bcc29e}{dereference}(ValueT & src);
+00114 
+00115 \}
+00116 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00117 \textcolor{comment}{// global function definitions}
+00118 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00122 \textcolor{comment}{}\textcolor{keyword}{template} <\textcolor{keyword}{typename} ValueT>
+00123 \textcolor{keyword}{typename} \hyperlink{classhryky_1_1_remove_pointer}{hryky::RemovePointer<ValueT *>::result_type}
+\hypertarget{remove__pointer_8h_source_l00124}{}\hyperlink{group__generic__programming_ga74adf3223a4335c89d64f985d0bcc29e}{00124} \hyperlink{group__generic__programming_ga74adf3223a4335c89d64f985d0bcc29e}{hryky::dereference}(ValueT * src)
+00125 \{
+00126     \textcolor{keywordflow}{return} *src;
+00127 \}
+00131 \textcolor{keyword}{template} <\textcolor{keyword}{typename} ValueT>
+00132 \textcolor{keyword}{typename} hryky::RemovePointer<ValueT>::result\_type
+\hypertarget{remove__pointer_8h_source_l00133}{}\hyperlink{group__generic__programming_ga4ea1ee0ac8835fd32da649ee7dea3355}{00133} \hyperlink{group__generic__programming_ga74adf3223a4335c89d64f985d0bcc29e}{hryky::dereference}(ValueT & src)
+00134 \{
+00135     \textcolor{keywordflow}{return} src;
+00136 \}
+00137 \textcolor{preprocessor}{#endif // TYPE\_REMOVE\_POINTER\_H\_20120226104330113}
+00138 \textcolor{preprocessor}{}
+00139 \textcolor{comment}{// end of file}
+\end{DoxyCode}

@@ -1,0 +1,12 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$display__driver_8h.html" title="retains the information of each display driver." alt="" coords="261,80,371,107"/>
+<area shape="rect" id="node7" href="$display_8h.html" title="collection of the display modules." alt="" coords="373,229,448,256"/>
+<area shape="rect" id="node19" href="$display__screen_8cpp.html" title="retains the information of each display screen." alt="" coords="833,379,967,405"/>
+<area shape="rect" id="node5" href="$display__environment_8h.html" title="collects the available display environments." alt="" coords="205,155,355,181"/>
+<area shape="rect" id="node13" href="$display__driver_8cpp.html" title="retains the information of each display driver." alt="" coords="5,379,131,405"/>
+<area shape="rect" id="node15" href="$display__environment_8cpp.html" title="collects the available display environments." alt="" coords="155,379,319,405"/>
+<area shape="rect" id="node9" href="$display_2src_2precompiled_8h_source.html" title="precompiled.h" alt="" coords="365,304,467,331"/>
+<area shape="rect" id="node11" href="$display__common_8cpp.html" title="common definitions of display module." alt="" coords="343,379,488,405"/>
+<area shape="rect" id="node17" href="$display__mode_8cpp.html" title="retains the information of the resolution and color format of a display." alt="" coords="513,379,639,405"/>
+<area shape="rect" id="node21" href="$display__traverser_8cpp.html" title="traverses the all display modes in the environment." alt="" coords="664,379,808,405"/>
+</map>

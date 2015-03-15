@@ -1,0 +1,97 @@
+\hypertarget{copyable_8h_source}{\section{copyable.\-h}
+}
+
+\begin{DoxyCode}
+00001 
+00007 \textcolor{preprocessor}{#ifndef COPYABLE\_H\_20120912234507656}
+00008 \textcolor{preprocessor}{}\textcolor{preprocessor}{#define COPYABLE\_H\_20120912234507656}
+00009 \textcolor{preprocessor}{}\textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00010 \textcolor{comment}{// macro definition}
+00011 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00012 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00013 \textcolor{comment}{// namespace}
+00014 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00015 \textcolor{keyword}{namespace }hryky
+00016 \{
+00018     \textcolor{keyword}{template} < \textcolor{keyword}{typename} DerivedT >
+00019     \textcolor{keyword}{class }Copyable;
+00020 
+00021 \} \textcolor{comment}{// namespace hryky}
+00022 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00023 \textcolor{comment}{// class declarations}
+00024 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00028 \textcolor{comment}{}\textcolor{keyword}{template} < \textcolor{keyword}{typename} DerivedT >
+\hypertarget{copyable_8h_source_l00029}{}\hyperlink{classhryky_1_1_copyable}{00029} \textcolor{keyword}{class }\hyperlink{classhryky_1_1_copyable}{hryky::Copyable}
+00030 \{
+00031 \textcolor{keyword}{public} :
+00032 
+00034     DerivedT & \hyperlink{classhryky_1_1_copyable_a8ba34166fbf522863d3318e820d18212}{operator=}(DerivedT \textcolor{keyword}{const} & rhs);
+00035 
+00036 \textcolor{keyword}{protected} :
+00037 
+00038 \textcolor{keyword}{private} :
+00039 
+00040 \};
+00041 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00042 \textcolor{comment}{// class specializations}
+00043 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00044 \textcolor{keyword}{namespace }hryky
+00045 \{
+00046 \} \textcolor{comment}{// namespace hryky}
+00047 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00048 \textcolor{comment}{// public member functions}
+00049 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00053 \textcolor{comment}{}\textcolor{keyword}{template} < \textcolor{keyword}{typename} DerivedT >
+\hypertarget{copyable_8h_source_l00054}{}\hyperlink{classhryky_1_1_copyable_a8ba34166fbf522863d3318e820d18212}{00054} DerivedT & \hyperlink{classhryky_1_1_copyable_a8ba34166fbf522863d3318e820d18212}{hryky::Copyable<DerivedT>::operator=}(DerivedT \textcolor{keyword}{const} & rhs)
+00055 \{
+00056     \textcolor{keywordflow}{if} (\textcolor{keyword}{this} == &rhs) \{ \textcolor{keywordflow}{return} *\textcolor{keyword}{static\_cast<}DerivedT *\textcolor{keyword}{>}(\textcolor{keyword}{this}); \}
+00057 
+00058     DerivedT(rhs).swap(*\textcolor{keyword}{this});
+00059 
+00060     \textcolor{keywordflow}{return} *\textcolor{keyword}{static\_cast<}DerivedT\textcolor{keyword}{>}(\textcolor{keyword}{this});
+00061 \}
+00062 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00063 \textcolor{comment}{// protected member functions}
+00064 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00065 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00066 \textcolor{comment}{// private member functions}
+00067 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00068 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00069 \textcolor{comment}{// global function prototypes}
+00070 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00071 \textcolor{keyword}{namespace }hryky
+00072 \{
+00074     \textcolor{keyword}{template} < \textcolor{keyword}{typename} DerivedT >
+00075     \textcolor{keywordtype}{void} \hyperlink{namespacehryky_a4282146df5ea2b68cb667896a2205909}{swap}(DerivedT & src, DerivedT & src);
+00076 
+00077 \} \textcolor{comment}{// namespace hryky}
+00078 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00079 \textcolor{comment}{// global function definitions}
+00080 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00084 \textcolor{comment}{}
+00087 \textcolor{comment}{}\textcolor{keyword}{template} < \textcolor{keyword}{typename} DerivedT >
+\hypertarget{copyable_8h_source_l00088}{}\hyperlink{namespacehryky_a39d9ffc629490589a9941a892b7073c8}{00088} \textcolor{keywordtype}{void} \hyperlink{namespacehryky_a4282146df5ea2b68cb667896a2205909}{hryky::swap}(DerivedT & lhs, DerivedT & rhs)
+00089 \{
+00090     lhs.swap(rhs);
+00091 \}
+00092 \textcolor{preprocessor}{#endif // COPYABLE\_H\_20120912234507656}
+00093 \textcolor{preprocessor}{}\textcolor{comment}{// end of file}
+\end{DoxyCode}

@@ -1,0 +1,145 @@
+\hypertarget{debug__source_8h_source}{\section{debug\-\_\-source.\-h}
+}
+
+\begin{DoxyCode}
+00001 
+00007 \textcolor{preprocessor}{#ifndef DEBUG\_SOURCE\_H\_20120911150523295}
+00008 \textcolor{preprocessor}{}\textcolor{preprocessor}{#define DEBUG\_SOURCE\_H\_20120911150523295}
+00009 \textcolor{preprocessor}{}\textcolor{preprocessor}{#include "\hyperlink{string_8h}{hryky/string.h}"}
+00010 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00011 \textcolor{comment}{// macro definition}
+00012 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00013 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00014 \textcolor{comment}{// namespace}
+00015 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00016 \textcolor{keyword}{namespace }hryky
+00017 \{
+00018 \textcolor{keyword}{namespace }debug
+00019 \{
+00021     \textcolor{keyword}{class }Source;
+00022 
+00023 \} \textcolor{comment}{// namespace debug}
+00024 \} \textcolor{comment}{// namespace hryky}
+00025 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00026 \textcolor{comment}{// class declarations}
+00027 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+\hypertarget{debug__source_8h_source_l00031}{}\hyperlink{classhryky_1_1debug_1_1_source}{00031} \textcolor{comment}{}\textcolor{keyword}{class }\hyperlink{classhryky_1_1debug_1_1_source}{hryky::debug::Source}
+00032 \{
+00033 \textcolor{keyword}{public} :
+00034 
+\hypertarget{debug__source_8h_source_l00036}{}\hyperlink{classhryky_1_1debug_1_1_source_a0c8dff3e624cee6e70d983de9e346cf9}{00036}     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1debug_1_1_source}{Source}  \hyperlink{classhryky_1_1debug_1_1_source_a0c8dff3e624cee6e70d983de9e346cf9}{this_type};
+00037 
+\hypertarget{debug__source_8h_source_l00038}{}\hyperlink{classhryky_1_1debug_1_1_source_a443943cd6616be5b4a0c7e200ced19ce}{00038}     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1_string}{String<>}    \hyperlink{classhryky_1_1debug_1_1_source_a443943cd6616be5b4a0c7e200ced19ce}{filename_type};  
+\hypertarget{debug__source_8h_source_l00039}{}\hyperlink{classhryky_1_1debug_1_1_source_ae9faf9b2e482bf46211ced4e9a5e4680}{00039}     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1_string}{String<>}    \hyperlink{classhryky_1_1debug_1_1_source_ae9faf9b2e482bf46211ced4e9a5e4680}{function_type};  
+\hypertarget{debug__source_8h_source_l00040}{}\hyperlink{classhryky_1_1debug_1_1_source_a5cf259e1e55170cf5a025a31576ce7c6}{00040}     \textcolor{keyword}{typedef} \textcolor{keywordtype}{size\_t}      \hyperlink{classhryky_1_1debug_1_1_source_a5cf259e1e55170cf5a025a31576ce7c6}{line_type};      
+00041 
+00043     \hyperlink{classhryky_1_1debug_1_1_source_a18b3ee100c2a07aa5b226f5a64156109}{Source}();
+00044 
+00046     \hyperlink{classhryky_1_1debug_1_1_source_a18b3ee100c2a07aa5b226f5a64156109}{Source}(\textcolor{keywordtype}{char} \textcolor{keyword}{const} * \hyperlink{classhryky_1_1debug_1_1_source_a9873e6e1838a274b3f59ff79a91ed3fa}{filename}, \textcolor{keywordtype}{char} \textcolor{keyword}{const} * \textcolor{keyword}{function}, \textcolor{keywordtype}{size\_t} \hyperlink{classhryky_1_1debug_1_1_source_ae8b6fa3524cc94a532dd31e46ff029a0}{line});
+00047 
+00049     \hyperlink{classhryky_1_1debug_1_1_source_adab7e015740fd13b2ce509060841cf7c}{~Source}();
+00050 
+00052     \hyperlink{classhryky_1_1_string}{filename_type} \textcolor{keyword}{const} & \hyperlink{classhryky_1_1debug_1_1_source_a9873e6e1838a274b3f59ff79a91ed3fa}{filename}() \textcolor{keyword}{const};
+00053 
+00055     \hyperlink{classhryky_1_1_string}{function_type} \textcolor{keyword}{const} & \textcolor{keyword}{function}() \textcolor{keyword}{const};
+00056 
+00058     \hyperlink{classhryky_1_1debug_1_1_source_a5cf259e1e55170cf5a025a31576ce7c6}{line_type} \hyperlink{classhryky_1_1debug_1_1_source_ae8b6fa3524cc94a532dd31e46ff029a0}{line}() \textcolor{keyword}{const};
+00059 
+00061     \textcolor{keyword}{template} < \textcolor{keyword}{typename} WriterT >
+00062     \textcolor{keywordtype}{bool} \hyperlink{classhryky_1_1debug_1_1_source_ab62a09b6751c4aeda798a62e4a9a572b}{write}(WriterT & writer) \textcolor{keyword}{const};
+00063 
+00064 \textcolor{keyword}{protected} :
+00065 
+00066 \textcolor{keyword}{private} :
+00067 
+00069     \textcolor{keyword}{explicit} \hyperlink{classhryky_1_1debug_1_1_source_a18b3ee100c2a07aa5b226f5a64156109}{Source}(\hyperlink{classhryky_1_1debug_1_1_source}{Source} \textcolor{keyword}{const} &);
+00070 
+00072     \hyperlink{classhryky_1_1debug_1_1_source}{Source} & operator=(\hyperlink{classhryky_1_1debug_1_1_source}{Source} \textcolor{keyword}{const} & rhs);
+00073 
+00074     \hyperlink{classhryky_1_1_string}{filename_type}   filename\_;
+00075     \hyperlink{classhryky_1_1_string}{function_type}   function\_;
+00076     \hyperlink{classhryky_1_1debug_1_1_source_a5cf259e1e55170cf5a025a31576ce7c6}{line_type}       line\_;
+00077 
+00078 \};
+00079 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00080 \textcolor{comment}{// class specializations}
+00081 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00082 \textcolor{keyword}{namespace }hryky
+00083 \{
+00084 \textcolor{keyword}{namespace }debug
+00085 \{
+00086 \} \textcolor{comment}{// namespace debug}
+00087 \} \textcolor{comment}{// namespace hryky}
+00088 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00089 \textcolor{comment}{// public member functions}
+00090 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00094 \textcolor{comment}{}\textcolor{keyword}{template} < \textcolor{keyword}{typename} WriterT >
+\hypertarget{debug__source_8h_source_l00095}{}\hyperlink{classhryky_1_1debug_1_1_source_ab62a09b6751c4aeda798a62e4a9a572b}{00095} \textcolor{keywordtype}{bool} \hyperlink{classhryky_1_1debug_1_1_source_ab62a09b6751c4aeda798a62e4a9a572b}{hryky::debug::Source::write}(WriterT & writer)\textcolor{keyword}{ const}
+00096 \textcolor{keyword}{}\{
+00097     std::ostringstream os;
+00098     os << *\textcolor{keyword}{this};
+00099 
+00100     \textcolor{keywordflow}{return} writer(os.str().c\_str(), os.str().size());
+00101 \}
+00102 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00103 \textcolor{comment}{// protected member functions}
+00104 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00105 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00106 \textcolor{comment}{// private member functions}
+00107 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00108 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00109 \textcolor{comment}{// global function prototypes}
+00110 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00111 \textcolor{keyword}{namespace }std
+00112 \{
+00114     \textcolor{keyword}{template} <\textcolor{keyword}{typename} StreamT>
+00115     StreamT & operator<<(StreamT & lhs, \hyperlink{classhryky_1_1debug_1_1_source}{hryky::debug::Source} \textcolor{keyword}{const} & rhs);
+00116 \}
+00117 \textcolor{keyword}{namespace }hryky
+00118 \{
+00119 \textcolor{keyword}{namespace }debug
+00120 \{
+00121 
+00122 \} \textcolor{comment}{// namespace debug}
+00123 \} \textcolor{comment}{// namespace hryky}
+00124 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00125 \textcolor{comment}{// global function definitions}
+00126 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00130 \textcolor{comment}{}\textcolor{keyword}{template} <\textcolor{keyword}{typename} StreamT>
+00131 StreamT & std::operator<<(StreamT & lhs, \hyperlink{classhryky_1_1debug_1_1_source}{hryky::debug::Source} \textcolor{keyword}{const} & rhs)
+00132 \{
+00133     \hyperlink{classhryky_1_1_string}{hryky::debug::Source::filename_type} \textcolor{keyword}{const} & filename = rhs.\hyperlink{classhryky_1_1debug_1_1_source_a9873e6e1838a274b3f59ff79a91ed3fa}{filename}();
+00134     
+00135     \textcolor{keywordflow}{if} (!filename.\hyperlink{classhryky_1_1_string_aff01fafe438f65219695edae5459ed31}{empty}()) \{
+00136         lhs << filename << \textcolor{stringliteral}{"("} << rhs.\hyperlink{classhryky_1_1debug_1_1_source_ae8b6fa3524cc94a532dd31e46ff029a0}{line}() << \textcolor{stringliteral}{") : "};
+00137     \}
+00138 
+00139     \hyperlink{classhryky_1_1_string}{hryky::debug::Source::function_type} \textcolor{keyword}{const} & \textcolor{keyword}{function} = rhs.\hyperlink{classhryky_1_1debug_1_1_source_a648474141d21505af7aade64ef62a403}{function}();
+00140 
+00141     \textcolor{keywordflow}{if} (!\textcolor{keyword}{function}.empty()) \{
+00142         lhs << \textcolor{keyword}{function} << \textcolor{stringliteral}{" : "};
+00143     \}
+00144     
+00145     \textcolor{keywordflow}{return} lhs;
+00146 \}
+00147 \textcolor{preprocessor}{#endif // DEBUG\_SOURCE\_H\_20120911150523295}
+00148 \textcolor{preprocessor}{}\textcolor{comment}{// end of file}
+\end{DoxyCode}

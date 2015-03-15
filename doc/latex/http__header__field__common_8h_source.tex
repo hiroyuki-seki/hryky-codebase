@@ -1,0 +1,201 @@
+\hypertarget{http__header__field__common_8h_source}{\section{http\-\_\-header\-\_\-field\-\_\-common.\-h}
+}
+
+\begin{DoxyCode}
+00001 
+00007 \textcolor{preprocessor}{#ifndef HTTP\_HEADER\_FIELD\_COMMON\_H\_20120908165811373}
+00008 \textcolor{preprocessor}{}\textcolor{preprocessor}{#define HTTP\_HEADER\_FIELD\_COMMON\_H\_20120908165811373}
+00009 \textcolor{preprocessor}{}\textcolor{preprocessor}{#include "\hyperlink{kind_8h}{hryky/kind.h}"}
+00010 \textcolor{preprocessor}{#include "\hyperlink{literal__string_8h}{hryky/literal_string.h}"}
+00011 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00012 \textcolor{comment}{// macro definition}
+00013 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00014 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00015 \textcolor{comment}{// namespace}
+00016 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00017 \textcolor{keyword}{namespace }hryky
+00018 \{
+00019 \textcolor{keyword}{namespace }http
+00020 \{
+00021 \textcolor{keyword}{namespace }header
+00022 \{
+00023 \textcolor{keyword}{namespace }field
+00024 \{
+00025     \textcolor{keyword}{struct }Kind \{
+00026         \textcolor{keyword}{enum} Raw \{
+00027             \textcolor{comment}{// general-header}
+00028             begin\_,
+00029             general\_header\_begin\_   = begin\_,
+00030             cache\_control\_          = general\_header\_begin\_,
+00031             connection\_,
+00032             date\_,
+00033             pragma\_,
+00034             trailer\_,
+00035             transfer\_encoding\_,
+00036             upgrade\_,
+00037             via\_,
+00038             warning\_,
+00039             general\_header\_end\_,
+00040 
+00041             \textcolor{comment}{// request-header}
+00042             request\_header\_begin\_   = general\_header\_end\_,
+00043             accept\_                 = request\_header\_begin\_,
+00044             accept\_charset\_,
+00045             accept\_encoding\_,
+00046             accept\_language\_,
+00047             authorization\_,
+00048             expect\_,
+00049             from\_,
+00050             host\_,
+00051             if\_match\_,
+00052             if\_modified\_since\_,
+00053             if\_none\_match\_,
+00054             if\_range\_,
+00055             if\_unmodifed\_since\_,
+00056             max\_forwards\_,
+00057             proxy\_authorization\_,
+00058             range\_,
+00059             referer\_,
+00060             te\_,
+00061             user\_agent\_,
+00062             request\_header\_end\_,
+00063 
+00064             \textcolor{comment}{// response-header}
+00065             response\_header\_begin\_  = request\_header\_end\_,
+00066             accept\_range\_           = response\_header\_begin\_,
+00067             age\_,
+00068             etag\_,
+00069             location\_,
+00070             proxy\_authenticate\_,
+00071             refer\_after\_,
+00072             server\_,
+00073             vary\_,
+00074             www\_authenticate\_,
+00075             response\_header\_end\_,
+00076 
+00077             \textcolor{comment}{// entity-header}
+00078             entity\_header\_begin\_    = response\_header\_end\_,
+00079             allow\_                  = entity\_header\_begin\_,
+00080             content\_encoding\_,
+00081             content\_language\_,
+00082             content\_length\_,
+00083             content\_location\_,
+00084             content\_md5\_,
+00085             content\_range\_,
+00086             content\_type\_,
+00087             expires\_,
+00088             last\_modified\_,
+00089             entity\_header\_end\_,
+00090             end\_                    = entity\_header\_end\_,
+00091 
+00092             num\_                    = end\_,
+00093 
+00094             extension\_header\_,
+00095             invalid\_,
+00096         \};
+00097     \};
+00098     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1_kind}{hryky::Kind<Kind, Kind::extension_header_>} kind\_type;
+00099 
+00100     LiteralString \textcolor{keyword}{const} tokens\_[Kind::num\_] = \{
+00101         \textcolor{comment}{// general-header}
+00102         LiteralString(\textcolor{stringliteral}{"cache-control"}),
+00103         LiteralString(\textcolor{stringliteral}{"connection"}),
+00104         LiteralString(\textcolor{stringliteral}{"date"}),
+00105         LiteralString(\textcolor{stringliteral}{"pragma"}),
+00106         LiteralString(\textcolor{stringliteral}{"trailer"}),
+00107         LiteralString(\textcolor{stringliteral}{"transfer-encoding"}),
+00108         LiteralString(\textcolor{stringliteral}{"upgrade"}),
+00109         LiteralString(\textcolor{stringliteral}{"via"}),
+00110         LiteralString(\textcolor{stringliteral}{"warning"}),
+00111 
+00112         \textcolor{comment}{// request-header}
+00113         LiteralString(\textcolor{stringliteral}{"accept"}),
+00114         LiteralString(\textcolor{stringliteral}{"accept-charset"}),
+00115         LiteralString(\textcolor{stringliteral}{"accept-encoding"}),
+00116         LiteralString(\textcolor{stringliteral}{"accept-language"}),
+00117         LiteralString(\textcolor{stringliteral}{"authorization"}),
+00118         LiteralString(\textcolor{stringliteral}{"expect"}),
+00119         LiteralString(\textcolor{stringliteral}{"from"}),
+00120         LiteralString(\textcolor{stringliteral}{"host"}),
+00121         LiteralString(\textcolor{stringliteral}{"if-match"}),
+00122         LiteralString(\textcolor{stringliteral}{"if-modified-since"}),
+00123         LiteralString(\textcolor{stringliteral}{"if-none-match"}),
+00124         LiteralString(\textcolor{stringliteral}{"if-range"}),
+00125         LiteralString(\textcolor{stringliteral}{"if-unmodifed-since"}),
+00126         LiteralString(\textcolor{stringliteral}{"max-forwards"}),
+00127         LiteralString(\textcolor{stringliteral}{"proxy-authorization"}),
+00128         LiteralString(\textcolor{stringliteral}{"range"}),
+00129         LiteralString(\textcolor{stringliteral}{"referer"}),
+00130         LiteralString(\textcolor{stringliteral}{"te"}),
+00131         LiteralString(\textcolor{stringliteral}{"user-agent"}),
+00132 
+00133         \textcolor{comment}{// response-header}
+00134         LiteralString(\textcolor{stringliteral}{"accept-range"}),
+00135         LiteralString(\textcolor{stringliteral}{"age"}),
+00136         LiteralString(\textcolor{stringliteral}{"etag"}),
+00137         LiteralString(\textcolor{stringliteral}{"location"}),
+00138         LiteralString(\textcolor{stringliteral}{"proxy-authenticate"}),
+00139         LiteralString(\textcolor{stringliteral}{"refer-after"}),
+00140         LiteralString(\textcolor{stringliteral}{"server"}),
+00141         LiteralString(\textcolor{stringliteral}{"vary"}),
+00142         LiteralString(\textcolor{stringliteral}{"www-authenticate"}),
+00143 
+00144         \textcolor{comment}{// entity-header}
+00145         LiteralString(\textcolor{stringliteral}{"allow"}),
+00146         LiteralString(\textcolor{stringliteral}{"content-encoding"}),
+00147         LiteralString(\textcolor{stringliteral}{"content-language"}),
+00148         LiteralString(\textcolor{stringliteral}{"content-length"}),
+00149         LiteralString(\textcolor{stringliteral}{"content-location"}),
+00150         LiteralString(\textcolor{stringliteral}{"content-md5"}),
+00151         LiteralString(\textcolor{stringliteral}{"content-range"}),
+00152         LiteralString(\textcolor{stringliteral}{"content-type"}),
+00153         LiteralString(\textcolor{stringliteral}{"expires"}),
+00154         LiteralString(\textcolor{stringliteral}{"last-modified"}),
+00155     \};
+00156 
+00157 \} \textcolor{comment}{// namespace field}
+00158 \} \textcolor{comment}{// namespace header}
+00159 \} \textcolor{comment}{// namespace http}
+00160 \} \textcolor{comment}{// namespace hryky}
+00161 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00162 \textcolor{comment}{// struct declaration}
+00163 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00164 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00165 \textcolor{comment}{// class declaration}
+00166 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00167 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00168 \textcolor{comment}{// global function prototypes}
+00169 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00170 \textcolor{keyword}{namespace }hryky
+00171 \{
+00172 \textcolor{keyword}{namespace }http
+00173 \{
+00174 \textcolor{keyword}{namespace }header
+00175 \{
+00176 \textcolor{keyword}{namespace }field
+00177 \{
+00179     \hyperlink{namespacehryky_a343a9a4c36a586be5c2693156200eadc}{reduction_type} \hyperlink{namespacehryky_1_1http_a08fc36a78a8e2908140fcd102829a566}{reduce}(
+00180         \hyperlink{namespacehryky_1_1reduction_ac686c30a4c8d196bbd0f05629a6b921f}{reduction::name_type} \textcolor{keyword}{const} & name, kind\_type \textcolor{keyword}{const} & src);
+00181 
+00182 \} \textcolor{comment}{// namespace field}
+00183 \} \textcolor{comment}{// namespace header}
+00184 \} \textcolor{comment}{// namespace http}
+00185 \} \textcolor{comment}{// namespace hryky}
+00186 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00187 \textcolor{comment}{// global function definitions}
+00188 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00189 \textcolor{preprocessor}{#endif // HTTP\_HEADER\_FIELD\_COMMON\_H\_20120908165811373}
+00190 \textcolor{preprocessor}{}\textcolor{comment}{// end of file}
+\end{DoxyCode}

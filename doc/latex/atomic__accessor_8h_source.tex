@@ -1,0 +1,178 @@
+\hypertarget{atomic__accessor_8h_source}{\section{atomic\-\_\-accessor.\-h}
+}
+
+\begin{DoxyCode}
+00001 
+00009 \textcolor{preprocessor}{#ifndef ATOMIC\_ACCESSOR\_H\_20111129151333301}
+00010 \textcolor{preprocessor}{}\textcolor{preprocessor}{#define ATOMIC\_ACCESSOR\_H\_20111129151333301}
+00011 \textcolor{preprocessor}{}\textcolor{preprocessor}{#include "\hyperlink{exclusion__lock_8h}{hryky/exclusion/exclusion_lock.h}"}
+00012 \textcolor{preprocessor}{#include "\hyperlink{atomic__writer_8h}{hryky/atomic/atomic_writer.h}"}
+00013 \textcolor{preprocessor}{#include "\hyperlink{common_8h}{hryky/common.h}"}
+00014 \textcolor{preprocessor}{#include "\hyperlink{gp_8h}{hryky/gp.h}"}
+00015 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00016 \textcolor{comment}{// macro definition}
+00017 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00018 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00019 \textcolor{comment}{// namespace}
+00020 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00021 \textcolor{keyword}{namespace }hryky
+00022 \{
+\hypertarget{atomic__accessor_8h_source_l00023}{}\hyperlink{namespacehryky_1_1atomic}{00023} \textcolor{keyword}{namespace }atomic
+00024 \{
+00026     \textcolor{keyword}{template} < \textcolor{keyword}{typename} ValueT, \textcolor{keyword}{typename} LockableT >
+00027     \textcolor{keyword}{class }\hyperlink{classhryky_1_1atomic_1_1_accessor}{Accessor};
+00028     
+00029 \} \textcolor{comment}{// namespace atomic}
+00030 \} \textcolor{comment}{// namespace hryky}
+00031 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00032 \textcolor{comment}{// class declaration}
+00033 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00038 \textcolor{comment}{}\textcolor{keyword}{template} < \textcolor{keyword}{typename} ValueT, \textcolor{keyword}{typename} LockableT = exclusion::Mutex >
+\hypertarget{atomic__accessor_8h_source_l00039}{}\hyperlink{classhryky_1_1atomic_1_1_accessor}{00039} \textcolor{keyword}{class }\hyperlink{classhryky_1_1atomic_1_1_accessor}{hryky::atomic::Accessor} : \textcolor{keyword}{public} \hyperlink{classhryky_1_1atomic_1_1_writer}{Writer}<ValueT, LockableT>
+00040 \{
+00041 \textcolor{keyword}{public} :
+00042 
+00043     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1atomic_1_1_writer}{Writer<ValueT, LockableT>} \hyperlink{classhryky_1_1atomic_1_1_writer}{base_type};
+\hypertarget{atomic__accessor_8h_source_l00044}{}\hyperlink{classhryky_1_1atomic_1_1_accessor_a4957c9dc8163f5fb426f5eb8de5fcd12}{00044}     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1atomic_1_1_accessor}{Accessor<ValueT, LockableT>} \hyperlink{classhryky_1_1atomic_1_1_accessor_a4957c9dc8163f5fb426f5eb8de5fcd12}{this_type};
+00045 
+\hypertarget{atomic__accessor_8h_source_l00047}{}\hyperlink{classhryky_1_1atomic_1_1_accessor_ac90e3749014fa65dd80d8bcb9689b2aa}{00047}     \hyperlink{classhryky_1_1atomic_1_1_accessor_ac90e3749014fa65dd80d8bcb9689b2aa}{Accessor}() : \hyperlink{classhryky_1_1atomic_1_1_writer}{base_type}() \{\};
+00048 
+\hypertarget{atomic__accessor_8h_source_l00053}{}\hyperlink{classhryky_1_1atomic_1_1_accessor_a2a792c96c311ba6f9225c64e0d8f17ee}{00053}     \hyperlink{classhryky_1_1atomic_1_1_accessor_ac90e3749014fa65dd80d8bcb9689b2aa}{Accessor}(\textcolor{keyword}{typename} AsParameter<value\_type>::type value)
+00054         : \hyperlink{classhryky_1_1atomic_1_1_writer}{base_type}(value) \{\}
+00055 
+\hypertarget{atomic__accessor_8h_source_l00062}{}\hyperlink{classhryky_1_1atomic_1_1_accessor_a6cd3ef60e539175db99a01f33a77bded}{00062}     \hyperlink{classhryky_1_1atomic_1_1_accessor_a6cd3ef60e539175db99a01f33a77bded}{Accessor}(\hyperlink{classhryky_1_1atomic_1_1_accessor}{this_type} \textcolor{keyword}{const} & rhs) : \hyperlink{classhryky_1_1atomic_1_1_writer}{base_type}(value\_type(rhs)) \{\};
+00063 
+00065     \hyperlink{classhryky_1_1atomic_1_1_accessor_ac90e3749014fa65dd80d8bcb9689b2aa}{Accessor}(\hyperlink{classhryky_1_1atomic_1_1_accessor_a4957c9dc8163f5fb426f5eb8de5fcd12}{this_type} && rhs);
+00066 
+\hypertarget{atomic__accessor_8h_source_l00074}{}\hyperlink{classhryky_1_1atomic_1_1_accessor_ae9dabc77d288bb8a7040059748b1e93b}{00074}     \hyperlink{classhryky_1_1atomic_1_1_accessor}{this_type} & \hyperlink{classhryky_1_1atomic_1_1_accessor_ae9dabc77d288bb8a7040059748b1e93b}{operator=}(\hyperlink{classhryky_1_1atomic_1_1_accessor}{this_type} \textcolor{keyword}{const} &rhs) \{
+00075         this->\hyperlink{group__atomic__operation_gab5e4c7b8fa6d6c4e791f7f8f651de97f}{base_type::operator=}(value\_type(rhs));
+00076         \textcolor{keywordflow}{return} *\textcolor{keyword}{this};
+00077     \}
+00078 
+\hypertarget{atomic__accessor_8h_source_l00084}{}\hyperlink{classhryky_1_1atomic_1_1_accessor_a1e67e78d5ff0f5792b491ca7bfc720ce}{00084}     \hyperlink{classhryky_1_1atomic_1_1_accessor}{this_type} & \hyperlink{classhryky_1_1atomic_1_1_accessor_a1e67e78d5ff0f5792b491ca7bfc720ce}{operator=}(\textcolor{keyword}{typename} AsParameter<value\_type>::type rhs) \{
+00085         this->\hyperlink{group__atomic__operation_gab5e4c7b8fa6d6c4e791f7f8f651de97f}{base_type::operator=}(rhs);
+00086         \textcolor{keywordflow}{return} *\textcolor{keyword}{this};
+00087     \}
+00088 
+\hypertarget{atomic__accessor_8h_source_l00093}{}\hyperlink{classhryky_1_1atomic_1_1_accessor_a9d4f987caab0e8bf6bda4c31d957af15}{00093}     \hyperlink{classhryky_1_1atomic_1_1_accessor_a9d4f987caab0e8bf6bda4c31d957af15}{operator value_type}()\textcolor{keyword}{ const}
+00094 \textcolor{keyword}{    }\{
+00095         \hyperlink{classhryky_1_1exclusion_1_1_lock}{lock_type} \textcolor{keyword}{const} lock(this->lockable\_);
+00096         
+00097         value\_type \textcolor{keyword}{const} value = this->value\_;
+00098         
+00099         \textcolor{keywordflow}{return} value;
+00100     \}
+00101 
+\hypertarget{atomic__accessor_8h_source_l00103}{}\hyperlink{classhryky_1_1atomic_1_1_accessor_a4b216ebcbce3550f95dfc6b14179ada0}{00103}     \hyperlink{classhryky_1_1atomic_1_1_accessor}{this_type} & \hyperlink{classhryky_1_1atomic_1_1_accessor_a4b216ebcbce3550f95dfc6b14179ada0}{operator+=}(\textcolor{keyword}{typename} AsParameter<ValueT>::type rhs) \{
+00104         this->\hyperlink{group__atomic__operation_gaa862338a2dbded8f334c6e2aa0d45e88}{base_type::operator+=}(rhs);
+00105 
+00106         \textcolor{keywordflow}{return} *\textcolor{keyword}{this};
+00107     \}
+00108 
+\hypertarget{atomic__accessor_8h_source_l00110}{}\hyperlink{classhryky_1_1atomic_1_1_accessor_a296692d35327be0e0bb002aa5c01d5d4}{00110}     \hyperlink{classhryky_1_1atomic_1_1_accessor}{this_type} & \hyperlink{classhryky_1_1atomic_1_1_accessor_a296692d35327be0e0bb002aa5c01d5d4}{operator++}() \{
+00111         this->\hyperlink{group__atomic__operation_ga32d8b99a3de61e36c7a0bc7aeb546a0d}{base_type::operator++}();
+00112         \textcolor{keywordflow}{return} *\textcolor{keyword}{this};
+00113     \}
+00114 
+\hypertarget{atomic__accessor_8h_source_l00116}{}\hyperlink{classhryky_1_1atomic_1_1_accessor_a1fdc5c93dd8e8744697632a4ccd92b29}{00116}     value\_type \hyperlink{classhryky_1_1atomic_1_1_accessor_a1fdc5c93dd8e8744697632a4ccd92b29}{operator++}(\textcolor{keywordtype}{int}) \{
+00117         \hyperlink{classhryky_1_1exclusion_1_1_lock}{lock_type} \textcolor{keyword}{const} lock(this->lockable\_);
+00118         
+00119         value\_type \textcolor{keyword}{const} value = this->value\_;
+00120         ++this->value\_;
+00121         
+00122         \textcolor{keywordflow}{return} value;
+00123     \}
+00124 
+\hypertarget{atomic__accessor_8h_source_l00126}{}\hyperlink{classhryky_1_1atomic_1_1_accessor_a277dbb78fb920fae22335e5b89cd4e4f}{00126}     \hyperlink{classhryky_1_1atomic_1_1_accessor}{this_type} & \hyperlink{classhryky_1_1atomic_1_1_accessor_a277dbb78fb920fae22335e5b89cd4e4f}{operator-=}(\textcolor{keyword}{typename} AsParameter<ValueT>::type rhs) \{
+00127         this->\hyperlink{group__atomic__operation_gace0bc7c5e8b6db7afe82e231697672a0}{base_type::operator-=}(rhs);
+00128 
+00129         \textcolor{keywordflow}{return} *\textcolor{keyword}{this};
+00130     \}
+00131 
+\hypertarget{atomic__accessor_8h_source_l00133}{}\hyperlink{classhryky_1_1atomic_1_1_accessor_a7152a88c74e6e380c901a16f5e16d1b1}{00133}     \hyperlink{classhryky_1_1atomic_1_1_accessor}{this_type} & \hyperlink{classhryky_1_1atomic_1_1_accessor_a7152a88c74e6e380c901a16f5e16d1b1}{operator--}() \{
+00134         this->\hyperlink{group__atomic__operation_ga6a2f90286d2b8aef610b7ae4cef1f9e7}{base_type::operator--}();
+00135         \textcolor{keywordflow}{return} *\textcolor{keyword}{this};
+00136     \}
+00137 
+\hypertarget{atomic__accessor_8h_source_l00139}{}\hyperlink{classhryky_1_1atomic_1_1_accessor_aace3ec6d3c7a1a5ef95fa0c3780b1f26}{00139}     value\_type \hyperlink{classhryky_1_1atomic_1_1_accessor_aace3ec6d3c7a1a5ef95fa0c3780b1f26}{operator--}(\textcolor{keywordtype}{int}) \{
+00140         \hyperlink{classhryky_1_1exclusion_1_1_lock}{lock_type} \textcolor{keyword}{const} lock(this->lockable\_);
+00141         
+00142         value\_type \textcolor{keyword}{const} value = this->value\_;
+00143         --this->value\_;
+00144         
+00145         \textcolor{keywordflow}{return} value;
+00146     \}
+00147 
+\hypertarget{atomic__accessor_8h_source_l00149}{}\hyperlink{classhryky_1_1atomic_1_1_accessor_ac89441dac89a2df766761fdce1f5965b}{00149}     \hyperlink{classhryky_1_1atomic_1_1_accessor}{this_type} & \hyperlink{classhryky_1_1atomic_1_1_accessor_ac89441dac89a2df766761fdce1f5965b}{operator*=}(\textcolor{keyword}{typename} AsParameter<ValueT>::type rhs) \{
+00150         this->\hyperlink{group__atomic__operation_ga40b0c967eb60601676828001bef4637c}{base_type::operator*=}(rhs);
+00151 
+00152         \textcolor{keywordflow}{return} *\textcolor{keyword}{this};
+00153     \}
+00154 
+\hypertarget{atomic__accessor_8h_source_l00156}{}\hyperlink{classhryky_1_1atomic_1_1_accessor_a7bf3c085303cd2fb95a53fbed4c11ce8}{00156}     \hyperlink{classhryky_1_1atomic_1_1_accessor}{this_type} & \hyperlink{classhryky_1_1atomic_1_1_accessor_a7bf3c085303cd2fb95a53fbed4c11ce8}{operator/=}(\textcolor{keyword}{typename} AsParameter<ValueT>::type rhs) \{
+00157         this->\hyperlink{group__atomic__operation_ga1f4841e2995310212eb4762cd3717e6b}{base_type::operator/=}(rhs);
+00158 
+00159         \textcolor{keywordflow}{return} *\textcolor{keyword}{this};
+00160     \}
+00161 
+\hypertarget{atomic__accessor_8h_source_l00163}{}\hyperlink{classhryky_1_1atomic_1_1_accessor_acb3ce30384f937b624d9c6bf682ff11b}{00163}     \hyperlink{classhryky_1_1atomic_1_1_accessor}{this_type} & \hyperlink{classhryky_1_1atomic_1_1_accessor_acb3ce30384f937b624d9c6bf682ff11b}{operator%=}(\textcolor{keyword}{typename} AsParameter<ValueT>::type rhs) \{
+00164         this->\hyperlink{group__atomic__operation_ga4dcb98887412fd19c46efb2478f87277}{base_type::operator%=}(rhs);
+00165 
+00166         \textcolor{keywordflow}{return} *\textcolor{keyword}{this};
+00167     \}
+00168 
+00169 \};
+00170 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00171 \textcolor{comment}{// class specializations}
+00172 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00173 \textcolor{keyword}{namespace }hryky
+00174 \{
+00175 \textcolor{keyword}{namespace }atomic
+00176 \{
+00177 \} \textcolor{comment}{// atomic}
+00178 \} \textcolor{comment}{// hryky}
+00179 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00180 \textcolor{comment}{// inline functions}
+00181 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00182 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00183 \textcolor{comment}{// public member functions}
+00184 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00188 \textcolor{comment}{}\textcolor{keyword}{template} <\textcolor{keyword}{typename} ValueT, \textcolor{keyword}{typename} LockableT>
+\hypertarget{atomic__accessor_8h_source_l00189}{}\hyperlink{group__atomic__operation_ga3af8cf4027ed397ac63bd9cacb21b914}{00189} \hyperlink{classhryky_1_1atomic_1_1_accessor_ac90e3749014fa65dd80d8bcb9689b2aa}{hryky::atomic::Accessor<ValueT, LockableT>::Accessor}(\hyperlink{classhryky_1_1atomic_1_1_accessor}{this_type} && rhs)
+00190     : \hyperlink{classhryky_1_1atomic_1_1_writer}{base_type}()
+00191 \{
+00192     this->\hyperlink{namespacehryky_a4282146df5ea2b68cb667896a2205909}{swap}(rhs);
+00193 \}
+00194 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00195 \textcolor{comment}{// function prototypes}
+00196 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00197 \textcolor{keyword}{namespace }hryky
+00198 \{
+00199 \textcolor{keyword}{namespace }atomic
+00200 \{
+00201 
+00202 \} \textcolor{comment}{// namespace atomic}
+00203 \} \textcolor{comment}{// namespace hryky}
+00204 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00205 \textcolor{comment}{// function definition}
+00206 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00207 \textcolor{preprocessor}{#endif // ATOMIC\_ACCESSOR\_H\_20111129151333301}
+00208 \textcolor{preprocessor}{}
+00209 \textcolor{comment}{// end of file}
+\end{DoxyCode}

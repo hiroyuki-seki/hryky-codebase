@@ -1,0 +1,115 @@
+\hypertarget{writer__base_8h_source}{\section{writer\-\_\-base.\-h}
+}
+
+\begin{DoxyCode}
+00001 
+00007 \textcolor{preprocessor}{#ifndef WRITER\_BASE\_H\_20130204182849436}
+00008 \textcolor{preprocessor}{}\textcolor{preprocessor}{#define WRITER\_BASE\_H\_20130204182849436}
+00009 \textcolor{preprocessor}{}\textcolor{preprocessor}{#include "\hyperlink{reduction__common_8h}{hryky/reduction/reduction_common.h}"}
+00010 \textcolor{preprocessor}{#include "\hyperlink{common_8h}{hryky/common.h}"}
+00011 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00012 \textcolor{comment}{// macro definition}
+00013 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00014 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00015 \textcolor{comment}{// namespace}
+00016 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00017 \textcolor{keyword}{namespace }hryky
+00018 \{
+00019 \textcolor{keyword}{namespace }writer
+00020 \{
+00022     \textcolor{keyword}{class }Base;
+00023 
+00024 \} \textcolor{comment}{// namespace writer}
+00025 
+00026 \textcolor{keyword}{typedef} writer::Base writer\_type;
+00027 
+00028 \} \textcolor{comment}{// namespace hryky}
+00029 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00030 \textcolor{comment}{// class declarations}
+00031 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+\hypertarget{writer__base_8h_source_l00035}{}\hyperlink{classhryky_1_1writer_1_1_base}{00035} \textcolor{comment}{}\textcolor{keyword}{class }\hyperlink{classhryky_1_1writer_1_1_base}{hryky::writer::Base}
+00036 \{
+00037 \textcolor{keyword}{public} :
+00038 
+\hypertarget{writer__base_8h_source_l00039}{}\hyperlink{classhryky_1_1writer_1_1_base_a2da49d5140295f9ae7f5f27c9677278e}{00039}     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1writer_1_1_base}{Base} \hyperlink{classhryky_1_1writer_1_1_base_a2da49d5140295f9ae7f5f27c9677278e}{this_type};
+00040 
+00044     \textcolor{keyword}{virtual} \textcolor{keywordtype}{bool} \hyperlink{classhryky_1_1writer_1_1_base_a19d3bc3fa440d45dbbee33475c3916c3}{operator()}(\textcolor{keywordtype}{void} \textcolor{keyword}{const} * data, \textcolor{keywordtype}{size\_t} \textcolor{keyword}{const} size) = 0;
+00045 
+00047     \hyperlink{classhryky_1_1_intrusive_ptr}{reduction_type} \hyperlink{classhryky_1_1writer_1_1_base_a2809ad5f75abd2266e6804e90094bc05}{reduce}(\hyperlink{classhryky_1_1reduction_1_1_string}{reduction::name_type} \textcolor{keyword}{const} & name) \textcolor{keyword}{const};
+00048 
+00050     \textcolor{keywordtype}{void} \hyperlink{classhryky_1_1writer_1_1_base_ab2b137d16fbe40d839ee136bd5304cab}{swap}(\hyperlink{classhryky_1_1writer_1_1_base}{this_type} & src);
+00051 
+00052 \textcolor{keyword}{protected} :
+00053 
+00055     \hyperlink{classhryky_1_1writer_1_1_base_a5ffe0568374d8b9b4c4ec32953fd6453}{Base}();
+00056 
+00058     \hyperlink{classhryky_1_1writer_1_1_base_a5ffe0568374d8b9b4c4ec32953fd6453}{Base}(\hyperlink{classhryky_1_1writer_1_1_base}{this_type} \textcolor{keyword}{const} &);
+00059 
+00061     \hyperlink{classhryky_1_1writer_1_1_base_a5ffe0568374d8b9b4c4ec32953fd6453}{Base}(\hyperlink{classhryky_1_1writer_1_1_base}{this_type} &&);
+00062 
+00064     \hyperlink{classhryky_1_1writer_1_1_base_a722da881b6c70cfcbde9243abcfbf334}{~Base}();
+00065 
+\hypertarget{writer__base_8h_source_l00067}{}\hyperlink{classhryky_1_1writer_1_1_base_a2c1b8ae994530c2c5e9d8f6f03f758aa}{00067}     \hyperlink{classhryky_1_1writer_1_1_base_a2c1b8ae994530c2c5e9d8f6f03f758aa}{hryky_assign_op};
+00068 
+00070     \textcolor{keywordtype}{void} \hyperlink{classhryky_1_1writer_1_1_base_a135bce05655e290c78fa83196199a576}{clear}();
+00071 
+00072 \textcolor{keyword}{private} :
+00073 
+00074 \};
+00075 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00076 \textcolor{comment}{// class specializations}
+00077 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00078 \textcolor{keyword}{namespace }hryky
+00079 \{
+00080 \textcolor{keyword}{namespace }writer
+00081 \{
+00082 \} \textcolor{comment}{// namespace writer}
+00083 \} \textcolor{comment}{// namespace hryky}
+00084 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00085 \textcolor{comment}{// public member functions}
+00086 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00087 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00088 \textcolor{comment}{// protected member functions}
+00089 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00090 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00091 \textcolor{comment}{// private member functions}
+00092 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00093 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00094 \textcolor{comment}{// global function prototypes}
+00095 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00096 \textcolor{keyword}{namespace }hryky
+00097 \{
+00098 \textcolor{keyword}{namespace }writer
+00099 \{
+00101     \hyperlink{namespacehryky_a343a9a4c36a586be5c2693156200eadc}{reduction_type} \hyperlink{namespacehryky_af41cb3af6766761da0ff21b84527a52c}{reduce}(
+00102         \hyperlink{namespacehryky_1_1reduction_ac686c30a4c8d196bbd0f05629a6b921f}{reduction::name_type} \textcolor{keyword}{const} & name, Base \textcolor{keyword}{const} & src);
+00103 
+00105     \textcolor{keywordtype}{void} \hyperlink{namespacehryky_a4282146df5ea2b68cb667896a2205909}{swap}(
+00106         Base & lhs, Base & rhs);
+00107 
+00108 \} \textcolor{comment}{// namespace writer}
+00109 \} \textcolor{comment}{// namespace hryky}
+00110 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00111 \textcolor{comment}{// global function definitions}
+00112 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00113 \textcolor{preprocessor}{#endif // WRITER\_BASE\_H\_20130204182849436}
+00114 \textcolor{preprocessor}{}\textcolor{comment}{// end of file}
+\end{DoxyCode}

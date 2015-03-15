@@ -1,0 +1,58 @@
+\hypertarget{scale__entity_8h}{\section{scale\-\_\-entity.\-h File Reference}
+\label{scale__entity_8h}\index{scale\-\_\-entity.\-h@{scale\-\_\-entity.\-h}}
+}
+
+
+retains the value on the scale.  
+
+
+{\ttfamily \#include \char`\"{}hryky/reduction/reduction\-\_\-common.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}hryky/scale/scale\-\_\-is\-\_\-lower.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}hryky/scale/scale\-\_\-lower\-\_\-of.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}hryky/swap.\-h\char`\"{}}\\*
+This graph shows which files directly or indirectly include this file\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=156pt]{scale__entity_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classhryky_1_1scale_1_1_entity}{hryky\-::scale\-::\-Entity$<$ Raw\-T, Higher\-T, Radix $>$}
+\begin{DoxyCompactList}\small\item\em retains the value on the scale. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \hyperlink{namespacehryky}{hryky}
+\begin{DoxyCompactList}\small\item\em the root of all namespaces in hryky-\/codebase. \end{DoxyCompactList}\item 
+namespace \hyperlink{namespacehryky_1_1scale}{hryky\-::scale}
+\begin{DoxyCompactList}\small\item\em The modules for dealing with unit systems. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{namespacehryky_1_1scale_ac2fe4df99c737fa954907b456a705f75}{{\footnotesize template$<$typename Lhs\-T , typename Rhs\-T $>$ }\\Lhs\-T \hyperlink{namespacehryky_1_1scale_ac2fe4df99c737fa954907b456a705f75}{hryky\-::scale\-::add} (Lhs\-T const \&lhs, Rhs\-T const \&rhs, typename Enable\-If$<$ scale\-::\-Is\-Lower\-Equal$<$ typename Lhs\-T\-::higher\-\_\-type, Rhs\-T $>$ $>$\-::type $\ast$=\hyperlink{common_8h_a4cd4ac09cfcdbd6b30ee69afc156e210}{H\-R\-Y\-K\-Y\-\_\-\-N\-U\-L\-L\-P\-T\-R})}\label{namespacehryky_1_1scale_ac2fe4df99c737fa954907b456a705f75}
+
+\begin{DoxyCompactList}\small\item\em adds the two scales. The L\-H\-S is on the lower scale. \end{DoxyCompactList}\item 
+\hypertarget{namespacehryky_1_1scale_ad9e9b8df1f0e41c8de221227e2ea1a8f}{{\footnotesize template$<$typename Lhs\-T , typename Rhs\-T $>$ }\\Rhs\-T \hyperlink{namespacehryky_1_1scale_ad9e9b8df1f0e41c8de221227e2ea1a8f}{hryky\-::scale\-::add} (Lhs\-T const \&lhs, Rhs\-T const \&rhs, typename Enable\-If$<$ scale\-::\-Is\-Lower\-Equal$<$ typename Rhs\-T\-::higher\-\_\-type, Lhs\-T $>$ $>$\-::type $\ast$=\hyperlink{common_8h_a4cd4ac09cfcdbd6b30ee69afc156e210}{H\-R\-Y\-K\-Y\-\_\-\-N\-U\-L\-L\-P\-T\-R})}\label{namespacehryky_1_1scale_ad9e9b8df1f0e41c8de221227e2ea1a8f}
+
+\begin{DoxyCompactList}\small\item\em adds the two scales. The L\-H\-S is on the higher scale. \end{DoxyCompactList}\item 
+\hypertarget{namespacehryky_1_1scale_a6bbb1a80e433741768d3590c888ff644}{{\footnotesize template$<$typename Raw\-T , typename Higher\-T , hryky\-::int64\-\_\-t Radix$>$ }\\reduction\-\_\-type \hyperlink{namespacehryky_1_1scale_a6bbb1a80e433741768d3590c888ff644}{hryky\-::scale\-::reduce} (reduction\-::name\-\_\-type const \&name, Entity$<$ Raw\-T, Higher\-T, Radix $>$ const \&src)}\label{namespacehryky_1_1scale_a6bbb1a80e433741768d3590c888ff644}
+
+\begin{DoxyCompactList}\small\item\em decomposes the instance to primitive objects. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Raw\-T , typename Higher\-T , hryky\-::int64\-\_\-t Radix$>$ }\\void \hyperlink{namespacehryky_1_1scale_ae4a4f26481f5a12c26e0d3c93f1d1bbc}{hryky\-::scale\-::swap} (Entity$<$ Raw\-T, Higher\-T, Radix $>$ \&lhs, Entity$<$ Raw\-T, Higher\-T, Radix $>$ \&rhs)
+\begin{DoxyCompactList}\small\item\em interchanges two instances of same type. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+retains the value on the scale. \begin{DoxyAuthor}{Author}
+H\-R\-Y\-K\-Y 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+
+\end{DoxyVersion}
+\begin{DoxyParagraph}{Id\-:}
+\hyperlink{scale__entity_8h}{scale\-\_\-entity.\-h} 150 2013-\/02-\/10 10\-:08\-:03\-Z \href{mailto:hryky.private@gmail.com}{\tt hryky.\-private@gmail.\-com} 
+\end{DoxyParagraph}

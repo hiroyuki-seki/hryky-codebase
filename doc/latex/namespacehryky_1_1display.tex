@@ -1,0 +1,127 @@
+\hypertarget{namespacehryky_1_1display}{\section{hryky\-:\-:display Namespace Reference}
+\label{namespacehryky_1_1display}\index{hryky\-::display@{hryky\-::display}}
+}
+
+
+modules for modulation of the configuration of display device.  
+
+
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classhryky_1_1display_1_1_config}{Config}
+\begin{DoxyCompactList}\small\item\em retains the configuration of display. \end{DoxyCompactList}\item 
+class \hyperlink{classhryky_1_1display_1_1_driver}{Driver}
+\begin{DoxyCompactList}\small\item\em retains the information of each display driver. \end{DoxyCompactList}\item 
+class \hyperlink{classhryky_1_1display_1_1_environment}{Environment}
+\begin{DoxyCompactList}\small\item\em collects the available display environments. \end{DoxyCompactList}\item 
+class \hyperlink{classhryky_1_1display_1_1_mode}{Mode}
+\begin{DoxyCompactList}\small\item\em retains the information of the resolution and color format of a display. \end{DoxyCompactList}\item 
+class \hyperlink{classhryky_1_1display_1_1_screen}{Screen}
+\begin{DoxyCompactList}\small\item\em retains the information of each display screen. \end{DoxyCompactList}\item 
+class \hyperlink{classhryky_1_1display_1_1_traverser}{Traverser}
+\begin{DoxyCompactList}\small\item\em traverses the all display configurations in the environment. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{namespacehryky_1_1display_a438d20137cf00d71a4a72dfb7233ec90}{typedef size\-\_\-t \hyperlink{namespacehryky_1_1display_a438d20137cf00d71a4a72dfb7233ec90}{driver\-\_\-id\-\_\-type}}\label{namespacehryky_1_1display_a438d20137cf00d71a4a72dfb7233ec90}
+
+\begin{DoxyCompactList}\small\item\em distinguishes video drivers. \end{DoxyCompactList}\item 
+\hypertarget{namespacehryky_1_1display_a393bfca9f51ab987a1e795c8502c4db4}{typedef \hyperlink{classhryky_1_1_string}{String} \hyperlink{namespacehryky_1_1display_a393bfca9f51ab987a1e795c8502c4db4}{driver\-\_\-name\-\_\-type}}\label{namespacehryky_1_1display_a393bfca9f51ab987a1e795c8502c4db4}
+
+\begin{DoxyCompactList}\small\item\em represents the kind of video drivers. \end{DoxyCompactList}\item 
+\hypertarget{namespacehryky_1_1display_a8b77ffd7407c2f861e6c4872a2444330}{typedef \hyperlink{classhryky_1_1pixel_1_1_format}{pixel\-::\-Format} \hyperlink{namespacehryky_1_1display_a8b77ffd7407c2f861e6c4872a2444330}{format\-\_\-type}}\label{namespacehryky_1_1display_a8b77ffd7407c2f861e6c4872a2444330}
+
+\begin{DoxyCompactList}\small\item\em represents the pixel format of display. \end{DoxyCompactList}\item 
+\hypertarget{namespacehryky_1_1display_a4f58c27b579f6370a813f2ac7f07c8f4}{typedef size\-\_\-t \hyperlink{namespacehryky_1_1display_a4f58c27b579f6370a813f2ac7f07c8f4}{mode\-\_\-id\-\_\-type}}\label{namespacehryky_1_1display_a4f58c27b579f6370a813f2ac7f07c8f4}
+
+\begin{DoxyCompactList}\small\item\em distinguishes video mode. \end{DoxyCompactList}\item 
+\hypertarget{namespacehryky_1_1display_ac8bdbe1db3aaf491d26848562e9fa29c}{typedef uint16\-\_\-t \hyperlink{namespacehryky_1_1display_ac8bdbe1db3aaf491d26848562e9fa29c}{refresh\-\_\-rate\-\_\-type}}\label{namespacehryky_1_1display_ac8bdbe1db3aaf491d26848562e9fa29c}
+
+\begin{DoxyCompactList}\small\item\em represents the refresh rate of display \end{DoxyCompactList}\item 
+\hypertarget{namespacehryky_1_1display_a09f7398edae025e4ee4e505b5cdf954c}{typedef size\-\_\-t \hyperlink{namespacehryky_1_1display_a09f7398edae025e4ee4e505b5cdf954c}{screen\-\_\-id\-\_\-type}}\label{namespacehryky_1_1display_a09f7398edae025e4ee4e505b5cdf954c}
+
+\begin{DoxyCompactList}\small\item\em distinguishes video screen. \end{DoxyCompactList}\item 
+\hypertarget{namespacehryky_1_1display_a88ee3bfa154cce4c6715af0c3f53d062}{typedef \\*
+\hyperlink{classhryky_1_1geometry_1_1coord_1_1_cartesian2_d}{geometry\-::coord\-::\-Cartesian2\-D}\\*
+$<$ size\-\_\-t $>$ \hyperlink{namespacehryky_1_1display_a88ee3bfa154cce4c6715af0c3f53d062}{size\-\_\-type}}\label{namespacehryky_1_1display_a88ee3bfa154cce4c6715af0c3f53d062}
+
+\begin{DoxyCompactList}\small\item\em represents the size of the region of display. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{namespacehryky_1_1display_aeff2be235ded726f0f4ff47d3e047f47}{\hyperlink{namespacehryky_a343a9a4c36a586be5c2693156200eadc}{reduction\-\_\-type} \hyperlink{namespacehryky_1_1display_aeff2be235ded726f0f4ff47d3e047f47}{reduce} (\hyperlink{namespacehryky_1_1reduction_ac686c30a4c8d196bbd0f05629a6b921f}{reduction\-::name\-\_\-type} const \&name, \hyperlink{classhryky_1_1display_1_1_traverser}{Traverser} const \&src)}\label{namespacehryky_1_1display_aeff2be235ded726f0f4ff47d3e047f47}
+
+\begin{DoxyCompactList}\small\item\em decomposes the instance to primitive objects. \end{DoxyCompactList}\item 
+\hypertarget{namespacehryky_1_1display_a00684c0c177cc8fc95639e8533c2441a}{\hyperlink{namespacehryky_a343a9a4c36a586be5c2693156200eadc}{reduction\-\_\-type} \hyperlink{namespacehryky_1_1display_a00684c0c177cc8fc95639e8533c2441a}{reduce} (\hyperlink{namespacehryky_1_1reduction_ac686c30a4c8d196bbd0f05629a6b921f}{reduction\-::name\-\_\-type} const \&name, \hyperlink{classhryky_1_1display_1_1_environment}{Environment} const \&environment)}\label{namespacehryky_1_1display_a00684c0c177cc8fc95639e8533c2441a}
+
+\begin{DoxyCompactList}\small\item\em creates the drived instance of \hyperlink{classhryky_1_1reduction_1_1_base}{reduction\-::\-Base}. \end{DoxyCompactList}\item 
+\hypertarget{namespacehryky_1_1display_a705ac3a5de0998e1e0d3fa595044ec55}{\hyperlink{namespacehryky_a343a9a4c36a586be5c2693156200eadc}{reduction\-\_\-type} \hyperlink{namespacehryky_1_1display_a705ac3a5de0998e1e0d3fa595044ec55}{reduce} (\hyperlink{namespacehryky_1_1reduction_ac686c30a4c8d196bbd0f05629a6b921f}{reduction\-::name\-\_\-type} const \&name, \hyperlink{classhryky_1_1display_1_1_driver}{Driver} const \&src)}\label{namespacehryky_1_1display_a705ac3a5de0998e1e0d3fa595044ec55}
+
+\begin{DoxyCompactList}\small\item\em decomposes the instance to primitive objects. \end{DoxyCompactList}\item 
+\hypertarget{namespacehryky_1_1display_a5846a438cf9196a272dde4d17b43ba83}{\hyperlink{namespacehryky_a343a9a4c36a586be5c2693156200eadc}{reduction\-\_\-type} \hyperlink{namespacehryky_1_1display_a5846a438cf9196a272dde4d17b43ba83}{reduce} (\hyperlink{namespacehryky_1_1reduction_ac686c30a4c8d196bbd0f05629a6b921f}{reduction\-::name\-\_\-type} const \&name, \hyperlink{classhryky_1_1display_1_1_screen}{Screen} const \&src)}\label{namespacehryky_1_1display_a5846a438cf9196a272dde4d17b43ba83}
+
+\begin{DoxyCompactList}\small\item\em decomposes the instance to primitive objects. \end{DoxyCompactList}\item 
+\hypertarget{namespacehryky_1_1display_a2de35998fde721b8f791d6fae6548d34}{\hyperlink{namespacehryky_a343a9a4c36a586be5c2693156200eadc}{reduction\-\_\-type} \hyperlink{namespacehryky_1_1display_a2de35998fde721b8f791d6fae6548d34}{reduce} (\hyperlink{namespacehryky_1_1reduction_ac686c30a4c8d196bbd0f05629a6b921f}{reduction\-::name\-\_\-type} const \&name, \hyperlink{classhryky_1_1display_1_1_mode}{Mode} const \&mode)}\label{namespacehryky_1_1display_a2de35998fde721b8f791d6fae6548d34}
+
+\begin{DoxyCompactList}\small\item\em outputs the information of \hyperlink{classhryky_1_1display_1_1_mode}{Mode} as text. \end{DoxyCompactList}\item 
+void \hyperlink{namespacehryky_1_1display_a85ddc8d76c030d7471688957b65e9ad1}{swap} (\hyperlink{classhryky_1_1display_1_1_traverser}{Traverser} \&lhs, \hyperlink{classhryky_1_1display_1_1_traverser}{Traverser} \&rhs)
+\begin{DoxyCompactList}\small\item\em interchanges two instances of same type. \end{DoxyCompactList}\item 
+\hypertarget{namespacehryky_1_1display_af5a4b994dfceda155b2bbc928fe00559}{void \hyperlink{namespacehryky_1_1display_af5a4b994dfceda155b2bbc928fe00559}{swap} (\hyperlink{classhryky_1_1display_1_1_environment}{Environment} \&lhs, \hyperlink{classhryky_1_1display_1_1_environment}{Environment} \&rhs)}\label{namespacehryky_1_1display_af5a4b994dfceda155b2bbc928fe00559}
+
+\begin{DoxyCompactList}\small\item\em interchanges two instances of the same type. \end{DoxyCompactList}\item 
+\hypertarget{namespacehryky_1_1display_ad28f0d5e406742090973e6c81321a00f}{void \hyperlink{namespacehryky_1_1display_ad28f0d5e406742090973e6c81321a00f}{swap} (\hyperlink{classhryky_1_1display_1_1_driver}{Driver} \&lhs, \hyperlink{classhryky_1_1display_1_1_driver}{Driver} \&rhs)}\label{namespacehryky_1_1display_ad28f0d5e406742090973e6c81321a00f}
+
+\begin{DoxyCompactList}\small\item\em interchanges two instances of same type. \end{DoxyCompactList}\item 
+void \hyperlink{namespacehryky_1_1display_ab3bf4cf01896ec9a96e6963093e57d8f}{swap} (\hyperlink{classhryky_1_1display_1_1_screen}{Screen} \&lhs, \hyperlink{classhryky_1_1display_1_1_screen}{Screen} \&rhs)
+\begin{DoxyCompactList}\small\item\em interchanges two instances of same type. \end{DoxyCompactList}\item 
+\hypertarget{namespacehryky_1_1display_a7d37702bac4e6b0ea0a0916f57e3fd97}{void \hyperlink{namespacehryky_1_1display_a7d37702bac4e6b0ea0a0916f57e3fd97}{swap} (\hyperlink{classhryky_1_1display_1_1_mode}{Mode} \&lhs, \hyperlink{classhryky_1_1display_1_1_mode}{Mode} \&rhs)}\label{namespacehryky_1_1display_a7d37702bac4e6b0ea0a0916f57e3fd97}
+
+\begin{DoxyCompactList}\small\item\em interchanges two instances of the same type. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{namespacehryky_1_1display_a411ce13cd5bc260cff5bd2c5deecbece}{\hyperlink{namespacehryky_1_1display_a438d20137cf00d71a4a72dfb7233ec90}{driver\-\_\-id\-\_\-type} const \hyperlink{namespacehryky_1_1display_a411ce13cd5bc260cff5bd2c5deecbece}{g\-\_\-invalid\-\_\-driver\-\_\-id} = static\-\_\-cast$<$\hyperlink{namespacehryky_1_1display_a438d20137cf00d71a4a72dfb7233ec90}{driver\-\_\-id\-\_\-type}$>$(-\/1)}\label{namespacehryky_1_1display_a411ce13cd5bc260cff5bd2c5deecbece}
+
+\begin{DoxyCompactList}\small\item\em represents invalid driver. \end{DoxyCompactList}\item 
+\hypertarget{namespacehryky_1_1display_af36e96781cbbf566b325a49fa7de7e28}{\hyperlink{namespacehryky_1_1display_a09f7398edae025e4ee4e505b5cdf954c}{screen\-\_\-id\-\_\-type} const \hyperlink{namespacehryky_1_1display_af36e96781cbbf566b325a49fa7de7e28}{g\-\_\-invalid\-\_\-screen\-\_\-id} = static\-\_\-cast$<$\hyperlink{namespacehryky_1_1display_a09f7398edae025e4ee4e505b5cdf954c}{screen\-\_\-id\-\_\-type}$>$(-\/1)}\label{namespacehryky_1_1display_af36e96781cbbf566b325a49fa7de7e28}
+
+\begin{DoxyCompactList}\small\item\em represents invalid display. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+modules for modulation of the configuration of display device. 
+
+\subsection{Function Documentation}
+\hypertarget{namespacehryky_1_1display_a85ddc8d76c030d7471688957b65e9ad1}{\index{hryky\-::display@{hryky\-::display}!swap@{swap}}
+\index{swap@{swap}!hryky::display@{hryky\-::display}}
+\subsubsection[{swap}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf hryky\-::display\-::swap} (
+\begin{DoxyParamCaption}
+\item[{Traverser \&}]{lhs, }
+\item[{Traverser \&}]{rhs}
+\end{DoxyParamCaption}
+)}}\label{namespacehryky_1_1display_a85ddc8d76c030d7471688957b65e9ad1}
+
+
+interchanges two instances of same type. 
+
+interchanges two instances of the same type. 
+
+References \hyperlink{classhryky_1_1display_1_1_traverser_a6e618d472947eb171c5ce80af4c55dc2}{hryky\-::display\-::\-Traverser\-::swap()}.
+
+\hypertarget{namespacehryky_1_1display_ab3bf4cf01896ec9a96e6963093e57d8f}{\index{hryky\-::display@{hryky\-::display}!swap@{swap}}
+\index{swap@{swap}!hryky::display@{hryky\-::display}}
+\subsubsection[{swap}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf hryky\-::display\-::swap} (
+\begin{DoxyParamCaption}
+\item[{Screen \&}]{lhs, }
+\item[{Screen \&}]{rhs}
+\end{DoxyParamCaption}
+)}}\label{namespacehryky_1_1display_ab3bf4cf01896ec9a96e6963093e57d8f}
+
+
+interchanges two instances of same type. 
+
+interchanges two instances of the same type. 
+
+References \hyperlink{classhryky_1_1display_1_1_screen_a2102e2a1ee2d94af8294209c95e35c52}{hryky\-::display\-::\-Screen\-::swap()}.
+

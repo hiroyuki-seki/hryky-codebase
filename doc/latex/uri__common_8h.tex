@@ -1,0 +1,79 @@
+\hypertarget{uri__common_8h}{\section{uri\-\_\-common.\-h File Reference}
+\label{uri__common_8h}\index{uri\-\_\-common.\-h@{uri\-\_\-common.\-h}}
+}
+
+
+common definitions for \hyperlink{namespacehryky_1_1uri}{hryky\-::uri}.  
+
+
+This graph shows which files directly or indirectly include this file\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{uri__common_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \hyperlink{namespacehryky}{hryky}
+\begin{DoxyCompactList}\small\item\em the root of all namespaces in hryky-\/codebase. \end{DoxyCompactList}\item 
+namespace \hyperlink{namespacehryky_1_1uri}{hryky\-::uri}
+\begin{DoxyCompactList}\small\item\em modules to handle U\-R\-I. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Defines}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{uri__common_8h_a4dc560630c0ded780a840caf93f18fba}{\#define \hyperlink{uri__common_8h_a4dc560630c0ded780a840caf93f18fba}{hryky\-\_\-case\-\_\-uri\-\_\-gen\-\_\-delim}~'\-:'\-: case '/'\-: case '?'\-: case '\#'\-: case '\mbox{[}'\-: case '\mbox{]}'\-: case '@'}\label{uri__common_8h_a4dc560630c0ded780a840caf93f18fba}
+
+\begin{DoxyCompactList}\small\item\em pseudo label of switch-\/case statement for 'gen-\/delim' of U\-R\-I syntax. \end{DoxyCompactList}\item 
+\hypertarget{uri__common_8h_a24efe8713741bd7b33f727a87f9379b4}{\#define \hyperlink{uri__common_8h_a24efe8713741bd7b33f727a87f9379b4}{hryky\-\_\-case\-\_\-uri\-\_\-segment}~'\-:'\-: case '@'\-: case hryky\-\_\-case\-\_\-uri\-\_\-sub\-\_\-delim\-: case \hyperlink{uri__common_8h_ac314b59e898dd0725b090fad9598b1cd}{hryky\-\_\-case\-\_\-uri\-\_\-unreserved}}\label{uri__common_8h_a24efe8713741bd7b33f727a87f9379b4}
+
+\begin{DoxyCompactList}\small\item\em pseudo label of switch-\/case statement for 'segment' of U\-R\-I syntax. \end{DoxyCompactList}\item 
+\hypertarget{uri__common_8h_a10832250340841ffbb48d83dec89c018}{\#define \hyperlink{uri__common_8h_a10832250340841ffbb48d83dec89c018}{hryky\-\_\-case\-\_\-uri\-\_\-sub\-\_\-delim}~hryky\-\_\-case\-\_\-uri\-\_\-sub\-\_\-delim\-\_\-except\-\_\-plus\-: case '+'}\label{uri__common_8h_a10832250340841ffbb48d83dec89c018}
+
+\begin{DoxyCompactList}\small\item\em pseudo label of switch-\/case statement for 'sub-\/delim' of U\-R\-I syntax. \end{DoxyCompactList}\item 
+\hypertarget{uri__common_8h_a4f5e4526c4734e4157e802257fab962b}{\#define \hyperlink{uri__common_8h_a4f5e4526c4734e4157e802257fab962b}{hryky\-\_\-case\-\_\-uri\-\_\-sub\-\_\-delim\-\_\-except\-\_\-plus}}\label{uri__common_8h_a4f5e4526c4734e4157e802257fab962b}
+
+\begin{DoxyCompactList}\small\item\em pseudo label of switch-\/case statement for 'sub-\/delim' of U\-R\-I syntax. \end{DoxyCompactList}\item 
+\hypertarget{uri__common_8h_ac314b59e898dd0725b090fad9598b1cd}{\#define \hyperlink{uri__common_8h_ac314b59e898dd0725b090fad9598b1cd}{hryky\-\_\-case\-\_\-uri\-\_\-unreserved}}\label{uri__common_8h_ac314b59e898dd0725b090fad9598b1cd}
+
+\begin{DoxyCompactList}\small\item\em pseudo label of switch-\/case statement for 'unreserved' of U\-R\-I syntax. \end{DoxyCompactList}\item 
+\#define \hyperlink{uri__common_8h_a97f2bc87896eb262146b89f9126df056}{hryky\-\_\-case\-\_\-uri\-\_\-unreserved\-\_\-symbol}~uri\-::hyphen\-\_\-\-: case uri\-::period\-\_\-\-: case uri\-::underscore\-\_\-\-: case uri\-::tilde\-\_\-
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{namespacehryky_1_1uri_a5eeaf4345e31b2201835c256b5a1d099}{bool \hyperlink{namespacehryky_1_1uri_a5eeaf4345e31b2201835c256b5a1d099}{hryky\-::uri\-::is\-\_\-gen\-\_\-delim} (octet\-\_\-type const octet)}\label{namespacehryky_1_1uri_a5eeaf4345e31b2201835c256b5a1d099}
+
+\begin{DoxyCompactList}\small\item\em confirms that an octet is a gen-\/delim of U\-R\-I. \end{DoxyCompactList}\item 
+\hypertarget{namespacehryky_1_1uri_a3051f943d27c6213bba82b8cb8e0b6c5}{bool \hyperlink{namespacehryky_1_1uri_a3051f943d27c6213bba82b8cb8e0b6c5}{hryky\-::uri\-::is\-\_\-reserved} (octet\-\_\-type const octet)}\label{namespacehryky_1_1uri_a3051f943d27c6213bba82b8cb8e0b6c5}
+
+\begin{DoxyCompactList}\small\item\em confirms that an octet is reserved in U\-R\-I. \end{DoxyCompactList}\item 
+bool \hyperlink{namespacehryky_1_1uri_ab7d939b992c5f913bc116db33e213786}{hryky\-::uri\-::is\-\_\-segment} (octet\-\_\-type const octet)
+\begin{DoxyCompactList}\small\item\em confirms whether this octet is one of the characters of segment in U\-R\-I. \end{DoxyCompactList}\item 
+\hypertarget{namespacehryky_1_1uri_a0f9e547bf72c6148ff436dbffc94651e}{bool \hyperlink{namespacehryky_1_1uri_a0f9e547bf72c6148ff436dbffc94651e}{hryky\-::uri\-::is\-\_\-sub\-\_\-delim} (octet\-\_\-type const octet)}\label{namespacehryky_1_1uri_a0f9e547bf72c6148ff436dbffc94651e}
+
+\begin{DoxyCompactList}\small\item\em confirms that an octet is a sub-\/delim of U\-R\-I. \end{DoxyCompactList}\item 
+\hypertarget{namespacehryky_1_1uri_a95ad9502034176c355abd2c716d107d3}{bool \hyperlink{namespacehryky_1_1uri_a95ad9502034176c355abd2c716d107d3}{hryky\-::uri\-::is\-\_\-unreserved} (octet\-\_\-type const octet)}\label{namespacehryky_1_1uri_a95ad9502034176c355abd2c716d107d3}
+
+\begin{DoxyCompactList}\small\item\em confirms that an octet is unreserved in U\-R\-I. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+common definitions for \hyperlink{namespacehryky_1_1uri}{hryky\-::uri}. \begin{DoxyAuthor}{Author}
+H\-R\-Y\-K\-Y 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+
+\end{DoxyVersion}
+\begin{DoxyParagraph}{Id\-:}
+\hyperlink{uri__common_8h}{uri\-\_\-common.\-h} 140 2013-\/01-\/23 14\-:52\-:44\-Z \href{mailto:hryky.private@gmail.com}{\tt hryky.\-private@gmail.\-com} 
+\end{DoxyParagraph}
+
+
+\subsection{Define Documentation}
+\hypertarget{uri__common_8h_a97f2bc87896eb262146b89f9126df056}{\index{uri\-\_\-common.\-h@{uri\-\_\-common.\-h}!hryky\-\_\-case\-\_\-uri\-\_\-unreserved\-\_\-symbol@{hryky\-\_\-case\-\_\-uri\-\_\-unreserved\-\_\-symbol}}
+\index{hryky\-\_\-case\-\_\-uri\-\_\-unreserved\-\_\-symbol@{hryky\-\_\-case\-\_\-uri\-\_\-unreserved\-\_\-symbol}!uri_common.h@{uri\-\_\-common.\-h}}
+\subsubsection[{hryky\-\_\-case\-\_\-uri\-\_\-unreserved\-\_\-symbol}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf hryky\-\_\-case\-\_\-uri\-\_\-unreserved\-\_\-symbol}~uri\-::hyphen\-\_\-\-: case uri\-::period\-\_\-\-: case uri\-::underscore\-\_\-\-: case uri\-::tilde\-\_\-}}\label{uri__common_8h_a97f2bc87896eb262146b89f9126df056}
+pseudo label of switch-\/case statement for 'unreserved' symbols of U\-R\-I syntax. 

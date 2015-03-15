@@ -1,0 +1,87 @@
+\hypertarget{graphics__module_8h_source}{\section{graphics\-\_\-module.\-h}
+}
+
+\begin{DoxyCode}
+00001 
+00007 \textcolor{preprocessor}{#ifndef GRAPHICS\_MODULE\_H\_20120205184502447}
+00008 \textcolor{preprocessor}{}\textcolor{preprocessor}{#define GRAPHICS\_MODULE\_H\_20120205184502447}
+00009 \textcolor{preprocessor}{}\textcolor{preprocessor}{#include <cstdint>}
+00010 \textcolor{preprocessor}{#include "\hyperlink{noncopyable_8h}{hryky/noncopyable.h}"}
+00011 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00012 \textcolor{comment}{// macro definition}
+00013 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00014 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00015 \textcolor{comment}{// namespace}
+00016 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00017 \textcolor{keyword}{namespace }hryky
+00018 \{
+00019 \textcolor{keyword}{namespace }graphics
+00020 \{
+00022     \textcolor{keyword}{class }Module;
+00023 \}
+00024 \}
+00025 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00026 \textcolor{comment}{// class declaration}
+00027 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+\hypertarget{graphics__module_8h_source_l00031}{}\hyperlink{classhryky_1_1graphics_1_1_module}{00031} \textcolor{comment}{}\textcolor{keyword}{class }\hyperlink{classhryky_1_1graphics_1_1_module}{hryky::graphics::Module}
+00032 \{
+00033 \textcolor{keyword}{public} :
+00034 
+\hypertarget{graphics__module_8h_source_l00036}{}\hyperlink{classhryky_1_1graphics_1_1_module_a7145b30601df820c888b3e8d90326568}{00036}     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1graphics_1_1_module}{hryky::graphics::Module} \hyperlink{classhryky_1_1graphics_1_1_module_a7145b30601df820c888b3e8d90326568}{this_type};
+00037 
+\hypertarget{graphics__module_8h_source_l00039}{}\hyperlink{structhryky_1_1graphics_1_1_module_1_1_reset_parameter}{00039}     \textcolor{keyword}{struct }\hyperlink{structhryky_1_1graphics_1_1_module_1_1_reset_parameter}{ResetParameter} : \hyperlink{classhryky_1_1_noncopyable}{Noncopyable}
+00040     \{
+00041         \hyperlink{structhryky_1_1graphics_1_1_module_1_1_reset_parameter}{ResetParameter}() \{\}
+00042     \};
+00043 
+00045     \textcolor{keyword}{explicit} \hyperlink{classhryky_1_1graphics_1_1_module_a82d522acf9ff4225bf03a7d3dbf85843}{Module}();
+00046 
+00048     \hyperlink{classhryky_1_1graphics_1_1_module_a0abae9a343c3fc1bb8252247f926636a}{~Module}();
+00049 
+00051     \textcolor{keywordtype}{bool} \hyperlink{classhryky_1_1graphics_1_1_module_a5c8abe754f63338ef1f62392e93e3306}{reset}(\hyperlink{structhryky_1_1graphics_1_1_module_1_1_reset_parameter}{ResetParameter} \textcolor{keyword}{const} & param);
+00052 
+00053 \textcolor{keyword}{protected} :
+00054 
+00055 \textcolor{keyword}{private} :
+00056 
+00058     \textcolor{keyword}{explicit} \hyperlink{classhryky_1_1graphics_1_1_module_a82d522acf9ff4225bf03a7d3dbf85843}{Module}(\hyperlink{classhryky_1_1graphics_1_1_module}{Module} \textcolor{keyword}{const} &);
+00059 
+00061     \hyperlink{classhryky_1_1graphics_1_1_module}{Module} & operator=(\hyperlink{classhryky_1_1graphics_1_1_module}{Module} \textcolor{keyword}{const} & rhs);
+00062 
+00064     \textcolor{keywordtype}{void} clear();
+00065 
+00066     \textcolor{keyword}{union}
+00067     \{
+00068         \textcolor{keyword}{struct}
+00069         \{
+00070             \textcolor{keywordtype}{bool}    init\_sdl\_video\_:1;
+00071         \} flag\_;
+00072 
+00073         uint32\_t flags\_;
+00074     \};
+00075 
+00076 \};
+00077 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00078 \textcolor{comment}{// public member functions}
+00079 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00080 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00081 \textcolor{comment}{// protected member functions}
+00082 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00083 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00084 \textcolor{comment}{// private member functions}
+00085 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00086 \textcolor{preprocessor}{#endif // GRAPHICS\_MODULE\_H\_20120205184502447}
+00087 \textcolor{preprocessor}{}\textcolor{comment}{// end of file}
+\end{DoxyCode}

@@ -1,0 +1,245 @@
+\hypertarget{geometry__coord__cartesian_8h_source}{\section{geometry\-\_\-coord\-\_\-cartesian.\-h}
+}
+
+\begin{DoxyCode}
+00001 
+00007 \textcolor{preprocessor}{#ifndef GEOMETRY\_COORD\_CARTESIAN\_H\_20120130112458142}
+00008 \textcolor{preprocessor}{}\textcolor{preprocessor}{#define GEOMETRY\_COORD\_CARTESIAN\_H\_20120130112458142}
+00009 \textcolor{preprocessor}{}\textcolor{preprocessor}{#include "\hyperlink{reduction__map_8h}{hryky/reduction/reduction_map.h}"}
+00010 \textcolor{preprocessor}{#include "\hyperlink{reduction__array_8h}{hryky/reduction/reduction_array.h}"}
+00011 \textcolor{preprocessor}{#include "\hyperlink{array_8h}{hryky/array.h}"}
+00012 \textcolor{preprocessor}{#include "\hyperlink{foreach_8h}{hryky/foreach.h}"}
+00013 \textcolor{preprocessor}{#include "\hyperlink{gp_8h}{hryky/gp.h}"}
+00014 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00015 \textcolor{comment}{// macro definition}
+00016 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00017 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00018 \textcolor{comment}{// namespace}
+00019 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00020 \textcolor{keyword}{namespace }hryky
+00021 \{
+00022 \textcolor{keyword}{namespace }geometry
+00023 \{
+00024 \textcolor{keyword}{namespace }coord
+00025 \{
+00027     \textcolor{keyword}{template} < \textcolor{keyword}{typename} ValueT, \textcolor{keywordtype}{size\_t} Dimension >
+00028     \textcolor{keyword}{class }Cartesian;
+00029     
+00031     \textcolor{keyword}{template} < \textcolor{keyword}{typename} ValueT >
+00032     \textcolor{keyword}{class }Cartesian2D;
+00033 
+00035     \textcolor{keyword}{template} < \textcolor{keyword}{typename} ValueT >
+00036     \textcolor{keyword}{class }Cartesian3D;
+00037 
+00039     \textcolor{keyword}{template} < \textcolor{keyword}{typename} ValueT, \textcolor{keywordtype}{size\_t} Dimension >
+00040     \hyperlink{namespacehryky_a343a9a4c36a586be5c2693156200eadc}{reduction_type} \hyperlink{namespacehryky_1_1geometry_a18354ece30244aa68fc3744f2cdb41fc}{reduce}(
+00041         \hyperlink{namespacehryky_1_1reduction_ac686c30a4c8d196bbd0f05629a6b921f}{reduction::name_type} \textcolor{keyword}{const} & name,
+00042         Cartesian<ValueT, Dimension> \textcolor{keyword}{const} & cartesian);
+00043 
+00045     \textcolor{keyword}{template} < \textcolor{keyword}{typename} ValueT >
+00046     \hyperlink{namespacehryky_a343a9a4c36a586be5c2693156200eadc}{reduction_type} \hyperlink{namespacehryky_1_1geometry_a18354ece30244aa68fc3744f2cdb41fc}{reduce}(
+00047         \hyperlink{namespacehryky_1_1reduction_ac686c30a4c8d196bbd0f05629a6b921f}{reduction::name_type} \textcolor{keyword}{const} & name,
+00048         Cartesian2D<ValueT> \textcolor{keyword}{const} & cartesian);
+00049 
+00051     \textcolor{keyword}{template} < \textcolor{keyword}{typename} ValueT >
+00052     \hyperlink{namespacehryky_a343a9a4c36a586be5c2693156200eadc}{reduction_type} \hyperlink{namespacehryky_1_1geometry_a18354ece30244aa68fc3744f2cdb41fc}{reduce}(
+00053         \hyperlink{namespacehryky_1_1reduction_ac686c30a4c8d196bbd0f05629a6b921f}{reduction::name_type} \textcolor{keyword}{const} & name,
+00054         Cartesian3D<ValueT> \textcolor{keyword}{const} & cartesian);
+00055 
+00057     \textcolor{keyword}{template} < \textcolor{keyword}{typename} ValueT, \textcolor{keywordtype}{size\_t} Dimension >
+00058     Cartesian<ValueT, Dimension>
+00059         operator-(Cartesian<ValueT, Dimension> \textcolor{keyword}{const} & lhs, Cartesian<ValueT,
+       Dimension> \textcolor{keyword}{const} & rhs);
+00060 
+00062     \textcolor{keyword}{template} < \textcolor{keyword}{typename} ValueT >
+00063     Cartesian2D<ValueT>
+00064         operator-(Cartesian2D<ValueT> \textcolor{keyword}{const} & lhs, Cartesian2D<ValueT> \textcolor{keyword}{const} & 
+      rhs);
+00065 
+00067     \textcolor{keyword}{template} < \textcolor{keyword}{typename} ValueT >
+00068     \textcolor{keywordtype}{void} \hyperlink{namespacehryky_1_1geometry_a73028b267b1f3811ebacb86acbee6742}{swap}(Cartesian2D<ValueT> & lhs, Cartesian2D<ValueT> & rhs);
+00069 
+00070 \}
+00071 \}
+00072 \}
+00073 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00074 \textcolor{comment}{// class declaration}
+00075 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00079 \textcolor{comment}{}\textcolor{keyword}{template} < \textcolor{keyword}{typename} ValueT, \textcolor{keywordtype}{size\_t} Dimension >
+\hypertarget{geometry__coord__cartesian_8h_source_l00080}{}\hyperlink{classhryky_1_1geometry_1_1coord_1_1_cartesian}{00080} \textcolor{keyword}{class }\hyperlink{classhryky_1_1geometry_1_1coord_1_1_cartesian}{hryky::geometry::coord::Cartesian}
+00081     : \textcolor{keyword}{public} \hyperlink{classhryky_1_1_array}{hryky::Array}<ValueT, Dimension>
+00082 \{
+00083 \textcolor{keyword}{public} :
+00084 
+00085     \textcolor{keyword}{typedef} \textcolor{keyword}{typename} AsParameter<ValueT>::type  param\_type;
+00086 
+00087 \textcolor{keyword}{protected} :
+00088 
+00089 \textcolor{keyword}{private} :
+00090 
+00091 \};
+00095 \textcolor{keyword}{template} < \textcolor{keyword}{typename} ValueT >
+\hypertarget{geometry__coord__cartesian_8h_source_l00096}{}\hyperlink{classhryky_1_1geometry_1_1coord_1_1_cartesian3_d}{00096} \textcolor{keyword}{class }\hyperlink{classhryky_1_1geometry_1_1coord_1_1_cartesian3_d}{hryky::geometry::coord::Cartesian3D}
+00097     : \textcolor{keyword}{public} \hyperlink{classhryky_1_1geometry_1_1coord_1_1_cartesian}{hryky::geometry::coord::Cartesian}<ValueT, 3>
+00098 \{
+00099 \textcolor{keyword}{public} :
+00100 
+\hypertarget{geometry__coord__cartesian_8h_source_l00102}{}\hyperlink{classhryky_1_1geometry_1_1coord_1_1_cartesian3_d_a15a346410509de147805b73f5a321771}{00102}     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1geometry_1_1coord_1_1_cartesian}{hryky::geometry::coord::Cartesian<ValueT, 3>} \hyperlink{classhryky_1_1geometry_1_1coord_1_1_cartesian3_d_a15a346410509de147805b73f5a321771}{base_type};
+00103 
+\hypertarget{geometry__coord__cartesian_8h_source_l00105}{}\hyperlink{classhryky_1_1geometry_1_1coord_1_1_cartesian3_d_a1ef50122d4a9823040b3822fec550ae7}{00105}     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1geometry_1_1coord_1_1_cartesian3_d}{hryky::geometry::coord::Cartesian3D<ValueT>} \hyperlink{classhryky_1_1geometry_1_1coord_1_1_cartesian3_d_a1ef50122d4a9823040b3822fec550ae7}{this_type};
+00106 
+\hypertarget{geometry__coord__cartesian_8h_source_l00108}{}\hyperlink{classhryky_1_1geometry_1_1coord_1_1_cartesian3_d_a3a2f42dba5fb61fe7c91a94ebd85091e}{00108}     \hyperlink{classhryky_1_1geometry_1_1coord_1_1_cartesian3_d_a3a2f42dba5fb61fe7c91a94ebd85091e}{Cartesian3D}() \{\}
+00109 
+\hypertarget{geometry__coord__cartesian_8h_source_l00111}{}\hyperlink{classhryky_1_1geometry_1_1coord_1_1_cartesian3_d_ad86c98ab2043114110ef5a370a38dbea}{00111}     \hyperlink{classhryky_1_1geometry_1_1coord_1_1_cartesian3_d_ad86c98ab2043114110ef5a370a38dbea}{Cartesian3D}(param\_type \hyperlink{classhryky_1_1geometry_1_1coord_1_1_cartesian3_d_a4dcd5b0cc85e0e3d4827bf552445c6c7}{x}, param\_type \hyperlink{classhryky_1_1geometry_1_1coord_1_1_cartesian3_d_ae56136dedbe50c752ca22a9fcd674ce3}{y}, param\_type \hyperlink{classhryky_1_1geometry_1_1coord_1_1_cartesian3_d_ae650aeb76f156baba297d8649dc3ff49}{z}) \{
+00112         (*this)[0] = \hyperlink{classhryky_1_1geometry_1_1coord_1_1_cartesian3_d_a4dcd5b0cc85e0e3d4827bf552445c6c7}{x};
+00113         (*this)[1] = \hyperlink{classhryky_1_1geometry_1_1coord_1_1_cartesian3_d_ae56136dedbe50c752ca22a9fcd674ce3}{y};
+00114         (*this)[2] = \hyperlink{classhryky_1_1geometry_1_1coord_1_1_cartesian3_d_ae650aeb76f156baba297d8649dc3ff49}{z};
+00115     \}
+00116 
+\hypertarget{geometry__coord__cartesian_8h_source_l00118}{}\hyperlink{classhryky_1_1geometry_1_1coord_1_1_cartesian3_d_a882af6f212f8dedf491c5e9efa4ab735}{00118}     \hyperlink{classhryky_1_1geometry_1_1coord_1_1_cartesian3_d_a3a2f42dba5fb61fe7c91a94ebd85091e}{Cartesian3D}(\hyperlink{classhryky_1_1geometry_1_1coord_1_1_cartesian3_d}{this_type} \textcolor{keyword}{const} & rhs)
+00119         : \hyperlink{classhryky_1_1geometry_1_1coord_1_1_cartesian}{base_type}(rhs)
+00120     \{\}
+00121 
+\hypertarget{geometry__coord__cartesian_8h_source_l00123}{}\hyperlink{classhryky_1_1geometry_1_1coord_1_1_cartesian3_d_a85d62db370cf7ed1d94fc24bc1353d6b}{00123}     \hyperlink{classhryky_1_1geometry_1_1coord_1_1_cartesian3_d}{Cartesian3D} & \hyperlink{classhryky_1_1geometry_1_1coord_1_1_cartesian3_d_a85d62db370cf7ed1d94fc24bc1353d6b}{assign}(param\_type \hyperlink{classhryky_1_1geometry_1_1coord_1_1_cartesian3_d_a4dcd5b0cc85e0e3d4827bf552445c6c7}{x}, param\_type \hyperlink{classhryky_1_1geometry_1_1coord_1_1_cartesian3_d_ae56136dedbe50c752ca22a9fcd674ce3}{y}, param\_type \hyperlink{classhryky_1_1geometry_1_1coord_1_1_cartesian3_d_ae650aeb76f156baba297d8649dc3ff49}{z}) \{
+00124         (*this)[0] = \hyperlink{classhryky_1_1geometry_1_1coord_1_1_cartesian3_d_a4dcd5b0cc85e0e3d4827bf552445c6c7}{x};
+00125         (*this)[1] = \hyperlink{classhryky_1_1geometry_1_1coord_1_1_cartesian3_d_ae56136dedbe50c752ca22a9fcd674ce3}{y};
+00126         (*this)[2] = \hyperlink{classhryky_1_1geometry_1_1coord_1_1_cartesian3_d_ae650aeb76f156baba297d8649dc3ff49}{z};
+00127         \textcolor{keywordflow}{return} *\textcolor{keyword}{this};
+00128     \}
+00129 
+\hypertarget{geometry__coord__cartesian_8h_source_l00131}{}\hyperlink{classhryky_1_1geometry_1_1coord_1_1_cartesian3_d_a4dcd5b0cc85e0e3d4827bf552445c6c7}{00131}     const\_reference \hyperlink{classhryky_1_1geometry_1_1coord_1_1_cartesian3_d_a4dcd5b0cc85e0e3d4827bf552445c6c7}{x}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} (*\textcolor{keyword}{this})[0]; \}
+00132 
+\hypertarget{geometry__coord__cartesian_8h_source_l00134}{}\hyperlink{classhryky_1_1geometry_1_1coord_1_1_cartesian3_d_ae56136dedbe50c752ca22a9fcd674ce3}{00134}     const\_reference \hyperlink{classhryky_1_1geometry_1_1coord_1_1_cartesian3_d_ae56136dedbe50c752ca22a9fcd674ce3}{y}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} (*\textcolor{keyword}{this})[1]; \}
+00135 
+\hypertarget{geometry__coord__cartesian_8h_source_l00137}{}\hyperlink{classhryky_1_1geometry_1_1coord_1_1_cartesian3_d_ae650aeb76f156baba297d8649dc3ff49}{00137}     const\_reference \hyperlink{classhryky_1_1geometry_1_1coord_1_1_cartesian3_d_ae650aeb76f156baba297d8649dc3ff49}{z}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} (*\textcolor{keyword}{this})[2]; \}
+00138 
+00139 \textcolor{keyword}{protected} :
+00140 
+00141 \textcolor{keyword}{private} :
+00142 
+00143 \};
+00147 \textcolor{keyword}{template} < \textcolor{keyword}{typename} ValueT >
+\hypertarget{geometry__coord__cartesian_8h_source_l00148}{}\hyperlink{classhryky_1_1geometry_1_1coord_1_1_cartesian2_d}{00148} \textcolor{keyword}{class }\hyperlink{classhryky_1_1geometry_1_1coord_1_1_cartesian2_d}{hryky::geometry::coord::Cartesian2D}
+00149     : \textcolor{keyword}{public} \hyperlink{classhryky_1_1geometry_1_1coord_1_1_cartesian}{hryky::geometry::coord::Cartesian}<ValueT, 2>
+00150 \{
+00151 \textcolor{keyword}{public} :
+00152 
+\hypertarget{geometry__coord__cartesian_8h_source_l00154}{}\hyperlink{classhryky_1_1geometry_1_1coord_1_1_cartesian2_d_ab671f1b76873a8c508ef4b4e98d3bc78}{00154}     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1geometry_1_1coord_1_1_cartesian}{hryky::geometry::coord::Cartesian<ValueT, 2>} \hyperlink{classhryky_1_1geometry_1_1coord_1_1_cartesian2_d_ab671f1b76873a8c508ef4b4e98d3bc78}{base_type};
+00155 
+\hypertarget{geometry__coord__cartesian_8h_source_l00157}{}\hyperlink{classhryky_1_1geometry_1_1coord_1_1_cartesian2_d_a7e2c46d2337c664213f252e08cb13cbe}{00157}     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1geometry_1_1coord_1_1_cartesian2_d}{hryky::geometry::coord::Cartesian2D<ValueT>} \hyperlink{classhryky_1_1geometry_1_1coord_1_1_cartesian2_d_a7e2c46d2337c664213f252e08cb13cbe}{this_type};
+00158 
+\hypertarget{geometry__coord__cartesian_8h_source_l00160}{}\hyperlink{classhryky_1_1geometry_1_1coord_1_1_cartesian2_d_a3b8a12215b0448bcf2e5988bf81aa8c9}{00160}     \hyperlink{classhryky_1_1geometry_1_1coord_1_1_cartesian2_d_a3b8a12215b0448bcf2e5988bf81aa8c9}{Cartesian2D}() \{\}
+00161 
+\hypertarget{geometry__coord__cartesian_8h_source_l00163}{}\hyperlink{classhryky_1_1geometry_1_1coord_1_1_cartesian2_d_a56c773aac0dabb7cac23e47cdc1636e8}{00163}     \hyperlink{classhryky_1_1geometry_1_1coord_1_1_cartesian2_d_a56c773aac0dabb7cac23e47cdc1636e8}{Cartesian2D}(param\_type \hyperlink{classhryky_1_1geometry_1_1coord_1_1_cartesian2_d_a43e730c23f9c35500ca23cdae59d2527}{x}, param\_type \hyperlink{classhryky_1_1geometry_1_1coord_1_1_cartesian2_d_a585367b45d11a14785e24edabdc459ea}{y}) \{
+00164         (*this)[0] = \hyperlink{classhryky_1_1geometry_1_1coord_1_1_cartesian2_d_a43e730c23f9c35500ca23cdae59d2527}{x};
+00165         (*this)[1] = \hyperlink{classhryky_1_1geometry_1_1coord_1_1_cartesian2_d_a585367b45d11a14785e24edabdc459ea}{y};
+00166     \}
+00167 
+\hypertarget{geometry__coord__cartesian_8h_source_l00169}{}\hyperlink{classhryky_1_1geometry_1_1coord_1_1_cartesian2_d_a68366c0895cb7e24ba213f733f7084b2}{00169}     \hyperlink{classhryky_1_1geometry_1_1coord_1_1_cartesian2_d_a3b8a12215b0448bcf2e5988bf81aa8c9}{Cartesian2D}(\hyperlink{classhryky_1_1_array}{this_type} \textcolor{keyword}{const} & rhs)
+00170         : \hyperlink{classhryky_1_1geometry_1_1coord_1_1_cartesian}{base_type}(rhs)
+00171     \{\}
+00172 
+\hypertarget{geometry__coord__cartesian_8h_source_l00174}{}\hyperlink{classhryky_1_1geometry_1_1coord_1_1_cartesian2_d_a52215e77be8d9e463c4394ffd8263a84}{00174}     \hyperlink{classhryky_1_1geometry_1_1coord_1_1_cartesian2_d}{Cartesian2D} & \hyperlink{classhryky_1_1geometry_1_1coord_1_1_cartesian2_d_a52215e77be8d9e463c4394ffd8263a84}{assign}(param\_type \hyperlink{classhryky_1_1geometry_1_1coord_1_1_cartesian2_d_a43e730c23f9c35500ca23cdae59d2527}{x}, param\_type \hyperlink{classhryky_1_1geometry_1_1coord_1_1_cartesian2_d_a585367b45d11a14785e24edabdc459ea}{y}) \{
+00175         (*this)[0] = \hyperlink{classhryky_1_1geometry_1_1coord_1_1_cartesian2_d_a43e730c23f9c35500ca23cdae59d2527}{x};
+00176         (*this)[1] = \hyperlink{classhryky_1_1geometry_1_1coord_1_1_cartesian2_d_a585367b45d11a14785e24edabdc459ea}{y};
+00177         \textcolor{keywordflow}{return} *\textcolor{keyword}{this};
+00178     \}
+00179 
+\hypertarget{geometry__coord__cartesian_8h_source_l00181}{}\hyperlink{classhryky_1_1geometry_1_1coord_1_1_cartesian2_d_a43e730c23f9c35500ca23cdae59d2527}{00181}     const\_reference \hyperlink{classhryky_1_1geometry_1_1coord_1_1_cartesian2_d_a43e730c23f9c35500ca23cdae59d2527}{x}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} (*\textcolor{keyword}{this})[0]; \}
+00182 
+\hypertarget{geometry__coord__cartesian_8h_source_l00184}{}\hyperlink{classhryky_1_1geometry_1_1coord_1_1_cartesian2_d_a585367b45d11a14785e24edabdc459ea}{00184}     const\_reference \hyperlink{classhryky_1_1geometry_1_1coord_1_1_cartesian2_d_a585367b45d11a14785e24edabdc459ea}{y}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} (*\textcolor{keyword}{this})[1]; \}
+00185 
+00186 \textcolor{keyword}{protected} :
+00187 
+00188 \textcolor{keyword}{private} :
+00189 
+00190 \};
+00191 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00192 \textcolor{comment}{// public member functions}
+00193 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00194 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00195 \textcolor{comment}{// protected member functions}
+00196 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00197 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00198 \textcolor{comment}{// private member functions}
+00199 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00200 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00201 \textcolor{comment}{// global functions}
+00202 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00206 \textcolor{comment}{}\textcolor{keyword}{template} < \textcolor{keyword}{typename} ValueT, \textcolor{keywordtype}{size\_t} Dimension >
+00207 \hyperlink{classhryky_1_1_intrusive_ptr}{hryky::reduction_type} \hyperlink{namespacehryky_1_1geometry_a18354ece30244aa68fc3744f2cdb41fc}{hryky::geometry::coord::reduce}(
+00208     \hyperlink{classhryky_1_1reduction_1_1_string}{reduction::name_type} \textcolor{keyword}{const} & name, Cartesian<ValueT, Dimension> \textcolor{keyword}{const} & 
+      cartesian)
+00209 \{
+00210     \hyperlink{classhryky_1_1_intrusive_ptr}{reduction::array_type} \hyperlink{namespacehryky_1_1reduction_a9d45a4dc1ea9a6668ebd192f296f788c}{array} = \hyperlink{namespacehryky_1_1reduction_a9d45a4dc1ea9a6668ebd192f296f788c}{reduction::array}(name);
+00211 
+00212     \textcolor{keyword}{typedef} Cartesian<ValueT, Dimension> \textcolor{keyword}{const} cartesian\_type;
+00213     \hyperlink{classhryky_1_1_foreach}{Foreach<cartesian_type>} \textcolor{keywordflow}{foreach}(cartesian);
+00214     \textcolor{keywordflow}{for} (; \textcolor{keywordflow}{foreach}.valid(); ++\textcolor{keywordflow}{foreach}) \{
+00215         (*array).append(*\textcolor{keywordflow}{foreach});
+00216     \}
+00217     \textcolor{keywordflow}{return} \hyperlink{namespacehryky_1_1reduction_a9d45a4dc1ea9a6668ebd192f296f788c}{array};
+00218 \}
+00222 \textcolor{keyword}{template} < \textcolor{keyword}{typename} ValueT >
+00223 \hyperlink{classhryky_1_1_intrusive_ptr}{hryky::reduction_type} \hyperlink{namespacehryky_1_1geometry_a18354ece30244aa68fc3744f2cdb41fc}{hryky::geometry::coord::reduce}(
+00224     reduction::name\_type \textcolor{keyword}{const} & name, Cartesian2D<ValueT> \textcolor{keyword}{const} & cartesian)
+00225 \{
+00226     \textcolor{keyword}{typedef} Cartesian2D<ValueT> cartesian\_type;
+00227     
+00228     \textcolor{keywordflow}{return} \hyperlink{namespacehryky_af41cb3af6766761da0ff21b84527a52c}{reduce}(
+00229         name, static\_cast<cartesian\_type::base\_type const &>(cartesian));
+00230 \}
+00234 \textcolor{keyword}{template} < \textcolor{keyword}{typename} ValueT >
+00235 \hyperlink{classhryky_1_1_intrusive_ptr}{hryky::reduction_type} \hyperlink{namespacehryky_1_1geometry_a18354ece30244aa68fc3744f2cdb41fc}{hryky::geometry::coord::reduce}(
+00236     reduction::name\_type \textcolor{keyword}{const} & name, Cartesian3D<ValueT> \textcolor{keyword}{const} & cartesian)
+00237 \{
+00238     \textcolor{keyword}{typedef} Cartesian3D<ValueT> cartesian\_type;
+00239     
+00240     \textcolor{keywordflow}{return} \hyperlink{namespacehryky_af41cb3af6766761da0ff21b84527a52c}{reduce}(
+00241         name, static\_cast<cartesian\_type::base\_type const &>(cartesian));
+00242 \}
+00246 \textcolor{keyword}{template} < \textcolor{keyword}{typename} ValueT, \textcolor{keywordtype}{size\_t} Dimension >
+00247 \hyperlink{classhryky_1_1geometry_1_1coord_1_1_cartesian}{hryky::geometry::coord::Cartesian<ValueT, Dimension>} 
+00248 hryky::geometry::coord::operator-(
+00249     Cartesian<ValueT, Dimension> \textcolor{keyword}{const} & lhs, Cartesian<ValueT, Dimension> \textcolor{keyword}{
+      const} & rhs)
+00250 \{
+00251     Cartesian<ValueT, Dimension> dest;
+00252     
+00253     \textcolor{keywordtype}{size\_t} index = 0;
+00254     \textcolor{keywordflow}{for} (; Dimension != index; ++index) \{
+00255         dest[index] = lhs[index] - rhs[index];
+00256     \}
+00257     
+00258     \textcolor{keywordflow}{return} dest;
+00259 \}
+00263 \textcolor{keyword}{template} < \textcolor{keyword}{typename} ValueT >
+00264 \hyperlink{classhryky_1_1geometry_1_1coord_1_1_cartesian2_d}{hryky::geometry::coord::Cartesian2D<ValueT>}
+00265 hryky::geometry::coord::operator-(
+00266     Cartesian2D<ValueT> \textcolor{keyword}{const} & lhs, Cartesian2D<ValueT> \textcolor{keyword}{const} & rhs)
+00267 \{
+00268     \textcolor{keywordflow}{return} Cartesian2D<ValueT>(lhs[0] - rhs[0], lhs[1] - rhs[1]);
+00269 \}
+00273 \textcolor{keyword}{template} < \textcolor{keyword}{typename} ValueT >
+00274 \textcolor{keywordtype}{void} \hyperlink{namespacehryky_1_1geometry_a73028b267b1f3811ebacb86acbee6742}{hryky::geometry::coord::swap}(
+00275     Cartesian2D<ValueT> & lhs, Cartesian2D<ValueT> & rhs)
+00276 \{
+00277     lhs.swap(rhs);
+00278 \}
+00279 \textcolor{preprocessor}{#endif // GEOMETRY\_COORD\_CARTESIAN\_H\_20120130112458142}
+00280 \textcolor{preprocessor}{}\textcolor{comment}{// end of file}
+\end{DoxyCode}

@@ -1,0 +1,65 @@
+\hypertarget{log__format__common_8h_source}{\section{log\-\_\-format\-\_\-common.\-h}
+}
+
+\begin{DoxyCode}
+00001 
+00008 \textcolor{preprocessor}{#ifndef LOG\_FORMAT\_COMMON\_H\_20111229210502545}
+00009 \textcolor{preprocessor}{}\textcolor{preprocessor}{#define LOG\_FORMAT\_COMMON\_H\_20111229210502545}
+00010 \textcolor{preprocessor}{}\textcolor{preprocessor}{#include <\hyperlink{intrusive__ptr_8h}{hryky/intrusive_ptr.h}>}
+00011 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00012 \textcolor{comment}{// macro definition}
+00013 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00014 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00015 \textcolor{comment}{// namespace}
+00016 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00017 \textcolor{keyword}{namespace }hryky
+00018 \{
+00019 \textcolor{keyword}{namespace }log
+00020 \{
+00022 \textcolor{keyword}{namespace }format
+00023 \{
+\hypertarget{log__format__common_8h_source_l00024}{}\hyperlink{namespacehryky_1_1log_1_1format_afb3132c335cc06bc8d0004fab99eb5e4}{00024}     \textcolor{keyword}{class }\hyperlink{classhryky_1_1log_1_1format_1_1_base}{Base};
+00025 
+00026     \textcolor{keyword}{typedef} std::string     \hyperlink{namespacehryky_1_1log_1_1format_afb3132c335cc06bc8d0004fab99eb5e4}{string_type};
+\hypertarget{log__format__common_8h_source_l00027}{}\hyperlink{namespacehryky_1_1log_1_1format_ab7408d1e2ed2d648dbf9bba69eb74288}{00027}     \textcolor{keyword}{typedef} \hyperlink{namespacehryky_1_1log_1_1format_afb3132c335cc06bc8d0004fab99eb5e4}{string_type}     \hyperlink{namespacehryky_1_1log_1_1format_ab7408d1e2ed2d648dbf9bba69eb74288}{name_type};  
+00028 
+00029 \}
+\hypertarget{log__format__common_8h_source_l00031}{}\hyperlink{namespacehryky_1_1log_ad50448c3f934f1eacd5c1bcffe8111e1}{00031}     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1_intrusive_ptr}{IntrusivePtr<format::Base>}  \hyperlink{namespacehryky_1_1log_ad50448c3f934f1eacd5c1bcffe8111e1}{format_type};
+00032 
+00033 \}
+00034 \}
+00035 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00036 \textcolor{comment}{// struct declaration}
+00037 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00038 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00039 \textcolor{comment}{// class declaration}
+00040 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00041 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00042 \textcolor{comment}{// function definition}
+00043 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00044 \textcolor{keyword}{namespace }hryky
+00045 \{
+00046 \textcolor{keyword}{namespace }log
+00047 \{
+00048 \textcolor{keyword}{namespace }format
+00049 \{
+00060     \textcolor{keyword}{template} < \textcolor{keyword}{typename} ValueT >
+00061     \hyperlink{namespacehryky_1_1log_ad50448c3f934f1eacd5c1bcffe8111e1}{format_type} \hyperlink{namespacehryky_1_1log_1_1format_ae8ca636c4b89fe300287aca4f870f2ef}{make_format}(\hyperlink{namespacehryky_1_1log_1_1format_ab7408d1e2ed2d648dbf9bba69eb74288}{format::name_type} \textcolor{keyword}{const} & name, ValueT \textcolor{keyword}{const} & \hyperlink{namespacehryky_1_1log_1_1format_a5b9af9c1a7b018d54144acfb1b8cc960}{value}
+      );
+00062 
+00063 \}
+00064 \}
+00065 \}
+00066 \textcolor{preprocessor}{#endif // LOG\_FORMAT\_COMMON\_H\_20111229210502545}
+00067 \textcolor{preprocessor}{}\textcolor{comment}{// end of file}
+\end{DoxyCode}

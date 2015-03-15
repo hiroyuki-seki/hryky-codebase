@@ -1,0 +1,144 @@
+\hypertarget{opengl__module_8h_source}{\section{opengl\-\_\-module.\-h}
+}
+
+\begin{DoxyCode}
+00001 
+00007 \textcolor{preprocessor}{#ifndef OPENGL\_MODULE\_H\_20120220142529267}
+00008 \textcolor{preprocessor}{}\textcolor{preprocessor}{#define OPENGL\_MODULE\_H\_20120220142529267}
+00009 \textcolor{preprocessor}{}\textcolor{preprocessor}{#include "\hyperlink{gl_8h}{hryky/gl.h}"}
+00010 \textcolor{preprocessor}{#include "\hyperlink{opengl__common_8h}{hryky/opengl/opengl_common.h}"}
+00011 \textcolor{preprocessor}{#include "\hyperlink{opengl__version_8h}{hryky/opengl/opengl_version.h}"}
+00012 \textcolor{preprocessor}{#include "\hyperlink{color__rgba_8h}{hryky/color/color_rgba.h}"}
+00013 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00014 \textcolor{comment}{// macro definition}
+00015 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00016 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00017 \textcolor{comment}{// namespace}
+00018 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00019 \textcolor{keyword}{namespace }hryky
+00020 \{
+00021 \textcolor{keyword}{namespace }opengl
+00022 \{
+00024     \textcolor{keyword}{class }Module;
+00025 \}
+00026 \}
+00027 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00028 \textcolor{comment}{// class declaration}
+00029 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+\hypertarget{opengl__module_8h_source_l00033}{}\hyperlink{classhryky_1_1opengl_1_1_module}{00033} \textcolor{comment}{}\textcolor{keyword}{class }\hyperlink{classhryky_1_1opengl_1_1_module}{hryky::opengl::Module}
+00034 \{
+00035 \textcolor{keyword}{public} :
+00036 
+\hypertarget{opengl__module_8h_source_l00037}{}\hyperlink{classhryky_1_1opengl_1_1_module_a686352fcdf02c0a7ec5c6bc7d3eb1bb6}{00037}     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1opengl_1_1_module}{hryky::opengl::Module}   \hyperlink{classhryky_1_1opengl_1_1_module_a686352fcdf02c0a7ec5c6bc7d3eb1bb6}{this_type};          
+00038 
+\hypertarget{opengl__module_8h_source_l00040}{}\hyperlink{structhryky_1_1opengl_1_1_module_1_1_reset_parameter}{00040}     \textcolor{keyword}{struct }\hyperlink{structhryky_1_1opengl_1_1_module_1_1_reset_parameter}{ResetParameter}
+00041     \{
+00042         \hyperlink{structhryky_1_1opengl_1_1_module_1_1_reset_parameter}{ResetParameter}(\hyperlink{classhryky_1_1opengl_1_1_version}{Version} \textcolor{keyword}{const} & version)
+00043             : version\_(version)
+00044         \{\}
+00045         
+00046     \textcolor{keyword}{private}:
+00047         hryky\_accessor\_read(\hyperlink{classhryky_1_1opengl_1_1_version}{Version} \textcolor{keyword}{const} &, version);
+00048     \};
+00049 
+\hypertarget{opengl__module_8h_source_l00051}{}\hyperlink{structhryky_1_1opengl_1_1_module_1_1_clear_framebuffer_parameter}{00051}     \textcolor{keyword}{struct }\hyperlink{structhryky_1_1opengl_1_1_module_1_1_clear_framebuffer_parameter}{ClearFramebufferParameter}
+00052     \{
+00053         \textcolor{keyword}{typedef} \hyperlink{structhryky_1_1opengl_1_1_module_1_1_clear_framebuffer_parameter}{ClearFramebufferParameter} \hyperlink{structhryky_1_1opengl_1_1_module_1_1_clear_framebuffer_parameter}{this_type};
+00054 
+00055         \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1color_1_1_rgba}{clear_color_type}    \hyperlink{classhryky_1_1color_1_1_rgba}{color_type};
+00056         \textcolor{keyword}{typedef} \hyperlink{namespacehryky_1_1opengl_a5d4a0c96ecaa596a64f1efed8a51c089}{clear_depth_type}    depth\_type;
+00057         \textcolor{keyword}{typedef} \hyperlink{namespacehryky_1_1opengl_a7340c1159eebfb6a57358d75a1b0629a}{clear_stencil_type}  stencil\_type;
+00058         
+00059         \hyperlink{structhryky_1_1opengl_1_1_module_1_1_clear_framebuffer_parameter}{ClearFramebufferParameter}()
+00060             : color\_(0.0f, 0.0f, 0.0f, 0.0f)
+00061               , depth\_(0.0)
+00062               , stencil\_(0)
+00063               , for\_color\_(\textcolor{keyword}{false})
+00064               , for\_depth\_(\textcolor{keyword}{false})
+00065               , for\_stencil\_(\textcolor{keyword}{false})
+00066         \{\}
+00067 
+00068         \hyperlink{structhryky_1_1opengl_1_1_module_1_1_clear_framebuffer_parameter}{this_type} & color(
+00069             AsParameter<color\_type>::type color) \{
+00070             this->color\_ = color;
+00071             this->update\_color\_ = \textcolor{keyword}{true};
+00072             \textcolor{keywordflow}{return} *\textcolor{keyword}{this};
+00073         \}
+00074         
+00075         \hyperlink{structhryky_1_1opengl_1_1_module_1_1_clear_framebuffer_parameter}{this_type} & depth(
+00076             AsParameter<depth\_type>::type depth) \{
+00077             this->depth\_ = depth;
+00078             this->update\_depth\_ = \textcolor{keyword}{true};
+00079             \textcolor{keywordflow}{return} *\textcolor{keyword}{this};
+00080         \}
+00081         
+00082         \hyperlink{structhryky_1_1opengl_1_1_module_1_1_clear_framebuffer_parameter}{this_type} & stencil(
+00083             AsParameter<stencil\_type>::type stencil) \{
+00084             this->stencil\_ = stencil;
+00085             this->update\_stencil\_ = \textcolor{keyword}{true};
+00086             \textcolor{keywordflow}{return} *\textcolor{keyword}{this};
+00087         \}
+00088         
+00089     \textcolor{keyword}{private} :
+00090         hryky\_accessor\_read(\hyperlink{classhryky_1_1color_1_1_rgba}{color_type},     color);
+00091         hryky\_accessor\_read(depth\_type,     depth);
+00092         hryky\_accessor\_read(stencil\_type,   stencil);
+00093         hryky\_accessor\_read(\textcolor{keywordtype}{bool},           update\_color);
+00094         hryky\_accessor\_read(\textcolor{keywordtype}{bool},           update\_depth);
+00095         hryky\_accessor\_read(\textcolor{keywordtype}{bool},           update\_stencil);
+00096         hryky\_accessor\_row(\textcolor{keywordtype}{bool},            for\_color);
+00097         hryky\_accessor\_row(\textcolor{keywordtype}{bool},            for\_depth);
+00098         hryky\_accessor\_row(\textcolor{keywordtype}{bool},            for\_stencil);
+00099     \};
+00100 
+00102     \textcolor{keyword}{explicit} \hyperlink{classhryky_1_1opengl_1_1_module_a905e43365bbc4a79d8e8c3e3df9d70fe}{Module}();
+00103 
+00105     \textcolor{keywordtype}{bool} \hyperlink{classhryky_1_1opengl_1_1_module_af09eb5e4e4a6e8f89efdc7b97a220556}{reset}(\hyperlink{structhryky_1_1opengl_1_1_module_1_1_reset_parameter}{ResetParameter} \textcolor{keyword}{const} & param);
+00106 
+00108     \textcolor{keywordtype}{bool} \hyperlink{classhryky_1_1opengl_1_1_module_ae3195bd0969368a580a7b56dedb66f76}{clear_framebuffer}(\hyperlink{structhryky_1_1opengl_1_1_module_1_1_clear_framebuffer_parameter}{ClearFramebufferParameter} \textcolor{keyword}{const} & param);
+00109 
+00110 \textcolor{keyword}{protected} :
+00111 
+00112 \textcolor{keyword}{private} :
+00113 
+00115     \textcolor{keyword}{explicit} \hyperlink{classhryky_1_1opengl_1_1_module_a905e43365bbc4a79d8e8c3e3df9d70fe}{Module}(\hyperlink{classhryky_1_1opengl_1_1_module}{Module} \textcolor{keyword}{const} &);
+00116 
+00118     \hyperlink{classhryky_1_1opengl_1_1_module}{Module} & operator=(\hyperlink{classhryky_1_1opengl_1_1_module}{Module} \textcolor{keyword}{const} & rhs);
+00119 
+00120     \hyperlink{classhryky_1_1opengl_1_1_version}{Version}                         version\_;
+00121 
+00122     PFNGLCLEARPROC                  glClear\_;
+00123     PFNGLCLEARCOLORPROC             glClearColor\_;
+00124     PFNGLCLEARDEPTHPROC             glClearDepth\_;
+00125     PFNGLCLEARSTENCILPROC           glClearStencil\_;
+00126     PFNGLBINDFRAGDATALOCATIONPROC   glBindFragDataLocation\_;
+00127 
+00128     \hyperlink{classhryky_1_1color_1_1_rgba}{clear_color_type}                clear\_color\_;
+00129     \hyperlink{namespacehryky_1_1opengl_a5d4a0c96ecaa596a64f1efed8a51c089}{clear_depth_type}                clear\_depth\_;
+00130     \hyperlink{namespacehryky_1_1opengl_a7340c1159eebfb6a57358d75a1b0629a}{clear_stencil_type}              clear\_stencil\_;
+00131 
+00132 \};
+00133 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00134 \textcolor{comment}{// public member functions}
+00135 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00136 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00137 \textcolor{comment}{// protected member functions}
+00138 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00139 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00140 \textcolor{comment}{// private member functions}
+00141 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00142 \textcolor{preprocessor}{#endif // OPENGL\_MODULE\_H\_20120220142529267}
+00143 \textcolor{preprocessor}{}\textcolor{comment}{// end of file}
+\end{DoxyCode}

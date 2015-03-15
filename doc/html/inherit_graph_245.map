@@ -1,0 +1,5 @@
+<map id="G" name="G">
+<area shape="rect" id="node1" href="$classhryky_1_1writer_1_1_base.html" title="base class to write data polymorphically." alt="" coords="5,5,136,32"/>
+<area shape="rect" id="node3" href="$classhryky_1_1_adapter.html" title="hryky::Adapter\&lt; writer::Base, ValueT \&gt;" alt="" coords="184,5,432,32"/>
+<area shape="rect" id="node5" href="$classhryky_1_1writer_1_1_adapter.html" title="mediates the interface of writer::Base." alt="" coords="480,5,691,32"/>
+</map>

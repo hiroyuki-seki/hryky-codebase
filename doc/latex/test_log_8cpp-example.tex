@@ -1,0 +1,141 @@
+\hypertarget{test_log_8cpp-example}{\section{test\-\_\-log.\-cpp}
+}
+
+\begin{DoxyCodeInclude}
+\textcolor{comment}{/*}
+\textcolor{comment}{  @file         test\_log.cpp}
+\textcolor{comment}{  @brief        tests log modules.}
+\textcolor{comment}{  @since        2011-12-29T20:39:05+0900}
+\textcolor{comment}{  @author       HRYKY}
+\textcolor{comment}{  @version      $Id: test\_log.cpp 148 2013-02-04 08:39:35Z
+       hryky.private@gmail.com $}
+\textcolor{comment}{ */}
+\textcolor{preprocessor}{#include "precompiled.h"}
+\textcolor{preprocessor}{#include "\hyperlink{log_8h}{hryky/log.h}"}
+\textcolor{preprocessor}{#include "\hyperlink{testing_8h}{hryky/testing.h}"}
+\textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+\textcolor{comment}{// macro}
+\textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+\textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+\textcolor{comment}{// anonymous namespace}
+\textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+\textcolor{keyword}{namespace }hryky
+\{
+\textcolor{keyword}{namespace }test
+\{
+\textcolor{keyword}{namespace}
+\{
+    \textcolor{comment}{// enregisters a test}
+    \textcolor{keyword}{class }Test : \hyperlink{classhryky_1_1testing_1_1unit_1_1_base}{hryky::testing::unit::Base}
+    \{
+    \textcolor{keyword}{public} :
+        Test() : \hyperlink{classhryky_1_1testing_1_1unit_1_1_base}{hryky::testing::unit::Base}(\textcolor{stringliteral}{"log"}) \{\}
+    \textcolor{keyword}{private} :
+        \textcolor{comment}{// tests log modules.}
+        \textcolor{keyword}{virtual} \textcolor{keywordtype}{bool} run\_impl();
+    \};
+    Test \textcolor{keyword}{const} g\_test;
+
+\} \textcolor{comment}{// namespace "anonymous"}
+
+    \textcolor{comment}{// This class can be used as the second argument of
+       hryky::reduction::Map::append().}
+    \textcolor{keyword}{class }UserValue
+    \{
+    \textcolor{keyword}{public} :
+        UserValue(\textcolor{keywordtype}{int} value) : value\_(value) \{\}
+        \textcolor{keywordtype}{int} value()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} this->value\_; \}
+    \textcolor{keyword}{private} :
+        \textcolor{keywordtype}{int} value\_;
+    \};
+
+    \textcolor{comment}{// instantiates reduction\_type holding the information of UserValue.}
+    \hyperlink{namespacehryky_a343a9a4c36a586be5c2693156200eadc}{reduction_type} \hyperlink{namespacehryky_af41cb3af6766761da0ff21b84527a52c}{reduce}(
+        \hyperlink{namespacehryky_1_1reduction_ac686c30a4c8d196bbd0f05629a6b921f}{reduction::name_type} \textcolor{keyword}{const} & name, UserValue \textcolor{keyword}{const} & param);
+
+\} \textcolor{comment}{// namespace test}
+\} \textcolor{comment}{// namespace hryky}
+\textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+\textcolor{comment}{// global functions}
+\textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+\textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+\textcolor{comment}{// static functions}
+\textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+\textcolor{keyword}{namespace }hryky
+\{
+\textcolor{keyword}{namespace }test
+\{
+\textcolor{keyword}{namespace}
+\{
+\textcolor{comment}{/*}
+\textcolor{comment}{  @brief        tests log modules.}
+\textcolor{comment}{  @since        2011-12-29T20:41:33+0900}
+\textcolor{comment}{ */}
+\textcolor{keywordtype}{bool} Test::run\_impl()
+\{
+    \textcolor{comment}{// prints key-value pair}
+    \hyperlink{log__writer__common_8h_ad94e7301fdfeec6ecd1cb63b4c81325a}{hryky_log_debug}(
+        \hyperlink{reduction__common_8h_afc72326c9900838c5db40438318794dd}{hryky_reduce}(\textcolor{stringliteral}{"int\_value\_1"},   \textcolor{keywordtype}{int}(1)));
+
+    \textcolor{comment}{// instantiates map}
+    \hyperlink{namespacehryky_1_1reduction_a64228de3f2cff9ed9d5ad836a120c7f7}{reduction::map_type} map = \hyperlink{namespacehryky_1_1reduction_ac5eae270cf8047b294dc4ff3e5e11a79}{reduction::map}(\textcolor{stringliteral}{"map"});
+
+    \textcolor{comment}{// aggregates multiple key-value pairs}
+    ((*map)
+     .append(\textcolor{stringliteral}{"int\_10"},          10)
+     .append(\textcolor{stringliteral}{"float\_10.0f"},     10.0f)
+     .append(\textcolor{stringliteral}{"bool\_true"},       \textcolor{keyword}{true}));
+
+    \textcolor{comment}{// appends another map as a child}
+    ((*map)
+     .append(
+         (*\hyperlink{namespacehryky_1_1reduction_ac5eae270cf8047b294dc4ff3e5e11a79}{reduction::map}(\textcolor{stringliteral}{"aggregation"}))
+         .append(\textcolor{stringliteral}{"int\_20"},          \textcolor{keywordtype}{int}(20))
+         .append(\textcolor{stringliteral}{"float\_20.0f"},     \textcolor{keywordtype}{float}(20.0f))
+         .append(\textcolor{stringliteral}{"bool\_true"},       \textcolor{keywordtype}{bool}(\textcolor{keyword}{true}))
+         .append(\textcolor{stringliteral}{"user\_value"},      UserValue(4))
+         )
+     );
+
+    \textcolor{comment}{// prints formatted hierarchy}
+    \hyperlink{log__writer__common_8h_ad94e7301fdfeec6ecd1cb63b4c81325a}{hryky_log_debug}(*map);
+
+    \hyperlink{log__writer__common_8h_ad94e7301fdfeec6ecd1cb63b4c81325a}{hryky_log_debug}(
+        \hyperlink{namespacehryky_1_1reduction_ac5eae270cf8047b294dc4ff3e5e11a79}{reduction::map}(\textcolor{stringliteral}{"parent"})->append(*map));
+    
+    \textcolor{keywordflow}{return} \textcolor{keyword}{true};
+\}
+\} \textcolor{comment}{// namespace "anonymous"}
+\} \textcolor{comment}{// namespace test}
+\} \textcolor{comment}{// namespace hryky}
+\textcolor{comment}{/*}
+\textcolor{comment}{  @brief        creates reduction::Base corresponding to UserValue.}
+\textcolor{comment}{  @since        2012-01-03T12:56:28+0900}
+\textcolor{comment}{ */}
+\hyperlink{classhryky_1_1_intrusive_ptr}{hryky::reduction_type} \hyperlink{namespacehryky_af41cb3af6766761da0ff21b84527a52c}{hryky::test::reduce}(
+    reduction::name\_type \textcolor{keyword}{const} & name, UserValue \textcolor{keyword}{const} & param) \{
+    \textcolor{comment}{// instantiates reduction\_type as key-value pairs.}
+    \hyperlink{namespacehryky_1_1reduction_a64228de3f2cff9ed9d5ad836a120c7f7}{reduction::map_type} map = \hyperlink{namespacehryky_1_1reduction_ac5eae270cf8047b294dc4ff3e5e11a79}{reduction::map}(name);
+
+    \textcolor{comment}{// appends the child pair to the reduction::map\_type.}
+    map->append(\textcolor{stringliteral}{"value"}, param.value());
+
+    \textcolor{comment}{// returns hryky::reduction\_type}
+    \textcolor{keywordflow}{return} \hyperlink{namespacehryky_1_1reduction_ac5eae270cf8047b294dc4ff3e5e11a79}{map};
+\}
+\textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+\textcolor{comment}{// explicit instantiation}
+\textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+\textcolor{comment}{// end of file}
+\end{DoxyCodeInclude}
+ 

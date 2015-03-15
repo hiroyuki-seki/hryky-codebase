@@ -1,0 +1,51 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$log__writer__common_8h.html" title="functions for log writer." alt="" coords="1642,80,1787,107"/>
+<area shape="rect" id="node56" href="$log_8h.html" title="collection of the log modules." alt="" coords="3175,155,3225,181"/>
+<area shape="rect" id="node86" href="$testing__log_8cpp.html" title="outputs the log of the unit test at the end of scope." alt="" coords="4143,304,4253,331"/>
+<area shape="rect" id="node98" href="$log__writer__base_8cpp.html" title="the interface to output logs." alt="" coords="2329,229,2465,256"/>
+<area shape="rect" id="node116" href="$log__writer__file_8h.html" title="output log message." alt="" coords="3005,80,3115,107"/>
+<area shape="rect" id="node120" href="$log__writer__stream_8h.html" title="writes log messages to an arbitrary output stream." alt="" coords="2394,80,2528,107"/>
+<area shape="rect" id="node5" href="$ascii__common_8cpp.html" title="utility for US&#45;ASCII." alt="" coords="2829,304,2960,331"/>
+<area shape="rect" id="node7" href="$parser__base_8h.html" title="base class for parsing syntax." alt="" coords="1707,155,1811,181"/>
+<area shape="rect" id="node11" href="$scoped__array_8h.html" title="array with the size." alt="" coords="1521,155,1631,181"/>
+<area shape="rect" id="node13" href="$task__concurrency_8h.html" title="manages concurrency units." alt="" coords="1455,229,1591,256"/>
+<area shape="rect" id="node15" href="$task__sequence_8cpp.html" title="manages workers in a thread." alt="" coords="1529,304,1663,331"/>
+<area shape="rect" id="node17" href="$debug__common_8cpp.html" title="common definitions of debug module." alt="" coords="2227,304,2365,331"/>
+<area shape="rect" id="node19" href="$display__environment_8cpp.html" title="collects the available display environments." alt="" coords="3947,304,4111,331"/>
+<area shape="rect" id="node21" href="$exclusion__counter_8h.html" title="joinable counter." alt="" coords="424,155,563,181"/>
+<area shape="rect" id="node27" href="$exclusion_2src_2precompiled_8h_source.html" title="precompiled.h" alt="" coords="339,304,441,331"/>
+<area shape="rect" id="node40" href="$file__descriptor__mode_8win32_8cpp.html" title="retains the access mode for file descriptor for Win32." alt="" coords="2577,304,2780,331"/>
+<area shape="rect" id="node42" href="$filesystem_2src_2precompiled_8h_source.html" title="precompiled.h" alt="" coords="911,155,1013,181"/>
+<area shape="rect" id="node44" href="$graphics_2src_2precompiled_8h_source.html" title="precompiled.h" alt="" coords="785,155,887,181"/>
+<area shape="rect" id="node46" href="$graphics__module_8cpp.html" title="manages graphics module." alt="" coords="743,229,888,256"/>
+<area shape="rect" id="node49" href="$http__header__cache__control__entity_8h.html" title="retains &#39;Cache&#45;Control&#39; field of HTTP Header." alt="" coords="1217,155,1444,181"/>
+<area shape="rect" id="node51" href="$ip_2src_2precompiled_8h_source.html" title="precompiled.h" alt="" coords="1090,155,1192,181"/>
+<area shape="rect" id="node53" href="$ip__v6__entity_8cpp.html" title="retains the information of IPv6 Address." alt="" coords="1040,229,1155,256"/>
+<area shape="rect" id="node96" href="$log_2src_2precompiled_8h_source.html" title="precompiled.h" alt="" coords="2462,155,2564,181"/>
+<area shape="rect" id="node100" href="$log__writer__common_8cpp.html" title="functions for log writer." alt="" coords="2146,229,2304,256"/>
+<area shape="rect" id="node105" href="$memory__heap__arbitrary_8h.html" title="&#39;not&#39; thread&#45;safe memory allocation for usage in one thread." alt="" coords="1835,155,2004,181"/>
+<area shape="rect" id="node107" href="$opengl__common_8h.html" title="common definitions of OpenGL module." alt="" coords="2029,155,2157,181"/>
+<area shape="rect" id="node110" href="$task__sequence_8h.html" title="manages workers in a thread." alt="" coords="587,155,708,181"/>
+<area shape="rect" id="node114" href="$thread_2src_2precompiled_8h_source.html" title="precompiled.h" alt="" coords="2233,155,2335,181"/>
+<area shape="rect" id="node9" href="$parser_8h.html" title="collection of the hryky::parser modules." alt="" coords="1724,229,1793,256"/>
+<area shape="rect" id="node23" href="$exclusion_8h.html" title="exclusive control modules." alt="" coords="440,229,528,256"/>
+<area shape="rect" id="node31" href="$exclusion__counter_8cpp.html" title="joinable counter." alt="" coords="489,379,641,405"/>
+<area shape="rect" id="node25" href="$hryky_8h.html" title="include the entire headers of hryky&#45;codebase." alt="" coords="1058,304,1123,331"/>
+<area shape="rect" id="node29" href="$exclusion__cond_8cpp.html" title="exclusion object : condition variable." alt="" coords="327,379,464,405"/>
+<area shape="rect" id="node33" href="$exclusion__flag_8cpp.html" title="synchronizes the change of a boolean value." alt="" coords="5,379,133,405"/>
+<area shape="rect" id="node35" href="$exclusion__mutex_8cpp.html" title="exclusion object : mutex." alt="" coords="158,379,303,405"/>
+<area shape="rect" id="node59" href="$display_2src_2precompiled_8h_source.html" title="precompiled.h" alt="" coords="3885,229,3987,256"/>
+<area shape="rect" id="node61" href="$display__driver_8cpp.html" title="retains the information of each display driver." alt="" coords="3797,304,3923,331"/>
+<area shape="rect" id="node64" href="$display__screen_8cpp.html" title="retains the information of each display screen." alt="" coords="3638,304,3772,331"/>
+<area shape="rect" id="node68" href="$file__descriptor__entity_8win32_8cpp.html" title="retains a file descripter for Win32." alt="" coords="2984,304,3187,331"/>
+<area shape="rect" id="node70" href="$http_2src_2precompiled_8h_source.html" title="precompiled.h" alt="" coords="3529,229,3631,256"/>
+<area shape="rect" id="node72" href="$http__header__parser_8cpp.html" title="parses a text string of HTTP Message." alt="" coords="3323,304,3481,331"/>
+<area shape="rect" id="node75" href="$memory_2src_2precompiled_8h_source.html" title="precompiled.h" alt="" coords="3149,229,3251,256"/>
+<area shape="rect" id="node77" href="$opengl_2src_2precompiled_8h_source.html" title="precompiled.h" alt="" coords="3275,229,3377,256"/>
+<area shape="rect" id="node79" href="$pixel_2src_2precompiled_8h_source.html" title="precompiled.h" alt="" coords="3402,229,3504,256"/>
+<area shape="rect" id="node81" href="$task_2src_2precompiled_8h_source.html" title="precompiled.h" alt="" coords="2742,229,2844,256"/>
+<area shape="rect" id="node84" href="$testing_2src_2precompiled_8h_source.html" title="precompiled.h" alt="" coords="4063,229,4165,256"/>
+<area shape="rect" id="node88" href="$type_2src_2precompiled_8h_source.html" title="precompiled.h" alt="" coords="3655,229,3757,256"/>
+<area shape="rect" id="node90" href="$uri_2src_2precompiled_8h_source.html" title="precompiled.h" alt="" coords="2869,229,2971,256"/>
+<area shape="rect" id="node102" href="$log__writer__file_8cpp.html" title="output log message." alt="" coords="2491,229,2616,256"/>
+</map>

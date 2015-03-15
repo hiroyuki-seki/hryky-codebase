@@ -1,0 +1,108 @@
+\hypertarget{align_8h_source}{\section{align.\-h}
+}
+
+\begin{DoxyCode}
+00001 
+00007 \textcolor{preprocessor}{#ifndef ALIGN\_H\_20130105173617400}
+00008 \textcolor{preprocessor}{}\textcolor{preprocessor}{#define ALIGN\_H\_20130105173617400}
+00009 \textcolor{preprocessor}{}\textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00010 \textcolor{comment}{// macro definition}
+00011 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00012 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00013 \textcolor{comment}{// namespace}
+00014 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00015 \textcolor{keyword}{namespace }hryky
+00016 \{
+00017 \} \textcolor{comment}{// namespace hryky}
+00018 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00019 \textcolor{comment}{// struct declaration}
+00020 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00021 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00022 \textcolor{comment}{// class declaration}
+00023 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00024 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00025 \textcolor{comment}{// global function prototypes}
+00026 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00027 \textcolor{keyword}{namespace }hryky
+00028 \{
+00035     \textcolor{keyword}{template} < \textcolor{keyword}{typename} T >
+00036     T \hyperlink{namespacehryky_a84803d86a3bb217481dd0a180734fb8f}{align_floor}(T value, \hyperlink{namespacehryky_aee1af251193c2d308aaa68ef7e36a540}{alignment_type} alignment);
+00037 
+00044     \textcolor{keyword}{template} < \textcolor{keyword}{typename} T >
+00045     T \hyperlink{namespacehryky_a7ddd0f39f2f0953fe7e3cbaedaf98644}{align_ceil}(T value, \hyperlink{namespacehryky_aee1af251193c2d308aaa68ef7e36a540}{alignment_type} alignment);
+00046     
+00053     \textcolor{keyword}{template} < \textcolor{keyword}{typename} T >
+00054     \textcolor{keywordtype}{bool} \hyperlink{namespacehryky_abb8da7a8ab9766df31c47826f2bf1a40}{is_aligned}(T value, \hyperlink{namespacehryky_aee1af251193c2d308aaa68ef7e36a540}{alignment_type} alignment);
+00055 
+00064     \textcolor{keyword}{template} < \textcolor{keyword}{typename} T >
+00065     T * \hyperlink{namespacehryky_a84803d86a3bb217481dd0a180734fb8f}{align_floor}(T * value, \hyperlink{namespacehryky_aee1af251193c2d308aaa68ef7e36a540}{alignment_type} alignment);
+00066 
+00075     \textcolor{keyword}{template} < \textcolor{keyword}{typename} T >
+00076     T * \hyperlink{namespacehryky_a7ddd0f39f2f0953fe7e3cbaedaf98644}{align_ceil}(T * value, \hyperlink{namespacehryky_aee1af251193c2d308aaa68ef7e36a540}{alignment_type} alignment);
+00077 
+00086     \textcolor{keyword}{template} < \textcolor{keyword}{typename} T >
+00087     \textcolor{keywordtype}{bool} \hyperlink{namespacehryky_abb8da7a8ab9766df31c47826f2bf1a40}{is_aligned}(T * value, \hyperlink{namespacehryky_aee1af251193c2d308aaa68ef7e36a540}{alignment_type} alignment);
+00088 
+00089 \} \textcolor{comment}{// namespace hryky}
+00090 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00091 \textcolor{comment}{// global function definitions}
+00092 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00099 \textcolor{comment}{}\textcolor{keyword}{template} < \textcolor{keyword}{typename} T >
+\hypertarget{align_8h_source_l00100}{}\hyperlink{namespacehryky_a84803d86a3bb217481dd0a180734fb8f}{00100} T \hyperlink{namespacehryky_a84803d86a3bb217481dd0a180734fb8f}{hryky::align_floor}(T value, \hyperlink{namespacehryky_aee1af251193c2d308aaa68ef7e36a540}{alignment_type} alignment)
+00101 \{ 
+00102     \textcolor{keywordflow}{return} \textcolor{keyword}{static\_cast<}T\textcolor{keyword}{>}(
+00103         \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{size\_t}\textcolor{keyword}{>}(value)
+00104         & ~static\_cast<size\_t>((1 << (alignment)) - 1));
+00105 \}
+00112 \textcolor{keyword}{template} < \textcolor{keyword}{typename} T >
+\hypertarget{align_8h_source_l00113}{}\hyperlink{namespacehryky_a7ddd0f39f2f0953fe7e3cbaedaf98644}{00113} T \hyperlink{namespacehryky_a7ddd0f39f2f0953fe7e3cbaedaf98644}{hryky::align_ceil}(T value, \hyperlink{namespacehryky_aee1af251193c2d308aaa68ef7e36a540}{alignment_type} alignment)
+00114 \{
+00115     \textcolor{keywordflow}{return} \hyperlink{namespacehryky_a84803d86a3bb217481dd0a180734fb8f}{align_floor}(
+00116         static\_cast<T>(
+00117             static\_cast<size\_t>(value) + ((1 << (alignment)) - 1)),
+00118         alignment);
+00119 \}
+00126 \textcolor{keyword}{template} < \textcolor{keyword}{typename} T >
+\hypertarget{align_8h_source_l00127}{}\hyperlink{namespacehryky_abb8da7a8ab9766df31c47826f2bf1a40}{00127} \textcolor{keywordtype}{bool} \hyperlink{namespacehryky_abb8da7a8ab9766df31c47826f2bf1a40}{hryky::is_aligned}(T value, \hyperlink{namespacehryky_aee1af251193c2d308aaa68ef7e36a540}{alignment_type} alignment)
+00128 \{
+00129     \textcolor{keywordflow}{return} (0 == (
+00130         static\_cast<size\_t>(value)
+00131         & static\_cast<size\_t>((1 << (alignment)) - 1)));
+00132 \}
+00141 \textcolor{keyword}{template} < \textcolor{keyword}{typename} T >
+00142 T * \hyperlink{namespacehryky_a84803d86a3bb217481dd0a180734fb8f}{hryky::align_floor}(T * value, \hyperlink{namespacehryky_aee1af251193c2d308aaa68ef7e36a540}{alignment_type} alignment)
+00143 \{ 
+00144     \textcolor{keywordflow}{return} \textcolor{keyword}{reinterpret\_cast<}T *\textcolor{keyword}{>}(
+00145         \textcolor{keyword}{reinterpret\_cast<}\textcolor{keywordtype}{size\_t}\textcolor{keyword}{>}(value)
+00146         & ~static\_cast<size\_t>((1 << (alignment)) - 1));
+00147 \}
+00156 \textcolor{keyword}{template} < \textcolor{keyword}{typename} T >
+00157 T * \hyperlink{namespacehryky_a7ddd0f39f2f0953fe7e3cbaedaf98644}{hryky::align_ceil}(T * value, \hyperlink{namespacehryky_aee1af251193c2d308aaa68ef7e36a540}{alignment_type} alignment)
+00158 \{
+00159     \textcolor{keywordflow}{return} \hyperlink{namespacehryky_a84803d86a3bb217481dd0a180734fb8f}{align_floor}(
+00160         reinterpret\_cast<T *>(
+00161             reinterpret\_cast<size\_t>(value) + ((1 << (alignment)) - 1)),
+00162         alignment);
+00163 \}
+00172 \textcolor{keyword}{template} < \textcolor{keyword}{typename} T >
+00173 \textcolor{keywordtype}{bool} \hyperlink{namespacehryky_abb8da7a8ab9766df31c47826f2bf1a40}{hryky::is_aligned}(T * value, \hyperlink{namespacehryky_aee1af251193c2d308aaa68ef7e36a540}{alignment_type} alignment)
+00174 \{
+00175     \textcolor{keywordflow}{return} (0 == (
+00176         reinterpret\_cast<size\_t>(value)
+00177         & static\_cast<size\_t>((1 << (alignment)) - 1)));
+00178 \}
+00179 \textcolor{preprocessor}{#endif // ALIGN\_H\_20130105173617400}
+00180 \textcolor{preprocessor}{}\textcolor{comment}{// end of file}
+\end{DoxyCode}

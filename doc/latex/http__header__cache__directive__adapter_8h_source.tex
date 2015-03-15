@@ -1,0 +1,137 @@
+\hypertarget{http__header__cache__directive__adapter_8h_source}{\section{http\-\_\-header\-\_\-cache\-\_\-directive\-\_\-adapter.\-h}
+}
+
+\begin{DoxyCode}
+00001 
+00007 \textcolor{preprocessor}{#ifndef HTTP\_HEADER\_CACHE\_DIRECTIVE\_ADAPTER\_H\_20130112023356773}
+00008 \textcolor{preprocessor}{}\textcolor{preprocessor}{#define HTTP\_HEADER\_CACHE\_DIRECTIVE\_ADAPTER\_H\_20130112023356773}
+00009 \textcolor{preprocessor}{}\textcolor{preprocessor}{#include "hryky/http/http\_header\_cache\_directive\_base.h"}
+00010 \textcolor{preprocessor}{#include "\hyperlink{adapter_8h}{hryky/adapter.h}"}
+00011 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00012 \textcolor{comment}{// macro definition}
+00013 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00014 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00015 \textcolor{comment}{// namespace}
+00016 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00017 \textcolor{keyword}{namespace }hryky
+00018 \{
+00019 \textcolor{keyword}{namespace }http
+00020 \{
+00021 \textcolor{keyword}{namespace }header
+00022 \{
+00023 \textcolor{keyword}{namespace }cache
+00024 \{
+00025 \textcolor{keyword}{namespace }directive
+00026 \{
+00028     \textcolor{keyword}{template} <\textcolor{keyword}{typename} ValueT>
+00029     \textcolor{keyword}{class }Adapter;
+00030 
+00031 \} \textcolor{comment}{// namespace directive}
+00032 \} \textcolor{comment}{// namespace cache}
+00033 \} \textcolor{comment}{// namespace header}
+00034 \} \textcolor{comment}{// namespace http}
+00035 \} \textcolor{comment}{// namespace hryky}
+00036 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00037 \textcolor{comment}{// class declarations}
+00038 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00042 \textcolor{comment}{}\textcolor{keyword}{template} <\textcolor{keyword}{typename} ValueT>
+\hypertarget{http__header__cache__directive__adapter_8h_source_l00043}{}\hyperlink{classhryky_1_1http_1_1header_1_1cache_1_1directive_1_1_adapter}{00043} \textcolor{keyword}{class }\hyperlink{classhryky_1_1http_1_1header_1_1cache_1_1directive_1_1_adapter}{hryky::http::header::cache::directive::Adapter}
+00044     : \textcolor{keyword}{public} \hyperlink{classhryky_1_1_adapter}{hryky::Adapter}<Base, ValueT>
+00045 \{
+00046 \textcolor{keyword}{public} :
+00047 
+\hypertarget{http__header__cache__directive__adapter_8h_source_l00049}{}\hyperlink{classhryky_1_1http_1_1header_1_1cache_1_1directive_1_1_adapter_a3ed6b08c52097fceb6fcebf475554670}{00049}     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1_adapter}{hryky::Adapter<Base, ValueT>} \hyperlink{classhryky_1_1http_1_1header_1_1cache_1_1directive_1_1_adapter_a3ed6b08c52097fceb6fcebf475554670}{base_type};
+00050 
+\hypertarget{http__header__cache__directive__adapter_8h_source_l00051}{}\hyperlink{classhryky_1_1http_1_1header_1_1cache_1_1directive_1_1_adapter_ae4e3a627754a2a689982ce17e5fc5169}{00051}     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1http_1_1header_1_1cache_1_1directive_1_1_adapter}{Adapter<ValueT>} \hyperlink{classhryky_1_1http_1_1header_1_1cache_1_1directive_1_1_adapter_ae4e3a627754a2a689982ce17e5fc5169}{this_type};
+00052 
+00054     \hyperlink{classhryky_1_1_adapter_aad569390e8fc9963c8849cbd0c59bea9}{Adapter}(const\_reference \hyperlink{classhryky_1_1_adapter_ab736ecd30f215ca3cbd2364f818cb83f}{value});
+00055 
+00056 \textcolor{keyword}{protected} :
+00057 
+00058 \textcolor{keyword}{private} :
+00059 
+00061     \textcolor{keyword}{virtual} \textcolor{keywordtype}{bool} dispatch\_impl(\hyperlink{classhryky_1_1http_1_1header_1_1cache_1_1directive_1_1dispatcher_1_1_base}{dispatcher_type} & dispatcher);
+00062 
+00063 \};
+00064 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00065 \textcolor{comment}{// class specializations}
+00066 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00067 \textcolor{keyword}{namespace }hryky
+00068 \{
+00069 \textcolor{keyword}{namespace }http
+00070 \{
+00071 \textcolor{keyword}{namespace }header
+00072 \{
+00073 \textcolor{keyword}{namespace }cache
+00074 \{
+00075 \textcolor{keyword}{namespace }directive
+00076 \{
+00077 \} \textcolor{comment}{// namespace directive}
+00078 \} \textcolor{comment}{// namespace cache}
+00079 \} \textcolor{comment}{// namespace header}
+00080 \} \textcolor{comment}{// namespace http}
+00081 \} \textcolor{comment}{// namespace hryky}
+00082 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00083 \textcolor{comment}{// public member functions}
+00084 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00088 \textcolor{comment}{}\textcolor{keyword}{template} <\textcolor{keyword}{typename} ValueT>
+\hypertarget{http__header__cache__directive__adapter_8h_source_l00089}{}\hyperlink{classhryky_1_1http_1_1header_1_1cache_1_1directive_1_1_adapter_add9ee143d847a437e326b90f73f9736b}{00089} \hyperlink{classhryky_1_1_adapter_aad569390e8fc9963c8849cbd0c59bea9}{hryky::http::header::cache::directive::Adapter<ValueT>::Adapter}(const\_reference
+       value)
+00090     : \hyperlink{classhryky_1_1_adapter}{base_type}(value)
+00091 \{
+00092 \}
+00093 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00094 \textcolor{comment}{// protected member functions}
+00095 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00096 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00097 \textcolor{comment}{// private member functions}
+00098 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00102 \textcolor{comment}{}\textcolor{keyword}{template} <\textcolor{keyword}{typename} ValueT>
+00103 \textcolor{keywordtype}{bool} \hyperlink{classhryky_1_1http_1_1header_1_1cache_1_1directive_1_1_adapter}{hryky::http::header::cache::directive::Adapter<ValueT>::dispatch_impl}(
+00104     \hyperlink{classhryky_1_1http_1_1header_1_1cache_1_1directive_1_1dispatcher_1_1_base}{dispatcher_type} & dispatcher)
+00105 \{
+00106     \textcolor{keywordflow}{return} dispatcher(this->value());
+00107 \}
+00108 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00109 \textcolor{comment}{// global function prototypes}
+00110 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00111 \textcolor{keyword}{namespace }hryky
+00112 \{
+00113 \textcolor{keyword}{namespace }http
+00114 \{
+00115 \textcolor{keyword}{namespace }header
+00116 \{
+00117 \textcolor{keyword}{namespace }cache
+00118 \{
+00119 \textcolor{keyword}{namespace }directive
+00120 \{
+00121 
+00122 \} \textcolor{comment}{// namespace directive}
+00123 \} \textcolor{comment}{// namespace cache}
+00124 \} \textcolor{comment}{// namespace header}
+00125 \} \textcolor{comment}{// namespace http}
+00126 \} \textcolor{comment}{// namespace hryky}
+00127 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00128 \textcolor{comment}{// global function definitions}
+00129 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00130 \textcolor{preprocessor}{#endif // HTTP\_HEADER\_CACHE\_DIRECTIVE\_ADAPTER\_H\_20130112023356773}
+00131 \textcolor{preprocessor}{}\textcolor{comment}{// end of file}
+\end{DoxyCode}

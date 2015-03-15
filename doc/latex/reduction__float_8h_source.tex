@@ -1,0 +1,131 @@
+\hypertarget{reduction__float_8h_source}{\section{reduction\-\_\-float.\-h}
+}
+
+\begin{DoxyCode}
+00001 
+00007 \textcolor{preprocessor}{#ifndef REDUCTION\_FLOAT\_H\_20120923202751519}
+00008 \textcolor{preprocessor}{}\textcolor{preprocessor}{#define REDUCTION\_FLOAT\_H\_20120923202751519}
+00009 \textcolor{preprocessor}{}\textcolor{preprocessor}{#include "\hyperlink{reduction__base_8h}{hryky/reduction/reduction_base.h}"}
+00010 \textcolor{preprocessor}{#include "\hyperlink{is__floating__point_8h}{hryky/gp/is_floating_point.h}"}
+00011 \textcolor{preprocessor}{#include "\hyperlink{enable__if_8h}{hryky/gp/enable_if.h}"}
+00012 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00013 \textcolor{comment}{// macro definition}
+00014 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00015 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00016 \textcolor{comment}{// namespace}
+00017 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00018 \textcolor{keyword}{namespace }hryky
+00019 \{
+00020 \textcolor{keyword}{namespace }reduction
+00021 \{
+00023     \textcolor{keyword}{class }Float;
+00024 
+00025 \} \textcolor{comment}{// namespace reduction}
+00026 \} \textcolor{comment}{// namespace hryky}
+00027 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00028 \textcolor{comment}{// class declarations}
+00029 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+\hypertarget{reduction__float_8h_source_l00033}{}\hyperlink{classhryky_1_1reduction_1_1_float}{00033} \textcolor{comment}{}\textcolor{keyword}{class }\hyperlink{classhryky_1_1reduction_1_1_float}{hryky::reduction::Float}
+00034     : \textcolor{keyword}{public} \hyperlink{classhryky_1_1reduction_1_1_base}{hryky::reduction::Base}
+00035 \{
+00036 \textcolor{keyword}{public} :
+00037 
+00038     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1reduction_1_1_base}{Base}    \hyperlink{classhryky_1_1reduction_1_1_base}{base_type};
+00039     \textcolor{keyword}{typedef} \textcolor{keywordtype}{double}  value\_type;
+\hypertarget{reduction__float_8h_source_l00040}{}\hyperlink{classhryky_1_1reduction_1_1_float_aad5606baf01147eb8811fe3d0dfd297a}{00040}     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1reduction_1_1_float}{Float}   \hyperlink{classhryky_1_1reduction_1_1_float_aad5606baf01147eb8811fe3d0dfd297a}{this_type};
+00041 
+00043     \hyperlink{classhryky_1_1reduction_1_1_float_ac8301e6a6b997dc1142800282ad58fd3}{Float}();
+00044 
+00046     \hyperlink{classhryky_1_1reduction_1_1_float_ac8301e6a6b997dc1142800282ad58fd3}{Float}(\hyperlink{classhryky_1_1reduction_1_1_string}{name_type} \textcolor{keyword}{const} & \hyperlink{classhryky_1_1reduction_1_1_base_a842569265d741905eb8a353d3935f1d1}{name}, value\_type \textcolor{keyword}{const} \hyperlink{classhryky_1_1reduction_1_1_float_aa172d53821cd26856950b10f67ca658b}{value});
+00047 
+00049     \hyperlink{classhryky_1_1reduction_1_1_float_ac8301e6a6b997dc1142800282ad58fd3}{Float}(\hyperlink{classhryky_1_1reduction_1_1_base}{this_type} \textcolor{keyword}{const} &);
+00050 
+00052     \hyperlink{classhryky_1_1reduction_1_1_float_ac8301e6a6b997dc1142800282ad58fd3}{Float}(\hyperlink{classhryky_1_1reduction_1_1_base}{this_type} && rhs);
+00053 
+00055     \textcolor{keyword}{virtual} \hyperlink{classhryky_1_1reduction_1_1_float_a4f27def7ed62d71c89483de7daa4471c}{~Float}();
+00056 
+\hypertarget{reduction__float_8h_source_l00058}{}\hyperlink{classhryky_1_1reduction_1_1_float_a2fd470b897e136144c60d956c4407927}{00058}     \hyperlink{classhryky_1_1reduction_1_1_float_a2fd470b897e136144c60d956c4407927}{hryky_assign_op};
+00059 
+00061     \textcolor{keywordtype}{void} \hyperlink{classhryky_1_1reduction_1_1_float_a693fff0927a864c84f0f781148ce6882}{clear}();
+00062 
+00064     \textcolor{keywordtype}{void} \hyperlink{classhryky_1_1reduction_1_1_float_adf0505497af06bc65bcc3e24e6a5fd45}{swap}(\hyperlink{classhryky_1_1reduction_1_1_base}{this_type} & src);
+00065 
+00067     value\_type \hyperlink{classhryky_1_1reduction_1_1_float_aa172d53821cd26856950b10f67ca658b}{value}() \textcolor{keyword}{const};
+00068 
+00069 \textcolor{keyword}{protected} :
+00070 
+00071 \textcolor{keyword}{private} :
+00072 
+00074     \textcolor{keyword}{virtual} \textcolor{keywordtype}{bool} dispatch\_impl(\hyperlink{classhryky_1_1reduction_1_1_dispatcher}{Dispatcher} & dispatcher) \textcolor{keyword}{const};
+00075 
+00076     value\_type value\_;
+00077 
+00078 \};
+00079 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00080 \textcolor{comment}{// class specializations}
+00081 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00082 \textcolor{keyword}{namespace }hryky
+00083 \{
+00084 \textcolor{keyword}{namespace }reduction
+00085 \{
+00086 \} \textcolor{comment}{// namespace reduction}
+00087 \} \textcolor{comment}{// namespace hryky}
+00088 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00089 \textcolor{comment}{// public member functions}
+00090 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00091 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00092 \textcolor{comment}{// protected member functions}
+00093 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00094 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00095 \textcolor{comment}{// private member functions}
+00096 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00097 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00098 \textcolor{comment}{// global function prototypes}
+00099 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00100 \textcolor{keyword}{namespace }hryky
+00101 \{
+00103     \textcolor{keyword}{template} < \textcolor{keyword}{typename} ValueT >
+00104     \hyperlink{namespacehryky_a343a9a4c36a586be5c2693156200eadc}{reduction_type} \hyperlink{namespacehryky_af41cb3af6766761da0ff21b84527a52c}{reduce}(
+00105         \hyperlink{namespacehryky_1_1reduction_ac686c30a4c8d196bbd0f05629a6b921f}{reduction::name_type} \textcolor{keyword}{const} & name,
+00106         ValueT \textcolor{keyword}{const} value,
+00107         \textcolor{keyword}{typename} EnableIf<IsFloatingPoint<ValueT> >::type * = \hyperlink{common_8h_a4cd4ac09cfcdbd6b30ee69afc156e210}{HRYKY_NULLPTR});
+00108 
+00109 \textcolor{keyword}{namespace }reduction
+00110 \{
+00112     \textcolor{keywordtype}{void} \hyperlink{namespacehryky_1_1reduction_a493c83efdf5f9e9c49ba77e1b65325a1}{swap}(
+00113         Float & lhs, Float & rhs);
+00114 
+00115 \} \textcolor{comment}{// namespace reduction}
+00116 \} \textcolor{comment}{// namespace hryky}
+00117 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00118 \textcolor{comment}{// global function definitions}
+00119 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00123 \textcolor{comment}{}\textcolor{keyword}{template} < \textcolor{keyword}{typename} ValueT >
+\hypertarget{reduction__float_8h_source_l00124}{}\hyperlink{namespacehryky_ada502f50939bc4ff0a7d1608c8478c7a}{00124} \hyperlink{classhryky_1_1_intrusive_ptr}{hryky::reduction_type} \hyperlink{namespacehryky_af41cb3af6766761da0ff21b84527a52c}{hryky::reduce}(
+00125     \hyperlink{classhryky_1_1reduction_1_1_string}{reduction::name_type} \textcolor{keyword}{const} & name,
+00126     ValueT \textcolor{keyword}{const} value,
+00127     \textcolor{keyword}{typename} \hyperlink{classhryky_1_1_enable_if}{EnableIf}<\hyperlink{classhryky_1_1_is_floating_point}{IsFloatingPoint<ValueT>} >::type *)
+00128 \{
+00129     \textcolor{keywordflow}{return} \hyperlink{namespacehryky_a343a9a4c36a586be5c2693156200eadc}{reduction_type}(\textcolor{keyword}{new} \hyperlink{classhryky_1_1reduction_1_1_float}{reduction::Float}(name, value), \textcolor{keyword}{false});
+00130 \}
+00131 \textcolor{preprocessor}{#endif // REDUCTION\_FLOAT\_H\_20120923202751519}
+00132 \textcolor{preprocessor}{}\textcolor{comment}{// end of file}
+\end{DoxyCode}

@@ -1,0 +1,75 @@
+\hypertarget{classhryky_1_1scale_1_1_entity}{\section{hryky\-:\-:scale\-:\-:Entity$<$ Raw\-T, Higher\-T, Radix $>$ Class Template Reference}
+\label{classhryky_1_1scale_1_1_entity}\index{hryky\-::scale\-::\-Entity$<$ Raw\-T, Higher\-T, Radix $>$@{hryky\-::scale\-::\-Entity$<$ Raw\-T, Higher\-T, Radix $>$}}
+}
+
+
+retains the value on the scale.  
+
+
+
+
+{\ttfamily \#include $<$scale\-\_\-entity.\-h$>$}
+
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classhryky_1_1scale_1_1_entity_af312f46dc3d31369144a960d386790c3}{typedef \hyperlink{classhryky_1_1scale_1_1_entity}{Entity}$<$ Raw\-T, Higher\-T, \\*
+\hyperlink{classhryky_1_1scale_1_1_radix}{Radix} $>$ \hyperlink{classhryky_1_1scale_1_1_entity_af312f46dc3d31369144a960d386790c3}{this\-\_\-type}}\label{classhryky_1_1scale_1_1_entity_af312f46dc3d31369144a960d386790c3}
+
+\begin{DoxyCompactList}\small\item\em self. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classhryky_1_1scale_1_1_entity_ae0d0dd27d319afcc138de2c4dd733370}{void \hyperlink{classhryky_1_1scale_1_1_entity_ae0d0dd27d319afcc138de2c4dd733370}{clear} ()}\label{classhryky_1_1scale_1_1_entity_ae0d0dd27d319afcc138de2c4dd733370}
+
+\begin{DoxyCompactList}\small\item\em releases the internal resources. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1scale_1_1_entity_aa350dc64a99ba08a1dbc8ac40e18d97e}{\hyperlink{classhryky_1_1scale_1_1_entity_aa350dc64a99ba08a1dbc8ac40e18d97e}{Entity} ()}\label{classhryky_1_1scale_1_1_entity_aa350dc64a99ba08a1dbc8ac40e18d97e}
+
+\begin{DoxyCompactList}\small\item\em default constructor. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1scale_1_1_entity_a3200eaffe5613c22fdd61ca962f193a0}{\hyperlink{classhryky_1_1scale_1_1_entity_a3200eaffe5613c22fdd61ca962f193a0}{Entity} (\hyperlink{classhryky_1_1scale_1_1_entity_af312f46dc3d31369144a960d386790c3}{this\-\_\-type} const \&)}\label{classhryky_1_1scale_1_1_entity_a3200eaffe5613c22fdd61ca962f193a0}
+
+\begin{DoxyCompactList}\small\item\em copy constructor. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1scale_1_1_entity_ae6d72480f79d0e666036870ccba763a6}{\hyperlink{classhryky_1_1scale_1_1_entity_ae6d72480f79d0e666036870ccba763a6}{Entity} (\hyperlink{classhryky_1_1scale_1_1_entity_af312f46dc3d31369144a960d386790c3}{this\-\_\-type} \&\&rhs)}\label{classhryky_1_1scale_1_1_entity_ae6d72480f79d0e666036870ccba763a6}
+
+\begin{DoxyCompactList}\small\item\em copy constructor by rvalue reference. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1scale_1_1_entity_aababe40f5fca9a4e7dc227854039fd06}{\hyperlink{classhryky_1_1scale_1_1_entity_aababe40f5fca9a4e7dc227854039fd06}{Entity} (raw\-\_\-type const rhs)}\label{classhryky_1_1scale_1_1_entity_aababe40f5fca9a4e7dc227854039fd06}
+
+\begin{DoxyCompactList}\small\item\em constructor with a raw value. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1scale_1_1_entity_a1928287ec77e5a97d0b700d4406a5f54}{{\footnotesize template$<$typename Value\-T $>$ }\\\hyperlink{classhryky_1_1scale_1_1_entity_a1928287ec77e5a97d0b700d4406a5f54}{Entity} (Value\-T const \&rhs, typename \hyperlink{classhryky_1_1_enable_if}{Enable\-If}$<$ \hyperlink{classhryky_1_1scale_1_1_is_lower_equal}{scale\-::\-Is\-Lower\-Equal}$<$ typename this\-\_\-type\-::higher\-\_\-type, Value\-T $>$ $>$\-::type $\ast$=\hyperlink{common_8h_a4cd4ac09cfcdbd6b30ee69afc156e210}{H\-R\-Y\-K\-Y\-\_\-\-N\-U\-L\-L\-P\-T\-R})}\label{classhryky_1_1scale_1_1_entity_a1928287ec77e5a97d0b700d4406a5f54}
+
+\begin{DoxyCompactList}\small\item\em constructor with a value on the higher scale. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1scale_1_1_entity_a1a7021b0210b2967d25f541371468947}{{\footnotesize template$<$typename Value\-T $>$ }\\\hyperlink{classhryky_1_1scale_1_1_entity_a1a7021b0210b2967d25f541371468947}{Entity} (Value\-T const \&rhs, typename \hyperlink{classhryky_1_1_enable_if}{Enable\-If}$<$ \hyperlink{classhryky_1_1scale_1_1_is_lower_equal}{scale\-::\-Is\-Lower\-Equal}$<$ typename Value\-T\-::higher\-\_\-type, \hyperlink{classhryky_1_1scale_1_1_entity_af312f46dc3d31369144a960d386790c3}{this\-\_\-type} $>$ $>$\-::type $\ast$=\hyperlink{common_8h_a4cd4ac09cfcdbd6b30ee69afc156e210}{H\-R\-Y\-K\-Y\-\_\-\-N\-U\-L\-L\-P\-T\-R})}\label{classhryky_1_1scale_1_1_entity_a1a7021b0210b2967d25f541371468947}
+
+\begin{DoxyCompactList}\small\item\em constructor with a value on the lower scale. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1scale_1_1_entity_a0e711f3283eab1061dc77c94bcb13ccf}{{\footnotesize template$<$typename Value\-T $>$ }\\\hyperlink{classhryky_1_1scale_1_1_lower_of}{scale\-::\-Lower\-Of}$<$ \hyperlink{classhryky_1_1scale_1_1_entity_af312f46dc3d31369144a960d386790c3}{this\-\_\-type}, \\*
+Value\-T $>$\-::type \hyperlink{classhryky_1_1scale_1_1_entity_a0e711f3283eab1061dc77c94bcb13ccf}{operator+} (Value\-T const \&rhs) const }\label{classhryky_1_1scale_1_1_entity_a0e711f3283eab1061dc77c94bcb13ccf}
+
+\begin{DoxyCompactList}\small\item\em add two instance on the scales. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1scale_1_1_entity_ac9d555edcbc0d8f8369f386a7b4d4d0f}{Raw\-T \hyperlink{classhryky_1_1scale_1_1_entity_ac9d555edcbc0d8f8369f386a7b4d4d0f}{raw} () const }\label{classhryky_1_1scale_1_1_entity_ac9d555edcbc0d8f8369f386a7b4d4d0f}
+
+\begin{DoxyCompactList}\small\item\em retrieves the raw value. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1scale_1_1_entity_aa745d5ef4401aa7f06ba72b91d06a3df}{\hyperlink{namespacehryky_a343a9a4c36a586be5c2693156200eadc}{reduction\-\_\-type} \hyperlink{classhryky_1_1scale_1_1_entity_aa745d5ef4401aa7f06ba72b91d06a3df}{reduce} (\hyperlink{namespacehryky_1_1reduction_ac686c30a4c8d196bbd0f05629a6b921f}{reduction\-::name\-\_\-type} const \&name) const }\label{classhryky_1_1scale_1_1_entity_aa745d5ef4401aa7f06ba72b91d06a3df}
+
+\begin{DoxyCompactList}\small\item\em decomposes the instance to primitive objects. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1scale_1_1_entity_a8ec8cc49ba0fd7e19cfe2ed714d62663}{void \hyperlink{classhryky_1_1scale_1_1_entity_a8ec8cc49ba0fd7e19cfe2ed714d62663}{swap} (\hyperlink{classhryky_1_1scale_1_1_entity_af312f46dc3d31369144a960d386790c3}{this\-\_\-type} \&src)}\label{classhryky_1_1scale_1_1_entity_a8ec8cc49ba0fd7e19cfe2ed714d62663}
+
+\begin{DoxyCompactList}\small\item\em interchanges the each internal resources of two instances. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1scale_1_1_entity_a80ab2b2ee794a72d1a56b1e918ed9d9f}{\hyperlink{classhryky_1_1scale_1_1_entity_a80ab2b2ee794a72d1a56b1e918ed9d9f}{$\sim$\-Entity} ()}\label{classhryky_1_1scale_1_1_entity_a80ab2b2ee794a72d1a56b1e918ed9d9f}
+
+\begin{DoxyCompactList}\small\item\em destructor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classhryky_1_1scale_1_1_entity_a498a751268cf889acf420366f1261947}{\hyperlink{classhryky_1_1scale_1_1_entity_a498a751268cf889acf420366f1261947}{hryky\-\_\-assign\-\_\-op}}\label{classhryky_1_1scale_1_1_entity_a498a751268cf889acf420366f1261947}
+
+\begin{DoxyCompactList}\small\item\em assignment operator. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$typename Raw\-T, typename Higher\-T, hryky\-::int64\-\_\-t Radix$>$class hryky\-::scale\-::\-Entity$<$ Raw\-T, Higher\-T, Radix $>$}
+
+retains the value on the scale. 
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{scale__entity_8h}{scale\-\_\-entity.\-h}\end{DoxyCompactItemize}

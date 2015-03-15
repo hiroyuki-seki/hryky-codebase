@@ -1,0 +1,158 @@
+\hypertarget{reduction__base_8h_source}{\section{reduction\-\_\-base.\-h}
+}
+
+\begin{DoxyCode}
+00001 
+00007 \textcolor{preprocessor}{#ifndef REDUCTION\_BASE\_H\_20111228003551691}
+00008 \textcolor{preprocessor}{}\textcolor{preprocessor}{#define REDUCTION\_BASE\_H\_20111228003551691}
+00009 \textcolor{preprocessor}{}\textcolor{preprocessor}{#include "\hyperlink{reduction__common_8h}{hryky/reduction/reduction_common.h}"}
+00010 \textcolor{preprocessor}{#include "hryky/reduction/reduction\_stream.h"}
+00011 \textcolor{preprocessor}{#include "\hyperlink{memory__global__common_8h}{hryky/memory/global/memory_global_common.h}"}
+00012 \textcolor{preprocessor}{#include "\hyperlink{string_8h}{hryky/string.h}"}
+00013 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00014 \textcolor{comment}{// macro definition}
+00015 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00016 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00017 \textcolor{comment}{// namespace}
+00018 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00019 \textcolor{keyword}{namespace }hryky
+00020 \{
+00021 \textcolor{keyword}{namespace }memory
+00022 \{
+00023 \textcolor{keyword}{namespace }\hyperlink{namespacehryky_1_1memory_1_1global_a6fc6103f67c837aa0f39b359588409cd}{heap}
+00024 \{
+00025     \textcolor{keyword}{class }Base;
+00026 \}
+00027 \}
+00028 \textcolor{keyword}{namespace }reduction
+00029 \{
+00031     \textcolor{keyword}{class }Base;
+00032 
+00034     \textcolor{keywordtype}{void} \hyperlink{namespacehryky_1_1reduction_ab59dece4af8e91c10781e3b092c06d1b}{intrusive_ptr_add_ref}(Base * ptr);
+00035 
+00037     \textcolor{keywordtype}{void} \hyperlink{namespacehryky_1_1reduction_ab54d3281488314c37ed3906b45c8f866}{intrusive_ptr_release}(Base * ptr);
+00038 
+00039     \textcolor{keyword}{class }Dispatcher;
+00040 
+00041 \} \textcolor{comment}{// namespace reduction}
+00042 \} \textcolor{comment}{// namespace hryky}
+00043 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00044 \textcolor{comment}{// class declaration}
+00045 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+\hypertarget{reduction__base_8h_source_l00049}{}\hyperlink{classhryky_1_1reduction_1_1_base}{00049} \textcolor{comment}{}\textcolor{keyword}{class }\hyperlink{classhryky_1_1reduction_1_1_base}{hryky::reduction::Base}
+00050 \{
+00051 \textcolor{keyword}{public} :
+00052 
+\hypertarget{reduction__base_8h_source_l00053}{}\hyperlink{classhryky_1_1reduction_1_1_base_af02a7dee6042080b7380afd2f9500a42}{00053}     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1reduction_1_1_base}{hryky::reduction::Base} \hyperlink{classhryky_1_1reduction_1_1_base_af02a7dee6042080b7380afd2f9500a42}{this_type};
+00054     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1memory_1_1heap_1_1_base}{memory::heap::Base} * \hyperlink{classhryky_1_1memory_1_1heap_1_1_base}{heap_type};
+00055 
+00057     \textcolor{keywordtype}{bool} \hyperlink{classhryky_1_1reduction_1_1_base_a71b31d4d0ed915254e2cb1ef217f28c4}{dispatch}(\hyperlink{classhryky_1_1reduction_1_1_dispatcher}{Dispatcher} & dispatcher) \textcolor{keyword}{const};
+00058 
+00060     \hyperlink{classhryky_1_1reduction_1_1_string}{name_type} \textcolor{keyword}{const} & \hyperlink{classhryky_1_1reduction_1_1_base_a842569265d741905eb8a353d3935f1d1}{name}() \textcolor{keyword}{const};
+00061 
+00063     \textcolor{keywordtype}{void} \hyperlink{classhryky_1_1reduction_1_1_base_ab2b137d16fbe40d839ee136bd5304cab}{swap}(\hyperlink{classhryky_1_1reduction_1_1_base}{this_type} & src);
+00064 
+00066     \textcolor{keyword}{template} <\textcolor{keyword}{typename} StreamT>
+00067     StreamT & \hyperlink{classhryky_1_1reduction_1_1_base_a709cc7c48e1c90fe253739e46d82aa19}{write_to}(StreamT & stream) \textcolor{keyword}{const};
+00068 
+00069 \textcolor{keyword}{protected} :
+00070 
+00072     \hyperlink{classhryky_1_1reduction_1_1_base_a5ffe0568374d8b9b4c4ec32953fd6453}{Base}();
+00073 
+00075     \textcolor{keyword}{explicit} \hyperlink{classhryky_1_1reduction_1_1_base_a5ffe0568374d8b9b4c4ec32953fd6453}{Base}(\hyperlink{classhryky_1_1memory_1_1heap_1_1_base}{heap_type} \hyperlink{namespacehryky_1_1memory_1_1global_a6fc6103f67c837aa0f39b359588409cd}{heap});
+00076 
+00078     \textcolor{keyword}{explicit} \hyperlink{classhryky_1_1reduction_1_1_base_a5ffe0568374d8b9b4c4ec32953fd6453}{Base}(\hyperlink{classhryky_1_1reduction_1_1_string}{name_type} \textcolor{keyword}{const} & \hyperlink{classhryky_1_1reduction_1_1_base_a842569265d741905eb8a353d3935f1d1}{name}, \hyperlink{classhryky_1_1memory_1_1heap_1_1_base}{heap_type} \hyperlink{namespacehryky_1_1memory_1_1global_a6fc6103f67c837aa0f39b359588409cd}{heap} = \hyperlink{namespacehryky_1_1memory_1_1global_a6fc6103f67c837aa0f39b359588409cd}{memory::global::heap}
+      ());
+00079 
+00081     \hyperlink{classhryky_1_1reduction_1_1_base_a5ffe0568374d8b9b4c4ec32953fd6453}{Base}(\hyperlink{classhryky_1_1reduction_1_1_base}{this_type} && rhs);
+00082 
+00084     \hyperlink{classhryky_1_1reduction_1_1_base_a5ffe0568374d8b9b4c4ec32953fd6453}{Base}(\hyperlink{classhryky_1_1reduction_1_1_base}{this_type} \textcolor{keyword}{const} & rhs);
+00085 
+\hypertarget{reduction__base_8h_source_l00087}{}\hyperlink{classhryky_1_1reduction_1_1_base_a6f8f283a43f48c1599208b56f74d4403}{00087}     \hyperlink{classhryky_1_1reduction_1_1_base_a6f8f283a43f48c1599208b56f74d4403}{hryky_assign_op};
+00088 
+00096     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \hyperlink{classhryky_1_1reduction_1_1_base_a100265b04179500cd7901c8afea64eb0}{delete_self}();
+00097 
+00099     \textcolor{keyword}{virtual} \hyperlink{classhryky_1_1reduction_1_1_base_a722da881b6c70cfcbde9243abcfbf334}{~Base}();
+00100 
+00102     \textcolor{keywordtype}{void} \hyperlink{classhryky_1_1reduction_1_1_base_a135bce05655e290c78fa83196199a576}{clear}();
+00103 
+00104 \textcolor{keyword}{private} :
+00105 
+00106     \textcolor{keyword}{friend} \textcolor{keywordtype}{void} \hyperlink{classhryky_1_1reduction_1_1_base_abf514baa69ca1c3228441e8614f59a34}{intrusive_ptr_add_ref}(\hyperlink{classhryky_1_1reduction_1_1_base}{Base} *);
+00107     \textcolor{keyword}{friend} \textcolor{keywordtype}{void} \hyperlink{classhryky_1_1reduction_1_1_base_a5687cea108416379e4c11f156f2e6c95}{intrusive_ptr_release}(\hyperlink{classhryky_1_1reduction_1_1_base}{Base} *);
+00108 
+00110     \textcolor{keyword}{virtual} \textcolor{keywordtype}{bool} dispatch\_impl(\hyperlink{classhryky_1_1reduction_1_1_dispatcher}{Dispatcher} & dispatcher) \textcolor{keyword}{const} = 0;
+00111 
+00113     \textcolor{keywordtype}{void} add\_ref();
+00114 
+00116     \textcolor{keywordtype}{void} release();
+00117 
+00118     \hyperlink{classhryky_1_1reduction_1_1_string}{name_type}   name\_;
+00119     \textcolor{keywordtype}{size\_t}      referred\_;
+00120 
+00121 \};
+00122 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00123 \textcolor{comment}{// public member functions}
+00124 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00128 \textcolor{comment}{}\textcolor{keyword}{template} <\textcolor{keyword}{typename} StreamT>
+\hypertarget{reduction__base_8h_source_l00129}{}\hyperlink{classhryky_1_1reduction_1_1_base_a709cc7c48e1c90fe253739e46d82aa19}{00129} StreamT & \hyperlink{classhryky_1_1reduction_1_1_base_a709cc7c48e1c90fe253739e46d82aa19}{hryky::reduction::Base::write_to}(StreamT & stream)\textcolor{keyword}{ const}
+00130 \textcolor{keyword}{}\{
+00131     \hyperlink{classhryky_1_1reduction_1_1_stream}{reduction::Stream<StreamT>} dispatcher(stream);
+00132 
+00133     this->\hyperlink{classhryky_1_1reduction_1_1_base_a71b31d4d0ed915254e2cb1ef217f28c4}{dispatch}(dispatcher);
+00134 
+00135     \textcolor{keywordflow}{return} stream;
+00136 \}
+00137 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00138 \textcolor{comment}{// protected member functions}
+00139 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00140 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00141 \textcolor{comment}{// private member functions}
+00142 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00143 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00144 \textcolor{comment}{// inline functions}
+00145 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00146 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00147 \textcolor{comment}{// global function prototypes}
+00148 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00149 \textcolor{keyword}{namespace }hryky
+00150 \{
+00151 \textcolor{keyword}{namespace }reduction
+00152 \{
+00153 \} \textcolor{comment}{// namespace reduction}
+00154 \} \textcolor{comment}{// namespace hryky}
+00155 \textcolor{keyword}{namespace }std
+00156 \{
+00158     \textcolor{keyword}{template} <\textcolor{keyword}{typename} StreamT>
+00159     StreamT & operator<<(StreamT & lhs, \hyperlink{classhryky_1_1reduction_1_1_base}{hryky::reduction::Base} \textcolor{keyword}{const} & rhs);
+00160 
+00161 \} \textcolor{comment}{// namespace std}
+00162 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00163 \textcolor{comment}{// global function definitions}
+00164 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00168 \textcolor{comment}{}\textcolor{keyword}{template} <\textcolor{keyword}{typename} StreamT>
+00169 StreamT & std::operator<<(StreamT & lhs, \hyperlink{classhryky_1_1reduction_1_1_base}{hryky::reduction::Base} \textcolor{keyword}{const} & rhs)
+00170 \{
+00171     \textcolor{keywordflow}{return} rhs.\hyperlink{classhryky_1_1reduction_1_1_base_a709cc7c48e1c90fe253739e46d82aa19}{write_to}(lhs);
+00172 \}
+00173 \textcolor{preprocessor}{#endif // REDUCTION\_BASE\_H\_20111228003551691}
+00174 \textcolor{preprocessor}{}\textcolor{comment}{// end of file}
+\end{DoxyCode}

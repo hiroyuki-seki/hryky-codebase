@@ -1,0 +1,7 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$graphics_8h.html" title="collection of the graphics modules." alt="" coords="213,80,296,107"/>
+<area shape="rect" id="node5" href="$graphics_2src_2precompiled_8h_source.html" title="precompiled.h" alt="" coords="203,155,305,181"/>
+<area shape="rect" id="node7" href="$graphics__common_8cpp.html" title="common definitions of graphics module." alt="" coords="5,229,157,256"/>
+<area shape="rect" id="node9" href="$graphics__module_8cpp.html" title="manages graphics module." alt="" coords="182,229,327,256"/>
+<area shape="rect" id="node11" href="$graphics__window_8cpp.html" title="creates GUI window." alt="" coords="351,229,496,256"/>
+</map>

@@ -1,0 +1,126 @@
+\hypertarget{http__method__reader_8h_source}{\section{http\-\_\-method\-\_\-reader.\-h}
+}
+
+\begin{DoxyCode}
+00001 
+00008 \textcolor{preprocessor}{#ifndef HTTP\_METHOD\_READER\_H\_20120805083722025}
+00009 \textcolor{preprocessor}{}\textcolor{preprocessor}{#define HTTP\_METHOD\_READER\_H\_20120805083722025}
+00010 \textcolor{preprocessor}{}\textcolor{preprocessor}{#include "\hyperlink{http__method__common_8h}{hryky/http/http_method_common.h}"}
+00011 \textcolor{preprocessor}{#include "\hyperlink{fixed__vector_8h}{hryky/fixed_vector.h}"}
+00012 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00013 \textcolor{comment}{// macro definition}
+00014 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00015 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00016 \textcolor{comment}{// namespace}
+00017 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00018 \textcolor{keyword}{namespace }hryky
+00019 \{
+00020 \textcolor{keyword}{namespace }http
+00021 \{
+00022 \textcolor{keyword}{namespace }method
+00023 \{
+00025     \textcolor{keyword}{class }Reader;
+00026 
+00027 \} \textcolor{comment}{// namespace method}
+00028 \} \textcolor{comment}{// namespace http}
+00029 \} \textcolor{comment}{// namespace hryky}
+00030 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00031 \textcolor{comment}{// class declarations}
+00032 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+\hypertarget{http__method__reader_8h_source_l00037}{}\hyperlink{classhryky_1_1http_1_1method_1_1_reader}{00037} \textcolor{comment}{}\textcolor{keyword}{class }\hyperlink{classhryky_1_1http_1_1method_1_1_reader}{hryky::http::method::Reader}
+00038 \{
+00039 \textcolor{keyword}{public} :
+00040 
+\hypertarget{http__method__reader_8h_source_l00041}{}\hyperlink{classhryky_1_1http_1_1method_1_1_reader_acbfb161bac6c8d7c1eacb754150061a1}{00041}     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1http_1_1method_1_1_reader}{Reader} \hyperlink{classhryky_1_1http_1_1method_1_1_reader_acbfb161bac6c8d7c1eacb754150061a1}{this_type};
+00042 
+00044     \hyperlink{classhryky_1_1http_1_1method_1_1_reader_a3701f1eba6ed113ec7a5450946faf22e}{Reader}();
+00045 
+00047     \hyperlink{classhryky_1_1http_1_1method_1_1_reader_a3701f1eba6ed113ec7a5450946faf22e}{Reader}(\hyperlink{classhryky_1_1http_1_1method_1_1_reader}{this_type} \textcolor{keyword}{const} & rhs);
+00048 
+00050     \hyperlink{classhryky_1_1http_1_1method_1_1_reader_ad1f217cf4c3efcf4ab00956a58d5abd0}{~Reader}();
+00051 
+00053     \hyperlink{classhryky_1_1http_1_1method_1_1_reader}{Reader} & \hyperlink{classhryky_1_1http_1_1method_1_1_reader_a40d2f84d32a43a99ecf668409aef105c}{operator=}(\hyperlink{classhryky_1_1http_1_1method_1_1_reader}{this_type} \textcolor{keyword}{const} & rhs);
+00054 
+00056     \textcolor{keywordtype}{bool} \hyperlink{classhryky_1_1http_1_1method_1_1_reader_a1d531ef61c2ccfbec68374fd8a7d54d2}{operator()}(\textcolor{keywordtype}{char} \textcolor{keyword}{const} octet);
+00057 
+00059     \textcolor{keywordtype}{void} \hyperlink{classhryky_1_1http_1_1method_1_1_reader_ab09eca2747fad07619bc0d956bbca1c9}{clear}();
+00060 
+00062     \hyperlink{classhryky_1_1_kind}{kind_type} \hyperlink{classhryky_1_1http_1_1method_1_1_reader_ad0755c9a31568151c396abbb78192abd}{result}() \textcolor{keyword}{const};
+00063 
+00065     \hyperlink{classhryky_1_1_intrusive_ptr}{log::format_type} \hyperlink{classhryky_1_1http_1_1method_1_1_reader_ada196a52c4a8951bf2052d25d2ac6786}{log}(\hyperlink{namespacehryky_1_1log_1_1format_ab7408d1e2ed2d648dbf9bba69eb74288}{log::format::name_type} \textcolor{keyword}{const} & name) \textcolor{keyword}{const};
+00066 
+00067 \textcolor{keyword}{protected} :
+00068 
+00070     \textcolor{keywordtype}{void} \hyperlink{classhryky_1_1http_1_1method_1_1_reader_a4613c2aa7c596ebc24d339b31a8d4761}{swap}(\hyperlink{classhryky_1_1http_1_1method_1_1_reader}{this_type} & src);
+00071 
+00072 \textcolor{keyword}{private} :
+00073 
+00074     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1_fixed_vector}{FixedVector<Kind::Raw, Kind::num_>} \hyperlink{classhryky_1_1_fixed_vector}{candidates_type};
+00075 
+00077     \textcolor{keywordtype}{void} clear\_candidates();
+00078 
+00079     \hyperlink{classhryky_1_1_fixed_vector}{candidates_type}     candidates\_;
+00080     \textcolor{keywordtype}{size\_t}              length\_;
+00081     \hyperlink{classhryky_1_1_kind}{kind_type}           result\_;
+00082 
+00083 \};
+00084 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00085 \textcolor{comment}{// class specializations}
+00086 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00087 \textcolor{keyword}{namespace }hryky
+00088 \{
+00089 \textcolor{keyword}{namespace }http
+00090 \{
+00091 \textcolor{keyword}{namespace }method
+00092 \{
+00093 \} \textcolor{comment}{// namespace method}
+00094 \} \textcolor{comment}{// namespace http}
+00095 \} \textcolor{comment}{// namespace hryky}
+00096 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00097 \textcolor{comment}{// public member functions}
+00098 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00099 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00100 \textcolor{comment}{// protected member functions}
+00101 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00102 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00103 \textcolor{comment}{// private member functions}
+00104 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00105 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00106 \textcolor{comment}{// global function prototypes}
+00107 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00108 \textcolor{keyword}{namespace }hryky
+00109 \{
+00110 \textcolor{keyword}{namespace }http
+00111 \{
+00112 \textcolor{keyword}{namespace }method
+00113 \{
+00115     \hyperlink{namespacehryky_1_1log_ad50448c3f934f1eacd5c1bcffe8111e1}{log::format_type} \hyperlink{namespacehryky_afd615217f648ff164bc40fb82166d959}{make_format}(
+00116         \hyperlink{namespacehryky_1_1log_1_1format_ab7408d1e2ed2d648dbf9bba69eb74288}{log::format::name_type} \textcolor{keyword}{const} & name, Reader \textcolor{keyword}{const} & src);
+00117 
+00118 \} \textcolor{comment}{// namespace method}
+00119 \} \textcolor{comment}{// namespace http}
+00120 \} \textcolor{comment}{// namespace hryky}
+00121 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00122 \textcolor{comment}{// global function definitions}
+00123 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00124 \textcolor{preprocessor}{#endif // HTTP\_METHOD\_READER\_H\_20120805083722025}
+00125 \textcolor{preprocessor}{}\textcolor{comment}{// end of file}
+\end{DoxyCode}

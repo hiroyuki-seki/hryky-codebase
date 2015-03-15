@@ -1,0 +1,18 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$hryky_8h.html" title="include the entire headers of hryky&#45;codebase." alt="" coords="429,80,493,107"/>
+<area shape="rect" id="node5" href="$exclusion_2src_2precompiled_8h_source.html" title="precompiled.h" alt="" coords="518,80,620,107"/>
+<area shape="rect" id="node17" href="$thread__pool_8h.html" title="manages the collection of reusable concurrent units." alt="" coords="1195,80,1295,107"/>
+<area shape="rect" id="node31" href="$thread__resource_8cpp.html" title="holds the resource of concurrent unit." alt="" coords="989,304,1128,331"/>
+<area shape="rect" id="node35" href="$thread__resource_8h.html" title="holds the resource of concurrent unit." alt="" coords="945,229,1071,256"/>
+<area shape="rect" id="node7" href="$exclusion__cond_8cpp.html" title="exclusion object : condition variable." alt="" coords="5,155,141,181"/>
+<area shape="rect" id="node9" href="$exclusion__counter_8cpp.html" title="joinable counter." alt="" coords="167,155,319,181"/>
+<area shape="rect" id="node11" href="$exclusion__flag_8cpp.html" title="synchronizes the change of a boolean value." alt="" coords="343,155,472,181"/>
+<area shape="rect" id="node13" href="$exclusion__mutex_8cpp.html" title="exclusion object : mutex." alt="" coords="497,155,641,181"/>
+<area shape="rect" id="node15" href="$exclusion__recursive__mutex_8cpp.html" title="exclusion object : mutex which can be called recursively." alt="" coords="667,155,869,181"/>
+<area shape="rect" id="node19" href="$thread_8h.html" title="collection of the thread module." alt="" coords="1279,155,1348,181"/>
+<area shape="rect" id="node29" href="$thread__pool_8cpp.html" title="manages the collection of reusable concurrent units." alt="" coords="1399,304,1513,331"/>
+<area shape="rect" id="node21" href="$task__concurrency_8cpp.html" title="manages concurrent units." alt="" coords="1306,229,1456,256"/>
+<area shape="rect" id="node23" href="$task__sequence_8cpp.html" title="manages workers in a thread." alt="" coords="1147,229,1281,256"/>
+<area shape="rect" id="node25" href="$thread_2src_2precompiled_8h_source.html" title="precompiled.h" alt="" coords="1481,229,1583,256"/>
+<area shape="rect" id="node27" href="$thread__common_8cpp.html" title="common definitions of hryky::thread." alt="" coords="1538,304,1677,331"/>
+</map>

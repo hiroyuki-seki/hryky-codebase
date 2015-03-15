@@ -1,0 +1,175 @@
+\hypertarget{classhryky_1_1task_1_1distributor_1_1_batch}{\section{hryky\-:\-:task\-:\-:distributor\-:\-:Batch$<$ Task\-T $>$ Class Template Reference}
+\label{classhryky_1_1task_1_1distributor_1_1_batch}\index{hryky\-::task\-::distributor\-::\-Batch$<$ Task\-T $>$@{hryky\-::task\-::distributor\-::\-Batch$<$ Task\-T $>$}}
+}
+
+
+manages workers which executes multiple tasks.  
+
+
+
+
+{\ttfamily \#include $<$task\-\_\-distributor\-\_\-batch.\-h$>$}
+
+
+
+Inheritance diagram for hryky\-:\-:task\-:\-:distributor\-:\-:Batch$<$ Task\-T $>$\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classhryky_1_1task_1_1distributor_1_1_batch__inherit__graph}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structhryky_1_1task_1_1distributor_1_1_batch_1_1_reset_parameter}{Reset\-Parameter}
+\begin{DoxyCompactList}\small\item\em the set of parameters to reset \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classhryky_1_1task_1_1distributor_1_1_batch_a359f221fcab163ce25db74f1695f9c1b}{typedef \hyperlink{classhryky_1_1task_1_1distributor_1_1_impl}{Impl}$<$ \hyperlink{classhryky_1_1task_1_1worker_1_1_base}{worker\-\_\-type} $>$ \hyperlink{classhryky_1_1task_1_1distributor_1_1_batch_a359f221fcab163ce25db74f1695f9c1b}{base\-\_\-type}}\label{classhryky_1_1task_1_1distributor_1_1_batch_a359f221fcab163ce25db74f1695f9c1b}
+
+\begin{DoxyCompactList}\small\item\em base class of inheritance \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1task_1_1distributor_1_1_batch_ab5d613652725c425a5dbc75338a8c5f0}{typedef \hyperlink{classhryky_1_1task_1_1distributor_1_1_batch}{Batch}$<$ Task\-T $>$ \hyperlink{classhryky_1_1task_1_1distributor_1_1_batch_ab5d613652725c425a5dbc75338a8c5f0}{this\-\_\-type}}\label{classhryky_1_1task_1_1distributor_1_1_batch_ab5d613652725c425a5dbc75338a8c5f0}
+
+\begin{DoxyCompactList}\small\item\em self \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1task_1_1distributor_1_1_batch_adb73470606a9b6fcb8aa968604ccafd4}{typedef \hyperlink{classhryky_1_1task_1_1worker_1_1_batch}{worker\-::\-Batch}$<$ Task\-T $>$ \hyperlink{classhryky_1_1task_1_1distributor_1_1_batch_adb73470606a9b6fcb8aa968604ccafd4}{worker\-\_\-type}}\label{classhryky_1_1task_1_1distributor_1_1_batch_adb73470606a9b6fcb8aa968604ccafd4}
+
+\begin{DoxyCompactList}\small\item\em type of worker \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{classhryky_1_1task_1_1distributor_1_1_base_ae17d5723d8aa5567ea6a47b67f8133c4}{attach} ()
+\begin{DoxyCompactList}\small\item\em attaches all workers to concurrent units. \end{DoxyCompactList}\item 
+bool \hyperlink{group__task_ga54ecf037362d5f476c1cd9a984c1b720}{attach\-\_\-with} (task\-\_\-const\-\_\-reference task)
+\begin{DoxyCompactList}\small\item\em appends and executes a task. \end{DoxyCompactList}\item 
+\hyperlink{group__task_gabc2230b47631c13cfaa63fe5438b2b7f}{Batch} ()
+\begin{DoxyCompactList}\small\item\em default constructor \end{DoxyCompactList}\item 
+bool \hyperlink{group__task_gaaa80eb88fb7d7223214dd039ae52ed16}{distribute} (task\-\_\-const\-\_\-reference task)
+\begin{DoxyCompactList}\small\item\em passes a task to a worker. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Input\-Iterator $>$ }\\bool \hyperlink{group__task_gaf62dc1e2c3d349ecd67f459d254550fd}{distribute} (Input\-Iterator begin, Input\-Iterator end)
+\begin{DoxyCompactList}\small\item\em passes multiple tasks to workers. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1task_1_1distributor_1_1_base_acd23149eb623c0e2e9c90cf0f1d6f87b}{bool \hyperlink{classhryky_1_1task_1_1distributor_1_1_base_acd23149eb623c0e2e9c90cf0f1d6f87b}{error} () const }\label{classhryky_1_1task_1_1distributor_1_1_base_acd23149eb623c0e2e9c90cf0f1d6f87b}
+
+\begin{DoxyCompactList}\small\item\em confirms that some error occurred. \end{DoxyCompactList}\item 
+bool \hyperlink{classhryky_1_1task_1_1distributor_1_1_base_a15a4600d30363d1393a68ec3d1ec415e}{join} ()
+\begin{DoxyCompactList}\small\item\em suspends the current thread until all workers are detached from concurrent units. \end{DoxyCompactList}\item 
+\hypertarget{group__task_ga0170ebe627b3f2a67912e5b237994b9d}{\hyperlink{namespacehryky_a343a9a4c36a586be5c2693156200eadc}{reduction\-\_\-type} \hyperlink{group__task_ga0170ebe627b3f2a67912e5b237994b9d}{reduce} (\hyperlink{namespacehryky_1_1reduction_ac686c30a4c8d196bbd0f05629a6b921f}{reduction\-::name\-\_\-type} const \&name) const}\label{group__task_ga0170ebe627b3f2a67912e5b237994b9d}
+
+\begin{DoxyCompactList}\small\item\em output the information of \hyperlink{classhryky_1_1task_1_1distributor_1_1_impl}{hryky\-::task\-::distributor\-::\-Impl}. \end{DoxyCompactList}\item 
+bool \hyperlink{group__task_ga9ebf9038e6e40f583b3b26866e1f8131}{reset} (\hyperlink{structhryky_1_1task_1_1distributor_1_1_base_1_1_reset_parameter}{Reset\-Parameter} const \&param)
+\begin{DoxyCompactList}\small\item\em clears and recreates the resources. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1task_1_1distributor_1_1_base_adfb7b94cdf47e1bdd4f1775bb3264602}{size\-\_\-t \hyperlink{classhryky_1_1task_1_1distributor_1_1_base_adfb7b94cdf47e1bdd4f1775bb3264602}{workers\-\_\-size} () const }\label{classhryky_1_1task_1_1distributor_1_1_base_adfb7b94cdf47e1bdd4f1775bb3264602}
+
+\begin{DoxyCompactList}\small\item\em returns the number of workers \end{DoxyCompactList}\item 
+virtual \hyperlink{group__task_ga80bd5c0c04972878c21bd5eda4c7d4e7}{$\sim$\-Batch} ()
+\begin{DoxyCompactList}\small\item\em destructor \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{group__task_gaf3c6d1475b000e7f2cf6b7448fc2dfdc}{void \hyperlink{group__task_gaf3c6d1475b000e7f2cf6b7448fc2dfdc}{implement} (\hyperlink{classhryky_1_1_vector}{workers\-\_\-type} \&workers)}\label{group__task_gaf3c6d1475b000e7f2cf6b7448fc2dfdc}
+
+\begin{DoxyCompactList}\small\item\em assigns implementations of workers to the interfaces which the base class has. \end{DoxyCompactList}\item 
+bool \hyperlink{classhryky_1_1task_1_1distributor_1_1_base_aaed765a0ab4b2f79082ca8b66251dc7a}{implement} (\hyperlink{classhryky_1_1task_1_1worker_1_1_base}{worker\-::\-Base} \&\hyperlink{classhryky_1_1task_1_1distributor_1_1_impl_ada35bdee49d5012cd0bc8bd398278afd}{worker}, size\-\_\-t index)
+\begin{DoxyCompactList}\small\item\em assigns an implementation of worker. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1task_1_1distributor_1_1_impl_ada35bdee49d5012cd0bc8bd398278afd}{\hyperlink{classhryky_1_1task_1_1worker_1_1_base}{worker\-\_\-type} \& \hyperlink{classhryky_1_1task_1_1distributor_1_1_impl_ada35bdee49d5012cd0bc8bd398278afd}{worker} (size\-\_\-t index)}\label{classhryky_1_1task_1_1distributor_1_1_impl_ada35bdee49d5012cd0bc8bd398278afd}
+
+\begin{DoxyCompactList}\small\item\em retrieves the implementation of worker. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1task_1_1distributor_1_1_impl_a8b3195bf033c49aba3471b44744951e0}{\hyperlink{classhryky_1_1task_1_1worker_1_1_base}{worker\-\_\-type} const \& \hyperlink{classhryky_1_1task_1_1distributor_1_1_impl_a8b3195bf033c49aba3471b44744951e0}{worker} (size\-\_\-t index) const}\label{classhryky_1_1task_1_1distributor_1_1_impl_a8b3195bf033c49aba3471b44744951e0}
+
+\begin{DoxyCompactList}\small\item\em retrieves the implementation of worker (const). \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1task_1_1distributor_1_1_impl_a99b4191fe1abb7aa61d4083b0a79bfc0}{\hyperlink{classhryky_1_1iterator_1_1random_1_1_mutable}{workers\-\_\-type\-::iterator} \hyperlink{classhryky_1_1task_1_1distributor_1_1_impl_a99b4191fe1abb7aa61d4083b0a79bfc0}{workers\-\_\-begin} ()}\label{classhryky_1_1task_1_1distributor_1_1_impl_a99b4191fe1abb7aa61d4083b0a79bfc0}
+
+\begin{DoxyCompactList}\small\item\em retrieves the beginning of the range of workers. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1task_1_1distributor_1_1_impl_a981400fa1d60ebf567b70c7f3bea7651}{\hyperlink{classhryky_1_1iterator_1_1random_1_1_immutable}{workers\-\_\-type\-::const\-\_\-iterator} \hyperlink{classhryky_1_1task_1_1distributor_1_1_impl_a981400fa1d60ebf567b70c7f3bea7651}{workers\-\_\-begin} () const}\label{classhryky_1_1task_1_1distributor_1_1_impl_a981400fa1d60ebf567b70c7f3bea7651}
+
+\begin{DoxyCompactList}\small\item\em retrieves the beginning of the range of workers (const). \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1task_1_1distributor_1_1_impl_a3b14236e27e27190e7f9f90469d6f3bf}{\hyperlink{classhryky_1_1iterator_1_1random_1_1_mutable}{workers\-\_\-type\-::iterator} \hyperlink{classhryky_1_1task_1_1distributor_1_1_impl_a3b14236e27e27190e7f9f90469d6f3bf}{workers\-\_\-end} ()}\label{classhryky_1_1task_1_1distributor_1_1_impl_a3b14236e27e27190e7f9f90469d6f3bf}
+
+\begin{DoxyCompactList}\small\item\em retrieves the end of the range of workers. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1task_1_1distributor_1_1_impl_aba1ffce9125b4c8ac4de7a4551aad8df}{\hyperlink{classhryky_1_1iterator_1_1random_1_1_immutable}{workers\-\_\-type\-::const\-\_\-iterator} \hyperlink{classhryky_1_1task_1_1distributor_1_1_impl_aba1ffce9125b4c8ac4de7a4551aad8df}{workers\-\_\-end} () const}\label{classhryky_1_1task_1_1distributor_1_1_impl_aba1ffce9125b4c8ac4de7a4551aad8df}
+
+\begin{DoxyCompactList}\small\item\em retrieves the end of the range of workers (const). \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$typename Task\-T$>$class hryky\-::task\-::distributor\-::\-Batch$<$ Task\-T $>$}
+
+manages workers which executes multiple tasks. 
+
+\subsection{Member Function Documentation}
+\hypertarget{classhryky_1_1task_1_1distributor_1_1_base_ae17d5723d8aa5567ea6a47b67f8133c4}{\index{hryky\-::task\-::distributor\-::\-Batch@{hryky\-::task\-::distributor\-::\-Batch}!attach@{attach}}
+\index{attach@{attach}!hryky::task::distributor::Batch@{hryky\-::task\-::distributor\-::\-Batch}}
+\subsubsection[{attach}]{\setlength{\rightskip}{0pt plus 5cm}bool {\bf Base\-::attach} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inherited\mbox{]}}}}\label{classhryky_1_1task_1_1distributor_1_1_base_ae17d5723d8aa5567ea6a47b67f8133c4}
+
+
+attaches all workers to concurrent units. 
+
+\begin{DoxyReturn}{Returns}
+success or failure.
+\end{DoxyReturn}
+
+\begin{DoxyItemize}
+\item If the workers are not attached to each concurrent unit, they are added to the waiting queue of the each concurrent unit synchronously.
+\end{DoxyItemize}
+
+\begin{DoxyAttention}{Attention}
+
+\begin{DoxyItemize}
+\item This function includes the synchronization using exclusive control. (i.\-e. The calling context may be suspended for log periods.) 
+\end{DoxyItemize}
+\end{DoxyAttention}
+
+
+References \hyperlink{log__writer__common_8h_ae5ad3dabb33f594695ef40753cb78aad}{hryky\-\_\-log\-\_\-err}.
+
+\hypertarget{classhryky_1_1task_1_1distributor_1_1_base_aaed765a0ab4b2f79082ca8b66251dc7a}{\index{hryky\-::task\-::distributor\-::\-Batch@{hryky\-::task\-::distributor\-::\-Batch}!implement@{implement}}
+\index{implement@{implement}!hryky::task::distributor::Batch@{hryky\-::task\-::distributor\-::\-Batch}}
+\subsubsection[{implement}]{\setlength{\rightskip}{0pt plus 5cm}bool {\bf Base\-::implement} (
+\begin{DoxyParamCaption}
+\item[{{\bf worker\-::\-Base} \&}]{worker, }
+\item[{size\-\_\-t}]{index}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}protected, inherited\mbox{]}}}}\label{classhryky_1_1task_1_1distributor_1_1_base_aaed765a0ab4b2f79082ca8b66251dc7a}
+
+
+assigns an implementation of worker. 
+
+assigns the implementation of worker. \hypertarget{classhryky_1_1task_1_1distributor_1_1_base_a15a4600d30363d1393a68ec3d1ec415e}{\index{hryky\-::task\-::distributor\-::\-Batch@{hryky\-::task\-::distributor\-::\-Batch}!join@{join}}
+\index{join@{join}!hryky::task::distributor::Batch@{hryky\-::task\-::distributor\-::\-Batch}}
+\subsubsection[{join}]{\setlength{\rightskip}{0pt plus 5cm}bool {\bf Base\-::join} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inherited\mbox{]}}}}\label{classhryky_1_1task_1_1distributor_1_1_base_a15a4600d30363d1393a68ec3d1ec415e}
+
+
+suspends the current thread until all workers are detached from concurrent units. 
+
+suspends until all workers are detached from concurrent units.
+
+\begin{DoxyReturn}{Returns}
+success or failure.
+\end{DoxyReturn}
+\begin{DoxyAttention}{Attention}
+
+\begin{DoxyItemize}
+\item The caller context might be suspended for long periods.
+\item There might be deadlock if exclusion controls are not used appropriately.
+\item {\itshape Derived instance M\-U\-S\-T call this method before implementations of workers are destructed.\/} 
+\end{DoxyItemize}
+\end{DoxyAttention}
+
+
+References \hyperlink{log__writer__common_8h_ae5ad3dabb33f594695ef40753cb78aad}{hryky\-\_\-log\-\_\-err}.
+
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{task__distributor__batch_8h}{task\-\_\-distributor\-\_\-batch.\-h}\end{DoxyCompactItemize}

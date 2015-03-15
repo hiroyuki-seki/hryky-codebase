@@ -1,0 +1,51 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$array_8h.html" title="substitutes for std::array." alt="" coords="935,80,997,107"/>
+<area shape="rect" id="node118" href="$memory_8h.html" title="memory constrol modules." alt="" coords="1676,80,1756,107"/>
+<area shape="rect" id="node124" href="$memory__common_8cpp.html" title="common definition for hryky::memory module." alt="" coords="1785,229,1935,256"/>
+<area shape="rect" id="node5" href="$bitset_8h.html" title="bitset of fixed size on compile time." alt="" coords="898,155,963,181"/>
+<area shape="rect" id="node7" href="$fixed__vector_8h.html" title="vector of fixed size on compile time." alt="" coords="951,229,1052,256"/>
+<area shape="rect" id="node38" href="$geometry__coord__cartesian_8h.html" title="retains the information of a coordinate specified by Cartesian coordinate system." alt="" coords="1339,155,1525,181"/>
+<area shape="rect" id="node87" href="$ip__v4__entity_8h.html" title="retains the information of IPv4 Address." alt="" coords="332,155,433,181"/>
+<area shape="rect" id="node113" href="$ip__v6__entity_8h.html" title="retains the information of IPv6 Address." alt="" coords="591,229,692,256"/>
+<area shape="rect" id="node9" href="$narrow__token_8h.html" title="narrows down candidates by sequence of values." alt="" coords="1181,304,1291,331"/>
+<area shape="rect" id="node17" href="$http__header__language__common_8h.html" title="common definitions for http::header::language." alt="" coords="893,304,1109,331"/>
+<area shape="rect" id="node34" href="$ip__v6__writer_8h.html" title="parses characters representing IPv6." alt="" coords="677,304,776,331"/>
+<area shape="rect" id="node11" href="$uri__scheme__entity_8h.html" title="retains the information about the &#39;scheme&#39; part of URI." alt="" coords="1205,379,1344,405"/>
+<area shape="rect" id="node13" href="$uri__entity_8h.html" title="retains the information of URI." alt="" coords="1231,453,1317,480"/>
+<area shape="rect" id="node15" href="$uri__scheme__entity_8cpp.html" title="retains the information about the &#39;scheme&#39; part of URI." alt="" coords="1342,453,1495,480"/>
+<area shape="rect" id="node19" href="$http__header__language__entity_8h.html" title="retains the information for &#39;language&#45;tag&#39; of HTTP Header." alt="" coords="977,379,1175,405"/>
+<area shape="rect" id="node23" href="$http_8h.html" title="modules to manage HTTP." alt="" coords="838,528,892,555"/>
+<area shape="rect" id="node21" href="$http__header__accept__language__content__entity_8h.html" title="retains the information for &#39;Accept&#45;Language&#39; field&#45;content of HTTP Header." alt="" coords="810,453,1104,480"/>
+<area shape="rect" id="node27" href="$http__header__language__entity_8cpp.html" title="retains the information for &#39;language&#45;tag&#39; of HTTP Header." alt="" coords="961,677,1175,704"/>
+<area shape="rect" id="node25" href="$http_2src_2precompiled_8h_source.html" title="precompiled.h" alt="" coords="814,603,916,629"/>
+<area shape="rect" id="node29" href="$http__header__parser_8cpp.html" title="parses a text string of HTTP Message." alt="" coords="653,677,811,704"/>
+<area shape="rect" id="node36" href="$ip__vf__writer_8h.html" title="parses characters representing the future version of IP Address." alt="" coords="679,379,775,405"/>
+<area shape="rect" id="node40" href="$geometry__coord_8h.html" title="retains the information of a coordinate." alt="" coords="1318,229,1444,256"/>
+<area shape="rect" id="node44" href="$display__common_8h.html" title="common definitions of display module." alt="" coords="1629,229,1760,256"/>
+<area shape="rect" id="node50" href="$display__screen_8h.html" title="retains the information of each display screen." alt="" coords="1621,453,1741,480"/>
+<area shape="rect" id="node42" href="$geometry_8h.html" title="collection of the geometry modules." alt="" coords="1338,304,1424,331"/>
+<area shape="rect" id="node46" href="$display__config_8h.html" title="retains the configuration of display." alt="" coords="1732,304,1847,331"/>
+<area shape="rect" id="node48" href="$display__mode_8h.html" title="retains the information of the resolution and color format of a display." alt="" coords="1682,379,1795,405"/>
+<area shape="rect" id="node52" href="$display__driver_8h.html" title="retains the information of each display driver." alt="" coords="1478,528,1588,555"/>
+<area shape="rect" id="node56" href="$display_8h.html" title="collection of the display modules." alt="" coords="1741,677,1816,704"/>
+<area shape="rect" id="node60" href="$display__common_8cpp.html" title="common definitions of display module." alt="" coords="2007,827,2152,853"/>
+<area shape="rect" id="node80" href="$display__traverser_8h.html" title="traverses the all display configurations in the environment." alt="" coords="1921,603,2052,629"/>
+<area shape="rect" id="node64" href="$display__mode_8cpp.html" title="retains the information of the resolution and color format of a display." alt="" coords="1315,827,1441,853"/>
+<area shape="rect" id="node66" href="$display__screen_8cpp.html" title="retains the information of each display screen." alt="" coords="1633,827,1767,853"/>
+<area shape="rect" id="node54" href="$display__environment_8h.html" title="collects the available display environments." alt="" coords="1493,603,1643,629"/>
+<area shape="rect" id="node62" href="$display__driver_8cpp.html" title="retains the information of each display driver." alt="" coords="1477,827,1603,853"/>
+<area shape="rect" id="node58" href="$display_2src_2precompiled_8h_source.html" title="precompiled.h" alt="" coords="1722,752,1824,779"/>
+<area shape="rect" id="node68" href="$display__traverser_8cpp.html" title="traverses the all display modes in the environment." alt="" coords="1801,827,1945,853"/>
+<area shape="rect" id="node89" href="$ip__v4__parser_8h.html" title="parses characters representing IPv4 Address." alt="" coords="375,229,480,256"/>
+<area shape="rect" id="node91" href="$ip_8h.html" title="collection of hryky::ip modules." alt="" coords="361,304,404,331"/>
+<area shape="rect" id="node101" href="$ip__v4__entity_8cpp.html" title="retains the information of IPv4 Address." alt="" coords="5,453,120,480"/>
+<area shape="rect" id="node93" href="$http__header__parser_8h.html" title="parses a text string of HTTP Message." alt="" coords="511,379,655,405"/>
+<area shape="rect" id="node99" href="$ip_2src_2precompiled_8h_source.html" title="precompiled.h" alt="" coords="323,379,425,405"/>
+<area shape="rect" id="node107" href="$uri__host__entity_8h.html" title="retains the information about the &#39;host&#39; of URI." alt="" coords="169,379,287,405"/>
+<area shape="rect" id="node95" href="$http__parser_8h.html" title="writes out a HTTP Message." alt="" coords="636,453,735,480"/>
+<area shape="rect" id="node103" href="$ip__v6__entity_8cpp.html" title="retains the information of IPv6 Address." alt="" coords="447,453,561,480"/>
+<area shape="rect" id="node105" href="$ip__vf__entity_8cpp.html" title="retains the information about IP Address of future version." alt="" coords="311,453,421,480"/>
+<area shape="rect" id="node109" href="$uri__authority__entity_8h.html" title="retains the information of an authority of URI." alt="" coords="145,453,287,480"/>
+<area shape="rect" id="node120" href="$hryky_8h.html" title="include the entire headers of hryky&#45;codebase." alt="" coords="1630,155,1695,181"/>
+<area shape="rect" id="node122" href="$memory_2src_2precompiled_8h_source.html" title="precompiled.h" alt="" coords="1719,155,1821,181"/>
+</map>

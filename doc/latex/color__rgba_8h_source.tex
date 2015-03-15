@@ -1,0 +1,126 @@
+\hypertarget{color__rgba_8h_source}{\section{color\-\_\-rgba.\-h}
+}
+
+\begin{DoxyCode}
+00001 
+00007 \textcolor{preprocessor}{#ifndef COLOR\_RGBA\_H\_20120220153826318}
+00008 \textcolor{preprocessor}{}\textcolor{preprocessor}{#define COLOR\_RGBA\_H\_20120220153826318}
+00009 \textcolor{preprocessor}{}\textcolor{preprocessor}{#include "\hyperlink{gp_8h}{hryky/gp.h}"}
+00010 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00011 \textcolor{comment}{// macro definition}
+00012 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00013 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00014 \textcolor{comment}{// namespace}
+00015 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00016 \textcolor{keyword}{namespace }hryky
+00017 \{
+00018 \textcolor{keyword}{namespace }color
+00019 \{
+00021     \textcolor{keyword}{template} < \textcolor{keyword}{typename} RedT, \textcolor{keyword}{typename} GreenT, \textcolor{keyword}{typename} BlueT, \textcolor{keyword}{typename} AlphaT 
+      >
+00022     \textcolor{keyword}{class }Rgba;
+00023 \}
+00024 \}
+00025 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00026 \textcolor{comment}{// class declaration}
+00027 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00031 \textcolor{comment}{}\textcolor{keyword}{template} <
+00032     \textcolor{keyword}{typename} RedT,
+00033     \textcolor{keyword}{typename} GreenT = RedT,
+00034     \textcolor{keyword}{typename} BlueT = RedT,
+00035     \textcolor{keyword}{typename} AlphaT = RedT>
+\hypertarget{color__rgba_8h_source_l00036}{}\hyperlink{classhryky_1_1color_1_1_rgba}{00036} \textcolor{keyword}{class }\hyperlink{classhryky_1_1color_1_1_rgba}{hryky::color::Rgba}
+00037 \{
+00038 \textcolor{keyword}{public} :
+00039 
+00040     \textcolor{keyword}{typedef} RedT    red\_type;
+00041     \textcolor{keyword}{typedef} GreenT  green\_type;
+00042     \textcolor{keyword}{typedef} BlueT   blue\_type;
+00043     \textcolor{keyword}{typedef} AlphaT  alpha\_type;
+00044 
+\hypertarget{color__rgba_8h_source_l00045}{}\hyperlink{classhryky_1_1color_1_1_rgba_a6ffc48e44b20a791c6bd35bf637a54ad}{00045}     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1color_1_1_rgba}{hryky::color::Rgba<RedT, GreenT, BlueT, AlphaT>} \hyperlink{classhryky_1_1color_1_1_rgba_a6ffc48e44b20a791c6bd35bf637a54ad}{this_type};
+00046     
+00047     \textcolor{keyword}{typedef} \textcolor{keyword}{typename} AsParameter<red\_type>::type       red\_param\_type;
+00048     \textcolor{keyword}{typedef} \textcolor{keyword}{typename} AsParameter<green\_type>::type     green\_param\_type;
+00049     \textcolor{keyword}{typedef} \textcolor{keyword}{typename} AsParameter<blue\_type>::type      blue\_param\_type;
+00050     \textcolor{keyword}{typedef} \textcolor{keyword}{typename} AsParameter<alpha\_type>::type     alpha\_param\_type;
+00051 
+\hypertarget{color__rgba_8h_source_l00053}{}\hyperlink{classhryky_1_1color_1_1_rgba_a6d0c88b08d75b5edff7139d79e3b2d12}{00053}     \textcolor{keyword}{explicit} \hyperlink{classhryky_1_1color_1_1_rgba_a6d0c88b08d75b5edff7139d79e3b2d12}{Rgba}() : red\_(), green\_(), blue\_(), alpha\_() \{\}
+00054 
+\hypertarget{color__rgba_8h_source_l00056}{}\hyperlink{classhryky_1_1color_1_1_rgba_af28086f86c43a308f2be904e117c43b5}{00056}     \hyperlink{classhryky_1_1color_1_1_rgba_a6d0c88b08d75b5edff7139d79e3b2d12}{Rgba}(red\_param\_type \hyperlink{classhryky_1_1color_1_1_rgba_a5f7e40c9b9acddd1d625af0e75b8bbb2}{red},
+00057          green\_param\_type \hyperlink{classhryky_1_1color_1_1_rgba_a95b3fc0f8f305b52849c26de0c2ef717}{green},
+00058          blue\_param\_type \hyperlink{classhryky_1_1color_1_1_rgba_a31f7a7232ee91a12615da162adae7120}{blue},
+00059          alpha\_param\_type \hyperlink{classhryky_1_1color_1_1_rgba_a348c8dd4c3dd8fb08d6748a7d62dcf12}{alpha})
+00060         : red\_(red), green\_(green), blue\_(blue), alpha\_(alpha) \{\}
+00061 
+00063     \textcolor{keywordtype}{bool} \hyperlink{classhryky_1_1color_1_1_rgba_aa2d8331197445f148dd54c6d568dc992}{operator==}(\hyperlink{classhryky_1_1color_1_1_rgba_a6ffc48e44b20a791c6bd35bf637a54ad}{this_type} \textcolor{keyword}{const} & rhs) \textcolor{keyword}{const};
+00064 
+00066     \textcolor{keywordtype}{bool} \hyperlink{classhryky_1_1color_1_1_rgba_aed94d261780847d637b6ad511af43b3c}{operator!=}(\hyperlink{classhryky_1_1color_1_1_rgba_a6ffc48e44b20a791c6bd35bf637a54ad}{this_type} \textcolor{keyword}{const} & rhs) \textcolor{keyword}{const};
+00067 
+\hypertarget{color__rgba_8h_source_l00069}{}\hyperlink{classhryky_1_1color_1_1_rgba_a5f7e40c9b9acddd1d625af0e75b8bbb2}{00069}     red\_param\_type \hyperlink{classhryky_1_1color_1_1_rgba_a5f7e40c9b9acddd1d625af0e75b8bbb2}{red}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} this->red\_; \}
+00070 
+\hypertarget{color__rgba_8h_source_l00072}{}\hyperlink{classhryky_1_1color_1_1_rgba_a95b3fc0f8f305b52849c26de0c2ef717}{00072}     green\_param\_type \hyperlink{classhryky_1_1color_1_1_rgba_a95b3fc0f8f305b52849c26de0c2ef717}{green}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} this->green\_; \}
+00073 
+\hypertarget{color__rgba_8h_source_l00075}{}\hyperlink{classhryky_1_1color_1_1_rgba_a31f7a7232ee91a12615da162adae7120}{00075}     blue\_param\_type \hyperlink{classhryky_1_1color_1_1_rgba_a31f7a7232ee91a12615da162adae7120}{blue}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} this->blue\_; \}
+00076 
+\hypertarget{color__rgba_8h_source_l00078}{}\hyperlink{classhryky_1_1color_1_1_rgba_a348c8dd4c3dd8fb08d6748a7d62dcf12}{00078}     alpha\_param\_type \hyperlink{classhryky_1_1color_1_1_rgba_a348c8dd4c3dd8fb08d6748a7d62dcf12}{alpha}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} this->alpha\_; \}
+00079 
+\hypertarget{color__rgba_8h_source_l00081}{}\hyperlink{classhryky_1_1color_1_1_rgba_ad5d6546a52d7cfbf42fe50a6203bc88d}{00081}     \hyperlink{classhryky_1_1color_1_1_rgba}{this_type} & \hyperlink{classhryky_1_1color_1_1_rgba_ad5d6546a52d7cfbf42fe50a6203bc88d}{red}(red\_param\_type src) \{ this->red\_ = src; \textcolor{keywordflow}{return} *\textcolor{keyword}{this}; \}
+00082 
+\hypertarget{color__rgba_8h_source_l00084}{}\hyperlink{classhryky_1_1color_1_1_rgba_a7a7ebe3ffe477509507e0d75acc85be5}{00084}     \hyperlink{classhryky_1_1color_1_1_rgba}{this_type} & \hyperlink{classhryky_1_1color_1_1_rgba_a7a7ebe3ffe477509507e0d75acc85be5}{green}(green\_param\_type src) \{ this->green\_ = src; \textcolor{keywordflow}{return} *\textcolor{keyword}{this};
+       \}
+00085 
+\hypertarget{color__rgba_8h_source_l00087}{}\hyperlink{classhryky_1_1color_1_1_rgba_a2b3aa67be7a38781b97c7f9d52b10c08}{00087}     \hyperlink{classhryky_1_1color_1_1_rgba}{this_type} & \hyperlink{classhryky_1_1color_1_1_rgba_a2b3aa67be7a38781b97c7f9d52b10c08}{blue}(blue\_param\_type src) \{ this->blue\_ = src; \textcolor{keywordflow}{return} *\textcolor{keyword}{this}; \}
+00088 
+\hypertarget{color__rgba_8h_source_l00090}{}\hyperlink{classhryky_1_1color_1_1_rgba_a3c8f1fac36f01119a27273e513a7bd6d}{00090}     \hyperlink{classhryky_1_1color_1_1_rgba}{this_type} & \hyperlink{classhryky_1_1color_1_1_rgba_a3c8f1fac36f01119a27273e513a7bd6d}{alpha}(alpha\_param\_type src) \{ this->alpha\_ = src; \textcolor{keywordflow}{return} *\textcolor{keyword}{this};
+       \}
+00091 
+00092 \textcolor{keyword}{protected} :
+00093 
+00094 \textcolor{keyword}{private} :
+00095 
+00096     red\_type        red\_;
+00097     green\_type      green\_;
+00098     blue\_type       blue\_;
+00099     alpha\_type      alpha\_;
+00100 
+00101 \};
+00102 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00103 \textcolor{comment}{// public member functions}
+00104 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00108 \textcolor{comment}{}\textcolor{keyword}{template} < \textcolor{keyword}{typename} RedT, \textcolor{keyword}{typename} GreenT, \textcolor{keyword}{typename} BlueT, \textcolor{keyword}{typename} AlphaT >
+\hypertarget{color__rgba_8h_source_l00109}{}\hyperlink{classhryky_1_1color_1_1_rgba_aa2d8331197445f148dd54c6d568dc992}{00109} \textcolor{keywordtype}{bool} \hyperlink{classhryky_1_1color_1_1_rgba_aa2d8331197445f148dd54c6d568dc992}{hryky::color::Rgba<RedT, GreenT, BlueT, AlphaT>::operator==}(\hyperlink{classhryky_1_1color_1_1_rgba}{this_type} \textcolor{keyword}{
+      const} & rhs)\textcolor{keyword}{ const}
+00110 \textcolor{keyword}{}\{
+00111     \textcolor{keywordflow}{return} (this->red\_ == rhs.red\_
+00112             && this->green\_ == rhs.green\_
+00113             && this->blue\_ == rhs.blue\_
+00114             && this->alpha\_ == rhs.alpha\_);
+00115 \}
+00119 \textcolor{keyword}{template} < \textcolor{keyword}{typename} RedT, \textcolor{keyword}{typename} GreenT, \textcolor{keyword}{typename} BlueT, \textcolor{keyword}{typename} AlphaT >
+\hypertarget{color__rgba_8h_source_l00120}{}\hyperlink{classhryky_1_1color_1_1_rgba_aed94d261780847d637b6ad511af43b3c}{00120} \textcolor{keywordtype}{bool} \hyperlink{classhryky_1_1color_1_1_rgba_aed94d261780847d637b6ad511af43b3c}{hryky::color::Rgba<RedT, GreenT, BlueT, AlphaT>::operator!=}(\hyperlink{classhryky_1_1color_1_1_rgba}{this_type} \textcolor{keyword}{
+      const} & rhs)\textcolor{keyword}{ const}
+00121 \textcolor{keyword}{}\{
+00122     \textcolor{keywordflow}{return} !this->\hyperlink{namespacehryky_a96bfe0df0a09db56e7253330de4f2243}{operator==}(rhs);
+00123 \}
+00124 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00125 \textcolor{comment}{// protected member functions}
+00126 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00127 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00128 \textcolor{comment}{// private member functions}
+00129 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00130 \textcolor{preprocessor}{#endif // COLOR\_RGBA\_H\_20120220153826318}
+00131 \textcolor{preprocessor}{}\textcolor{comment}{// end of file}
+\end{DoxyCode}

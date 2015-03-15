@@ -1,0 +1,134 @@
+\hypertarget{uri__authority__entity_8h_source}{\section{uri\-\_\-authority\-\_\-entity.\-h}
+}
+
+\begin{DoxyCode}
+00001 
+00007 \textcolor{preprocessor}{#ifndef URI\_AUTHORITY\_ENTITY\_H\_20120820221848596}
+00008 \textcolor{preprocessor}{}\textcolor{preprocessor}{#define URI\_AUTHORITY\_ENTITY\_H\_20120820221848596}
+00009 \textcolor{preprocessor}{}\textcolor{preprocessor}{#include "\hyperlink{memory__heap__base_8h}{hryky/memory/heap/memory_heap_base.h}"}
+00010 \textcolor{preprocessor}{#include "\hyperlink{uri__userinfo__entity_8h}{hryky/uri/uri_userinfo_entity.h}"}
+00011 \textcolor{preprocessor}{#include "\hyperlink{uri__host__entity_8h}{hryky/uri/uri_host_entity.h}"}
+00012 \textcolor{preprocessor}{#include "\hyperlink{uri__port__entity_8h}{hryky/uri/uri_port_entity.h}"}
+00013 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00014 \textcolor{comment}{// macro definition}
+00015 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00016 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00017 \textcolor{comment}{// namespace}
+00018 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00019 \textcolor{keyword}{namespace }hryky
+00020 \{
+\hypertarget{uri__authority__entity_8h_source_l00021}{}\hyperlink{namespacehryky_1_1uri}{00021} \textcolor{keyword}{namespace }uri
+00022 \{
+00023 \textcolor{keyword}{namespace }authority
+00024 \{
+00026     \textcolor{keyword}{class }\hyperlink{classhryky_1_1uri_1_1_entity}{Entity};
+00027 
+00028 \} \textcolor{comment}{// namespace authority}
+00029 
+00030 \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1uri_1_1authority_1_1_entity}{authority::Entity} \hyperlink{classhryky_1_1uri_1_1authority_1_1_entity}{authority_type};
+00031 
+00032 \} \textcolor{comment}{// namespace uri}
+00033 \} \textcolor{comment}{// namespace hryky}
+00034 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00035 \textcolor{comment}{// class declarations}
+00036 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+\hypertarget{uri__authority__entity_8h_source_l00040}{}\hyperlink{classhryky_1_1uri_1_1authority_1_1_entity}{00040} \textcolor{comment}{}\textcolor{keyword}{class }\hyperlink{classhryky_1_1uri_1_1authority_1_1_entity}{hryky::uri::authority::Entity}
+00041 \{
+00042 \textcolor{keyword}{public} :
+00043 
+\hypertarget{uri__authority__entity_8h_source_l00044}{}\hyperlink{classhryky_1_1uri_1_1authority_1_1_entity_a72978dd715c7bda0b5b1015967ecc5fe}{00044}     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1uri_1_1authority_1_1_entity}{Entity}              \hyperlink{classhryky_1_1uri_1_1authority_1_1_entity_a72978dd715c7bda0b5b1015967ecc5fe}{this_type};
+00045     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1memory_1_1heap_1_1_base}{memory::heap_type}   \hyperlink{classhryky_1_1memory_1_1heap_1_1_base}{heap_type};
+00046 
+00048     \hyperlink{classhryky_1_1uri_1_1authority_1_1_entity_acb6c6b5aaf4d64a0a9bd72fdb4ce6f01}{Entity}();
+00049 
+00051     \hyperlink{classhryky_1_1uri_1_1authority_1_1_entity_acb6c6b5aaf4d64a0a9bd72fdb4ce6f01}{Entity}(\hyperlink{classhryky_1_1memory_1_1heap_1_1_base}{heap_type} \hyperlink{namespacehryky_1_1memory_1_1global_a6fc6103f67c837aa0f39b359588409cd}{heap});
+00052 
+00054     \hyperlink{classhryky_1_1uri_1_1authority_1_1_entity_acb6c6b5aaf4d64a0a9bd72fdb4ce6f01}{Entity}(\hyperlink{classhryky_1_1uri_1_1authority_1_1_entity}{this_type} \textcolor{keyword}{const} & rhs);
+00055 
+00057     \hyperlink{classhryky_1_1uri_1_1authority_1_1_entity_acb6c6b5aaf4d64a0a9bd72fdb4ce6f01}{Entity}(\hyperlink{classhryky_1_1uri_1_1authority_1_1_entity}{this_type} && rhs);
+00058 
+00060     \hyperlink{classhryky_1_1uri_1_1authority_1_1_entity_aaa7b10dc620fc9c7050d90e1e2521d2f}{~Entity}();
+00061 
+\hypertarget{uri__authority__entity_8h_source_l00063}{}\hyperlink{classhryky_1_1uri_1_1authority_1_1_entity_afedf72941ac5b494884915fe21d531df}{00063}     \hyperlink{classhryky_1_1uri_1_1authority_1_1_entity_afedf72941ac5b494884915fe21d531df}{hryky_assign_op};
+00064 
+00066     \textcolor{keywordtype}{void} \hyperlink{classhryky_1_1uri_1_1authority_1_1_entity_ad172fb60d5204356d1b03f203333395d}{clear}();
+00067 
+00069     \textcolor{keywordtype}{void} \hyperlink{classhryky_1_1uri_1_1authority_1_1_entity_a73a2af57098eaefe6b6eff12b185a316}{userinfo}(\hyperlink{classhryky_1_1uri_1_1userinfo_1_1_entity}{userinfo_type} \textcolor{keyword}{const} & src);
+00070 
+00072     \textcolor{keywordtype}{void} \hyperlink{classhryky_1_1uri_1_1authority_1_1_entity_af074e3465603ca1dbc578ca1ea34250e}{host}(\hyperlink{classhryky_1_1uri_1_1host_1_1_entity}{host_type} \textcolor{keyword}{const} & src);
+00073 
+00075     \textcolor{keywordtype}{void} \hyperlink{classhryky_1_1uri_1_1authority_1_1_entity_aebfd672c31b04cf9a03b346833eb9425}{port}(\hyperlink{classhryky_1_1uri_1_1port_1_1_entity}{port_type} \textcolor{keyword}{const} & src);
+00076 
+00078     \hyperlink{classhryky_1_1_intrusive_ptr}{reduction_type} \hyperlink{classhryky_1_1uri_1_1authority_1_1_entity_aef5d2bf58a4db5254757eda09dc69cdb}{reduce}(\hyperlink{classhryky_1_1reduction_1_1_string}{reduction::name_type} \textcolor{keyword}{const} & name) \textcolor{keyword}{const};
+00079 
+00080 \textcolor{keyword}{protected} :
+00081 
+00083     \textcolor{keywordtype}{void} \hyperlink{classhryky_1_1uri_1_1authority_1_1_entity_ab0d4bcdb587b69e7dbc2242d60fa65ef}{swap}(\hyperlink{classhryky_1_1uri_1_1authority_1_1_entity}{this_type} & src);
+00084 
+00085 \textcolor{keyword}{private} :
+00086 
+00087     \hyperlink{classhryky_1_1uri_1_1userinfo_1_1_entity}{userinfo_type}   userinfo\_;
+00088     \hyperlink{classhryky_1_1uri_1_1host_1_1_entity}{host_type}       host\_;
+00089     \hyperlink{classhryky_1_1uri_1_1port_1_1_entity}{port_type}       port\_;
+00090 
+00091 \};
+00092 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00093 \textcolor{comment}{// class specializations}
+00094 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00095 \textcolor{keyword}{namespace }hryky
+00096 \{
+00097 \textcolor{keyword}{namespace }uri
+00098 \{
+00099 \textcolor{keyword}{namespace }authority
+00100 \{
+00101 \} \textcolor{comment}{// namespace authority}
+00102 \} \textcolor{comment}{// namespace uri}
+00103 \} \textcolor{comment}{// namespace hryky}
+00104 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00105 \textcolor{comment}{// public member functions}
+00106 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00107 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00108 \textcolor{comment}{// protected member functions}
+00109 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00110 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00111 \textcolor{comment}{// private member functions}
+00112 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00113 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00114 \textcolor{comment}{// global function prototypes}
+00115 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00116 \textcolor{keyword}{namespace }hryky
+00117 \{
+00118 \textcolor{keyword}{namespace }uri
+00119 \{
+00120 \textcolor{keyword}{namespace }authority
+00121 \{
+00123     \hyperlink{namespacehryky_a343a9a4c36a586be5c2693156200eadc}{reduction_type} \hyperlink{namespacehryky_1_1uri_ab4530b241565d82fb0768bb29031858f}{reduce}(
+00124         \hyperlink{namespacehryky_1_1reduction_ac686c30a4c8d196bbd0f05629a6b921f}{reduction::name_type} \textcolor{keyword}{const} & name, Entity \textcolor{keyword}{const} & src);
+00125 
+00126 \} \textcolor{comment}{// namespace authority}
+00127 \} \textcolor{comment}{// namespace uri}
+00128 \} \textcolor{comment}{// namespace hryky}
+00129 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00130 \textcolor{comment}{// global function definitions}
+00131 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00132 \textcolor{preprocessor}{#endif // URI\_AUTHORITY\_ENTITY\_H\_20120820221848596}
+00133 \textcolor{preprocessor}{}\textcolor{comment}{// end of file}
+\end{DoxyCode}

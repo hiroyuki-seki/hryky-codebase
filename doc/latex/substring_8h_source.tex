@@ -1,0 +1,269 @@
+\hypertarget{substring_8h_source}{\section{substring.\-h}
+}
+
+\begin{DoxyCode}
+00001 
+00007 \textcolor{preprocessor}{#ifndef SUBSTRING\_H\_20120713004852700}
+00008 \textcolor{preprocessor}{}\textcolor{preprocessor}{#define SUBSTRING\_H\_20120713004852700}
+00009 \textcolor{preprocessor}{}\textcolor{preprocessor}{#include "\hyperlink{iterator__random_8h}{hryky/iterator/iterator_random.h}"}
+00010 \textcolor{preprocessor}{#include "\hyperlink{offset__ptr_8h}{hryky/offset_ptr.h}"}
+00011 \textcolor{preprocessor}{#include "\hyperlink{reduction__common_8h}{hryky/reduction/reduction_common.h}"}
+00012 \textcolor{preprocessor}{#include "\hyperlink{gp_8h}{hryky/gp.h}"}
+00013 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00014 \textcolor{comment}{// macro definition}
+00015 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00016 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00017 \textcolor{comment}{// namespace}
+00018 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00019 \textcolor{keyword}{namespace }hryky
+00020 \{
+00022     \textcolor{keyword}{template} < \textcolor{keyword}{typename} OriginT, \textcolor{keyword}{typename} OffsetT, \textcolor{keyword}{typename} ValueT >
+00023     \textcolor{keyword}{class }Substring;
+00024 
+00025 \} \textcolor{comment}{// namespace hryky}
+00026 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00027 \textcolor{comment}{// class declarations}
+00028 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00032 \textcolor{comment}{}\textcolor{keyword}{template} <
+00033     \textcolor{keyword}{typename} OriginT,
+00034     \textcolor{keyword}{typename} OffsetT = \textcolor{keyword}{typename} \hyperlink{classhryky_1_1_remove_pointer}{hryky::RemovePointer<OriginT>::type::size_type},
+00035     \textcolor{keyword}{typename} ValueT = \textcolor{keyword}{typename} \hyperlink{classhryky_1_1_remove_pointer}{hryky::RemovePointer<OriginT>::type::value_type}>
+\hypertarget{substring_8h_source_l00036}{}\hyperlink{classhryky_1_1_substring}{00036} \textcolor{keyword}{class }\hyperlink{classhryky_1_1_substring}{hryky::Substring}
+00037 \{
+00038 \textcolor{keyword}{public} :
+00039     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1_substring}{Substring}                                       \hyperlink{classhryky_1_1_substring}{this_type};
+00040     \textcolor{keyword}{typedef} OffsetT                                         size\_type;
+00041     \textcolor{keyword}{typedef} std::ptrdiff\_t                                  difference\_type;
+00042     \textcolor{keyword}{typedef} ValueT                                          value\_type;
+00043     \textcolor{keyword}{typedef} \textcolor{keyword}{typename} \hyperlink{classhryky_1_1_add_const_adb29046fcfdac9d716cb5cb3c28d42ac}{AddConst<ValueT>::type}                 const\_value\_type;
+00044     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1_offset_ptr}{OffsetPtr<OriginT, OffsetT, ValueT>}             \hyperlink{classhryky_1_1_offset_ptr}{pointer};
+00045     \textcolor{keyword}{typedef} \textcolor{keyword}{typename} \hyperlink{classhryky_1_1_add_reference_a4b90c1381625432ba6152b7388bc4399}{AddReference<ValueT>::type}             reference;
+00046     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1_offset_ptr}{OffsetPtr<OriginT, OffsetT, const_value_type>}   \hyperlink{classhryky_1_1_offset_ptr}{const_pointer};
+00047     \textcolor{keyword}{typedef} \textcolor{keyword}{typename} \hyperlink{classhryky_1_1_add_reference_a4b90c1381625432ba6152b7388bc4399}{AddReference<const_value_type>::type}   const\_reference;
+00048 
+00049     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1iterator_1_1random_1_1_mutable}{hryky::iterator::random::Mutable}<
+00050         value\_type, \hyperlink{classhryky_1_1_offset_ptr}{pointer}, reference >
+00051             \hyperlink{classhryky_1_1iterator_1_1random_1_1_mutable}{iterator};
+00052     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1iterator_1_1random_1_1_immutable}{hryky::iterator::random::Immutable}<
+00053         value\_type, \hyperlink{classhryky_1_1_offset_ptr}{pointer}, reference, \hyperlink{classhryky_1_1_offset_ptr}{const_pointer}, const\_reference >
+00054             \hyperlink{classhryky_1_1iterator_1_1random_1_1_immutable}{const_iterator};
+00055 
+00056     \textcolor{keyword}{typedef} std::reverse\_iterator<iterator>             reverse\_iterator;
+00057     \textcolor{keyword}{typedef} std::reverse\_iterator<const\_iterator>       const\_reverse\_iterator;
+00058 
+00059     \textcolor{keyword}{typedef} \textcolor{keyword}{typename} AsParameter<OriginT>::type    origin\_param\_type;
+00060     \textcolor{keyword}{typedef} \textcolor{keyword}{typename} AsParameter<OffsetT>::type    offset\_param\_type;
+00061 
+00063     \hyperlink{classhryky_1_1_substring_a6273165f234f5f2c064b8aafa495f945}{Substring}();
+00064 
+00066     \hyperlink{classhryky_1_1_substring_a6273165f234f5f2c064b8aafa495f945}{Substring}(
+00067         origin\_param\_type origin,
+00068         offset\_param\_type \hyperlink{classhryky_1_1_substring_a7d550a484228287b752fd562709b8981}{begin},
+00069         offset\_param\_type \hyperlink{classhryky_1_1_substring_aa231be07658dfab51eb17900b57e4af3}{end});
+00070 
+00072     \hyperlink{classhryky_1_1iterator_1_1random_1_1_mutable}{iterator} \hyperlink{classhryky_1_1_substring_a7d550a484228287b752fd562709b8981}{begin}();
+00073 
+00075     \hyperlink{classhryky_1_1iterator_1_1random_1_1_mutable}{iterator} \hyperlink{classhryky_1_1_substring_aa231be07658dfab51eb17900b57e4af3}{end}();
+00076 
+00078     \hyperlink{classhryky_1_1iterator_1_1random_1_1_immutable}{const_iterator} \hyperlink{classhryky_1_1_substring_a7d550a484228287b752fd562709b8981}{begin}() \textcolor{keyword}{const};
+00079 
+00081     \hyperlink{classhryky_1_1iterator_1_1random_1_1_immutable}{const_iterator} \hyperlink{classhryky_1_1_substring_aa231be07658dfab51eb17900b57e4af3}{end}() \textcolor{keyword}{const};
+00082 
+00084     size\_type \hyperlink{classhryky_1_1_substring_a4af5f4d8501d2a5032ee6850424859ac}{size}() \textcolor{keyword}{const};
+00085 
+00087     \hyperlink{classhryky_1_1_substring}{this_type} \hyperlink{classhryky_1_1_substring_a55f9c969b225a603e1b4d4021ecb738b}{substr}(size\_type \textcolor{keyword}{const} pos, size\_type \textcolor{keyword}{const} size) \textcolor{keyword}{const};
+00088 
+00090     \textcolor{keyword}{template} < \textcolor{keyword}{typename} IteratorT >
+00091     size\_type \hyperlink{classhryky_1_1_substring_a095d9b41e44fd8be92c16c7a9ab049bf}{find}(
+00092         IteratorT first, IteratorT last, size\_type \textcolor{keyword}{const} pos) \textcolor{keyword}{const};
+00093 
+00095     \hyperlink{classhryky_1_1_intrusive_ptr}{reduction_type} \hyperlink{classhryky_1_1_substring_a816bb8132b58784093f42b812ef8f2ca}{reduce}(\hyperlink{classhryky_1_1reduction_1_1_string}{reduction::name_type} \textcolor{keyword}{const} & name) \textcolor{keyword}{const};
+00096 
+00097 \textcolor{keyword}{protected} :
+00098 
+00099 \textcolor{keyword}{private} :
+00100 
+00101     OriginT     origin\_;
+00102     OffsetT     begin\_;
+00103     OffsetT     end\_;
+00104 
+00105 \};
+00106 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00107 \textcolor{comment}{// class specializations}
+00108 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00109 \textcolor{keyword}{namespace }hryky
+00110 \{
+00111 \} \textcolor{comment}{// namespace hryky}
+00112 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00113 \textcolor{comment}{// public member functions}
+00114 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00118 \textcolor{comment}{}\textcolor{keyword}{template} < \textcolor{keyword}{typename} OriginT, \textcolor{keyword}{typename} OffsetT, \textcolor{keyword}{typename} ValueT >
+\hypertarget{substring_8h_source_l00119}{}\hyperlink{classhryky_1_1_substring_a6273165f234f5f2c064b8aafa495f945}{00119} \hyperlink{classhryky_1_1_substring_a6273165f234f5f2c064b8aafa495f945}{hryky::Substring<OriginT, OffsetT, ValueT>::Substring}()
+00120     : origin\_()
+00121       , begin\_()
+00122       , end\_()
+00123 \{
+00124     \textcolor{keywordflow}{return};
+00125 \}
+00129 \textcolor{keyword}{template} < \textcolor{keyword}{typename} OriginT, \textcolor{keyword}{typename} OffsetT, \textcolor{keyword}{typename} ValueT >
+\hypertarget{substring_8h_source_l00130}{}\hyperlink{classhryky_1_1_substring_a550a9df9a93d1de53572b2a11a716af5}{00130} \hyperlink{classhryky_1_1_substring}{hryky::Substring<OriginT, OffsetT, ValueT>::Substring}(
+00131     origin\_param\_type origin,
+00132     offset\_param\_type begin,
+00133     offset\_param\_type end)
+00134     : origin\_(origin)
+00135       , begin\_(begin)
+00136       , end\_(end)
+00137 \{
+00138     \textcolor{keywordflow}{return};
+00139 \}
+00143 \textcolor{keyword}{template} < \textcolor{keyword}{typename} OriginT, \textcolor{keyword}{typename} OffsetT, \textcolor{keyword}{typename} ValueT >
+00144 \textcolor{keyword}{typename} \hyperlink{classhryky_1_1iterator_1_1random_1_1_mutable}{hryky::Substring<OriginT, OffsetT, ValueT>::iterator} 
+\hypertarget{substring_8h_source_l00145}{}\hyperlink{classhryky_1_1_substring_a7d550a484228287b752fd562709b8981}{00145} \hyperlink{classhryky_1_1_substring}{hryky::Substring<OriginT, OffsetT, ValueT>::begin}()
+00146 \{
+00147     \textcolor{keywordflow}{return} \hyperlink{classhryky_1_1_offset_ptr}{pointer}(this->origin\_, this->begin\_);
+00148 \}
+00152 \textcolor{keyword}{template} < \textcolor{keyword}{typename} OriginT, \textcolor{keyword}{typename} OffsetT, \textcolor{keyword}{typename} ValueT >
+00153 \textcolor{keyword}{typename} \hyperlink{classhryky_1_1iterator_1_1random_1_1_mutable}{hryky::Substring<OriginT, OffsetT, ValueT>::iterator} 
+\hypertarget{substring_8h_source_l00154}{}\hyperlink{classhryky_1_1_substring_aa231be07658dfab51eb17900b57e4af3}{00154} \hyperlink{classhryky_1_1_substring}{hryky::Substring<OriginT, OffsetT, ValueT>::end}()
+00155 \{
+00156     \textcolor{keywordflow}{return} \hyperlink{classhryky_1_1_offset_ptr}{pointer}(this->origin\_, this->end\_);
+00157 \}
+00161 \textcolor{keyword}{template} < \textcolor{keyword}{typename} OriginT, \textcolor{keyword}{typename} OffsetT, \textcolor{keyword}{typename} ValueT >
+00162 \textcolor{keyword}{typename} \hyperlink{classhryky_1_1iterator_1_1random_1_1_immutable}{hryky::Substring<OriginT, OffsetT, ValueT>::const_iterator} 
+\hypertarget{substring_8h_source_l00163}{}\hyperlink{classhryky_1_1_substring_a21b54707fd7805e536903fbe56228146}{00163} \hyperlink{classhryky_1_1_substring}{hryky::Substring<OriginT, OffsetT, ValueT>::begin}()\textcolor{keyword}{ const}
+00164 \textcolor{keyword}{}\{
+00165     \textcolor{keywordflow}{return} \hyperlink{classhryky_1_1_offset_ptr}{const_pointer}(this->origin\_, this->begin\_);
+00166 \}
+00170 \textcolor{keyword}{template} < \textcolor{keyword}{typename} OriginT, \textcolor{keyword}{typename} OffsetT, \textcolor{keyword}{typename} ValueT >
+00171 \textcolor{keyword}{typename} \hyperlink{classhryky_1_1iterator_1_1random_1_1_immutable}{hryky::Substring<OriginT, OffsetT, ValueT>::const_iterator} 
+\hypertarget{substring_8h_source_l00172}{}\hyperlink{classhryky_1_1_substring_a2c2221a0171fe303343540b47f19edd7}{00172} \hyperlink{classhryky_1_1_substring}{hryky::Substring<OriginT, OffsetT, ValueT>::end}()\textcolor{keyword}{ const}
+00173 \textcolor{keyword}{}\{
+00174     \textcolor{keywordflow}{return} \hyperlink{classhryky_1_1_offset_ptr}{const_pointer}(this->origin\_, this->end\_);
+00175 \}
+00179 \textcolor{keyword}{template} < \textcolor{keyword}{typename} OriginT, \textcolor{keyword}{typename} OffsetT, \textcolor{keyword}{typename} ValueT >
+\hypertarget{substring_8h_source_l00180}{}\hyperlink{classhryky_1_1_substring_a4af5f4d8501d2a5032ee6850424859ac}{00180} OffsetT \hyperlink{classhryky_1_1_substring}{hryky::Substring<OriginT, OffsetT, ValueT>::size}()\textcolor{keyword}{ const}
+00181 \textcolor{keyword}{}\{
+00182     \textcolor{keywordflow}{return} this->end\_ - this->begin\_;
+00183 \}
+00187 \textcolor{keyword}{template} < \textcolor{keyword}{typename} OriginT, \textcolor{keyword}{typename} OffsetT, \textcolor{keyword}{typename} ValueT >
+00188 \hyperlink{classhryky_1_1_substring}{hryky::Substring<OriginT, OffsetT, ValueT>} 
+\hypertarget{substring_8h_source_l00189}{}\hyperlink{classhryky_1_1_substring_a55f9c969b225a603e1b4d4021ecb738b}{00189} \hyperlink{classhryky_1_1_substring}{hryky::Substring<OriginT, OffsetT, ValueT>::substr}(
+00190     size\_type \textcolor{keyword}{const} pos, size\_type \textcolor{keyword}{const} size)\textcolor{keyword}{ const}
+00191 \textcolor{keyword}{}\{
+00192     \textcolor{keywordflow}{if} (pos < this->begin\_
+00193          || pos > this->end\_
+00194          || pos + size > this->end\_) \{
+00195         \hyperlink{debug__common_8h_af50606eac4009921527ddcaed392b2c2}{hryky_throw}(
+00196             std::out\_of\_range,
+00197             (*\hyperlink{namespacehryky_1_1reduction_ac5eae270cf8047b294dc4ff3e5e11a79}{reduction::map}(
+00198                 \textcolor{stringliteral}{"argument 'pos' and 'size' exceed the range of this instance"}))
+00199             .append(\textcolor{stringliteral}{"pos"},  pos)
+00200             .append(\textcolor{stringliteral}{"size"}, size),
+00201             \textcolor{keywordflow}{return} \hyperlink{classhryky_1_1_substring}{this_type}());
+00202     \}
+00203 
+00204     \textcolor{keywordflow}{return} \hyperlink{classhryky_1_1_substring}{this_type}(this->origin\_, pos, pos + size);
+00205 \}
+00209 \textcolor{keyword}{template} < \textcolor{keyword}{typename} OriginT, \textcolor{keyword}{typename} OffsetT, \textcolor{keyword}{typename} ValueT >
+00210 \textcolor{keyword}{template} < \textcolor{keyword}{typename} IteratorT >
+00211 \textcolor{keyword}{typename} hryky::Substring<OriginT, OffsetT, ValueT>::size\_type 
+\hypertarget{substring_8h_source_l00212}{}\hyperlink{classhryky_1_1_substring_a095d9b41e44fd8be92c16c7a9ab049bf}{00212} \hyperlink{classhryky_1_1_substring}{hryky::Substring<OriginT, OffsetT, ValueT>::find}(
+00213     IteratorT src\_begin, IteratorT src\_end, size\_type \textcolor{keyword}{const} pos)\textcolor{keyword}{ const}
+00214 \textcolor{keyword}{}\{
+00215     \textcolor{keywordtype}{size\_t} \textcolor{keyword}{const} size       = this->size();
+00216 
+00217     \textcolor{keywordflow}{if} (size < pos) \{
+00218         \hyperlink{debug__common_8h_af50606eac4009921527ddcaed392b2c2}{hryky_throw}(
+00219             std::out\_of\_range,
+00220             (*\hyperlink{namespacehryky_1_1reduction_ac5eae270cf8047b294dc4ff3e5e11a79}{reduction::map}(
+00221                 \textcolor{stringliteral}{"argument 'pos' exceeds the range of this instance"}))
+00222             .append(\textcolor{stringliteral}{"pos"}, pos),
+00223             \textcolor{keywordflow}{return} size);
+00224     \}
+00225 
+00226     \textcolor{keywordtype}{size\_t} \textcolor{keyword}{const} src\_size   = src\_end - src\_begin;
+00227     
+00228     \textcolor{keywordflow}{if} (size < src\_size + pos) \{ \textcolor{keywordflow}{return} size; \}
+00229 
+00230     \hyperlink{classhryky_1_1iterator_1_1random_1_1_immutable}{const_iterator} \textcolor{keyword}{const} end    = this->end() - src\_size;
+00231     \hyperlink{classhryky_1_1iterator_1_1random_1_1_immutable}{const_iterator} itr          = this->begin() + pos;
+00232 
+00233     \textcolor{keywordflow}{for} (; end != itr; ++itr) \{
+00234         IteratorT src\_itr       = src\_begin;
+00235         \hyperlink{classhryky_1_1iterator_1_1random_1_1_immutable}{const_iterator} dest\_itr = itr;
+00236         \textcolor{keywordflow}{for} (; src\_end != src\_itr; ++src\_itr, ++dest\_itr) \{
+00237             \textcolor{keywordflow}{if} (*src\_itr != *dest\_itr) \{
+00238                 \textcolor{keywordflow}{break};
+00239             \}
+00240         \}
+00241         \textcolor{keywordflow}{if} (src\_end == src\_itr) \{
+00242             \textcolor{keywordflow}{return} itr - this->begin();
+00243         \}
+00244     \}
+00245 
+00246     \textcolor{keywordflow}{return} size;
+00247 \}
+00251 \textcolor{keyword}{template} < \textcolor{keyword}{typename} OriginT, \textcolor{keyword}{typename} OffsetT, \textcolor{keyword}{typename} ValueT >
+\hypertarget{substring_8h_source_l00252}{}\hyperlink{classhryky_1_1_substring_a816bb8132b58784093f42b812ef8f2ca}{00252} \hyperlink{classhryky_1_1_intrusive_ptr}{hryky::reduction_type} \hyperlink{namespacehryky_af41cb3af6766761da0ff21b84527a52c}{hryky::Substring<OriginT, OffsetT, ValueT>::reduce}(
+00253     \hyperlink{classhryky_1_1reduction_1_1_string}{reduction::name_type} \textcolor{keyword}{const} & name)\textcolor{keyword}{ const}
+00254 \textcolor{keyword}{}\{
+00255     \hyperlink{classhryky_1_1_intrusive_ptr}{reduction::map_type} \hyperlink{namespacehryky_1_1reduction_ac5eae270cf8047b294dc4ff3e5e11a79}{map} = \hyperlink{namespacehryky_1_1reduction_ac5eae270cf8047b294dc4ff3e5e11a79}{reduction::map}(name);
+00256 
+00257     ((*map)
+00258      .append(\textcolor{stringliteral}{"begin"},   this->begin\_)
+00259      .append(\textcolor{stringliteral}{"end"},     this->end\_));
+00260 
+00261     \textcolor{keywordflow}{if} (OriginT() != this->origin\_) \{
+00262         map->append(\textcolor{stringliteral}{"origin"},   *this->origin\_);
+00263     \}
+00264     
+00265     \textcolor{keywordflow}{return} \hyperlink{namespacehryky_1_1reduction_ac5eae270cf8047b294dc4ff3e5e11a79}{map};
+00266 \}
+00267 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00268 \textcolor{comment}{// protected member functions}
+00269 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00270 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00271 \textcolor{comment}{// private member functions}
+00272 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00273 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00274 \textcolor{comment}{// global function prototypes}
+00275 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00276 \textcolor{keyword}{namespace }hryky
+00277 \{
+00279     \textcolor{keyword}{template} < \textcolor{keyword}{typename} OriginT, \textcolor{keyword}{typename} OffsetT, \textcolor{keyword}{typename} ValueT >
+00280     \hyperlink{classhryky_1_1_intrusive_ptr}{reduction_type} \hyperlink{namespacehryky_af41cb3af6766761da0ff21b84527a52c}{reduce}(
+00281         \hyperlink{classhryky_1_1reduction_1_1_string}{reduction::name_type} \textcolor{keyword}{const} & name,
+00282         \hyperlink{classhryky_1_1_substring}{Substring<OriginT, OffsetT, ValueT>} \textcolor{keyword}{const} & src);
+00283 
+00284 \} \textcolor{comment}{// namespace hryky}
+00285 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00286 \textcolor{comment}{// global function definitions}
+00287 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00291 \textcolor{comment}{}\textcolor{keyword}{template} < \textcolor{keyword}{typename} OriginT, \textcolor{keyword}{typename} OffsetT, \textcolor{keyword}{typename} ValueT >
+\hypertarget{substring_8h_source_l00292}{}\hyperlink{namespacehryky_ade7f6355e1c5f98b8a23c239f26a715d}{00292} \hyperlink{classhryky_1_1_intrusive_ptr}{hryky::reduction_type} \hyperlink{namespacehryky_af41cb3af6766761da0ff21b84527a52c}{hryky::reduce}(
+00293     \hyperlink{classhryky_1_1reduction_1_1_string}{reduction::name_type} \textcolor{keyword}{const} & name,
+00294     \hyperlink{classhryky_1_1_substring}{Substring<OriginT, OffsetT, ValueT>} \textcolor{keyword}{const} & src)
+00295 \{
+00296     \textcolor{keywordflow}{return} src.\hyperlink{classhryky_1_1_substring_a816bb8132b58784093f42b812ef8f2ca}{reduce}(name);
+00297 \}
+00298 \textcolor{preprocessor}{#endif // SUBSTRING\_H\_20120713004852700}
+00299 \textcolor{preprocessor}{}\textcolor{comment}{// end of file}
+\end{DoxyCode}

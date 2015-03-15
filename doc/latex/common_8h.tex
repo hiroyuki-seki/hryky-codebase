@@ -1,0 +1,199 @@
+\hypertarget{common_8h}{\section{common.\-h File Reference}
+\label{common_8h}\index{common.\-h@{common.\-h}}
+}
+
+
+common definition.  
+
+
+{\ttfamily \#include \char`\"{}hryky/stdint.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}hryky/noncopyable.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}hryky/gp.\-h\char`\"{}}\\*
+This graph shows which files directly or indirectly include this file\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{common_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \hyperlink{namespacehryky}{hryky}
+\begin{DoxyCompactList}\small\item\em the root of all namespaces in hryky-\/codebase. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Defines}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{common_8h_a80b197d8fe7a5d4aca402c77703278d7}{hryky\-\_\-accessor}(type, basename)
+\begin{DoxyCompactList}\small\item\em inserts the definition to read and write the member variable. \end{DoxyCompactList}\item 
+\#define \hyperlink{common_8h_aa006947a022e09b05cfdf88588cd72eb}{hryky\-\_\-accessor\-\_\-read}(type, basename)
+\begin{DoxyCompactList}\small\item\em inserts the definition to read the member variable. \end{DoxyCompactList}\item 
+\#define \hyperlink{common_8h_a53c1a7f63ecaf9a35fedc7c6ca996e84}{hryky\-\_\-accessor\-\_\-row}(type, basename)
+\begin{DoxyCompactList}\small\item\em inserts the definition to read and write the member variable. \end{DoxyCompactList}\item 
+\#define \hyperlink{common_8h_aea6c22c6bcc25a46e463aa05bbc6a4e3}{hryky\-\_\-accessor\-\_\-row\-\_\-write}(type, basename)
+\begin{DoxyCompactList}\small\item\em inserts the definition to write the member variable. \end{DoxyCompactList}\item 
+\#define \hyperlink{common_8h_a3bd7ca3bde3227a8dc2207a3229d5330}{hryky\-\_\-accessor\-\_\-write}(type, basename)
+\begin{DoxyCompactList}\small\item\em inserts the definition to write the member variable. \end{DoxyCompactList}\item 
+\hypertarget{common_8h_a9ab2728caa46163f328bd32fe4d9ff12}{\#define \hyperlink{common_8h_a9ab2728caa46163f328bd32fe4d9ff12}{H\-R\-Y\-K\-Y\-\_\-\-L\-I\-T\-E\-R\-A\-L\-\_\-\-S\-T\-R\-I\-N\-G}(value)~\hyperlink{classhryky_1_1_literal_string}{hryky\-::\-Literal\-String}(\#value)}\label{common_8h_a9ab2728caa46163f328bd32fe4d9ff12}
+
+\begin{DoxyCompactList}\small\item\em defines a literal string with the size. \end{DoxyCompactList}\item 
+\hypertarget{common_8h_a4cd4ac09cfcdbd6b30ee69afc156e210}{\#define \hyperlink{common_8h_a4cd4ac09cfcdbd6b30ee69afc156e210}{H\-R\-Y\-K\-Y\-\_\-\-N\-U\-L\-L\-P\-T\-R}~nullptr}\label{common_8h_a4cd4ac09cfcdbd6b30ee69afc156e210}
+
+\begin{DoxyCompactList}\small\item\em null pointer \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T $>$ }\\void \hyperlink{namespacehryky_a23f2789a7915f2abfc21c0fed0c772b7}{hryky\-::release} (T $\ast$\&ptr)
+\begin{DoxyCompactList}\small\item\em release the instance that has \hyperlink{namespacehryky_a9bdf380c3703ef316b807edae92a930a}{release()} method. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+common definition. \begin{DoxyAuthor}{Author}
+H\-R\-Y\-K\-Y 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+
+\end{DoxyVersion}
+\begin{DoxyParagraph}{Id\-:}
+\hyperlink{common_8h}{common.\-h} 150 2013-\/02-\/10 10\-:08\-:03\-Z \href{mailto:hryky.private@gmail.com}{\tt hryky.\-private@gmail.\-com} 
+\end{DoxyParagraph}
+
+
+\subsection{Define Documentation}
+\hypertarget{common_8h_a80b197d8fe7a5d4aca402c77703278d7}{\index{common.\-h@{common.\-h}!hryky\-\_\-accessor@{hryky\-\_\-accessor}}
+\index{hryky\-\_\-accessor@{hryky\-\_\-accessor}!common.h@{common.\-h}}
+\subsubsection[{hryky\-\_\-accessor}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf hryky\-\_\-accessor}(
+\begin{DoxyParamCaption}
+\item[{}]{type, }
+\item[{}]{basename}
+\end{DoxyParamCaption}
+)}}\label{common_8h_a80b197d8fe7a5d4aca402c77703278d7}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\textcolor{keyword}{public} :\(\backslash\)
+        hryky\_accessor\_func(type, basename);\(\backslash\)
+    protected :\(\backslash\)
+        type basename##\_;\(\backslash\)
+\end{DoxyCode}
+
+
+inserts the definition to read and write the member variable. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em type} & is type of the member variable. \\
+\hline
+{\em basename} & is the variable name without suffix '\-\_\-'. \\
+\hline
+\end{DoxyParams}
+\hypertarget{common_8h_aa006947a022e09b05cfdf88588cd72eb}{\index{common.\-h@{common.\-h}!hryky\-\_\-accessor\-\_\-read@{hryky\-\_\-accessor\-\_\-read}}
+\index{hryky\-\_\-accessor\-\_\-read@{hryky\-\_\-accessor\-\_\-read}!common.h@{common.\-h}}
+\subsubsection[{hryky\-\_\-accessor\-\_\-read}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf hryky\-\_\-accessor\-\_\-read}(
+\begin{DoxyParamCaption}
+\item[{}]{type, }
+\item[{}]{basename}
+\end{DoxyParamCaption}
+)}}\label{common_8h_aa006947a022e09b05cfdf88588cd72eb}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\textcolor{keyword}{public} :\(\backslash\)
+        hryky\_getter(type, basename);\(\backslash\)
+    protected :\(\backslash\)
+        type basename##\_;\(\backslash\)
+\end{DoxyCode}
+
+
+inserts the definition to read the member variable. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em type} & is type of the member variable. \\
+\hline
+{\em basename} & is the variable name without suffix '\-\_\-'. \\
+\hline
+\end{DoxyParams}
+\hypertarget{common_8h_a53c1a7f63ecaf9a35fedc7c6ca996e84}{\index{common.\-h@{common.\-h}!hryky\-\_\-accessor\-\_\-row@{hryky\-\_\-accessor\-\_\-row}}
+\index{hryky\-\_\-accessor\-\_\-row@{hryky\-\_\-accessor\-\_\-row}!common.h@{common.\-h}}
+\subsubsection[{hryky\-\_\-accessor\-\_\-row}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf hryky\-\_\-accessor\-\_\-row}(
+\begin{DoxyParamCaption}
+\item[{}]{type, }
+\item[{}]{basename}
+\end{DoxyParamCaption}
+)}}\label{common_8h_a53c1a7f63ecaf9a35fedc7c6ca996e84}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\textcolor{keyword}{public} :\(\backslash\)
+        hryky\_accessor\_row\_func(type, basename);\(\backslash\)
+    protected :\(\backslash\)
+        type basename##\_;\(\backslash\)
+\end{DoxyCode}
+
+
+inserts the definition to read and write the member variable. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em type} & is type of the member variable. \\
+\hline
+{\em basename} & is the variable name without suffix '\-\_\-'.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyItemize}
+\item The function for assigning the variable returns the reference of class instance itself. 
+\end{DoxyItemize}\hypertarget{common_8h_aea6c22c6bcc25a46e463aa05bbc6a4e3}{\index{common.\-h@{common.\-h}!hryky\-\_\-accessor\-\_\-row\-\_\-write@{hryky\-\_\-accessor\-\_\-row\-\_\-write}}
+\index{hryky\-\_\-accessor\-\_\-row\-\_\-write@{hryky\-\_\-accessor\-\_\-row\-\_\-write}!common.h@{common.\-h}}
+\subsubsection[{hryky\-\_\-accessor\-\_\-row\-\_\-write}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf hryky\-\_\-accessor\-\_\-row\-\_\-write}(
+\begin{DoxyParamCaption}
+\item[{}]{type, }
+\item[{}]{basename}
+\end{DoxyParamCaption}
+)}}\label{common_8h_aea6c22c6bcc25a46e463aa05bbc6a4e3}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\textcolor{keyword}{public} :\(\backslash\)
+        hryky\_setter\_row(type, basename);\(\backslash\)
+    protected :\(\backslash\)
+        type basename##\_;\(\backslash\)
+\end{DoxyCode}
+
+
+inserts the definition to write the member variable. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em type} & is type of the member variable. \\
+\hline
+{\em basename} & is the variable name without suffix '\-\_\-'.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyItemize}
+\item The function for assigning the variable returns the reference of class instance itself. 
+\end{DoxyItemize}\hypertarget{common_8h_a3bd7ca3bde3227a8dc2207a3229d5330}{\index{common.\-h@{common.\-h}!hryky\-\_\-accessor\-\_\-write@{hryky\-\_\-accessor\-\_\-write}}
+\index{hryky\-\_\-accessor\-\_\-write@{hryky\-\_\-accessor\-\_\-write}!common.h@{common.\-h}}
+\subsubsection[{hryky\-\_\-accessor\-\_\-write}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf hryky\-\_\-accessor\-\_\-write}(
+\begin{DoxyParamCaption}
+\item[{}]{type, }
+\item[{}]{basename}
+\end{DoxyParamCaption}
+)}}\label{common_8h_a3bd7ca3bde3227a8dc2207a3229d5330}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\textcolor{keyword}{public} :\(\backslash\)
+        hryky\_setter(type, basename);\(\backslash\)
+    protected :\(\backslash\)
+        type basename##\_;\(\backslash\)
+\end{DoxyCode}
+
+
+inserts the definition to write the member variable. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em type} & is type of the member variable. \\
+\hline
+{\em basename} & is the variable name without suffix '\-\_\-'. \\
+\hline
+\end{DoxyParams}

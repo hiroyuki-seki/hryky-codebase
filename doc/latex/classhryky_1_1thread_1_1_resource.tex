@@ -1,0 +1,132 @@
+\hypertarget{classhryky_1_1thread_1_1_resource}{\section{hryky\-:\-:thread\-:\-:Resource Class Reference}
+\label{classhryky_1_1thread_1_1_resource}\index{hryky\-::thread\-::\-Resource@{hryky\-::thread\-::\-Resource}}
+}
+
+
+holds the resource of concurrent unit.  
+
+
+
+
+{\ttfamily \#include $<$thread\-\_\-resource.\-h$>$}
+
+
+
+Inheritance diagram for hryky\-:\-:thread\-:\-:Resource\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=200pt]{classhryky_1_1thread_1_1_resource__inherit__graph}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structhryky_1_1thread_1_1_resource_1_1_reset_parameter}{Reset\-Parameter}
+\begin{DoxyCompactList}\small\item\em parameters for \hyperlink{classhryky_1_1thread_1_1_resource_a1456f170e50e126104346013f1436b51}{reset()}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classhryky_1_1thread_1_1_resource_a35e0b5a88467f7f16afece383f7569b3}{typedef \hyperlink{classhryky_1_1thread_1_1_resource}{hryky\-::thread\-::\-Resource} \hyperlink{classhryky_1_1thread_1_1_resource_a35e0b5a88467f7f16afece383f7569b3}{this\-\_\-type}}\label{classhryky_1_1thread_1_1_resource_a35e0b5a88467f7f16afece383f7569b3}
+
+\begin{DoxyCompactList}\small\item\em self. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classhryky_1_1thread_1_1_resource_af9fcef58fcb1994a1d7ec6f298e88802}{void \hyperlink{classhryky_1_1thread_1_1_resource_af9fcef58fcb1994a1d7ec6f298e88802}{activate} (\hyperlink{classhryky_1_1thread_1_1callable_1_1_base}{callable\-\_\-reference} callable)}\label{classhryky_1_1thread_1_1_resource_af9fcef58fcb1994a1d7ec6f298e88802}
+
+\begin{DoxyCompactList}\small\item\em enregisters a new callable object. \end{DoxyCompactList}\item 
+void \hyperlink{classhryky_1_1thread_1_1_resource_a2f4409684f911e1ed4b6b22bb6379d65}{ideal\-\_\-processor} (\hyperlink{namespacehryky_a5e2737162aa470ce3920f86e86eac0bc}{processor\-\_\-id\-\_\-type} processor\-\_\-id)
+\begin{DoxyCompactList}\small\item\em indicates the preferred processor on which this thread will run. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1thread_1_1_resource_a32c89b122cd2eda508a8d1b144da8b8b}{\hyperlink{classhryky_1_1thread_1_1_resource}{Resource} $\ast$ \hyperlink{classhryky_1_1thread_1_1_resource_a32c89b122cd2eda508a8d1b144da8b8b}{next} () const }\label{classhryky_1_1thread_1_1_resource_a32c89b122cd2eda508a8d1b144da8b8b}
+
+\begin{DoxyCompactList}\small\item\em retrieves the next node of this instance. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1thread_1_1_resource_a796899f9c95cb3fb66fa30e995acd293}{void \hyperlink{classhryky_1_1thread_1_1_resource_a796899f9c95cb3fb66fa30e995acd293}{next} (\hyperlink{classhryky_1_1thread_1_1_resource}{Resource} $\ast$src)}\label{classhryky_1_1thread_1_1_resource_a796899f9c95cb3fb66fa30e995acd293}
+
+\begin{DoxyCompactList}\small\item\em assign the resource as the next node of this instance \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1thread_1_1_resource_a7969d2b9cab9fc7e004d0137dec485e3}{\hyperlink{namespacehryky_a343a9a4c36a586be5c2693156200eadc}{reduction\-\_\-type} \hyperlink{classhryky_1_1thread_1_1_resource_a7969d2b9cab9fc7e004d0137dec485e3}{reduce} (\hyperlink{namespacehryky_1_1reduction_ac686c30a4c8d196bbd0f05629a6b921f}{reduction\-::name\-\_\-type} const \&name) const }\label{classhryky_1_1thread_1_1_resource_a7969d2b9cab9fc7e004d0137dec485e3}
+
+\begin{DoxyCompactList}\small\item\em decomposes the instance to primitive objects. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1thread_1_1_resource_a1456f170e50e126104346013f1436b51}{bool \hyperlink{classhryky_1_1thread_1_1_resource_a1456f170e50e126104346013f1436b51}{reset} (\hyperlink{structhryky_1_1thread_1_1_resource_1_1_reset_parameter}{Reset\-Parameter} const \&param)}\label{classhryky_1_1thread_1_1_resource_a1456f170e50e126104346013f1436b51}
+
+\begin{DoxyCompactList}\small\item\em clears the existing resources and recreate them. \end{DoxyCompactList}\item 
+\hyperlink{classhryky_1_1thread_1_1_resource_a1e7dce4836c5ff80cf23a14088bdb37a}{Resource} ()
+\begin{DoxyCompactList}\small\item\em default constructor. \end{DoxyCompactList}\item 
+void \hyperlink{classhryky_1_1thread_1_1_resource_a25c4d1b456f346f2ea386555a0856eac}{terminate} ()
+\begin{DoxyCompactList}\small\item\em calls for the end of this concurrent unit. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1thread_1_1_resource_a3cef78e4fd2ed458b741d9880805a611}{\hyperlink{classhryky_1_1thread_1_1_resource_a3cef78e4fd2ed458b741d9880805a611}{$\sim$\-Resource} ()}\label{classhryky_1_1thread_1_1_resource_a3cef78e4fd2ed458b741d9880805a611}
+
+\begin{DoxyCompactList}\small\item\em destructor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Types}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classhryky_1_1_noncopyable_aaf87abb55f700af85ecb0895f6178821}{typedef \hyperlink{classhryky_1_1_noncopyable}{Noncopyable} $\ast$ \hyperlink{classhryky_1_1_noncopyable_aaf87abb55f700af85ecb0895f6178821}{instance\-\_\-type}}\label{classhryky_1_1_noncopyable_aaf87abb55f700af85ecb0895f6178821}
+
+\begin{DoxyCompactList}\small\item\em instance type \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+holds the resource of concurrent unit. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classhryky_1_1thread_1_1_resource_a1e7dce4836c5ff80cf23a14088bdb37a}{\index{hryky\-::thread\-::\-Resource@{hryky\-::thread\-::\-Resource}!Resource@{Resource}}
+\index{Resource@{Resource}!hryky::thread::Resource@{hryky\-::thread\-::\-Resource}}
+\subsubsection[{Resource}]{\setlength{\rightskip}{0pt plus 5cm}{\bf hryky\-::thread\-::\-Resource\-::\-Resource} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}explicit\mbox{]}}}}\label{classhryky_1_1thread_1_1_resource_a1e7dce4836c5ff80cf23a14088bdb37a}
+
+
+default constructor. 
+
+constructor. 
+
+\subsection{Member Function Documentation}
+\hypertarget{classhryky_1_1thread_1_1_resource_a2f4409684f911e1ed4b6b22bb6379d65}{\index{hryky\-::thread\-::\-Resource@{hryky\-::thread\-::\-Resource}!ideal\-\_\-processor@{ideal\-\_\-processor}}
+\index{ideal\-\_\-processor@{ideal\-\_\-processor}!hryky::thread::Resource@{hryky\-::thread\-::\-Resource}}
+\subsubsection[{ideal\-\_\-processor}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf hryky\-::thread\-::\-Resource\-::ideal\-\_\-processor} (
+\begin{DoxyParamCaption}
+\item[{{\bf processor\-\_\-id\-\_\-type}}]{processor\-\_\-id}
+\end{DoxyParamCaption}
+)}}\label{classhryky_1_1thread_1_1_resource_a2f4409684f911e1ed4b6b22bb6379d65}
+
+
+indicates the preferred processor on which this thread will run. 
+
+indicates the preferred processor on which this concurrent unit will run.
+
+
+\begin{DoxyParams}{Parameters}
+{\em processor\-\_\-id} & is the identifier of a processor or a core\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyItemize}
+\item This function does not necessarily guarantee the execution on the specified processor. 
+\end{DoxyItemize}
+
+References \hyperlink{log__writer__common_8h_a7a87a8f432de12bbdfa8d6ee1a998fe2}{hryky\-\_\-log\-\_\-info}, \hyperlink{log__writer__common_8h_a1a150b0b31f517e34b4f6604348f3cbf}{hryky\-\_\-log\-\_\-warning}, and \hyperlink{namespacehryky_1_1reduction_ac5eae270cf8047b294dc4ff3e5e11a79}{hryky\-::reduction\-::map()}.
+
+
+
+Referenced by \hyperlink{classhryky_1_1thread_1_1_pool_af047102969191afe4ab1f66ee200c55d}{hryky\-::thread\-::\-Pool\-::enregister()}.
+
+\hypertarget{classhryky_1_1thread_1_1_resource_a25c4d1b456f346f2ea386555a0856eac}{\index{hryky\-::thread\-::\-Resource@{hryky\-::thread\-::\-Resource}!terminate@{terminate}}
+\index{terminate@{terminate}!hryky::thread::Resource@{hryky\-::thread\-::\-Resource}}
+\subsubsection[{terminate}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf hryky\-::thread\-::\-Resource\-::terminate} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classhryky_1_1thread_1_1_resource_a25c4d1b456f346f2ea386555a0856eac}
+
+
+calls for the end of this concurrent unit. 
+
+ends the concurrent unit. 
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{thread__resource_8h}{thread\-\_\-resource.\-h}\item 
+\hyperlink{thread__resource_8cpp}{thread\-\_\-resource.\-cpp}\end{DoxyCompactItemize}

@@ -1,0 +1,73 @@
+\hypertarget{string_8h}{\section{string.\-h File Reference}
+\label{string_8h}\index{string.\-h@{string.\-h}}
+}
+
+
+substitutes for std\-::string.  
+
+
+{\ttfamily \#include \char`\"{}hryky/allocator/allocator\-\_\-heap.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}hryky/common.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}hryky/iterator/iterator\-\_\-random.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}hryky/reduction/reduction\-\_\-common.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}hryky/swap.\-h\char`\"{}}\\*
+This graph shows which files directly or indirectly include this file\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{string_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classhryky_1_1_string}{hryky\-::\-String$<$ Char\-T, Allocator\-T $>$}
+\begin{DoxyCompactList}\small\item\em substitutes for std\-::string. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \hyperlink{namespacehryky}{hryky}
+\begin{DoxyCompactList}\small\item\em the root of all namespaces in hryky-\/codebase. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{namespacehryky_af83d27d9a54004f5981499e910bb7cb8}{{\footnotesize template$<$typename Char\-T , typename Allocator\-T $>$ }\\bool \hyperlink{namespacehryky_af83d27d9a54004f5981499e910bb7cb8}{hryky\-::operator!=} (Char\-T const $\ast$const lhs, String$<$ Char\-T, Allocator\-T $>$ const \&rhs)}\label{namespacehryky_af83d27d9a54004f5981499e910bb7cb8}
+
+\begin{DoxyCompactList}\small\item\em confirms whether a null-\/terminated character is not equal to a string. \end{DoxyCompactList}\item 
+\hypertarget{namespacehryky_a7db2acd798ff6883387f9cbe3b3e820d}{{\footnotesize template$<$typename Char\-T , typename Allocator\-T $>$ }\\bool \hyperlink{namespacehryky_a7db2acd798ff6883387f9cbe3b3e820d}{hryky\-::operator$<$} (Char\-T const $\ast$const lhs, String$<$ Char\-T, Allocator\-T $>$ const \&rhs)}\label{namespacehryky_a7db2acd798ff6883387f9cbe3b3e820d}
+
+\begin{DoxyCompactList}\small\item\em confirms whether a null-\/terminated character is less than a string. \end{DoxyCompactList}\item 
+\hypertarget{namespacestd_a8de355d917aa1d3f17837bc0129775e1}{{\footnotesize template$<$typename Char\-T , typename Allocator\-T , typename Stream\-T $>$ }\\Stream\-T \& {\bfseries std\-::operator$<$$<$} (Stream\-T \&lhs, \hyperlink{classhryky_1_1_string}{hryky\-::\-String}$<$ Char\-T, Allocator\-T $>$ const \&rhs)}\label{namespacestd_a8de355d917aa1d3f17837bc0129775e1}
+
+\begin{DoxyCompactList}\small\item\em outputs the information of reduction\-::\-Base. \end{DoxyCompactList}\item 
+\hypertarget{namespacehryky_a3841c4dbefd9eeed038376b3044dec2b}{{\footnotesize template$<$typename Char\-T , typename Allocator\-T $>$ }\\bool \hyperlink{namespacehryky_a3841c4dbefd9eeed038376b3044dec2b}{hryky\-::operator$<$=} (Char\-T const $\ast$const lhs, String$<$ Char\-T, Allocator\-T $>$ const \&rhs)}\label{namespacehryky_a3841c4dbefd9eeed038376b3044dec2b}
+
+\begin{DoxyCompactList}\small\item\em confirms whether a null-\/terminated character is less than or equal to a string. \end{DoxyCompactList}\item 
+\hypertarget{namespacehryky_a96bfe0df0a09db56e7253330de4f2243}{{\footnotesize template$<$typename Char\-T , typename Allocator\-T $>$ }\\bool \hyperlink{namespacehryky_a96bfe0df0a09db56e7253330de4f2243}{hryky\-::operator==} (Char\-T const $\ast$const lhs, String$<$ Char\-T, Allocator\-T $>$ const \&rhs)}\label{namespacehryky_a96bfe0df0a09db56e7253330de4f2243}
+
+\begin{DoxyCompactList}\small\item\em confirms whether a null-\/terminated character is equal to a string. \end{DoxyCompactList}\item 
+\hypertarget{namespacehryky_af7f213d8e2d7f4c75ac2c93d7be56365}{{\footnotesize template$<$typename Char\-T , typename Allocator\-T $>$ }\\bool \hyperlink{namespacehryky_af7f213d8e2d7f4c75ac2c93d7be56365}{hryky\-::operator$>$} (Char\-T const $\ast$const lhs, String$<$ Char\-T, Allocator\-T $>$ const \&rhs)}\label{namespacehryky_af7f213d8e2d7f4c75ac2c93d7be56365}
+
+\begin{DoxyCompactList}\small\item\em confirms whether a null-\/terminated character is greater than a string. \end{DoxyCompactList}\item 
+\hypertarget{namespacehryky_acc487ba69503ce030df6f4b9db4cbe8b}{{\footnotesize template$<$typename Char\-T , typename Allocator\-T $>$ }\\bool \hyperlink{namespacehryky_acc487ba69503ce030df6f4b9db4cbe8b}{hryky\-::operator$>$=} (Char\-T const $\ast$const lhs, String$<$ Char\-T, Allocator\-T $>$ const \&rhs)}\label{namespacehryky_acc487ba69503ce030df6f4b9db4cbe8b}
+
+\begin{DoxyCompactList}\small\item\em confirms whether a null-\/terminated character is greater than or equal to a string. \end{DoxyCompactList}\item 
+\hypertarget{namespacehryky_a152066a60658e596644dd53e09195097}{{\footnotesize template$<$typename Char\-T , typename Allocator\-T $>$ }\\reduction\-\_\-type \hyperlink{namespacehryky_a152066a60658e596644dd53e09195097}{hryky\-::reduce} (reduction\-::name\-\_\-type const \&name, String$<$ Char\-T, Allocator\-T $>$ const \&src)}\label{namespacehryky_a152066a60658e596644dd53e09195097}
+
+\begin{DoxyCompactList}\small\item\em outputs the information formatted as string. \end{DoxyCompactList}\item 
+\hypertarget{namespacehryky_a600e415922f06a6098359a86c0055eea}{{\footnotesize template$<$typename Char\-T , typename Allocator\-T $>$ }\\void \hyperlink{namespacehryky_a600e415922f06a6098359a86c0055eea}{hryky\-::swap} (String$<$ Char\-T, Allocator\-T $>$ \&lhs, String$<$ Char\-T, Allocator\-T $>$ \&rhs)}\label{namespacehryky_a600e415922f06a6098359a86c0055eea}
+
+\begin{DoxyCompactList}\small\item\em interchanges two instances of the same type. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+substitutes for std\-::string. \begin{DoxyAuthor}{Author}
+H\-R\-Y\-K\-Y 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+
+\end{DoxyVersion}
+\begin{DoxyParagraph}{Id\-:}
+\hyperlink{string_8h}{string.\-h} 150 2013-\/02-\/10 10\-:08\-:03\-Z \href{mailto:hryky.private@gmail.com}{\tt hryky.\-private@gmail.\-com} 
+\end{DoxyParagraph}

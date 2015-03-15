@@ -1,0 +1,113 @@
+\hypertarget{debug__common_8h}{\section{debug\-\_\-common.\-h File Reference}
+\label{debug__common_8h}\index{debug\-\_\-common.\-h@{debug\-\_\-common.\-h}}
+}
+
+
+common definitions of debug module.  
+
+
+{\ttfamily \#include $<$ostream$>$}\\*
+{\ttfamily \#include $<$stdexcept$>$}\\*
+{\ttfamily \#include \char`\"{}hryky/windows.\-h\char`\"{}}\\*
+This graph shows which files directly or indirectly include this file\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{debug__common_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \hyperlink{namespacehryky}{hryky}
+\begin{DoxyCompactList}\small\item\em the root of all namespaces in hryky-\/codebase. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Defines}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{debug__common_8h_a6479e85bbd44c48e39bdfb32d243fbcc}{hryky\-\_\-debug\-\_\-break}()
+\item 
+\#define \hyperlink{debug__common_8h_af50606eac4009921527ddcaed392b2c2}{hryky\-\_\-throw}(exception, what, no\-\_\-exception)~no\-\_\-exception
+\begin{DoxyCompactList}\small\item\em throws an exception with description. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+common definitions of debug module. \begin{DoxyAuthor}{Author}
+H\-R\-Y\-K\-Y 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+
+\end{DoxyVersion}
+\begin{DoxyParagraph}{Id\-:}
+\hyperlink{debug__common_8h}{debug\-\_\-common.\-h} 151 2013-\/02-\/11 05\-:42\-:07\-Z \href{mailto:hryky.private@gmail.com}{\tt hryky.\-private@gmail.\-com} 
+\end{DoxyParagraph}
+
+
+\subsection{Define Documentation}
+\hypertarget{debug__common_8h_a6479e85bbd44c48e39bdfb32d243fbcc}{\index{debug\-\_\-common.\-h@{debug\-\_\-common.\-h}!hryky\-\_\-debug\-\_\-break@{hryky\-\_\-debug\-\_\-break}}
+\index{hryky\-\_\-debug\-\_\-break@{hryky\-\_\-debug\-\_\-break}!debug_common.h@{debug\-\_\-common.\-h}}
+\subsubsection[{hryky\-\_\-debug\-\_\-break}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf hryky\-\_\-debug\-\_\-break}(
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{debug__common_8h_a6479e85bbd44c48e39bdfb32d243fbcc}
+\begin{DoxyRefDesc}{Todo}
+\item[\hyperlink{todo__todo000001}{Todo}]sends signal. \end{DoxyRefDesc}
+\hypertarget{debug__common_8h_af50606eac4009921527ddcaed392b2c2}{\index{debug\-\_\-common.\-h@{debug\-\_\-common.\-h}!hryky\-\_\-throw@{hryky\-\_\-throw}}
+\index{hryky\-\_\-throw@{hryky\-\_\-throw}!debug_common.h@{debug\-\_\-common.\-h}}
+\subsubsection[{hryky\-\_\-throw}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf hryky\-\_\-throw}(
+\begin{DoxyParamCaption}
+\item[{}]{exception, }
+\item[{}]{what, }
+\item[{}]{no\-\_\-exception}
+\end{DoxyParamCaption}
+)~no\-\_\-exception}}\label{debug__common_8h_af50606eac4009921527ddcaed392b2c2}
+
+
+throws an exception with description. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em exception} & is the name of function which instantiates the exception. \\
+\hline
+{\em what} & is Right-\/\-Hand-\/\-Side of stream". \\
+\hline
+{\em no\-\_\-exception} & is the statement invoked if the exception mechanism is disabled.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyItemize}
+\item {\itshape message\/} is assumed as the Right-\/\-Hand-\/\-Side of std\-::ostringstream\-::operator$<$$<$().
+\end{DoxyItemize}
+
+
+\begin{DoxyItemize}
+\item {\itshape no\-\_\-exception\/} can be compilied literally.
+\end{DoxyItemize}
+
+
+\begin{DoxyCode}
+  \hyperlink{debug__common_8h_af50606eac4009921527ddcaed392b2c2}{hryky_throw}(std::exception, \textcolor{stringliteral}{"output information"} << std::endl, \textcolor{keywordflow}{return} \textcolor{keyword}{false});
+\end{DoxyCode}
+
+
+If the exception mechanism is enabled, the above macro is parsed as below.
+
+
+\begin{DoxyCode}
+  std::ostringstream os;
+  os << \textcolor{stringliteral}{"output information"};
+  \textcolor{keywordflow}{throw} std::exception(os.str().c\_str());
+\end{DoxyCode}
+
+
+If the exception mechanism is disabled, the above macro is parsed as below.
+
+
+\begin{DoxyCode}
+  \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+\end{DoxyCode}
+ 
+
+Referenced by \hyperlink{classhryky_1_1_string_a79e1ddcf05952e24719cab2213f5a9a2}{hryky\-::\-String$<$ Char\-T, Allocator\-T $>$\-::append()}, \hyperlink{classhryky_1_1_string_a15549f6cd3f2a7957fc4d09d2ee1a346}{hryky\-::\-String$<$ Char\-T, Allocator\-T $>$\-::assign()}, \hyperlink{classhryky_1_1_fixed_vector_ab3116fe8dc96c1b5b5aa829bcdc0ae35}{hryky\-::\-Fixed\-Vector$<$ Value\-T, Capacity $>$\-::at()}, \hyperlink{classhryky_1_1_vector_ae825547a4a63bd87f8e2f782d6932156}{hryky\-::\-Vector$<$ Value\-T, Allocator\-T $>$\-::at()}, \hyperlink{classhryky_1_1_string_a94674af895596884bb7f365e922afb9d}{hryky\-::\-String$<$ Char\-T, Allocator\-T $>$\-::at()}, \hyperlink{classhryky_1_1_fixed_vector_a01e15b899a3d8372b38caeb04a54ceb2}{hryky\-::\-Fixed\-Vector$<$ Value\-T, Capacity $>$\-::erase()}, \hyperlink{classhryky_1_1_vector_ad52743101f866882512ab84704f07ba1}{hryky\-::\-Vector$<$ Value\-T, Allocator\-T $>$\-::erase()}, \hyperlink{classhryky_1_1_string_ab45f3fadb1ffe1fc9fdd1de9e3c87df9}{hryky\-::\-String$<$ Char\-T, Allocator\-T $>$\-::erase()}, \hyperlink{classhryky_1_1_substring_a095d9b41e44fd8be92c16c7a9ab049bf}{hryky\-::\-Substring$<$ Origin\-T, Offset\-T, Value\-T $>$\-::find()}, \hyperlink{classhryky_1_1_string_af1ae40208e3a4d23ae2e1db91464aa28}{hryky\-::\-String$<$ Char\-T, Allocator\-T $>$\-::insert()}, \hyperlink{classhryky_1_1_intrusive_ptr_a1079b1e2ed0dfe513d609ad05f64c1f2}{hryky\-::\-Intrusive\-Ptr$<$ Value\-T $>$\-::operator$\ast$()}, \hyperlink{classhryky_1_1_intrusive_ptr_aa9e65b5fa7be40a26c4e3e386fc0510b}{hryky\-::\-Intrusive\-Ptr$<$ Value\-T $>$\-::operator+()}, \hyperlink{classhryky_1_1_intrusive_ptr_a5f0638f45388d17bb3d045494b16f09f}{hryky\-::\-Intrusive\-Ptr$<$ Value\-T $>$\-::operator++()}, \hyperlink{classhryky_1_1_offset_ptr_a61e9d4ecdbb0377dffefb557515f0088}{hryky\-::\-Offset\-Ptr$<$ Origin\-T, Offset\-T, Value\-T $>$\-::operator-\/()}, \hyperlink{classhryky_1_1_intrusive_ptr_ac4f08eb767652220bbf2a379cf988bf0}{hryky\-::\-Intrusive\-Ptr$<$ Value\-T $>$\-::operator-\/()}, \hyperlink{classhryky_1_1_intrusive_ptr_a87fa7ed8e3b31f421c164aaf3091efaf}{hryky\-::\-Intrusive\-Ptr$<$ Value\-T $>$\-::operator-\/-\/()}, \hyperlink{classhryky_1_1_intrusive_ptr_a1be03a526ff80fbca45eed3933199434}{hryky\-::\-Intrusive\-Ptr$<$ Value\-T $>$\-::operator-\/$>$()}, \hyperlink{classhryky_1_1_string_af4b644fb8a0862e04f5ff123b7578ee6}{hryky\-::\-String$<$ Char\-T, Allocator\-T $>$\-::replace()}, and \hyperlink{classhryky_1_1_substring_a55f9c969b225a603e1b4d4021ecb738b}{hryky\-::\-Substring$<$ Origin\-T, Offset\-T, Value\-T $>$\-::substr()}.
+

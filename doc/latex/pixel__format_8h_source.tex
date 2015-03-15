@@ -1,0 +1,151 @@
+\hypertarget{pixel__format_8h_source}{\section{pixel\-\_\-format.\-h}
+}
+
+\begin{DoxyCode}
+00001 
+00007 \textcolor{preprocessor}{#ifndef PIXEL\_FORMAT\_H\_20120204091312050}
+00008 \textcolor{preprocessor}{}\textcolor{preprocessor}{#define PIXEL\_FORMAT\_H\_20120204091312050}
+00009 \textcolor{preprocessor}{}\textcolor{preprocessor}{#include "\hyperlink{reduction__common_8h}{hryky/reduction/reduction_common.h}"}
+00010 \textcolor{preprocessor}{#include "\hyperlink{sdl_8h}{hryky/sdl.h}"}
+00011 \textcolor{preprocessor}{#include "\hyperlink{stdint_8h}{hryky/stdint.h}"}
+00012 \textcolor{preprocessor}{#include "\hyperlink{noncopyable_8h}{hryky/noncopyable.h}"}
+00013 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00014 \textcolor{comment}{// macro definition}
+00015 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00016 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00017 \textcolor{comment}{// namespace}
+00018 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00019 \textcolor{keyword}{namespace }hryky
+00020 \{
+00021 \textcolor{keyword}{namespace }pixel
+00022 \{
+00024     \textcolor{keyword}{class }Format;
+00025 
+00027     \hyperlink{namespacehryky_a343a9a4c36a586be5c2693156200eadc}{reduction_type} \hyperlink{namespacehryky_af41cb3af6766761da0ff21b84527a52c}{reduce}(
+00028         \hyperlink{namespacehryky_1_1reduction_ac686c30a4c8d196bbd0f05629a6b921f}{reduction::name_type} \textcolor{keyword}{const} & name, Format \textcolor{keyword}{const} & format);
+00029 
+00030 \}
+00031 \}
+00032 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00033 \textcolor{comment}{// class declaration}
+00034 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+\hypertarget{pixel__format_8h_source_l00038}{}\hyperlink{classhryky_1_1pixel_1_1_format}{00038} \textcolor{comment}{}\textcolor{keyword}{class }\hyperlink{classhryky_1_1pixel_1_1_format}{hryky::pixel::Format}
+00039 \{
+00040 \textcolor{keyword}{public} :
+00041 
+\hypertarget{pixel__format_8h_source_l00043}{}\hyperlink{classhryky_1_1pixel_1_1_format_a020a3436c6988f39e98d127ecb85c000}{00043}     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1pixel_1_1_format}{hryky::pixel::Format} \hyperlink{classhryky_1_1pixel_1_1_format_a020a3436c6988f39e98d127ecb85c000}{this_type};
+00044 
+\hypertarget{pixel__format_8h_source_l00046}{}\hyperlink{classhryky_1_1pixel_1_1_format_ac65267000940a3f9a74c01f82ed616e4}{00046}     \textcolor{keyword}{enum} \hyperlink{classhryky_1_1pixel_1_1_format_ac65267000940a3f9a74c01f82ed616e4}{Kind}
+00047     \{
+00048         invalid\_ = 0,
+00049         r8g8b8x8\_,
+00050         b8g8r8x8\_,
+00051         r8g8b8a8\_,
+00052         b8g8r8a8\_,
+00053         a8r8g8b8\_,
+00054         a8b8g8r8\_,
+00055         r8g8b8\_,
+00056         b8g8r8\_,
+00057         r5g6b5\_,
+00058         b5g6r5\_,
+00059         num\_,
+00060     \};
+00061 
+\hypertarget{pixel__format_8h_source_l00063}{}\hyperlink{structhryky_1_1pixel_1_1_format_1_1_traits}{00063}     \textcolor{keyword}{struct }\hyperlink{structhryky_1_1pixel_1_1_format_1_1_traits}{Traits}
+00064     \{
+00065         \textcolor{keyword}{typedef} uint8\_t         bytes\_type;
+00066         \textcolor{keyword}{typedef} \textcolor{keywordtype}{char} \textcolor{keyword}{const} *    name\_type;
+00067 
+00068         \textcolor{keyword}{struct }Order : \hyperlink{classhryky_1_1_noncopyable}{Noncopyable}
+00069         \{
+00070             \textcolor{keyword}{enum} \hyperlink{classhryky_1_1pixel_1_1_format_ac65267000940a3f9a74c01f82ed616e4}{Kind}
+00071             \{
+00072                 invalid\_,
+00073                 rgbx\_,
+00074                 bgrx\_,
+00075                 rgba\_,
+00076                 bgra\_,
+00077                 rgb\_,
+00078                 bgr\_,
+00079                 argb\_,
+00080                 abgr\_,
+00081                 num,
+00082             \};
+00083         \};
+00084         \textcolor{keyword}{typedef} Order::Kind     order\_type;
+00085 
+\hypertarget{pixel__format_8h_source_l00087}{}\hyperlink{structhryky_1_1pixel_1_1_format_1_1_traits_a97fd4ec219a34e3bf68564fa09282eb8}{00087}         name\_type \hyperlink{structhryky_1_1pixel_1_1_format_1_1_traits_a97fd4ec219a34e3bf68564fa09282eb8}{name}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} this->name\_; \}
+00088 
+\hypertarget{pixel__format_8h_source_l00090}{}\hyperlink{structhryky_1_1pixel_1_1_format_1_1_traits_a2adccc1b9f085b88aa595dad194f66da}{00090}         order\_type \hyperlink{structhryky_1_1pixel_1_1_format_1_1_traits_a2adccc1b9f085b88aa595dad194f66da}{order}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} this->order\_; \}
+00091 
+\hypertarget{pixel__format_8h_source_l00093}{}\hyperlink{structhryky_1_1pixel_1_1_format_1_1_traits_a3aa3bca384e61fb00c2c043609dd7786}{00093}         bytes\_type \hyperlink{structhryky_1_1pixel_1_1_format_1_1_traits_a3aa3bca384e61fb00c2c043609dd7786}{bytes}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} this->bytes\_; \}
+00094 
+00095         name\_type       name\_;
+00096         order\_type      order\_;
+00097         bytes\_type      bytes\_;
+00098 
+00099     \textcolor{keyword}{private} :
+00100 
+00101     \};
+00102 
+\hypertarget{pixel__format_8h_source_l00104}{}\hyperlink{classhryky_1_1pixel_1_1_format_a4e6ab1e9c92ec3d882d8a29b727b5ff2}{00104}     \textcolor{keyword}{explicit} \hyperlink{classhryky_1_1pixel_1_1_format_a4e6ab1e9c92ec3d882d8a29b727b5ff2}{Format}() : kind\_(invalid\_) \{\};
+00105 
+\hypertarget{pixel__format_8h_source_l00107}{}\hyperlink{classhryky_1_1pixel_1_1_format_a52a2927e47f9b3d8d44f7161f568963b}{00107}     \hyperlink{classhryky_1_1pixel_1_1_format_a52a2927e47f9b3d8d44f7161f568963b}{Format}(\hyperlink{classhryky_1_1pixel_1_1_format_ac65267000940a3f9a74c01f82ed616e4}{Kind} \hyperlink{classhryky_1_1pixel_1_1_format_aef9836d7d4d18179d09ddfcc3e7758a6}{kind}) : kind\_(kind) \{\}
+00108 
+00109 \textcolor{preprocessor}{#if HRYKY\_USE\_SDL}
+00110 \textcolor{preprocessor}{}    \textcolor{keyword}{struct }SDLFormat : \hyperlink{classhryky_1_1_noncopyable}{Noncopyable}
+00111     \{
+00112         \textcolor{keyword}{explicit} SDLFormat(uint32\_t raw) : raw\_(raw) \{\}
+00113 
+00114         uint32\_t raw\_;
+00115     \};
+00117     \hyperlink{classhryky_1_1pixel_1_1_format_a4e6ab1e9c92ec3d882d8a29b727b5ff2}{Format}(SDLFormat \textcolor{keyword}{const} & sdl\_format);
+00118 
+00120     uint32\_t sdl\_format() \textcolor{keyword}{const};
+00121 \textcolor{preprocessor}{#endif // HRYKY\_USE\_SDL}
+00122 \textcolor{preprocessor}{}
+\hypertarget{pixel__format_8h_source_l00124}{}\hyperlink{classhryky_1_1pixel_1_1_format_a1f8560dae7a81e3a08b822b602c90c61}{00124}     \hyperlink{classhryky_1_1pixel_1_1_format_a1f8560dae7a81e3a08b822b602c90c61}{~Format}() \{\};
+00125 
+\hypertarget{pixel__format_8h_source_l00127}{}\hyperlink{classhryky_1_1pixel_1_1_format_a738b6b19d910c89de6b74469695e4a0e}{00127}     \hyperlink{classhryky_1_1pixel_1_1_format_a738b6b19d910c89de6b74469695e4a0e}{Format}(\hyperlink{classhryky_1_1pixel_1_1_format}{Format} \textcolor{keyword}{const} & rhs) : kind\_(rhs.kind\_) \{\};
+00128 
+\hypertarget{pixel__format_8h_source_l00130}{}\hyperlink{classhryky_1_1pixel_1_1_format_a632c962b9bdc0618747d6cb65a4510bb}{00130}     \hyperlink{classhryky_1_1pixel_1_1_format}{Format} & \hyperlink{classhryky_1_1pixel_1_1_format_a632c962b9bdc0618747d6cb65a4510bb}{operator=}(\hyperlink{classhryky_1_1pixel_1_1_format}{Format} \textcolor{keyword}{const} & rhs) \{
+00131         this->kind\_ = rhs.kind\_;
+00132         \textcolor{keywordflow}{return} *\textcolor{keyword}{this};
+00133     \};
+00134 
+00136     Traits \textcolor{keyword}{const} & \hyperlink{classhryky_1_1pixel_1_1_format_a996feea3534e20ea7feac5d72a99b4c7}{traits}() \textcolor{keyword}{const};
+00137 
+\hypertarget{pixel__format_8h_source_l00139}{}\hyperlink{classhryky_1_1pixel_1_1_format_aef9836d7d4d18179d09ddfcc3e7758a6}{00139}     \hyperlink{classhryky_1_1pixel_1_1_format_ac65267000940a3f9a74c01f82ed616e4}{Kind} \hyperlink{classhryky_1_1pixel_1_1_format_aef9836d7d4d18179d09ddfcc3e7758a6}{kind}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} this->kind\_; \}
+00140 
+00141 
+00142 \textcolor{keyword}{protected} :
+00143 
+00144 \textcolor{keyword}{private} :
+00145 
+00146     \hyperlink{classhryky_1_1_kind}{Kind}    kind\_;
+00147 
+00148 \};
+00149 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00150 \textcolor{comment}{// public member functions}
+00151 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00152 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00153 \textcolor{comment}{// protected member functions}
+00154 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00155 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00156 \textcolor{comment}{// private member functions}
+00157 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00158 \textcolor{preprocessor}{#endif // PIXEL\_FORMAT\_H\_20120204091312050}
+00159 \textcolor{preprocessor}{}\textcolor{comment}{// end of file}
+\end{DoxyCode}

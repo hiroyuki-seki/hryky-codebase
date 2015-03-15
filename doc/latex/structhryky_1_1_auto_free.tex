@@ -1,0 +1,68 @@
+\hypertarget{structhryky_1_1_auto_free}{\section{hryky\-:\-:Auto\-Free Struct Reference}
+\label{structhryky_1_1_auto_free}\index{hryky\-::\-Auto\-Free@{hryky\-::\-Auto\-Free}}
+}
+
+
+deallocate a pointer when the current scope exits.  
+
+
+
+
+{\ttfamily \#include $<$raii.\-h$>$}
+
+
+
+Inheritance diagram for hryky\-:\-:Auto\-Free\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=182pt]{structhryky_1_1_auto_free__inherit__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classhryky_1_1_noncopyable_aaf87abb55f700af85ecb0895f6178821}{typedef \hyperlink{classhryky_1_1_noncopyable}{Noncopyable} $\ast$ \hyperlink{classhryky_1_1_noncopyable_aaf87abb55f700af85ecb0895f6178821}{instance\-\_\-type}}\label{classhryky_1_1_noncopyable_aaf87abb55f700af85ecb0895f6178821}
+
+\begin{DoxyCompactList}\small\item\em instance type \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1_noncopyable_acf13ad1c98a76247a561dff514979da5}{typedef \hyperlink{classhryky_1_1_noncopyable}{hryky\-::\-Noncopyable} \hyperlink{classhryky_1_1_noncopyable_acf13ad1c98a76247a561dff514979da5}{this\-\_\-type}}\label{classhryky_1_1_noncopyable_acf13ad1c98a76247a561dff514979da5}
+
+\begin{DoxyCompactList}\small\item\em self \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structhryky_1_1_auto_free_aa81ba9b3cab905c2a0e5067d18a56987}{Auto\-Free} (void $\ast$ptr)
+\begin{DoxyCompactList}\small\item\em constructor with a deallocated pointer. \end{DoxyCompactList}\item 
+\hypertarget{structhryky_1_1_auto_free_a0bac324a922b7685182566ad76085cd1}{void \hyperlink{structhryky_1_1_auto_free_a0bac324a922b7685182566ad76085cd1}{disable} ()}\label{structhryky_1_1_auto_free_a0bac324a922b7685182566ad76085cd1}
+
+\begin{DoxyCompactList}\small\item\em cancels the deallocation. \end{DoxyCompactList}\item 
+\hypertarget{structhryky_1_1_auto_free_abeab1627044f1933a45978e2b580f8a7}{\hyperlink{structhryky_1_1_auto_free_abeab1627044f1933a45978e2b580f8a7}{$\sim$\-Auto\-Free} ()}\label{structhryky_1_1_auto_free_abeab1627044f1933a45978e2b580f8a7}
+
+\begin{DoxyCompactList}\small\item\em destructor \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+deallocate a pointer when the current scope exits. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{structhryky_1_1_auto_free_aa81ba9b3cab905c2a0e5067d18a56987}{\index{hryky\-::\-Auto\-Free@{hryky\-::\-Auto\-Free}!Auto\-Free@{Auto\-Free}}
+\index{Auto\-Free@{Auto\-Free}!hryky::AutoFree@{hryky\-::\-Auto\-Free}}
+\subsubsection[{Auto\-Free}]{\setlength{\rightskip}{0pt plus 5cm}{\bf hryky\-::\-Auto\-Free\-::\-Auto\-Free} (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{ptr}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}\label{structhryky_1_1_auto_free_aa81ba9b3cab905c2a0e5067d18a56987}
+
+
+constructor with a deallocated pointer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ptr} & is the pointer of the instance to be freed. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this struct was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{raii_8h}{raii.\-h}\end{DoxyCompactItemize}

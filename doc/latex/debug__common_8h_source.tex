@@ -1,0 +1,86 @@
+\hypertarget{debug__common_8h_source}{\section{debug\-\_\-common.\-h}
+}
+
+\begin{DoxyCode}
+00001 
+00007 \textcolor{preprocessor}{#ifndef DEBUG\_COMMON\_H\_20120226094658074}
+00008 \textcolor{preprocessor}{}\textcolor{preprocessor}{#define DEBUG\_COMMON\_H\_20120226094658074}
+00009 \textcolor{preprocessor}{}\textcolor{preprocessor}{#include <ostream>}
+00010 \textcolor{preprocessor}{#include <stdexcept>}
+00011 \textcolor{preprocessor}{#include "\hyperlink{windows_8h}{hryky/windows.h}"}
+00012 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00013 \textcolor{comment}{// macro definition}
+00014 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00015 \textcolor{preprocessor}{#if defined(NDEBUG)}
+00016 \textcolor{preprocessor}{}\textcolor{preprocessor}{#   define hryky\_debug\_break()}
+00017 \textcolor{preprocessor}{}\textcolor{preprocessor}{#   define hryky\_debug\_output(msg)}
+00018 \textcolor{preprocessor}{}\textcolor{preprocessor}{#   define hryky\_debug\_output\_cstr(cstr)}
+00019 \textcolor{preprocessor}{}\textcolor{preprocessor}{#else}
+00020 \textcolor{preprocessor}{}\textcolor{preprocessor}{#   define hryky\_debug\_output(msg) \(\backslash\)}
+00021 \textcolor{preprocessor}{\{\(\backslash\)}
+00022 \textcolor{preprocessor}{    std::ostringstream out;\(\backslash\)}
+00023 \textcolor{preprocessor}{    out << hryky\_source\_position << msg;\(\backslash\)}
+00024 \textcolor{preprocessor}{    hryky\_debug\_output\_cstr(out.str().c\_str());\(\backslash\)}
+00025 \textcolor{preprocessor}{\}}
+00026 \textcolor{preprocessor}{}\textcolor{preprocessor}{#   if HRYKY\_WIN32}
+00027 \textcolor{preprocessor}{}\textcolor{preprocessor}{#       define hryky\_debug\_break()              ::DebugBreak()}
+00028 \textcolor{preprocessor}{}\textcolor{preprocessor}{#       define hryky\_debug\_output\_cstr(cstr)    ::OutputDebugString(cstr)}
+00029 \textcolor{preprocessor}{}\textcolor{preprocessor}{#   else}
+\hypertarget{debug__common_8h_source_l00030}{}\hyperlink{debug__common_8h_a6479e85bbd44c48e39bdfb32d243fbcc}{00030} \textcolor{preprocessor}{}\textcolor{preprocessor}{#       define hryky\_debug\_break()              ///< @todo sends signal.}
+00031 \textcolor{preprocessor}{}\textcolor{preprocessor}{#       define hryky\_debug\_output\_cstr(cstr)    (std::cerr << (cstr))}
+00032 \textcolor{preprocessor}{}\textcolor{preprocessor}{#   endif}
+00033 \textcolor{preprocessor}{}\textcolor{preprocessor}{#endif}
+00034 \textcolor{preprocessor}{}
+00063 \textcolor{preprocessor}{#if HRYKY\_USE\_EXCEPTION}
+00064 \textcolor{preprocessor}{}\textcolor{preprocessor}{#   define hryky\_throw(exception, what, no\_exception) \(\backslash\)}
+00065 \textcolor{preprocessor}{    \{ \(\backslash\)}
+00066 \textcolor{preprocessor}{        std::ostringstream os;\(\backslash\)}
+00067 \textcolor{preprocessor}{        os << hryky\_source\_position << what;\(\backslash\)}
+00068 \textcolor{preprocessor}{        throw exception(os.str().c\_str());\(\backslash\)}
+00069 \textcolor{preprocessor}{    \}}
+00070 \textcolor{preprocessor}{}\textcolor{preprocessor}{#else // HRYKY\_USE\_EXCEPTION}
+\hypertarget{debug__common_8h_source_l00071}{}\hyperlink{debug__common_8h_af50606eac4009921527ddcaed392b2c2}{00071} \textcolor{preprocessor}{}\textcolor{preprocessor}{#   define hryky\_throw(exception, what, no\_exception) \(\backslash\)}
+00072 \textcolor{preprocessor}{        no\_exception}
+00073 \textcolor{preprocessor}{}\textcolor{preprocessor}{#endif // HRYKY\_USE\_EXCEPTION}
+00074 \textcolor{preprocessor}{}
+00075 
+00076 \textcolor{preprocessor}{#if HRYKY\_WIN32}
+00077 \textcolor{preprocessor}{}\textcolor{preprocessor}{#   define hryky\_function   \_\_FUNCTION\_\_}
+00078 \textcolor{preprocessor}{}\textcolor{preprocessor}{#else}
+00079 \textcolor{preprocessor}{}\textcolor{preprocessor}{#   define hryky\_function   \_\_func\_\_}
+00080 \textcolor{preprocessor}{}\textcolor{preprocessor}{#endif}
+00081 \textcolor{preprocessor}{}
+00082 \textcolor{preprocessor}{#define hryky\_source\_position \(\backslash\)}
+00083 \textcolor{preprocessor}{    hryky::debug::Source(\_\_FILE\_\_, hryky\_function, \_\_LINE\_\_)}
+00084 \textcolor{preprocessor}{}
+00085 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00086 \textcolor{comment}{// namespace}
+00087 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00088 \textcolor{keyword}{namespace }hryky
+00089 \{
+00090 \textcolor{keyword}{namespace }debug
+00091 \{
+00092 \}
+00093 \}
+00094 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00095 \textcolor{comment}{// struct declaration}
+00096 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00097 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00098 \textcolor{comment}{// class declaration}
+00099 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00100 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00101 \textcolor{comment}{// function definition}
+00102 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00103 \textcolor{preprocessor}{#endif // DEBUG\_COMMON\_H\_20120226094658074}
+00104 \textcolor{preprocessor}{}\textcolor{comment}{// end of file}
+\end{DoxyCode}

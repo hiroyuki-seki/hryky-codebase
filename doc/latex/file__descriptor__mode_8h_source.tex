@@ -1,0 +1,159 @@
+\hypertarget{file__descriptor__mode_8h_source}{\section{file\-\_\-descriptor\-\_\-mode.\-h}
+}
+
+\begin{DoxyCode}
+00001 
+00007 \textcolor{preprocessor}{#ifndef FILE\_DESCRIPTOR\_MODE\_H\_20130209135355245}
+00008 \textcolor{preprocessor}{}\textcolor{preprocessor}{#define FILE\_DESCRIPTOR\_MODE\_H\_20130209135355245}
+00009 \textcolor{preprocessor}{}\textcolor{preprocessor}{#include "\hyperlink{bitfield_8h}{hryky/bitfield.h}"}
+00010 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00011 \textcolor{comment}{// macro definition}
+00012 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00013 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00014 \textcolor{comment}{// namespace}
+00015 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00016 \textcolor{keyword}{namespace }hryky
+00017 \{
+00018 \textcolor{keyword}{namespace }file
+00019 \{
+00020 \textcolor{keyword}{namespace }descriptor
+00021 \{
+00023     \textcolor{keyword}{class }Mode;
+00024 
+00025 \} \textcolor{comment}{// namespace descriptor}
+00026 \} \textcolor{comment}{// namespace file}
+00027 \} \textcolor{comment}{// namespace hryky}
+00028 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00029 \textcolor{comment}{// class declarations}
+00030 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+\hypertarget{file__descriptor__mode_8h_source_l00034}{}\hyperlink{classhryky_1_1file_1_1descriptor_1_1_mode}{00034} \textcolor{comment}{}\textcolor{keyword}{class }\hyperlink{classhryky_1_1file_1_1descriptor_1_1_mode}{hryky::file::descriptor::Mode}
+00035 \{
+00036 \textcolor{keyword}{public} :
+00037 
+\hypertarget{file__descriptor__mode_8h_source_l00038}{}\hyperlink{classhryky_1_1file_1_1descriptor_1_1_mode_a06dd006ab194ebabae7e2b324246df44}{00038}     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1file_1_1descriptor_1_1_mode}{Mode} \hyperlink{classhryky_1_1file_1_1descriptor_1_1_mode_a06dd006ab194ebabae7e2b324246df44}{this_type};
+00039 
+00041     \hyperlink{classhryky_1_1file_1_1descriptor_1_1_mode_a86f797b62eb4fdd0cb39bd7f82a92ddf}{Mode}();
+00042 
+00044     \hyperlink{classhryky_1_1file_1_1descriptor_1_1_mode_a86f797b62eb4fdd0cb39bd7f82a92ddf}{Mode}(\hyperlink{classhryky_1_1file_1_1descriptor_1_1_mode}{this_type} \textcolor{keyword}{const} &);
+00045 
+00047     \hyperlink{classhryky_1_1file_1_1descriptor_1_1_mode_a86f797b62eb4fdd0cb39bd7f82a92ddf}{Mode}(\hyperlink{classhryky_1_1file_1_1descriptor_1_1_mode}{this_type} &&);
+00048 
+00050     \hyperlink{classhryky_1_1file_1_1descriptor_1_1_mode_a4ba0ea00e138073c98a8f4a2b7194d92}{~Mode}();
+00051 
+\hypertarget{file__descriptor__mode_8h_source_l00053}{}\hyperlink{classhryky_1_1file_1_1descriptor_1_1_mode_a2668dae2a013ae1932819d22a121adb8}{00053}     \hyperlink{classhryky_1_1file_1_1descriptor_1_1_mode_a2668dae2a013ae1932819d22a121adb8}{hryky_assign_op};
+00054 
+00056     \textcolor{keywordtype}{void} \hyperlink{classhryky_1_1file_1_1descriptor_1_1_mode_a56f17b65836a3add1b908e2df24b126f}{clear}();
+00057 
+00059     \hyperlink{classhryky_1_1_intrusive_ptr}{reduction_type} \hyperlink{classhryky_1_1file_1_1descriptor_1_1_mode_afa930c7576622d0def066d6ce3b0894f}{reduce}(\hyperlink{classhryky_1_1reduction_1_1_string}{reduction::name_type} \textcolor{keyword}{const} & name) \textcolor{keyword}{const};
+00060 
+00062     \textcolor{keywordtype}{void} \hyperlink{classhryky_1_1file_1_1descriptor_1_1_mode_a294fd4f518b15bb59bedba3d5c2484bb}{swap}(\hyperlink{classhryky_1_1file_1_1descriptor_1_1_mode}{this_type} & src);
+00063 
+00064 \textcolor{preprocessor}{#if HRYKY\_WIN32}
+00065 \textcolor{preprocessor}{}
+00066     DWORD desired\_access() \textcolor{keyword}{const};
+00067 
+00069     DWORD share\_mode() \textcolor{keyword}{const};
+00070 
+00072     DWORD creation\_disposition() \textcolor{keyword}{const};
+00073 
+00075     SECURITY\_ATTRIBUTES * security\_attributes() \textcolor{keyword}{const};
+00076 
+00078     DWORD flags\_and\_attributes() \textcolor{keyword}{const};
+00079 
+00081     HANDLE template\_file() \textcolor{keyword}{const};
+00082 
+00083 \textcolor{preprocessor}{#endif // HRYKY\_WIN32}
+00084 \textcolor{preprocessor}{}
+00085 \textcolor{keyword}{protected} :
+00086 
+00087 \textcolor{keyword}{private} :
+00088 
+00089     \textcolor{keyword}{struct }Flags \{
+00090         \textcolor{keywordtype}{bool} read\_:1;
+00091         \textcolor{keywordtype}{bool} write\_:1;
+00092         
+00093         \textcolor{keywordtype}{bool} share\_read\_:1;
+00094         \textcolor{keywordtype}{bool} share\_write\_:1;
+00095         \textcolor{keywordtype}{bool} share\_delete\_:1;
+00096 
+00097         \textcolor{keywordtype}{bool} create\_new\_:1;
+00098         \textcolor{keywordtype}{bool} open\_existing\_:1;
+00099         \textcolor{keywordtype}{bool} truncate\_:1;
+00100 
+00101         \textcolor{keywordtype}{bool} normal\_:1;
+00102         \textcolor{keywordtype}{bool} hidden\_:1;
+00103         \textcolor{keywordtype}{bool} read\_only\_:1;
+00104         \textcolor{keywordtype}{bool} no\_buffering\_:1;
+00105         \textcolor{keywordtype}{bool} async\_:1;
+00106         \textcolor{keywordtype}{bool} random\_:1;
+00107         \textcolor{keywordtype}{bool} sequential\_:1;
+00108         \textcolor{keywordtype}{bool} write\_through\_:1;
+00109     \};
+00110     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1_bitfield}{Bitfield<Flags>} flags\_type;
+00111 
+00112     flags\_type flags\_;
+00113 
+00114 \};
+00115 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00116 \textcolor{comment}{// class specializations}
+00117 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00118 \textcolor{keyword}{namespace }hryky
+00119 \{
+00120 \textcolor{keyword}{namespace }file
+00121 \{
+00122 \textcolor{keyword}{namespace }descriptor
+00123 \{
+00124 \} \textcolor{comment}{// namespace descriptor}
+00125 \} \textcolor{comment}{// namespace file}
+00126 \} \textcolor{comment}{// namespace hryky}
+00127 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00128 \textcolor{comment}{// public member functions}
+00129 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00130 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00131 \textcolor{comment}{// protected member functions}
+00132 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00133 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00134 \textcolor{comment}{// private member functions}
+00135 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00136 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00137 \textcolor{comment}{// global function prototypes}
+00138 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00139 \textcolor{keyword}{namespace }hryky
+00140 \{
+00141 \textcolor{keyword}{namespace }file
+00142 \{
+00143 \textcolor{keyword}{namespace }descriptor
+00144 \{
+00146     \hyperlink{namespacehryky_a343a9a4c36a586be5c2693156200eadc}{reduction_type} \hyperlink{namespacehryky_af41cb3af6766761da0ff21b84527a52c}{reduce}(
+00147         \hyperlink{namespacehryky_1_1reduction_ac686c30a4c8d196bbd0f05629a6b921f}{reduction::name_type} \textcolor{keyword}{const} & name, Mode \textcolor{keyword}{const} & src);
+00148 
+00150     \textcolor{keywordtype}{void} \hyperlink{namespacehryky_a4282146df5ea2b68cb667896a2205909}{swap}(
+00151         Mode & lhs, Mode & rhs);
+00152 
+00153 \} \textcolor{comment}{// namespace descriptor}
+00154 \} \textcolor{comment}{// namespace file}
+00155 \} \textcolor{comment}{// namespace hryky}
+00156 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00157 \textcolor{comment}{// global function definitions}
+00158 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00159 \textcolor{preprocessor}{#endif // FILE\_DESCRIPTOR\_MODE\_H\_20130209135355245}
+00160 \textcolor{preprocessor}{}\textcolor{comment}{// end of file}
+\end{DoxyCode}

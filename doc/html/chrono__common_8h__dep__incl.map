@@ -1,0 +1,51 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$chrono_8h.html" title="collection of the chrono modules." alt="" coords="941,80,1013,107"/>
+<area shape="rect" id="node149" href="$chrono__common_8cpp.html" title="common definition for hryky::chrono module." alt="" coords="1038,80,1180,107"/>
+<area shape="rect" id="node5" href="$exclusion__common_8h.html" title="common definitions of exclusion module." alt="" coords="298,155,443,181"/>
+<area shape="rect" id="node23" href="$thread__pool_8h.html" title="manages the collection of reusable concurrent units." alt="" coords="661,453,760,480"/>
+<area shape="rect" id="node33" href="$thread__resource_8cpp.html" title="holds the resource of concurrent unit." alt="" coords="497,528,636,555"/>
+<area shape="rect" id="node67" href="$http__header__cache__common_8h.html" title="common definitions for hryky::http::header::cache." alt="" coords="2267,155,2467,181"/>
+<area shape="rect" id="node109" href="$http__header__date__entity_8h_source.html" title="http_header_date_entity.h" alt="" coords="1741,155,1912,181"/>
+<area shape="rect" id="node119" href="$http__header__parser_8h.html" title="parses a text string of HTTP Message." alt="" coords="2909,304,3053,331"/>
+<area shape="rect" id="node126" href="$task__common_8h.html" title="common definitions for task module." alt="" coords="1180,229,1295,256"/>
+<area shape="rect" id="node141" href="$thread__common_8h.html" title="common definitions of thread module." alt="" coords="661,379,787,405"/>
+<area shape="rect" id="node7" href="$exclusion__cond_8h.html" title="exclusion object : condition variable." alt="" coords="309,229,432,256"/>
+<area shape="rect" id="node9" href="$exclusion__counter_8h.html" title="joinable counter." alt="" coords="404,304,543,331"/>
+<area shape="rect" id="node11" href="$exclusion_8h.html" title="exclusive control modules." alt="" coords="312,379,400,405"/>
+<area shape="rect" id="node21" href="$exclusion__flag_8cpp.html" title="synchronizes the change of a boolean value." alt="" coords="5,528,133,555"/>
+<area shape="rect" id="node17" href="$exclusion__cond_8cpp.html" title="exclusion object : condition variable." alt="" coords="158,528,295,555"/>
+<area shape="rect" id="node50" href="$exclusion__flag_8h.html" title="synchronizes the change of a boolean value." alt="" coords="113,304,228,331"/>
+<area shape="rect" id="node56" href="$task__distributor__base_8h.html" title="attaches workers to the concurrent units." alt="" coords="1211,379,1368,405"/>
+<area shape="rect" id="node60" href="$task__sequence_8h.html" title="manages workers in a thread." alt="" coords="927,304,1048,331"/>
+<area shape="rect" id="node19" href="$exclusion__counter_8cpp.html" title="joinable counter." alt="" coords="320,528,472,555"/>
+<area shape="rect" id="node41" href="$task__concurrency_8h.html" title="manages concurrency units." alt="" coords="1051,379,1187,405"/>
+<area shape="rect" id="node13" href="$hryky_8h.html" title="include the entire headers of hryky&#45;codebase." alt="" coords="962,528,1027,555"/>
+<area shape="rect" id="node15" href="$exclusion_2src_2precompiled_8h_source.html" title="precompiled.h" alt="" coords="230,453,332,480"/>
+<area shape="rect" id="node35" href="$thread__resource_8h.html" title="holds the resource of concurrent unit." alt="" coords="510,453,636,480"/>
+<area shape="rect" id="node25" href="$thread_8h.html" title="collection of the thread module." alt="" coords="868,528,937,555"/>
+<area shape="rect" id="node31" href="$thread__pool_8cpp.html" title="manages the collection of reusable concurrent units." alt="" coords="661,528,776,555"/>
+<area shape="rect" id="node27" href="$task__concurrency_8cpp.html" title="manages concurrent units." alt="" coords="827,603,977,629"/>
+<area shape="rect" id="node29" href="$task__sequence_8cpp.html" title="manages workers in a thread." alt="" coords="1074,603,1208,629"/>
+<area shape="rect" id="node43" href="$task_8h.html" title="task modules." alt="" coords="1399,453,1457,480"/>
+<area shape="rect" id="node47" href="$task__distributor__base_8cpp.html" title="attaches workers to the concurrent units." alt="" coords="1204,453,1375,480"/>
+<area shape="rect" id="node69" href="$http__header__cache__control__entity_8h.html" title="retains &#39;Cache&#45;Control&#39; field of HTTP Header." alt="" coords="2329,229,2556,256"/>
+<area shape="rect" id="node73" href="$http_8h.html" title="modules to manage HTTP." alt="" coords="2314,453,2368,480"/>
+<area shape="rect" id="node100" href="$http__header__cache__directive__second_8h.html" title="retains delta&#45;seconds of cache&#45;directive in HTTP Header." alt="" coords="2614,229,2860,256"/>
+<area shape="rect" id="node71" href="$http__header__cache__directive__dispatcher__apply_8h.html" title="applies the implementation of cache&#45;directive to cache&#45;control." alt="" coords="2379,379,2681,405"/>
+<area shape="rect" id="node77" href="$http__header__cache__control__entity_8cpp.html" title="retains &#39;Cache&#45;Control&#39; field of HTTP Header." alt="" coords="2321,603,2564,629"/>
+<area shape="rect" id="node91" href="$http__header__field__dispatcher__base_8h.html" title="base class to be dispatched the class derived from http::header::field::Base." alt="" coords="1878,304,2111,331"/>
+<area shape="rect" id="node75" href="$http_2src_2precompiled_8h_source.html" title="precompiled.h" alt="" coords="2334,528,2436,555"/>
+<area shape="rect" id="node79" href="$http__header__cache__directive__second_8cpp.html" title="retains delta&#45;seconds of cache&#45;directive in HTTP Header." alt="" coords="2589,603,2848,629"/>
+<area shape="rect" id="node81" href="$http__header__date__entity_8cpp.html" title="retains the information for &#39;HTTP&#45;date&#39; of HTTP Header." alt="" coords="1612,603,1799,629"/>
+<area shape="rect" id="node83" href="$http__header__expires__entity_8cpp.html" title="retains the information for &#39;Expires&#39; field of HTTP Header." alt="" coords="1823,603,2025,629"/>
+<area shape="rect" id="node85" href="$http__header__field__dispatcher__base_8cpp.html" title="base class to be dispatched the class derived from http::header::field::Base." alt="" coords="2050,603,2296,629"/>
+<area shape="rect" id="node87" href="$http__header__parser_8cpp.html" title="parses a text string of HTTP Message." alt="" coords="3010,603,3168,629"/>
+<area shape="rect" id="node89" href="$http__parser_8cpp.html" title="writes out a HTTP Message." alt="" coords="2873,603,2985,629"/>
+<area shape="rect" id="node93" href="$http__header__field__dispatcher__apply_8h.html" title="applies the implementation of field to HTTP Header." alt="" coords="1966,379,2201,405"/>
+<area shape="rect" id="node102" href="$http__header__cache__directive__dispatcher__base_8h.html" title="base class to be dispatched the implementation derived from http::header::cache::directive::Base." alt="" coords="2435,304,2733,331"/>
+<area shape="rect" id="node111" href="$http__header__expires__entity_8h.html" title="retains the information for &#39;Expires&#39; field of HTTP Header." alt="" coords="1915,229,2104,256"/>
+<area shape="rect" id="node121" href="$http__parser_8h.html" title="writes out a HTTP Message." alt="" coords="2909,379,3008,405"/>
+<area shape="rect" id="node131" href="$task__worker__base_8h.html" title="executes tasks." alt="" coords="1361,304,1500,331"/>
+<area shape="rect" id="node134" href="$task__worker__batch_8h.html" title="executes tasks in common use." alt="" coords="1494,379,1636,405"/>
+<area shape="rect" id="node144" href="$thread__common_8cpp.html" title="common definitions of hryky::thread." alt="" coords="837,453,976,480"/>
+</map>

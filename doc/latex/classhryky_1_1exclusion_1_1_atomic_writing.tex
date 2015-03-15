@@ -1,0 +1,88 @@
+\hypertarget{classhryky_1_1exclusion_1_1_atomic_writing}{\section{hryky\-:\-:exclusion\-:\-:Atomic\-Writing$<$ Value\-T, Lockable\-T $>$ Class Template Reference}
+\label{classhryky_1_1exclusion_1_1_atomic_writing}\index{hryky\-::exclusion\-::\-Atomic\-Writing$<$ Value\-T, Lockable\-T $>$@{hryky\-::exclusion\-::\-Atomic\-Writing$<$ Value\-T, Lockable\-T $>$}}
+}
+
+
+synchronize a writing access to an object.  
+
+
+
+
+{\ttfamily \#include $<$exclusion\-\_\-atomic.\-h$>$}
+
+
+
+Inheritance diagram for hryky\-:\-:exclusion\-:\-:Atomic\-Writing$<$ Value\-T, Lockable\-T $>$\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=334pt]{classhryky_1_1exclusion_1_1_atomic_writing__inherit__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classhryky_1_1exclusion_1_1_atomic_writing_afc6301af19df5cf042e0cbed6d273b2a}{typedef \hyperlink{classhryky_1_1exclusion_1_1_atomic_writing}{Atomic\-Writing}$<$ Value\-T, \\*
+Lockable\-T $>$ \hyperlink{classhryky_1_1exclusion_1_1_atomic_writing_afc6301af19df5cf042e0cbed6d273b2a}{this\-\_\-type}}\label{classhryky_1_1exclusion_1_1_atomic_writing_afc6301af19df5cf042e0cbed6d273b2a}
+
+\begin{DoxyCompactList}\small\item\em self \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classhryky_1_1exclusion_1_1_atomic_writing_a53b4f66f0702e2c4ca4705468827af7a}{\hyperlink{classhryky_1_1exclusion_1_1_atomic_writing_a53b4f66f0702e2c4ca4705468827af7a}{Atomic\-Writing} ()}\label{classhryky_1_1exclusion_1_1_atomic_writing_a53b4f66f0702e2c4ca4705468827af7a}
+
+\begin{DoxyCompactList}\small\item\em default constructor \end{DoxyCompactList}\item 
+\hyperlink{group__exclusion__control_ga2f63c0a66bb7b03eed3607ae9d14d126}{Atomic\-Writing} (typename \hyperlink{classhryky_1_1_call_traits}{Call\-Traits}$<$ value\-\_\-type $>$\-::param\-\_\-type value)
+\begin{DoxyCompactList}\small\item\em constructor with the initial value. \end{DoxyCompactList}\item 
+\hyperlink{group__exclusion__control_gac7297c603e75cf09b560894b0dedeb68}{Atomic\-Writing} (\hyperlink{classhryky_1_1exclusion_1_1_atomic_writing_afc6301af19df5cf042e0cbed6d273b2a}{this\-\_\-type} const \&rhs)
+\begin{DoxyCompactList}\small\item\em copy constructor. \end{DoxyCompactList}\item 
+value\-\_\-type \hyperlink{group__exclusion__control_gac693764e6a7a576464f5a48e3d9816d6}{compare\-\_\-and\-\_\-swap} (typename \hyperlink{classhryky_1_1_call_traits}{Call\-Traits}$<$ value\-\_\-type $>$\-::param\-\_\-type old\-\_\-value, typename \hyperlink{classhryky_1_1_call_traits}{Call\-Traits}$<$ value\-\_\-type $>$\-::param\-\_\-type new\-\_\-value)
+\begin{DoxyCompactList}\small\item\em assigns a new value if the internal value is same with a given value. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Functor\-T $>$ }\\Value\-T \hyperlink{group__exclusion__control_gadd8b9f70d3ffa0442def7fca8fe2437c}{exclude} (Functor\-T \&functor)
+\begin{DoxyCompactList}\small\item\em executes an arbitrary functor under the exclusive control. \end{DoxyCompactList}\item 
+\hyperlink{group__exclusion__control_ga3893c9d48406bce7b4b07cc0e4b7d20b}{operator Value\-T} () const 
+\begin{DoxyCompactList}\small\item\em casts to the type of the value. \end{DoxyCompactList}\item 
+\hyperlink{classhryky_1_1exclusion_1_1_atomic_writing_afc6301af19df5cf042e0cbed6d273b2a}{this\-\_\-type} \& \hyperlink{group__exclusion__control_ga5c08a4d5bb6ceea2b2f91f9786a9945f}{operator\%=} (typename \hyperlink{classhryky_1_1_call_traits}{Call\-Traits}$<$ Value\-T $>$\-::param\-\_\-type rhs)
+\begin{DoxyCompactList}\small\item\em assigns the remainder divided by the value to this instance. \end{DoxyCompactList}\item 
+\hyperlink{classhryky_1_1exclusion_1_1_atomic_writing_afc6301af19df5cf042e0cbed6d273b2a}{this\-\_\-type} \& \hyperlink{group__exclusion__control_ga6d7035d7bdfa0baa65e1e5580a617b34}{operator$\ast$=} (typename \hyperlink{classhryky_1_1_call_traits}{Call\-Traits}$<$ Value\-T $>$\-::param\-\_\-type rhs)
+\begin{DoxyCompactList}\small\item\em multiplies the value to the this instance. \end{DoxyCompactList}\item 
+\hyperlink{classhryky_1_1exclusion_1_1_atomic_writing_afc6301af19df5cf042e0cbed6d273b2a}{this\-\_\-type} \& \hyperlink{group__exclusion__control_gaa75c713c9c844df689e0ef44d9cf074e}{operator++} ()
+\begin{DoxyCompactList}\small\item\em pre-\/increments the value. \end{DoxyCompactList}\item 
+value\-\_\-type \hyperlink{group__exclusion__control_ga6c7259992061b671eb6659fb2ce28f9c}{operator++} (int)
+\begin{DoxyCompactList}\small\item\em post-\/increments the value. \end{DoxyCompactList}\item 
+\hyperlink{classhryky_1_1exclusion_1_1_atomic_writing_afc6301af19df5cf042e0cbed6d273b2a}{this\-\_\-type} \& \hyperlink{group__exclusion__control_gac0a6adb61a1a89d0a111bad5edb63eac}{operator+=} (typename \hyperlink{classhryky_1_1_call_traits}{Call\-Traits}$<$ Value\-T $>$\-::param\-\_\-type rhs)
+\begin{DoxyCompactList}\small\item\em appends the value to the this instance. \end{DoxyCompactList}\item 
+\hyperlink{classhryky_1_1exclusion_1_1_atomic_writing_afc6301af19df5cf042e0cbed6d273b2a}{this\-\_\-type} \& \hyperlink{group__exclusion__control_ga2eb1f0dc7165aaf81287e2a05ea05f41}{operator-\/-\/} ()
+\begin{DoxyCompactList}\small\item\em pre-\/decrements the value. \end{DoxyCompactList}\item 
+value\-\_\-type \hyperlink{group__exclusion__control_ga39cdbea957f1abd0251446989d3f82ec}{operator-\/-\/} (int)
+\begin{DoxyCompactList}\small\item\em post-\/decrements the value. \end{DoxyCompactList}\item 
+\hyperlink{classhryky_1_1exclusion_1_1_atomic_writing_afc6301af19df5cf042e0cbed6d273b2a}{this\-\_\-type} \& \hyperlink{group__exclusion__control_ga64d9930a9aaf9415d206872f01886685}{operator-\/=} (typename \hyperlink{classhryky_1_1_call_traits}{Call\-Traits}$<$ Value\-T $>$\-::param\-\_\-type rhs)
+\begin{DoxyCompactList}\small\item\em subtracts the value from the this instance. \end{DoxyCompactList}\item 
+\hyperlink{classhryky_1_1exclusion_1_1_atomic_writing_afc6301af19df5cf042e0cbed6d273b2a}{this\-\_\-type} \& \hyperlink{group__exclusion__control_ga298b802dc512f56b62eb79bdc842311d}{operator/=} (typename \hyperlink{classhryky_1_1_call_traits}{Call\-Traits}$<$ Value\-T $>$\-::param\-\_\-type rhs)
+\begin{DoxyCompactList}\small\item\em divides the this instance by the value. \end{DoxyCompactList}\item 
+\hyperlink{classhryky_1_1exclusion_1_1_atomic_writing_afc6301af19df5cf042e0cbed6d273b2a}{this\-\_\-type} \& \hyperlink{group__exclusion__control_ga4e15c7309396df54b08bf6d62c91ea98}{operator=} (\hyperlink{classhryky_1_1exclusion_1_1_atomic_writing_afc6301af19df5cf042e0cbed6d273b2a}{this\-\_\-type} const \&rhs)
+\begin{DoxyCompactList}\small\item\em assignment operator. \end{DoxyCompactList}\item 
+\hyperlink{classhryky_1_1exclusion_1_1_atomic_writing_afc6301af19df5cf042e0cbed6d273b2a}{this\-\_\-type} \& \hyperlink{group__exclusion__control_ga593ba1b3b563f04eeac4e468b77f7009}{operator=} (typename \hyperlink{classhryky_1_1_call_traits}{Call\-Traits}$<$ value\-\_\-type $>$\-::param\-\_\-type rhs)
+\begin{DoxyCompactList}\small\item\em assigns a new value. \end{DoxyCompactList}\item 
+\hyperlink{group__exclusion__control_gaaff919108eef9ef3545064188cba65f0}{$\sim$\-Atomic\-Writing} ()
+\begin{DoxyCompactList}\small\item\em destructor \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$typename Value\-T, typename Lockable\-T = exclusion\-::\-Mutex$>$class hryky\-::exclusion\-::\-Atomic\-Writing$<$ Value\-T, Lockable\-T $>$}
+
+synchronize a writing access to an object. 
+
+\begin{DoxySince}{Since}
+2011-\/11-\/29\-T15\-:13\-:33+0900 
+\end{DoxySince}
+
+\begin{DoxyParams}{Parameters}
+{\em Value\-T} & is the type of the object accessed through this class. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{exclusion__atomic_8h}{exclusion\-\_\-atomic.\-h}\end{DoxyCompactItemize}

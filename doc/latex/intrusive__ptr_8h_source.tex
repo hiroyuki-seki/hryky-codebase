@@ -1,0 +1,436 @@
+\hypertarget{intrusive__ptr_8h_source}{\section{intrusive\-\_\-ptr.\-h}
+}
+
+\begin{DoxyCode}
+00001 
+00007 \textcolor{preprocessor}{#ifndef INTRUSIVE\_PTR\_H\_20120606003103688}
+00008 \textcolor{preprocessor}{}\textcolor{preprocessor}{#define INTRUSIVE\_PTR\_H\_20120606003103688}
+00009 \textcolor{preprocessor}{}\textcolor{preprocessor}{#include "\hyperlink{debug__common_8h}{hryky/debug/debug_common.h}"}
+00010 \textcolor{preprocessor}{#include "\hyperlink{debug__source_8h}{hryky/debug/debug_source.h}"}
+00011 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00012 \textcolor{comment}{// macro definition}
+00013 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00014 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00015 \textcolor{comment}{// namespace}
+00016 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00017 \textcolor{keyword}{namespace }hryky
+00018 \{
+00020     \textcolor{keyword}{template} < \textcolor{keyword}{typename} ValueT >
+00021     \textcolor{keyword}{class }IntrusivePtr;
+00022 
+00023 \} \textcolor{comment}{// namespace hryky}
+00024 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00025 \textcolor{comment}{// class declarations}
+00026 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00030 \textcolor{comment}{}\textcolor{keyword}{template} < \textcolor{keyword}{typename} ValueT >
+\hypertarget{intrusive__ptr_8h_source_l00031}{}\hyperlink{classhryky_1_1_intrusive_ptr}{00031} \textcolor{keyword}{class }\hyperlink{classhryky_1_1_intrusive_ptr}{hryky::IntrusivePtr}
+00032 \{
+00033 \textcolor{keyword}{public} :
+00034 
+\hypertarget{intrusive__ptr_8h_source_l00035}{}\hyperlink{classhryky_1_1_intrusive_ptr_a0fb00a7eafa8939e21653f677d1b2989}{00035}     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1_intrusive_ptr}{IntrusivePtr}        \hyperlink{classhryky_1_1_intrusive_ptr_a0fb00a7eafa8939e21653f677d1b2989}{this_type};
+00036     \textcolor{keyword}{typedef} ValueT              value\_type;
+00037     \textcolor{keyword}{typedef} ValueT *            pointer;
+00038     \textcolor{keyword}{typedef} ValueT &            reference;
+00039     \textcolor{keyword}{typedef} std::ptrdiff\_t      difference\_type;
+00040 
+00042     \hyperlink{classhryky_1_1_intrusive_ptr_a8294a613bfbc752216fd26fe77d4aaf9}{IntrusivePtr}();
+00043 
+00045     \textcolor{keyword}{explicit} \hyperlink{classhryky_1_1_intrusive_ptr_a8294a613bfbc752216fd26fe77d4aaf9}{IntrusivePtr}(pointer ptr);
+00046 
+00051     \hyperlink{classhryky_1_1_intrusive_ptr_a8294a613bfbc752216fd26fe77d4aaf9}{IntrusivePtr}(pointer ptr, \textcolor{keywordtype}{bool} add\_ref);
+00052 
+00057     \textcolor{keyword}{template} < \textcolor{keyword}{typename} DerivedT >
+00058     \hyperlink{classhryky_1_1_intrusive_ptr_a8294a613bfbc752216fd26fe77d4aaf9}{IntrusivePtr}(DerivedT * ptr, \textcolor{keywordtype}{bool} add\_ref);
+00059 
+00060     
+00062     \textcolor{keyword}{template} < \textcolor{keyword}{typename} DerivedT >
+00063     \hyperlink{classhryky_1_1_intrusive_ptr_a8294a613bfbc752216fd26fe77d4aaf9}{IntrusivePtr}(\hyperlink{classhryky_1_1_intrusive_ptr}{IntrusivePtr<DerivedT>} \textcolor{keyword}{const} & src);
+00064 
+00066     \hyperlink{classhryky_1_1_intrusive_ptr_a8294a613bfbc752216fd26fe77d4aaf9}{IntrusivePtr}(\hyperlink{classhryky_1_1_intrusive_ptr}{this_type} \textcolor{keyword}{const} & rhs);
+00067 
+00069     \hyperlink{classhryky_1_1_intrusive_ptr_a8294a613bfbc752216fd26fe77d4aaf9}{IntrusivePtr}(\hyperlink{classhryky_1_1_intrusive_ptr}{this_type} && rhs);
+00070 
+00072     \hyperlink{classhryky_1_1_intrusive_ptr_a3a97da2eb0bb0cab67e92e83b6a25ebc}{~IntrusivePtr}();
+00073 
+\hypertarget{intrusive__ptr_8h_source_l00075}{}\hyperlink{classhryky_1_1_intrusive_ptr_ad39318445053f6b4e15bdc2580881622}{00075}     \hyperlink{classhryky_1_1_intrusive_ptr_ad39318445053f6b4e15bdc2580881622}{hryky_assign_op};
+00076 
+00078     \textcolor{keyword}{template} < \textcolor{keyword}{typename} DerivedT >
+00079     \hyperlink{classhryky_1_1_intrusive_ptr}{this_type} & \hyperlink{classhryky_1_1_intrusive_ptr_aa738864278a9e6b6ab452cd010a23b86}{operator=}(\hyperlink{classhryky_1_1_intrusive_ptr}{IntrusivePtr<DerivedT>} \textcolor{keyword}{const} & rhs);
+00080 
+00082     reference \hyperlink{classhryky_1_1_intrusive_ptr_a1079b1e2ed0dfe513d609ad05f64c1f2}{operator*}() \textcolor{keyword}{const};
+00083 
+00085     pointer \hyperlink{classhryky_1_1_intrusive_ptr_a1be03a526ff80fbca45eed3933199434}{operator->}() \textcolor{keyword}{const};
+00086 
+00088     \hyperlink{classhryky_1_1_intrusive_ptr}{this_type} & \hyperlink{classhryky_1_1_intrusive_ptr_a5f0638f45388d17bb3d045494b16f09f}{operator++}();
+00089 
+00091     \hyperlink{classhryky_1_1_intrusive_ptr}{this_type} \hyperlink{classhryky_1_1_intrusive_ptr_a5f0638f45388d17bb3d045494b16f09f}{operator++}(\textcolor{keywordtype}{int});
+00092 
+00094     \hyperlink{classhryky_1_1_intrusive_ptr}{this_type} & \hyperlink{classhryky_1_1_intrusive_ptr_a87fa7ed8e3b31f421c164aaf3091efaf}{operator--}();
+00095 
+00097     \hyperlink{classhryky_1_1_intrusive_ptr}{this_type} \hyperlink{classhryky_1_1_intrusive_ptr_a87fa7ed8e3b31f421c164aaf3091efaf}{operator--}(\textcolor{keywordtype}{int});
+00098 
+00100     \hyperlink{classhryky_1_1_intrusive_ptr}{this_type} \hyperlink{classhryky_1_1_intrusive_ptr_aa9e65b5fa7be40a26c4e3e386fc0510b}{operator+}(difference\_type \textcolor{keyword}{const} offset) \textcolor{keyword}{const};
+00101 
+00103     \hyperlink{classhryky_1_1_intrusive_ptr}{this_type} \hyperlink{classhryky_1_1_intrusive_ptr_ac4f08eb767652220bbf2a379cf988bf0}{operator-}(difference\_type \textcolor{keyword}{const} offset) \textcolor{keyword}{const};
+00104 
+00106     difference\_type \hyperlink{classhryky_1_1_intrusive_ptr_ac4f08eb767652220bbf2a379cf988bf0}{operator-}(\hyperlink{classhryky_1_1_intrusive_ptr}{this_type} \textcolor{keyword}{const} & rhs) \textcolor{keyword}{const};
+00107 
+00109     difference\_type \hyperlink{classhryky_1_1_intrusive_ptr_ac4f08eb767652220bbf2a379cf988bf0}{operator-}(pointer \textcolor{keyword}{const} rhs) \textcolor{keyword}{const};
+00110 
+00112     \textcolor{keyword}{template} < \textcolor{keyword}{typename} DerivedT >
+00113     \textcolor{keywordtype}{bool} \hyperlink{classhryky_1_1_intrusive_ptr_a9dde6dfd712df0d745d88494ab14354a}{operator==}(\hyperlink{classhryky_1_1_intrusive_ptr}{IntrusivePtr<DerivedT>} \textcolor{keyword}{const} & rhs) \textcolor{keyword}{const};
+00114 
+00116     \textcolor{keywordtype}{bool} \hyperlink{classhryky_1_1_intrusive_ptr_a9dde6dfd712df0d745d88494ab14354a}{operator==}(pointer \textcolor{keyword}{const} rhs) \textcolor{keyword}{const};
+00117 
+00119     \textcolor{keywordtype}{bool} \hyperlink{classhryky_1_1_intrusive_ptr_a8c2429282077ad6eeeaff6f225921190}{operator!=}(\hyperlink{classhryky_1_1_intrusive_ptr}{this_type} \textcolor{keyword}{const} & rhs) \textcolor{keyword}{const};
+00120 
+00122     \textcolor{keywordtype}{bool} \hyperlink{classhryky_1_1_intrusive_ptr_a8c2429282077ad6eeeaff6f225921190}{operator!=}(pointer \textcolor{keyword}{const} rhs) \textcolor{keyword}{const};
+00123 
+00125     \textcolor{keywordtype}{bool} \hyperlink{classhryky_1_1_intrusive_ptr_ae0aa24c2d96b9db5d254280844c21272}{operator<}(\hyperlink{classhryky_1_1_intrusive_ptr}{this_type} \textcolor{keyword}{const} & rhs) \textcolor{keyword}{const};
+00126 
+00128     \textcolor{keywordtype}{bool} \hyperlink{classhryky_1_1_intrusive_ptr_ae0aa24c2d96b9db5d254280844c21272}{operator<}(pointer \textcolor{keyword}{const} rhs) \textcolor{keyword}{const};
+00129 
+00131     \textcolor{keywordtype}{void} \hyperlink{classhryky_1_1_intrusive_ptr_ab60b6a55a688776b82510c08c614709c}{swap}(\hyperlink{classhryky_1_1_intrusive_ptr}{this_type} & src);
+00132 
+00134     pointer \textcolor{keyword}{get}() \textcolor{keyword}{const};
+00135 
+00136 \textcolor{keyword}{protected} :
+00137 
+00138 \textcolor{keyword}{private} :
+00139 
+00140     pointer     ptr\_;
+00141 
+00142 \};
+00143 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00144 \textcolor{comment}{// class specializations}
+00145 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00146 \textcolor{keyword}{namespace }hryky
+00147 \{
+00148 \} \textcolor{comment}{// namespace hryky}
+00149 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00150 \textcolor{comment}{// public member functions}
+00151 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00155 \textcolor{comment}{}\textcolor{keyword}{template} < \textcolor{keyword}{typename} ValueT >
+\hypertarget{intrusive__ptr_8h_source_l00156}{}\hyperlink{classhryky_1_1_intrusive_ptr_a8294a613bfbc752216fd26fe77d4aaf9}{00156} \hyperlink{classhryky_1_1_intrusive_ptr_a8294a613bfbc752216fd26fe77d4aaf9}{hryky::IntrusivePtr<ValueT>::IntrusivePtr}()
+00157     : ptr\_(\hyperlink{common_8h_a4cd4ac09cfcdbd6b30ee69afc156e210}{HRYKY_NULLPTR})
+00158 \{
+00159     \textcolor{keywordflow}{return};
+00160 \}
+00164 \textcolor{keyword}{template} < \textcolor{keyword}{typename} ValueT >
+\hypertarget{intrusive__ptr_8h_source_l00165}{}\hyperlink{classhryky_1_1_intrusive_ptr_a4e4600e5ff84aa875f1479c4a364583f}{00165} \hyperlink{classhryky_1_1_intrusive_ptr}{hryky::IntrusivePtr<ValueT>::IntrusivePtr}(pointer ptr)
+00166     : ptr\_(ptr)
+00167 \{
+00168     \textcolor{keywordflow}{if} (\hyperlink{common_8h_a4cd4ac09cfcdbd6b30ee69afc156e210}{HRYKY_NULLPTR} != this->ptr\_) \{
+00169         \hyperlink{namespacehryky_1_1reduction_ab59dece4af8e91c10781e3b092c06d1b}{intrusive_ptr_add_ref}(this->ptr\_);
+00170     \}
+00171 \}
+00176 \textcolor{keyword}{template} < \textcolor{keyword}{typename} ValueT >
+\hypertarget{intrusive__ptr_8h_source_l00177}{}\hyperlink{classhryky_1_1_intrusive_ptr_a55a0a47960f5a8f033c2794e25b91548}{00177} \hyperlink{classhryky_1_1_intrusive_ptr}{hryky::IntrusivePtr<ValueT>::IntrusivePtr}(pointer ptr, \textcolor{keywordtype}{bool} add\_ref)
+00178     : ptr\_(ptr)
+00179 \{
+00180     \textcolor{keywordflow}{if} (\hyperlink{common_8h_a4cd4ac09cfcdbd6b30ee69afc156e210}{HRYKY_NULLPTR} != this->ptr\_ && add\_ref) \{
+00181         \hyperlink{namespacehryky_1_1reduction_ab59dece4af8e91c10781e3b092c06d1b}{intrusive_ptr_add_ref}(this->ptr\_);
+00182     \}
+00183     \textcolor{keywordflow}{return};
+00184 \}
+00189 \textcolor{keyword}{template} < \textcolor{keyword}{typename} ValueT >
+00190 \textcolor{keyword}{template} < \textcolor{keyword}{typename} DerivedT >
+\hypertarget{intrusive__ptr_8h_source_l00191}{}\hyperlink{classhryky_1_1_intrusive_ptr_ae2f947d01984f4e16ec59ce529be4a8e}{00191} \hyperlink{classhryky_1_1_intrusive_ptr}{hryky::IntrusivePtr<ValueT>::IntrusivePtr}(DerivedT * ptr, \textcolor{keywordtype}{bool} add\_ref)
+00192     : ptr\_(ptr)
+00193 \{
+00194     \textcolor{keywordflow}{if} (\hyperlink{common_8h_a4cd4ac09cfcdbd6b30ee69afc156e210}{HRYKY_NULLPTR} != this->ptr\_ && add\_ref) \{
+00195         \hyperlink{namespacehryky_1_1reduction_ab59dece4af8e91c10781e3b092c06d1b}{intrusive_ptr_add_ref}(this->ptr\_);
+00196     \}
+00197     \textcolor{keywordflow}{return};
+00198 \}
+00202 \textcolor{keyword}{template} < \textcolor{keyword}{typename} ValueT >
+00203 \textcolor{keyword}{template} < \textcolor{keyword}{typename} DerivedT >
+\hypertarget{intrusive__ptr_8h_source_l00204}{}\hyperlink{classhryky_1_1_intrusive_ptr_a99d5812ce929ad04b2269533283c9cae}{00204} \hyperlink{classhryky_1_1_intrusive_ptr}{hryky::IntrusivePtr<ValueT>::IntrusivePtr}(\hyperlink{classhryky_1_1_intrusive_ptr}{IntrusivePtr<DerivedT>} \textcolor{keyword}{const} & src)
+00205     : ptr\_(src.\hyperlink{namespacehryky_1_1log_1_1writer_a67d38d407be7aaf3cc9ed3ac8e3b2835}{get}())
+00206 \{
+00207     \textcolor{keywordflow}{if} (\hyperlink{common_8h_a4cd4ac09cfcdbd6b30ee69afc156e210}{HRYKY_NULLPTR} != this->ptr\_) \{
+00208         \hyperlink{namespacehryky_1_1reduction_ab59dece4af8e91c10781e3b092c06d1b}{intrusive_ptr_add_ref}(this->ptr\_);
+00209     \}
+00210     
+00211     \textcolor{keywordflow}{return};
+00212 \}
+00216 \textcolor{keyword}{template} < \textcolor{keyword}{typename} ValueT >
+\hypertarget{intrusive__ptr_8h_source_l00217}{}\hyperlink{classhryky_1_1_intrusive_ptr_a3a97da2eb0bb0cab67e92e83b6a25ebc}{00217} \hyperlink{classhryky_1_1_intrusive_ptr}{hryky::IntrusivePtr<ValueT>::~IntrusivePtr}()
+00218 \{
+00219     \textcolor{keywordflow}{if} (\hyperlink{common_8h_a4cd4ac09cfcdbd6b30ee69afc156e210}{HRYKY_NULLPTR} != this->ptr\_) \{
+00220         \hyperlink{namespacehryky_1_1reduction_ab54d3281488314c37ed3906b45c8f866}{intrusive_ptr_release}(this->ptr\_);
+00221     \}
+00222     \textcolor{keywordflow}{return};
+00223 \}
+00227 \textcolor{keyword}{template} < \textcolor{keyword}{typename} ValueT >
+\hypertarget{intrusive__ptr_8h_source_l00228}{}\hyperlink{classhryky_1_1_intrusive_ptr_a942bdb1ed6d59e80271c0979b44e543b}{00228} \hyperlink{classhryky_1_1_intrusive_ptr}{hryky::IntrusivePtr<ValueT>::IntrusivePtr}(\hyperlink{classhryky_1_1_intrusive_ptr}{this_type} \textcolor{keyword}{const} & rhs)
+00229     : ptr\_(rhs.ptr\_)
+00230 \{
+00231     \textcolor{keywordflow}{if} (\hyperlink{common_8h_a4cd4ac09cfcdbd6b30ee69afc156e210}{HRYKY_NULLPTR} != this->ptr\_) \{
+00232         \hyperlink{namespacehryky_1_1reduction_ab59dece4af8e91c10781e3b092c06d1b}{intrusive_ptr_add_ref}(this->ptr\_);
+00233     \}
+00234     \textcolor{keywordflow}{return};
+00235 \}
+00239 \textcolor{keyword}{template} <\textcolor{keyword}{typename} ValueT>
+\hypertarget{intrusive__ptr_8h_source_l00240}{}\hyperlink{classhryky_1_1_intrusive_ptr_a8e1f34b5c5ffd6b3f64126f3cef4e908}{00240} \hyperlink{classhryky_1_1_intrusive_ptr}{hryky::IntrusivePtr<ValueT>::IntrusivePtr}(\hyperlink{classhryky_1_1_intrusive_ptr}{this_type} && rhs)
+00241     : hryky\_copy\_member(ptr)
+00242 \{
+00243     rhs.ptr\_ = \hyperlink{common_8h_a4cd4ac09cfcdbd6b30ee69afc156e210}{HRYKY_NULLPTR};
+00244 \}
+00248 \textcolor{keyword}{template} < \textcolor{keyword}{typename} ValueT >
+00249 \textcolor{keyword}{template} < \textcolor{keyword}{typename} DerivedT >
+00250 \hyperlink{classhryky_1_1_intrusive_ptr}{hryky::IntrusivePtr<ValueT>} &
+\hypertarget{intrusive__ptr_8h_source_l00251}{}\hyperlink{classhryky_1_1_intrusive_ptr_aa738864278a9e6b6ab452cd010a23b86}{00251} \hyperlink{classhryky_1_1_intrusive_ptr}{hryky::IntrusivePtr<ValueT>::operator=}(\hyperlink{classhryky_1_1_intrusive_ptr}{IntrusivePtr<DerivedT>} \textcolor{keyword}{const} & rhs)
+00252 \{
+00253     \textcolor{keywordflow}{if} (\textcolor{keyword}{this} == &rhs) \{ \textcolor{keywordflow}{return} *\textcolor{keyword}{this}; \}
+00254 
+00255     \hyperlink{classhryky_1_1_intrusive_ptr}{this_type} \textcolor{keyword}{const} tmp(rhs);
+00256 
+00257     *\textcolor{keyword}{this} = tmp;
+00258     
+00259     \textcolor{keywordflow}{return} *\textcolor{keyword}{this};
+00260 \}
+00264 \textcolor{keyword}{template} < \textcolor{keyword}{typename} ValueT >
+\hypertarget{intrusive__ptr_8h_source_l00265}{}\hyperlink{classhryky_1_1_intrusive_ptr_ab60b6a55a688776b82510c08c614709c}{00265} \textcolor{keywordtype}{void} \hyperlink{namespacehryky_a4282146df5ea2b68cb667896a2205909}{hryky::IntrusivePtr<ValueT>::swap}(\hyperlink{classhryky_1_1_intrusive_ptr}{this_type} & src)
+00266 \{
+00267     \hyperlink{namespacehryky_a4282146df5ea2b68cb667896a2205909}{std::swap}(this->ptr\_, src.ptr\_);
+00268     \textcolor{keywordflow}{return};
+00269 \}
+00273 \textcolor{keyword}{template} < \textcolor{keyword}{typename} ValueT >
+00274 \textcolor{keyword}{typename} hryky::IntrusivePtr<ValueT>::reference
+\hypertarget{intrusive__ptr_8h_source_l00275}{}\hyperlink{classhryky_1_1_intrusive_ptr_a1079b1e2ed0dfe513d609ad05f64c1f2}{00275} \hyperlink{classhryky_1_1_intrusive_ptr}{hryky::IntrusivePtr<ValueT>::operator*}()\textcolor{keyword}{ const}
+00276 \textcolor{keyword}{}\{
+00277     \textcolor{keywordflow}{if} (\hyperlink{common_8h_a4cd4ac09cfcdbd6b30ee69afc156e210}{HRYKY_NULLPTR} == this->ptr\_) \{
+00278         \hyperlink{debug__common_8h_af50606eac4009921527ddcaed392b2c2}{hryky_throw}(
+00279             std::logic\_error,
+00280             \textcolor{stringliteral}{"dereference of null pointer"},
+00281             \textcolor{keywordflow}{return} *this->ptr\_);
+00282     \}
+00283     \textcolor{keywordflow}{return} *this->ptr\_;
+00284 \}
+00288 \textcolor{keyword}{template} < \textcolor{keyword}{typename} ValueT >
+00289 \textcolor{keyword}{typename} hryky::IntrusivePtr<ValueT>::pointer
+\hypertarget{intrusive__ptr_8h_source_l00290}{}\hyperlink{classhryky_1_1_intrusive_ptr_a1be03a526ff80fbca45eed3933199434}{00290} \hyperlink{classhryky_1_1_intrusive_ptr}{hryky::IntrusivePtr<ValueT>::operator->}()\textcolor{keyword}{ const}
+00291 \textcolor{keyword}{}\{
+00292     \textcolor{keywordflow}{if} (\hyperlink{common_8h_a4cd4ac09cfcdbd6b30ee69afc156e210}{HRYKY_NULLPTR} == this->ptr\_) \{
+00293         \hyperlink{debug__common_8h_af50606eac4009921527ddcaed392b2c2}{hryky_throw}(
+00294             std::logic\_error,
+00295             \textcolor{stringliteral}{"dereference of null pointer"},
+00296             \textcolor{keywordflow}{return} this->ptr\_);
+00297     \}
+00298     \textcolor{keywordflow}{return} this->ptr\_;
+00299 \}
+00303 \textcolor{keyword}{template} < \textcolor{keyword}{typename} ValueT >
+00304 \hyperlink{classhryky_1_1_intrusive_ptr}{hryky::IntrusivePtr<ValueT>} &
+\hypertarget{intrusive__ptr_8h_source_l00305}{}\hyperlink{classhryky_1_1_intrusive_ptr_a5f0638f45388d17bb3d045494b16f09f}{00305} \hyperlink{classhryky_1_1_intrusive_ptr}{hryky::IntrusivePtr<ValueT>::operator++}()
+00306 \{
+00307     \textcolor{keywordflow}{if} (\hyperlink{common_8h_a4cd4ac09cfcdbd6b30ee69afc156e210}{HRYKY_NULLPTR} == this->ptr\_) \{
+00308         \hyperlink{debug__common_8h_af50606eac4009921527ddcaed392b2c2}{hryky_throw}(
+00309             std::logic\_error,
+00310             \textcolor{stringliteral}{"invalid pointer"},
+00311             \textcolor{keywordflow}{return} *\textcolor{keyword}{this});
+00312     \}
+00313     ++this->ptr\_;
+00314     
+00315     \textcolor{keywordflow}{return} *\textcolor{keyword}{this};
+00316 \}
+00320 \textcolor{keyword}{template} < \textcolor{keyword}{typename} ValueT >
+00321 \hyperlink{classhryky_1_1_intrusive_ptr}{hryky::IntrusivePtr<ValueT>}
+\hypertarget{intrusive__ptr_8h_source_l00322}{}\hyperlink{classhryky_1_1_intrusive_ptr_ae82ea1918d3643fbcc2d8ad40368233d}{00322} \hyperlink{classhryky_1_1_intrusive_ptr}{hryky::IntrusivePtr<ValueT>::operator++}(\textcolor{keywordtype}{int})
+00323 \{
+00324     \textcolor{keywordflow}{if} (\hyperlink{common_8h_a4cd4ac09cfcdbd6b30ee69afc156e210}{HRYKY_NULLPTR} == this->ptr\_) \{
+00325         \hyperlink{debug__common_8h_af50606eac4009921527ddcaed392b2c2}{hryky_throw}(
+00326             std::logic\_error,
+00327             \textcolor{stringliteral}{"invalid pointer"},
+00328             \textcolor{keywordflow}{return} *\textcolor{keyword}{this});
+00329     \}
+00330 
+00331     ++this->ptr\_;
+00332 
+00333     \textcolor{keywordflow}{return} \hyperlink{classhryky_1_1_intrusive_ptr}{this_type}(this->ptr\_ - 1);
+00334 \}
+00338 \textcolor{keyword}{template} < \textcolor{keyword}{typename} ValueT >
+00339 \hyperlink{classhryky_1_1_intrusive_ptr}{hryky::IntrusivePtr<ValueT>} &
+\hypertarget{intrusive__ptr_8h_source_l00340}{}\hyperlink{classhryky_1_1_intrusive_ptr_a87fa7ed8e3b31f421c164aaf3091efaf}{00340} \hyperlink{classhryky_1_1_intrusive_ptr}{hryky::IntrusivePtr<ValueT>::operator--}()
+00341 \{
+00342     \textcolor{keywordflow}{if} (\hyperlink{common_8h_a4cd4ac09cfcdbd6b30ee69afc156e210}{HRYKY_NULLPTR} == this->ptr\_) \{
+00343         \hyperlink{debug__common_8h_af50606eac4009921527ddcaed392b2c2}{hryky_throw}(
+00344             std::logic\_error,
+00345             \textcolor{stringliteral}{"invalid pointer"},
+00346             \textcolor{keywordflow}{return} *\textcolor{keyword}{this});
+00347     \}
+00348     --this->ptr\_;
+00349     
+00350     \textcolor{keywordflow}{return} *\textcolor{keyword}{this};
+00351 \}
+00355 \textcolor{keyword}{template} < \textcolor{keyword}{typename} ValueT >
+00356 \hyperlink{classhryky_1_1_intrusive_ptr}{hryky::IntrusivePtr<ValueT>}
+\hypertarget{intrusive__ptr_8h_source_l00357}{}\hyperlink{classhryky_1_1_intrusive_ptr_a9e99a7d62e21d24050d46d2213d38538}{00357} \hyperlink{classhryky_1_1_intrusive_ptr}{hryky::IntrusivePtr<ValueT>::operator--}(\textcolor{keywordtype}{int})
+00358 \{
+00359     \textcolor{keywordflow}{if} (\hyperlink{common_8h_a4cd4ac09cfcdbd6b30ee69afc156e210}{HRYKY_NULLPTR} == this->ptr\_) \{
+00360         \hyperlink{debug__common_8h_af50606eac4009921527ddcaed392b2c2}{hryky_throw}(
+00361             std::logic\_error,
+00362             \textcolor{stringliteral}{"invalid pointer"},
+00363             \textcolor{keywordflow}{return} *\textcolor{keyword}{this});
+00364     \}
+00365 
+00366     --this->ptr\_;
+00367 
+00368     \textcolor{keywordflow}{return} \hyperlink{classhryky_1_1_intrusive_ptr}{this_type}(this->ptr\_ + 1);
+00369 \}
+00373 \textcolor{keyword}{template} < \textcolor{keyword}{typename} ValueT >
+00374 \hyperlink{classhryky_1_1_intrusive_ptr}{hryky::IntrusivePtr<ValueT>}
+\hypertarget{intrusive__ptr_8h_source_l00375}{}\hyperlink{classhryky_1_1_intrusive_ptr_aa9e65b5fa7be40a26c4e3e386fc0510b}{00375} \hyperlink{classhryky_1_1_intrusive_ptr}{hryky::IntrusivePtr<ValueT>::operator+}(difference\_type \textcolor{keyword}{const} offset)\textcolor{keyword}{ const}
+00376 \textcolor{keyword}{}\{
+00377     \textcolor{keywordflow}{if} (\hyperlink{common_8h_a4cd4ac09cfcdbd6b30ee69afc156e210}{HRYKY_NULLPTR} == this->ptr\_) \{
+00378         \hyperlink{debug__common_8h_af50606eac4009921527ddcaed392b2c2}{hryky_throw}(
+00379             std::logic\_error,
+00380             \textcolor{stringliteral}{"invalid pointer"},
+00381             \textcolor{keywordflow}{return} *\textcolor{keyword}{this});
+00382     \}
+00383 
+00384     \textcolor{keywordflow}{return} \hyperlink{classhryky_1_1_intrusive_ptr}{this_type}(this->ptr\_ + offset);
+00385 \}
+00389 \textcolor{keyword}{template} < \textcolor{keyword}{typename} ValueT >
+00390 \hyperlink{classhryky_1_1_intrusive_ptr}{hryky::IntrusivePtr<ValueT>}
+\hypertarget{intrusive__ptr_8h_source_l00391}{}\hyperlink{classhryky_1_1_intrusive_ptr_ac4f08eb767652220bbf2a379cf988bf0}{00391} \hyperlink{classhryky_1_1_intrusive_ptr}{hryky::IntrusivePtr<ValueT>::operator-}(difference\_type \textcolor{keyword}{const} offset)\textcolor{keyword}{ const}
+00392 \textcolor{keyword}{}\{
+00393     \textcolor{keywordflow}{if} (\hyperlink{common_8h_a4cd4ac09cfcdbd6b30ee69afc156e210}{HRYKY_NULLPTR} == this->ptr\_) \{
+00394         \hyperlink{debug__common_8h_af50606eac4009921527ddcaed392b2c2}{hryky_throw}(
+00395             std::logic\_error,
+00396             \textcolor{stringliteral}{"invalid pointer"},
+00397             \textcolor{keywordflow}{return} *\textcolor{keyword}{this});
+00398     \}
+00399 
+00400     \textcolor{keywordflow}{return} \hyperlink{classhryky_1_1_intrusive_ptr}{this_type}(this->ptr\_ - offset);
+00401 \}
+00405 \textcolor{keyword}{template} < \textcolor{keyword}{typename} ValueT >
+00406 \textcolor{keyword}{typename} hryky::IntrusivePtr<ValueT>::difference\_type 
+\hypertarget{intrusive__ptr_8h_source_l00407}{}\hyperlink{classhryky_1_1_intrusive_ptr_a3952428634c9139f288f8bc08fcdcb6c}{00407} \hyperlink{classhryky_1_1_intrusive_ptr}{hryky::IntrusivePtr<ValueT>::operator-}(
+00408     \hyperlink{classhryky_1_1_intrusive_ptr}{this_type} \textcolor{keyword}{const} & rhs)\textcolor{keyword}{ const}
+00409 \textcolor{keyword}{}\{
+00410     \textcolor{keywordflow}{if} (\hyperlink{common_8h_a4cd4ac09cfcdbd6b30ee69afc156e210}{HRYKY_NULLPTR} == this->ptr\_) \{
+00411         \hyperlink{debug__common_8h_af50606eac4009921527ddcaed392b2c2}{hryky_throw}(
+00412             std::logic\_error,
+00413             \textcolor{stringliteral}{"invalid pointer"},
+00414             \textcolor{keywordflow}{return} *\textcolor{keyword}{this});
+00415     \}
+00416 
+00417     \textcolor{keywordflow}{if} (\hyperlink{common_8h_a4cd4ac09cfcdbd6b30ee69afc156e210}{HRYKY_NULLPTR} == rhs.ptr\_) \{
+00418         \hyperlink{debug__common_8h_af50606eac4009921527ddcaed392b2c2}{hryky_throw}(
+00419             std::invalid\_argument,
+00420             \textcolor{stringliteral}{"rhs is null"},
+00421             \textcolor{keywordflow}{return} *\textcolor{keyword}{this});
+00422     \}
+00423 
+00424     \textcolor{keywordflow}{return} this->ptr\_ - rhs.ptr\_;
+00425 \}
+00429 \textcolor{keyword}{template} < \textcolor{keyword}{typename} ValueT >
+00430 \textcolor{keyword}{typename} hryky::IntrusivePtr<ValueT>::difference\_type 
+\hypertarget{intrusive__ptr_8h_source_l00431}{}\hyperlink{classhryky_1_1_intrusive_ptr_a3b15bb043f8480d4aa98d757ec5f66fa}{00431} \hyperlink{classhryky_1_1_intrusive_ptr}{hryky::IntrusivePtr<ValueT>::operator-}(
+00432     pointer \textcolor{keyword}{const} rhs)\textcolor{keyword}{ const}
+00433 \textcolor{keyword}{}\{
+00434     \textcolor{keywordflow}{if} (\hyperlink{common_8h_a4cd4ac09cfcdbd6b30ee69afc156e210}{HRYKY_NULLPTR} == this->ptr\_) \{
+00435         \hyperlink{debug__common_8h_af50606eac4009921527ddcaed392b2c2}{hryky_throw}(
+00436             std::logic\_error,
+00437             \textcolor{stringliteral}{"invalid pointer"},
+00438             \textcolor{keywordflow}{return} *\textcolor{keyword}{this});
+00439     \}
+00440 
+00441     \textcolor{keywordflow}{if} (\hyperlink{common_8h_a4cd4ac09cfcdbd6b30ee69afc156e210}{HRYKY_NULLPTR} == rhs) \{
+00442         \hyperlink{debug__common_8h_af50606eac4009921527ddcaed392b2c2}{hryky_throw}(
+00443             std::invalid\_argument,
+00444             \textcolor{stringliteral}{"rhs is null"},
+00445             \textcolor{keywordflow}{return} *\textcolor{keyword}{this});
+00446     \}
+00447 
+00448     \textcolor{keywordflow}{return} this->ptr\_ - rhs;
+00449 \}
+00453 \textcolor{keyword}{template} < \textcolor{keyword}{typename} ValueT >
+00454 \textcolor{keyword}{template} < \textcolor{keyword}{typename} DerivedT >
+\hypertarget{intrusive__ptr_8h_source_l00455}{}\hyperlink{classhryky_1_1_intrusive_ptr_a9dde6dfd712df0d745d88494ab14354a}{00455} \textcolor{keywordtype}{bool} \hyperlink{namespacehryky_a96bfe0df0a09db56e7253330de4f2243}{hryky::IntrusivePtr<ValueT>::operator==}(
+00456     \hyperlink{classhryky_1_1_intrusive_ptr}{IntrusivePtr<DerivedT>} \textcolor{keyword}{const} & rhs)\textcolor{keyword}{ const}
+00457 \textcolor{keyword}{}\{
+00458     \textcolor{keywordflow}{return} this->ptr\_ == rhs.ptr\_;
+00459 \}
+00463 \textcolor{keyword}{template} < \textcolor{keyword}{typename} ValueT >
+\hypertarget{intrusive__ptr_8h_source_l00464}{}\hyperlink{classhryky_1_1_intrusive_ptr_a8bc19fcb51130f7acfc810eddd01b1e7}{00464} \textcolor{keywordtype}{bool} \hyperlink{namespacehryky_a96bfe0df0a09db56e7253330de4f2243}{hryky::IntrusivePtr<ValueT>::operator==}(
+00465     pointer \textcolor{keyword}{const} rhs)\textcolor{keyword}{ const}
+00466 \textcolor{keyword}{}\{
+00467     \textcolor{keywordflow}{return} this->ptr\_ == rhs;
+00468 \}
+00472 \textcolor{keyword}{template} < \textcolor{keyword}{typename} ValueT >
+\hypertarget{intrusive__ptr_8h_source_l00473}{}\hyperlink{classhryky_1_1_intrusive_ptr_a8c2429282077ad6eeeaff6f225921190}{00473} \textcolor{keywordtype}{bool} \hyperlink{namespacehryky_af83d27d9a54004f5981499e910bb7cb8}{hryky::IntrusivePtr<ValueT>::operator!=}(
+00474     \hyperlink{classhryky_1_1_intrusive_ptr}{this_type} \textcolor{keyword}{const} & rhs)\textcolor{keyword}{ const}
+00475 \textcolor{keyword}{}\{
+00476     \textcolor{keywordflow}{return} this->ptr\_ != rhs.ptr\_;
+00477 \}
+00481 \textcolor{keyword}{template} < \textcolor{keyword}{typename} ValueT >
+\hypertarget{intrusive__ptr_8h_source_l00482}{}\hyperlink{classhryky_1_1_intrusive_ptr_a4850219e0e09bbb1a03a85db369469f8}{00482} \textcolor{keywordtype}{bool} \hyperlink{namespacehryky_af83d27d9a54004f5981499e910bb7cb8}{hryky::IntrusivePtr<ValueT>::operator!=}(
+00483     pointer \textcolor{keyword}{const} rhs)\textcolor{keyword}{ const}
+00484 \textcolor{keyword}{}\{
+00485     \textcolor{keywordflow}{return} this->ptr\_ != rhs;
+00486 \}
+00490 \textcolor{keyword}{template} < \textcolor{keyword}{typename} ValueT >
+\hypertarget{intrusive__ptr_8h_source_l00491}{}\hyperlink{classhryky_1_1_intrusive_ptr_ae0aa24c2d96b9db5d254280844c21272}{00491} \textcolor{keywordtype}{bool} \hyperlink{namespacehryky_a7db2acd798ff6883387f9cbe3b3e820d}{hryky::IntrusivePtr<ValueT>::operator<}(
+00492     \hyperlink{classhryky_1_1_intrusive_ptr}{this_type} \textcolor{keyword}{const} & rhs)\textcolor{keyword}{ const}
+00493 \textcolor{keyword}{}\{
+00494     \textcolor{keywordflow}{return} this->ptr\_ < rhs.ptr\_;
+00495 \}
+00499 \textcolor{keyword}{template} < \textcolor{keyword}{typename} ValueT >
+\hypertarget{intrusive__ptr_8h_source_l00500}{}\hyperlink{classhryky_1_1_intrusive_ptr_aa304734f29507d58aae31e346e13d0ae}{00500} \textcolor{keywordtype}{bool} \hyperlink{namespacehryky_a7db2acd798ff6883387f9cbe3b3e820d}{hryky::IntrusivePtr<ValueT>::operator<}(
+00501     pointer \textcolor{keyword}{const} rhs)\textcolor{keyword}{ const}
+00502 \textcolor{keyword}{}\{
+00503     \textcolor{keywordflow}{return} this->ptr\_ < rhs;
+00504 \}
+00508 \textcolor{keyword}{template} < \textcolor{keyword}{typename} ValueT >
+00509 \textcolor{keyword}{typename} hryky::IntrusivePtr<ValueT>::pointer
+\hypertarget{intrusive__ptr_8h_source_l00510}{}\hyperlink{classhryky_1_1_intrusive_ptr_a876dbe10311099aba912f8cfa3fd635b}{00510} \hyperlink{namespacehryky_1_1log_1_1writer_a67d38d407be7aaf3cc9ed3ac8e3b2835}{hryky::IntrusivePtr<ValueT>::get}()\textcolor{keyword}{ const}
+00511 \textcolor{keyword}{}\{
+00512     \textcolor{keywordflow}{return} this->ptr\_;
+00513 \}
+00514 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00515 \textcolor{comment}{// protected member functions}
+00516 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00517 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00518 \textcolor{comment}{// private member functions}
+00519 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00520 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00521 \textcolor{comment}{// global function prototypes}
+00522 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00523 \textcolor{keyword}{namespace }hryky
+00524 \{
+00526     \textcolor{keyword}{template} < \textcolor{keyword}{typename} ValueT >
+00527     \textcolor{keywordtype}{void} \hyperlink{namespacehryky_a4282146df5ea2b68cb667896a2205909}{swap}(\hyperlink{classhryky_1_1_intrusive_ptr}{IntrusivePtr<ValueT>} & lhs, \hyperlink{classhryky_1_1_intrusive_ptr}{IntrusivePtr<ValueT>} & rhs);
+00528 
+00529 \} \textcolor{comment}{// namespace hryky}
+00530 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00531 \textcolor{comment}{// global function definitions}
+00532 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00536 \textcolor{comment}{}\textcolor{keyword}{template} < \textcolor{keyword}{typename} ValueT >
+\hypertarget{intrusive__ptr_8h_source_l00537}{}\hyperlink{namespacehryky_a25ffda8718a68348345dae8a0b651e17}{00537} \textcolor{keywordtype}{void} \hyperlink{namespacehryky_a4282146df5ea2b68cb667896a2205909}{hryky::swap}(
+00538     \hyperlink{classhryky_1_1_intrusive_ptr}{IntrusivePtr<ValueT>} & lhs, \hyperlink{classhryky_1_1_intrusive_ptr}{IntrusivePtr<ValueT>} & rhs)
+00539 \{
+00540     lhs.\hyperlink{classhryky_1_1_intrusive_ptr_ab60b6a55a688776b82510c08c614709c}{swap}(rhs);
+00541 \}
+00542 \textcolor{preprocessor}{#endif // INTRUSIVE\_PTR\_H\_20120606003103688}
+00543 \textcolor{preprocessor}{}\textcolor{comment}{// end of file}
+\end{DoxyCode}

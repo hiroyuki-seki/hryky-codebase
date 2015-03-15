@@ -1,0 +1,337 @@
+\hypertarget{offset__ptr_8h_source}{\section{offset\-\_\-ptr.\-h}
+}
+
+\begin{DoxyCode}
+00001 
+00007 \textcolor{preprocessor}{#ifndef OFFSET\_PTR\_H\_20120719133424232}
+00008 \textcolor{preprocessor}{}\textcolor{preprocessor}{#define OFFSET\_PTR\_H\_20120719133424232}
+00009 \textcolor{preprocessor}{}\textcolor{preprocessor}{#include "\hyperlink{gp_8h}{hryky/gp.h}"}
+00010 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00011 \textcolor{comment}{// macro definition}
+00012 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00013 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00014 \textcolor{comment}{// namespace}
+00015 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00016 \textcolor{keyword}{namespace }hryky
+00017 \{
+00019     \textcolor{keyword}{template} < \textcolor{keyword}{typename} OriginT, \textcolor{keyword}{typename} OffsetT, \textcolor{keyword}{typename} ValueT >
+00020     \textcolor{keyword}{class }OffsetPtr;
+00021 
+00022 \} \textcolor{comment}{// namespace hryky}
+00023 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00024 \textcolor{comment}{// class declarations}
+00025 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00029 \textcolor{comment}{}\textcolor{keyword}{template} < \textcolor{keyword}{typename} OriginT, \textcolor{keyword}{typename} OffsetT, \textcolor{keyword}{typename} ValueT >
+\hypertarget{offset__ptr_8h_source_l00030}{}\hyperlink{classhryky_1_1_offset_ptr}{00030} \textcolor{keyword}{class }\hyperlink{classhryky_1_1_offset_ptr}{hryky::OffsetPtr}
+00031 \{
+00032 \textcolor{keyword}{public} :
+00033 
+\hypertarget{offset__ptr_8h_source_l00034}{}\hyperlink{classhryky_1_1_offset_ptr_a73a85221d5352162be046159f4aea008}{00034}     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1_offset_ptr}{OffsetPtr<OriginT, OffsetT, ValueT>}     \hyperlink{classhryky_1_1_offset_ptr_a73a85221d5352162be046159f4aea008}{this_type};
+00035     \textcolor{keyword}{typedef} ValueT                                  value\_type;
+00036     \textcolor{keyword}{typedef} \textcolor{keyword}{typename} \hyperlink{classhryky_1_1_add_pointer_a02d0c31ee76f5cb3f0ba3ca4c01fc8d3}{AddPointer<ValueT>::type}       pointer;
+00037     \textcolor{keyword}{typedef} \textcolor{keyword}{typename} \hyperlink{classhryky_1_1_add_reference_a4b90c1381625432ba6152b7388bc4399}{AddReference<ValueT>::type}     reference;
+00038     \textcolor{keyword}{typedef} std::ptrdiff\_t                          difference\_type;
+00039     \textcolor{keyword}{typedef} \textcolor{keyword}{typename} AsParameter<OriginT>::type     origin\_param\_type;
+00040     \textcolor{keyword}{typedef} \textcolor{keyword}{typename} AsParameter<OffsetT>::type     offset\_param\_type;
+00041 
+00043     \hyperlink{classhryky_1_1_offset_ptr_a81d4ed37b44fd74e8fb82f1e9c8a4814}{OffsetPtr}();
+00044 
+00046     \hyperlink{classhryky_1_1_offset_ptr_a81d4ed37b44fd74e8fb82f1e9c8a4814}{OffsetPtr}(origin\_param\_type \hyperlink{classhryky_1_1_offset_ptr_af74f8eb3403a971a16440c7e1e164cbe}{origin}, offset\_param\_type \hyperlink{classhryky_1_1_offset_ptr_ada822ff23d086dda31c0d4c1f6c9ebd5}{offset});
+00047 
+00049     \hyperlink{classhryky_1_1_offset_ptr_a81d4ed37b44fd74e8fb82f1e9c8a4814}{OffsetPtr}(\hyperlink{classhryky_1_1_offset_ptr}{this_type} \textcolor{keyword}{const} & rhs);
+00050 
+00052     \hyperlink{classhryky_1_1_offset_ptr_a81d4ed37b44fd74e8fb82f1e9c8a4814}{OffsetPtr}(\hyperlink{classhryky_1_1_offset_ptr}{this_type} && rhs);
+00053 
+\hypertarget{offset__ptr_8h_source_l00055}{}\hyperlink{classhryky_1_1_offset_ptr_a36ddcb4c266a96273eb426959f761c82}{00055}     \hyperlink{classhryky_1_1_offset_ptr_a36ddcb4c266a96273eb426959f761c82}{hryky_assign_op};
+00056 
+00058     \textcolor{keywordtype}{void} \hyperlink{classhryky_1_1_offset_ptr_ac1e20ff0f8e5ea1511abb6d6ed7745c2}{swap}(\hyperlink{classhryky_1_1_offset_ptr}{this_type} & src);
+00059 
+00061     reference \hyperlink{classhryky_1_1_offset_ptr_aa5d3baf87f43bdda50d53b385aad65d9}{operator*}() \textcolor{keyword}{const};
+00062 
+00064     pointer \hyperlink{classhryky_1_1_offset_ptr_a8133720280b2eb94840e772e983a0620}{operator->}() \textcolor{keyword}{const};
+00065 
+00067     \hyperlink{classhryky_1_1_offset_ptr}{this_type} & \hyperlink{classhryky_1_1_offset_ptr_ad3475f4a72159db0ff120de8699920ca}{operator++}();
+00068 
+00070     \hyperlink{classhryky_1_1_offset_ptr}{this_type} \hyperlink{classhryky_1_1_offset_ptr_ad3475f4a72159db0ff120de8699920ca}{operator++}(\textcolor{keywordtype}{int});
+00071 
+00073     \hyperlink{classhryky_1_1_offset_ptr}{this_type} & \hyperlink{classhryky_1_1_offset_ptr_a2d2563706f0601ae917b637b672f7370}{operator--}();
+00074 
+00076     \hyperlink{classhryky_1_1_offset_ptr}{this_type} \hyperlink{classhryky_1_1_offset_ptr_a2d2563706f0601ae917b637b672f7370}{operator--}(\textcolor{keywordtype}{int});
+00077 
+00079     \hyperlink{classhryky_1_1_offset_ptr}{this_type} \hyperlink{classhryky_1_1_offset_ptr_a67e7ff2f192f7762ef68cd0cc19f8bf6}{operator+}(difference\_type \textcolor{keyword}{const} difference) \textcolor{keyword}{const};
+00080 
+00082     \hyperlink{classhryky_1_1_offset_ptr}{this_type} \hyperlink{classhryky_1_1_offset_ptr_a6c158180159c88dac9495ff9ebfca368}{operator-}(difference\_type \textcolor{keyword}{const} difference) \textcolor{keyword}{const};
+00083 
+00085     difference\_type \hyperlink{classhryky_1_1_offset_ptr_a6c158180159c88dac9495ff9ebfca368}{operator-}(\hyperlink{classhryky_1_1_offset_ptr}{this_type} \textcolor{keyword}{const} & rhs) \textcolor{keyword}{const};
+00086 
+00088     \textcolor{keywordtype}{bool} \hyperlink{classhryky_1_1_offset_ptr_afe85c6946cc887fa404739699aa249c6}{operator==}(\hyperlink{classhryky_1_1_offset_ptr}{this_type} \textcolor{keyword}{const} & rhs) \textcolor{keyword}{const};
+00089 
+00091     \textcolor{keywordtype}{bool} \hyperlink{classhryky_1_1_offset_ptr_a0f0dced452b4559cba2d4e8e5e0d30df}{operator!=}(\hyperlink{classhryky_1_1_offset_ptr}{this_type} \textcolor{keyword}{const} & rhs) \textcolor{keyword}{const};
+00092 
+00094     \textcolor{keywordtype}{bool} \hyperlink{classhryky_1_1_offset_ptr_a666a5072ce94ef533bbcdda9f4b7ee58}{operator<}(\hyperlink{classhryky_1_1_offset_ptr}{this_type} \textcolor{keyword}{const} & rhs) \textcolor{keyword}{const};
+00095 
+00097     \textcolor{keywordtype}{bool} \hyperlink{classhryky_1_1_offset_ptr_aef7f4027f9e1a75961d9f3352f153e93}{operator>}(\hyperlink{classhryky_1_1_offset_ptr}{this_type} \textcolor{keyword}{const} & rhs) \textcolor{keyword}{const};
+00098 
+00100     \textcolor{keywordtype}{bool} \hyperlink{classhryky_1_1_offset_ptr_a389325e1ff9304e11d3eb8adacadff64}{operator<=}(\hyperlink{classhryky_1_1_offset_ptr}{this_type} \textcolor{keyword}{const} & rhs) \textcolor{keyword}{const};
+00101 
+00103     \textcolor{keywordtype}{bool} \hyperlink{classhryky_1_1_offset_ptr_adbd465e4e0a04117512a034b97cbc392}{operator>=}(\hyperlink{classhryky_1_1_offset_ptr}{this_type} \textcolor{keyword}{const} & rhs) \textcolor{keyword}{const};
+00104 
+00106     \textcolor{keywordtype}{bool} \hyperlink{classhryky_1_1_offset_ptr_a1296e4d0a123134cfa2fa44405c91ab3}{reachable}(\hyperlink{classhryky_1_1_offset_ptr}{this_type} \textcolor{keyword}{const} & rhs) \textcolor{keyword}{const};
+00107 
+00109     OriginT \hyperlink{classhryky_1_1_offset_ptr_af74f8eb3403a971a16440c7e1e164cbe}{origin}() \textcolor{keyword}{const};
+00110 
+00112     OffsetT \hyperlink{classhryky_1_1_offset_ptr_ada822ff23d086dda31c0d4c1f6c9ebd5}{offset}() \textcolor{keyword}{const};
+00113 
+00115     \hyperlink{classhryky_1_1_offset_ptr}{this_type} & \hyperlink{classhryky_1_1_offset_ptr_a1f855447fc5886b2518be1f89d9f686b}{operator+=}(difference\_type \textcolor{keyword}{const} rhs);
+00116 
+00118     \hyperlink{classhryky_1_1_offset_ptr}{this_type} & \hyperlink{classhryky_1_1_offset_ptr_a5dcfac7df68c6d273ca319a8cc79352d}{operator-=}(difference\_type \textcolor{keyword}{const} rhs);
+00119 
+00120 \textcolor{keyword}{protected} :
+00121 
+00122 \textcolor{keyword}{private} :
+00123 
+00124     OriginT     origin\_;
+00125     OffsetT     offset\_;
+00126 
+00127 \};
+00128 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00129 \textcolor{comment}{// class specializations}
+00130 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00131 \textcolor{keyword}{namespace }hryky
+00132 \{
+00133 \} \textcolor{comment}{// namespace hryky}
+00134 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00135 \textcolor{comment}{// public member functions}
+00136 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00140 \textcolor{comment}{}\textcolor{keyword}{template} < \textcolor{keyword}{typename} OriginT, \textcolor{keyword}{typename} OffsetT, \textcolor{keyword}{typename} ValueT >
+\hypertarget{offset__ptr_8h_source_l00141}{}\hyperlink{classhryky_1_1_offset_ptr_a81d4ed37b44fd74e8fb82f1e9c8a4814}{00141} \hyperlink{classhryky_1_1_offset_ptr_a81d4ed37b44fd74e8fb82f1e9c8a4814}{hryky::OffsetPtr<OriginT, OffsetT, ValueT>::OffsetPtr}()
+00142     : origin\_()
+00143       , offset\_()
+00144 \{
+00145     \textcolor{keywordflow}{return};
+00146 \}
+00150 \textcolor{keyword}{template} < \textcolor{keyword}{typename} OriginT, \textcolor{keyword}{typename} OffsetT, \textcolor{keyword}{typename} ValueT >
+\hypertarget{offset__ptr_8h_source_l00151}{}\hyperlink{classhryky_1_1_offset_ptr_a7c4b76c5d859a5021cac4a0dcd96f88e}{00151} \hyperlink{classhryky_1_1_offset_ptr}{hryky::OffsetPtr<OriginT, OffsetT, ValueT>::OffsetPtr}(
+00152     origin\_param\_type origin, offset\_param\_type offset)
+00153     : origin\_(origin)
+00154       , offset\_(offset)
+00155 \{
+00156     \textcolor{keywordflow}{return};
+00157 \}
+00161 \textcolor{keyword}{template} < \textcolor{keyword}{typename} OriginT, \textcolor{keyword}{typename} OffsetT, \textcolor{keyword}{typename} ValueT >
+\hypertarget{offset__ptr_8h_source_l00162}{}\hyperlink{classhryky_1_1_offset_ptr_a90d9540e04e9f55a5a56af20e8d6b96e}{00162} \hyperlink{classhryky_1_1_offset_ptr}{hryky::OffsetPtr<OriginT, OffsetT, ValueT>::OffsetPtr}(\hyperlink{classhryky_1_1_offset_ptr}{this_type} \textcolor{keyword}{const} & rhs)
+00163     : origin\_(rhs.origin\_)
+00164       , offset\_(rhs.offset\_)
+00165 \{
+00166     \textcolor{keywordflow}{return};
+00167 \}
+00171 \textcolor{keyword}{template} <\textcolor{keyword}{typename} OriginT, \textcolor{keyword}{typename} OffsetT, \textcolor{keyword}{typename} ValueT>
+\hypertarget{offset__ptr_8h_source_l00172}{}\hyperlink{classhryky_1_1_offset_ptr_a9aaecfa667ed21310eaa0e9a8c37441e}{00172} \hyperlink{classhryky_1_1_offset_ptr}{hryky::OffsetPtr<OriginT, OffsetT, ValueT>::OffsetPtr}(\hyperlink{classhryky_1_1_offset_ptr}{this_type} && rhs)
+00173     : hryky\_rvalue\_init(origin)
+00174       , hryky\_rvalue\_init(offset)
+00175 \{
+00176 \}
+00180 \textcolor{keyword}{template} < \textcolor{keyword}{typename} OriginT, \textcolor{keyword}{typename} OffsetT, \textcolor{keyword}{typename} ValueT >
+\hypertarget{offset__ptr_8h_source_l00181}{}\hyperlink{classhryky_1_1_offset_ptr_ac1e20ff0f8e5ea1511abb6d6ed7745c2}{00181} \textcolor{keywordtype}{void} \hyperlink{namespacehryky_a4282146df5ea2b68cb667896a2205909}{hryky::OffsetPtr<OriginT, OffsetT, ValueT>::swap}(\hyperlink{classhryky_1_1_offset_ptr}{this_type} & src)
+00182 \{
+00183     \hyperlink{namespacehryky_add9c1c1fdfda07cd47bcb7c16d3a823a}{hryky_swap}(this->origin\_, src.origin\_);
+00184     \hyperlink{namespacehryky_add9c1c1fdfda07cd47bcb7c16d3a823a}{hryky_swap}(this->offset\_, src.offset\_);
+00185 \}
+00189 \textcolor{keyword}{template} < \textcolor{keyword}{typename} OriginT, \textcolor{keyword}{typename} OffsetT, \textcolor{keyword}{typename} ValueT >
+00190 \textcolor{keyword}{typename} hryky::OffsetPtr<OriginT, OffsetT, ValueT>::reference
+\hypertarget{offset__ptr_8h_source_l00191}{}\hyperlink{classhryky_1_1_offset_ptr_aa5d3baf87f43bdda50d53b385aad65d9}{00191} \hyperlink{classhryky_1_1_offset_ptr}{hryky::OffsetPtr<OriginT, OffsetT, ValueT>::operator*}()\textcolor{keyword}{ const}
+00192 \textcolor{keyword}{}\{
+00193     \textcolor{keywordflow}{return} (*this->origin\_)[this->offset\_];
+00194 \}
+00198 \textcolor{keyword}{template} < \textcolor{keyword}{typename} OriginT, \textcolor{keyword}{typename} OffsetT, \textcolor{keyword}{typename} ValueT >
+00199 \textcolor{keyword}{typename} hryky::OffsetPtr<OriginT, OffsetT, ValueT>::pointer
+\hypertarget{offset__ptr_8h_source_l00200}{}\hyperlink{classhryky_1_1_offset_ptr_a8133720280b2eb94840e772e983a0620}{00200} \hyperlink{classhryky_1_1_offset_ptr}{hryky::OffsetPtr<OriginT, OffsetT, ValueT>::operator->}()\textcolor{keyword}{ const}
+00201 \textcolor{keyword}{}\{
+00202     \textcolor{keywordflow}{return} &this->operator*();
+00203 \}
+00207 \textcolor{keyword}{template} < \textcolor{keyword}{typename} OriginT, \textcolor{keyword}{typename} OffsetT, \textcolor{keyword}{typename} ValueT >
+00208 \hyperlink{classhryky_1_1_offset_ptr}{hryky::OffsetPtr<OriginT, OffsetT, ValueT>} & 
+\hypertarget{offset__ptr_8h_source_l00209}{}\hyperlink{classhryky_1_1_offset_ptr_ad3475f4a72159db0ff120de8699920ca}{00209} \hyperlink{classhryky_1_1_offset_ptr}{hryky::OffsetPtr<OriginT, OffsetT, ValueT>::operator++}()
+00210 \{
+00211     ++this->offset\_;
+00212     \textcolor{keywordflow}{return} *\textcolor{keyword}{this};
+00213 \}
+00217 \textcolor{keyword}{template} < \textcolor{keyword}{typename} OriginT, \textcolor{keyword}{typename} OffsetT, \textcolor{keyword}{typename} ValueT >
+00218 \hyperlink{classhryky_1_1_offset_ptr}{hryky::OffsetPtr<OriginT, OffsetT, ValueT>} 
+\hypertarget{offset__ptr_8h_source_l00219}{}\hyperlink{classhryky_1_1_offset_ptr_a3247e6d6b79211c93e1ab9d38c4ee3df}{00219} \hyperlink{classhryky_1_1_offset_ptr}{hryky::OffsetPtr<OriginT, OffsetT, ValueT>::operator++}(\textcolor{keywordtype}{int})
+00220 \{
+00221     ++this->offset\_;
+00222     \textcolor{keywordflow}{return} \hyperlink{classhryky_1_1_offset_ptr}{this_type}(this->origin\_, this->offset\_ - 1);
+00223 \}
+00227 \textcolor{keyword}{template} < \textcolor{keyword}{typename} OriginT, \textcolor{keyword}{typename} OffsetT, \textcolor{keyword}{typename} ValueT >
+00228 \hyperlink{classhryky_1_1_offset_ptr}{hryky::OffsetPtr<OriginT, OffsetT, ValueT>} & 
+\hypertarget{offset__ptr_8h_source_l00229}{}\hyperlink{classhryky_1_1_offset_ptr_a2d2563706f0601ae917b637b672f7370}{00229} \hyperlink{classhryky_1_1_offset_ptr}{hryky::OffsetPtr<OriginT, OffsetT, ValueT>::operator--}()
+00230 \{
+00231     --this->offset\_;
+00232     \textcolor{keywordflow}{return} *\textcolor{keyword}{this};
+00233 \}
+00237 \textcolor{keyword}{template} < \textcolor{keyword}{typename} OriginT, \textcolor{keyword}{typename} OffsetT, \textcolor{keyword}{typename} ValueT >
+00238 \hyperlink{classhryky_1_1_offset_ptr}{hryky::OffsetPtr<OriginT, OffsetT, ValueT>} 
+\hypertarget{offset__ptr_8h_source_l00239}{}\hyperlink{classhryky_1_1_offset_ptr_ab15b7a0d274fd3a59326f87bcef843fa}{00239} \hyperlink{classhryky_1_1_offset_ptr}{hryky::OffsetPtr<OriginT, OffsetT, ValueT>::operator--}(\textcolor{keywordtype}{int})
+00240 \{
+00241     --this->offset\_;
+00242     \textcolor{keywordflow}{return} \hyperlink{classhryky_1_1_offset_ptr}{this_type}(this->origin\_, this->offset\_ + 1);
+00243 \}
+00247 \textcolor{keyword}{template} < \textcolor{keyword}{typename} OriginT, \textcolor{keyword}{typename} OffsetT, \textcolor{keyword}{typename} ValueT >
+00248 \hyperlink{classhryky_1_1_offset_ptr}{hryky::OffsetPtr<OriginT, OffsetT, ValueT>} 
+\hypertarget{offset__ptr_8h_source_l00249}{}\hyperlink{classhryky_1_1_offset_ptr_a67e7ff2f192f7762ef68cd0cc19f8bf6}{00249} \hyperlink{classhryky_1_1_offset_ptr}{hryky::OffsetPtr<OriginT, OffsetT, ValueT>::operator+}(
+00250     difference\_type \textcolor{keyword}{const} difference)\textcolor{keyword}{ const}
+00251 \textcolor{keyword}{}\{
+00252     \textcolor{keywordflow}{return} \hyperlink{classhryky_1_1_offset_ptr}{this_type}(this->origin\_, this->offset\_ + difference);
+00253 \}
+00257 \textcolor{keyword}{template} < \textcolor{keyword}{typename} OriginT, \textcolor{keyword}{typename} OffsetT, \textcolor{keyword}{typename} ValueT >
+00258 \hyperlink{classhryky_1_1_offset_ptr}{hryky::OffsetPtr<OriginT, OffsetT, ValueT>} 
+\hypertarget{offset__ptr_8h_source_l00259}{}\hyperlink{classhryky_1_1_offset_ptr_a6c158180159c88dac9495ff9ebfca368}{00259} \hyperlink{classhryky_1_1_offset_ptr}{hryky::OffsetPtr<OriginT, OffsetT, ValueT>::operator-}(
+00260     difference\_type \textcolor{keyword}{const} difference)\textcolor{keyword}{ const}
+00261 \textcolor{keyword}{}\{
+00262     \textcolor{keywordflow}{return} \hyperlink{classhryky_1_1_offset_ptr}{this_type}(this->origin\_, this->offset\_ - difference);
+00263 \}
+00267 \textcolor{keyword}{template} < \textcolor{keyword}{typename} OriginT, \textcolor{keyword}{typename} OffsetT, \textcolor{keyword}{typename} ValueT >
+\hypertarget{offset__ptr_8h_source_l00268}{}\hyperlink{classhryky_1_1_offset_ptr_a61e9d4ecdbb0377dffefb557515f0088}{00268} std::ptrdiff\_t \hyperlink{classhryky_1_1_offset_ptr}{hryky::OffsetPtr<OriginT, OffsetT, ValueT>::operator-}(
+00269     \hyperlink{classhryky_1_1_offset_ptr}{this_type} \textcolor{keyword}{const} & rhs)\textcolor{keyword}{ const}
+00270 \textcolor{keyword}{}\{
+00271     \textcolor{keywordflow}{if} (this->origin\_ != rhs.origin\_) \{
+00272         \hyperlink{debug__common_8h_af50606eac4009921527ddcaed392b2c2}{hryky_throw}(
+00273             std::invalid\_argument,
+00274             \textcolor{stringliteral}{"rhs doesn't have the same origin as this instance."},
+00275             \textcolor{keywordflow}{return} 0);
+00276     \}
+00277     \textcolor{keywordflow}{return} this->offset\_ - rhs.offset\_;
+00278 \}
+00282 \textcolor{keyword}{template} < \textcolor{keyword}{typename} OriginT, \textcolor{keyword}{typename} OffsetT, \textcolor{keyword}{typename} ValueT >
+\hypertarget{offset__ptr_8h_source_l00283}{}\hyperlink{classhryky_1_1_offset_ptr_afe85c6946cc887fa404739699aa249c6}{00283} \textcolor{keywordtype}{bool} \hyperlink{namespacehryky_a96bfe0df0a09db56e7253330de4f2243}{hryky::OffsetPtr<OriginT, OffsetT, ValueT>::operator==}(
+00284     \hyperlink{classhryky_1_1_offset_ptr}{this_type} \textcolor{keyword}{const} & rhs)\textcolor{keyword}{ const}
+00285 \textcolor{keyword}{}\{
+00286     \textcolor{keywordflow}{return} this->origin\_ == rhs.origin\_ && this->offset\_ == rhs.offset\_;
+00287 \}
+00291 \textcolor{keyword}{template} < \textcolor{keyword}{typename} OriginT, \textcolor{keyword}{typename} OffsetT, \textcolor{keyword}{typename} ValueT >
+\hypertarget{offset__ptr_8h_source_l00292}{}\hyperlink{classhryky_1_1_offset_ptr_a0f0dced452b4559cba2d4e8e5e0d30df}{00292} \textcolor{keywordtype}{bool} \hyperlink{namespacehryky_af83d27d9a54004f5981499e910bb7cb8}{hryky::OffsetPtr<OriginT, OffsetT, ValueT>::operator!=}(
+00293     \hyperlink{classhryky_1_1_offset_ptr}{this_type} \textcolor{keyword}{const} & rhs)\textcolor{keyword}{ const}
+00294 \textcolor{keyword}{}\{
+00295     \textcolor{keywordflow}{return} !this->\hyperlink{namespacehryky_a96bfe0df0a09db56e7253330de4f2243}{operator==}(rhs);
+00296 \}
+00300 \textcolor{keyword}{template} < \textcolor{keyword}{typename} OriginT, \textcolor{keyword}{typename} OffsetT, \textcolor{keyword}{typename} ValueT >
+\hypertarget{offset__ptr_8h_source_l00301}{}\hyperlink{classhryky_1_1_offset_ptr_a666a5072ce94ef533bbcdda9f4b7ee58}{00301} \textcolor{keywordtype}{bool} \hyperlink{namespacehryky_a7db2acd798ff6883387f9cbe3b3e820d}{hryky::OffsetPtr<OriginT, OffsetT, ValueT>::operator<}(
+00302     \hyperlink{classhryky_1_1_offset_ptr}{this_type} \textcolor{keyword}{const} & rhs)\textcolor{keyword}{ const}
+00303 \textcolor{keyword}{}\{
+00304     \textcolor{keywordflow}{return} (this->origin\_ < rhs.origin\_
+00305             ? \textcolor{keyword}{true}
+00306             : (this->origin\_ > rhs.origin\_
+00307                ? \textcolor{keyword}{false}
+00308                : this->offset\_ < rhs.offset\_));
+00309 \}
+00313 \textcolor{keyword}{template} < \textcolor{keyword}{typename} OriginT, \textcolor{keyword}{typename} OffsetT, \textcolor{keyword}{typename} ValueT >
+\hypertarget{offset__ptr_8h_source_l00314}{}\hyperlink{classhryky_1_1_offset_ptr_aef7f4027f9e1a75961d9f3352f153e93}{00314} \textcolor{keywordtype}{bool} \hyperlink{namespacehryky_af7f213d8e2d7f4c75ac2c93d7be56365}{hryky::OffsetPtr<OriginT, OffsetT, ValueT>::operator>}(
+00315     \hyperlink{classhryky_1_1_offset_ptr}{this_type} \textcolor{keyword}{const} & rhs)\textcolor{keyword}{ const}
+00316 \textcolor{keyword}{}\{
+00317     \textcolor{keywordflow}{return} (this->origin\_ > rhs.origin\_
+00318             ? \textcolor{keyword}{true}
+00319             : (this->origin\_ < rhs.origin\_
+00320                ? \textcolor{keyword}{false}
+00321                : this->offset\_ > rhs.offset\_));
+00322 \}
+00326 \textcolor{keyword}{template} < \textcolor{keyword}{typename} OriginT, \textcolor{keyword}{typename} OffsetT, \textcolor{keyword}{typename} ValueT >
+\hypertarget{offset__ptr_8h_source_l00327}{}\hyperlink{classhryky_1_1_offset_ptr_a389325e1ff9304e11d3eb8adacadff64}{00327} \textcolor{keywordtype}{bool} \hyperlink{namespacehryky_a3841c4dbefd9eeed038376b3044dec2b}{hryky::OffsetPtr<OriginT, OffsetT, ValueT>::operator<=}(
+00328     \hyperlink{classhryky_1_1_offset_ptr}{this_type} \textcolor{keyword}{const} & rhs)\textcolor{keyword}{ const}
+00329 \textcolor{keyword}{}\{
+00330     \textcolor{keywordflow}{return} (this->origin\_ < rhs.origin\_
+00331             ? \textcolor{keyword}{true}
+00332             : (this->origin\_ > rhs.origin\_
+00333                ? \textcolor{keyword}{false}
+00334                : this->offset\_ <= rhs.offset\_));
+00335 \}
+00339 \textcolor{keyword}{template} < \textcolor{keyword}{typename} OriginT, \textcolor{keyword}{typename} OffsetT, \textcolor{keyword}{typename} ValueT >
+\hypertarget{offset__ptr_8h_source_l00340}{}\hyperlink{classhryky_1_1_offset_ptr_adbd465e4e0a04117512a034b97cbc392}{00340} \textcolor{keywordtype}{bool} \hyperlink{namespacehryky_acc487ba69503ce030df6f4b9db4cbe8b}{hryky::OffsetPtr<OriginT, OffsetT, ValueT>::operator>=}(
+00341     \hyperlink{classhryky_1_1_offset_ptr}{this_type} \textcolor{keyword}{const} & rhs)\textcolor{keyword}{ const}
+00342 \textcolor{keyword}{}\{
+00343     \textcolor{keywordflow}{return} (this->origin\_ > rhs.origin\_
+00344             ? \textcolor{keyword}{true}
+00345             : (this->origin\_ < rhs.origin\_
+00346                ? \textcolor{keyword}{false}
+00347                : this->offset\_ >= rhs.offset\_));
+00348 \}
+00352 \textcolor{keyword}{template} < \textcolor{keyword}{typename} OriginT, \textcolor{keyword}{typename} OffsetT, \textcolor{keyword}{typename} ValueT >
+\hypertarget{offset__ptr_8h_source_l00353}{}\hyperlink{classhryky_1_1_offset_ptr_a1296e4d0a123134cfa2fa44405c91ab3}{00353} \textcolor{keywordtype}{bool} \hyperlink{classhryky_1_1_offset_ptr}{hryky::OffsetPtr<OriginT, OffsetT, ValueT>::reachable}(
+00354     \hyperlink{classhryky_1_1_offset_ptr}{this_type} \textcolor{keyword}{const} & rhs)\textcolor{keyword}{ const}
+00355 \textcolor{keyword}{}\{
+00356     \textcolor{keywordflow}{return} this->origin\_ == rhs.origin\_;
+00357 \}
+00361 \textcolor{keyword}{template} < \textcolor{keyword}{typename} OriginT, \textcolor{keyword}{typename} OffsetT, \textcolor{keyword}{typename} ValueT >
+\hypertarget{offset__ptr_8h_source_l00362}{}\hyperlink{classhryky_1_1_offset_ptr_af74f8eb3403a971a16440c7e1e164cbe}{00362} OriginT \hyperlink{classhryky_1_1_offset_ptr}{hryky::OffsetPtr<OriginT, OffsetT, ValueT>::origin}()\textcolor{keyword}{ const}
+00363 \textcolor{keyword}{}\{
+00364     \textcolor{keywordflow}{return} this->origin\_;
+00365 \}
+00369 \textcolor{keyword}{template} < \textcolor{keyword}{typename} OriginT, \textcolor{keyword}{typename} OffsetT, \textcolor{keyword}{typename} ValueT >
+\hypertarget{offset__ptr_8h_source_l00370}{}\hyperlink{classhryky_1_1_offset_ptr_ada822ff23d086dda31c0d4c1f6c9ebd5}{00370} OffsetT \hyperlink{classhryky_1_1_offset_ptr}{hryky::OffsetPtr<OriginT, OffsetT, ValueT>::offset}()\textcolor{keyword}{ const}
+00371 \textcolor{keyword}{}\{
+00372     \textcolor{keywordflow}{return} this->offset\_;
+00373 \}
+00377 \textcolor{keyword}{template} < \textcolor{keyword}{typename} OriginT, \textcolor{keyword}{typename} OffsetT, \textcolor{keyword}{typename} ValueT >
+00378 \hyperlink{classhryky_1_1_offset_ptr}{hryky::OffsetPtr<OriginT, OffsetT, ValueT>} & 
+\hypertarget{offset__ptr_8h_source_l00379}{}\hyperlink{classhryky_1_1_offset_ptr_a1f855447fc5886b2518be1f89d9f686b}{00379} \hyperlink{classhryky_1_1_offset_ptr}{hryky::OffsetPtr<OriginT, OffsetT, ValueT>::operator+=}(
+00380     difference\_type \textcolor{keyword}{const} rhs)
+00381 \{
+00382     this->offset\_ += rhs;
+00383     \textcolor{keywordflow}{return} *\textcolor{keyword}{this};
+00384 \}
+00388 \textcolor{keyword}{template} < \textcolor{keyword}{typename} OriginT, \textcolor{keyword}{typename} OffsetT, \textcolor{keyword}{typename} ValueT >
+00389 \hyperlink{classhryky_1_1_offset_ptr}{hryky::OffsetPtr<OriginT, OffsetT, ValueT>} & 
+\hypertarget{offset__ptr_8h_source_l00390}{}\hyperlink{classhryky_1_1_offset_ptr_a5dcfac7df68c6d273ca319a8cc79352d}{00390} \hyperlink{classhryky_1_1_offset_ptr}{hryky::OffsetPtr<OriginT, OffsetT, ValueT>::operator-=}(
+00391     difference\_type \textcolor{keyword}{const} rhs)
+00392 \{
+00393     this->offset\_ -= rhs;
+00394     \textcolor{keywordflow}{return} *\textcolor{keyword}{this};
+00395 \}
+00396 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00397 \textcolor{comment}{// protected member functions}
+00398 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00399 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00400 \textcolor{comment}{// private member functions}
+00401 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00402 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00403 \textcolor{comment}{// global function prototypes}
+00404 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00405 \textcolor{keyword}{namespace }hryky
+00406 \{
+00408     \textcolor{keyword}{template} < \textcolor{keyword}{typename} OriginT, \textcolor{keyword}{typename} OffsetT, \textcolor{keyword}{typename} ValueT >
+00409     \textcolor{keywordtype}{void} \hyperlink{namespacehryky_a4282146df5ea2b68cb667896a2205909}{swap}(
+00410         \hyperlink{classhryky_1_1_offset_ptr}{OffsetPtr<OriginT, OffsetT, ValueT>} & lhs,
+00411         \hyperlink{classhryky_1_1_offset_ptr}{OffsetPtr<OriginT, OffsetT, ValueT>} & rhs);
+00412 
+00413 \} \textcolor{comment}{// namespace hryky}
+00414 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00415 \textcolor{comment}{// global function definitions}
+00416 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00420 \textcolor{comment}{}\textcolor{keyword}{template} < \textcolor{keyword}{typename} OriginT, \textcolor{keyword}{typename} OffsetT, \textcolor{keyword}{typename} ValueT >
+\hypertarget{offset__ptr_8h_source_l00421}{}\hyperlink{namespacehryky_a5464e322c2478bcff1432a4fe63a8a59}{00421} \textcolor{keywordtype}{void} \hyperlink{namespacehryky_a4282146df5ea2b68cb667896a2205909}{hryky::swap}(
+00422     \hyperlink{classhryky_1_1_offset_ptr}{OffsetPtr<OriginT, OffsetT, ValueT>} & lhs,
+00423     \hyperlink{classhryky_1_1_offset_ptr}{OffsetPtr<OriginT, OffsetT, ValueT>} & rhs)
+00424 \{
+00425     lhs.\hyperlink{classhryky_1_1_offset_ptr_ac1e20ff0f8e5ea1511abb6d6ed7745c2}{swap}(rhs);
+00426 \}
+00427 \textcolor{preprocessor}{#endif // OFFSET\_PTR\_H\_20120719133424232}
+00428 \textcolor{preprocessor}{}\textcolor{comment}{// end of file}
+\end{DoxyCode}

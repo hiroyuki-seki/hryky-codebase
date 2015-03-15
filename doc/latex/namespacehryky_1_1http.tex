@@ -1,0 +1,81 @@
+\hypertarget{namespacehryky_1_1http}{\section{hryky\-:\-:http Namespace Reference}
+\label{namespacehryky_1_1http}\index{hryky\-::http@{hryky\-::http}}
+}
+
+
+modules to manage H\-T\-T\-P.  
+
+
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classhryky_1_1http_1_1_entity}{Entity}
+\begin{DoxyCompactList}\small\item\em retains the information about a H\-T\-T\-P Message. \end{DoxyCompactList}\item 
+class \hyperlink{classhryky_1_1http_1_1_parser}{Parser}
+\begin{DoxyCompactList}\small\item\em writes out a H\-T\-T\-P Message. \end{DoxyCompactList}\item 
+class \hyperlink{classhryky_1_1http_1_1_stream}{Stream}
+\begin{DoxyCompactList}\small\item\em writes and writes H\-T\-T\-P Message. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{namespacehryky_1_1http_a6ddc3f4da8f8a139b2710f91d20e2f2b}{bool \hyperlink{namespacehryky_1_1http_a6ddc3f4da8f8a139b2710f91d20e2f2b}{is\-\_\-separator} (\hyperlink{namespacehryky_a488cba8b666be33ccca70e819684e3c8}{octet\-\_\-type} const octet)}\label{namespacehryky_1_1http_a6ddc3f4da8f8a139b2710f91d20e2f2b}
+
+\begin{DoxyCompactList}\small\item\em confirms that an octet is a separator of H\-T\-T\-P. \end{DoxyCompactList}\item 
+\hypertarget{namespacehryky_1_1http_afcbf4f8e1cb971d2c408fcaec24f23cc}{bool \hyperlink{namespacehryky_1_1http_afcbf4f8e1cb971d2c408fcaec24f23cc}{is\-\_\-text\-\_\-char} (\hyperlink{namespacehryky_a488cba8b666be33ccca70e819684e3c8}{octet\-\_\-type} const octet)}\label{namespacehryky_1_1http_afcbf4f8e1cb971d2c408fcaec24f23cc}
+
+\begin{DoxyCompactList}\small\item\em confirms that an octet belongs to the characters of T\-E\-X\-T. \end{DoxyCompactList}\item 
+\hypertarget{namespacehryky_1_1http_a95a557831e38d08a9a5093725975e10e}{bool \hyperlink{namespacehryky_1_1http_a95a557831e38d08a9a5093725975e10e}{is\-\_\-token\-\_\-char} (\hyperlink{namespacehryky_a488cba8b666be33ccca70e819684e3c8}{octet\-\_\-type} const octet)}\label{namespacehryky_1_1http_a95a557831e38d08a9a5093725975e10e}
+
+\begin{DoxyCompactList}\small\item\em confirms that an octet belongs to the character of token. \end{DoxyCompactList}\item 
+\hypertarget{namespacehryky_1_1http_a08fc36a78a8e2908140fcd102829a566}{\hyperlink{namespacehryky_a343a9a4c36a586be5c2693156200eadc}{reduction\-\_\-type} \hyperlink{namespacehryky_1_1http_a08fc36a78a8e2908140fcd102829a566}{reduce} (\hyperlink{namespacehryky_1_1reduction_ac686c30a4c8d196bbd0f05629a6b921f}{reduction\-::name\-\_\-type} const \&name, \hyperlink{classhryky_1_1http_1_1_entity}{Entity} const \&src)}\label{namespacehryky_1_1http_a08fc36a78a8e2908140fcd102829a566}
+
+\begin{DoxyCompactList}\small\item\em decomposes the instance to primitive objects. \end{DoxyCompactList}\item 
+\hypertarget{namespacehryky_1_1http_adbf3a1a3333ce434637e59c8ad633e76}{\hyperlink{namespacehryky_a343a9a4c36a586be5c2693156200eadc}{reduction\-\_\-type} \hyperlink{namespacehryky_1_1http_adbf3a1a3333ce434637e59c8ad633e76}{reduce} (\hyperlink{namespacehryky_1_1reduction_ac686c30a4c8d196bbd0f05629a6b921f}{reduction\-::name\-\_\-type} const \&name, \hyperlink{classhryky_1_1http_1_1_parser}{Parser} const \&src)}\label{namespacehryky_1_1http_adbf3a1a3333ce434637e59c8ad633e76}
+
+\begin{DoxyCompactList}\small\item\em decomposes the instance to primitive objects. \end{DoxyCompactList}\item 
+void \hyperlink{namespacehryky_1_1http_a38e62595ad532d18fbc65ceb61973aec}{swap} (\hyperlink{classhryky_1_1http_1_1_entity}{Entity} \&lhs, \hyperlink{classhryky_1_1http_1_1_entity}{Entity} \&rhs)
+\begin{DoxyCompactList}\small\item\em interchanges two instances of same type. \end{DoxyCompactList}\item 
+void \hyperlink{namespacehryky_1_1http_a22f402e5496d2e7fa84d74f6ae88eb73}{swap} (\hyperlink{classhryky_1_1http_1_1_parser}{Parser} \&lhs, \hyperlink{classhryky_1_1http_1_1_parser}{Parser} \&rhs)
+\begin{DoxyCompactList}\small\item\em interchanges two instances of same type. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+modules to manage H\-T\-T\-P. 
+
+\subsection{Function Documentation}
+\hypertarget{namespacehryky_1_1http_a38e62595ad532d18fbc65ceb61973aec}{\index{hryky\-::http@{hryky\-::http}!swap@{swap}}
+\index{swap@{swap}!hryky::http@{hryky\-::http}}
+\subsubsection[{swap}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf hryky\-::http\-::swap} (
+\begin{DoxyParamCaption}
+\item[{Entity \&}]{lhs, }
+\item[{Entity \&}]{rhs}
+\end{DoxyParamCaption}
+)}}\label{namespacehryky_1_1http_a38e62595ad532d18fbc65ceb61973aec}
+
+
+interchanges two instances of same type. 
+
+interchanges two instances of the same type. 
+
+References \hyperlink{classhryky_1_1http_1_1_entity_a9b87d22f99398a3754c3087202969c3f}{hryky\-::http\-::\-Entity\-::swap()}.
+
+
+
+Referenced by \hyperlink{classhryky_1_1http_1_1header_1_1field_1_1dispatcher_1_1_apply_a7202365f1b4e8a0f76efbcc0aaf4f091}{hryky\-::http\-::header\-::field\-::dispatcher\-::\-Apply\-::swap()}, \hyperlink{classhryky_1_1http_1_1header_1_1product__comment_1_1dispatcher_1_1_apply_aa32d5970a36b3391346febd126bb0287}{hryky\-::http\-::header\-::product\-\_\-comment\-::dispatcher\-::\-Apply$<$ Receiver\-T $>$\-::swap()}, \hyperlink{classhryky_1_1http_1_1header_1_1cache_1_1directive_1_1dispatcher_1_1_apply_a9c2993519b325e762c038437518089a2}{hryky\-::http\-::header\-::cache\-::directive\-::dispatcher\-::\-Apply\-::swap()}, and \hyperlink{classhryky_1_1http_1_1header_1_1_parser_a827667b5e98feeb979ec0b2e3b04f54f}{hryky\-::http\-::header\-::\-Parser\-::swap()}.
+
+\hypertarget{namespacehryky_1_1http_a22f402e5496d2e7fa84d74f6ae88eb73}{\index{hryky\-::http@{hryky\-::http}!swap@{swap}}
+\index{swap@{swap}!hryky::http@{hryky\-::http}}
+\subsubsection[{swap}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf hryky\-::http\-::swap} (
+\begin{DoxyParamCaption}
+\item[{Parser \&}]{lhs, }
+\item[{Parser \&}]{rhs}
+\end{DoxyParamCaption}
+)}}\label{namespacehryky_1_1http_a22f402e5496d2e7fa84d74f6ae88eb73}
+
+
+interchanges two instances of same type. 
+
+interchanges two instances of the same type. 
+
+References \hyperlink{classhryky_1_1http_1_1_parser_a9e6ce8e433e21cb231e397397a09a534}{hryky\-::http\-::\-Parser\-::swap()}.
+

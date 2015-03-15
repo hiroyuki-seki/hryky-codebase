@@ -1,0 +1,145 @@
+\hypertarget{exclusion__counter_8h_source}{\section{exclusion\-\_\-counter.\-h}
+}
+
+\begin{DoxyCode}
+00001 
+00009 \textcolor{preprocessor}{#ifndef EXCLUSION\_COUNTER\_H\_20120109144007277}
+00010 \textcolor{preprocessor}{}\textcolor{preprocessor}{#define EXCLUSION\_COUNTER\_H\_20120109144007277}
+00011 \textcolor{preprocessor}{}\textcolor{preprocessor}{#include "\hyperlink{exclusion__common_8h}{hryky/exclusion/exclusion_common.h}"}
+00012 \textcolor{preprocessor}{#include "\hyperlink{exclusion__mutex_8h}{hryky/exclusion/exclusion_mutex.h}"}
+00013 \textcolor{preprocessor}{#include "\hyperlink{exclusion__cond_8h}{hryky/exclusion/exclusion_cond.h}"}
+00014 \textcolor{preprocessor}{#include "\hyperlink{noncopyable_8h}{hryky/noncopyable.h}"}
+00015 \textcolor{preprocessor}{#include "\hyperlink{log__writer__common_8h}{hryky/log/log_writer_common.h}"}
+00016 \textcolor{preprocessor}{#include "\hyperlink{reduction__common_8h}{hryky/reduction/reduction_common.h}"}
+00017 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00018 \textcolor{comment}{// macro definition}
+00019 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00020 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00021 \textcolor{comment}{// namespace}
+00022 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00023 \textcolor{keyword}{namespace }hryky
+00024 \{
+00025 \textcolor{keyword}{namespace }exclusion
+00026 \{
+00028     \textcolor{keyword}{class }Counter;
+00029 
+00030     \textcolor{keyword}{template} < \textcolor{keyword}{typename} LockableT >
+00031     \textcolor{keyword}{class }Lock;
+00032     
+00033     \textcolor{keyword}{template} < \textcolor{keyword}{typename} LockableT >
+00034     \textcolor{keyword}{class }WaitableLock;
+00035 \}
+00036 \}
+00037 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00038 \textcolor{comment}{// class declaration}
+00039 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+\hypertarget{exclusion__counter_8h_source_l00043}{}\hyperlink{classhryky_1_1exclusion_1_1_counter}{00043} \textcolor{comment}{}\textcolor{keyword}{class }\hyperlink{classhryky_1_1exclusion_1_1_counter}{hryky::exclusion::Counter} : \hyperlink{classhryky_1_1_noncopyable}{hryky::Noncopyable}
+00044 \{
+00045 \textcolor{keyword}{public} :
+00046 
+00047     \textcolor{keyword}{struct }ScopedAcquire \{
+00048         ScopedAcquire(\hyperlink{classhryky_1_1exclusion_1_1_counter}{Counter} & counter, \textcolor{keywordtype}{size\_t} \textcolor{keyword}{const} size)
+00049             : counter\_(counter), size\_(size), disable\_()
+00050         \{
+00051             this->counter\_.acquire(this->size\_);
+00052         \}
+00053 
+00054         ~ScopedAcquire()
+00055         \{
+00056             \textcolor{keywordflow}{if} (!this->disable\_) \{
+00057                 this->counter\_.restore(this->size\_);
+00058             \}
+00059         \}
+00060 
+00061         \textcolor{keywordtype}{void} disable() \{
+00062             this->disable\_ = \textcolor{keyword}{true};
+00063         \}
+00064 
+00065     \textcolor{keyword}{private} :
+00066         \hyperlink{classhryky_1_1exclusion_1_1_counter}{Counter} & counter\_;
+00067         \textcolor{keywordtype}{size\_t} size\_;
+00068         \textcolor{keywordtype}{bool} disable\_;
+00069     \};
+00070 
+\hypertarget{exclusion__counter_8h_source_l00072}{}\hyperlink{classhryky_1_1exclusion_1_1_counter_ac9fa4c6c71b57ad8d8f32aa91fd4d9be}{00072}     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1exclusion_1_1_counter}{hryky::exclusion::Counter} \hyperlink{classhryky_1_1exclusion_1_1_counter_ac9fa4c6c71b57ad8d8f32aa91fd4d9be}{this_type};
+00073 
+\hypertarget{exclusion__counter_8h_source_l00075}{}\hyperlink{classhryky_1_1exclusion_1_1_counter_ab326191a15b6c67f8071a7a2b138d1f0}{00075}     \textcolor{keyword}{typedef} int32\_t \hyperlink{classhryky_1_1exclusion_1_1_counter_ab326191a15b6c67f8071a7a2b138d1f0}{value_type};
+00076 
+00078     \textcolor{keyword}{explicit} \hyperlink{classhryky_1_1exclusion_1_1_counter_a898f4f62a125b5cc226be54bfdd4e850}{Counter}();
+00079 
+00081     \hyperlink{classhryky_1_1exclusion_1_1_counter_a898f4f62a125b5cc226be54bfdd4e850}{Counter}(\hyperlink{classhryky_1_1exclusion_1_1_counter_ab326191a15b6c67f8071a7a2b138d1f0}{value_type} initial\_value);
+00082 
+00084     \hyperlink{classhryky_1_1exclusion_1_1_counter_a17ecda1cade5fd3193aad89f99546ab0}{~Counter}();
+00085 
+00087     \hyperlink{classhryky_1_1exclusion_1_1_counter_ab326191a15b6c67f8071a7a2b138d1f0}{value_type} \hyperlink{classhryky_1_1exclusion_1_1_counter_a741aa5af86716bd8e429866b09ec43ca}{acquire}(\textcolor{keywordtype}{size\_t} size);
+00088 
+00090     \hyperlink{classhryky_1_1exclusion_1_1_counter_ab326191a15b6c67f8071a7a2b138d1f0}{value_type} \hyperlink{classhryky_1_1exclusion_1_1_counter_af1e531673f38e004002c04aeeabbd7fc}{restore}(\textcolor{keywordtype}{size\_t} size);
+00091 
+00093     \hyperlink{classhryky_1_1exclusion_1_1_counter_ab326191a15b6c67f8071a7a2b138d1f0}{value_type} \hyperlink{classhryky_1_1exclusion_1_1_counter_a741aa5af86716bd8e429866b09ec43ca}{acquire}();
+00094 
+00096     \hyperlink{classhryky_1_1exclusion_1_1_counter_ab326191a15b6c67f8071a7a2b138d1f0}{value_type} \hyperlink{classhryky_1_1exclusion_1_1_counter_af1e531673f38e004002c04aeeabbd7fc}{restore}();
+00097 
+00099     \hyperlink{classhryky_1_1exclusion_1_1_counter_ab326191a15b6c67f8071a7a2b138d1f0}{value_type} \hyperlink{classhryky_1_1exclusion_1_1_counter_a245ec8efe4f40cae84ec505aa3a684a9}{operator++}();
+00100 
+00102     \hyperlink{classhryky_1_1exclusion_1_1_counter_ab326191a15b6c67f8071a7a2b138d1f0}{value_type} \hyperlink{classhryky_1_1exclusion_1_1_counter_a04f1e65f483c087de59ff208262472a4}{operator--}();
+00103 
+00105     \textcolor{keywordtype}{bool} \hyperlink{classhryky_1_1exclusion_1_1_counter_aa855279fb161ef7046ee6023efff3d06}{join}(\hyperlink{namespacehryky_1_1exclusion_ad196e82d77cdc66488c1ad69363688b8}{duration_type} \textcolor{keyword}{const} & duration);
+00106 
+00108     \hyperlink{classhryky_1_1_intrusive_ptr}{reduction_type} \hyperlink{classhryky_1_1exclusion_1_1_counter_afc58617ec70e839062556aeec2e6963c}{reduce}(\hyperlink{classhryky_1_1reduction_1_1_string}{reduction::name_type} \textcolor{keyword}{const} & name) \textcolor{keyword}{const};
+00109 
+00110 \textcolor{keyword}{protected} :
+00111 
+00112 \textcolor{keyword}{private} :
+00113 
+00114     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1exclusion_1_1_mutex}{Mutex}                       \hyperlink{classhryky_1_1exclusion_1_1_mutex}{lockable_type};
+00115     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1exclusion_1_1_lock}{Lock<lockable_type>}         \hyperlink{classhryky_1_1exclusion_1_1_lock}{lock_type};
+00116     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1exclusion_1_1_waitable_lock}{WaitableLock<lockable_type>} \hyperlink{classhryky_1_1exclusion_1_1_waitable_lock}{waitable_lock_type};
+00117 
+00119     \textcolor{keyword}{explicit} \hyperlink{classhryky_1_1exclusion_1_1_counter_a898f4f62a125b5cc226be54bfdd4e850}{Counter}(\hyperlink{classhryky_1_1exclusion_1_1_counter}{Counter} \textcolor{keyword}{const} &);
+00120 
+00122     \hyperlink{classhryky_1_1exclusion_1_1_counter}{Counter} & operator=(\hyperlink{classhryky_1_1exclusion_1_1_counter}{Counter} \textcolor{keyword}{const} &rhs);
+00123 
+00124     \textcolor{keyword}{mutable} \hyperlink{classhryky_1_1exclusion_1_1_mutex}{lockable_type}   lockable\_;
+00125     \hyperlink{classhryky_1_1exclusion_1_1_cond}{cond_type}               cond\_;
+00126     \hyperlink{classhryky_1_1exclusion_1_1_counter_ab326191a15b6c67f8071a7a2b138d1f0}{value_type}              value\_;
+00127 
+00128 \};
+00129 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00130 \textcolor{comment}{// public member functions}
+00131 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00132 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00133 \textcolor{comment}{// protected member functions}
+00134 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00135 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00136 \textcolor{comment}{// private member functions}
+00137 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00138 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00139 \textcolor{comment}{// global function prototype}
+00140 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00141 \textcolor{keyword}{namespace }hryky
+00142 \{
+00143 \textcolor{keyword}{namespace }exclusion
+00144 \{
+00146     \hyperlink{classhryky_1_1_intrusive_ptr}{hryky::reduction_type} \hyperlink{namespacehryky_1_1exclusion_a6368f8766a2da3f808cb0a652ba84e62}{reduce}(
+00147         \hyperlink{classhryky_1_1reduction_1_1_string}{reduction::name_type} \textcolor{keyword}{const} & name, \hyperlink{classhryky_1_1exclusion_1_1_counter}{Counter} \textcolor{keyword}{const} & src);
+00148 
+00149 \}
+00150 \}
+00151 \textcolor{preprocessor}{#endif // EXCLUSION\_COUNTER\_H\_20120109144007277}
+00152 \textcolor{preprocessor}{}
+00153 \textcolor{comment}{// end of file}
+\end{DoxyCode}

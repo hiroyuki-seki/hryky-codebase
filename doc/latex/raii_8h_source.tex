@@ -1,0 +1,173 @@
+\hypertarget{raii_8h_source}{\section{raii.\-h}
+}
+
+\begin{DoxyCode}
+00001 
+00007 \textcolor{preprocessor}{#ifndef RAII\_H\_20130105172753394}
+00008 \textcolor{preprocessor}{}\textcolor{preprocessor}{#define RAII\_H\_20130105172753394}
+00009 \textcolor{preprocessor}{}\textcolor{preprocessor}{#include <cstdlib>}
+00010 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00011 \textcolor{comment}{// macro definition}
+00012 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00013 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00014 \textcolor{comment}{// namespace}
+00015 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00016 \textcolor{keyword}{namespace }hryky
+00017 \{
+00021     \textcolor{keyword}{struct }AutoFree;
+00022 
+00024     \textcolor{keyword}{template} < \textcolor{keyword}{typename} InstanceT >
+00025     \textcolor{keyword}{class }AutoDelete;
+00026     
+00031     \textcolor{keyword}{template} < \textcolor{keyword}{class} ResourceT >
+00032     \textcolor{keyword}{struct }AutoRelease;
+00033 
+00035     \textcolor{keyword}{template} <\textcolor{keyword}{typename} RetT, RetT func(\textcolor{keywordtype}{void})>
+00036     \textcolor{keyword}{struct }AutoFunc;
+00037     
+00039     \textcolor{keyword}{template} <\textcolor{keyword}{typename} RetT, \textcolor{keyword}{typename} Arg1T, RetT func(Arg1T)>
+00040     \textcolor{keyword}{struct }AutoFunc1;
+00041     
+00043     \textcolor{keyword}{template} <\textcolor{keyword}{typename} RetT, \textcolor{keyword}{typename} Arg1T, \textcolor{keyword}{typename} Arg2T, RetT func(Arg1T, A
+      rg2T)>
+00044     \textcolor{keyword}{struct }AutoFunc2;
+00045 
+00046 \textcolor{comment}{// utilities for using RAII.}
+00047 \textcolor{keyword}{namespace }raii
+00048 \{
+00049 \} \textcolor{comment}{// namespace raii}
+00050 \} \textcolor{comment}{// namespace hryky}
+00051 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00052 \textcolor{comment}{// struct declaration}
+00053 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+\hypertarget{raii_8h_source_l00057}{}\hyperlink{structhryky_1_1_auto_free}{00057} \textcolor{comment}{}\textcolor{keyword}{struct }\hyperlink{structhryky_1_1_auto_free}{hryky::AutoFree} : \hyperlink{classhryky_1_1_noncopyable}{Noncopyable}
+00058 \{
+\hypertarget{raii_8h_source_l00063}{}\hyperlink{structhryky_1_1_auto_free_aa81ba9b3cab905c2a0e5067d18a56987}{00063}     \hyperlink{structhryky_1_1_auto_free_aa81ba9b3cab905c2a0e5067d18a56987}{AutoFree}(\textcolor{keywordtype}{void} * ptr) : ptr\_(ptr) \{\}
+00064 
+\hypertarget{raii_8h_source_l00066}{}\hyperlink{structhryky_1_1_auto_free_abeab1627044f1933a45978e2b580f8a7}{00066}     \hyperlink{structhryky_1_1_auto_free_abeab1627044f1933a45978e2b580f8a7}{~AutoFree}() \{
+00067         \textcolor{keywordflow}{if} (\hyperlink{common_8h_a4cd4ac09cfcdbd6b30ee69afc156e210}{HRYKY_NULLPTR} != this->ptr\_) \{
+00068             std::free(this->ptr\_);
+00069         \}
+00070     \}
+00071 
+\hypertarget{raii_8h_source_l00075}{}\hyperlink{structhryky_1_1_auto_free_a0bac324a922b7685182566ad76085cd1}{00075}     \textcolor{keywordtype}{void} \hyperlink{structhryky_1_1_auto_free_a0bac324a922b7685182566ad76085cd1}{disable}() \{ this->ptr\_ = \hyperlink{common_8h_a4cd4ac09cfcdbd6b30ee69afc156e210}{HRYKY_NULLPTR}; \}
+00076 
+00077 \textcolor{keyword}{private} :
+00078     \textcolor{keywordtype}{void} * ptr\_;
+00079 \};
+00085 \textcolor{keyword}{template} < \textcolor{keyword}{typename} InstanceT >
+\hypertarget{raii_8h_source_l00086}{}\hyperlink{classhryky_1_1_auto_delete}{00086} \textcolor{keyword}{class }\hyperlink{classhryky_1_1_auto_delete}{hryky::AutoDelete} : \hyperlink{classhryky_1_1_noncopyable}{Noncopyable}
+00087 \{
+00088 \textcolor{keyword}{public} :
+00089 
+\hypertarget{raii_8h_source_l00090}{}\hyperlink{classhryky_1_1_auto_delete_a046a60ad465f3c9546be9c5f75bae542}{00090}     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1_noncopyable}{Noncopyable} \hyperlink{classhryky_1_1_auto_delete_a046a60ad465f3c9546be9c5f75bae542}{base_type};
+\hypertarget{raii_8h_source_l00091}{}\hyperlink{classhryky_1_1_auto_delete_aae29dd8e7906c2000fae094e3da5360c}{00091}     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1_auto_delete}{AutoDelete}  \hyperlink{classhryky_1_1_auto_delete_aae29dd8e7906c2000fae094e3da5360c}{this_type};
+00092 
+\hypertarget{raii_8h_source_l00097}{}\hyperlink{classhryky_1_1_auto_delete_ac25a04d5b8fcc449def4a1e5bf6fba5b}{00097}     \hyperlink{classhryky_1_1_auto_delete_ac25a04d5b8fcc449def4a1e5bf6fba5b}{AutoDelete}(InstanceT * instance) : instance\_(instance)\{ \}
+00098 
+\hypertarget{raii_8h_source_l00100}{}\hyperlink{classhryky_1_1_auto_delete_a23a4916d0f5df04a5ce8840cb5c6a156}{00100}     \hyperlink{classhryky_1_1_auto_delete_a23a4916d0f5df04a5ce8840cb5c6a156}{~AutoDelete}() \{
+00101         \textcolor{keywordflow}{if} (\hyperlink{common_8h_a4cd4ac09cfcdbd6b30ee69afc156e210}{HRYKY_NULLPTR} != this->instance\_)
+00102         \{
+00103             \textcolor{keyword}{delete} this->instance\_;
+00104         \}
+00105     \}
+00106 
+\hypertarget{raii_8h_source_l00108}{}\hyperlink{classhryky_1_1_auto_delete_acd5b8c66807b7eb7bd60e943e06ad899}{00108}     \textcolor{keywordtype}{void} \hyperlink{classhryky_1_1_auto_delete_acd5b8c66807b7eb7bd60e943e06ad899}{disable}() \{
+00109         this->instance\_ = \hyperlink{common_8h_a4cd4ac09cfcdbd6b30ee69afc156e210}{HRYKY_NULLPTR};
+00110     \}
+00111 
+00112 \textcolor{keyword}{private} :
+00113     InstanceT * instance\_;
+00114 
+00115 \};
+00122 \textcolor{keyword}{template} < \textcolor{keyword}{class} ResourceT >
+\hypertarget{raii_8h_source_l00123}{}\hyperlink{structhryky_1_1_auto_release}{00123} \textcolor{keyword}{struct }\hyperlink{structhryky_1_1_auto_release}{hryky::AutoRelease} : \hyperlink{classhryky_1_1_noncopyable}{Noncopyable}
+00124 \{
+\hypertarget{raii_8h_source_l00129}{}\hyperlink{structhryky_1_1_auto_release_a2ca03b9a40a76106b96a3b112e470a15}{00129}     \hyperlink{structhryky_1_1_auto_release_a2ca03b9a40a76106b96a3b112e470a15}{AutoRelease}(ResourceT * ptr) : ptr\_(ptr) \{\}
+00130     
+\hypertarget{raii_8h_source_l00132}{}\hyperlink{structhryky_1_1_auto_release_ac8b9d3b97aeb9bc2c27783161e2df552}{00132}     \hyperlink{structhryky_1_1_auto_release_ac8b9d3b97aeb9bc2c27783161e2df552}{~AutoRelease}() \{
+00133         \textcolor{keywordflow}{if} (\hyperlink{common_8h_a4cd4ac09cfcdbd6b30ee69afc156e210}{HRYKY_NULLPTR} != this->ptr\_) \{
+00134             this->ptr\_->release();
+00135         \}
+00136     \}
+00137     
+\hypertarget{raii_8h_source_l00141}{}\hyperlink{structhryky_1_1_auto_release_ac65949fad34210bc5e981daadf36fab1}{00141}     \textcolor{keywordtype}{void} \hyperlink{structhryky_1_1_auto_release_ac65949fad34210bc5e981daadf36fab1}{disable}() \{ this->ptr\_ = \hyperlink{common_8h_a4cd4ac09cfcdbd6b30ee69afc156e210}{HRYKY_NULLPTR}; \}
+00142     
+00143 \textcolor{keyword}{private} :
+00144     ResourceT * ptr\_;
+00145 \};
+00151 \textcolor{keyword}{template} <\textcolor{keyword}{typename} RetT, RetT func(\textcolor{keywordtype}{void})>
+\hypertarget{raii_8h_source_l00152}{}\hyperlink{structhryky_1_1_auto_func}{00152} \textcolor{keyword}{struct }\hyperlink{structhryky_1_1_auto_func}{hryky::AutoFunc} : \hyperlink{classhryky_1_1_noncopyable}{hryky::Noncopyable}
+00153 \{
+00154     \hyperlink{structhryky_1_1_auto_func}{AutoFunc}() : disable\_(\textcolor{keyword}{false}) \{\}
+00155     
+00156     ~\hyperlink{structhryky_1_1_auto_func}{AutoFunc}() \{ \textcolor{keywordflow}{if} (!this->disable\_) \{ (*func)(); \} \}
+00157 
+00158     \textcolor{keywordtype}{void} disable() \{ this->disable\_ = \textcolor{keyword}{true}; \}
+00159 
+00160 \textcolor{keyword}{private} :
+00161     \textcolor{keywordtype}{bool}    disable\_;
+00162 \};
+00163 
+00170 \textcolor{keyword}{template} <\textcolor{keyword}{typename} RetT, \textcolor{keyword}{typename} Arg1T, RetT func(Arg1T)>
+\hypertarget{raii_8h_source_l00171}{}\hyperlink{structhryky_1_1_auto_func1}{00171} \textcolor{keyword}{struct }\hyperlink{structhryky_1_1_auto_func1}{hryky::AutoFunc1} : \hyperlink{classhryky_1_1_noncopyable}{hryky::Noncopyable}
+00172 \{
+00173     \hyperlink{structhryky_1_1_auto_func1}{AutoFunc1}(Arg1T arg1)
+00174         : arg1\_(arg1), disable\_(\textcolor{keyword}{false}) \{\}
+00175     
+00176     ~\hyperlink{structhryky_1_1_auto_func1}{AutoFunc1}() \{ \textcolor{keywordflow}{if} (!this->disable\_) \{ (*func)(this->arg1\_); \} \}
+00177 
+00178     \textcolor{keywordtype}{void} disable() \{ this->disable\_ = \textcolor{keyword}{true}; \}
+00179 
+00180 \textcolor{keyword}{private} :
+00181     Arg1T   arg1\_;
+00182     \textcolor{keywordtype}{bool}    disable\_;
+00183 \};
+00184 
+00192 \textcolor{keyword}{template} <\textcolor{keyword}{typename} RetT, \textcolor{keyword}{typename} Arg1T, \textcolor{keyword}{typename} Arg2T, RetT func(Arg1T, Arg2T
+      )>
+\hypertarget{raii_8h_source_l00193}{}\hyperlink{structhryky_1_1_auto_func2}{00193} \textcolor{keyword}{struct }\hyperlink{structhryky_1_1_auto_func2}{hryky::AutoFunc2} : \hyperlink{classhryky_1_1_noncopyable}{hryky::Noncopyable}
+00194 \{
+00195     \hyperlink{structhryky_1_1_auto_func2}{AutoFunc2}(Arg1T arg1, Arg2T arg2)
+00196         : arg1\_(arg1), arg2\_(arg2), disable\_(\textcolor{keyword}{false}) \{\}
+00197     
+00198     ~\hyperlink{structhryky_1_1_auto_func2}{AutoFunc2}() \{ \textcolor{keywordflow}{if} (!this->disable\_) \{ (*func)(this->arg1\_, this->arg2\_); \} 
+      \}
+00199 
+00200     \textcolor{keywordtype}{void} disable() \{ this->disable\_ = \textcolor{keyword}{true}; \}
+00201 
+00202 \textcolor{keyword}{private} :
+00203     Arg1T   arg1\_;
+00204     Arg2T   arg2\_;
+00205     \textcolor{keywordtype}{bool}    disable\_;
+00206 \};
+00207 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00208 \textcolor{comment}{// class declaration}
+00209 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00210 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00211 \textcolor{comment}{// global function prototypes}
+00212 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00213 \textcolor{keyword}{namespace }hryky
+00214 \{
+00215 \textcolor{keyword}{namespace }raii
+00216 \{
+00217 \} \textcolor{comment}{// namespace raii}
+00218 \} \textcolor{comment}{// namespace hryky}
+00219 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00220 \textcolor{comment}{// global function definitions}
+00221 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00222 \textcolor{preprocessor}{#endif // RAII\_H\_20130105172753394}
+00223 \textcolor{preprocessor}{}\textcolor{comment}{// end of file}
+\end{DoxyCode}

@@ -1,0 +1,10 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$classhryky_1_1_sequence.html" title="{hryky::Sequence\&lt; Arg1T \&gt;\n||+ first()\l+ print()\l+ rest()\l+ Sequence()\l+ Sequence()\l+ ~Sequence()\l}" alt="" coords="8,222,187,373"/>
+<area shape="rect" id="node7" href="$classhryky_1_1_sequence.html" title="{hryky::Sequence\&lt; Arg1T, Sequence\&lt; Arg2T, Arg3T \&gt; \&gt;\n||+ first()\l+ print()\l+ rest()\l+ Sequence()\l+ Sequence()\l+ ~Sequence()\l}" alt="" coords="211,222,555,373"/>
+<area shape="rect" id="node11" href="$classhryky_1_1_sequence.html" title="{hryky::Sequence\&lt; Arg1T, Arg2T \&gt;\n||+ first()\l+ print()\l+ rest()\l+ Sequence()\l+ Sequence()\l+ ~Sequence()\l}" alt="" coords="579,222,799,373"/>
+<area shape="rect" id="node15" href="$classhryky_1_1_sequence.html" title="{hryky::Sequence\&lt; Arg1T, Sequence\&lt; Arg2T, Sequence\&lt; Arg3T, Arg4T \&gt; \&gt; \&gt;\n||+ first()\l+ print()\l+ rest()\l+ Sequence()\l+ Sequence()\l+ ~Sequence()\l}" alt="" coords="823,222,1291,373"/>
+<area shape="rect" id="node5" href="$classhryky_1_1_sequence1.html" title="sequence which has one value." alt="" coords="5,424,189,501"/>
+<area shape="rect" id="node9" href="$classhryky_1_1_sequence3.html" title="sequence which has three values." alt="" coords="248,424,517,501"/>
+<area shape="rect" id="node13" href="$classhryky_1_1_sequence2.html" title="sequence which has two values." alt="" coords="576,424,803,501"/>
+<area shape="rect" id="node17" href="$classhryky_1_1_sequence4.html" title="sequence which has 4 values." alt="" coords="902,424,1212,501"/>
+</map>

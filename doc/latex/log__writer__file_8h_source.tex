@@ -1,0 +1,87 @@
+\hypertarget{log__writer__file_8h_source}{\section{log\-\_\-writer\-\_\-file.\-h}
+}
+
+\begin{DoxyCode}
+00001 
+00007 \textcolor{preprocessor}{#ifndef LOG\_WRITER\_H\_20111105101354092}
+00008 \textcolor{preprocessor}{}\textcolor{preprocessor}{#define LOG\_WRITER\_H\_20111105101354092}
+00009 \textcolor{preprocessor}{}\textcolor{preprocessor}{#include "\hyperlink{common_8h}{hryky/common.h}"}
+00010 \textcolor{preprocessor}{#include "\hyperlink{exclusion__mutex_8h}{hryky/exclusion/exclusion_mutex.h}"}
+00011 \textcolor{preprocessor}{#include "\hyperlink{log__writer__base_8h}{hryky/log/log_writer_base.h}"}
+00012 \textcolor{preprocessor}{#include "\hyperlink{noncopyable_8h}{hryky/noncopyable.h}"}
+00013 \textcolor{preprocessor}{#include "\hyperlink{string_8h}{hryky/string.h}"}
+00014 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00015 \textcolor{comment}{// macro definition}
+00016 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00017 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00018 \textcolor{comment}{// namespace}
+00019 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00020 \textcolor{keyword}{namespace }hryky
+00021 \{
+00022 \textcolor{keyword}{namespace }log
+00023 \{
+00024 \textcolor{keyword}{namespace }writer
+00025 \{
+00027     \textcolor{keyword}{class }File;
+00028     
+00029 \} \textcolor{comment}{// namespace writer}
+00030 \} \textcolor{comment}{// namespace log}
+00031 \textcolor{keyword}{namespace }exclusion
+00032 \{
+00033     \textcolor{keyword}{template} < \textcolor{keyword}{typename} LockableT >
+00034     \textcolor{keyword}{class }Lock;
+00035 \}
+00036 \} \textcolor{comment}{// namespace hryky}
+00037 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00038 \textcolor{comment}{// class declaration}
+00039 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+\hypertarget{log__writer__file_8h_source_l00043}{}\hyperlink{classhryky_1_1log_1_1writer_1_1_file}{00043} \textcolor{comment}{}\textcolor{keyword}{class }\hyperlink{classhryky_1_1log_1_1writer_1_1_file}{hryky::log::writer::File}
+00044     : \textcolor{keyword}{public} \hyperlink{classhryky_1_1log_1_1writer_1_1_base}{hryky::log::writer::Base}
+00045 \{
+00046 \textcolor{keyword}{public} :
+00047 
+\hypertarget{log__writer__file_8h_source_l00048}{}\hyperlink{classhryky_1_1log_1_1writer_1_1_file_a4cdd15a07ea08f9bc174e5eec74fc035}{00048}     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1log_1_1writer_1_1_file}{File}        \hyperlink{classhryky_1_1log_1_1writer_1_1_file_a4cdd15a07ea08f9bc174e5eec74fc035}{this_type};
+\hypertarget{log__writer__file_8h_source_l00049}{}\hyperlink{classhryky_1_1log_1_1writer_1_1_file_a4d4dc0a88e1304beca1797e14119f280}{00049}     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1log_1_1writer_1_1_base}{Base}        \hyperlink{classhryky_1_1log_1_1writer_1_1_file_a4d4dc0a88e1304beca1797e14119f280}{base_type};
+00050     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1_string}{String<>}    \hyperlink{classhryky_1_1_string}{path_type};
+00051 
+00053     \textcolor{keyword}{explicit} \hyperlink{classhryky_1_1log_1_1writer_1_1_file_a728ce2c2cc1b10c6e2250b384772b563}{File}();
+00054 
+00056     \hyperlink{classhryky_1_1log_1_1writer_1_1_file_a2e7014017ff69abf8511d255f0f48327}{~File}();
+00057 
+00059     \textcolor{keywordtype}{void} \hyperlink{classhryky_1_1log_1_1writer_1_1_file_ad22e4f5ee9fe7ca7e653e7a8578b8e0f}{path}(\hyperlink{classhryky_1_1_string}{path_type} \textcolor{keyword}{const} & src);
+00060 
+00061 \textcolor{keyword}{protected} :
+00062 
+00063 \textcolor{keyword}{private} :
+00064 
+00065     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1exclusion_1_1_mutex}{exclusion::Mutex}                \hyperlink{classhryky_1_1exclusion_1_1_mutex}{lockable_type};
+00066     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1exclusion_1_1_lock}{exclusion::Lock<lockable_type>}  \hyperlink{classhryky_1_1exclusion_1_1_lock}{lock_type};
+00067 
+00069     \textcolor{keyword}{explicit} \hyperlink{classhryky_1_1log_1_1writer_1_1_file_a728ce2c2cc1b10c6e2250b384772b563}{File}(\textcolor{keyword}{const} \hyperlink{classhryky_1_1log_1_1writer_1_1_file}{File} &);
+00070 
+00072     \hyperlink{classhryky_1_1log_1_1writer_1_1_file}{File} & operator=(\textcolor{keyword}{const} \hyperlink{classhryky_1_1log_1_1writer_1_1_file}{File} &rhs);
+00073 
+00075     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} flush\_impl();
+00076 
+00078     \textcolor{keyword}{virtual} \textcolor{keywordtype}{bool} write\_impl(
+00079         \textcolor{keywordtype}{char} \textcolor{keyword}{const} * \textcolor{keyword}{const} str, \textcolor{keywordtype}{size\_t} \textcolor{keyword}{const} size);
+00080 
+00081     std::stringstream       log\_;       
+00082     \hyperlink{classhryky_1_1_string}{path_type}               path\_;      
+00083     \hyperlink{classhryky_1_1exclusion_1_1_mutex}{lockable_type}           lockable\_;  
+00084 
+00085 \};
+00086 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00087 \textcolor{comment}{// inline functions}
+00088 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00089 \textcolor{preprocessor}{#endif // LOG\_WRITER\_H\_20111105101354092}
+00090 \textcolor{preprocessor}{}\textcolor{comment}{// end of file}
+\end{DoxyCode}

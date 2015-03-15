@@ -1,0 +1,101 @@
+\hypertarget{writer__adapter_8h_source}{\section{writer\-\_\-adapter.\-h}
+}
+
+\begin{DoxyCode}
+00001 
+00007 \textcolor{preprocessor}{#ifndef WRITER\_ADAPTER\_H\_20130204223004604}
+00008 \textcolor{preprocessor}{}\textcolor{preprocessor}{#define WRITER\_ADAPTER\_H\_20130204223004604}
+00009 \textcolor{preprocessor}{}\textcolor{preprocessor}{#include "\hyperlink{adapter_8h}{hryky/adapter.h}"}
+00010 \textcolor{preprocessor}{#include "\hyperlink{writer__base_8h}{hryky/writer/writer_base.h}"}
+00011 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00012 \textcolor{comment}{// macro definition}
+00013 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00014 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00015 \textcolor{comment}{// namespace}
+00016 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00017 \textcolor{keyword}{namespace }hryky
+00018 \{
+00019 \textcolor{keyword}{namespace }writer
+00020 \{
+00022     \textcolor{keyword}{template} <\textcolor{keyword}{typename} ValueT>
+00023     \textcolor{keyword}{class }Adapter;
+00024 
+00025 \} \textcolor{comment}{// namespace writer}
+00026 \} \textcolor{comment}{// namespace hryky}
+00027 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00028 \textcolor{comment}{// class declarations}
+00029 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00033 \textcolor{comment}{}\textcolor{keyword}{template} <\textcolor{keyword}{typename} ValueT>
+\hypertarget{writer__adapter_8h_source_l00034}{}\hyperlink{classhryky_1_1writer_1_1_adapter}{00034} \textcolor{keyword}{class }\hyperlink{classhryky_1_1writer_1_1_adapter}{hryky::writer::Adapter}
+00035     : \textcolor{keyword}{public} \hyperlink{classhryky_1_1_adapter}{hryky::Adapter}<writer::Base, ValueT>
+00036 \{
+00037 \textcolor{keyword}{public} :
+00038 
+\hypertarget{writer__adapter_8h_source_l00039}{}\hyperlink{classhryky_1_1writer_1_1_adapter_a404ee40bd08ea08673f7e134625ef904}{00039}     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1_adapter}{hryky::Adapter<writer::Base, ValueT>} \hyperlink{classhryky_1_1writer_1_1_adapter_a404ee40bd08ea08673f7e134625ef904}{base_type};
+00040 
+\hypertarget{writer__adapter_8h_source_l00041}{}\hyperlink{classhryky_1_1writer_1_1_adapter_a9fe895f62ad5d6fa98ea5264772b6a26}{00041}     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1writer_1_1_adapter}{Adapter<ValueT>} \hyperlink{classhryky_1_1writer_1_1_adapter_a9fe895f62ad5d6fa98ea5264772b6a26}{this_type};
+00042 
+00044     \textcolor{keyword}{virtual} \textcolor{keywordtype}{bool} \hyperlink{classhryky_1_1writer_1_1_adapter_a6078dbc44e91c1ec4f4e6ddc62aac4be}{operator()}(\textcolor{keywordtype}{void} \textcolor{keyword}{const} * data, \textcolor{keywordtype}{size\_t} \textcolor{keyword}{const} size);
+00045 
+00046 \textcolor{keyword}{protected} :
+00047 
+00048 \textcolor{keyword}{private} :
+00049 
+00050 \};
+00051 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00052 \textcolor{comment}{// class specializations}
+00053 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00054 \textcolor{keyword}{namespace }hryky
+00055 \{
+00056 \textcolor{keyword}{namespace }writer
+00057 \{
+00058 \} \textcolor{comment}{// namespace writer}
+00059 \} \textcolor{comment}{// namespace hryky}
+00060 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00061 \textcolor{comment}{// public member functions}
+00062 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00066 \textcolor{comment}{}\textcolor{keyword}{template} <\textcolor{keyword}{typename} ValueT>
+\hypertarget{writer__adapter_8h_source_l00067}{}\hyperlink{classhryky_1_1writer_1_1_adapter_a6078dbc44e91c1ec4f4e6ddc62aac4be}{00067} \textcolor{keywordtype}{bool} \hyperlink{classhryky_1_1writer_1_1_adapter_a6078dbc44e91c1ec4f4e6ddc62aac4be}{hryky::writer::Adapter<ValueT>::operator()}(
+00068     \textcolor{keywordtype}{void} \textcolor{keyword}{const} * data, \textcolor{keywordtype}{size\_t} \textcolor{keyword}{const} size)
+00069 \{
+00070     \textcolor{keywordflow}{return} this->value()(data, size);
+00071 \}
+00072 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00073 \textcolor{comment}{// protected member functions}
+00074 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00075 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00076 \textcolor{comment}{// private member functions}
+00077 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00078 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00079 \textcolor{comment}{// global function prototypes}
+00080 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00081 \textcolor{keyword}{namespace }hryky
+00082 \{
+00083 \textcolor{keyword}{namespace }writer
+00084 \{
+00085 \} \textcolor{comment}{// namespace writer}
+00086 \} \textcolor{comment}{// namespace hryky}
+00087 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00088 \textcolor{comment}{// global function definitions}
+00089 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00090 \textcolor{preprocessor}{#endif // WRITER\_ADAPTER\_H\_20130204223004604}
+00091 \textcolor{preprocessor}{}\textcolor{comment}{// end of file}
+\end{DoxyCode}

@@ -1,0 +1,247 @@
+\hypertarget{test_task_hello_8cpp-example}{\section{test\-\_\-task\-\_\-hello.\-cpp}
+}
+
+\begin{DoxyCodeInclude}
+\textcolor{comment}{/*}
+\textcolor{comment}{  @file         test\_task\_hello.cpp}
+\textcolor{comment}{  @brief        tests task::distributor::Batch by printing a string.}
+\textcolor{comment}{  @since        2011-11-14T17:12:19+0900}
+\textcolor{comment}{  @author       HRYKY}
+\textcolor{comment}{  @version      $Id: test\_task\_hello.cpp 135 2013-01-18 16:53:58Z
+       hryky.private@gmail.com $}
+\textcolor{comment}{ */}
+\textcolor{preprocessor}{#include <precompiled.h>}
+\textcolor{preprocessor}{#include "\hyperlink{testing_8h}{hryky/testing.h}"}
+\textcolor{preprocessor}{#include "\hyperlink{thread_8h}{hryky/thread.h}"}
+\textcolor{preprocessor}{#include "\hyperlink{random_8h}{hryky/random.h}"}
+\textcolor{preprocessor}{#include "\hyperlink{task_8h}{hryky/task.h}"}
+\textcolor{preprocessor}{#include "\hyperlink{memory_8h}{hryky/memory.h}"}
+\textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+\textcolor{comment}{// macro}
+\textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+\textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+\textcolor{comment}{// anonymous namespace}
+\textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+\textcolor{keyword}{namespace }hryky
+\{
+\textcolor{keyword}{namespace}
+\{
+    \textcolor{comment}{// enregisters a test.}
+    \textcolor{keyword}{class }Test : testing::unit::Base
+    \{
+    \textcolor{keyword}{public} :
+        Test() : testing::unit::Base(\textcolor{stringliteral}{"task\_hello"}) \{\}
+
+    \textcolor{keyword}{private} :
+        \textcolor{comment}{// tests task::distributor::Batch by printing strings concurrently.}
+        \textcolor{keyword}{virtual} \textcolor{keywordtype}{bool} run\_impl();
+    \};
+    Test \textcolor{keyword}{const} g\_test;
+
+    \textcolor{comment}{// a task to print "hello $\{this->id\_\}".}
+    \textcolor{keyword}{struct }HelloTask
+    \{
+        \textcolor{keyword}{typedef} task::distributor::Batch<HelloTask>
+            distributor\_type;
+        
+        \textcolor{keyword}{typedef} task::worker::Batch<HelloTask>
+            worker\_type;
+        
+        HelloTask() : id\_(0) \{\}
+        
+        HelloTask(\textcolor{keywordtype}{size\_t} \textcolor{keywordtype}{id}) : id\_(\textcolor{keywordtype}{id}) \{\}
+
+        \textcolor{keywordtype}{void} operator()(worker\_type &);
+
+        \hyperlink{namespacehryky_a343a9a4c36a586be5c2693156200eadc}{reduction_type} \hyperlink{namespacehryky_af41cb3af6766761da0ff21b84527a52c}{reduce}(\hyperlink{namespacehryky_1_1reduction_ac686c30a4c8d196bbd0f05629a6b921f}{reduction::name_type} \textcolor{keyword}{const} & name) \textcolor{keyword}{const};
+
+        \textcolor{keywordtype}{size\_t} id\_;
+    \};
+
+    \hyperlink{namespacehryky_a343a9a4c36a586be5c2693156200eadc}{reduction_type} \hyperlink{namespacehryky_af41cb3af6766761da0ff21b84527a52c}{reduce}(
+        \hyperlink{namespacehryky_1_1reduction_ac686c30a4c8d196bbd0f05629a6b921f}{reduction::name_type} \textcolor{keyword}{const} & name, HelloTask \textcolor{keyword}{const} & src);
+
+    \textcolor{keyword}{typedef} HelloTask                       task\_type;
+    \textcolor{keyword}{typedef} task\_type::worker\_type          worker\_type;
+    \textcolor{keyword}{typedef} task\_type::distributor\_type     distributor\_type;
+
+\}
+\}
+\textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+\textcolor{comment}{// static functions}
+\textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+\textcolor{keyword}{namespace }hryky
+\{
+\textcolor{keyword}{namespace}
+\{
+\textcolor{comment}{/*}
+\textcolor{comment}{  @brief        tests task::distributor::Batch by printing strings
+       concurrently.}
+\textcolor{comment}{  @since        2011-12-17T19:54:00+0900}
+\textcolor{comment}{ */}
+\textcolor{keywordtype}{bool} Test::run\_impl()
+\{
+    \textcolor{comment}{// initializes logging}
+    testing::Log log(*\textcolor{keyword}{this});
+
+    \textcolor{comment}{// initializes a random number generator}
+    testing::Random random;
+
+    log.reduce().append(\textcolor{stringliteral}{"random"}, random);
+
+    \textcolor{comment}{// temporary buffer for dynamic memory allocation}
+    \textcolor{keywordtype}{size\_t} \textcolor{keyword}{const}    buffer\_size = 0x400 * 0x400;
+    \textcolor{keywordtype}{size\_t}          buffer[buffer\_size / \textcolor{keyword}{sizeof}(size\_t)] = \{0, \};
+    
+    \textcolor{comment}{// initializes heap.}
+    \textcolor{keyword}{typedef} memory::heap::Arbitrary<>   heap\_type;
+    heap\_type                           \hyperlink{namespacehryky_1_1memory_1_1global_a6fc6103f67c837aa0f39b359588409cd}{heap};
+    \textcolor{keywordflow}{if} (!heap.reset(buffer, buffer\_size)) \{
+        \hyperlink{log__writer__common_8h_a8cb8f66bf45015fc1b64ed8d52bf8d59}{hryky_log_alert}(
+            (*\hyperlink{namespacehryky_1_1reduction_ac5eae270cf8047b294dc4ff3e5e11a79}{reduction::map}(\textcolor{stringliteral}{"failed to reset memory::heap::Arbitrary"}))
+            .append(\textcolor{stringliteral}{"buffer\_size"},      buffer\_size));
+        \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+    \}
+
+    \textcolor{comment}{// decorates heap as thread-safe.}
+    \textcolor{keyword}{typedef} memory::heap::Lock<heap\_type>   lockable\_heap\_type;
+    lockable\_heap\_type                      lockable\_heap(heap);
+
+    \textcolor{comment}{// creates adapter to treat the heap polymorphically.}
+    \textcolor{keyword}{typedef} memory::heap::Adapter<lockable\_heap\_type>   adapter\_heap\_type;
+    adapter\_heap\_type                                   adapter\_heap(
+      lockable\_heap);
+
+    \textcolor{comment}{// initializes a pool of thread resources.}
+    thread::Pool thread\_pool;
+    \textcolor{keywordflow}{if} (!thread\_pool.reset(thread::Pool::ResetParameter())) \{
+        \hyperlink{log__writer__common_8h_ae5ad3dabb33f594695ef40753cb78aad}{hryky_log_err}(
+            \textcolor{stringliteral}{"failed to reset thread::Pool"});
+        \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+    \}
+    
+    \textcolor{comment}{// decides the number of concurrent units}
+    \textcolor{keywordtype}{size\_t} \textcolor{keyword}{const} threads\_size = 8;
+
+    \hyperlink{namespacehryky_a5e2737162aa470ce3920f86e86eac0bc}{processor_id_type} \textcolor{keyword}{const} preferred\_processors[threads\_size] =
+    \{
+        0, 1, 2, 3, 4, 5, 6, 7,
+    \};
+
+    \textcolor{comment}{// initializes the manager of concurrent sequences.}
+    task::Concurrency concurrency;
+    \textcolor{keywordflow}{if} (!concurrency.reset(
+        task::Concurrency::ResetParameter(
+            adapter\_heap,
+            thread\_pool)
+        .sequences\_size(threads\_size)
+        .preferred\_processors(preferred\_processors)))
+    \{
+        \hyperlink{log__writer__common_8h_a8d142be5e91677a27be199c3f4115ba6}{hryky_log_emerg}(
+            (*\hyperlink{namespacehryky_1_1reduction_ac5eae270cf8047b294dc4ff3e5e11a79}{reduction::map}(\textcolor{stringliteral}{"failed to reset concurrent module"}))
+                .append(\textcolor{stringliteral}{"the number of threads"}, threads\_size));
+        \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+    \}
+
+    \textcolor{comment}{// decides the number of tasks}
+    random::distribution::Normal<size\_t> tasks\_size\_dist(random.generator(), 
+      0x1000);
+    (tasks\_size\_dist
+     .mean(0x100)
+     .min(1)
+     .max(0x100000));
+    
+    \textcolor{keywordtype}{size\_t} \textcolor{keyword}{const} tasks\_size = tasks\_size\_dist();
+    
+    log.reduce().append(\textcolor{stringliteral}{"tasks\_size"}, tasks\_size).append(\textcolor{stringliteral}{"tasks\_size\_dist"}, 
+      tasks\_size\_dist);
+
+    \textcolor{comment}{// decides the size of batch}
+    random::distribution::Normal<size\_t>
+        batch\_size\_dist(random.generator(), std::max<size\_t>(1, tasks\_size >> 2
+      ));
+    (batch\_size\_dist
+     .mean(tasks\_size >> 1)
+     .min(1)
+     .max(tasks\_size));
+
+    \textcolor{keywordtype}{size\_t} \textcolor{keyword}{const} batch\_size = batch\_size\_dist();
+
+    log.reduce().append(\textcolor{stringliteral}{"batch\_size"}, batch\_size).append(\textcolor{stringliteral}{"batch\_size\_dist"}, 
+      batch\_size\_dist);
+
+    \textcolor{comment}{// initializes the distributor of tasks}
+    distributor\_type distributor;
+    \textcolor{keywordflow}{if} (!distributor.reset(
+        distributor\_type::ResetParameter(concurrency)
+        .batch\_size(batch\_size)))
+    \{
+        \hyperlink{log__writer__common_8h_a8d142be5e91677a27be199c3f4115ba6}{hryky_log_emerg}(
+            (*\hyperlink{namespacehryky_1_1reduction_ac5eae270cf8047b294dc4ff3e5e11a79}{reduction::map}(\textcolor{stringliteral}{"failed to reset a task distributor"}))
+            .append(\textcolor{stringliteral}{"the size of a batch of tasks"}, batch\_size));
+        \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+    \}
+
+    \textcolor{comment}{// distributes tasks}
+    \textcolor{keywordtype}{size\_t} task\_id = 0;
+    \textcolor{keywordflow}{for} (; tasks\_size != task\_id; ++task\_id) \{
+        \textcolor{keywordflow}{if} (!distributor.distribute(task\_type(task\_id))) \{
+            \hyperlink{log__writer__common_8h_a8cb8f66bf45015fc1b64ed8d52bf8d59}{hryky_log_alert}(
+                (*\hyperlink{namespacehryky_1_1reduction_ac5eae270cf8047b294dc4ff3e5e11a79}{reduction::map}(\textcolor{stringliteral}{"failed to append a task"}))
+                .append(\textcolor{stringliteral}{"task\_id"}, task\_id)
+                );
+            \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+        \}
+    \}
+
+    \textcolor{comment}{// attaches distributor to concurrent units}
+    \textcolor{keywordflow}{if} (!distributor.attach()) \{
+        \hyperlink{log__writer__common_8h_a8cb8f66bf45015fc1b64ed8d52bf8d59}{hryky_log_alert}(\textcolor{stringliteral}{"failed to attach workers to concurrent units"});
+        \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+    \}
+
+    \textcolor{comment}{// waits until the completion of tasks}
+    \textcolor{keywordflow}{if} (!distributor.join()) \{
+        \hyperlink{log__writer__common_8h_a8cb8f66bf45015fc1b64ed8d52bf8d59}{hryky_log_alert}(
+            \textcolor{stringliteral}{"failed to wait that the workers complete tasks"});
+        \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+    \}
+
+    \textcolor{keywordflow}{return} \textcolor{keyword}{true};
+\}
+\textcolor{comment}{/*}
+\textcolor{comment}{  @brief        prints "hello this->id\_".}
+\textcolor{comment}{  @since        2011-11-29T20:23:17+0900}
+\textcolor{comment}{ */}
+\textcolor{keywordtype}{void} HelloTask::operator()(worker\_type &)
+\{
+    \hyperlink{log__writer__common_8h_ad94e7301fdfeec6ecd1cb63b4c81325a}{hryky_log_debug}(
+        *\hyperlink{reduction__common_8h_afc72326c9900838c5db40438318794dd}{hryky_reduce}(\textcolor{stringliteral}{"hello"}, this->id\_));
+\}
+\hyperlink{namespacehryky_a343a9a4c36a586be5c2693156200eadc}{reduction_type} \hyperlink{namespacehryky_af41cb3af6766761da0ff21b84527a52c}{HelloTask::reduce}(\hyperlink{namespacehryky_1_1reduction_ac686c30a4c8d196bbd0f05629a6b921f}{reduction::name_type} \textcolor{keyword}{const} & name)\textcolor{keyword}{ const }\{
+    \hyperlink{namespacehryky_1_1reduction_a64228de3f2cff9ed9d5ad836a120c7f7}{reduction::map_type} \hyperlink{namespacehryky_1_1reduction_ac5eae270cf8047b294dc4ff3e5e11a79}{map} = \hyperlink{namespacehryky_1_1reduction_ac5eae270cf8047b294dc4ff3e5e11a79}{reduction::map}(name);
+
+    map->append(\textcolor{stringliteral}{"id"}, this->id\_);
+
+    \textcolor{keywordflow}{return} \hyperlink{namespacehryky_1_1reduction_ac5eae270cf8047b294dc4ff3e5e11a79}{map};
+\}
+\hyperlink{namespacehryky_a343a9a4c36a586be5c2693156200eadc}{reduction_type} \hyperlink{namespacehryky_af41cb3af6766761da0ff21b84527a52c}{reduce}(
+    \hyperlink{namespacehryky_1_1reduction_ac686c30a4c8d196bbd0f05629a6b921f}{reduction::name_type} \textcolor{keyword}{const} & name, HelloTask \textcolor{keyword}{const} & src) \{
+    \textcolor{keywordflow}{return} src.reduce(name);
+\}
+\} \textcolor{comment}{// namespace *anonymous*}
+\} \textcolor{comment}{// namespace hryky}
+\textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+\textcolor{comment}{// explicit instantiation}
+\textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+\textcolor{comment}{// end of file}
+\end{DoxyCodeInclude}
+ 

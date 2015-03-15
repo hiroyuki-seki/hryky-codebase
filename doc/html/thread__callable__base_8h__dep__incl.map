@@ -1,0 +1,11 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$task__sequence_8h.html" title="manages workers in a thread." alt="" coords="387,80,508,107"/>
+<area shape="rect" id="node11" href="$thread_8h.html" title="collection of the thread module." alt="" coords="271,80,340,107"/>
+<area shape="rect" id="node21" href="$thread__resource_8cpp.html" title="holds the resource of concurrent unit." alt="" coords="487,229,627,256"/>
+<area shape="rect" id="node5" href="$task__concurrency_8cpp.html" title="manages concurrent units." alt="" coords="373,155,523,181"/>
+<area shape="rect" id="node7" href="$task__sequence_8cpp.html" title="manages workers in a thread." alt="" coords="214,155,348,181"/>
+<area shape="rect" id="node9" href="$task__worker__base_8cpp.html" title="executes tasks." alt="" coords="548,155,700,181"/>
+<area shape="rect" id="node15" href="$thread_2src_2precompiled_8h_source.html" title="precompiled.h" alt="" coords="87,155,189,181"/>
+<area shape="rect" id="node17" href="$thread__common_8cpp.html" title="common definitions of hryky::thread." alt="" coords="145,229,284,256"/>
+<area shape="rect" id="node19" href="$thread__pool_8cpp.html" title="manages the collection of reusable concurrent units." alt="" coords="5,229,120,256"/>
+</map>

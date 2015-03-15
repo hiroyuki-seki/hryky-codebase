@@ -1,0 +1,69 @@
+\hypertarget{classhryky_1_1writer_1_1_adapter}{\section{hryky\-:\-:writer\-:\-:Adapter$<$ Value\-T $>$ Class Template Reference}
+\label{classhryky_1_1writer_1_1_adapter}\index{hryky\-::writer\-::\-Adapter$<$ Value\-T $>$@{hryky\-::writer\-::\-Adapter$<$ Value\-T $>$}}
+}
+
+
+mediates the interface of \hyperlink{classhryky_1_1writer_1_1_base}{writer\-::\-Base}.  
+
+
+
+
+{\ttfamily \#include $<$writer\-\_\-adapter.\-h$>$}
+
+
+
+Inheritance diagram for hryky\-:\-:writer\-:\-:Adapter$<$ Value\-T $>$\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classhryky_1_1writer_1_1_adapter__inherit__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classhryky_1_1writer_1_1_adapter_a404ee40bd08ea08673f7e134625ef904}{typedef \hyperlink{classhryky_1_1_adapter}{hryky\-::\-Adapter}\\*
+$<$ \hyperlink{classhryky_1_1writer_1_1_base}{writer\-::\-Base}, Value\-T $>$ \hyperlink{classhryky_1_1writer_1_1_adapter_a404ee40bd08ea08673f7e134625ef904}{base\-\_\-type}}\label{classhryky_1_1writer_1_1_adapter_a404ee40bd08ea08673f7e134625ef904}
+
+\begin{DoxyCompactList}\small\item\em base class. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1writer_1_1_adapter_a9fe895f62ad5d6fa98ea5264772b6a26}{typedef \hyperlink{classhryky_1_1writer_1_1_adapter}{Adapter}$<$ Value\-T $>$ \hyperlink{classhryky_1_1writer_1_1_adapter_a9fe895f62ad5d6fa98ea5264772b6a26}{this\-\_\-type}}\label{classhryky_1_1writer_1_1_adapter_a9fe895f62ad5d6fa98ea5264772b6a26}
+
+\begin{DoxyCompactList}\small\item\em self. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classhryky_1_1_adapter_adbdbd187b837f6782b776ca8aabd411b}{void \hyperlink{classhryky_1_1_adapter_adbdbd187b837f6782b776ca8aabd411b}{clear} ()}\label{classhryky_1_1_adapter_adbdbd187b837f6782b776ca8aabd411b}
+
+\begin{DoxyCompactList}\small\item\em releases the internal resources. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1writer_1_1_adapter_a6078dbc44e91c1ec4f4e6ddc62aac4be}{virtual bool \hyperlink{classhryky_1_1writer_1_1_adapter_a6078dbc44e91c1ec4f4e6ddc62aac4be}{operator()} (void const $\ast$data, size\-\_\-t const size)}\label{classhryky_1_1writer_1_1_adapter_a6078dbc44e91c1ec4f4e6ddc62aac4be}
+
+\begin{DoxyCompactList}\small\item\em writes out an arbitrary data. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1_adapter_a42532b43ac680d162bbc1a2e3ebc6b99}{\hyperlink{namespacehryky_a343a9a4c36a586be5c2693156200eadc}{reduction\-\_\-type} \hyperlink{classhryky_1_1_adapter_a42532b43ac680d162bbc1a2e3ebc6b99}{reduce} (\hyperlink{namespacehryky_1_1reduction_ac686c30a4c8d196bbd0f05629a6b921f}{reduction\-::name\-\_\-type} const \&name) const}\label{classhryky_1_1_adapter_a42532b43ac680d162bbc1a2e3ebc6b99}
+
+\begin{DoxyCompactList}\small\item\em decomposes the instance to primitive objects. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1_adapter_ae95517793bc16f6ba623bc994bc17c43}{void \hyperlink{classhryky_1_1_adapter_ae95517793bc16f6ba623bc994bc17c43}{swap} (\hyperlink{classhryky_1_1writer_1_1_adapter_a9fe895f62ad5d6fa98ea5264772b6a26}{this\-\_\-type} \&src)}\label{classhryky_1_1_adapter_ae95517793bc16f6ba623bc994bc17c43}
+
+\begin{DoxyCompactList}\small\item\em interchanges the each internal resources of two instances. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1_adapter_ab736ecd30f215ca3cbd2364f818cb83f}{reference \hyperlink{classhryky_1_1_adapter_ab736ecd30f215ca3cbd2364f818cb83f}{value} ()}\label{classhryky_1_1_adapter_ab736ecd30f215ca3cbd2364f818cb83f}
+
+\begin{DoxyCompactList}\small\item\em retrieves the mutable reference to the value. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1_adapter_a5856f2ee6c0622e153f52fbb6ca6bbe9}{const\-\_\-reference \hyperlink{classhryky_1_1_adapter_a5856f2ee6c0622e153f52fbb6ca6bbe9}{value} () const}\label{classhryky_1_1_adapter_a5856f2ee6c0622e153f52fbb6ca6bbe9}
+
+\begin{DoxyCompactList}\small\item\em retrieves the immutable reference to the value. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classhryky_1_1_adapter_a764c5fe566545047f3acaf18792e5102}{\hyperlink{classhryky_1_1_adapter_a764c5fe566545047f3acaf18792e5102}{hryky\-\_\-assign\-\_\-op}}\label{classhryky_1_1_adapter_a764c5fe566545047f3acaf18792e5102}
+
+\begin{DoxyCompactList}\small\item\em assignment operator. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$typename Value\-T$>$class hryky\-::writer\-::\-Adapter$<$ Value\-T $>$}
+
+mediates the interface of \hyperlink{classhryky_1_1writer_1_1_base}{writer\-::\-Base}. 
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{writer__adapter_8h}{writer\-\_\-adapter.\-h}\end{DoxyCompactItemize}

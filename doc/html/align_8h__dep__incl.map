@@ -1,0 +1,4 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$memory__heap__arbitrary_8cpp.html" title="&#39;not&#39; thread&#45;safe memory allocation for usage in one thread." alt="" coords="5,80,187,107"/>
+<area shape="rect" id="node5" href="$memory__heap__fixed_8cpp.html" title="memory allocation for fixed length units." alt="" coords="212,80,375,107"/>
+</map>

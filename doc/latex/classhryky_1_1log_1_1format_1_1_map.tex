@@ -1,0 +1,217 @@
+\hypertarget{classhryky_1_1log_1_1format_1_1_map}{\section{hryky\-:\-:log\-:\-:format\-:\-:Map Class Reference}
+\label{classhryky_1_1log_1_1format_1_1_map}\index{hryky\-::log\-::format\-::\-Map@{hryky\-::log\-::format\-::\-Map}}
+}
+
+
+aggregates the multiple named values with each name.  
+
+
+
+
+{\ttfamily \#include $<$log\-\_\-format\-\_\-map.\-h$>$}
+
+
+
+Inheritance diagram for hryky\-:\-:log\-:\-:format\-:\-:Map\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=200pt]{classhryky_1_1log_1_1format_1_1_map__inherit__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classhryky_1_1log_1_1format_1_1_map_a98b112d4ec1af244ceeb1a4d587f3a70}{typedef \hyperlink{classhryky_1_1log_1_1format_1_1_base}{hryky\-::log\-::format\-::\-Base} \hyperlink{classhryky_1_1log_1_1format_1_1_map_a98b112d4ec1af244ceeb1a4d587f3a70}{base\-\_\-type}}\label{classhryky_1_1log_1_1format_1_1_map_a98b112d4ec1af244ceeb1a4d587f3a70}
+
+\begin{DoxyCompactList}\small\item\em base class of inheritance. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1log_1_1format_1_1_map_aa8c4d7177f1bfdd9581aa603f3a0d29c}{typedef \hyperlink{classhryky_1_1log_1_1format_1_1_map}{hryky\-::log\-::format\-::\-Map} \hyperlink{classhryky_1_1log_1_1format_1_1_map_aa8c4d7177f1bfdd9581aa603f3a0d29c}{this\-\_\-type}}\label{classhryky_1_1log_1_1format_1_1_map_aa8c4d7177f1bfdd9581aa603f3a0d29c}
+
+\begin{DoxyCompactList}\small\item\em self. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classhryky_1_1log_1_1format_1_1_map}{Map} \& \hyperlink{classhryky_1_1log_1_1format_1_1_map_a4aa7b22bf43c8d2af7fc15ef0c676af4}{append} (\hyperlink{classhryky_1_1log_1_1format_1_1_map}{Map} \&\hyperlink{classhryky_1_1log_1_1format_1_1_map_afa54cde058f8b7cc18099b6bcdbe6e72}{map})
+\begin{DoxyCompactList}\small\item\em appends the instance of \hyperlink{classhryky_1_1log_1_1format_1_1_map}{log\-::format\-::\-Map} as child. \end{DoxyCompactList}\item 
+\hyperlink{classhryky_1_1log_1_1format_1_1_map}{Map} \& \hyperlink{classhryky_1_1log_1_1format_1_1_map_aa081847c4ce6c1ad9d7b6ac6435aaaf0}{append} (\hyperlink{namespacehryky_1_1log_ad50448c3f934f1eacd5c1bcffe8111e1}{format\-\_\-type} const \&format)
+\begin{DoxyCompactList}\small\item\em appends an instance of \hyperlink{classhryky_1_1log_1_1format_1_1_base}{log\-::format\-::\-Base} as a child. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Value\-T $>$ }\\\hyperlink{classhryky_1_1log_1_1format_1_1_map}{Map} \& \hyperlink{classhryky_1_1log_1_1format_1_1_map_a61e7546016f71fcb47e9aaa2ac318264}{append} (\hyperlink{namespacehryky_1_1log_1_1format_ab7408d1e2ed2d648dbf9bba69eb74288}{name\-\_\-type} const \&name, Value\-T const \&\hyperlink{namespacehryky_1_1log_1_1format_a5b9af9c1a7b018d54144acfb1b8cc960}{value})
+\begin{DoxyCompactList}\small\item\em appends a key-\/value pair. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1log_1_1format_1_1_map_ae4eea925dd5bcc042862d6c07eddb037}{\hyperlink{classhryky_1_1log_1_1format_1_1_map_ae4eea925dd5bcc042862d6c07eddb037}{Map} ()}\label{classhryky_1_1log_1_1format_1_1_map_ae4eea925dd5bcc042862d6c07eddb037}
+
+\begin{DoxyCompactList}\small\item\em default constructor. \end{DoxyCompactList}\item 
+\hyperlink{classhryky_1_1log_1_1format_1_1_map_a00ea6bbe8159a4095e9499ee5da15457}{Map} (\hyperlink{namespacehryky_1_1log_1_1format_ab7408d1e2ed2d648dbf9bba69eb74288}{name\-\_\-type} const \&name)
+\begin{DoxyCompactList}\small\item\em constructor with name. \end{DoxyCompactList}\item 
+void \hyperlink{classhryky_1_1log_1_1format_1_1_map_a857d1ea2c99c677528658451b4e5518f}{newline} (bool src)
+\begin{DoxyCompactList}\small\item\em enable or disable to insert newline at the end of each line. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1log_1_1format_1_1_base_a9036ce4ca367b322c9f41365ee249cb1}{std\-::ostream \& \hyperlink{classhryky_1_1log_1_1format_1_1_base_a9036ce4ca367b322c9f41365ee249cb1}{print} (std\-::ostream \&out, Indent const \&indent) const }\label{classhryky_1_1log_1_1format_1_1_base_a9036ce4ca367b322c9f41365ee249cb1}
+
+\begin{DoxyCompactList}\small\item\em prints the converted string. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \hyperlink{classhryky_1_1log_1_1format_1_1_base_af1f3f2984f1a130ca7fd927c62d73ac0}{delete\-\_\-self} ()
+\begin{DoxyCompactList}\small\item\em deletes the self instance. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{namespacehryky_1_1log_1_1format_aca5654dc79f5b065700e17790f2aa701}{map\-\_\-type} \hyperlink{classhryky_1_1log_1_1format_1_1_map_afa54cde058f8b7cc18099b6bcdbe6e72}{map} (\hyperlink{namespacehryky_1_1log_1_1format_ab7408d1e2ed2d648dbf9bba69eb74288}{name\-\_\-type} const \&name)
+\begin{DoxyCompactList}\small\item\em creates an instance of \hyperlink{classhryky_1_1log_1_1format_1_1_map}{log\-::format\-::\-Map}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+aggregates the multiple named values with each name. 
+
+\begin{DoxySince}{Since}
+2011-\/12-\/29\-T19\-:11\-:23+0900 
+\end{DoxySince}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classhryky_1_1log_1_1format_1_1_map_a00ea6bbe8159a4095e9499ee5da15457}{\index{hryky\-::log\-::format\-::\-Map@{hryky\-::log\-::format\-::\-Map}!Map@{Map}}
+\index{Map@{Map}!hryky::log::format::Map@{hryky\-::log\-::format\-::\-Map}}
+\subsubsection[{Map}]{\setlength{\rightskip}{0pt plus 5cm}{\bf hryky\-::log\-::format\-::\-Map\-::\-Map} (
+\begin{DoxyParamCaption}
+\item[{{\bf name\-\_\-type} const \&}]{name}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}explicit\mbox{]}}}}\label{classhryky_1_1log_1_1format_1_1_map_a00ea6bbe8159a4095e9499ee5da15457}
+
+
+constructor with name. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & is the key of a mapped pair. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classhryky_1_1log_1_1format_1_1_map_a4aa7b22bf43c8d2af7fc15ef0c676af4}{\index{hryky\-::log\-::format\-::\-Map@{hryky\-::log\-::format\-::\-Map}!append@{append}}
+\index{append@{append}!hryky::log::format::Map@{hryky\-::log\-::format\-::\-Map}}
+\subsubsection[{append}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Map}\& {\bf hryky\-::log\-::format\-::\-Map\-::append} (
+\begin{DoxyParamCaption}
+\item[{{\bf Map} \&}]{map}
+\end{DoxyParamCaption}
+)}}\label{classhryky_1_1log_1_1format_1_1_map_a4aa7b22bf43c8d2af7fc15ef0c676af4}
+
+
+appends the instance of \hyperlink{classhryky_1_1log_1_1format_1_1_map}{log\-::format\-::\-Map} as child. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em map} & is the instance of \hyperlink{classhryky_1_1log_1_1format_1_1_map}{log\-::format\-::\-Map} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the self instance. 
+\end{DoxyReturn}
+\hypertarget{classhryky_1_1log_1_1format_1_1_map_aa081847c4ce6c1ad9d7b6ac6435aaaf0}{\index{hryky\-::log\-::format\-::\-Map@{hryky\-::log\-::format\-::\-Map}!append@{append}}
+\index{append@{append}!hryky::log::format::Map@{hryky\-::log\-::format\-::\-Map}}
+\subsubsection[{append}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Map}\& {\bf hryky\-::log\-::format\-::\-Map\-::append} (
+\begin{DoxyParamCaption}
+\item[{{\bf format\-\_\-type} const \&}]{format}
+\end{DoxyParamCaption}
+)}}\label{classhryky_1_1log_1_1format_1_1_map_aa081847c4ce6c1ad9d7b6ac6435aaaf0}
+
+
+appends an instance of \hyperlink{classhryky_1_1log_1_1format_1_1_base}{log\-::format\-::\-Base} as a child. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em format} & is the instance of \hyperlink{classhryky_1_1log_1_1format_1_1_base}{log\-::format\-::\-Base} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the self instance. 
+\end{DoxyReturn}
+\hypertarget{classhryky_1_1log_1_1format_1_1_map_a61e7546016f71fcb47e9aaa2ac318264}{\index{hryky\-::log\-::format\-::\-Map@{hryky\-::log\-::format\-::\-Map}!append@{append}}
+\index{append@{append}!hryky::log::format::Map@{hryky\-::log\-::format\-::\-Map}}
+\subsubsection[{append}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Value\-T $>$ {\bf hryky\-::log\-::format\-::\-Map} \& {\bf hryky\-::log\-::format\-::\-Map\-::append} (
+\begin{DoxyParamCaption}
+\item[{{\bf name\-\_\-type} const \&}]{name, }
+\item[{Value\-T const \&}]{value}
+\end{DoxyParamCaption}
+)}}\label{classhryky_1_1log_1_1format_1_1_map_a61e7546016f71fcb47e9aaa2ac318264}
+
+
+appends a key-\/value pair. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & is the name of the child. \\
+\hline
+{\em value} & is the value of the child. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the self instance.
+\end{DoxyReturn}
+\begin{DoxySince}{Since}
+2011-\/12-\/29\-T22\-:57\-:17+0900 
+\end{DoxySince}
+
+
+References \hyperlink{namespacehryky_1_1log_1_1format_ae8ca636c4b89fe300287aca4f870f2ef}{hryky\-::log\-::format\-::make\-\_\-format()}.
+
+\hypertarget{classhryky_1_1log_1_1format_1_1_base_af1f3f2984f1a130ca7fd927c62d73ac0}{\index{hryky\-::log\-::format\-::\-Map@{hryky\-::log\-::format\-::\-Map}!delete\-\_\-self@{delete\-\_\-self}}
+\index{delete\-\_\-self@{delete\-\_\-self}!hryky::log::format::Map@{hryky\-::log\-::format\-::\-Map}}
+\subsubsection[{delete\-\_\-self}]{\setlength{\rightskip}{0pt plus 5cm}virtual void {\bf hryky\-::log\-::format\-::\-Base\-::delete\-\_\-self} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}protected, virtual, inherited\mbox{]}}}}\label{classhryky_1_1log_1_1format_1_1_base_af1f3f2984f1a130ca7fd927c62d73ac0}
+
+
+deletes the self instance. 
+
+\begin{DoxyAttention}{Attention}
+
+\begin{DoxyItemize}
+\item This base implementation uses global \char`\"{}delete\char`\"{} operator.
+\item If derived class is instantiated by operation other than global \char`\"{}new\char`\"{} operator, the derived class has to override this function. 
+\end{DoxyItemize}
+\end{DoxyAttention}
+\hypertarget{classhryky_1_1log_1_1format_1_1_map_a857d1ea2c99c677528658451b4e5518f}{\index{hryky\-::log\-::format\-::\-Map@{hryky\-::log\-::format\-::\-Map}!newline@{newline}}
+\index{newline@{newline}!hryky::log::format::Map@{hryky\-::log\-::format\-::\-Map}}
+\subsubsection[{newline}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf hryky\-::log\-::format\-::\-Map\-::newline} (
+\begin{DoxyParamCaption}
+\item[{bool}]{src}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}\label{classhryky_1_1log_1_1format_1_1_map_a857d1ea2c99c677528658451b4e5518f}
+
+
+enable or disable to insert newline at the end of each line. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em src} & is a new value. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Friends And Related Function Documentation}
+\hypertarget{classhryky_1_1log_1_1format_1_1_map_afa54cde058f8b7cc18099b6bcdbe6e72}{\index{hryky\-::log\-::format\-::\-Map@{hryky\-::log\-::format\-::\-Map}!map@{map}}
+\index{map@{map}!hryky::log::format::Map@{hryky\-::log\-::format\-::\-Map}}
+\subsubsection[{map}]{\setlength{\rightskip}{0pt plus 5cm}{\bf map\-\_\-type} {\bf map} (
+\begin{DoxyParamCaption}
+\item[{{\bf name\-\_\-type} const \&}]{name}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}\label{classhryky_1_1log_1_1format_1_1_map_afa54cde058f8b7cc18099b6bcdbe6e72}
+
+
+creates an instance of \hyperlink{classhryky_1_1log_1_1format_1_1_map}{log\-::format\-::\-Map}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & is the name of the instance. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the instance. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{log__format__map_8h}{log\-\_\-format\-\_\-map.\-h}\end{DoxyCompactItemize}

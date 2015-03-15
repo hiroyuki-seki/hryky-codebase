@@ -1,0 +1,51 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$literal__string_8cpp.html" title="retains a literal string." alt="" coords="1145,80,1263,107"/>
+<area shape="rect" id="node5" href="$http__header__cache__directive__common_8h.html" title="common definitions for hryky::http::header::cache::directive." alt="" coords="1779,229,2033,256"/>
+<area shape="rect" id="node15" href="$http__header__connection__common_8h.html" title="common definitions for hryky::http::header::connection." alt="" coords="1389,155,1616,181"/>
+<area shape="rect" id="node29" href="$http__header__field__common_8h.html" title="common definitions for hryky::http::field." alt="" coords="1010,229,1197,256"/>
+<area shape="rect" id="node37" href="$http__method__common_8h.html" title="common definitions for hryky::http::method." alt="" coords="464,229,627,256"/>
+<area shape="rect" id="node49" href="$log__level__entity_8h.html" title="the level of logging depending on the severity and purpose." alt="" coords="4397,80,4517,107"/>
+<area shape="rect" id="node51" href="$log__writer__base_8h.html" title="output log message [interface]." alt="" coords="4592,155,4715,181"/>
+<area shape="rect" id="node53" href="$log__writer__common_8h.html" title="functions for log writer." alt="" coords="3273,229,3417,256"/>
+<area shape="rect" id="node93" href="$log__level__entity_8cpp.html" title="the level of logging depending on the severity and purpose." alt="" coords="4398,379,4532,405"/>
+<area shape="rect" id="node125" href="$reduction__stream_8h_source.html" title="reduction_stream.h" alt="" coords="4593,80,4727,107"/>
+<area shape="rect" id="node127" href="$type__info_8h.html" title="retains the information of type." alt="" coords="4751,80,4836,107"/>
+<area shape="rect" id="node129" href="$uri__scheme__common_8h.html" title="common definitions of URI Schemes." alt="" coords="4860,80,5017,107"/>
+<area shape="rect" id="node7" href="$http__header__cache__control__entity_8h.html" title="retains &#39;Cache&#45;Control&#39; field of HTTP Header." alt="" coords="1869,304,2096,331"/>
+<area shape="rect" id="node9" href="$http_8h.html" title="modules to manage HTTP." alt="" coords="1235,379,1289,405"/>
+<area shape="rect" id="node11" href="$http__header__cache__directive__specifier_8h.html" title="specifies the kind of cache directive of HTTP Header." alt="" coords="1541,304,1792,331"/>
+<area shape="rect" id="node17" href="$http__header__entity_8h.html" title="retains message&#45;headers of HTTP Message." alt="" coords="825,229,964,256"/>
+<area shape="rect" id="node27" href="$http__header__connection__common_8cpp.html" title="common definitions for hryky::http::header::connection." alt="" coords="1223,229,1465,256"/>
+<area shape="rect" id="node19" href="$http__header__parser_8h.html" title="parses a text string of HTTP Message." alt="" coords="473,379,617,405"/>
+<area shape="rect" id="node21" href="$http__request__entity_8h.html" title="retains the information of HTTP Request." alt="" coords="473,304,617,331"/>
+<area shape="rect" id="node31" href="$http__header__cache__directive__field_8h.html" title="retains &#39;field&#45;name&#39;s of cache&#45;directive." alt="" coords="961,304,1188,331"/>
+<area shape="rect" id="node35" href="$http__header__field__common_8cpp.html" title="common definitions for hryky::http::field." alt="" coords="1212,304,1415,331"/>
+<area shape="rect" id="node40" href="$http__method__entity_8h.html" title="retains the HTTP Method." alt="" coords="641,304,785,331"/>
+<area shape="rect" id="node45" href="$http__method__common_8cpp.html" title="common definitions for hryky::http::method." alt="" coords="273,304,449,331"/>
+<area shape="rect" id="node47" href="$http__method__common__impl_8h.html" title="common definitions for http::method." alt="" coords="5,304,197,331"/>
+<area shape="rect" id="node89" href="$log_8h.html" title="collection of the log modules." alt="" coords="4672,304,4723,331"/>
+<area shape="rect" id="node95" href="$log__writer__base_8cpp.html" title="the interface to output logs." alt="" coords="4877,379,5013,405"/>
+<area shape="rect" id="node109" href="$log__writer__file_8h.html" title="output log message." alt="" coords="4549,229,4659,256"/>
+<area shape="rect" id="node112" href="$log__writer__stream_8h.html" title="writes log messages to an arbitrary output stream." alt="" coords="4870,229,5004,256"/>
+<area shape="rect" id="node117" href="$testing__log_8cpp.html" title="outputs the log of the unit test at the end of scope." alt="" coords="4735,229,4845,256"/>
+<area shape="rect" id="node55" href="$ascii__common_8cpp.html" title="utility for US&#45;ASCII." alt="" coords="4109,304,4240,331"/>
+<area shape="rect" id="node57" href="$parser__base_8h.html" title="base class for parsing syntax." alt="" coords="4264,304,4368,331"/>
+<area shape="rect" id="node59" href="$scoped__array_8h.html" title="array with the size." alt="" coords="2173,304,2283,331"/>
+<area shape="rect" id="node61" href="$task__concurrency_8h.html" title="manages concurrency units." alt="" coords="2309,379,2445,405"/>
+<area shape="rect" id="node63" href="$task__sequence_8cpp.html" title="manages workers in a thread." alt="" coords="2310,453,2444,480"/>
+<area shape="rect" id="node65" href="$debug__common_8cpp.html" title="common definitions of debug module." alt="" coords="3276,304,3415,331"/>
+<area shape="rect" id="node67" href="$display__environment_8cpp.html" title="collects the available display environments." alt="" coords="3439,304,3603,331"/>
+<area shape="rect" id="node69" href="$exclusion__counter_8h.html" title="joinable counter." alt="" coords="2308,304,2447,331"/>
+<area shape="rect" id="node72" href="$exclusion_2src_2precompiled_8h_source.html" title="precompiled.h" alt="" coords="3627,304,3729,331"/>
+<area shape="rect" id="node74" href="$file__descriptor__mode_8win32_8cpp.html" title="retains the access mode for file descriptor for Win32." alt="" coords="3755,304,3957,331"/>
+<area shape="rect" id="node76" href="$filesystem_2src_2precompiled_8h_source.html" title="precompiled.h" alt="" coords="3982,304,4084,331"/>
+<area shape="rect" id="node78" href="$graphics_2src_2precompiled_8h_source.html" title="precompiled.h" alt="" coords="2522,304,2624,331"/>
+<area shape="rect" id="node80" href="$graphics__module_8cpp.html" title="manages graphics module." alt="" coords="2511,379,2656,405"/>
+<area shape="rect" id="node84" href="$ip_2src_2precompiled_8h_source.html" title="precompiled.h" alt="" coords="2701,304,2803,331"/>
+<area shape="rect" id="node86" href="$ip__v6__entity_8cpp.html" title="retains the information of IPv6 Address." alt="" coords="2693,379,2808,405"/>
+<area shape="rect" id="node91" href="$log_2src_2precompiled_8h_source.html" title="precompiled.h" alt="" coords="4545,304,4647,331"/>
+<area shape="rect" id="node97" href="$log__writer__common_8cpp.html" title="functions for log writer." alt="" coords="4557,379,4715,405"/>
+<area shape="rect" id="node100" href="$memory__heap__arbitrary_8h.html" title="&#39;not&#39; thread&#45;safe memory allocation for usage in one thread." alt="" coords="2930,304,3099,331"/>
+<area shape="rect" id="node102" href="$opengl__common_8h.html" title="common definitions of OpenGL module." alt="" coords="3124,304,3252,331"/>
+<area shape="rect" id="node105" href="$task__sequence_8h.html" title="manages workers in a thread." alt="" coords="2833,379,2953,405"/>
+</map>

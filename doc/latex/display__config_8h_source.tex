@@ -1,0 +1,116 @@
+\hypertarget{display__config_8h_source}{\section{display\-\_\-config.\-h}
+}
+
+\begin{DoxyCode}
+00001 
+00007 \textcolor{preprocessor}{#ifndef DISPLAY\_CONFIG\_H\_20120917090904047}
+00008 \textcolor{preprocessor}{}\textcolor{preprocessor}{#define DISPLAY\_CONFIG\_H\_20120917090904047}
+00009 \textcolor{preprocessor}{}\textcolor{preprocessor}{#include "\hyperlink{display__common_8h}{hryky/display/display_common.h}"}
+00010 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00011 \textcolor{comment}{// macro definition}
+00012 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00013 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00014 \textcolor{comment}{// namespace}
+00015 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00016 \textcolor{keyword}{namespace }hryky
+00017 \{
+00018 \textcolor{keyword}{namespace }display
+00019 \{
+00021     \textcolor{keyword}{class }Config;
+00022 
+00023 \} \textcolor{comment}{// namespace display}
+00024 \} \textcolor{comment}{// namespace hryky}
+00025 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00026 \textcolor{comment}{// class declarations}
+00027 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+\hypertarget{display__config_8h_source_l00031}{}\hyperlink{classhryky_1_1display_1_1_config}{00031} \textcolor{comment}{}\textcolor{keyword}{class }\hyperlink{classhryky_1_1display_1_1_config}{hryky::display::Config} : \hyperlink{classhryky_1_1_noncopyable}{Noncopyable}
+00032 \{
+00033 \textcolor{keyword}{public} :
+00034 
+\hypertarget{display__config_8h_source_l00035}{}\hyperlink{classhryky_1_1display_1_1_config_a9aec5d4d622e17f4da8bf74403cbff4a}{00035}     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1display_1_1_config}{Config} \hyperlink{classhryky_1_1display_1_1_config_a9aec5d4d622e17f4da8bf74403cbff4a}{this_type};
+00036 
+00037     \hyperlink{classhryky_1_1display_1_1_config}{Config}(
+00038         \hyperlink{classhryky_1_1_string}{driver_name_type} \textcolor{keyword}{const} & driver\_name,
+00039         \hyperlink{classhryky_1_1pixel_1_1_format}{format_type} \textcolor{keyword}{const} & format,
+00040         \hyperlink{classhryky_1_1geometry_1_1coord_1_1_cartesian2_d}{size_type} \textcolor{keyword}{const} & size,
+00041         \hyperlink{namespacehryky_1_1display_ac8bdbe1db3aaf491d26848562e9fa29c}{refresh_rate_type} refresh\_rate)
+00042         : driver\_name\_(driver\_name)
+00043           , format\_(format)
+00044           , size\_(size)
+00045           , refresh\_rate\_(refresh\_rate)
+00046     \{\}
+00047 
+00048     \hyperlink{classhryky_1_1_string}{driver_name_type} \textcolor{keyword}{const} & driver\_name()\textcolor{keyword}{ const }\{
+00049         \textcolor{keywordflow}{return} this->driver\_name\_;
+00050     \}
+00051     \hyperlink{namespacehryky_1_1display_a8b77ffd7407c2f861e6c4872a2444330}{format_type} \textcolor{keyword}{const} & format()\textcolor{keyword}{ const }\{
+00052         \textcolor{keywordflow}{return} this->format\_;
+00053     \}
+00054     \hyperlink{namespacehryky_1_1display_a88ee3bfa154cce4c6715af0c3f53d062}{size_type} \textcolor{keyword}{const} & size()\textcolor{keyword}{ const }\{
+00055         \textcolor{keywordflow}{return} this->size\_;
+00056     \}
+00057     \hyperlink{namespacehryky_1_1display_ac8bdbe1db3aaf491d26848562e9fa29c}{refresh_rate_type} refresh\_rate()\textcolor{keyword}{ const }\{
+00058         \textcolor{keywordflow}{return} this->refresh\_rate\_;
+00059     \}
+00060 
+00061 \textcolor{keyword}{protected} :
+00062 
+00063 \textcolor{keyword}{private} :
+00064 
+00065     \hyperlink{namespacehryky_1_1display_a393bfca9f51ab987a1e795c8502c4db4}{driver_name_type} \textcolor{keyword}{const} &    driver\_name\_;
+00066     \hyperlink{namespacehryky_1_1display_a8b77ffd7407c2f861e6c4872a2444330}{format_type} \textcolor{keyword}{const} &         format\_;
+00067     \hyperlink{namespacehryky_1_1display_a88ee3bfa154cce4c6715af0c3f53d062}{size_type} \textcolor{keyword}{const} &           size\_;
+00068     \hyperlink{namespacehryky_1_1display_ac8bdbe1db3aaf491d26848562e9fa29c}{refresh_rate_type}           refresh\_rate\_;
+00069 \};
+00070 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00071 \textcolor{comment}{// class specializations}
+00072 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00073 \textcolor{keyword}{namespace }hryky
+00074 \{
+00075 \textcolor{keyword}{namespace }display
+00076 \{
+00077 \} \textcolor{comment}{// namespace display}
+00078 \} \textcolor{comment}{// namespace hryky}
+00079 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00080 \textcolor{comment}{// public member functions}
+00081 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00082 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00083 \textcolor{comment}{// protected member functions}
+00084 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00085 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00086 \textcolor{comment}{// private member functions}
+00087 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00088 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00089 \textcolor{comment}{// global function prototypes}
+00090 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00091 \textcolor{keyword}{namespace }hryky
+00092 \{
+00093 \textcolor{keyword}{namespace }display
+00094 \{
+00095 
+00096 \} \textcolor{comment}{// namespace display}
+00097 \} \textcolor{comment}{// namespace hryky}
+00098 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00099 \textcolor{comment}{// global function definitions}
+00100 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00101 \textcolor{preprocessor}{#endif // DISPLAY\_CONFIG\_H\_20120917090904047}
+00102 \textcolor{preprocessor}{}\textcolor{comment}{// end of file}
+\end{DoxyCode}

@@ -1,0 +1,147 @@
+\hypertarget{task__sequence_8h_source}{\section{task\-\_\-sequence.\-h}
+}
+
+\begin{DoxyCode}
+00001 
+00009 \textcolor{preprocessor}{#ifndef TASK\_THREAD\_H\_20111119163411357}
+00010 \textcolor{preprocessor}{}\textcolor{preprocessor}{#define TASK\_THREAD\_H\_20111119163411357}
+00011 \textcolor{preprocessor}{}\textcolor{preprocessor}{#include "\hyperlink{exclusion__cond_8h}{hryky/exclusion/exclusion_cond.h}"}
+00012 \textcolor{preprocessor}{#include "\hyperlink{exclusion__mutex_8h}{hryky/exclusion/exclusion_mutex.h}"}
+00013 \textcolor{preprocessor}{#include "\hyperlink{log__writer__common_8h}{hryky/log/log_writer_common.h}"}
+00014 \textcolor{preprocessor}{#include "\hyperlink{noncopyable_8h}{hryky/noncopyable.h}"}
+00015 \textcolor{preprocessor}{#include "\hyperlink{task__common_8h}{hryky/task/task_common.h}"}
+00016 \textcolor{preprocessor}{#include "\hyperlink{thread__callable__base_8h}{hryky/thread/thread_callable_base.h}"}
+00017 \textcolor{preprocessor}{#include "\hyperlink{vector_8h}{hryky/vector.h}"}
+00018 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00019 \textcolor{comment}{// macro definition}
+00020 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00021 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00022 \textcolor{comment}{// namespace}
+00023 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00024 \textcolor{keyword}{namespace }hryky
+00025 \{
+00026 \textcolor{keyword}{namespace }task
+00027 \{
+00029     \textcolor{keyword}{class }Sequence;
+00030 
+00031     \textcolor{keyword}{class }Concurrency;
+00032 
+00033 \textcolor{keyword}{namespace }worker
+00034 \{
+00036     \textcolor{keyword}{class }Base;
+00037 \}
+00038 \}
+00039 \}
+00040 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00041 \textcolor{comment}{// class declaration}
+00042 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00047 \textcolor{comment}{}\textcolor{keyword}{class }hryky::task::Sequence
+00048     : \textcolor{keyword}{public} \hyperlink{classhryky_1_1thread_1_1callable_1_1_base}{hryky::thread::callable::Base}, \hyperlink{classhryky_1_1_noncopyable}{hryky::Noncopyable}
+00049 \{
+00050 \textcolor{keyword}{public} :
+00051 
+00052     \textcolor{keyword}{typedef} hryky::task::Sequence           \hyperlink{classhryky_1_1_noncopyable_acf13ad1c98a76247a561dff514979da5}{this_type};
+00053     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1thread_1_1callable_1_1_base}{hryky::thread::callable::Base}   base\_type;
+00054     \textcolor{keyword}{typedef} worker::Base *                  worker\_type;
+00055     \textcolor{keyword}{typedef} memory::heap\_type               heap\_type;
+00056 
+\hypertarget{task__sequence_8h_source_l00058}{}\hyperlink{structhryky_1_1task_1_1_sequence_1_1_reset_parameter}{00058}     \textcolor{keyword}{struct }\hyperlink{structhryky_1_1task_1_1_sequence_1_1_reset_parameter}{ResetParameter} : \hyperlink{classhryky_1_1_noncopyable}{Noncopyable}
+00059     \{
+\hypertarget{task__sequence_8h_source_l00060}{}\hyperlink{structhryky_1_1task_1_1_sequence_1_1_reset_parameter_a2edf3eb894e141dc65a6e3dacf004b8e}{00060}         \textcolor{keyword}{typedef} \hyperlink{structhryky_1_1task_1_1_sequence_1_1_reset_parameter}{ResetParameter}          \hyperlink{structhryky_1_1task_1_1_sequence_1_1_reset_parameter_a2edf3eb894e141dc65a6e3dacf004b8e}{this_type};
+00061         
+00062         \hyperlink{structhryky_1_1task_1_1_sequence_1_1_reset_parameter}{ResetParameter}(
+00063             \hyperlink{classhryky_1_1memory_1_1heap_1_1_base}{heap_type} heap,
+00064             \hyperlink{classhryky_1_1task_1_1_concurrency}{Concurrency} & concurrency)
+00065             : heap\_(heap)
+00066               , concurrency\_(concurrency)
+00067               , append\_capacity\_(0)
+00068         \{\}
+00069 
+00070         \hyperlink{classhryky_1_1_noncopyable}{this_type} & append\_capacity(\textcolor{keywordtype}{size\_t} \textcolor{keyword}{const} src)
+00071         \{ this->append\_capacity\_ = src; \textcolor{keywordflow}{return} *\textcolor{keyword}{this}; \}
+00072 
+00073         heap\_type       heap()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} this->heap\_; \}
+00074         Concurrency &   concurrency()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} this->concurrency\_; \}
+00075         \textcolor{keywordtype}{size\_t}          append\_capacity()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} this->append\_capacity\_
+      ; \}
+00076 
+00077     \textcolor{keyword}{private}:
+00078         heap\_type       heap\_;
+00079         Concurrency &   concurrency\_;
+00080         \textcolor{keywordtype}{size\_t}          append\_capacity\_;
+00081     \};
+00082 
+00084     \textcolor{keyword}{explicit} Sequence();
+00085 
+00087     Sequence(this\_type \textcolor{keyword}{const} & rhs);
+00088 
+00090     Sequence(this\_type && rhs);
+00091 
+00093     ~Sequence();
+00094 
+00096     hryky\_assign\_op;
+00097 
+00099     \textcolor{keywordtype}{void} \hyperlink{namespacehryky_a4282146df5ea2b68cb667896a2205909}{swap}(this\_type & src);
+00100 
+00102     \textcolor{keywordtype}{bool} reset(ResetParameter \textcolor{keyword}{const} & param);
+00103 
+00108     \textcolor{keywordtype}{bool} append(worker\_type worker);
+00109 
+00116     \textcolor{keywordtype}{void} notify();
+00117 
+00119     \textcolor{keywordtype}{void} terminate();
+00120 
+00122     \hyperlink{namespacehryky_a343a9a4c36a586be5c2693156200eadc}{reduction_type} \hyperlink{namespacehryky_af41cb3af6766761da0ff21b84527a52c}{reduce}(\hyperlink{namespacehryky_1_1reduction_ac686c30a4c8d196bbd0f05629a6b921f}{reduction::name_type} \textcolor{keyword}{const} & name) \textcolor{keyword}{const};
+00123 
+00124 \textcolor{keyword}{protected} :
+00125 
+00126 \textcolor{keyword}{private} :
+00127     \textcolor{keyword}{typedef} exclusion::Mutex                        lockable\_type;
+00128     \textcolor{keyword}{typedef} exclusion::Cond                         \hyperlink{namespacehryky_1_1exclusion_ad55c6711217e878a379eed07ea146e3c}{cond_type};
+00129     \textcolor{keyword}{typedef} exclusion::Lock<lockable\_type>          lock\_type;
+00130     \textcolor{keyword}{typedef} exclusion::WaitableLock<lockable\_type>  waitable\_lock\_type;
+00131     \textcolor{keyword}{typedef} Vector<worker\_type>                     workers\_type;
+00132 
+00134     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} run\_impl();
+00135 
+00137     \textcolor{keywordtype}{void} \hyperlink{namespacehryky_aa201297ea9530da954a7230be71cc19d}{clear}();
+00138 
+00139     Concurrency *                   concurrency\_;
+00140     workers\_type                    append\_buffer\_;
+00141     lockable\_type                   lockable\_;
+00142     \hyperlink{namespacehryky_1_1exclusion_ad55c6711217e878a379eed07ea146e3c}{cond_type}                       cond\_;
+00143 
+00144     \textcolor{keyword}{union}
+00145     \{
+00146         uint32\_t flags\_;
+00147         \textcolor{keyword}{struct}
+00148         \{
+00149             \textcolor{keywordtype}{bool} \textcolor{keyword}{volatile} terminating\_;
+00150             \textcolor{keywordtype}{bool} \textcolor{keyword}{volatile} waiting\_;
+00151         \} flag\_;
+00152     \};
+00153 
+00154 \};
+00155 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00156 \textcolor{comment}{// global function prototype}
+00157 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00158 \textcolor{keyword}{namespace }hryky
+00159 \{
+00160 \textcolor{keyword}{namespace }task
+00161 \{
+00163     \hyperlink{classhryky_1_1_intrusive_ptr}{hryky::reduction_type} \hyperlink{namespacehryky_1_1task_a3cd1766998ce63e0a3886c8a3abd02ca}{reduce}(
+00164         \hyperlink{namespacehryky_1_1reduction_ac686c30a4c8d196bbd0f05629a6b921f}{reduction::name_type} \textcolor{keyword}{const} & name, Sequence \textcolor{keyword}{const} & src);
+00165 \}
+00166 \}
+00167 \textcolor{preprocessor}{#endif // TASK\_THREAD\_H\_20111119163411357}
+00168 \textcolor{preprocessor}{}
+00169 \textcolor{comment}{// end of file}
+\end{DoxyCode}

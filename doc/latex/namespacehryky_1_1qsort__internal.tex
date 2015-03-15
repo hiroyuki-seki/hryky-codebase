@@ -1,0 +1,90 @@
+\hypertarget{namespacehryky_1_1qsort__internal}{\section{hryky\-:\-:qsort\-\_\-internal Namespace Reference}
+\label{namespacehryky_1_1qsort__internal}\index{hryky\-::qsort\-\_\-internal@{hryky\-::qsort\-\_\-internal}}
+}
+
+
+internal use of \hyperlink{namespacehryky_a438e3ee8f5109856c4a1e4daa9980982}{qsort()}  
+
+
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename Input\-Iterator $>$ }\\Input\-Iterator \hyperlink{namespacehryky_1_1qsort__internal_ac2e850d235f7ec38a913c4ea71d2970e}{partition} (Input\-Iterator const begin, Input\-Iterator const end)
+\begin{DoxyCompactList}\small\item\em divides into two groups. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Input\-Iterator $>$ }\\size\-\_\-t \hyperlink{namespacehryky_1_1qsort__internal_a2a9908c1e249d16e6701c06e341f9e1d}{pivot\-\_\-position} (Input\-Iterator const begin, Input\-Iterator const end)
+\begin{DoxyCompactList}\small\item\em gets the position of pivot to partition values. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+internal use of \hyperlink{namespacehryky_a438e3ee8f5109856c4a1e4daa9980982}{qsort()} 
+
+\subsection{Function Documentation}
+\hypertarget{namespacehryky_1_1qsort__internal_ac2e850d235f7ec38a913c4ea71d2970e}{\index{hryky\-::qsort\-\_\-internal@{hryky\-::qsort\-\_\-internal}!partition@{partition}}
+\index{partition@{partition}!hryky::qsort_internal@{hryky\-::qsort\-\_\-internal}}
+\subsubsection[{partition}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Input\-Iterator $>$ Input\-Iterator {\bf hryky\-::qsort\-\_\-internal\-::partition} (
+\begin{DoxyParamCaption}
+\item[{Input\-Iterator const}]{begin, }
+\item[{Input\-Iterator const}]{end}
+\end{DoxyParamCaption}
+)}}\label{namespacehryky_1_1qsort__internal_ac2e850d235f7ec38a913c4ea71d2970e}
+
+
+divides into two groups. 
+
+divides into two groups. The values in one group are less than a pivot. The values in the other is equal to or greater than the pivot.
+
+
+\begin{DoxyParams}{Parameters}
+{\em begin} & specifies the beginning of the sorted range. \\
+\hline
+{\em end} & specifies just after the last element in the sorted range. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The beginning of the last half gruop.
+\end{DoxyReturn}
+divides into two groups. The values in one group are less than a pivot. The values in the other is equal to or greater than the pivot. \begin{Desc}
+\item[Examples\-: ]\par
+\hyperlink{test_task_quicksort_8cpp-example}{test\-\_\-task\-\_\-quicksort.\-cpp}.\end{Desc}
+
+
+References \hyperlink{namespacehryky_add9c1c1fdfda07cd47bcb7c16d3a823a}{hryky\-::hryky\-\_\-swap()}, and \hyperlink{namespacehryky_1_1qsort__internal_a2a9908c1e249d16e6701c06e341f9e1d}{pivot\-\_\-position()}.
+
+
+
+Referenced by \hyperlink{namespacehryky_a438e3ee8f5109856c4a1e4daa9980982}{hryky\-::qsort()}.
+
+\hypertarget{namespacehryky_1_1qsort__internal_a2a9908c1e249d16e6701c06e341f9e1d}{\index{hryky\-::qsort\-\_\-internal@{hryky\-::qsort\-\_\-internal}!pivot\-\_\-position@{pivot\-\_\-position}}
+\index{pivot\-\_\-position@{pivot\-\_\-position}!hryky::qsort_internal@{hryky\-::qsort\-\_\-internal}}
+\subsubsection[{pivot\-\_\-position}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Input\-Iterator $>$ size\-\_\-t {\bf hryky\-::qsort\-\_\-internal\-::pivot\-\_\-position} (
+\begin{DoxyParamCaption}
+\item[{Input\-Iterator const}]{begin, }
+\item[{Input\-Iterator const}]{end}
+\end{DoxyParamCaption}
+)}}\label{namespacehryky_1_1qsort__internal_a2a9908c1e249d16e6701c06e341f9e1d}
+
+
+gets the position of pivot to partition values. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em begin} & specifies the beginning of the sorted range. \\
+\hline
+{\em end} & specifies just after the last element in the sorted range. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em -\/1} & represents that all elements in the range are same value. \\
+\hline
+{\em !=-\/1} & represents the position of the element selected as the target of comparison (known as pivot). \\
+\hline
+\end{DoxyRetVals}
+
+
+References \hyperlink{classhryky_1_1_foreach_aab1aceaecb09f71b9ba33ca9ceb49fb1}{hryky\-::\-Foreach$<$ Container\-T, Iterator\-T $>$\-::offset()}, and \hyperlink{namespacehryky_a6093192359bc9630d58d6158bd0178f4}{hryky\-::range()}.
+
+
+
+Referenced by \hyperlink{namespacehryky_1_1qsort__internal_ac2e850d235f7ec38a913c4ea71d2970e}{partition()}.
+

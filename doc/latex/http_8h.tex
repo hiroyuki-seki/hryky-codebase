@@ -1,0 +1,104 @@
+\hypertarget{http_8h}{\section{http.\-h File Reference}
+\label{http_8h}\index{http.\-h@{http.\-h}}
+}
+
+
+modules to manage H\-T\-T\-P.  
+
+
+{\ttfamily \#include \char`\"{}hryky/http/http\-\_\-body\-\_\-entity.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}hryky/http/http\-\_\-entity.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}hryky/http/http\-\_\-header\-\_\-accept\-\_\-charset\-\_\-content\-\_\-entity.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}hryky/http/http\-\_\-header\-\_\-accept\-\_\-charset\-\_\-entity.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}hryky/http/http\-\_\-header\-\_\-accept\-\_\-content\-\_\-entity.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}hryky/http/http\-\_\-header\-\_\-accept\-\_\-encoding\-\_\-content\-\_\-entity.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}hryky/http/http\-\_\-header\-\_\-accept\-\_\-encoding\-\_\-entity.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}hryky/http/http\-\_\-header\-\_\-accept\-\_\-entity.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}hryky/http/http\-\_\-header\-\_\-accept\-\_\-extension\-\_\-common.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}hryky/http/http\-\_\-header\-\_\-accept\-\_\-extension\-\_\-entity.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}hryky/http/http\-\_\-header\-\_\-accept\-\_\-language\-\_\-content\-\_\-entity.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}hryky/http/http\-\_\-header\-\_\-accept\-\_\-language\-\_\-entity.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}hryky/http/http\-\_\-header\-\_\-accept\-\_\-params\-\_\-entity.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}hryky/http/http\-\_\-header\-\_\-cache\-\_\-common.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}hryky/http/http\-\_\-header\-\_\-cache\-\_\-control\-\_\-common.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}hryky/http/http\-\_\-header\-\_\-cache\-\_\-control\-\_\-entity.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}hryky/http/http\-\_\-header\-\_\-cache\-\_\-directive\-\_\-adapter.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}hryky/http/http\-\_\-header\-\_\-cache\-\_\-directive\-\_\-base.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}hryky/http/http\-\_\-header\-\_\-cache\-\_\-directive\-\_\-common.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}hryky/http/http\-\_\-header\-\_\-cache\-\_\-directive\-\_\-dispatcher\-\_\-apply.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}hryky/http/http\-\_\-header\-\_\-cache\-\_\-directive\-\_\-dispatcher\-\_\-base.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}hryky/http/http\-\_\-header\-\_\-cache\-\_\-directive\-\_\-field.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}hryky/http/http\-\_\-header\-\_\-cache\-\_\-directive\-\_\-second.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}hryky/http/http\-\_\-header\-\_\-cache\-\_\-directive\-\_\-specifier.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}hryky/http/http\-\_\-header\-\_\-comment\-\_\-base.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}hryky/http/http\-\_\-header\-\_\-comment\-\_\-adapter.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}hryky/http/http\-\_\-header\-\_\-comment\-\_\-sequence.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}hryky/http/http\-\_\-header\-\_\-comment\-\_\-string.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}hryky/http/http\-\_\-header\-\_\-common.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}hryky/http/http\-\_\-header\-\_\-connection\-\_\-common.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}hryky/http/http\-\_\-header\-\_\-connection\-\_\-entity.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}hryky/http/http\-\_\-header\-\_\-content\-\_\-common.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}hryky/http/http\-\_\-header\-\_\-content\-\_\-length\-\_\-entity.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}hryky/http/http\-\_\-header\-\_\-content\-\_\-type\-\_\-entity.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}hryky/http/http\-\_\-header\-\_\-date\-\_\-entity.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}hryky/http/http\-\_\-header\-\_\-entity.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}hryky/http/http\-\_\-header\-\_\-expires\-\_\-entity.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}hryky/http/http\-\_\-header\-\_\-field\-\_\-adapter.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}hryky/http/http\-\_\-header\-\_\-field\-\_\-base.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}hryky/http/http\-\_\-header\-\_\-field\-\_\-common.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}hryky/http/http\-\_\-header\-\_\-field\-\_\-dispatcher\-\_\-apply.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}hryky/http/http\-\_\-header\-\_\-field\-\_\-dispatcher\-\_\-base.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}hryky/http/http\-\_\-header\-\_\-field\-\_\-extension\-\_\-common.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}hryky/http/http\-\_\-header\-\_\-field\-\_\-extension\-\_\-entity.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}hryky/http/http\-\_\-header\-\_\-host\-\_\-entity.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}hryky/http/http\-\_\-header\-\_\-language\-\_\-common.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}hryky/http/http\-\_\-header\-\_\-language\-\_\-entity.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}hryky/http/http\-\_\-header\-\_\-location\-\_\-entity.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}hryky/http/http\-\_\-header\-\_\-media\-\_\-type\-\_\-common.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}hryky/http/http\-\_\-header\-\_\-media\-\_\-type\-\_\-entity.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}hryky/http/http\-\_\-header\-\_\-parameter\-\_\-common.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}hryky/http/http\-\_\-header\-\_\-parameter\-\_\-entity.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}hryky/http/http\-\_\-header\-\_\-product\-\_\-comment\-\_\-adapter.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}hryky/http/http\-\_\-header\-\_\-product\-\_\-comment\-\_\-base.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}hryky/http/http\-\_\-header\-\_\-product\-\_\-comment\-\_\-dispatcher\-\_\-base.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}hryky/http/http\-\_\-header\-\_\-product\-\_\-comment\-\_\-dispatcher\-\_\-apply.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}hryky/http/http\-\_\-header\-\_\-product\-\_\-entity.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}hryky/http/http\-\_\-header\-\_\-server\-\_\-entity.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}hryky/http/http\-\_\-header\-\_\-user\-\_\-agent\-\_\-entity.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}hryky/http/http\-\_\-method\-\_\-common.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}hryky/http/http\-\_\-method\-\_\-entity.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}hryky/http/http\-\_\-parser\-\_\-common.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}hryky/http/http\-\_\-request\-\_\-entity.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}hryky/http/http\-\_\-request\-\_\-line\-\_\-entity.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}hryky/http/http\-\_\-seconds\-\_\-common.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}hryky/http/http\-\_\-seconds\-\_\-entity.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}hryky/http/http\-\_\-stream.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}hryky/http/http\-\_\-version\-\_\-entity.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}hryky/http/http\-\_\-parser.\-h\char`\"{}}\\*
+This graph shows which files directly or indirectly include this file\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{http_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \hyperlink{namespacehryky}{hryky}
+\begin{DoxyCompactList}\small\item\em the root of all namespaces in hryky-\/codebase. \end{DoxyCompactList}\item 
+namespace \hyperlink{namespacehryky_1_1http}{hryky\-::http}
+\begin{DoxyCompactList}\small\item\em modules to manage H\-T\-T\-P. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+modules to manage H\-T\-T\-P. \begin{DoxyAuthor}{Author}
+H\-R\-Y\-K\-Y 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+
+\end{DoxyVersion}
+\begin{DoxyParagraph}{Id\-:}
+\hyperlink{http_8h}{http.\-h} 150 2013-\/02-\/10 10\-:08\-:03\-Z \href{mailto:hryky.private@gmail.com}{\tt hryky.\-private@gmail.\-com} 
+\end{DoxyParagraph}

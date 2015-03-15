@@ -1,0 +1,13 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$signed__bits__enough_8h.html" title="retrieves the bit width in which a signed value of specified size can be stored." alt="" coords="5,80,152,107"/>
+<area shape="rect" id="node5" href="$integer_8h.html" title="utility for builtin integer types." alt="" coords="203,155,275,181"/>
+<area shape="rect" id="node9" href="$signed__enough_8h.html" title="retrieves the type of signed integer which has the capacity of the specified size." alt="" coords="228,80,348,107"/>
+<area shape="rect" id="node12" href="$unsigned__enough_8h.html" title="retrieves the type of integer which has the capacity of the specified size." alt="" coords="373,80,507,107"/>
+<area shape="rect" id="node7" href="$bitset_8h.html" title="bitset of fixed size on compile time." alt="" coords="206,229,271,256"/>
+<area shape="rect" id="node14" href="$bitfield_8h.html" title="initializes and clears bitfields." alt="" coords="405,155,475,181"/>
+<area shape="rect" id="node16" href="$file__descriptor__mode_8h.html" title="retains the access mode for file descriptor." alt="" coords="364,229,516,256"/>
+<area shape="rect" id="node18" href="$file__descriptor__entity_8cpp.html" title="retains a file descriptor." alt="" coords="62,304,228,331"/>
+<area shape="rect" id="node20" href="$file__descriptor__mode_8cpp.html" title="retains the access mode for file descriptor." alt="" coords="253,304,419,331"/>
+<area shape="rect" id="node22" href="$file__descriptor__entity_8win32_8cpp.html" title="retains a file descripter for Win32." alt="" coords="444,304,647,331"/>
+<area shape="rect" id="node24" href="$file__descriptor__mode_8win32_8cpp.html" title="retains the access mode for file descriptor for Win32." alt="" coords="671,304,873,331"/>
+</map>

@@ -1,0 +1,52 @@
+\hypertarget{classhryky_1_1memory_1_1heap_1_1_lock}{\section{hryky\-:\-:memory\-:\-:heap\-:\-:Lock$<$ Locked\-T, Lockable\-T $>$ Class Template Reference}
+\label{classhryky_1_1memory_1_1heap_1_1_lock}\index{hryky\-::memory\-::heap\-::\-Lock$<$ Locked\-T, Lockable\-T $>$@{hryky\-::memory\-::heap\-::\-Lock$<$ Locked\-T, Lockable\-T $>$}}
+}
+
+
+performs the exclusion control at the allocation and deallocation of heap.  
+
+
+
+
+{\ttfamily \#include $<$memory\-\_\-heap\-\_\-lock.\-h$>$}
+
+
+
+Inheritance diagram for hryky\-:\-:memory\-:\-:heap\-:\-:Lock$<$ Locked\-T, Lockable\-T $>$\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=320pt]{classhryky_1_1memory_1_1heap_1_1_lock__inherit__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classhryky_1_1memory_1_1heap_1_1_lock_a4642d966c65ca6effb49a3db58426449}{typedef \hyperlink{classhryky_1_1memory_1_1heap_1_1_lock}{Lock}$<$ Locked\-T, Lockable\-T $>$ \hyperlink{classhryky_1_1memory_1_1heap_1_1_lock_a4642d966c65ca6effb49a3db58426449}{this\-\_\-type}}\label{classhryky_1_1memory_1_1heap_1_1_lock_a4642d966c65ca6effb49a3db58426449}
+
+\begin{DoxyCompactList}\small\item\em self. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classhryky_1_1memory_1_1heap_1_1_lock_a469a43b261f5b0dc3ce2a78c7df31e2b}{size\-\_\-t \hyperlink{classhryky_1_1memory_1_1heap_1_1_lock_a469a43b261f5b0dc3ce2a78c7df31e2b}{allocatable\-\_\-size} () const }\label{classhryky_1_1memory_1_1heap_1_1_lock_a469a43b261f5b0dc3ce2a78c7df31e2b}
+
+\begin{DoxyCompactList}\small\item\em calls the Locked\-T\-::allocatable\-\_\-size() with the exclusion control. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1memory_1_1heap_1_1_lock_a5c1c6735480076daff287d98769b9735}{void $\ast$ \hyperlink{classhryky_1_1memory_1_1heap_1_1_lock_a5c1c6735480076daff287d98769b9735}{allocate} (size\-\_\-t const size)}\label{classhryky_1_1memory_1_1heap_1_1_lock_a5c1c6735480076daff287d98769b9735}
+
+\begin{DoxyCompactList}\small\item\em calls the Locked\-T\-::allocate() with the exclusion control. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1memory_1_1heap_1_1_lock_a221ea34d7afea6045f84df3b1fa77b24}{bool \hyperlink{classhryky_1_1memory_1_1heap_1_1_lock_a221ea34d7afea6045f84df3b1fa77b24}{deallocate} (void $\ast$const address)}\label{classhryky_1_1memory_1_1heap_1_1_lock_a221ea34d7afea6045f84df3b1fa77b24}
+
+\begin{DoxyCompactList}\small\item\em calls the Locked\-T\-::deallocate() with the exclusion control. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1memory_1_1heap_1_1_lock_aea44137ee10e27ac7ff10e3752571117}{\hyperlink{classhryky_1_1memory_1_1heap_1_1_lock_aea44137ee10e27ac7ff10e3752571117}{Lock} (reference locked)}\label{classhryky_1_1memory_1_1heap_1_1_lock_aea44137ee10e27ac7ff10e3752571117}
+
+\begin{DoxyCompactList}\small\item\em constructor with the locked instance. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$typename Locked\-T, typename Lockable\-T = exclusion\-::\-Recursive\-Mutex$>$class hryky\-::memory\-::heap\-::\-Lock$<$ Locked\-T, Lockable\-T $>$}
+
+performs the exclusion control at the allocation and deallocation of heap. 
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{memory__heap__lock_8h}{memory\-\_\-heap\-\_\-lock.\-h}\end{DoxyCompactItemize}

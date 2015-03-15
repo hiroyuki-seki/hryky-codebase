@@ -1,0 +1,92 @@
+\hypertarget{clear_8h_source}{\section{clear.\-h}
+}
+
+\begin{DoxyCode}
+00001 
+00007 \textcolor{preprocessor}{#ifndef CLEAR\_H\_20130209162740352}
+00008 \textcolor{preprocessor}{}\textcolor{preprocessor}{#define CLEAR\_H\_20130209162740352}
+00009 \textcolor{preprocessor}{}\textcolor{preprocessor}{#include "\hyperlink{enable__if_8h}{hryky/gp/enable_if.h}"}
+00010 \textcolor{preprocessor}{#include "\hyperlink{common_8h}{hryky/common.h}"}
+00011 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00012 \textcolor{comment}{// macro definition}
+00013 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00014 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00015 \textcolor{comment}{// namespace}
+00016 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00017 \textcolor{keyword}{namespace }hryky
+00018 \{
+00020     \textcolor{keyword}{template} <\textcolor{keyword}{typename} ValueT>
+00021     \textcolor{keyword}{class }HasClear;
+00022 
+00023 \} \textcolor{comment}{// namespace hryky}
+00024 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00025 \textcolor{comment}{// struct declaration}
+00026 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00027 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00028 \textcolor{comment}{// class declaration}
+00029 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00033 \textcolor{comment}{}\textcolor{keyword}{template} <\textcolor{keyword}{typename} ValueT>
+\hypertarget{clear_8h_source_l00034}{}\hyperlink{classhryky_1_1_has_clear}{00034} \textcolor{keyword}{class }\hyperlink{classhryky_1_1_has_clear}{hryky::HasClear}
+00035 \{
+00036     \textcolor{keyword}{typedef} uint8\_t no;
+00037     \textcolor{keyword}{typedef} uint16\_t yes;
+00038 
+00039     \textcolor{keyword}{template} <\textcolor{keyword}{typename} TargetT, \textcolor{keywordtype}{void} (TargetT::*)()>
+00040     \textcolor{keyword}{struct }TestClear;
+00041 
+00042     \textcolor{keyword}{template} <\textcolor{keyword}{typename} TargetT>
+00043     \textcolor{keyword}{static} yes test(TestClear<TargetT, &TargetT::clear> *);
+00044 
+00045     \textcolor{keyword}{template} <\textcolor{keyword}{typename} TargetT>
+00046     \textcolor{keyword}{static} no test(...);
+00047 
+00048 \textcolor{keyword}{public} :
+00049 
+00050     \textcolor{keyword}{static} \textcolor{keywordtype}{bool} \textcolor{keyword}{const} value = \textcolor{keyword}{sizeof}(test<ValueT>(0)) == \textcolor{keyword}{sizeof}(yes);
+00051 \};
+00052 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00053 \textcolor{comment}{// global function prototypes}
+00054 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00055 \textcolor{keyword}{namespace }hryky
+00056 \{
+00058     \textcolor{keyword}{template} <\textcolor{keyword}{typename} ValueT>
+00059     \textcolor{keywordtype}{void} \hyperlink{namespacehryky_aa201297ea9530da954a7230be71cc19d}{clear}(
+00060         ValueT & value,
+00061         \textcolor{keyword}{typename} \hyperlink{classhryky_1_1_enable_if}{EnableIf}<\hyperlink{classhryky_1_1_has_clear}{HasClear<ValueT>} >::type * = \hyperlink{common_8h_a4cd4ac09cfcdbd6b30ee69afc156e210}{HRYKY_NULLPTR});
+00062 
+00064     \textcolor{keyword}{template} <\textcolor{keyword}{typename} ValueT>
+00065     \textcolor{keywordtype}{void} \hyperlink{namespacehryky_aa201297ea9530da954a7230be71cc19d}{clear}(
+00066         ValueT & value,
+00067         \textcolor{keyword}{typename} \hyperlink{classhryky_1_1_disable_if}{DisableIf}<\hyperlink{classhryky_1_1_has_clear}{HasClear<ValueT>} >::type * = \hyperlink{common_8h_a4cd4ac09cfcdbd6b30ee69afc156e210}{HRYKY_NULLPTR});
+00068 
+00069 \} \textcolor{comment}{// namespace hryky}
+00070 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00071 \textcolor{comment}{// global function definitions}
+00072 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00076 \textcolor{comment}{}\textcolor{keyword}{template} <\textcolor{keyword}{typename} ValueT>
+\hypertarget{clear_8h_source_l00077}{}\hyperlink{namespacehryky_aa201297ea9530da954a7230be71cc19d}{00077} \textcolor{keywordtype}{void} \hyperlink{namespacehryky_aa201297ea9530da954a7230be71cc19d}{hryky::clear}(
+00078     ValueT & value, \textcolor{keyword}{typename} \hyperlink{classhryky_1_1_enable_if}{EnableIf}<\hyperlink{classhryky_1_1_has_clear}{HasClear<ValueT>} >::type *)
+00079 \{
+00080     value.clear();
+00081 \}
+00085 \textcolor{keyword}{template} <\textcolor{keyword}{typename} ValueT>
+\hypertarget{clear_8h_source_l00086}{}\hyperlink{namespacehryky_a17ff650587d39be66b7c729876944c21}{00086} \textcolor{keywordtype}{void} \hyperlink{namespacehryky_aa201297ea9530da954a7230be71cc19d}{hryky::clear}(
+00087     ValueT & value, \textcolor{keyword}{typename} \hyperlink{classhryky_1_1_disable_if}{DisableIf}<\hyperlink{classhryky_1_1_has_clear}{HasClear<ValueT>} >::type *)
+00088 \{
+00089     value = ValueT();
+00090 \}
+00091 \textcolor{preprocessor}{#endif // CLEAR\_H\_20130209162740352}
+00092 \textcolor{preprocessor}{}\textcolor{comment}{// end of file}
+\end{DoxyCode}

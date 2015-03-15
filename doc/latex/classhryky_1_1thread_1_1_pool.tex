@@ -1,0 +1,92 @@
+\hypertarget{classhryky_1_1thread_1_1_pool}{\section{hryky\-:\-:thread\-:\-:Pool Class Reference}
+\label{classhryky_1_1thread_1_1_pool}\index{hryky\-::thread\-::\-Pool@{hryky\-::thread\-::\-Pool}}
+}
+
+
+manages the collection of reusable concurrent units.  
+
+
+
+
+{\ttfamily \#include $<$thread\-\_\-pool.\-h$>$}
+
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classhryky_1_1thread_1_1_pool_1_1_inactivate}{Inactivate}
+\begin{DoxyCompactList}\small\item\em the wrapper to call inactivate(). \end{DoxyCompactList}\item 
+struct \hyperlink{structhryky_1_1thread_1_1_pool_1_1_reset_parameter}{Reset\-Parameter}
+\begin{DoxyCompactList}\small\item\em parameters for \hyperlink{classhryky_1_1thread_1_1_pool_a7060b7e3c556334ec71aa2b42401231f}{reset()} \end{DoxyCompactList}\item 
+class \hyperlink{classhryky_1_1thread_1_1_pool_1_1_terminate}{Terminate}
+\begin{DoxyCompactList}\small\item\em the wrapper to call terminate(). \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classhryky_1_1thread_1_1_pool_adf3dc9b77ef4669d18ed2229c9b5697d}{typedef \hyperlink{classhryky_1_1thread_1_1callable_1_1_base}{callable\-::\-Base} \& \hyperlink{classhryky_1_1thread_1_1_pool_adf3dc9b77ef4669d18ed2229c9b5697d}{callable\-\_\-reference}}\label{classhryky_1_1thread_1_1_pool_adf3dc9b77ef4669d18ed2229c9b5697d}
+
+\begin{DoxyCompactList}\small\item\em type of callable object \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1thread_1_1_pool_a969ac19770a6e83266c32e28f9c85589}{typedef \hyperlink{classhryky_1_1thread_1_1_pool}{hryky\-::thread\-::\-Pool} \hyperlink{classhryky_1_1thread_1_1_pool_a969ac19770a6e83266c32e28f9c85589}{this\-\_\-type}}\label{classhryky_1_1thread_1_1_pool_a969ac19770a6e83266c32e28f9c85589}
+
+\begin{DoxyCompactList}\small\item\em self. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classhryky_1_1thread_1_1_pool_ad3e2de38ca9e4803b2466baa3ab8d26d}{bool \hyperlink{classhryky_1_1thread_1_1_pool_ad3e2de38ca9e4803b2466baa3ab8d26d}{enregister} (\hyperlink{classhryky_1_1thread_1_1_pool_adf3dc9b77ef4669d18ed2229c9b5697d}{callable\-\_\-reference} callable)}\label{classhryky_1_1thread_1_1_pool_ad3e2de38ca9e4803b2466baa3ab8d26d}
+
+\begin{DoxyCompactList}\small\item\em enregisters a callable object. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1thread_1_1_pool_af047102969191afe4ab1f66ee200c55d}{bool \hyperlink{classhryky_1_1thread_1_1_pool_af047102969191afe4ab1f66ee200c55d}{enregister} (\hyperlink{classhryky_1_1thread_1_1_pool_adf3dc9b77ef4669d18ed2229c9b5697d}{callable\-\_\-reference} callable, \hyperlink{namespacehryky_a5e2737162aa470ce3920f86e86eac0bc}{processor\-\_\-id\-\_\-type} processor\-\_\-id)}\label{classhryky_1_1thread_1_1_pool_af047102969191afe4ab1f66ee200c55d}
+
+\begin{DoxyCompactList}\small\item\em enregisters a callable object with preferred thread. \end{DoxyCompactList}\item 
+bool \hyperlink{classhryky_1_1thread_1_1_pool_ab131e2d89db71b2b8e27086cacfcc761}{join} (duration\-\_\-type const \&duration)
+\begin{DoxyCompactList}\small\item\em waits the end of the all concurrent untis. \end{DoxyCompactList}\item 
+\hyperlink{classhryky_1_1thread_1_1_pool_a3e06da22084014145905237a51f495e0}{Pool} ()
+\begin{DoxyCompactList}\small\item\em default constructor. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1thread_1_1_pool_af894bce076ed5cdf84efeee2c44b9cf1}{\hyperlink{namespacehryky_a343a9a4c36a586be5c2693156200eadc}{reduction\-\_\-type} \hyperlink{classhryky_1_1thread_1_1_pool_af894bce076ed5cdf84efeee2c44b9cf1}{reduce} (\hyperlink{namespacehryky_1_1reduction_ac686c30a4c8d196bbd0f05629a6b921f}{reduction\-::name\-\_\-type} const \&name) const }\label{classhryky_1_1thread_1_1_pool_af894bce076ed5cdf84efeee2c44b9cf1}
+
+\begin{DoxyCompactList}\small\item\em decomposes the instance to primitive objects. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1thread_1_1_pool_ae98cafaf20f22576e93b03b4892f55f4}{bool \hyperlink{classhryky_1_1thread_1_1_pool_ae98cafaf20f22576e93b03b4892f55f4}{reserve} (size\-\_\-t capacity)}\label{classhryky_1_1thread_1_1_pool_ae98cafaf20f22576e93b03b4892f55f4}
+
+\begin{DoxyCompactList}\small\item\em creates concurrent units preliminarily. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1thread_1_1_pool_a7060b7e3c556334ec71aa2b42401231f}{bool \hyperlink{classhryky_1_1thread_1_1_pool_a7060b7e3c556334ec71aa2b42401231f}{reset} (\hyperlink{structhryky_1_1thread_1_1_pool_1_1_reset_parameter}{Reset\-Parameter} const \&param)}\label{classhryky_1_1thread_1_1_pool_a7060b7e3c556334ec71aa2b42401231f}
+
+\begin{DoxyCompactList}\small\item\em clears the existing resources and recreate them. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1thread_1_1_pool_a2b2641eafd17e11334554b85d0a41002}{\hyperlink{classhryky_1_1thread_1_1_pool_a2b2641eafd17e11334554b85d0a41002}{$\sim$\-Pool} ()}\label{classhryky_1_1thread_1_1_pool_a2b2641eafd17e11334554b85d0a41002}
+
+\begin{DoxyCompactList}\small\item\em destructor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+manages the collection of reusable concurrent units. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classhryky_1_1thread_1_1_pool_a3e06da22084014145905237a51f495e0}{\index{hryky\-::thread\-::\-Pool@{hryky\-::thread\-::\-Pool}!Pool@{Pool}}
+\index{Pool@{Pool}!hryky::thread::Pool@{hryky\-::thread\-::\-Pool}}
+\subsubsection[{Pool}]{\setlength{\rightskip}{0pt plus 5cm}{\bf hryky\-::thread\-::\-Pool\-::\-Pool} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}explicit\mbox{]}}}}\label{classhryky_1_1thread_1_1_pool_a3e06da22084014145905237a51f495e0}
+
+
+default constructor. 
+
+constructor. 
+
+\subsection{Member Function Documentation}
+\hypertarget{classhryky_1_1thread_1_1_pool_ab131e2d89db71b2b8e27086cacfcc761}{\index{hryky\-::thread\-::\-Pool@{hryky\-::thread\-::\-Pool}!join@{join}}
+\index{join@{join}!hryky::thread::Pool@{hryky\-::thread\-::\-Pool}}
+\subsubsection[{join}]{\setlength{\rightskip}{0pt plus 5cm}bool {\bf hryky\-::thread\-::\-Pool\-::join} (
+\begin{DoxyParamCaption}
+\item[{duration\-\_\-type const \&}]{duration}
+\end{DoxyParamCaption}
+)}}\label{classhryky_1_1thread_1_1_pool_ab131e2d89db71b2b8e27086cacfcc761}
+
+
+waits the end of the all concurrent untis. 
+
+ends the all of the concurrent untis. 
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{thread__pool_8h}{thread\-\_\-pool.\-h}\item 
+\hyperlink{thread__pool_8cpp}{thread\-\_\-pool.\-cpp}\end{DoxyCompactItemize}

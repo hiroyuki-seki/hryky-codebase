@@ -1,0 +1,157 @@
+\hypertarget{classhryky_1_1task_1_1_concurrency}{\section{hryky\-:\-:task\-:\-:Concurrency Class Reference}
+\label{classhryky_1_1task_1_1_concurrency}\index{hryky\-::task\-::\-Concurrency@{hryky\-::task\-::\-Concurrency}}
+}
+
+
+manages concurrency units.  
+
+
+
+
+{\ttfamily \#include $<$task\-\_\-concurrency.\-h$>$}
+
+
+
+Inheritance diagram for hryky\-:\-:task\-:\-:Concurrency\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=206pt]{classhryky_1_1task_1_1_concurrency__inherit__graph}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structhryky_1_1task_1_1_concurrency_1_1_reset_parameter}{Reset\-Parameter}
+\begin{DoxyCompactList}\small\item\em the parameters of \hyperlink{classhryky_1_1task_1_1_concurrency_aa81eeaa909ee4abde16a1619da5c011d}{reset()} \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classhryky_1_1task_1_1_concurrency_a308791b2b4bbce8f93f8b36b4680ca14}{typedef \hyperlink{classhryky_1_1task_1_1_concurrency}{Concurrency} \hyperlink{classhryky_1_1task_1_1_concurrency_a308791b2b4bbce8f93f8b36b4680ca14}{this\-\_\-type}}\label{classhryky_1_1task_1_1_concurrency_a308791b2b4bbce8f93f8b36b4680ca14}
+
+\begin{DoxyCompactList}\small\item\em self \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classhryky_1_1task_1_1_concurrency_a53b1408cb51dd3a1894653fd83c5824e}{Concurrency} ()
+\begin{DoxyCompactList}\small\item\em default constructor \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1task_1_1_concurrency_a8a4b9007de2f05ea345d9ea428294db9}{void \hyperlink{classhryky_1_1task_1_1_concurrency_a8a4b9007de2f05ea345d9ea428294db9}{inactivate} (Sequence \&\hyperlink{classhryky_1_1task_1_1_concurrency_aa82281dbb7df8aa9fcad2acb9ecb4531}{sequence})}\label{classhryky_1_1task_1_1_concurrency_a8a4b9007de2f05ea345d9ea428294db9}
+
+\begin{DoxyCompactList}\small\item\em inactivates the working sequence. \end{DoxyCompactList}\item 
+bool \hyperlink{classhryky_1_1task_1_1_concurrency_a8a1fc39c3672f169bd8036f4cd64d760}{join} (\hyperlink{namespacehryky_1_1task_ab22f4f47e2ef029ecd5373ffbaba40cf}{duration\-\_\-type} const \&duration)
+\begin{DoxyCompactList}\small\item\em waits until the all sequences end. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1task_1_1_concurrency_aae1a21906a197f2962b355e7e2bcf702}{\hyperlink{namespacehryky_a343a9a4c36a586be5c2693156200eadc}{reduction\-\_\-type} \hyperlink{classhryky_1_1task_1_1_concurrency_aae1a21906a197f2962b355e7e2bcf702}{reduce} (\hyperlink{namespacehryky_1_1reduction_ac686c30a4c8d196bbd0f05629a6b921f}{reduction\-::name\-\_\-type} const \&name) const }\label{classhryky_1_1task_1_1_concurrency_aae1a21906a197f2962b355e7e2bcf702}
+
+\begin{DoxyCompactList}\small\item\em outputs the information formatted as string. \end{DoxyCompactList}\item 
+bool \hyperlink{classhryky_1_1task_1_1_concurrency_aa81eeaa909ee4abde16a1619da5c011d}{reset} (\hyperlink{structhryky_1_1task_1_1_concurrency_1_1_reset_parameter}{Reset\-Parameter} const \&param)
+\begin{DoxyCompactList}\small\item\em clears existing resources and recreate new resources \end{DoxyCompactList}\item 
+Sequence \& \hyperlink{classhryky_1_1task_1_1_concurrency_aa82281dbb7df8aa9fcad2acb9ecb4531}{sequence} (size\-\_\-t index)
+\begin{DoxyCompactList}\small\item\em returns a sequence \end{DoxyCompactList}\item 
+size\-\_\-t \hyperlink{classhryky_1_1task_1_1_concurrency_a2def26af9d687f558bbdb77f8c59f142}{units\-\_\-size} () const 
+\begin{DoxyCompactList}\small\item\em returns the number of concurrent units \end{DoxyCompactList}\item 
+\hyperlink{classhryky_1_1task_1_1_concurrency_af31a03465d7ffd79dbd47aea5cc0f1f6}{$\sim$\-Concurrency} ()
+\begin{DoxyCompactList}\small\item\em destructor \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Types}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classhryky_1_1_noncopyable_aaf87abb55f700af85ecb0895f6178821}{typedef \hyperlink{classhryky_1_1_noncopyable}{Noncopyable} $\ast$ \hyperlink{classhryky_1_1_noncopyable_aaf87abb55f700af85ecb0895f6178821}{instance\-\_\-type}}\label{classhryky_1_1_noncopyable_aaf87abb55f700af85ecb0895f6178821}
+
+\begin{DoxyCompactList}\small\item\em instance type \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+manages concurrency units. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classhryky_1_1task_1_1_concurrency_a53b1408cb51dd3a1894653fd83c5824e}{\index{hryky\-::task\-::\-Concurrency@{hryky\-::task\-::\-Concurrency}!Concurrency@{Concurrency}}
+\index{Concurrency@{Concurrency}!hryky::task::Concurrency@{hryky\-::task\-::\-Concurrency}}
+\subsubsection[{Concurrency}]{\setlength{\rightskip}{0pt plus 5cm}{\bf hryky\-::task\-::\-Concurrency\-::\-Concurrency} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}explicit\mbox{]}}}}\label{classhryky_1_1task_1_1_concurrency_a53b1408cb51dd3a1894653fd83c5824e}
+
+
+default constructor 
+
+constructor. \hypertarget{classhryky_1_1task_1_1_concurrency_af31a03465d7ffd79dbd47aea5cc0f1f6}{\index{hryky\-::task\-::\-Concurrency@{hryky\-::task\-::\-Concurrency}!$\sim$\-Concurrency@{$\sim$\-Concurrency}}
+\index{$\sim$\-Concurrency@{$\sim$\-Concurrency}!hryky::task::Concurrency@{hryky\-::task\-::\-Concurrency}}
+\subsubsection[{$\sim$\-Concurrency}]{\setlength{\rightskip}{0pt plus 5cm}{\bf hryky\-::task\-::\-Concurrency\-::$\sim$\-Concurrency} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classhryky_1_1task_1_1_concurrency_af31a03465d7ffd79dbd47aea5cc0f1f6}
+
+
+destructor 
+
+destrunctor. 
+
+References \hyperlink{namespacehryky_aa201297ea9530da954a7230be71cc19d}{hryky\-::clear()}.
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classhryky_1_1task_1_1_concurrency_a8a1fc39c3672f169bd8036f4cd64d760}{\index{hryky\-::task\-::\-Concurrency@{hryky\-::task\-::\-Concurrency}!join@{join}}
+\index{join@{join}!hryky::task::Concurrency@{hryky\-::task\-::\-Concurrency}}
+\subsubsection[{join}]{\setlength{\rightskip}{0pt plus 5cm}bool {\bf hryky\-::task\-::\-Concurrency\-::join} (
+\begin{DoxyParamCaption}
+\item[{{\bf duration\-\_\-type} const \&}]{duration}
+\end{DoxyParamCaption}
+)}}\label{classhryky_1_1task_1_1_concurrency_a8a1fc39c3672f169bd8036f4cd64d760}
+
+
+waits until the all sequences end. 
+
+waits until the all sequences end.. \hypertarget{classhryky_1_1task_1_1_concurrency_aa81eeaa909ee4abde16a1619da5c011d}{\index{hryky\-::task\-::\-Concurrency@{hryky\-::task\-::\-Concurrency}!reset@{reset}}
+\index{reset@{reset}!hryky::task::Concurrency@{hryky\-::task\-::\-Concurrency}}
+\subsubsection[{reset}]{\setlength{\rightskip}{0pt plus 5cm}bool {\bf hryky\-::task\-::\-Concurrency\-::reset} (
+\begin{DoxyParamCaption}
+\item[{{\bf Reset\-Parameter} const \&}]{param}
+\end{DoxyParamCaption}
+)}}\label{classhryky_1_1task_1_1_concurrency_aa81eeaa909ee4abde16a1619da5c011d}
+
+
+clears existing resources and recreate new resources 
+
+clears existing resources and recreate new resources. 
+
+References \hyperlink{classhryky_1_1_foreach_af92e7d3b0f4b07a22856f64ade36f456}{hryky\-::\-Foreach$<$ Container\-T, Iterator\-T $>$\-::begin()}, \hyperlink{namespacehryky_aa201297ea9530da954a7230be71cc19d}{hryky\-::clear()}, \hyperlink{namespacehryky_1_1thread_aecfbde694375a1c24e081c7c785e52a1}{hryky\-::thread\-::hardware\-\_\-concurrency()}, \hyperlink{namespacehryky_1_1memory_1_1global_a6fc6103f67c837aa0f39b359588409cd}{hryky\-::memory\-::global\-::heap()}, \hyperlink{log__writer__common_8h_ae5ad3dabb33f594695ef40753cb78aad}{hryky\-\_\-log\-\_\-err}, \hyperlink{log__writer__common_8h_ab209c7143422edf2ce0c5baa844629d7}{hryky\-\_\-log\-\_\-notice}, \hyperlink{common_8h_a4cd4ac09cfcdbd6b30ee69afc156e210}{H\-R\-Y\-K\-Y\-\_\-\-N\-U\-L\-L\-P\-T\-R}, \hyperlink{namespacehryky_1_1reduction_ac5eae270cf8047b294dc4ff3e5e11a79}{hryky\-::reduction\-::map()}, and \hyperlink{classhryky_1_1_vector_a9148eb8972b43ed3a7e807d19be848a5}{hryky\-::\-Vector$<$ Value\-T, Allocator\-T $>$\-::resize()}.
+
+\hypertarget{classhryky_1_1task_1_1_concurrency_aa82281dbb7df8aa9fcad2acb9ecb4531}{\index{hryky\-::task\-::\-Concurrency@{hryky\-::task\-::\-Concurrency}!sequence@{sequence}}
+\index{sequence@{sequence}!hryky::task::Concurrency@{hryky\-::task\-::\-Concurrency}}
+\subsubsection[{sequence}]{\setlength{\rightskip}{0pt plus 5cm}hryky\-::task\-::\-Sequence \& {\bf hryky\-::task\-::\-Concurrency\-::sequence} (
+\begin{DoxyParamCaption}
+\item[{size\-\_\-t}]{index}
+\end{DoxyParamCaption}
+)}}\label{classhryky_1_1task_1_1_concurrency_aa82281dbb7df8aa9fcad2acb9ecb4531}
+
+
+returns a sequence 
+
+returns a sequence. 
+
+Referenced by \hyperlink{group__task_ga9ebf9038e6e40f583b3b26866e1f8131}{hryky\-::task\-::distributor\-::\-Batch$<$ Task\-T $>$\-::reset()}.
+
+\hypertarget{classhryky_1_1task_1_1_concurrency_a2def26af9d687f558bbdb77f8c59f142}{\index{hryky\-::task\-::\-Concurrency@{hryky\-::task\-::\-Concurrency}!units\-\_\-size@{units\-\_\-size}}
+\index{units\-\_\-size@{units\-\_\-size}!hryky::task::Concurrency@{hryky\-::task\-::\-Concurrency}}
+\subsubsection[{units\-\_\-size}]{\setlength{\rightskip}{0pt plus 5cm}size\-\_\-t {\bf hryky\-::task\-::\-Concurrency\-::units\-\_\-size} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classhryky_1_1task_1_1_concurrency_a2def26af9d687f558bbdb77f8c59f142}
+
+
+returns the number of concurrent units 
+
+returns the number of concurrent units. 
+
+Referenced by \hyperlink{group__task_ga9ebf9038e6e40f583b3b26866e1f8131}{hryky\-::task\-::distributor\-::\-Batch$<$ Task\-T $>$\-::reset()}, and \hyperlink{classhryky_1_1task_1_1distributor_1_1_base_a2dfa3093b3165d58ed31aa575ae1b159}{hryky\-::task\-::distributor\-::\-Base\-::reset()}.
+
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{task__concurrency_8h}{task\-\_\-concurrency.\-h}\item 
+\hyperlink{task__concurrency_8cpp}{task\-\_\-concurrency.\-cpp}\end{DoxyCompactItemize}

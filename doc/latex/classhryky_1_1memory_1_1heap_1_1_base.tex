@@ -1,0 +1,117 @@
+\hypertarget{classhryky_1_1memory_1_1heap_1_1_base}{\section{hryky\-:\-:memory\-:\-:heap\-:\-:Base Class Reference}
+\label{classhryky_1_1memory_1_1heap_1_1_base}\index{hryky\-::memory\-::heap\-::\-Base@{hryky\-::memory\-::heap\-::\-Base}}
+}
+
+
+interface of dynamic memory allocation.  
+
+
+
+
+{\ttfamily \#include $<$memory\-\_\-heap\-\_\-base.\-h$>$}
+
+
+
+Inheritance diagram for hryky\-:\-:memory\-:\-:heap\-:\-:Base\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classhryky_1_1memory_1_1heap_1_1_base__inherit__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+size\-\_\-t \hyperlink{classhryky_1_1memory_1_1heap_1_1_base_ae760477ddca7ffdfc1e950946d9179fb}{allocatable\-\_\-size} () const 
+\begin{DoxyCompactList}\small\item\em retrieves the maximum size of \hyperlink{classhryky_1_1memory_1_1heap_1_1_base_a068b1ee5b4e759df5e19dff37eecaf92}{allocate()} can be successful. \end{DoxyCompactList}\item 
+void $\ast$ \hyperlink{classhryky_1_1memory_1_1heap_1_1_base_a068b1ee5b4e759df5e19dff37eecaf92}{allocate} (size\-\_\-t const size)
+\begin{DoxyCompactList}\small\item\em allocates memory \end{DoxyCompactList}\item 
+virtual bool \hyperlink{classhryky_1_1memory_1_1heap_1_1_base_ac9629d3eb869729c475d9c8edf28461c}{deallocate} (void $\ast$const address)
+\begin{DoxyCompactList}\small\item\em deallocates the allocated memory. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1memory_1_1heap_1_1_base_a147663574da9f0202cbfbc139358ae6b}{{\footnotesize template$<$typename Value\-T $>$ }\\Value\-T $\ast$ \hyperlink{classhryky_1_1memory_1_1heap_1_1_base_a147663574da9f0202cbfbc139358ae6b}{instantiate} ()}\label{classhryky_1_1memory_1_1heap_1_1_base_a147663574da9f0202cbfbc139358ae6b}
+
+\begin{DoxyCompactList}\small\item\em allocates a memory and instantiates in the memory. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1memory_1_1heap_1_1_base_a7faca1782110d1dc7089caaede624444}{{\footnotesize template$<$typename Value\-T $>$ }\\Value\-T $\ast$ \hyperlink{classhryky_1_1memory_1_1heap_1_1_base_a7faca1782110d1dc7089caaede624444}{instantiate} (Value\-T const \&rhs)}\label{classhryky_1_1memory_1_1heap_1_1_base_a7faca1782110d1dc7089caaede624444}
+
+\begin{DoxyCompactList}\small\item\em alloctes a memory and instantiates in the memory by copy-\/constructor. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1memory_1_1heap_1_1_base_a03d3126311af90ea5c9807425fb971a6}{{\footnotesize template$<$typename Value\-T $>$ }\\void \hyperlink{classhryky_1_1memory_1_1heap_1_1_base_a03d3126311af90ea5c9807425fb971a6}{release} (Value\-T $\ast$const instance)}\label{classhryky_1_1memory_1_1heap_1_1_base_a03d3126311af90ea5c9807425fb971a6}
+
+\begin{DoxyCompactList}\small\item\em destroys an instance and deallocates the memory which the instance is on. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+interface of dynamic memory allocation. 
+
+\subsection{Member Function Documentation}
+\hypertarget{classhryky_1_1memory_1_1heap_1_1_base_ae760477ddca7ffdfc1e950946d9179fb}{\index{hryky\-::memory\-::heap\-::\-Base@{hryky\-::memory\-::heap\-::\-Base}!allocatable\-\_\-size@{allocatable\-\_\-size}}
+\index{allocatable\-\_\-size@{allocatable\-\_\-size}!hryky::memory::heap::Base@{hryky\-::memory\-::heap\-::\-Base}}
+\subsubsection[{allocatable\-\_\-size}]{\setlength{\rightskip}{0pt plus 5cm}size\-\_\-t {\bf hryky\-::memory\-::heap\-::\-Base\-::allocatable\-\_\-size} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}\label{classhryky_1_1memory_1_1heap_1_1_base_ae760477ddca7ffdfc1e950946d9179fb}
+
+
+retrieves the maximum size of \hyperlink{classhryky_1_1memory_1_1heap_1_1_base_a068b1ee5b4e759df5e19dff37eecaf92}{allocate()} can be successful. 
+
+\begin{DoxyReturn}{Returns}
+the maximim size of \hyperlink{classhryky_1_1memory_1_1heap_1_1_base_a068b1ee5b4e759df5e19dff37eecaf92}{allocate()} can be successful. 
+\end{DoxyReturn}
+\hypertarget{classhryky_1_1memory_1_1heap_1_1_base_a068b1ee5b4e759df5e19dff37eecaf92}{\index{hryky\-::memory\-::heap\-::\-Base@{hryky\-::memory\-::heap\-::\-Base}!allocate@{allocate}}
+\index{allocate@{allocate}!hryky::memory::heap::Base@{hryky\-::memory\-::heap\-::\-Base}}
+\subsubsection[{allocate}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ {\bf hryky\-::memory\-::heap\-::\-Base\-::allocate} (
+\begin{DoxyParamCaption}
+\item[{size\-\_\-t const}]{size}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}\label{classhryky_1_1memory_1_1heap_1_1_base_a068b1ee5b4e759df5e19dff37eecaf92}
+
+
+allocates memory 
+
+
+\begin{DoxyParams}{Parameters}
+{\em size} & is the minimum size of allocated memory. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em H\-R\-Y\-K\-Y\-\_\-\-N\-U\-L\-L\-P\-T\-R} & is failure. \\
+\hline
+{\em !\-H\-R\-Y\-K\-Y\-\_\-\-N\-U\-L\-L\-P\-T\-R} & is the address of the head of an allocated memory. \\
+\hline
+\end{DoxyRetVals}
+\begin{DoxyNote}{Note}
+
+\begin{DoxyItemize}
+\item the data alignment depends on the inplementation of the derived class. 
+\end{DoxyItemize}
+\end{DoxyNote}
+
+
+Referenced by \hyperlink{classhryky_1_1memory_1_1heap_1_1_base_a147663574da9f0202cbfbc139358ae6b}{instantiate()}.
+
+\hypertarget{classhryky_1_1memory_1_1heap_1_1_base_ac9629d3eb869729c475d9c8edf28461c}{\index{hryky\-::memory\-::heap\-::\-Base@{hryky\-::memory\-::heap\-::\-Base}!deallocate@{deallocate}}
+\index{deallocate@{deallocate}!hryky::memory::heap::Base@{hryky\-::memory\-::heap\-::\-Base}}
+\subsubsection[{deallocate}]{\setlength{\rightskip}{0pt plus 5cm}virtual bool {\bf hryky\-::memory\-::heap\-::\-Base\-::deallocate} (
+\begin{DoxyParamCaption}
+\item[{void $\ast$const}]{address}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline, virtual\mbox{]}}}}\label{classhryky_1_1memory_1_1heap_1_1_base_ac9629d3eb869729c475d9c8edf28461c}
+
+
+deallocates the allocated memory. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em address} & is the address of the head of the allocated memory. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+success and failure. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{memory__heap__base_8h}{memory\-\_\-heap\-\_\-base.\-h}\end{DoxyCompactItemize}

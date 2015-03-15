@@ -1,0 +1,114 @@
+\hypertarget{classhryky_1_1_kind}{\section{hryky\-:\-:Kind$<$ Raw\-T, Initial $>$ Class Template Reference}
+\label{classhryky_1_1_kind}\index{hryky\-::\-Kind$<$ Raw\-T, Initial $>$@{hryky\-::\-Kind$<$ Raw\-T, Initial $>$}}
+}
+
+
+template for the class that represents the kind.  
+
+
+
+
+{\ttfamily \#include $<$kind.\-h$>$}
+
+
+
+Inheritance diagram for hryky\-:\-:Kind$<$ Raw\-T, Initial $>$\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classhryky_1_1_kind__inherit__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classhryky_1_1_kind_aa84071f7355cabc0be31763a106e18e7}{void \hyperlink{classhryky_1_1_kind_aa84071f7355cabc0be31763a106e18e7}{clear} ()}\label{classhryky_1_1_kind_aa84071f7355cabc0be31763a106e18e7}
+
+\begin{DoxyCompactList}\small\item\em releases the internal resources. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1_kind_a7227a84a0d37701c73b1a0018885532d}{\hyperlink{classhryky_1_1_kind_a7227a84a0d37701c73b1a0018885532d}{Kind} ()}\label{classhryky_1_1_kind_a7227a84a0d37701c73b1a0018885532d}
+
+\begin{DoxyCompactList}\small\item\em default constructor. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1_kind_a6be5c110c872e8ec9ac98e2dcf4f38ab}{\hyperlink{classhryky_1_1_kind_a6be5c110c872e8ec9ac98e2dcf4f38ab}{Kind} (raw\-\_\-type const \hyperlink{classhryky_1_1_kind_a092c3dbb200b1fc4e83bebff274ba23e}{raw})}\label{classhryky_1_1_kind_a6be5c110c872e8ec9ac98e2dcf4f38ab}
+
+\begin{DoxyCompactList}\small\item\em constructor with a raw data. \end{DoxyCompactList}\item 
+\hyperlink{classhryky_1_1_kind_a9bdba184a76801cc81c8e9625f7c54f7}{Kind} (\hyperlink{classhryky_1_1_kind}{this\-\_\-type} const \&rhs)
+\begin{DoxyCompactList}\small\item\em copy constructor \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1_kind_a663875668d2796e64096d23ab340cc15}{\hyperlink{classhryky_1_1_kind_a663875668d2796e64096d23ab340cc15}{Kind} (\hyperlink{classhryky_1_1_kind}{this\-\_\-type} \&\&rhs)}\label{classhryky_1_1_kind_a663875668d2796e64096d23ab340cc15}
+
+\begin{DoxyCompactList}\small\item\em copy constructor by rvalue reference. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1_kind_a79a87dd56f32e4a504debb01de36e659}{{\footnotesize template$<$typename Input\-Iterator , typename Tokens\-T $>$ }\\\hyperlink{classhryky_1_1_kind_a79a87dd56f32e4a504debb01de36e659}{Kind} (Input\-Iterator begin, Input\-Iterator end, Tokens\-T const \&tokens)}\label{classhryky_1_1_kind_a79a87dd56f32e4a504debb01de36e659}
+
+\begin{DoxyCompactList}\small\item\em constructor with the range of octets. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1_kind_ad9404ff9e73a1f7ab6a5a0cd85db4e68}{\hyperlink{classhryky_1_1_kind_ad9404ff9e73a1f7ab6a5a0cd85db4e68}{operator raw\-\_\-type} () const }\label{classhryky_1_1_kind_ad9404ff9e73a1f7ab6a5a0cd85db4e68}
+
+\begin{DoxyCompactList}\small\item\em casts to raw\-\_\-type. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1_kind_a092c3dbb200b1fc4e83bebff274ba23e}{raw\-\_\-type \hyperlink{classhryky_1_1_kind_a092c3dbb200b1fc4e83bebff274ba23e}{raw} () const }\label{classhryky_1_1_kind_a092c3dbb200b1fc4e83bebff274ba23e}
+
+\begin{DoxyCompactList}\small\item\em retrieves the raw data. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1_kind_ab11ab99ebf2c6d081648de78e8d7241f}{\hyperlink{namespacehryky_a343a9a4c36a586be5c2693156200eadc}{reduction\-\_\-type} \hyperlink{classhryky_1_1_kind_ab11ab99ebf2c6d081648de78e8d7241f}{reduce} (\hyperlink{namespacehryky_1_1reduction_ac686c30a4c8d196bbd0f05629a6b921f}{reduction\-::name\-\_\-type} const \&name) const }\label{classhryky_1_1_kind_ab11ab99ebf2c6d081648de78e8d7241f}
+
+\begin{DoxyCompactList}\small\item\em decomposes the instance to primitive objects. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1_kind_ac4183ddb871fea3cdb2251ce6170c584}{{\footnotesize template$<$typename Tokens\-T $>$ }\\\hyperlink{namespacehryky_a343a9a4c36a586be5c2693156200eadc}{reduction\-\_\-type} \hyperlink{classhryky_1_1_kind_ac4183ddb871fea3cdb2251ce6170c584}{reduce} (\hyperlink{namespacehryky_1_1reduction_ac686c30a4c8d196bbd0f05629a6b921f}{reduction\-::name\-\_\-type} const \&name, Tokens\-T const \&tokens) const }\label{classhryky_1_1_kind_ac4183ddb871fea3cdb2251ce6170c584}
+
+\begin{DoxyCompactList}\small\item\em decomposes the instance to primitive objects as string. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1_kind_a0a5d6d29bae3ac1b1bdd01fd90763b66}{{\footnotesize template$<$typename Tokens\-T , size\-\_\-t Size$>$ }\\\hyperlink{namespacehryky_a343a9a4c36a586be5c2693156200eadc}{reduction\-\_\-type} \hyperlink{classhryky_1_1_kind_a0a5d6d29bae3ac1b1bdd01fd90763b66}{reduce} (char const (\&name)\mbox{[}Size\mbox{]}, Tokens\-T const \&tokens) const }\label{classhryky_1_1_kind_a0a5d6d29bae3ac1b1bdd01fd90763b66}
+
+\begin{DoxyCompactList}\small\item\em decomposes the instance to primitive objects as string. \end{DoxyCompactList}\item 
+void \hyperlink{classhryky_1_1_kind_a3d9362db97d8529581597a8068d43cfb}{swap} (\hyperlink{classhryky_1_1_kind}{this\-\_\-type} \&src)
+\begin{DoxyCompactList}\small\item\em interchanges values \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1_kind_a1c070e6cf60cc110690142667089c3ff}{{\footnotesize template$<$typename Stream\-T $>$ }\\Stream\-T \& \hyperlink{classhryky_1_1_kind_a1c070e6cf60cc110690142667089c3ff}{write\-\_\-to} (Stream\-T \&stream) const }\label{classhryky_1_1_kind_a1c070e6cf60cc110690142667089c3ff}
+
+\begin{DoxyCompactList}\small\item\em outputs the information of Kind$<$\-Ra\-W\-T, Initial$>$. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classhryky_1_1_kind_a1f23a580751341dd0b0cecd20928ca12}{\hyperlink{classhryky_1_1_kind_a1f23a580751341dd0b0cecd20928ca12}{hryky\-\_\-assign\-\_\-op}}\label{classhryky_1_1_kind_a1f23a580751341dd0b0cecd20928ca12}
+
+\begin{DoxyCompactList}\small\item\em assignment operator. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$typename Raw\-T, typename Raw\-T\-::\-Raw Initial = static\-\_\-cast$<$typename Raw\-T\-::\-Raw$>$(0)$>$class hryky\-::\-Kind$<$ Raw\-T, Initial $>$}
+
+template for the class that represents the kind. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classhryky_1_1_kind_a9bdba184a76801cc81c8e9625f7c54f7}{\index{hryky\-::\-Kind@{hryky\-::\-Kind}!Kind@{Kind}}
+\index{Kind@{Kind}!hryky::Kind@{hryky\-::\-Kind}}
+\subsubsection[{Kind}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Raw\-T , typename Raw\-T\-::\-Raw Initial$>$ {\bf hryky\-::\-Kind}$<$ Raw\-T, Initial $>$\-::{\bf Kind} (
+\begin{DoxyParamCaption}
+\item[{{\bf this\-\_\-type} const \&}]{rhs}
+\end{DoxyParamCaption}
+)}}\label{classhryky_1_1_kind_a9bdba184a76801cc81c8e9625f7c54f7}
+
+
+copy constructor 
+
+copy constructor. 
+
+\subsection{Member Function Documentation}
+\hypertarget{classhryky_1_1_kind_a3d9362db97d8529581597a8068d43cfb}{\index{hryky\-::\-Kind@{hryky\-::\-Kind}!swap@{swap}}
+\index{swap@{swap}!hryky::Kind@{hryky\-::\-Kind}}
+\subsubsection[{swap}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Raw\-T , typename Raw\-T\-::\-Raw Initial$>$ void {\bf hryky\-::\-Kind}$<$ Raw\-T, Initial $>$\-::{\bf swap} (
+\begin{DoxyParamCaption}
+\item[{{\bf this\-\_\-type} \&}]{src}
+\end{DoxyParamCaption}
+)}}\label{classhryky_1_1_kind_a3d9362db97d8529581597a8068d43cfb}
+
+
+interchanges values 
+
+interchanges the each internal resources of two instances. 
+
+References \hyperlink{namespacehryky_add9c1c1fdfda07cd47bcb7c16d3a823a}{hryky\-::hryky\-\_\-swap()}.
+
+
+
+Referenced by \hyperlink{namespacehryky_a38b65dba4a76741a904282b0e41424e5}{hryky\-::swap()}.
+
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{kind_8h}{kind.\-h}\end{DoxyCompactItemize}

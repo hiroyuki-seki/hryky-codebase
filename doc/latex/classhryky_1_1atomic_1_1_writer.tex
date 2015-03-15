@@ -1,0 +1,98 @@
+\hypertarget{classhryky_1_1atomic_1_1_writer}{\section{hryky\-:\-:atomic\-:\-:Writer$<$ Value\-T, Lockable\-T $>$ Class Template Reference}
+\label{classhryky_1_1atomic_1_1_writer}\index{hryky\-::atomic\-::\-Writer$<$ Value\-T, Lockable\-T $>$@{hryky\-::atomic\-::\-Writer$<$ Value\-T, Lockable\-T $>$}}
+}
+
+
+synchronize a writing access to an object.  
+
+
+
+
+{\ttfamily \#include $<$atomic\-\_\-writer.\-h$>$}
+
+
+
+Inheritance diagram for hryky\-:\-:atomic\-:\-:Writer$<$ Value\-T, Lockable\-T $>$\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=300pt]{classhryky_1_1atomic_1_1_writer__inherit__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classhryky_1_1atomic_1_1_writer_a6b1cad65fb3ef1a993a5eb9e91450aea}{typedef \hyperlink{classhryky_1_1atomic_1_1_writer}{Writer}$<$ Value\-T, Lockable\-T $>$ \hyperlink{classhryky_1_1atomic_1_1_writer_a6b1cad65fb3ef1a993a5eb9e91450aea}{this\-\_\-type}}\label{classhryky_1_1atomic_1_1_writer_a6b1cad65fb3ef1a993a5eb9e91450aea}
+
+\begin{DoxyCompactList}\small\item\em self \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+value\-\_\-type \hyperlink{group__atomic__operation_ga39b7ebbb7b13b8b1a0b05a4e04f4176f}{compare\-\_\-and\-\_\-swap} (typename \hyperlink{classhryky_1_1_as_parameter}{As\-Parameter}$<$ value\-\_\-type $>$\-::type old\-\_\-value, typename \hyperlink{classhryky_1_1_as_parameter}{As\-Parameter}$<$ value\-\_\-type $>$\-::type new\-\_\-value)
+\begin{DoxyCompactList}\small\item\em assigns a new value if the internal value is same with a given value. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Functor\-T $>$ }\\Value\-T \hyperlink{group__atomic__operation_gae595f32af60a397c190c0d02fd5da565}{exclude} (Functor\-T \&functor)
+\begin{DoxyCompactList}\small\item\em executes an arbitrary functor under the exclusive control. \end{DoxyCompactList}\item 
+\hypertarget{group__atomic__operation_ga0d1ed1c369001d0f8bb4cdcacc0ea38b}{\hyperlink{group__atomic__operation_ga0d1ed1c369001d0f8bb4cdcacc0ea38b}{operator Value\-T} () const }\label{group__atomic__operation_ga0d1ed1c369001d0f8bb4cdcacc0ea38b}
+
+\begin{DoxyCompactList}\small\item\em casts to the type of the value. \end{DoxyCompactList}\item 
+\hypertarget{group__atomic__operation_ga4dcb98887412fd19c46efb2478f87277}{\hyperlink{classhryky_1_1atomic_1_1_writer_a6b1cad65fb3ef1a993a5eb9e91450aea}{this\-\_\-type} \& \hyperlink{group__atomic__operation_ga4dcb98887412fd19c46efb2478f87277}{operator\%=} (typename \hyperlink{classhryky_1_1_as_parameter}{As\-Parameter}$<$ Value\-T $>$\-::type rhs)}\label{group__atomic__operation_ga4dcb98887412fd19c46efb2478f87277}
+
+\begin{DoxyCompactList}\small\item\em assigns the remainder divided by the value to this instance. \end{DoxyCompactList}\item 
+\hypertarget{group__atomic__operation_ga40b0c967eb60601676828001bef4637c}{\hyperlink{classhryky_1_1atomic_1_1_writer_a6b1cad65fb3ef1a993a5eb9e91450aea}{this\-\_\-type} \& \hyperlink{group__atomic__operation_ga40b0c967eb60601676828001bef4637c}{operator$\ast$=} (typename \hyperlink{classhryky_1_1_as_parameter}{As\-Parameter}$<$ Value\-T $>$\-::type rhs)}\label{group__atomic__operation_ga40b0c967eb60601676828001bef4637c}
+
+\begin{DoxyCompactList}\small\item\em multiplies the value to the this instance. \end{DoxyCompactList}\item 
+\hypertarget{group__atomic__operation_ga32d8b99a3de61e36c7a0bc7aeb546a0d}{\hyperlink{classhryky_1_1atomic_1_1_writer_a6b1cad65fb3ef1a993a5eb9e91450aea}{this\-\_\-type} \& \hyperlink{group__atomic__operation_ga32d8b99a3de61e36c7a0bc7aeb546a0d}{operator++} ()}\label{group__atomic__operation_ga32d8b99a3de61e36c7a0bc7aeb546a0d}
+
+\begin{DoxyCompactList}\small\item\em pre-\/increments the value. \end{DoxyCompactList}\item 
+\hypertarget{group__atomic__operation_gaf9a6947db23cf27f26693b4a03030829}{value\-\_\-type \hyperlink{group__atomic__operation_gaf9a6947db23cf27f26693b4a03030829}{operator++} (int)}\label{group__atomic__operation_gaf9a6947db23cf27f26693b4a03030829}
+
+\begin{DoxyCompactList}\small\item\em post-\/increments the value. \end{DoxyCompactList}\item 
+\hypertarget{group__atomic__operation_gaa862338a2dbded8f334c6e2aa0d45e88}{\hyperlink{classhryky_1_1atomic_1_1_writer_a6b1cad65fb3ef1a993a5eb9e91450aea}{this\-\_\-type} \& \hyperlink{group__atomic__operation_gaa862338a2dbded8f334c6e2aa0d45e88}{operator+=} (typename \hyperlink{classhryky_1_1_as_parameter}{As\-Parameter}$<$ Value\-T $>$\-::type rhs)}\label{group__atomic__operation_gaa862338a2dbded8f334c6e2aa0d45e88}
+
+\begin{DoxyCompactList}\small\item\em appends the value to the this instance. \end{DoxyCompactList}\item 
+\hypertarget{group__atomic__operation_ga6a2f90286d2b8aef610b7ae4cef1f9e7}{\hyperlink{classhryky_1_1atomic_1_1_writer_a6b1cad65fb3ef1a993a5eb9e91450aea}{this\-\_\-type} \& \hyperlink{group__atomic__operation_ga6a2f90286d2b8aef610b7ae4cef1f9e7}{operator-\/-\/} ()}\label{group__atomic__operation_ga6a2f90286d2b8aef610b7ae4cef1f9e7}
+
+\begin{DoxyCompactList}\small\item\em pre-\/decrements the value. \end{DoxyCompactList}\item 
+\hypertarget{group__atomic__operation_ga034cdbf5814223426e50001330c6dddd}{value\-\_\-type \hyperlink{group__atomic__operation_ga034cdbf5814223426e50001330c6dddd}{operator-\/-\/} (int)}\label{group__atomic__operation_ga034cdbf5814223426e50001330c6dddd}
+
+\begin{DoxyCompactList}\small\item\em post-\/decrements the value. \end{DoxyCompactList}\item 
+\hypertarget{group__atomic__operation_gace0bc7c5e8b6db7afe82e231697672a0}{\hyperlink{classhryky_1_1atomic_1_1_writer_a6b1cad65fb3ef1a993a5eb9e91450aea}{this\-\_\-type} \& \hyperlink{group__atomic__operation_gace0bc7c5e8b6db7afe82e231697672a0}{operator-\/=} (typename \hyperlink{classhryky_1_1_as_parameter}{As\-Parameter}$<$ Value\-T $>$\-::type rhs)}\label{group__atomic__operation_gace0bc7c5e8b6db7afe82e231697672a0}
+
+\begin{DoxyCompactList}\small\item\em subtracts the value from the this instance. \end{DoxyCompactList}\item 
+\hypertarget{group__atomic__operation_ga1f4841e2995310212eb4762cd3717e6b}{\hyperlink{classhryky_1_1atomic_1_1_writer_a6b1cad65fb3ef1a993a5eb9e91450aea}{this\-\_\-type} \& \hyperlink{group__atomic__operation_ga1f4841e2995310212eb4762cd3717e6b}{operator/=} (typename \hyperlink{classhryky_1_1_as_parameter}{As\-Parameter}$<$ Value\-T $>$\-::type rhs)}\label{group__atomic__operation_ga1f4841e2995310212eb4762cd3717e6b}
+
+\begin{DoxyCompactList}\small\item\em divides the this instance by the value. \end{DoxyCompactList}\item 
+\hyperlink{classhryky_1_1atomic_1_1_writer_a6b1cad65fb3ef1a993a5eb9e91450aea}{this\-\_\-type} \& \hyperlink{group__atomic__operation_gab5e4c7b8fa6d6c4e791f7f8f651de97f}{operator=} (\hyperlink{classhryky_1_1atomic_1_1_writer_a6b1cad65fb3ef1a993a5eb9e91450aea}{this\-\_\-type} const \&rhs)
+\begin{DoxyCompactList}\small\item\em assignment operator. \end{DoxyCompactList}\item 
+\hyperlink{classhryky_1_1atomic_1_1_writer_a6b1cad65fb3ef1a993a5eb9e91450aea}{this\-\_\-type} \& \hyperlink{group__atomic__operation_gabe02d1a1584c488c8b71e49ff212235e}{operator=} (typename \hyperlink{classhryky_1_1_as_parameter}{As\-Parameter}$<$ value\-\_\-type $>$\-::type rhs)
+\begin{DoxyCompactList}\small\item\em assigns a new value. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1atomic_1_1_writer_a7fd174cd5efde82187ab66bf00bd742a}{\hyperlink{classhryky_1_1atomic_1_1_writer_a7fd174cd5efde82187ab66bf00bd742a}{Writer} ()}\label{classhryky_1_1atomic_1_1_writer_a7fd174cd5efde82187ab66bf00bd742a}
+
+\begin{DoxyCompactList}\small\item\em default constructor \end{DoxyCompactList}\item 
+\hyperlink{group__atomic__operation_gac68031a9e2acf0fd451ef9daa9e5efd2}{Writer} (typename \hyperlink{classhryky_1_1_as_parameter}{As\-Parameter}$<$ value\-\_\-type $>$\-::type value)
+\begin{DoxyCompactList}\small\item\em constructor with the initial value. \end{DoxyCompactList}\item 
+\hyperlink{group__atomic__operation_gac0872ceccd99b51c0f258fe05deca6c0}{Writer} (\hyperlink{classhryky_1_1atomic_1_1_writer_a6b1cad65fb3ef1a993a5eb9e91450aea}{this\-\_\-type} const \&rhs)
+\begin{DoxyCompactList}\small\item\em copy constructor. \end{DoxyCompactList}\item 
+\hypertarget{group__atomic__operation_ga2f399901b313d5e92f891e24d08f3079}{\hyperlink{group__atomic__operation_ga2f399901b313d5e92f891e24d08f3079}{Writer} (\hyperlink{classhryky_1_1atomic_1_1_writer_a6b1cad65fb3ef1a993a5eb9e91450aea}{this\-\_\-type} \&\&rhs)}\label{group__atomic__operation_ga2f399901b313d5e92f891e24d08f3079}
+
+\begin{DoxyCompactList}\small\item\em copy constructor by rvalue reference. \end{DoxyCompactList}\item 
+\hyperlink{group__atomic__operation_ga93eb8e0b170241286e90fec300b48d9a}{$\sim$\-Writer} ()
+\begin{DoxyCompactList}\small\item\em destructor \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$typename Value\-T, typename Lockable\-T = exclusion\-::\-Mutex$>$class hryky\-::atomic\-::\-Writer$<$ Value\-T, Lockable\-T $>$}
+
+synchronize a writing access to an object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Value\-T} & is the type of the object accessed through this class. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{atomic__writer_8h}{atomic\-\_\-writer.\-h}\end{DoxyCompactItemize}

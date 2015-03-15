@@ -1,0 +1,146 @@
+\hypertarget{indent_8h_source}{\section{indent.\-h}
+}
+
+\begin{DoxyCode}
+00001 
+00007 \textcolor{preprocessor}{#ifndef INDENT\_H\_20120103174406405}
+00008 \textcolor{preprocessor}{}\textcolor{preprocessor}{#define INDENT\_H\_20120103174406405}
+00009 \textcolor{preprocessor}{}\textcolor{preprocessor}{#include "\hyperlink{stdint_8h}{hryky/stdint.h}"}
+00010 \textcolor{preprocessor}{#include "\hyperlink{common_8h}{hryky/common.h}"}
+00011 \textcolor{preprocessor}{#include "\hyperlink{reduction__common_8h}{hryky/reduction/reduction_common.h}"}
+00012 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00013 \textcolor{comment}{// macro definition}
+00014 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00015 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00016 \textcolor{comment}{// namespace}
+00017 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00018 \textcolor{keyword}{namespace }hryky
+00019 \{
+00021     \textcolor{keyword}{class }Indent;
+00022     
+00023 \} \textcolor{comment}{// namespace hryky}
+00024 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00025 \textcolor{comment}{// class declaration}
+00026 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+\hypertarget{indent_8h_source_l00030}{}\hyperlink{classhryky_1_1_indent}{00030} \textcolor{comment}{}\textcolor{keyword}{class }\hyperlink{classhryky_1_1_indent}{hryky::Indent}
+00031 \{
+00032 \textcolor{keyword}{public} :
+00033 
+\hypertarget{indent_8h_source_l00035}{}\hyperlink{classhryky_1_1_indent_acbe5e44b7c58ede382914e8a3f7d2987}{00035}     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1_indent}{hryky::Indent} \hyperlink{classhryky_1_1_indent_acbe5e44b7c58ede382914e8a3f7d2987}{this_type};
+00036 
+\hypertarget{indent_8h_source_l00038}{}\hyperlink{classhryky_1_1_indent_a38d8402509b64e77009a1a86b6be4939}{00038}     \textcolor{keyword}{typedef} int32\_t \hyperlink{classhryky_1_1_indent_a38d8402509b64e77009a1a86b6be4939}{depth_type};
+00039 
+\hypertarget{indent_8h_source_l00041}{}\hyperlink{structhryky_1_1_indent_1_1_increment}{00041}     \textcolor{keyword}{struct }\hyperlink{structhryky_1_1_indent_1_1_increment}{Increment}
+00042     \{
+00043         \hyperlink{structhryky_1_1_indent_1_1_increment}{Increment}(\hyperlink{classhryky_1_1_indent}{Indent} & indent) : indent\_(indent) \{
+00044             ++this->indent\_;
+00045         \}
+00046         ~\hyperlink{structhryky_1_1_indent_1_1_increment}{Increment}() \{
+00047             --this->indent\_;
+00048         \}
+00049         \hyperlink{classhryky_1_1_indent}{Indent} & indent\_;
+00050     \};
+00051 
+00053     \hyperlink{classhryky_1_1_indent_abb56d4eec722043101f2836619b7f4e1}{Indent}();
+00054 
+00056     \hyperlink{classhryky_1_1_indent_abb56d4eec722043101f2836619b7f4e1}{Indent}(\hyperlink{classhryky_1_1_indent}{this_type} \textcolor{keyword}{const} & rhs);
+00057 
+00059     \hyperlink{classhryky_1_1_indent_abb56d4eec722043101f2836619b7f4e1}{Indent}(\hyperlink{classhryky_1_1_indent}{this_type} && rhs);
+00060 
+00062     \textcolor{keyword}{explicit} \hyperlink{classhryky_1_1_indent_abb56d4eec722043101f2836619b7f4e1}{Indent}(\hyperlink{classhryky_1_1_indent_a38d8402509b64e77009a1a86b6be4939}{depth_type} \hyperlink{classhryky_1_1_indent_a2bbdf69a07840bff3cc52397d67ea29d}{depth});
+00063 
+00065     \hyperlink{classhryky_1_1_indent_a6e2ce8a28937cd3888871888481129db}{~Indent}();
+00066 
+\hypertarget{indent_8h_source_l00068}{}\hyperlink{classhryky_1_1_indent_a8e06c30462da872865afb7e2e1a7a122}{00068}     \hyperlink{classhryky_1_1_indent_a8e06c30462da872865afb7e2e1a7a122}{hryky_assign_op};
+00069 
+00071     \hyperlink{classhryky_1_1_indent}{Indent} & \hyperlink{classhryky_1_1_indent_a93a624188c9a11cc232123bb5e32c7f4}{operator++}();
+00072 
+00074     \hyperlink{classhryky_1_1_indent}{Indent} & \hyperlink{classhryky_1_1_indent_a646263653f027dad0016976d0539aadb}{operator--}();
+00075 
+00077     \textcolor{keywordtype}{void} \hyperlink{classhryky_1_1_indent_a855f7e2351660ee3d018187000292b01}{clear}();
+00078 
+00080     \hyperlink{classhryky_1_1_intrusive_ptr}{reduction_type} \hyperlink{classhryky_1_1_indent_aeef48d6fd0d4102dc1ee6170f18b5000}{reduce}(\hyperlink{classhryky_1_1reduction_1_1_string}{reduction::name_type} \textcolor{keyword}{const} & name) \textcolor{keyword}{const};
+00081 
+00083     \textcolor{keywordtype}{void} \hyperlink{classhryky_1_1_indent_ae963d985eb24577918e5f00f47cd30b3}{swap}(\hyperlink{classhryky_1_1_indent}{this_type} & src);
+00084 
+\hypertarget{indent_8h_source_l00086}{}\hyperlink{classhryky_1_1_indent_a2bbdf69a07840bff3cc52397d67ea29d}{00086}     \hyperlink{classhryky_1_1_indent_a38d8402509b64e77009a1a86b6be4939}{depth_type} \hyperlink{classhryky_1_1_indent_a2bbdf69a07840bff3cc52397d67ea29d}{depth}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} this->depth\_; \}
+00087 
+00089     \textcolor{keyword}{template} <\textcolor{keyword}{typename} StreamT>
+00090     StreamT & \hyperlink{classhryky_1_1_indent_a3dcdc6227cdbfa80da9791c243c24818}{write_to}(StreamT & stream) \textcolor{keyword}{const};
+00091 
+00092 \textcolor{keyword}{protected} :
+00093 
+00094 \textcolor{keyword}{private} :
+00095 
+00096     \hyperlink{classhryky_1_1_indent_a38d8402509b64e77009a1a86b6be4939}{depth_type}      depth\_;
+00097 
+00098 \};
+00099 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00100 \textcolor{comment}{// public member functions}
+00101 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00105 \textcolor{comment}{}\textcolor{keyword}{template} <\textcolor{keyword}{typename} StreamT>
+\hypertarget{indent_8h_source_l00106}{}\hyperlink{classhryky_1_1_indent_a3dcdc6227cdbfa80da9791c243c24818}{00106} StreamT & \hyperlink{classhryky_1_1_indent_a3dcdc6227cdbfa80da9791c243c24818}{hryky::Indent::write_to}(StreamT & stream)\textcolor{keyword}{ const}
+00107 \textcolor{keyword}{}\{
+00108     \textcolor{keywordflow}{if} (0 >= this->depth\_) \{
+00109         \textcolor{keywordflow}{return} stream;
+00110     \}
+00111     
+00112     \hyperlink{classhryky_1_1_literal_string}{LiteralString} \textcolor{keyword}{const} indent(\textcolor{stringliteral}{"  "});
+00113 
+00114     \hyperlink{classhryky_1_1_indent_a38d8402509b64e77009a1a86b6be4939}{depth_type} index = 0;
+00115     \textcolor{keywordflow}{for} (; this->depth\_ != index; ++index) \{
+00116         stream << indent;
+00117     \}
+00118 
+00119     \textcolor{keywordflow}{return} stream;
+00120 \}
+00121 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00122 \textcolor{comment}{// protected member functions}
+00123 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00124 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00125 \textcolor{comment}{// private member functions}
+00126 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00127 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00128 \textcolor{comment}{// global function prototypes}
+00129 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00130 \textcolor{keyword}{namespace }std
+00131 \{
+00133     \textcolor{keyword}{template} <\textcolor{keyword}{typename} StreamT>
+00134     StreamT & operator<<(StreamT & lhs, \hyperlink{classhryky_1_1_indent}{hryky::Indent} \textcolor{keyword}{const} & rhs);
+00135 
+00136 \}
+00137 \textcolor{keyword}{namespace }hryky
+00138 \{
+00140     \hyperlink{namespacehryky_a343a9a4c36a586be5c2693156200eadc}{reduction_type} \hyperlink{namespacehryky_af41cb3af6766761da0ff21b84527a52c}{reduce}(
+00141         \hyperlink{namespacehryky_1_1reduction_ac686c30a4c8d196bbd0f05629a6b921f}{reduction::name_type} \textcolor{keyword}{const} & name, Indent \textcolor{keyword}{const} & src);
+00142 
+00144     \textcolor{keywordtype}{void} \hyperlink{namespacehryky_a4282146df5ea2b68cb667896a2205909}{swap}(Indent & lhs, Indent & rhs);
+00145 
+00146 \} \textcolor{comment}{// namespace hryky}
+00147 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00148 \textcolor{comment}{// global function definitions}
+00149 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00153 \textcolor{comment}{}\textcolor{keyword}{template} <\textcolor{keyword}{typename} StreamT>
+00154 StreamT & std::operator<<(StreamT & lhs, \hyperlink{classhryky_1_1_indent}{hryky::Indent} \textcolor{keyword}{const} & rhs)
+00155 \{
+00156     \textcolor{keywordflow}{return} rhs.\hyperlink{classhryky_1_1_indent_a3dcdc6227cdbfa80da9791c243c24818}{write_to}(lhs);
+00157 \}
+00158 \textcolor{preprocessor}{#endif // INDENT\_H\_20120103174406405}
+00159 \textcolor{preprocessor}{}\textcolor{comment}{// end of file}
+\end{DoxyCode}

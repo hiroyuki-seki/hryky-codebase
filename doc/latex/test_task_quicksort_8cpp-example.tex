@@ -1,0 +1,479 @@
+\hypertarget{test_task_quicksort_8cpp-example}{\section{test\-\_\-task\-\_\-quicksort.\-cpp}
+}
+
+\begin{DoxyCodeInclude}
+\textcolor{comment}{/*}
+\textcolor{comment}{  @file         test\_task\_quicksort.cpp}
+\textcolor{comment}{  @brief        tests task::distributor::Batch by quick-sort.}
+\textcolor{comment}{  @since        2011-12-06T23:42:14+0900}
+\textcolor{comment}{  @author       HRYKY}
+\textcolor{comment}{  @version      $Id: test\_task\_quicksort.cpp 135 2013-01-18 16:53:58Z
+       hryky.private@gmail.com $}
+\textcolor{comment}{ */}
+\textcolor{preprocessor}{#include <precompiled.h>}
+\textcolor{preprocessor}{#include "\hyperlink{testing_8h}{hryky/testing.h}"}
+\textcolor{preprocessor}{#include "\hyperlink{clock_8h}{hryky/clock.h}"}
+\textcolor{preprocessor}{#include "\hyperlink{random_8h}{hryky/random.h}"}
+\textcolor{preprocessor}{#include "\hyperlink{task_8h}{hryky/task.h}"}
+\textcolor{preprocessor}{#include "\hyperlink{thread_8h}{hryky/thread.h}"}
+\textcolor{preprocessor}{#include "\hyperlink{gp_8h}{hryky/gp.h}"}
+\textcolor{preprocessor}{#include "\hyperlink{memory_8h}{hryky/memory.h}"}
+\textcolor{preprocessor}{#include "\hyperlink{qsort_8h}{hryky/qsort.h}"}
+\textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+\textcolor{comment}{// macro}
+\textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+\textcolor{preprocessor}{#define PRINT\_VERBOSELY     (0)}
+\textcolor{preprocessor}{}\textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+\textcolor{comment}{// anonymous namespace}
+\textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+\textcolor{keyword}{namespace }hryky
+\{
+\textcolor{keyword}{namespace}
+\{
+    \textcolor{comment}{// enregister a test}
+    \textcolor{keyword}{class }Test : testing::unit::Base
+    \{
+    \textcolor{keyword}{public} :
+        Test() : testing::unit::Base(\textcolor{stringliteral}{"task\_quicksort"}) \{\}
+
+    \textcolor{keyword}{private} :
+        \textcolor{comment}{// tests task::distributor::Batch by using quicksort concurrently.}
+        \textcolor{keyword}{virtual} \textcolor{keywordtype}{bool} run\_impl();
+
+    \};
+    Test \textcolor{keyword}{const} g\_test;
+    
+    \textcolor{keyword}{typedef} uint32\_t sample\_type;
+
+    \textcolor{comment}{// a task to print "hello $\{this->id\_\}".}
+    \textcolor{keyword}{struct }SortTask
+    \{
+        \textcolor{keyword}{typedef} task::distributor::Batch<SortTask>  distributor\_type;
+        \textcolor{keyword}{typedef} task::worker::Batch<SortTask>       worker\_type;
+
+        \textcolor{keyword}{enum}
+        \{
+            \textcolor{comment}{// the lower number to create a new task recursively.}
+            distributable\_distance\_ = 0x2,
+        \};
+        
+        SortTask() : begin\_(\hyperlink{common_8h_a4cd4ac09cfcdbd6b30ee69afc156e210}{HRYKY_NULLPTR}), end\_(\hyperlink{common_8h_a4cd4ac09cfcdbd6b30ee69afc156e210}{HRYKY_NULLPTR}) \{\}
+        
+        SortTask(sample\_type * begin, sample\_type * end)
+            : begin\_(begin), end\_(end) \{\}
+
+        \textcolor{comment}{// sorts fixed array concurrently}
+        \textcolor{keywordtype}{void} operator()(worker\_type & worker);
+
+        \hyperlink{namespacehryky_a343a9a4c36a586be5c2693156200eadc}{reduction_type} \hyperlink{namespacehryky_af41cb3af6766761da0ff21b84527a52c}{reduce}(\hyperlink{namespacehryky_1_1reduction_ac686c30a4c8d196bbd0f05629a6b921f}{reduction::name_type} \textcolor{keyword}{const} & name) \textcolor{keyword}{const};
+
+        sample\_type *   begin\_;
+        sample\_type *   end\_;
+    \};
+
+    \hyperlink{namespacehryky_a343a9a4c36a586be5c2693156200eadc}{reduction_type} \hyperlink{namespacehryky_af41cb3af6766761da0ff21b84527a52c}{reduce}(
+        \hyperlink{namespacehryky_1_1reduction_ac686c30a4c8d196bbd0f05629a6b921f}{reduction::name_type} \textcolor{keyword}{const} & name, SortTask \textcolor{keyword}{const} & src);
+
+    \textcolor{comment}{// typedef function\_pointer task\_type;}
+    \textcolor{keyword}{typedef} SortTask                        task\_type;
+    \textcolor{keyword}{typedef} task\_type::worker\_type          worker\_type;
+    \textcolor{keyword}{typedef} task\_type::distributor\_type     distributor\_type;
+
+\} \textcolor{comment}{// namespace *anonymous*}
+\} \textcolor{comment}{// namespace hryky}
+\textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+\textcolor{comment}{// static functions}
+\textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+\textcolor{keyword}{namespace }hryky
+\{
+\textcolor{keyword}{namespace}
+\{
+\textcolor{comment}{/*}
+\textcolor{comment}{  @brief        tests hryky::task::distributor::Batch by using quicksort
+       concurrently.}
+\textcolor{comment}{  @since        2011-12-17T19:58:12+0900}
+\textcolor{comment}{ */}
+\textcolor{keywordtype}{bool} Test::run\_impl()
+\{
+    \textcolor{comment}{// initializes logging.}
+    testing::Log log(*\textcolor{keyword}{this});
+
+    \textcolor{comment}{// initializes a random number generator}
+    uint32\_t \textcolor{keyword}{const}          seed = \textcolor{keyword}{static\_cast<}uint32\_t\textcolor{keyword}{>}(std::time(0));
+    random::generator\_type  generator;
+    generator.seed(seed);
+
+    log.reduce().append(\textcolor{stringliteral}{"seed"}, seed);
+
+    \textcolor{comment}{// temporary buffer for dynamic memory allocation}
+    \textcolor{keywordtype}{size\_t} \textcolor{keyword}{const}    buffer\_size = 0x400 * 0x400;
+    \textcolor{keywordtype}{size\_t}          buffer[buffer\_size / \textcolor{keyword}{sizeof}(size\_t)] = \{0, \};
+    
+    \textcolor{comment}{// initializes heap.}
+    \textcolor{keyword}{typedef} memory::heap::Arbitrary<>   heap\_type;
+    heap\_type                           \hyperlink{namespacehryky_1_1memory_1_1global_a6fc6103f67c837aa0f39b359588409cd}{heap};
+    \textcolor{keywordflow}{if} (!heap.reset(buffer, buffer\_size)) \{
+        \hyperlink{log__writer__common_8h_a8cb8f66bf45015fc1b64ed8d52bf8d59}{hryky_log_alert}(
+            (*\hyperlink{namespacehryky_1_1reduction_ac5eae270cf8047b294dc4ff3e5e11a79}{reduction::map}(
+                \textcolor{stringliteral}{"failed to reset memory::heap::Arbitrary"}))
+            .append(\textcolor{stringliteral}{"buffer\_size"},      buffer\_size));
+        \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+    \}
+
+    \textcolor{comment}{// decorates heap as thread-safe.}
+    \textcolor{keyword}{typedef} memory::heap::Lock<heap\_type>   lockable\_heap\_type;
+    lockable\_heap\_type                      lockable\_heap(heap);
+
+    \textcolor{comment}{// creates adapter to treat the heap polymorphically.}
+    \textcolor{keyword}{typedef} memory::heap::Adapter<lockable\_heap\_type>   adapter\_heap\_type;
+    adapter\_heap\_type                                   adapter\_heap(
+      lockable\_heap);
+
+    random::distribution::Normal<size\_t> samples\_size\_dist(
+        generator,
+        0x1000,     \textcolor{comment}{// deviation}
+        0x10000,    \textcolor{comment}{// mean}
+        1,          \textcolor{comment}{// min}
+        0x100000);  \textcolor{comment}{// max}
+    \textcolor{keywordtype}{size\_t} \textcolor{keyword}{const} samples\_size = samples\_size\_dist();
+
+    (log.reduce()
+     .append(\textcolor{stringliteral}{"samples\_size"},            samples\_size)
+     .append(\textcolor{stringliteral}{"samples\_size\_dist"},       samples\_size\_dist));
+
+    \textcolor{keyword}{typedef} ScopedArray<sample\_type> samples\_type;
+    samples\_type unsorted(\textcolor{keyword}{new} sample\_type[samples\_size], samples\_size);
+
+    \textcolor{keywordflow}{if} (unsorted.invalid()) \{
+        \hyperlink{log__writer__common_8h_a8d142be5e91677a27be199c3f4115ba6}{hryky_log_emerg}(
+            \textcolor{stringliteral}{"failed to allocate the buffer of samples."});
+        \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+    \}
+
+    ScopedArray<sample\_type> answer(\textcolor{keyword}{new} sample\_type[samples\_size], samples\_size
+      );
+
+    \textcolor{keywordflow}{if} (answer.invalid()) \{
+        \hyperlink{log__writer__common_8h_a8d142be5e91677a27be199c3f4115ba6}{hryky_log_emerg}(
+            \textcolor{stringliteral}{"failed to allocate the buffer of samples."});
+        \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+    \}
+
+    \textcolor{comment}{// makes up sample values}
+    \{
+        \textcolor{comment}{// pseudo random number uniformly distributed}
+        random::distribution::Uniform<uint32\_t>
+            sample\_dist(generator, 0, MaxOf<uint32\_t>::value);
+
+        Foreach<samples\_type> \textcolor{keywordflow}{foreach}(unsorted);
+        \textcolor{keywordflow}{for} (; \textcolor{keywordflow}{foreach}.valid(); ++\textcolor{keywordflow}{foreach}) \{
+            *\textcolor{keywordflow}{foreach} = sample\_dist();
+        \}
+    \}
+
+\textcolor{preprocessor}{#if PRINT\_VERBOSELY}
+\textcolor{preprocessor}{}    \{
+        \hyperlink{namespacehryky_1_1reduction_ad7a80870a94be0b91740690d01a72d4d}{reduction::array_type} format = \hyperlink{namespacehryky_1_1reduction_a9d45a4dc1ea9a6668ebd192f296f788c}{reduction::array}(\textcolor{stringliteral}{"unsorted"});
+        log->append(unsorted);
+
+        Foreach<samples\_type> \textcolor{keywordflow}{foreach}(unsorted);
+        \textcolor{keywordflow}{for} (; \textcolor{keywordflow}{foreach}.valid(); ++\textcolor{keywordflow}{foreach}) \{
+            format->append(*\textcolor{keywordflow}{foreach});
+        \}
+    \}
+\textcolor{preprocessor}{#endif // PRINT\_VERBOSELY}
+\textcolor{preprocessor}{}
+    memcpy(&*answer.begin(), &*unsorted.begin(), \textcolor{keyword}{sizeof}(sample\_type) * 
+      samples\_size);
+
+    \textcolor{comment}{// sorts the samples by this individual context}
+    clock::duration\_type qsort\_duration;
+    \{
+        clock::AutoElapsed elapsed(qsort\_duration);
+
+        \hyperlink{namespacehryky_a438e3ee8f5109856c4a1e4daa9980982}{hryky::qsort}(answer.begin(), answer.begin() + samples\_size);
+    \}
+
+\textcolor{preprocessor}{#if PRINT\_VERBOSELY}
+\textcolor{preprocessor}{}    \{
+        \hyperlink{namespacehryky_1_1reduction_ad7a80870a94be0b91740690d01a72d4d}{reduction::array_type} format = \hyperlink{namespacehryky_1_1reduction_a9d45a4dc1ea9a6668ebd192f296f788c}{reduction::array}(\textcolor{stringliteral}{"answer"});
+        log->append(format);
+
+        Foreach<samples\_type> \textcolor{keywordflow}{foreach}(answer);
+        \textcolor{keywordflow}{for} (; \textcolor{keywordflow}{foreach}.valid(); ++\textcolor{keywordflow}{foreach}) \{
+            format->append(*\textcolor{keywordflow}{foreach});
+        \}
+    \}
+\textcolor{preprocessor}{#endif // PRINT\_VERBOSELY}
+\textcolor{preprocessor}{}
+    \textcolor{comment}{// checks the sorted result}
+    \{
+        sample\_type left = 0;
+
+        Foreach<samples\_type> \textcolor{keywordflow}{foreach}(answer);
+        \textcolor{keywordflow}{for} (; \textcolor{keywordflow}{foreach}.valid(); ++\textcolor{keywordflow}{foreach}) \{
+            \textcolor{keywordflow}{if} (left > *\textcolor{keywordflow}{foreach}) \{
+                \hyperlink{log__writer__common_8h_ae5ad3dabb33f594695ef40753cb78aad}{hryky_log_err}(
+                    (*\hyperlink{namespacehryky_1_1reduction_ac5eae270cf8047b294dc4ff3e5e11a79}{reduction::map}(\textcolor{stringliteral}{"quick sort failed"}))
+                    .append(\textcolor{stringliteral}{"index"}, \textcolor{keywordflow}{foreach}.offset()));
+                \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+            \}
+            left = *\textcolor{keywordflow}{foreach};
+        \}
+    \}
+
+    ScopedArray<sample\_type> parallel(\textcolor{keyword}{new} sample\_type[samples\_size], 
+      samples\_size);
+
+    \textcolor{keywordflow}{if} (parallel.invalid()) \{
+        \hyperlink{log__writer__common_8h_a8d142be5e91677a27be199c3f4115ba6}{hryky_log_emerg}(
+            \textcolor{stringliteral}{"failed to allocate the buffer of samples."});
+        \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+    \}
+    memcpy(&*parallel.begin(), &*unsorted.begin(), \textcolor{keyword}{sizeof}(sample\_type) * 
+      samples\_size);
+
+    \textcolor{comment}{// initializes a pool of thread resources.}
+    thread::Pool thread\_pool;
+    \textcolor{keywordflow}{if} (!thread\_pool.reset(thread::Pool::ResetParameter())) \{
+        \hyperlink{log__writer__common_8h_ae5ad3dabb33f594695ef40753cb78aad}{hryky_log_err}(
+            \textcolor{stringliteral}{"failed to reset thread::Pool"});
+        \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+    \}
+
+    \textcolor{comment}{// decides the number of concurrent units}
+    \textcolor{keywordtype}{size\_t} \textcolor{keyword}{const} sequences\_size = 8;
+
+    \hyperlink{namespacehryky_a5e2737162aa470ce3920f86e86eac0bc}{processor_id_type} \textcolor{keyword}{const} preferred\_processors[sequences\_size] =
+    \{
+        0, 1, 2, 3, 4, 5, 6, 7,
+    \};
+
+    \textcolor{comment}{// initializes the trait of concurrency}
+    task::Concurrency concurrency;
+    \textcolor{keywordflow}{if} (!concurrency.reset(
+        task::Concurrency::ResetParameter(adapter\_heap,thread\_pool)
+        .sequences\_size(sequences\_size)
+        .preferred\_processors(preferred\_processors)))
+    \{
+        \hyperlink{log__writer__common_8h_a8d142be5e91677a27be199c3f4115ba6}{hryky_log_emerg}(
+            (*\hyperlink{namespacehryky_1_1reduction_ac5eae270cf8047b294dc4ff3e5e11a79}{reduction::map}(\textcolor{stringliteral}{"failed to reset concurrent module"}))
+            .append(\textcolor{stringliteral}{"the number of sequences"}, sequences\_size));
+        \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+    \}
+
+    random::distribution::Normal<size\_t> batch\_size\_dist(
+            generator,
+            0x10 >> 1,  \textcolor{comment}{// deviation}
+            0x10,       \textcolor{comment}{// mean}
+            1,          \textcolor{comment}{// min}
+            0x10 << 4); \textcolor{comment}{// max}
+    \textcolor{keywordtype}{size\_t} \textcolor{keyword}{const} batch\_size = batch\_size\_dist();
+
+    (log.reduce()
+     .append(\textcolor{stringliteral}{"batch\_size"},          batch\_size)
+     .append(\textcolor{stringliteral}{"batch\_size\_dist"},     batch\_size\_dist));
+
+    \textcolor{comment}{// initializes a distributor of task.}
+    distributor\_type distributor;
+    \textcolor{keywordflow}{if} (!distributor.reset(
+        distributor\_type::ResetParameter(concurrency)
+        .batch\_size(batch\_size)))
+    \{
+        \hyperlink{log__writer__common_8h_a8d142be5e91677a27be199c3f4115ba6}{hryky_log_emerg}(
+            (*\hyperlink{namespacehryky_1_1reduction_ac5eae270cf8047b294dc4ff3e5e11a79}{reduction::map}(\textcolor{stringliteral}{"failed to reset a task distributor"}))
+            .append(\textcolor{stringliteral}{"the size of a batch of tasks"}, batch\_size));
+        \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+    \}
+
+    \textcolor{comment}{// sorts the samples by concurrent units}
+    clock::duration\_type concurrent\_qsort\_duration;
+    \{
+        clock::AutoElapsed elapsed(concurrent\_qsort\_duration);
+
+        \textcolor{keywordflow}{if} (!distributor.distribute(
+            task\_type(&*parallel.begin(), &*parallel.end())))
+        \{
+            \hyperlink{log__writer__common_8h_a8cb8f66bf45015fc1b64ed8d52bf8d59}{hryky_log_alert}(
+                \textcolor{stringliteral}{"failed to distribute a task"});
+            \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+        \}
+
+        \textcolor{comment}{// attaches tasks to concurrent units(threads).}
+        \textcolor{keywordflow}{if} (!distributor.attach()) \{
+            \hyperlink{log__writer__common_8h_a8cb8f66bf45015fc1b64ed8d52bf8d59}{hryky_log_alert}(
+                \textcolor{stringliteral}{"failed to attach workers to concurrent units"});
+            \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+        \}
+
+        \textcolor{comment}{// waits to complete the execution of the tasks.}
+        \textcolor{keywordflow}{if} (!distributor.join()) \{
+            \hyperlink{log__writer__common_8h_a8cb8f66bf45015fc1b64ed8d52bf8d59}{hryky_log_alert}(
+                \textcolor{stringliteral}{"failed to wait that the workers complete tasks"});
+            \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+        \}
+    \}
+
+\textcolor{preprocessor}{#if PRINT\_VERBOSELY}
+\textcolor{preprocessor}{}    \{
+        \hyperlink{namespacehryky_1_1reduction_ad7a80870a94be0b91740690d01a72d4d}{reduction::array_type} map = \hyperlink{namespacehryky_1_1reduction_a9d45a4dc1ea9a6668ebd192f296f788c}{reduction::array}(\textcolor{stringliteral}{"parallel"});
+        log->append(map);
+
+        Foreach<samples\_type> \textcolor{keywordflow}{foreach}(parallel);
+        \textcolor{keywordflow}{for} (; \textcolor{keywordflow}{foreach}.valid(); ++\textcolor{keywordflow}{foreach}) \{
+            map->append(*\textcolor{keywordflow}{foreach});
+        \}
+    \}
+\textcolor{preprocessor}{#endif // PRINT\_VERBOSELY}
+\textcolor{preprocessor}{}
+    \textcolor{comment}{// checks the sorted result}
+    \{
+        sample\_type left = 0;
+
+        Foreach<samples\_type> \textcolor{keywordflow}{foreach}(parallel);
+        \textcolor{keywordflow}{for} (; \textcolor{keywordflow}{foreach}.valid(); ++\textcolor{keywordflow}{foreach}) \{
+            \textcolor{keywordflow}{if} (left > *\textcolor{keywordflow}{foreach}) \{
+                \hyperlink{log__writer__common_8h_ae5ad3dabb33f594695ef40753cb78aad}{hryky_log_err}(
+                    (*\hyperlink{namespacehryky_1_1reduction_ac5eae270cf8047b294dc4ff3e5e11a79}{reduction::map}(\textcolor{stringliteral}{"concurrent quick-sort failed"}))
+                    .append(\textcolor{stringliteral}{"index"},    \textcolor{keywordflow}{foreach}.offset())
+                    .append(\textcolor{stringliteral}{"lhs"},      left)
+                    .append(\textcolor{stringliteral}{"rhs"},      *\textcolor{keywordflow}{foreach}));
+
+                \hyperlink{namespacehryky_1_1reduction_ad7a80870a94be0b91740690d01a72d4d}{reduction::array_type} map = \hyperlink{namespacehryky_1_1reduction_a9d45a4dc1ea9a6668ebd192f296f788c}{reduction::array}(\textcolor{stringliteral}{"parallel"});
+                log.reduce().append(map);
+
+                Foreach<samples\_type> \textcolor{keywordflow}{foreach}(parallel);
+                \textcolor{keywordflow}{for} (; \textcolor{keywordflow}{foreach}.valid(); ++\textcolor{keywordflow}{foreach}) \{
+                    map->append(*\textcolor{keywordflow}{foreach});
+                \}
+
+                \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+            \}
+            left = *\textcolor{keywordflow}{foreach};
+        \}
+    \}
+
+    (log.reduce()
+     .append(\textcolor{stringliteral}{"distributor"},                     distributor)
+     .append(\textcolor{stringliteral}{"qsort\_duration"},             qsort\_duration.count())
+     .append(\textcolor{stringliteral}{"concurrent\_qsort\_duration"},  concurrent\_qsort\_duration.count())
+     .append(\textcolor{stringliteral}{"concurrent ratio"},
+             (static\_cast<double>(qsort\_duration.count())
+              / concurrent\_qsort\_duration.count())));
+
+    \textcolor{keywordflow}{return} \textcolor{keyword}{true};
+\}
+\textcolor{comment}{/*}
+\textcolor{comment}{  @brief        sorts fixed array concurrently.}
+\textcolor{comment}{  @since        2011-12-07T00:12:33+0900}
+\textcolor{comment}{ */}
+\textcolor{keywordtype}{void} SortTask::operator()(worker\_type & worker)
+\{
+    sample\_type * \textcolor{keyword}{const} boundary =
+        \hyperlink{namespacehryky_1_1qsort__internal_ac2e850d235f7ec38a913c4ea71d2970e}{hryky::qsort_internal::partition}(this->begin\_, this->end\_);
+
+    \textcolor{keywordflow}{if} (boundary == this->end\_) \{
+        \textcolor{keywordflow}{return};
+    \}
+
+    distributor\_type * \textcolor{keyword}{const} distributor = worker.distributor();
+
+    \textcolor{keywordtype}{size\_t} \textcolor{keyword}{const} first\_distance = boundary - this->begin\_;
+    \textcolor{keywordtype}{size\_t} \textcolor{keyword}{const} second\_distance = this->end\_ - boundary;
+
+    \textcolor{keywordflow}{if} (SortTask::distributable\_distance\_ > first\_distance) \{
+        \textcolor{keywordflow}{if} (SortTask::distributable\_distance\_ > second\_distance) \{
+            \textcolor{comment}{// sorts the last half of the region in this thread.}
+            \hyperlink{namespacehryky_a438e3ee8f5109856c4a1e4daa9980982}{hryky::qsort}(boundary, this->end\_);
+        \}
+        \textcolor{keywordflow}{else} \{
+            \textcolor{comment}{// sorts the last half of the region concurrently.}
+            \textcolor{keywordflow}{if} (!distributor->attach\_with(SortTask(boundary, this->end\_))) \{
+                \hyperlink{log__writer__common_8h_a8cb8f66bf45015fc1b64ed8d52bf8d59}{hryky_log_alert}(
+                    \hyperlink{namespacehryky_1_1reduction_ac5eae270cf8047b294dc4ff3e5e11a79}{reduction::map}(
+                        \textcolor{stringliteral}{"failed to execute a task to sort the last half of the
+       region"})
+                    ->append(\textcolor{stringliteral}{"boundary"}, boundary));
+                worker.error();
+                \textcolor{keywordflow}{return};
+            \}
+        \}
+        \textcolor{comment}{// sorts the first half of the region in this thread.}
+        \hyperlink{namespacehryky_a438e3ee8f5109856c4a1e4daa9980982}{hryky::qsort}(this->begin\_, boundary);
+    \}
+    \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (SortTask::distributable\_distance\_ > second\_distance) \{
+        \textcolor{comment}{// sorts the first half of the region concurrently.}
+        \textcolor{keywordflow}{if} (!distributor->attach\_with(SortTask(this->begin\_, boundary))) \{
+            \hyperlink{log__writer__common_8h_a8cb8f66bf45015fc1b64ed8d52bf8d59}{hryky_log_alert}(
+                \hyperlink{namespacehryky_1_1reduction_ac5eae270cf8047b294dc4ff3e5e11a79}{reduction::map}(
+                    \textcolor{stringliteral}{"failed to execute a task to sort the first half of the
+       region"})
+                ->append(\textcolor{stringliteral}{"boundary"}, boundary));
+            worker.error();
+            \textcolor{keywordflow}{return};
+        \}
+
+        \textcolor{comment}{// sorts the last half of the region in this thread.}
+        \hyperlink{namespacehryky_a438e3ee8f5109856c4a1e4daa9980982}{hryky::qsort}(boundary, this->end\_);
+    \}
+    \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (first\_distance > second\_distance) \{
+        \textcolor{comment}{// sorts the first half of the region concurrently.}
+        \textcolor{keywordflow}{if} (!distributor->attach\_with(SortTask(this->begin\_, boundary))) \{
+            \hyperlink{log__writer__common_8h_a8cb8f66bf45015fc1b64ed8d52bf8d59}{hryky_log_alert}(
+                \hyperlink{namespacehryky_1_1reduction_ac5eae270cf8047b294dc4ff3e5e11a79}{reduction::map}(
+                    \textcolor{stringliteral}{"failed to execute a task to sort the first half of the
+       region"})
+                ->append(\textcolor{stringliteral}{"boundary"}, boundary));
+            worker.error();
+            \textcolor{keywordflow}{return};
+        \}
+
+        \textcolor{comment}{// sorts the last half of the region in this thread.}
+        \hyperlink{namespacehryky_a438e3ee8f5109856c4a1e4daa9980982}{hryky::qsort}(boundary, this->end\_);
+    \}
+    \textcolor{keywordflow}{else} \{
+        \textcolor{comment}{// sorts the last half of the region concurrently.}
+        \textcolor{keywordflow}{if} (!distributor->attach\_with(SortTask(boundary, this->end\_))) \{
+            \hyperlink{log__writer__common_8h_a8cb8f66bf45015fc1b64ed8d52bf8d59}{hryky_log_alert}(
+                \hyperlink{namespacehryky_1_1reduction_ac5eae270cf8047b294dc4ff3e5e11a79}{reduction::map}(
+                    \textcolor{stringliteral}{"failed to execute a task to sort the last half of the
+       region"})
+                ->append(\textcolor{stringliteral}{"boundary"}, boundary));
+            worker.error();
+            \textcolor{keywordflow}{return};
+        \}
+
+        \textcolor{comment}{// sorts the first half of the region in this thread.}
+        \hyperlink{namespacehryky_a438e3ee8f5109856c4a1e4daa9980982}{hryky::qsort}(this->begin\_, boundary);
+    \}
+
+    \textcolor{keywordflow}{return};
+\}
+\hyperlink{namespacehryky_a343a9a4c36a586be5c2693156200eadc}{reduction_type} \hyperlink{namespacehryky_af41cb3af6766761da0ff21b84527a52c}{SortTask::reduce}(\hyperlink{namespacehryky_1_1reduction_ac686c30a4c8d196bbd0f05629a6b921f}{reduction::name_type} \textcolor{keyword}{const} & name)\textcolor{keyword}{ const }\{
+    \hyperlink{namespacehryky_1_1reduction_a64228de3f2cff9ed9d5ad836a120c7f7}{reduction::map_type} map = \hyperlink{namespacehryky_1_1reduction_ac5eae270cf8047b294dc4ff3e5e11a79}{reduction::map}(name);
+    ((*map)
+     .append(\textcolor{stringliteral}{"begin"},   this->begin\_)
+     .append(\textcolor{stringliteral}{"end"},     this->end\_)
+     );
+    \textcolor{keywordflow}{return} \hyperlink{namespacehryky_1_1reduction_ac5eae270cf8047b294dc4ff3e5e11a79}{map};
+\}
+\hyperlink{namespacehryky_a343a9a4c36a586be5c2693156200eadc}{reduction_type} \hyperlink{namespacehryky_af41cb3af6766761da0ff21b84527a52c}{reduce}(
+    \hyperlink{namespacehryky_1_1reduction_ac686c30a4c8d196bbd0f05629a6b921f}{reduction::name_type} \textcolor{keyword}{const} & name, SortTask \textcolor{keyword}{const} & src) \{
+    \textcolor{keywordflow}{return} src.reduce(name);
+\}
+\} \textcolor{comment}{// namespace *anonymous*}
+\} \textcolor{comment}{// namespace hryky}
+\textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+\textcolor{comment}{// explicit instantiation}
+\textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+\textcolor{comment}{// end of file}
+\end{DoxyCodeInclude}
+ 

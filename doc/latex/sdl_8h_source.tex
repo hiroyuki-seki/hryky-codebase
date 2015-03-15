@@ -1,0 +1,66 @@
+\hypertarget{sdl_8h_source}{\section{sdl.\-h}
+}
+
+\begin{DoxyCode}
+00001 
+00007 \textcolor{preprocessor}{#ifndef SDL\_H\_20120911114625157}
+00008 \textcolor{preprocessor}{}\textcolor{preprocessor}{#define SDL\_H\_20120911114625157}
+00009 \textcolor{preprocessor}{}\textcolor{preprocessor}{#include "hryky/config.h"}
+00010 \textcolor{preprocessor}{#include "\hyperlink{windows_8h}{hryky/windows.h}"}
+00011 \textcolor{preprocessor}{#include "\hyperlink{gl_8h}{hryky/gl.h}"}
+00012 \textcolor{preprocessor}{#if HRYKY\_USE\_SDL}
+00013 \textcolor{preprocessor}{}
+00014 \textcolor{preprocessor}{#if !defined(HAVE\_LIBC)}
+00015 \textcolor{preprocessor}{}\textcolor{preprocessor}{#    define HAVE\_LIBC}
+00016 \textcolor{preprocessor}{}\textcolor{preprocessor}{#endif}
+00017 \textcolor{preprocessor}{}\textcolor{preprocessor}{#if defined(WIN32\_LEAN\_AND\_MEAN)}
+00018 \textcolor{preprocessor}{}\textcolor{preprocessor}{#   undef WIN32\_LEAN\_AND\_MEAN}
+00019 \textcolor{preprocessor}{}\textcolor{preprocessor}{#endif}
+00020 \textcolor{preprocessor}{}\textcolor{preprocessor}{#include <SDL/SDL.h>}
+00021 \textcolor{preprocessor}{#include <SDL/SDL\_opengl.h>}
+00022 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00023 \textcolor{comment}{// macro definition}
+00024 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00025 \textcolor{preprocessor}{#if defined(max)}
+00026 \textcolor{preprocessor}{}\textcolor{preprocessor}{#   undef max}
+00027 \textcolor{preprocessor}{}\textcolor{preprocessor}{#endif}
+00028 \textcolor{preprocessor}{}\textcolor{preprocessor}{#if defined(min)}
+00029 \textcolor{preprocessor}{}\textcolor{preprocessor}{#   undef min}
+00030 \textcolor{preprocessor}{}\textcolor{preprocessor}{#endif}
+00031 \textcolor{preprocessor}{}\textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00032 \textcolor{comment}{// namespace}
+00033 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00034 \textcolor{keyword}{namespace }hryky
+00035 \{
+00036 \} \textcolor{comment}{// namespace hryky}
+00037 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00038 \textcolor{comment}{// struct declaration}
+00039 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00040 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00041 \textcolor{comment}{// class declaration}
+00042 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00043 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00044 \textcolor{comment}{// global function prototypes}
+00045 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00046 \textcolor{keyword}{namespace }hryky
+00047 \{
+00048 \} \textcolor{comment}{// namespace hryky}
+00049 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00050 \textcolor{comment}{// global function definitions}
+00051 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00052 \textcolor{preprocessor}{#endif // HRYKY\_USE\_SDL}
+00053 \textcolor{preprocessor}{}\textcolor{preprocessor}{#endif // SDL\_H\_20120911114625157}
+00054 \textcolor{preprocessor}{}\textcolor{comment}{// end of file}
+\end{DoxyCode}

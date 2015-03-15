@@ -1,0 +1,279 @@
+\hypertarget{classhryky_1_1reduction_1_1_map}{\section{hryky\-:\-:reduction\-:\-:Map Class Reference}
+\label{classhryky_1_1reduction_1_1_map}\index{hryky\-::reduction\-::\-Map@{hryky\-::reduction\-::\-Map}}
+}
+
+
+aggregates the multiple named values with each name.  
+
+
+
+
+{\ttfamily \#include $<$reduction\-\_\-map.\-h$>$}
+
+
+
+Inheritance diagram for hryky\-:\-:reduction\-:\-:Map\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=194pt]{classhryky_1_1reduction_1_1_map__inherit__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classhryky_1_1reduction_1_1_map_aee713406a4a77c0edde484d46d7079c5}{typedef \hyperlink{classhryky_1_1reduction_1_1_base}{reduction\-::\-Base} \hyperlink{classhryky_1_1reduction_1_1_map_aee713406a4a77c0edde484d46d7079c5}{base\-\_\-type}}\label{classhryky_1_1reduction_1_1_map_aee713406a4a77c0edde484d46d7079c5}
+
+\begin{DoxyCompactList}\small\item\em base class of inheritance. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1reduction_1_1_map_af8ee925fbe74bda242e9dfb7e9f388d1}{typedef std\-::vector\\*
+$<$ \hyperlink{namespacehryky_a343a9a4c36a586be5c2693156200eadc}{reduction\-\_\-type} $>$ \hyperlink{classhryky_1_1reduction_1_1_map_af8ee925fbe74bda242e9dfb7e9f388d1}{children\-\_\-type}}\label{classhryky_1_1reduction_1_1_map_af8ee925fbe74bda242e9dfb7e9f388d1}
+
+\begin{DoxyCompactList}\small\item\em type of children \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1reduction_1_1_map_a256907f5d2ed071a6e9b966f93989155}{typedef \hyperlink{classhryky_1_1reduction_1_1_map}{Map} \hyperlink{classhryky_1_1reduction_1_1_map_a256907f5d2ed071a6e9b966f93989155}{this\-\_\-type}}\label{classhryky_1_1reduction_1_1_map_a256907f5d2ed071a6e9b966f93989155}
+
+\begin{DoxyCompactList}\small\item\em self. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classhryky_1_1reduction_1_1_map}{Map} \& \hyperlink{classhryky_1_1reduction_1_1_map_a46fcabdd08327b7bdc4c72edb3623e7a}{append} (\hyperlink{classhryky_1_1reduction_1_1_map}{Map} \&\hyperlink{classhryky_1_1reduction_1_1_map_afa54cde058f8b7cc18099b6bcdbe6e72}{map})
+\begin{DoxyCompactList}\small\item\em appends the instance of \hyperlink{classhryky_1_1reduction_1_1_map}{reduction\-::\-Map} as child. \end{DoxyCompactList}\item 
+\hyperlink{classhryky_1_1reduction_1_1_map}{Map} \& \hyperlink{classhryky_1_1reduction_1_1_map_a50f6b1d260ebe03fe069587ff401afaa}{append} (\hyperlink{namespacehryky_a343a9a4c36a586be5c2693156200eadc}{reduction\-\_\-type} const \&src)
+\begin{DoxyCompactList}\small\item\em appends an instance of \hyperlink{classhryky_1_1reduction_1_1_base}{reduction\-::\-Base} as a child. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Value\-T $>$ }\\\hyperlink{classhryky_1_1reduction_1_1_map}{Map} \& \hyperlink{classhryky_1_1reduction_1_1_map_ac01c4589223683757574ad10c5fa90e1}{append} (\hyperlink{namespacehryky_1_1reduction_ac686c30a4c8d196bbd0f05629a6b921f}{name\-\_\-type} const \&\hyperlink{classhryky_1_1reduction_1_1_base_a842569265d741905eb8a353d3935f1d1}{name}, Value\-T const \&value)
+\begin{DoxyCompactList}\small\item\em appends a key-\/value pair. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Value\-T , size\-\_\-t Size$>$ }\\\hyperlink{classhryky_1_1reduction_1_1_map}{Map} \& \hyperlink{classhryky_1_1reduction_1_1_map_a60cd3dcac94e75366de4df28d580aad4}{append} (char const (\&\hyperlink{classhryky_1_1reduction_1_1_base_a842569265d741905eb8a353d3935f1d1}{name})\mbox{[}Size\mbox{]}, Value\-T const \&value)
+\begin{DoxyCompactList}\small\item\em appends a key-\/value pair. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1reduction_1_1_map_a3cc9bef29a72ed96079152a93b6dfe13}{\hyperlink{classhryky_1_1reduction_1_1_map_af8ee925fbe74bda242e9dfb7e9f388d1}{children\-\_\-type} const \& \hyperlink{classhryky_1_1reduction_1_1_map_a3cc9bef29a72ed96079152a93b6dfe13}{children} () const }\label{classhryky_1_1reduction_1_1_map_a3cc9bef29a72ed96079152a93b6dfe13}
+
+\begin{DoxyCompactList}\small\item\em retrieves the key-\/value fields. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1reduction_1_1_map_a8f14455a90219d197b5b809f72da5189}{void \hyperlink{classhryky_1_1reduction_1_1_map_a8f14455a90219d197b5b809f72da5189}{clear} ()}\label{classhryky_1_1reduction_1_1_map_a8f14455a90219d197b5b809f72da5189}
+
+\begin{DoxyCompactList}\small\item\em releases the internal resources. \end{DoxyCompactList}\item 
+bool \hyperlink{classhryky_1_1reduction_1_1_base_a71b31d4d0ed915254e2cb1ef217f28c4}{dispatch} (\hyperlink{classhryky_1_1reduction_1_1_dispatcher}{Dispatcher} \&dispatcher) const 
+\begin{DoxyCompactList}\small\item\em traverses the decomposed structure. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1reduction_1_1_map_adc75e1c0d88c11f18e90a8da278c9c4c}{\hyperlink{classhryky_1_1reduction_1_1_map_adc75e1c0d88c11f18e90a8da278c9c4c}{Map} ()}\label{classhryky_1_1reduction_1_1_map_adc75e1c0d88c11f18e90a8da278c9c4c}
+
+\begin{DoxyCompactList}\small\item\em default constructor. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1reduction_1_1_map_a114a27d04d4f319c7bbb083e0f2f4d1f}{\hyperlink{classhryky_1_1reduction_1_1_map_a114a27d04d4f319c7bbb083e0f2f4d1f}{Map} (\hyperlink{classhryky_1_1reduction_1_1_base_af02a7dee6042080b7380afd2f9500a42}{this\-\_\-type} const \&rhs)}\label{classhryky_1_1reduction_1_1_map_a114a27d04d4f319c7bbb083e0f2f4d1f}
+
+\begin{DoxyCompactList}\small\item\em copy constructor. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1reduction_1_1_map_a786db4e271d5fd835eaee1499715e1b1}{\hyperlink{classhryky_1_1reduction_1_1_map_a786db4e271d5fd835eaee1499715e1b1}{Map} (\hyperlink{classhryky_1_1reduction_1_1_base_af02a7dee6042080b7380afd2f9500a42}{this\-\_\-type} \&\&rhs)}\label{classhryky_1_1reduction_1_1_map_a786db4e271d5fd835eaee1499715e1b1}
+
+\begin{DoxyCompactList}\small\item\em copy constructor by rvalue reference. \end{DoxyCompactList}\item 
+\hyperlink{classhryky_1_1reduction_1_1_map_a483018e7036b10955dd8b99283e27505}{Map} (\hyperlink{namespacehryky_1_1reduction_ac686c30a4c8d196bbd0f05629a6b921f}{name\-\_\-type} const \&\hyperlink{classhryky_1_1reduction_1_1_base_a842569265d741905eb8a353d3935f1d1}{name})
+\begin{DoxyCompactList}\small\item\em constructor with name. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1reduction_1_1_base_a842569265d741905eb8a353d3935f1d1}{\hyperlink{namespacehryky_1_1reduction_ac686c30a4c8d196bbd0f05629a6b921f}{name\-\_\-type} const \& \hyperlink{classhryky_1_1reduction_1_1_base_a842569265d741905eb8a353d3935f1d1}{name} () const }\label{classhryky_1_1reduction_1_1_base_a842569265d741905eb8a353d3935f1d1}
+
+\begin{DoxyCompactList}\small\item\em retrieves the name. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1reduction_1_1_map_a930aa9c043238a10680e3e9ddf3e2db1}{void \hyperlink{classhryky_1_1reduction_1_1_map_a930aa9c043238a10680e3e9ddf3e2db1}{swap} (\hyperlink{classhryky_1_1reduction_1_1_base_af02a7dee6042080b7380afd2f9500a42}{this\-\_\-type} \&src)}\label{classhryky_1_1reduction_1_1_map_a930aa9c043238a10680e3e9ddf3e2db1}
+
+\begin{DoxyCompactList}\small\item\em interchanges the each internal resources of two instances. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1reduction_1_1_base_a709cc7c48e1c90fe253739e46d82aa19}{{\footnotesize template$<$typename Stream\-T $>$ }\\Stream\-T \& \hyperlink{classhryky_1_1reduction_1_1_base_a709cc7c48e1c90fe253739e46d82aa19}{write\-\_\-to} (Stream\-T \&stream) const }\label{classhryky_1_1reduction_1_1_base_a709cc7c48e1c90fe253739e46d82aa19}
+
+\begin{DoxyCompactList}\small\item\em outputs the information of \hyperlink{classhryky_1_1reduction_1_1_base}{reduction\-::\-Base}. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1reduction_1_1_map_a3ce160bca5af690b2f78d8bd9acdfaf8}{\hyperlink{classhryky_1_1reduction_1_1_map_a3ce160bca5af690b2f78d8bd9acdfaf8}{$\sim$\-Map} ()}\label{classhryky_1_1reduction_1_1_map_a3ce160bca5af690b2f78d8bd9acdfaf8}
+
+\begin{DoxyCompactList}\small\item\em destructor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classhryky_1_1reduction_1_1_map_a59005870f39062d24645fd88828fd617}{\hyperlink{classhryky_1_1reduction_1_1_map_a59005870f39062d24645fd88828fd617}{hryky\-\_\-assign\-\_\-op}}\label{classhryky_1_1reduction_1_1_map_a59005870f39062d24645fd88828fd617}
+
+\begin{DoxyCompactList}\small\item\em assignment operator. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \hyperlink{classhryky_1_1reduction_1_1_base_a100265b04179500cd7901c8afea64eb0}{delete\-\_\-self} ()
+\begin{DoxyCompactList}\small\item\em deletes the self instance. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{namespacehryky_1_1reduction_a64228de3f2cff9ed9d5ad836a120c7f7}{map\-\_\-type} \hyperlink{classhryky_1_1reduction_1_1_map_afa54cde058f8b7cc18099b6bcdbe6e72}{map} (\hyperlink{namespacehryky_1_1reduction_ac686c30a4c8d196bbd0f05629a6b921f}{name\-\_\-type} const \&\hyperlink{classhryky_1_1reduction_1_1_base_a842569265d741905eb8a353d3935f1d1}{name})
+\begin{DoxyCompactList}\small\item\em creates an instance of \hyperlink{classhryky_1_1reduction_1_1_map}{reduction\-::\-Map}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+aggregates the multiple named values with each name. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classhryky_1_1reduction_1_1_map_a483018e7036b10955dd8b99283e27505}{\index{hryky\-::reduction\-::\-Map@{hryky\-::reduction\-::\-Map}!Map@{Map}}
+\index{Map@{Map}!hryky::reduction::Map@{hryky\-::reduction\-::\-Map}}
+\subsubsection[{Map}]{\setlength{\rightskip}{0pt plus 5cm}{\bf hryky\-::reduction\-::\-Map\-::\-Map} (
+\begin{DoxyParamCaption}
+\item[{{\bf name\-\_\-type} const \&}]{name}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}explicit\mbox{]}}}}\label{classhryky_1_1reduction_1_1_map_a483018e7036b10955dd8b99283e27505}
+
+
+constructor with name. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & is the key of a mapped pair. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classhryky_1_1reduction_1_1_map_a46fcabdd08327b7bdc4c72edb3623e7a}{\index{hryky\-::reduction\-::\-Map@{hryky\-::reduction\-::\-Map}!append@{append}}
+\index{append@{append}!hryky::reduction::Map@{hryky\-::reduction\-::\-Map}}
+\subsubsection[{append}]{\setlength{\rightskip}{0pt plus 5cm}{\bf hryky\-::reduction\-::\-Map} \& {\bf hryky\-::reduction\-::\-Map\-::append} (
+\begin{DoxyParamCaption}
+\item[{{\bf Map} \&}]{map}
+\end{DoxyParamCaption}
+)}}\label{classhryky_1_1reduction_1_1_map_a46fcabdd08327b7bdc4c72edb3623e7a}
+
+
+appends the instance of \hyperlink{classhryky_1_1reduction_1_1_map}{reduction\-::\-Map} as child. 
+
+appends a instance of \hyperlink{classhryky_1_1reduction_1_1_map}{reduction\-::\-Map} as child.
+
+
+\begin{DoxyParams}{Parameters}
+{\em map} & is the instance of \hyperlink{classhryky_1_1reduction_1_1_map}{reduction\-::\-Map} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the self instance. 
+\end{DoxyReturn}
+\hypertarget{classhryky_1_1reduction_1_1_map_a50f6b1d260ebe03fe069587ff401afaa}{\index{hryky\-::reduction\-::\-Map@{hryky\-::reduction\-::\-Map}!append@{append}}
+\index{append@{append}!hryky::reduction::Map@{hryky\-::reduction\-::\-Map}}
+\subsubsection[{append}]{\setlength{\rightskip}{0pt plus 5cm}{\bf hryky\-::reduction\-::\-Map} \& {\bf hryky\-::reduction\-::\-Map\-::append} (
+\begin{DoxyParamCaption}
+\item[{{\bf reduction\-\_\-type} const \&}]{src}
+\end{DoxyParamCaption}
+)}}\label{classhryky_1_1reduction_1_1_map_a50f6b1d260ebe03fe069587ff401afaa}
+
+
+appends an instance of \hyperlink{classhryky_1_1reduction_1_1_base}{reduction\-::\-Base} as a child. 
+
+appends a instance of \hyperlink{classhryky_1_1reduction_1_1_base}{reduction\-::\-Base} as a child.
+
+
+\begin{DoxyParams}{Parameters}
+{\em src} & is the instance of \hyperlink{classhryky_1_1reduction_1_1_base}{reduction\-::\-Base} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the self instance. 
+\end{DoxyReturn}
+
+
+References \hyperlink{classhryky_1_1_intrusive_ptr_a876dbe10311099aba912f8cfa3fd635b}{hryky\-::\-Intrusive\-Ptr$<$ Value\-T $>$\-::get()}.
+
+\hypertarget{classhryky_1_1reduction_1_1_map_ac01c4589223683757574ad10c5fa90e1}{\index{hryky\-::reduction\-::\-Map@{hryky\-::reduction\-::\-Map}!append@{append}}
+\index{append@{append}!hryky::reduction::Map@{hryky\-::reduction\-::\-Map}}
+\subsubsection[{append}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Value\-T $>$ {\bf hryky\-::reduction\-::\-Map} \& {\bf hryky\-::reduction\-::\-Map\-::append} (
+\begin{DoxyParamCaption}
+\item[{{\bf name\-\_\-type} const \&}]{name, }
+\item[{Value\-T const \&}]{value}
+\end{DoxyParamCaption}
+)}}\label{classhryky_1_1reduction_1_1_map_ac01c4589223683757574ad10c5fa90e1}
+
+
+appends a key-\/value pair. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & is the name of the child. \\
+\hline
+{\em value} & is the value of the child. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the self instance. 
+\end{DoxyReturn}
+
+
+References \hyperlink{reduction__common_8h_afc72326c9900838c5db40438318794dd}{hryky\-\_\-reduce()}.
+
+\hypertarget{classhryky_1_1reduction_1_1_map_a60cd3dcac94e75366de4df28d580aad4}{\index{hryky\-::reduction\-::\-Map@{hryky\-::reduction\-::\-Map}!append@{append}}
+\index{append@{append}!hryky::reduction::Map@{hryky\-::reduction\-::\-Map}}
+\subsubsection[{append}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Value\-T , size\-\_\-t Size$>$ {\bf hryky\-::reduction\-::\-Map} \& {\bf hryky\-::reduction\-::\-Map\-::append} (
+\begin{DoxyParamCaption}
+\item[{char const (\&)}]{name\mbox{[}\-Size\mbox{]}, }
+\item[{Value\-T const \&}]{value}
+\end{DoxyParamCaption}
+)}}\label{classhryky_1_1reduction_1_1_map_a60cd3dcac94e75366de4df28d580aad4}
+
+
+appends a key-\/value pair. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & is the name of the child. \\
+\hline
+{\em value} & is the value of the child. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the self instance. 
+\end{DoxyReturn}
+
+
+References \hyperlink{reduction__common_8h_afc72326c9900838c5db40438318794dd}{hryky\-\_\-reduce()}.
+
+\hypertarget{classhryky_1_1reduction_1_1_base_a100265b04179500cd7901c8afea64eb0}{\index{hryky\-::reduction\-::\-Map@{hryky\-::reduction\-::\-Map}!delete\-\_\-self@{delete\-\_\-self}}
+\index{delete\-\_\-self@{delete\-\_\-self}!hryky::reduction::Map@{hryky\-::reduction\-::\-Map}}
+\subsubsection[{delete\-\_\-self}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf Base\-::delete\-\_\-self} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}protected, virtual, inherited\mbox{]}}}}\label{classhryky_1_1reduction_1_1_base_a100265b04179500cd7901c8afea64eb0}
+
+
+deletes the self instance. 
+
+delete the self instance.
+
+\begin{DoxyAttention}{Attention}
+
+\begin{DoxyItemize}
+\item This base implementation uses global \char`\"{}delete\char`\"{} operator.
+\item If derived class is instantiated by operation other than global \char`\"{}new\char`\"{} operator, the derived class has to override this function. 
+\end{DoxyItemize}
+\end{DoxyAttention}
+\hypertarget{classhryky_1_1reduction_1_1_base_a71b31d4d0ed915254e2cb1ef217f28c4}{\index{hryky\-::reduction\-::\-Map@{hryky\-::reduction\-::\-Map}!dispatch@{dispatch}}
+\index{dispatch@{dispatch}!hryky::reduction::Map@{hryky\-::reduction\-::\-Map}}
+\subsubsection[{dispatch}]{\setlength{\rightskip}{0pt plus 5cm}bool {\bf Base\-::dispatch} (
+\begin{DoxyParamCaption}
+\item[{{\bf Dispatcher} \&}]{dispatcher}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inherited\mbox{]}}}}\label{classhryky_1_1reduction_1_1_base_a71b31d4d0ed915254e2cb1ef217f28c4}
+
+
+traverses the decomposed structure. 
+
+traverses the decomposed structure with indents. 
+
+Referenced by \hyperlink{classhryky_1_1reduction_1_1_base_a709cc7c48e1c90fe253739e46d82aa19}{hryky\-::reduction\-::\-Base\-::write\-\_\-to()}.
+
+
+
+\subsection{Friends And Related Function Documentation}
+\hypertarget{classhryky_1_1reduction_1_1_map_afa54cde058f8b7cc18099b6bcdbe6e72}{\index{hryky\-::reduction\-::\-Map@{hryky\-::reduction\-::\-Map}!map@{map}}
+\index{map@{map}!hryky::reduction::Map@{hryky\-::reduction\-::\-Map}}
+\subsubsection[{map}]{\setlength{\rightskip}{0pt plus 5cm}{\bf map\-\_\-type} {\bf map} (
+\begin{DoxyParamCaption}
+\item[{{\bf name\-\_\-type} const \&}]{name}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}\label{classhryky_1_1reduction_1_1_map_afa54cde058f8b7cc18099b6bcdbe6e72}
+
+
+creates an instance of \hyperlink{classhryky_1_1reduction_1_1_map}{reduction\-::\-Map}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & is the name of the instance. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the instance. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{reduction__map_8h}{reduction\-\_\-map.\-h}\item 
+\hyperlink{reduction__map_8cpp}{reduction\-\_\-map.\-cpp}\end{DoxyCompactItemize}

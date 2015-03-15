@@ -1,0 +1,76 @@
+\hypertarget{is__enum_8h_source}{\section{is\-\_\-enum.\-h}
+}
+
+\begin{DoxyCode}
+00001 
+00007 \textcolor{preprocessor}{#ifndef IS\_ENUM\_H\_20121230163951361}
+00008 \textcolor{preprocessor}{}\textcolor{preprocessor}{#define IS\_ENUM\_H\_20121230163951361}
+00009 \textcolor{preprocessor}{}\textcolor{preprocessor}{#include <type\_traits>}
+00010 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00011 \textcolor{comment}{// macro definition}
+00012 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00013 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00014 \textcolor{comment}{// namespace}
+00015 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00016 \textcolor{keyword}{namespace }hryky
+00017 \{
+00019     \textcolor{keyword}{template} < \textcolor{keyword}{typename} ValueT >
+00020     \textcolor{keyword}{class }IsEnum;
+00021 
+00022 \} \textcolor{comment}{// namespace hryky}
+00023 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00024 \textcolor{comment}{// class declarations}
+00025 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00029 \textcolor{comment}{}\textcolor{keyword}{template} < \textcolor{keyword}{typename} ValueT >
+\hypertarget{is__enum_8h_source_l00030}{}\hyperlink{classhryky_1_1_is_enum}{00030} \textcolor{keyword}{class }\hyperlink{classhryky_1_1_is_enum}{hryky::IsEnum}
+00031 \{
+00032 \textcolor{keyword}{public} :
+00033 
+00034     \textcolor{keyword}{static} \textcolor{keywordtype}{bool} \textcolor{keyword}{const} value = std::is\_enum<ValueT>::value;
+00035 
+00036 \};
+00037 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00038 \textcolor{comment}{// class specializations}
+00039 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00040 \textcolor{keyword}{namespace }hryky
+00041 \{
+00042 \} \textcolor{comment}{// namespace hryky}
+00043 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00044 \textcolor{comment}{// public member functions}
+00045 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00046 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00047 \textcolor{comment}{// protected member functions}
+00048 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00049 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00050 \textcolor{comment}{// private member functions}
+00051 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00052 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00053 \textcolor{comment}{// global function prototypes}
+00054 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00055 \textcolor{keyword}{namespace }hryky
+00056 \{
+00057 \} \textcolor{comment}{// namespace hryky}
+00058 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00059 \textcolor{comment}{// global function definitions}
+00060 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00061 \textcolor{preprocessor}{#endif // IS\_ENUM\_H\_20121230163951361}
+00062 \textcolor{preprocessor}{}\textcolor{comment}{// end of file}
+\end{DoxyCode}

@@ -1,0 +1,138 @@
+\hypertarget{reduction__string_8h_source}{\section{reduction\-\_\-string.\-h}
+}
+
+\begin{DoxyCode}
+00001 
+00007 \textcolor{preprocessor}{#ifndef REDUCTION\_STRING\_H\_20120923150218293}
+00008 \textcolor{preprocessor}{}\textcolor{preprocessor}{#define REDUCTION\_STRING\_H\_20120923150218293}
+00009 \textcolor{preprocessor}{}\textcolor{preprocessor}{#include "\hyperlink{reduction__base_8h}{hryky/reduction/reduction_base.h}"}
+00010 \textcolor{preprocessor}{#include "\hyperlink{string_8h}{hryky/string.h}"}
+00011 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00012 \textcolor{comment}{// macro definition}
+00013 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00014 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00015 \textcolor{comment}{// namespace}
+00016 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00017 \textcolor{keyword}{namespace }hryky
+00018 \{
+00019 \textcolor{keyword}{namespace }reduction
+00020 \{
+00022     \textcolor{keyword}{class }String;
+00023 
+00024 \} \textcolor{comment}{// namespace reduction}
+00025 \} \textcolor{comment}{// namespace hryky}
+00026 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00027 \textcolor{comment}{// class declarations}
+00028 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+\hypertarget{reduction__string_8h_source_l00032}{}\hyperlink{classhryky_1_1reduction_1_1_string}{00032} \textcolor{comment}{}\textcolor{keyword}{class }\hyperlink{classhryky_1_1reduction_1_1_string}{hryky::reduction::String}
+00033     : \textcolor{keyword}{public} \hyperlink{classhryky_1_1reduction_1_1_base}{hryky::reduction::Base}
+00034 \{
+00035 \textcolor{keyword}{public} :
+00036 
+00037     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1reduction_1_1_base}{Base}            \hyperlink{classhryky_1_1reduction_1_1_base}{base_type};
+00038     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1_string}{hryky::String<>} \hyperlink{classhryky_1_1_string}{value_type};
+\hypertarget{reduction__string_8h_source_l00039}{}\hyperlink{classhryky_1_1reduction_1_1_string_a29b0205072da7ad98f157a214080cc93}{00039}     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1reduction_1_1_string}{String}          \hyperlink{classhryky_1_1reduction_1_1_string_a29b0205072da7ad98f157a214080cc93}{this_type};
+00040 
+00042     \hyperlink{classhryky_1_1reduction_1_1_string_ae696533e5e7ab4ecdc2a15b04acb3122}{String}();
+00043 
+00045     \hyperlink{classhryky_1_1reduction_1_1_string_ae696533e5e7ab4ecdc2a15b04acb3122}{String}(\hyperlink{classhryky_1_1reduction_1_1_string}{name_type} \textcolor{keyword}{const} & \hyperlink{classhryky_1_1reduction_1_1_base_a842569265d741905eb8a353d3935f1d1}{name}, \hyperlink{classhryky_1_1_string}{value_type} \textcolor{keyword}{const} & \hyperlink{classhryky_1_1reduction_1_1_string_a34e0856d63ec32786de19999a4ac1ce1}{value});
+00046 
+00048     \textcolor{keyword}{template} <\textcolor{keywordtype}{size\_t} Size>
+00049     \hyperlink{classhryky_1_1reduction_1_1_string_ae696533e5e7ab4ecdc2a15b04acb3122}{String}(\hyperlink{classhryky_1_1reduction_1_1_string}{name_type} \textcolor{keyword}{const} & \hyperlink{classhryky_1_1reduction_1_1_base_a842569265d741905eb8a353d3935f1d1}{name}, \textcolor{keywordtype}{char} \textcolor{keyword}{const} (&\hyperlink{classhryky_1_1reduction_1_1_string_a34e0856d63ec32786de19999a4ac1ce1}{value})[Size]);
+00050 
+00052     \hyperlink{classhryky_1_1reduction_1_1_string_ae696533e5e7ab4ecdc2a15b04acb3122}{String}(\hyperlink{classhryky_1_1reduction_1_1_base}{this_type} \textcolor{keyword}{const} &);
+00053 
+00055     \hyperlink{classhryky_1_1reduction_1_1_string_ae696533e5e7ab4ecdc2a15b04acb3122}{String}(\hyperlink{classhryky_1_1reduction_1_1_base}{this_type} && rhs);
+00056 
+00058     \textcolor{keyword}{virtual} \hyperlink{classhryky_1_1reduction_1_1_string_adfe4e3c847637aab8aedf3b32b448b14}{~String}();
+00059 
+\hypertarget{reduction__string_8h_source_l00061}{}\hyperlink{classhryky_1_1reduction_1_1_string_a767fceb32eff2f18c41f49a9e8d9bc8d}{00061}     \hyperlink{classhryky_1_1reduction_1_1_string_a767fceb32eff2f18c41f49a9e8d9bc8d}{hryky_assign_op};
+00062 
+00064     \textcolor{keywordtype}{void} \hyperlink{classhryky_1_1reduction_1_1_string_ae524ae5260609c2df1809c685b3d53b9}{clear}();
+00065 
+00067     \textcolor{keywordtype}{void} \hyperlink{classhryky_1_1reduction_1_1_string_a73b155e2731534a02f0c1112b1e001d0}{swap}(\hyperlink{classhryky_1_1reduction_1_1_base}{this_type} & src);
+00068 
+00070     \hyperlink{classhryky_1_1_string}{value_type} \textcolor{keyword}{const} & \hyperlink{classhryky_1_1reduction_1_1_string_a34e0856d63ec32786de19999a4ac1ce1}{value}() \textcolor{keyword}{const};
+00071 
+00072 \textcolor{keyword}{protected} :
+00073 
+00074 \textcolor{keyword}{private} :
+00075 
+00077     \textcolor{keyword}{virtual} \textcolor{keywordtype}{bool} dispatch\_impl(\hyperlink{classhryky_1_1reduction_1_1_dispatcher}{Dispatcher} & dispatcher) \textcolor{keyword}{const};
+00078 
+00079     \hyperlink{classhryky_1_1_string}{value_type} value\_;
+00080 
+00081 \};
+00082 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00083 \textcolor{comment}{// class specializations}
+00084 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00085 \textcolor{keyword}{namespace }hryky
+00086 \{
+00087 \textcolor{keyword}{namespace }reduction
+00088 \{
+00089 \} \textcolor{comment}{// namespace reduction}
+00090 \} \textcolor{comment}{// namespace hryky}
+00091 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00092 \textcolor{comment}{// public member functions}
+00093 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00097 \textcolor{comment}{}\textcolor{keyword}{template} <\textcolor{keywordtype}{size\_t} Size>
+\hypertarget{reduction__string_8h_source_l00098}{}\hyperlink{classhryky_1_1reduction_1_1_string_ae51e2574fb2566ea5376429087259257}{00098} \hyperlink{classhryky_1_1reduction_1_1_string_ae696533e5e7ab4ecdc2a15b04acb3122}{hryky::reduction::String::String}(
+00099     \hyperlink{classhryky_1_1reduction_1_1_string}{name_type} \textcolor{keyword}{const} & name, \textcolor{keywordtype}{char} \textcolor{keyword}{const} (&value)[Size])
+00100     : \hyperlink{classhryky_1_1reduction_1_1_base}{base_type}(name), value\_(value)
+00101 \{
+00102 \}
+00103 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00104 \textcolor{comment}{// protected member functions}
+00105 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00106 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00107 \textcolor{comment}{// private member functions}
+00108 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00109 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00110 \textcolor{comment}{// global function prototypes}
+00111 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00112 \textcolor{keyword}{namespace }hryky
+00113 \{
+00118     \hyperlink{classhryky_1_1_intrusive_ptr}{reduction_type} \hyperlink{namespacehryky_1_1reduction_a064022926c530d18aeb1b2abdf71800b}{reduce}(
+00119         \hyperlink{classhryky_1_1reduction_1_1_string}{reduction::name_type} \textcolor{keyword}{const} & name, \textcolor{keywordtype}{char} \textcolor{keyword}{const} * \textcolor{keyword}{const} & value);
+00120 
+00125     \textcolor{keyword}{template} < \textcolor{keywordtype}{size\_t} Size >
+00126     \hyperlink{classhryky_1_1_intrusive_ptr}{reduction_type} \hyperlink{namespacehryky_1_1reduction_a064022926c530d18aeb1b2abdf71800b}{reduce}(
+00127         \hyperlink{classhryky_1_1reduction_1_1_string}{reduction::name_type} \textcolor{keyword}{const} & name, \textcolor{keywordtype}{char} \textcolor{keyword}{const} (&src)[Size]);
+00128 
+00129 \textcolor{keyword}{namespace }reduction
+00130 \{
+00132     \textcolor{keywordtype}{void} \hyperlink{namespacehryky_1_1reduction_a493c83efdf5f9e9c49ba77e1b65325a1}{swap}(
+00133         \hyperlink{classhryky_1_1reduction_1_1_string}{String} & lhs, \hyperlink{classhryky_1_1reduction_1_1_string}{String} & rhs);
+00134 
+00135 \} \textcolor{comment}{// namespace reduction}
+00136 \} \textcolor{comment}{// namespace hryky}
+00137 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00138 \textcolor{comment}{// global function definitions}
+00139 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00143 \textcolor{comment}{}\textcolor{keyword}{template} < \textcolor{keywordtype}{size\_t} Size >
+\hypertarget{reduction__string_8h_source_l00144}{}\hyperlink{namespacehryky_ad7fa2b6d153fe3ccc4318fb9c9ea81a7}{00144} \hyperlink{classhryky_1_1_intrusive_ptr}{hryky::reduction_type} \hyperlink{namespacehryky_1_1reduction_a064022926c530d18aeb1b2abdf71800b}{hryky::reduce}(
+00145     \hyperlink{classhryky_1_1reduction_1_1_string}{reduction::name_type} \textcolor{keyword}{const} & name, \textcolor{keywordtype}{char} \textcolor{keyword}{const} (&src)[Size])
+00146 \{
+00147     \textcolor{keywordflow}{return} \hyperlink{namespacehryky_a343a9a4c36a586be5c2693156200eadc}{reduction_type}(\textcolor{keyword}{new} \hyperlink{classhryky_1_1reduction_1_1_string}{reduction::String}(name, src));
+00148 \}
+00149 \textcolor{preprocessor}{#endif // REDUCTION\_STRING\_H\_20120923150218293}
+00150 \textcolor{preprocessor}{}\textcolor{comment}{// end of file}
+\end{DoxyCode}

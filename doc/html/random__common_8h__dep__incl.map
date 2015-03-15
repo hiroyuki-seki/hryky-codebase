@@ -1,0 +1,12 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$random__distribution__normal_8h.html" title="creates a pseudo&#45;random number according to the normal distribution." alt="" coords="197,80,389,107"/>
+<area shape="rect" id="node5" href="$random_8h.html" title="common definitions of random numbers." alt="" coords="389,155,464,181"/>
+<area shape="rect" id="node22" href="$random__distribution__uniform_8h.html" title="creates a pseudo&#45;random number according to the uniform distribution." alt="" coords="464,80,659,107"/>
+<area shape="rect" id="node7" href="$testing__random_8h.html" title="initializes the generator of pseudo random number." alt="" coords="365,229,488,256"/>
+<area shape="rect" id="node9" href="$testing_8h.html" title="testing modules." alt="" coords="347,304,419,331"/>
+<area shape="rect" id="node15" href="$testing__random_8cpp.html" title="initializes the generator of pseudo random number." alt="" coords="473,453,609,480"/>
+<area shape="rect" id="node11" href="$testing_2src_2precompiled_8h_source.html" title="precompiled.h" alt="" coords="323,379,425,405"/>
+<area shape="rect" id="node13" href="$testing__log_8cpp.html" title="outputs the log of the unit test at the end of scope." alt="" coords="5,453,115,480"/>
+<area shape="rect" id="node17" href="$testing__registry_8cpp.html" title="the collection of all tests." alt="" coords="140,453,276,480"/>
+<area shape="rect" id="node19" href="$testing__unit__base_8cpp.html" title="base class to test one module." alt="" coords="300,453,449,480"/>
+</map>

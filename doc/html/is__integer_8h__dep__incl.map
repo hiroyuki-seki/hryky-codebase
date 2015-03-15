@@ -1,0 +1,51 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$is__numeric_8h.html" title="confirmes whether the type is numeric." alt="" coords="3109,80,3205,107"/>
+<area shape="rect" id="node11" href="$gp_8h.html" title="utilities for generic programming." alt="" coords="3219,155,3265,181"/>
+<area shape="rect" id="node5" href="$any_8h.html" title="arbitrary typed value without polymorphism." alt="" coords="1585,379,1639,405"/>
+<area shape="rect" id="node7" href="$parser__base_8h.html" title="base class for parsing syntax." alt="" coords="1455,453,1559,480"/>
+<area shape="rect" id="node9" href="$http__header__parser_8cpp.html" title="parses a text string of HTTP Message." alt="" coords="1591,677,1749,704"/>
+<area shape="rect" id="node13" href="$adapter_8h.html" title="provides the interface in behalf of the valueementation." alt="" coords="858,229,933,256"/>
+<area shape="rect" id="node25" href="$allocator__base_8h.html" title="interface of allocator." alt="" coords="4285,229,4403,256"/>
+<area shape="rect" id="node35" href="$shared__ptr_8h.html" title="smart pointer which has a reference count." alt="" coords="2609,528,2703,555"/>
+<area shape="rect" id="node45" href="$atomic__accessor_8h.html" title="synchronizes the access to an object." alt="" coords="1766,379,1897,405"/>
+<area shape="rect" id="node50" href="$color__rgba_8h.html" title="represents a color format which comprises RGBA." alt="" coords="5,304,99,331"/>
+<area shape="rect" id="node57" href="$common_8h.html" title="common definition." alt="" coords="2385,229,2468,256"/>
+<area shape="rect" id="node74" href="$substring_8h.html" title="represents the part of string." alt="" coords="3598,379,3684,405"/>
+<area shape="rect" id="node80" href="$main_8h.html" title="utilizes entry&#45;point." alt="" coords="3320,304,3381,331"/>
+<area shape="rect" id="node99" href="$fixed__vector_8h.html" title="vector of fixed size on compile time." alt="" coords="3443,229,3544,256"/>
+<area shape="rect" id="node101" href="$geometry__coord__cartesian_8h.html" title="retains the information of a coordinate specified by Cartesian coordinate system." alt="" coords="3568,229,3755,256"/>
+<area shape="rect" id="node104" href="$offset__ptr_8h.html" title="refers the value by the offset from the origin." alt="" coords="3281,229,3367,256"/>
+<area shape="rect" id="node107" href="$range_8h.html" title="mediates the characteristic which has begin() and end()." alt="" coords="821,379,885,405"/>
+<area shape="rect" id="node110" href="$scale__is__lower_8h.html" title="confirms whether LHS is on the lower scale than RHS." alt="" coords="3857,304,3975,331"/>
+<area shape="rect" id="node112" href="$scale__is__lower__equal_8h.html" title="confirms whether LHS is on the scale lower than or equal to the one of RHS." alt="" coords="3779,229,3935,256"/>
+<area shape="rect" id="node115" href="$sequence_8h.html" title="retains multiple arbitrary values." alt="" coords="90,229,179,256"/>
+<area shape="rect" id="node120" href="$log__writer__base_8h.html" title="output log message [interface]." alt="" coords="1925,229,2048,256"/>
+<area shape="rect" id="node124" href="$reduction__char_8h.html" title="primitive type of reduction for char." alt="" coords="4011,229,4129,256"/>
+<area shape="rect" id="node126" href="$reduction__int_8h.html" title="primitive type of reduction as signed integer." alt="" coords="4155,229,4261,256"/>
+<area shape="rect" id="node15" href="$http__header__cache__directive__adapter_8h.html" title="creates the class derived from http::header::cache::directive::Base with existing class..." alt="" coords="875,304,1121,331"/>
+<area shape="rect" id="node17" href="$http__header__comment__adapter_8h.html" title="provides the interface derived from http::header::comment::Base." alt="" coords="1146,304,1357,331"/>
+<area shape="rect" id="node19" href="$http__header__field__adapter_8h.html" title="creates the class derived from http::header::field::Base with existing class." alt="" coords="243,304,424,331"/>
+<area shape="rect" id="node21" href="$http__header__product__comment__adapter_8h.html" title="creates the class derived from http::header::product_comment::Base with existing class." alt="" coords="449,304,711,331"/>
+<area shape="rect" id="node23" href="$writer__adapter_8h.html" title="mediates the interface of writer::Base." alt="" coords="736,304,851,331"/>
+<area shape="rect" id="node27" href="$allocator__global_8h.html" title="allocator using global new/delete." alt="" coords="4283,304,4405,331"/>
+<area shape="rect" id="node29" href="$allocator_8h.html" title="the collection of hryky::allocator modules." alt="" coords="4204,379,4287,405"/>
+<area shape="rect" id="node31" href="$allocator__heap_8h.html" title="allocator using memory::heap::Base." alt="" coords="3405,304,3523,331"/>
+<area shape="rect" id="node40" href="$string_8h.html" title="substitutes for std::string." alt="" coords="3153,379,3217,405"/>
+<area shape="rect" id="node37" href="$http__header__parser_8h.html" title="parses a text string of HTTP Message." alt="" coords="1655,603,1799,629"/>
+<area shape="rect" id="node42" href="$log__writer__file_8h.html" title="output log message." alt="" coords="1990,453,2100,480"/>
+<area shape="rect" id="node47" href="$atomic_8h.html" title="atomic operation modules." alt="" coords="1893,453,1965,480"/>
+<area shape="rect" id="node52" href="$opengl__common_8h.html" title="common definitions of OpenGL module." alt="" coords="85,379,213,405"/>
+<area shape="rect" id="node54" href="$opengl__module_8h.html" title="manages OpenGL module." alt="" coords="39,453,159,480"/>
+<area shape="rect" id="node59" href="$ascii__common_8h.html" title="common definitions for hryky::ascii." alt="" coords="2075,304,2192,331"/>
+<area shape="rect" id="node63" href="$atomic__writer_8h.html" title="synchronizes a xrdwriting access to an object." alt="" coords="1838,304,1948,331"/>
+<area shape="rect" id="node67" href="$clear_8h.html" title="clears an arbitrary instance." alt="" coords="2216,304,2277,331"/>
+<area shape="rect" id="node69" href="$indent_8h.html" title="indents as string." alt="" coords="2302,304,2369,331"/>
+<area shape="rect" id="node71" href="$iterator__random_8h.html" title="random access iterator." alt="" coords="3173,304,3296,331"/>
+<area shape="rect" id="node76" href="$kind_8h.html" title="template for the class that represents the kind." alt="" coords="1603,304,1660,331"/>
+<area shape="rect" id="node83" href="$hryky_8h.html" title="include the entire headers of hryky&#45;codebase." alt="" coords="2394,304,2459,331"/>
+<area shape="rect" id="node85" href="$common_8cpp.html" title="common definitions." alt="" coords="2483,304,2580,331"/>
+<area shape="rect" id="node87" href="$file__descriptor__entity_8h.html" title="retains a file descriptor." alt="" coords="2605,304,2757,331"/>
+<area shape="rect" id="node89" href="$filesystem__common_8cpp.html" title="common definitions for hryky::filesystem." alt="" coords="2781,304,2944,331"/>
+<area shape="rect" id="node91" href="$http__body__entity_8h.html" title="retains a message&#45;body of HTTP Message." alt="" coords="2969,304,3097,331"/>
+<area shape="rect" id="node94" href="$log__writer__common_8h.html" title="functions for log writer." alt="" coords="1434,304,1579,331"/>
+</map>

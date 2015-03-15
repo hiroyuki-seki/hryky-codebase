@@ -1,0 +1,5 @@
+<map id="G" name="G">
+<area shape="rect" id="node1" href="$classhryky_1_1allocator_1_1_base.html" title="interface of allocator." alt="" coords="5,31,219,57"/>
+<area shape="rect" id="node3" href="$classhryky_1_1allocator_1_1_global.html" title="allocator using global new/delete." alt="" coords="294,5,514,32"/>
+<area shape="rect" id="node5" href="$classhryky_1_1allocator_1_1_heap.html" title="allocator using memory::heap::Base." alt="" coords="267,56,541,83"/>
+</map>

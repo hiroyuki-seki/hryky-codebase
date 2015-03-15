@@ -1,0 +1,142 @@
+\hypertarget{qsort_8h_source}{\section{qsort.\-h}
+}
+
+\begin{DoxyCode}
+00001 
+00007 \textcolor{preprocessor}{#ifndef QSORT\_H\_20120911113935152}
+00008 \textcolor{preprocessor}{}\textcolor{preprocessor}{#define QSORT\_H\_20120911113935152}
+00009 \textcolor{preprocessor}{}\textcolor{preprocessor}{#include "\hyperlink{foreach_8h}{hryky/foreach.h}"}
+00010 \textcolor{preprocessor}{#include "\hyperlink{range_8h}{hryky/range.h}"}
+00011 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00012 \textcolor{comment}{// macro definition}
+00013 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00014 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00015 \textcolor{comment}{// namespace}
+00016 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00017 \textcolor{keyword}{namespace }hryky
+00018 \{
+00019 \} \textcolor{comment}{// namespace hryky}
+00020 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00021 \textcolor{comment}{// struct declaration}
+00022 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00023 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00024 \textcolor{comment}{// class declaration}
+00025 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00026 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00027 \textcolor{comment}{// global function prototypes}
+00028 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00029 \textcolor{keyword}{namespace }hryky
+00030 \{
+00034     \textcolor{keyword}{template} < \textcolor{keyword}{typename} InputIterator >
+00035     \textcolor{keywordtype}{void} \hyperlink{namespacehryky_a438e3ee8f5109856c4a1e4daa9980982}{qsort}(InputIterator \textcolor{keyword}{const} begin, InputIterator \textcolor{keyword}{const} end);
+00036 
+\hypertarget{qsort_8h_source_l00038}{}\hyperlink{namespacehryky_1_1qsort__internal}{00038}     \textcolor{keyword}{namespace }qsort\_internal
+00039     \{
+00043         \textcolor{keyword}{template} < \textcolor{keyword}{typename} InputIterator >
+00044         \textcolor{keywordtype}{size\_t} \hyperlink{namespacehryky_1_1qsort__internal_a2a9908c1e249d16e6701c06e341f9e1d}{pivot_position}(
+00045             InputIterator \textcolor{keyword}{const} begin, InputIterator \textcolor{keyword}{const} end);
+00052         \textcolor{keyword}{template} < \textcolor{keyword}{typename} InputIterator >
+00053         InputIterator \hyperlink{namespacehryky_1_1qsort__internal_ac2e850d235f7ec38a913c4ea71d2970e}{partition}(InputIterator \textcolor{keyword}{const} begin, InputIterator \textcolor{keyword}{const} 
+      end);
+00054     \}
+00055 
+00056 \} \textcolor{comment}{// namespace hryky}
+00057 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00058 \textcolor{comment}{// global function definitions}
+00059 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00065 \textcolor{comment}{}\textcolor{keyword}{template} < \textcolor{keyword}{typename} InputIterator >
+\hypertarget{qsort_8h_source_l00066}{}\hyperlink{namespacehryky_a438e3ee8f5109856c4a1e4daa9980982}{00066} \textcolor{keywordtype}{void} \hyperlink{namespacehryky_a438e3ee8f5109856c4a1e4daa9980982}{hryky::qsort}(InputIterator \textcolor{keyword}{const} begin, InputIterator \textcolor{keyword}{const} end)
+00067 \{
+00068 \textcolor{preprocessor}{#if 0}
+00069 \textcolor{preprocessor}{}    std::ostringstream os;
+00070     os << \textcolor{stringliteral}{"["} << begin << \textcolor{stringliteral}{","} << end << \textcolor{stringliteral}{") => \{"};
+00071     \textcolor{keywordflow}{for} (ValueT & value : std::make\_pair(begin, end)) \{
+00072         os << std::hex << std::showbase << value << \textcolor{stringliteral}{","};
+00073     \}
+00074     os << \textcolor{stringliteral}{"\}"};
+00075     \hyperlink{log__writer__common_8h_ad94e7301fdfeec6ecd1cb63b4c81325a}{hryky_log_debug}(os.str());
+00076 \textcolor{preprocessor}{#endif}
+00077 \textcolor{preprocessor}{}
+00078     InputIterator \textcolor{keyword}{const} boundary = \hyperlink{namespacehryky_1_1qsort__internal_ac2e850d235f7ec38a913c4ea71d2970e}{qsort_internal::partition}(begin, end);
+00079 
+00080     \textcolor{keywordflow}{if} (end == boundary)
+00081         \textcolor{keywordflow}{return};
+00082 
+00083     \hyperlink{namespacehryky_a438e3ee8f5109856c4a1e4daa9980982}{hryky::qsort}(begin, boundary);
+00084     \hyperlink{namespacehryky_a438e3ee8f5109856c4a1e4daa9980982}{hryky::qsort}(boundary, end);
+00085 \};
+00094 \textcolor{keyword}{template} < \textcolor{keyword}{typename} InputIterator >
+\hypertarget{qsort_8h_source_l00095}{}\hyperlink{namespacehryky_1_1qsort__internal_a2a9908c1e249d16e6701c06e341f9e1d}{00095} \textcolor{keywordtype}{size\_t} \hyperlink{namespacehryky_1_1qsort__internal_a2a9908c1e249d16e6701c06e341f9e1d}{hryky::qsort_internal::pivot_position}(
+00096     InputIterator \textcolor{keyword}{const} begin, InputIterator \textcolor{keyword}{const} end)
+00097 \{
+00098     \textcolor{keyword}{typedef} \textcolor{keyword}{typename} std::iterator\_traits<InputIterator>::reference
+00099         reference;
+00100     
+00101     reference begin\_ref = *begin;
+00102     
+00103     \hyperlink{classhryky_1_1_foreach}{Foreach<Range<InputIterator>} > \textcolor{keywordflow}{foreach}(\hyperlink{namespacehryky_a6093192359bc9630d58d6158bd0178f4}{range}(begin + 1, end));
+00104     \textcolor{keywordflow}{for} (; \textcolor{keywordflow}{foreach}.valid(); ++\textcolor{keywordflow}{foreach}) \{
+00105         reference ref = *\textcolor{keywordflow}{foreach};
+00106         \textcolor{keywordflow}{if} (begin\_ref > ref) \{
+00107             \textcolor{keywordflow}{return} 0;
+00108         \}
+00109         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (begin\_ref < ref) \{
+00110             \textcolor{keywordflow}{return} \textcolor{keywordflow}{foreach}.\hyperlink{classhryky_1_1_foreach_aab1aceaecb09f71b9ba33ca9ceb49fb1}{offset}() + 1;
+00111         \}
+00112     \}
+00113     
+00114     \textcolor{keywordflow}{return} \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{size\_t}\textcolor{keyword}{>}(-1);
+00115 \};
+00125 \textcolor{keyword}{template} < \textcolor{keyword}{typename} InputIterator >
+\hypertarget{qsort_8h_source_l00126}{}\hyperlink{namespacehryky_1_1qsort__internal_ac2e850d235f7ec38a913c4ea71d2970e}{00126} InputIterator \hyperlink{namespacehryky_1_1qsort__internal_ac2e850d235f7ec38a913c4ea71d2970e}{hryky::qsort_internal::partition}(
+00127     InputIterator \textcolor{keyword}{const} begin, InputIterator \textcolor{keyword}{const} end)
+00128 \{
+00129     \textcolor{keywordflow}{if} (begin == end || begin + 1 == end)
+00130         \textcolor{keywordflow}{return} end;
+00131 
+00132     \textcolor{keywordtype}{size\_t} \textcolor{keyword}{const} pivot\_pos = \hyperlink{namespacehryky_1_1qsort__internal_a2a9908c1e249d16e6701c06e341f9e1d}{pivot_position}(begin, end);
+00133 
+00134     \textcolor{keywordflow}{if} (static\_cast<size\_t>(-1) == pivot\_pos)
+00135         \textcolor{keywordflow}{return} end;
+00136 
+00137     \textcolor{keyword}{typedef} std::iterator\_traits<InputIterator>::value\_type  value\_type;
+00138 
+00139     value\_type \textcolor{keyword}{const} pivot = *(begin + pivot\_pos);
+00140     InputIterator forward = begin;
+00141     InputIterator backward = end - 1;
+00142 
+00143     \textcolor{keywordflow}{while} (forward <= backward) \{
+00144         \textcolor{keywordflow}{while} (*forward < pivot)
+00145         \{ 
+00146             ++forward;
+00147         \}
+00148 
+00149         \textcolor{keywordflow}{while} (backward > begin && *backward >= pivot) \{
+00150             --backward;
+00151         \}
+00152 
+00153         \textcolor{keywordflow}{if} (backward <= forward)
+00154             \textcolor{keywordflow}{return} forward;
+00155 
+00156         \hyperlink{namespacehryky_add9c1c1fdfda07cd47bcb7c16d3a823a}{hryky_swap}(*forward, *backward);
+00157         ++forward;
+00158         --backward;
+00159     \}
+00160     
+00161     \textcolor{keywordflow}{return} forward;
+00162 \};
+00163 \textcolor{preprocessor}{#endif // QSORT\_H\_20120911113935152}
+00164 \textcolor{preprocessor}{}\textcolor{comment}{// end of file}
+\end{DoxyCode}

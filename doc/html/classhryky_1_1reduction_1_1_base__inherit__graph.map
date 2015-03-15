@@ -1,0 +1,11 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$classhryky_1_1reduction_1_1_address.html" title="primitive type of reduction as memory address." alt="" coords="5,323,176,503"/>
+<area shape="rect" id="node5" href="$classhryky_1_1reduction_1_1_array.html" title="aggregates the multiple values without their names." alt="" coords="200,301,355,525"/>
+<area shape="rect" id="node7" href="$classhryky_1_1reduction_1_1_bool.html" title="primitive type of reduction as boolean." alt="" coords="379,323,528,503"/>
+<area shape="rect" id="node9" href="$classhryky_1_1reduction_1_1_char.html" title="primitive type of reduction for char." alt="" coords="553,323,703,503"/>
+<area shape="rect" id="node11" href="$classhryky_1_1reduction_1_1_float.html" title="primitive type of reduction as floating point." alt="" coords="728,323,880,503"/>
+<area shape="rect" id="node13" href="$classhryky_1_1reduction_1_1_int.html" title="primitive type of reduction as signed integer." alt="" coords="905,323,1041,503"/>
+<area shape="rect" id="node15" href="$classhryky_1_1reduction_1_1_map.html" title="aggregates the multiple named values with each name." alt="" coords="1066,294,1213,533"/>
+<area shape="rect" id="node17" href="$classhryky_1_1reduction_1_1_string.html" title="primitive type of reduction as string." alt="" coords="1239,316,1396,511"/>
+<area shape="rect" id="node19" href="$classhryky_1_1reduction_1_1_uint.html" title="primitive type of reduction as unsigned integer." alt="" coords="1420,323,1567,503"/>
+</map>

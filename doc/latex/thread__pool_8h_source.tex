@@ -1,0 +1,167 @@
+\hypertarget{thread__pool_8h_source}{\section{thread\-\_\-pool.\-h}
+}
+
+\begin{DoxyCode}
+00001 
+00007 \textcolor{preprocessor}{#ifndef THREAD\_POOL\_H\_20111223150404294}
+00008 \textcolor{preprocessor}{}\textcolor{preprocessor}{#define THREAD\_POOL\_H\_20111223150404294}
+00009 \textcolor{preprocessor}{}\textcolor{preprocessor}{#include "\hyperlink{exclusion_8h}{hryky/exclusion.h}"}
+00010 \textcolor{preprocessor}{#include "\hyperlink{reduction_8h}{hryky/reduction.h}"}
+00011 \textcolor{preprocessor}{#include "\hyperlink{memory__heap__base_8h}{hryky/memory/heap/memory_heap_base.h}"}
+00012 \textcolor{preprocessor}{#include "\hyperlink{thread__common_8h}{hryky/thread/thread_common.h}"}
+00013 \textcolor{preprocessor}{#include "\hyperlink{vector_8h}{hryky/vector.h}"}
+00014 \textcolor{preprocessor}{#include "\hyperlink{reduction__common_8h}{hryky/reduction/reduction_common.h}"}
+00015 \textcolor{preprocessor}{#include "\hyperlink{chrono_8h}{hryky/chrono.h}"}
+00016 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00017 \textcolor{comment}{// macro definition}
+00018 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00019 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00020 \textcolor{comment}{// namespace}
+00021 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00022 \textcolor{keyword}{namespace }hryky
+00023 \{
+00024 \textcolor{keyword}{namespace }thread
+00025 \{
+00027     \textcolor{keyword}{class }Pool;
+00028 
+00029     \textcolor{keyword}{class }Resource;
+00030 
+00031 \textcolor{keyword}{namespace }callable
+00032 \{
+00033     \textcolor{keyword}{class }Base;
+00034 \} \textcolor{comment}{// namespace callable}
+00035 \} \textcolor{comment}{// namespace thread}
+00036 \textcolor{keyword}{namespace }exclusion
+00037 \{
+00038     \textcolor{keyword}{template} < \textcolor{keyword}{typename} LockableT >
+00039     \textcolor{keyword}{class }Lock;
+00040     
+00041 \} \textcolor{comment}{// namespace exclusion}
+00042 \} \textcolor{comment}{// namespace hryky}
+00043 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00044 \textcolor{comment}{// class declaration}
+00045 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+\hypertarget{thread__pool_8h_source_l00049}{}\hyperlink{classhryky_1_1thread_1_1_pool}{00049} \textcolor{comment}{}\textcolor{keyword}{class }\hyperlink{classhryky_1_1thread_1_1_pool}{hryky::thread::Pool}
+00050 \{
+00051 \textcolor{keyword}{public} :
+00052 
+\hypertarget{thread__pool_8h_source_l00053}{}\hyperlink{classhryky_1_1thread_1_1_pool_a969ac19770a6e83266c32e28f9c85589}{00053}     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1thread_1_1_pool}{hryky::thread::Pool}     \hyperlink{classhryky_1_1thread_1_1_pool_a969ac19770a6e83266c32e28f9c85589}{this_type};          
+\hypertarget{thread__pool_8h_source_l00054}{}\hyperlink{classhryky_1_1thread_1_1_pool_adf3dc9b77ef4669d18ed2229c9b5697d}{00054}     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1thread_1_1callable_1_1_base}{callable::Base} &        \hyperlink{classhryky_1_1thread_1_1_pool_adf3dc9b77ef4669d18ed2229c9b5697d}{callable_reference}; 
+00055     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1memory_1_1heap_1_1_base}{memory::heap_type}       \hyperlink{classhryky_1_1memory_1_1heap_1_1_base}{heap_type};
+00056 
+\hypertarget{thread__pool_8h_source_l00061}{}\hyperlink{structhryky_1_1thread_1_1_pool_1_1_reset_parameter}{00061}     \textcolor{keyword}{struct }\hyperlink{structhryky_1_1thread_1_1_pool_1_1_reset_parameter}{ResetParameter} : \hyperlink{classhryky_1_1_noncopyable}{Noncopyable}
+00062     \{
+00063         \hyperlink{structhryky_1_1thread_1_1_pool_1_1_reset_parameter}{ResetParameter}()
+00064             : joinable\_duration\_(duration\_type(5000))
+00065               , heap\_()
+00066         \{\}
+00067 
+00068         hryky\_accessor\_row(duration\_type,   joinable\_duration);
+00069         hryky\_accessor\_row(\hyperlink{classhryky_1_1memory_1_1heap_1_1_base}{heap_type},       \hyperlink{namespacehryky_1_1memory_1_1global_a6fc6103f67c837aa0f39b359588409cd}{heap});
+00070     \};
+00071 
+00073     \textcolor{keyword}{explicit} \hyperlink{classhryky_1_1thread_1_1_pool_a3e06da22084014145905237a51f495e0}{Pool}();
+00074 
+00076     \hyperlink{classhryky_1_1thread_1_1_pool_a2b2641eafd17e11334554b85d0a41002}{~Pool}();
+00077 
+00079     \textcolor{keywordtype}{bool} \hyperlink{classhryky_1_1thread_1_1_pool_a7060b7e3c556334ec71aa2b42401231f}{reset}(\hyperlink{structhryky_1_1thread_1_1_pool_1_1_reset_parameter}{ResetParameter} \textcolor{keyword}{const} & param);
+00080 
+00082     \textcolor{keywordtype}{bool} \hyperlink{classhryky_1_1thread_1_1_pool_ad3e2de38ca9e4803b2466baa3ab8d26d}{enregister}(\hyperlink{classhryky_1_1thread_1_1callable_1_1_base}{callable_reference} callable);
+00083 
+00085     \textcolor{keywordtype}{bool} \hyperlink{classhryky_1_1thread_1_1_pool_ad3e2de38ca9e4803b2466baa3ab8d26d}{enregister}(\hyperlink{classhryky_1_1thread_1_1callable_1_1_base}{callable_reference} callable, \hyperlink{namespacehryky_a5e2737162aa470ce3920f86e86eac0bc}{processor_id_type} processor\_id
+      );
+00086 
+00088     \textcolor{keywordtype}{bool} \hyperlink{classhryky_1_1thread_1_1_pool_ae98cafaf20f22576e93b03b4892f55f4}{reserve}(\textcolor{keywordtype}{size\_t} capacity);
+00089 
+00091     \textcolor{keywordtype}{bool} \hyperlink{classhryky_1_1thread_1_1_pool_ab131e2d89db71b2b8e27086cacfcc761}{join}(duration\_type \textcolor{keyword}{const} & duration);
+00092 
+00094     \hyperlink{classhryky_1_1_intrusive_ptr}{reduction_type} \hyperlink{classhryky_1_1thread_1_1_pool_af894bce076ed5cdf84efeee2c44b9cf1}{reduce}(\hyperlink{classhryky_1_1reduction_1_1_string}{reduction::name_type} \textcolor{keyword}{const} & name) \textcolor{keyword}{const};
+00095 
+00096 \textcolor{keyword}{protected} :
+00097 
+00098 \textcolor{keyword}{private} :
+00099 
+00100     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1exclusion_1_1_mutex}{exclusion::Mutex}                \hyperlink{classhryky_1_1exclusion_1_1_mutex}{lockable_type};
+00101     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1exclusion_1_1_lock}{exclusion::Lock<lockable_type>}  \hyperlink{classhryky_1_1exclusion_1_1_lock}{lock_type};
+00102     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1exclusion_1_1_counter}{exclusion::Counter}              \hyperlink{classhryky_1_1exclusion_1_1_counter}{counter_type};
+00103     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1thread_1_1_resource}{Resource} *                      \hyperlink{classhryky_1_1thread_1_1_resource}{resource_type};
+00104     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1_vector}{Vector<resource_type>}           \hyperlink{classhryky_1_1_vector}{buffer_type};
+00105 
+00107     \textcolor{keyword}{explicit} \hyperlink{classhryky_1_1thread_1_1_pool_a3e06da22084014145905237a51f495e0}{Pool}(\hyperlink{classhryky_1_1thread_1_1_pool}{Pool} \textcolor{keyword}{const} &);
+00108 
+00110     \textcolor{keywordtype}{void} inactivate(\hyperlink{classhryky_1_1thread_1_1_resource}{Resource} & resource);
+00111 
+00113     \hyperlink{classhryky_1_1thread_1_1_pool}{Pool} & operator=(\hyperlink{classhryky_1_1thread_1_1_pool}{Pool} \textcolor{keyword}{const} &rhs);
+00114 
+00116     \hyperlink{classhryky_1_1thread_1_1_resource}{resource_type} append\_resource();
+00117 
+00119     \textcolor{keywordtype}{void} terminate(\hyperlink{classhryky_1_1thread_1_1_resource}{Resource} & resource);
+00120 
+00122     \hyperlink{classhryky_1_1thread_1_1_resource}{Resource} * acquire\_resource();
+00123 
+00124     \hyperlink{classhryky_1_1memory_1_1heap_1_1_base}{heap_type}                   heap\_;
+00125     \hyperlink{classhryky_1_1_vector}{buffer_type}                 buffer\_;
+00126     \hyperlink{classhryky_1_1exclusion_1_1_mutex}{lockable_type} \textcolor{keyword}{mutable}       lockable\_;
+00127     \hyperlink{classhryky_1_1thread_1_1_resource}{resource_type}               inactives\_;
+00128     duration\_type               joinable\_duration\_;
+00129     \hyperlink{classhryky_1_1exclusion_1_1_counter}{counter_type}                counter\_;
+00130 
+00131 \textcolor{keyword}{public} :
+\hypertarget{thread__pool_8h_source_l00136}{}\hyperlink{classhryky_1_1thread_1_1_pool_1_1_inactivate}{00136}     \textcolor{keyword}{class }\hyperlink{classhryky_1_1thread_1_1_pool_1_1_inactivate}{Inactivate} : \hyperlink{classhryky_1_1_noncopyable}{Noncopyable}
+00137     \{
+00138         \textcolor{keyword}{friend} \textcolor{keyword}{class }\hyperlink{classhryky_1_1thread_1_1_resource}{Resource};
+00139         \hyperlink{classhryky_1_1thread_1_1_pool_1_1_inactivate}{Inactivate}(\hyperlink{classhryky_1_1thread_1_1_pool}{Pool} & pool, \hyperlink{classhryky_1_1thread_1_1_resource}{Resource} & resource) \{ pool.inactivate(resource
+      ); \}
+00140     \};
+00141 
+\hypertarget{thread__pool_8h_source_l00146}{}\hyperlink{classhryky_1_1thread_1_1_pool_1_1_terminate}{00146}     \textcolor{keyword}{class }\hyperlink{classhryky_1_1thread_1_1_pool_1_1_terminate}{Terminate} : \hyperlink{classhryky_1_1_noncopyable}{Noncopyable}
+00147     \{
+00148         \textcolor{keyword}{friend} \textcolor{keyword}{class }\hyperlink{classhryky_1_1thread_1_1_resource}{Resource};
+00149         \hyperlink{classhryky_1_1thread_1_1_pool_1_1_terminate}{Terminate}(\hyperlink{classhryky_1_1thread_1_1_pool}{Pool} & pool, \hyperlink{classhryky_1_1thread_1_1_resource}{Resource} & resource) \{ pool.terminate(resource);
+       \}
+00150     \};
+00151 
+00152 \};
+00153 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00154 \textcolor{comment}{// public member functions}
+00155 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00156 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00157 \textcolor{comment}{// protected member functions}
+00158 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00159 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00160 \textcolor{comment}{// private member functions}
+00161 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00162 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00163 \textcolor{comment}{// global function prototypes}
+00164 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00165 \textcolor{keyword}{namespace }hryky
+00166 \{
+00167 \textcolor{keyword}{namespace }thread
+00168 \{
+00170     \hyperlink{classhryky_1_1_intrusive_ptr}{reduction_type} \hyperlink{namespacehryky_1_1thread_aed5a09e1236726d3b2a02cff74f53524}{reduce}(
+00171         \hyperlink{classhryky_1_1reduction_1_1_string}{reduction::name_type} \textcolor{keyword}{const} & name, \hyperlink{classhryky_1_1thread_1_1_pool}{Pool} \textcolor{keyword}{const} & pool);
+00172 
+00173 \} \textcolor{comment}{// namespace thread}
+00174 \} \textcolor{comment}{// namespace hryky}
+00175 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00176 \textcolor{comment}{// global function definition}
+00177 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00178 \textcolor{preprocessor}{#endif // THREAD\_POOL\_H\_20111223150404294}
+00179 \textcolor{preprocessor}{}\textcolor{comment}{// end of file}
+\end{DoxyCode}

@@ -1,0 +1,4 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$classhryky_1_1_adapter.html" title="{hryky::Adapter\&lt; writer::Base, ValueT \&gt;\n|+ hryky_assign_op\l|+ Adapter()\l+ Adapter()\l+ Adapter()\l+ Adapter()\l+ clear()\l+ reduce()\l+ swap()\l+ value()\l+ value()\l+ ~Adapter()\l}" alt="" coords="5,235,253,445"/>
+<area shape="rect" id="node5" href="$classhryky_1_1writer_1_1_adapter.html" title="mediates the interface of writer::Base." alt="" coords="24,493,235,571"/>
+</map>

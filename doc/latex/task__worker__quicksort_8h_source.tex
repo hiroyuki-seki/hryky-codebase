@@ -1,0 +1,68 @@
+\hypertarget{task__worker__quicksort_8h_source}{\section{task\-\_\-worker\-\_\-quicksort.\-h}
+}
+
+\begin{DoxyCode}
+00001 
+00009 \textcolor{preprocessor}{#ifndef TASK\_WORKER\_QUICKSORT\_H\_20111126111856138}
+00010 \textcolor{preprocessor}{}\textcolor{preprocessor}{#define TASK\_WORKER\_QUICKSORT\_H\_20111126111856138}
+00011 \textcolor{preprocessor}{}\textcolor{preprocessor}{#include "\hyperlink{task__worker__base_8h}{task/task_worker_base.h}"}
+00012 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00013 \textcolor{comment}{// macro definition}
+00014 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00015 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00016 \textcolor{comment}{// namespace}
+00017 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00018 \textcolor{keyword}{namespace }hryky
+00019 \{
+00020 \textcolor{keyword}{namespace }task
+00021 \{
+00022 \textcolor{keyword}{namespace }worker
+00023 \{
+00025     \textcolor{keyword}{template} < \textcolor{keyword}{typename} TaskT >
+00026     \textcolor{keyword}{class }Quicksort;
+00027 \}
+00028 \}
+00029 \}
+00030 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00031 \textcolor{comment}{// class declaration}
+00032 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00036 \textcolor{comment}{}\textcolor{keyword}{template} < \textcolor{keyword}{typename} TaskT >
+\hypertarget{task__worker__quicksort_8h_source_l00037}{}\hyperlink{classhryky_1_1task_1_1worker_1_1_quicksort}{00037} \textcolor{keyword}{class }\hyperlink{classhryky_1_1task_1_1worker_1_1_quicksort}{hryky::task::worker::Quicksort}
+00038     : \textcolor{keyword}{public} \hyperlink{classhryky_1_1task_1_1worker_1_1_batch}{hryky::task::worker::Batch}<TaskT>
+00039 \{
+00040 \textcolor{keyword}{public} :
+00041 
+\hypertarget{task__worker__quicksort_8h_source_l00042}{}\hyperlink{classhryky_1_1task_1_1worker_1_1_quicksort_a9f519e4e780042569287c6120af6d77f}{00042}     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1task_1_1worker_1_1_quicksort}{Quicksort<TaskT>}                \hyperlink{classhryky_1_1task_1_1worker_1_1_quicksort_a9f519e4e780042569287c6120af6d77f}{this_type};
+\hypertarget{task__worker__quicksort_8h_source_l00043}{}\hyperlink{classhryky_1_1task_1_1worker_1_1_quicksort_a66107236443ebbc9c89e26e5c60ca971}{00043}     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1task_1_1worker_1_1_batch}{Batch<TaskT>}                    \hyperlink{classhryky_1_1task_1_1worker_1_1_quicksort_a66107236443ebbc9c89e26e5c60ca971}{base_type};
+\hypertarget{task__worker__quicksort_8h_source_l00044}{}\hyperlink{classhryky_1_1task_1_1worker_1_1_quicksort_aec488952d4395530a3a8d566cd44f858}{00044}     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1task_1_1distributor_1_1_batch}{distributor::Batch<this_type>}   \hyperlink{classhryky_1_1task_1_1worker_1_1_quicksort_aec488952d4395530a3a8d566cd44f858}{distributor_type};
+00045 
+00046 \textcolor{keyword}{protected} :
+00047 
+00049     \textcolor{keyword}{explicit} \hyperlink{classhryky_1_1task_1_1worker_1_1_quicksort_af065760a86205148c6d2a70dd1cbf08e}{Quicksort}();
+00050 
+00052     \textcolor{keyword}{virtual} \hyperlink{classhryky_1_1task_1_1worker_1_1_quicksort_aeebf7ccb7a536109be5af4c5069bedfd}{~Quicksort}();
+00053 
+00055     \textcolor{keywordtype}{bool} \hyperlink{classhryky_1_1task_1_1worker_1_1_quicksort_a2f82a35614b7daa8948dc5856dc64b0d}{initialize}();
+00056 
+00057 \textcolor{keyword}{private} :
+00058 
+00060     \textcolor{keyword}{explicit} \hyperlink{classhryky_1_1task_1_1worker_1_1_quicksort_af065760a86205148c6d2a70dd1cbf08e}{Quicksort}(\hyperlink{classhryky_1_1task_1_1worker_1_1_quicksort}{Quicksort} \textcolor{keyword}{const} &);
+00061 
+00063     \hyperlink{classhryky_1_1task_1_1worker_1_1_quicksort}{Quicksort} & operator=(\hyperlink{classhryky_1_1task_1_1worker_1_1_quicksort}{Quicksort} \textcolor{keyword}{const} &rhs);
+00064 
+00065 \};
+00066 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00067 \textcolor{comment}{// inline functions}
+00068 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00069 \textcolor{preprocessor}{#endif // TASK\_WORKER\_QUICKSORT\_H\_20111126111856138}
+00070 \textcolor{preprocessor}{}
+00071 \textcolor{comment}{// end of file}
+\end{DoxyCode}

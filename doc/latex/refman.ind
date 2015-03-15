@@ -1,0 +1,2405 @@
+\begin{theindex}
+
+  \item {$\sim $\discretionary {-}{}{}Arbitrary}
+    \subitem {hryky\discretionary {-}{}{}::memory\discretionary {-}{}{}::heap\discretionary {-}{}{}::\discretionary {-}{}{}Arbitrary}, 
+		\hyperpage{293}
+  \item {$\sim $\discretionary {-}{}{}Base}
+    \subitem {hryky\discretionary {-}{}{}::log\discretionary {-}{}{}::writer\discretionary {-}{}{}::\discretionary {-}{}{}Base}, 
+		\hyperpage{282}
+    \subitem {hryky\discretionary {-}{}{}::parser\discretionary {-}{}{}::\discretionary {-}{}{}Base}, 
+		\hyperpage{317}
+    \subitem {hryky\discretionary {-}{}{}::task\discretionary {-}{}{}::distributor\discretionary {-}{}{}::\discretionary {-}{}{}Base}, 
+		\hyperpage{386}
+    \subitem {hryky\discretionary {-}{}{}::task\discretionary {-}{}{}::worker\discretionary {-}{}{}::\discretionary {-}{}{}Base}, 
+		\hyperpage{400}
+  \item {$\sim $\discretionary {-}{}{}Batch}
+    \subitem {Concurrent Task}, \hyperpage{68}
+  \item {$\sim $\discretionary {-}{}{}Concurrency}
+    \subitem {hryky\discretionary {-}{}{}::task\discretionary {-}{}{}::\discretionary {-}{}{}Concurrency}, 
+		\hyperpage{381}
+  \item {$\sim $\discretionary {-}{}{}File}
+    \subitem {hryky\discretionary {-}{}{}::log\discretionary {-}{}{}::writer\discretionary {-}{}{}::\discretionary {-}{}{}File}, 
+		\hyperpage{284}
+  \item {$\sim $\discretionary {-}{}{}Fixed}
+    \subitem {hryky\discretionary {-}{}{}::memory\discretionary {-}{}{}::heap\discretionary {-}{}{}::\discretionary {-}{}{}Fixed}, 
+		\hyperpage{301}
+  \item {$\sim $\discretionary {-}{}{}Flag}
+    \subitem {hryky\discretionary {-}{}{}::exclusion\discretionary {-}{}{}::\discretionary {-}{}{}Flag}, 
+		\hyperpage{157}
+  \item {$\sim $\discretionary {-}{}{}Heap}
+    \subitem {hryky\discretionary {-}{}{}::allocator\discretionary {-}{}{}::\discretionary {-}{}{}Heap}, 
+		\hyperpage{113}
+  \item {$\sim $\discretionary {-}{}{}Push}
+    \subitem {hryky\discretionary {-}{}{}::memory\discretionary {-}{}{}::global\discretionary {-}{}{}::\discretionary {-}{}{}Push}, 
+		\hyperpage{289}
+  \item {$\sim $\discretionary {-}{}{}Writer}
+    \subitem {Atomic Operation}, \hyperpage{60}
+
+  \indexspace
+
+  \item {Accessor}
+    \subitem {hryky\discretionary {-}{}{}::atomic\discretionary {-}{}{}::\discretionary {-}{}{}Accessor}, 
+		\hyperpage{119, 120}
+  \item {adapter.\discretionary {-}{}{}h}, \hyperpage{449}
+  \item {add\discretionary {-}{}{}\_\discretionary {-}{}{}const.\discretionary {-}{}{}h}, 
+		\hyperpage{450}
+  \item {add\discretionary {-}{}{}\_\discretionary {-}{}{}const\discretionary {-}{}{}\_\discretionary {-}{}{}pointer.\discretionary {-}{}{}h}, 
+		\hyperpage{450}
+  \item {add\discretionary {-}{}{}\_\discretionary {-}{}{}const\discretionary {-}{}{}\_\discretionary {-}{}{}reference.\discretionary {-}{}{}h}, 
+		\hyperpage{451}
+  \item {add\discretionary {-}{}{}\_\discretionary {-}{}{}pointer.\discretionary {-}{}{}h}, 
+		\hyperpage{452}
+  \item {add\discretionary {-}{}{}\_\discretionary {-}{}{}reference.\discretionary {-}{}{}h}, 
+		\hyperpage{453}
+  \item {alert\-\_\-}
+    \subitem {hryky\-::log\-::level\-::\-Kind}, \hyperpage{280}
+  \item {align.\discretionary {-}{}{}h}, \hyperpage{453}
+  \item {align\discretionary {-}{}{}\_\discretionary {-}{}{}ceil}
+    \subitem {hryky}, \hyperpage{78}
+  \item {align\discretionary {-}{}{}\_\discretionary {-}{}{}floor}
+    \subitem {hryky}, \hyperpage{78}
+  \item {allocatable\discretionary {-}{}{}\_\discretionary {-}{}{}size}
+    \subitem {hryky\discretionary {-}{}{}::memory\discretionary {-}{}{}::heap\discretionary {-}{}{}::\discretionary {-}{}{}Adapter}, 
+		\hyperpage{291}
+    \subitem {hryky\discretionary {-}{}{}::memory\discretionary {-}{}{}::heap\discretionary {-}{}{}::\discretionary {-}{}{}Arbitrary}, 
+		\hyperpage{294}
+    \subitem {hryky\discretionary {-}{}{}::memory\discretionary {-}{}{}::heap\discretionary {-}{}{}::\discretionary {-}{}{}Base}, 
+		\hyperpage{299}
+  \item {allocate}
+    \subitem {hryky\discretionary {-}{}{}::memory\discretionary {-}{}{}::heap\discretionary {-}{}{}::\discretionary {-}{}{}Adapter}, 
+		\hyperpage{291}
+    \subitem {hryky\discretionary {-}{}{}::memory\discretionary {-}{}{}::heap\discretionary {-}{}{}::\discretionary {-}{}{}Arbitrary}, 
+		\hyperpage{294}
+    \subitem {hryky\discretionary {-}{}{}::memory\discretionary {-}{}{}::heap\discretionary {-}{}{}::\discretionary {-}{}{}Base}, 
+		\hyperpage{299}
+    \subitem {hryky\discretionary {-}{}{}::memory\discretionary {-}{}{}::heap\discretionary {-}{}{}::\discretionary {-}{}{}Fixed}, 
+		\hyperpage{301}
+  \item {allocator.\discretionary {-}{}{}h}, \hyperpage{454}
+  \item {allocator\discretionary {-}{}{}\_\discretionary {-}{}{}base.\discretionary {-}{}{}h}, 
+		\hyperpage{455}
+  \item {allocator\discretionary {-}{}{}\_\discretionary {-}{}{}common.\discretionary {-}{}{}h}, 
+		\hyperpage{456}
+  \item {allocator\discretionary {-}{}{}\_\discretionary {-}{}{}global.\discretionary {-}{}{}h}, 
+		\hyperpage{457}
+  \item {allocator\discretionary {-}{}{}\_\discretionary {-}{}{}heap.\discretionary {-}{}{}h}, 
+		\hyperpage{458}
+  \item {and.\discretionary {-}{}{}h}, \hyperpage{459}
+  \item {any.\discretionary {-}{}{}h}, \hyperpage{459}
+  \item {append}
+    \subitem {Concurrent Task}, \hyperpage{66}
+    \subitem {hryky\discretionary {-}{}{}::reduction\discretionary {-}{}{}::\discretionary {-}{}{}Map}, 
+		\hyperpage{346}
+  \item {Arbitrary}
+    \subitem {hryky\discretionary {-}{}{}::memory\discretionary {-}{}{}::heap\discretionary {-}{}{}::\discretionary {-}{}{}Arbitrary}, 
+		\hyperpage{293}
+  \item {array.\discretionary {-}{}{}h}, \hyperpage{460}
+  \item {as\discretionary {-}{}{}\_\discretionary {-}{}{}parameter.\discretionary {-}{}{}h}, 
+		\hyperpage{462}
+  \item {ascii.\discretionary {-}{}{}h}, \hyperpage{462}
+  \item {ascii\discretionary {-}{}{}\_\discretionary {-}{}{}common.\discretionary {-}{}{}cpp}, 
+		\hyperpage{463}
+  \item {ascii\discretionary {-}{}{}\_\discretionary {-}{}{}common.\discretionary {-}{}{}h}, 
+		\hyperpage{464}
+    \subitem {hryky\discretionary {-}{}{}\_\discretionary {-}{}{}case\discretionary {-}{}{}\_\discretionary {-}{}{}ascii\discretionary {-}{}{}\_\discretionary {-}{}{}lohexdig}, 
+		\hyperpage{466}
+    \subitem {hryky\discretionary {-}{}{}\_\discretionary {-}{}{}case\discretionary {-}{}{}\_\discretionary {-}{}{}ascii\discretionary {-}{}{}\_\discretionary {-}{}{}uphexdig}, 
+		\hyperpage{466}
+  \item {assert.\discretionary {-}{}{}h}, \hyperpage{466}
+  \item {assignable.\discretionary {-}{}{}h}, \hyperpage{466}
+  \item {Atomic Operation}, \hyperpage{57}
+    \subitem {$\sim $\discretionary {-}{}{}Writer}, \hyperpage{60}
+    \subitem {compare\discretionary {-}{}{}\_\discretionary {-}{}{}and\discretionary {-}{}{}\_\discretionary {-}{}{}swap}, 
+		\hyperpage{58}
+    \subitem {exclude}, \hyperpage{58}
+    \subitem {operator=}, \hyperpage{59}
+    \subitem {Writer}, \hyperpage{59}
+  \item {atomic.\discretionary {-}{}{}h}, \hyperpage{467}
+  \item {atomic\discretionary {-}{}{}\_\discretionary {-}{}{}accessor.\discretionary {-}{}{}h}, 
+		\hyperpage{468}
+  \item {atomic\discretionary {-}{}{}\_\discretionary {-}{}{}writer.\discretionary {-}{}{}h}, 
+		\hyperpage{468}
+  \item {attach}
+    \subitem {hryky\discretionary {-}{}{}::task\discretionary {-}{}{}::distributor\discretionary {-}{}{}::\discretionary {-}{}{}Base}, 
+		\hyperpage{386}
+    \subitem {hryky\discretionary {-}{}{}::task\discretionary {-}{}{}::distributor\discretionary {-}{}{}::\discretionary {-}{}{}Base\discretionary {-}{}{}::\discretionary {-}{}{}Worker\discretionary {-}{}{}Observer}, 
+		\hyperpage{389}
+    \subitem {hryky\discretionary {-}{}{}::task\discretionary {-}{}{}::distributor\discretionary {-}{}{}::\discretionary {-}{}{}Batch}, 
+		\hyperpage{393}
+    \subitem {hryky\discretionary {-}{}{}::task\discretionary {-}{}{}::distributor\discretionary {-}{}{}::\discretionary {-}{}{}Impl}, 
+		\hyperpage{397}
+    \subitem {hryky\discretionary {-}{}{}::task\discretionary {-}{}{}::worker\discretionary {-}{}{}::\discretionary {-}{}{}Base}, 
+		\hyperpage{401}
+    \subitem {hryky\discretionary {-}{}{}::task\discretionary {-}{}{}::worker\discretionary {-}{}{}::\discretionary {-}{}{}Base\discretionary {-}{}{}::\discretionary {-}{}{}Observer}, 
+		\hyperpage{403}
+    \subitem {hryky\discretionary {-}{}{}::task\discretionary {-}{}{}::worker\discretionary {-}{}{}::\discretionary {-}{}{}Batch}, 
+		\hyperpage{408}
+    \subitem {hryky\discretionary {-}{}{}::task\discretionary {-}{}{}::worker\discretionary {-}{}{}::\discretionary {-}{}{}Quicksort}, 
+		\hyperpage{413}
+  \item {attach\discretionary {-}{}{}\_\discretionary {-}{}{}with}
+    \subitem {Concurrent Task}, \hyperpage{66}
+  \item {Auto\discretionary {-}{}{}Delete}
+    \subitem {hryky\discretionary {-}{}{}::\discretionary {-}{}{}Auto\discretionary {-}{}{}Delete}, 
+		\hyperpage{124}
+  \item {Auto\discretionary {-}{}{}Free}
+    \subitem {hryky\discretionary {-}{}{}::\discretionary {-}{}{}Auto\discretionary {-}{}{}Free}, 
+		\hyperpage{125}
+  \item {Auto\discretionary {-}{}{}Release}
+    \subitem {hryky\discretionary {-}{}{}::\discretionary {-}{}{}Auto\discretionary {-}{}{}Release}, 
+		\hyperpage{130}
+
+  \indexspace
+
+  \item {Base}
+    \subitem {hryky\discretionary {-}{}{}::log\discretionary {-}{}{}::writer\discretionary {-}{}{}::\discretionary {-}{}{}Base}, 
+		\hyperpage{282}
+    \subitem {hryky\discretionary {-}{}{}::task\discretionary {-}{}{}::distributor\discretionary {-}{}{}::\discretionary {-}{}{}Base}, 
+		\hyperpage{386}
+    \subitem {hryky\discretionary {-}{}{}::task\discretionary {-}{}{}::worker\discretionary {-}{}{}::\discretionary {-}{}{}Base}, 
+		\hyperpage{400}
+  \item {Batch}
+    \subitem {Concurrent Task}, \hyperpage{67}
+  \item {begin}
+    \subitem {hryky\discretionary {-}{}{}::\discretionary {-}{}{}Scoped\discretionary {-}{}{}Array}, 
+		\hyperpage{360}
+  \item {bitfield.\discretionary {-}{}{}h}, \hyperpage{469}
+  \item {bitset.\discretionary {-}{}{}h}, \hyperpage{470}
+  \item {Boot}
+    \subitem {hryky\discretionary {-}{}{}::memory\discretionary {-}{}{}::global\discretionary {-}{}{}::\discretionary {-}{}{}Boot}, 
+		\hyperpage{288}
+  \item {buffer\discretionary {-}{}{}\_\discretionary {-}{}{}size}
+    \subitem {hryky\discretionary {-}{}{}::memory\discretionary {-}{}{}::heap\discretionary {-}{}{}::\discretionary {-}{}{}Fixed}, 
+		\hyperpage{301}
+
+  \indexspace
+
+  \item {capacity}
+    \subitem {hryky\discretionary {-}{}{}::\discretionary {-}{}{}Fixed\discretionary {-}{}{}Vector}, 
+		\hyperpage{168}
+    \subitem {hryky\discretionary {-}{}{}::\discretionary {-}{}{}String}, 
+		\hyperpage{377}
+    \subitem {hryky\discretionary {-}{}{}::\discretionary {-}{}{}Vector}, 
+		\hyperpage{444}
+  \item {cast}
+    \subitem {hryky\discretionary {-}{}{}::\discretionary {-}{}{}Any}, 
+		\hyperpage{115}
+  \item {chrono.\discretionary {-}{}{}h}, \hyperpage{471}
+  \item {chrono\discretionary {-}{}{}\_\discretionary {-}{}{}common.\discretionary {-}{}{}cpp}, 
+		\hyperpage{472}
+  \item {chrono\discretionary {-}{}{}\_\discretionary {-}{}{}common.\discretionary {-}{}{}h}, 
+		\hyperpage{472}
+  \item {clear.\discretionary {-}{}{}h}, \hyperpage{473}
+  \item {clock.\discretionary {-}{}{}h}, \hyperpage{474}
+  \item {clock\discretionary {-}{}{}\_\discretionary {-}{}{}common.\discretionary {-}{}{}h}, 
+		\hyperpage{475}
+  \item {color\discretionary {-}{}{}\_\discretionary {-}{}{}rgba.\discretionary {-}{}{}h}, 
+		\hyperpage{476}
+  \item {common.\discretionary {-}{}{}cpp}, \hyperpage{477}
+  \item {common.\discretionary {-}{}{}h}, \hyperpage{477}
+    \subitem {hryky\discretionary {-}{}{}\_\discretionary {-}{}{}accessor}, 
+		\hyperpage{478}
+    \subitem {hryky\discretionary {-}{}{}\_\discretionary {-}{}{}accessor\discretionary {-}{}{}\_\discretionary {-}{}{}read}, 
+		\hyperpage{479}
+    \subitem {hryky\discretionary {-}{}{}\_\discretionary {-}{}{}accessor\discretionary {-}{}{}\_\discretionary {-}{}{}row}, 
+		\hyperpage{479}
+    \subitem {hryky\discretionary {-}{}{}\_\discretionary {-}{}{}accessor\discretionary {-}{}{}\_\discretionary {-}{}{}row\discretionary {-}{}{}\_\discretionary {-}{}{}write}, 
+		\hyperpage{479}
+    \subitem {hryky\discretionary {-}{}{}\_\discretionary {-}{}{}accessor\discretionary {-}{}{}\_\discretionary {-}{}{}write}, 
+		\hyperpage{479}
+  \item {compare\discretionary {-}{}{}\_\discretionary {-}{}{}and\discretionary {-}{}{}\_\discretionary {-}{}{}swap}
+    \subitem {Atomic Operation}, \hyperpage{58}
+  \item {Concurrency}
+    \subitem {hryky\discretionary {-}{}{}::task\discretionary {-}{}{}::\discretionary {-}{}{}Concurrency}, 
+		\hyperpage{381}
+  \item {Concurrent Programming}, \hyperpage{63}
+  \item {Concurrent Task}, \hyperpage{65}
+    \subitem {$\sim $\discretionary {-}{}{}Batch}, \hyperpage{68}
+    \subitem {append}, \hyperpage{66}
+    \subitem {attach\discretionary {-}{}{}\_\discretionary {-}{}{}with}, 
+		\hyperpage{66}
+    \subitem {Batch}, \hyperpage{67}
+    \subitem {distribute}, \hyperpage{67}
+    \subitem {reset}, \hyperpage{67, 68}
+    \subitem {run\discretionary {-}{}{}\_\discretionary {-}{}{}impl}, 
+		\hyperpage{68}
+  \item {Cond}
+    \subitem {hryky\discretionary {-}{}{}::exclusion\discretionary {-}{}{}::\discretionary {-}{}{}Cond}, 
+		\hyperpage{154}
+  \item {copyable.\discretionary {-}{}{}h}, \hyperpage{480}
+  \item {crit\-\_\-}
+    \subitem {hryky\-::log\-::level\-::\-Kind}, \hyperpage{280}
+
+  \indexspace
+
+  \item {date.\discretionary {-}{}{}h}, \hyperpage{480}
+  \item {date\discretionary {-}{}{}\_\discretionary {-}{}{}common.\discretionary {-}{}{}h}, 
+		\hyperpage{481}
+  \item {date\discretionary {-}{}{}\_\discretionary {-}{}{}entity.\discretionary {-}{}{}cpp}, 
+		\hyperpage{482}
+  \item {date\discretionary {-}{}{}\_\discretionary {-}{}{}entity.\discretionary {-}{}{}h}, 
+		\hyperpage{482}
+  \item {date\discretionary {-}{}{}\_\discretionary {-}{}{}month\discretionary {-}{}{}\_\discretionary {-}{}{}common.\discretionary {-}{}{}h}, 
+		\hyperpage{483}
+  \item {date\discretionary {-}{}{}\_\discretionary {-}{}{}week\discretionary {-}{}{}\_\discretionary {-}{}{}common.\discretionary {-}{}{}h}, 
+		\hyperpage{484}
+  \item {deallocate}
+    \subitem {hryky\discretionary {-}{}{}::memory\discretionary {-}{}{}::heap\discretionary {-}{}{}::\discretionary {-}{}{}Adapter}, 
+		\hyperpage{292}
+    \subitem {hryky\discretionary {-}{}{}::memory\discretionary {-}{}{}::heap\discretionary {-}{}{}::\discretionary {-}{}{}Arbitrary}, 
+		\hyperpage{295}
+    \subitem {hryky\discretionary {-}{}{}::memory\discretionary {-}{}{}::heap\discretionary {-}{}{}::\discretionary {-}{}{}Base}, 
+		\hyperpage{299}
+    \subitem {hryky\discretionary {-}{}{}::memory\discretionary {-}{}{}::heap\discretionary {-}{}{}::\discretionary {-}{}{}Fixed}, 
+		\hyperpage{301}
+  \item {debug.\discretionary {-}{}{}h}, \hyperpage{484}
+  \item {debug\-\_\-}
+    \subitem {hryky\-::log\-::level\-::\-Kind}, \hyperpage{279}
+  \item {debug\discretionary {-}{}{}\_\discretionary {-}{}{}common.\discretionary {-}{}{}cpp}, 
+		\hyperpage{485}
+  \item {debug\discretionary {-}{}{}\_\discretionary {-}{}{}common.\discretionary {-}{}{}h}, 
+		\hyperpage{485}
+    \subitem {hryky\discretionary {-}{}{}\_\discretionary {-}{}{}debug\discretionary {-}{}{}\_\discretionary {-}{}{}break}, 
+		\hyperpage{486}
+    \subitem {hryky\discretionary {-}{}{}\_\discretionary {-}{}{}throw}, 
+		\hyperpage{486}
+  \item {debug\discretionary {-}{}{}\_\discretionary {-}{}{}source.\discretionary {-}{}{}cpp}, 
+		\hyperpage{487}
+  \item {debug\discretionary {-}{}{}\_\discretionary {-}{}{}source.\discretionary {-}{}{}h}, 
+		\hyperpage{487}
+  \item {delete\discretionary {-}{}{}\_\discretionary {-}{}{}self}
+    \subitem {hryky\discretionary {-}{}{}::reduction\discretionary {-}{}{}::\discretionary {-}{}{}Address}, 
+		\hyperpage{325}
+    \subitem {hryky\discretionary {-}{}{}::reduction\discretionary {-}{}{}::\discretionary {-}{}{}Array}, 
+		\hyperpage{328}
+    \subitem {hryky\discretionary {-}{}{}::reduction\discretionary {-}{}{}::\discretionary {-}{}{}Base}, 
+		\hyperpage{330}
+    \subitem {hryky\discretionary {-}{}{}::reduction\discretionary {-}{}{}::\discretionary {-}{}{}Bool}, 
+		\hyperpage{333}
+    \subitem {hryky\discretionary {-}{}{}::reduction\discretionary {-}{}{}::\discretionary {-}{}{}Char}, 
+		\hyperpage{335}
+    \subitem {hryky\discretionary {-}{}{}::reduction\discretionary {-}{}{}::\discretionary {-}{}{}Float}, 
+		\hyperpage{340}
+    \subitem {hryky\discretionary {-}{}{}::reduction\discretionary {-}{}{}::\discretionary {-}{}{}Int}, 
+		\hyperpage{342}
+    \subitem {hryky\discretionary {-}{}{}::reduction\discretionary {-}{}{}::\discretionary {-}{}{}Map}, 
+		\hyperpage{347}
+    \subitem {hryky\discretionary {-}{}{}::reduction\discretionary {-}{}{}::\discretionary {-}{}{}String}, 
+		\hyperpage{352}
+    \subitem {hryky\discretionary {-}{}{}::reduction\discretionary {-}{}{}::\discretionary {-}{}{}Uint}, 
+		\hyperpage{355}
+  \item {dereference}
+    \subitem {Generic Programming}, \hyperpage{61}
+  \item {detach}
+    \subitem {hryky\discretionary {-}{}{}::task\discretionary {-}{}{}::distributor\discretionary {-}{}{}::\discretionary {-}{}{}Base\discretionary {-}{}{}::\discretionary {-}{}{}Worker\discretionary {-}{}{}Observer}, 
+		\hyperpage{390}
+    \subitem {hryky\discretionary {-}{}{}::task\discretionary {-}{}{}::worker\discretionary {-}{}{}::\discretionary {-}{}{}Base\discretionary {-}{}{}::\discretionary {-}{}{}Observer}, 
+		\hyperpage{403}
+  \item {disable}
+    \subitem {hryky\discretionary {-}{}{}::exclusion\discretionary {-}{}{}::\discretionary {-}{}{}Flag}, 
+		\hyperpage{157}
+  \item {dispatch}
+    \subitem {hryky\discretionary {-}{}{}::reduction\discretionary {-}{}{}::\discretionary {-}{}{}Address}, 
+		\hyperpage{325}
+    \subitem {hryky\discretionary {-}{}{}::reduction\discretionary {-}{}{}::\discretionary {-}{}{}Array}, 
+		\hyperpage{328}
+    \subitem {hryky\discretionary {-}{}{}::reduction\discretionary {-}{}{}::\discretionary {-}{}{}Base}, 
+		\hyperpage{330}
+    \subitem {hryky\discretionary {-}{}{}::reduction\discretionary {-}{}{}::\discretionary {-}{}{}Bool}, 
+		\hyperpage{333}
+    \subitem {hryky\discretionary {-}{}{}::reduction\discretionary {-}{}{}::\discretionary {-}{}{}Char}, 
+		\hyperpage{335}
+    \subitem {hryky\discretionary {-}{}{}::reduction\discretionary {-}{}{}::\discretionary {-}{}{}Float}, 
+		\hyperpage{340}
+    \subitem {hryky\discretionary {-}{}{}::reduction\discretionary {-}{}{}::\discretionary {-}{}{}Int}, 
+		\hyperpage{342}
+    \subitem {hryky\discretionary {-}{}{}::reduction\discretionary {-}{}{}::\discretionary {-}{}{}Map}, 
+		\hyperpage{347}
+    \subitem {hryky\discretionary {-}{}{}::reduction\discretionary {-}{}{}::\discretionary {-}{}{}String}, 
+		\hyperpage{352}
+    \subitem {hryky\discretionary {-}{}{}::reduction\discretionary {-}{}{}::\discretionary {-}{}{}Uint}, 
+		\hyperpage{355}
+  \item {display.\discretionary {-}{}{}h}, \hyperpage{488}
+  \item {display\discretionary {-}{}{}\_\discretionary {-}{}{}common.\discretionary {-}{}{}cpp}, 
+		\hyperpage{489}
+  \item {display\discretionary {-}{}{}\_\discretionary {-}{}{}common.\discretionary {-}{}{}h}, 
+		\hyperpage{489}
+  \item {display\discretionary {-}{}{}\_\discretionary {-}{}{}config.\discretionary {-}{}{}h}, 
+		\hyperpage{491}
+  \item {display\discretionary {-}{}{}\_\discretionary {-}{}{}driver.\discretionary {-}{}{}cpp}, 
+		\hyperpage{492}
+  \item {display\discretionary {-}{}{}\_\discretionary {-}{}{}driver.\discretionary {-}{}{}h}, 
+		\hyperpage{492}
+  \item {display\discretionary {-}{}{}\_\discretionary {-}{}{}environment.\discretionary {-}{}{}cpp}, 
+		\hyperpage{494}
+  \item {display\discretionary {-}{}{}\_\discretionary {-}{}{}environment.\discretionary {-}{}{}h}, 
+		\hyperpage{494}
+  \item {display\discretionary {-}{}{}\_\discretionary {-}{}{}mode.\discretionary {-}{}{}cpp}, 
+		\hyperpage{495}
+  \item {display\discretionary {-}{}{}\_\discretionary {-}{}{}mode.\discretionary {-}{}{}h}, 
+		\hyperpage{496}
+  \item {display\discretionary {-}{}{}\_\discretionary {-}{}{}screen.\discretionary {-}{}{}cpp}, 
+		\hyperpage{497}
+  \item {display\discretionary {-}{}{}\_\discretionary {-}{}{}screen.\discretionary {-}{}{}h}, 
+		\hyperpage{497}
+  \item {display\discretionary {-}{}{}\_\discretionary {-}{}{}traverser.\discretionary {-}{}{}cpp}, 
+		\hyperpage{499}
+  \item {display\discretionary {-}{}{}\_\discretionary {-}{}{}traverser.\discretionary {-}{}{}h}, 
+		\hyperpage{499}
+  \item {distribute}
+    \subitem {Concurrent Task}, \hyperpage{67}
+  \item {distributor}
+    \subitem {hryky\discretionary {-}{}{}::task\discretionary {-}{}{}::worker\discretionary {-}{}{}::\discretionary {-}{}{}Batch}, 
+		\hyperpage{409}
+    \subitem {hryky\discretionary {-}{}{}::task\discretionary {-}{}{}::worker\discretionary {-}{}{}::\discretionary {-}{}{}Quicksort}, 
+		\hyperpage{413}
+
+  \indexspace
+
+  \item {emerg\-\_\-}
+    \subitem {hryky\-::log\-::level\-::\-Kind}, \hyperpage{280}
+  \item {enable}
+    \subitem {hryky\discretionary {-}{}{}::exclusion\discretionary {-}{}{}::\discretionary {-}{}{}Flag}, 
+		\hyperpage{158}
+  \item {enable\discretionary {-}{}{}\_\discretionary {-}{}{}if.\discretionary {-}{}{}h}, 
+		\hyperpage{500}
+  \item {end}
+    \subitem {hryky\discretionary {-}{}{}::\discretionary {-}{}{}Scoped\discretionary {-}{}{}Array}, 
+		\hyperpage{360}
+  \item {Entity}
+    \subitem {hryky\discretionary {-}{}{}::http\discretionary {-}{}{}::request\discretionary {-}{}{}::\discretionary {-}{}{}Entity}, 
+		\hyperpage{245}
+    \subitem {hryky\discretionary {-}{}{}::ip\discretionary {-}{}{}::v4\discretionary {-}{}{}::\discretionary {-}{}{}Entity}, 
+		\hyperpage{255}
+    \subitem {hryky\discretionary {-}{}{}::ip\discretionary {-}{}{}::v6\discretionary {-}{}{}::\discretionary {-}{}{}Entity}, 
+		\hyperpage{258}
+    \subitem {hryky\discretionary {-}{}{}::log\discretionary {-}{}{}::level\discretionary {-}{}{}::\discretionary {-}{}{}Entity}, 
+		\hyperpage{279}
+    \subitem {hryky\discretionary {-}{}{}::uri\discretionary {-}{}{}::authority\discretionary {-}{}{}::\discretionary {-}{}{}Entity}, 
+		\hyperpage{428}
+    \subitem {hryky\discretionary {-}{}{}::uri\discretionary {-}{}{}::port\discretionary {-}{}{}::\discretionary {-}{}{}Entity}, 
+		\hyperpage{437}
+  \item {err\-\_\-}
+    \subitem {hryky\-::log\-::level\-::\-Kind}, \hyperpage{280}
+  \item {error}
+    \subitem {hryky\discretionary {-}{}{}::task\discretionary {-}{}{}::distributor\discretionary {-}{}{}::\discretionary {-}{}{}Base\discretionary {-}{}{}::\discretionary {-}{}{}Worker\discretionary {-}{}{}Observer}, 
+		\hyperpage{390}
+    \subitem {hryky\discretionary {-}{}{}::task\discretionary {-}{}{}::worker\discretionary {-}{}{}::\discretionary {-}{}{}Base\discretionary {-}{}{}::\discretionary {-}{}{}Observer}, 
+		\hyperpage{404}
+  \item {error.\discretionary {-}{}{}h}, \hyperpage{501}
+  \item {error\discretionary {-}{}{}\_\discretionary {-}{}{}base.\discretionary {-}{}{}cpp}, 
+		\hyperpage{501}
+  \item {error\discretionary {-}{}{}\_\discretionary {-}{}{}base.\discretionary {-}{}{}h}, 
+		\hyperpage{502}
+  \item {error\discretionary {-}{}{}\_\discretionary {-}{}{}common.\discretionary {-}{}{}cpp}, 
+		\hyperpage{503}
+  \item {error\discretionary {-}{}{}\_\discretionary {-}{}{}common.\discretionary {-}{}{}h}, 
+		\hyperpage{503}
+  \item {error\discretionary {-}{}{}\_\discretionary {-}{}{}holder.\discretionary {-}{}{}cpp}, 
+		\hyperpage{504}
+  \item {error\discretionary {-}{}{}\_\discretionary {-}{}{}holder.\discretionary {-}{}{}h}, 
+		\hyperpage{505}
+  \item {error\discretionary {-}{}{}\_\discretionary {-}{}{}string.\discretionary {-}{}{}cpp}, 
+		\hyperpage{506}
+  \item {error\discretionary {-}{}{}\_\discretionary {-}{}{}string.\discretionary {-}{}{}h}, 
+		\hyperpage{506}
+  \item {exclude}
+    \subitem {Atomic Operation}, \hyperpage{58}
+  \item {Exclusion Control}, \hyperpage{64}
+  \item {exclusion.\discretionary {-}{}{}h}, \hyperpage{507}
+  \item {exclusion\discretionary {-}{}{}\_\discretionary {-}{}{}common.\discretionary {-}{}{}h}, 
+		\hyperpage{508}
+  \item {exclusion\discretionary {-}{}{}\_\discretionary {-}{}{}cond.\discretionary {-}{}{}cpp}, 
+		\hyperpage{509}
+  \item {exclusion\discretionary {-}{}{}\_\discretionary {-}{}{}cond.\discretionary {-}{}{}h}, 
+		\hyperpage{510}
+  \item {exclusion\discretionary {-}{}{}\_\discretionary {-}{}{}counter.\discretionary {-}{}{}cpp}, 
+		\hyperpage{511}
+  \item {exclusion\discretionary {-}{}{}\_\discretionary {-}{}{}counter.\discretionary {-}{}{}h}, 
+		\hyperpage{511}
+  \item {exclusion\discretionary {-}{}{}\_\discretionary {-}{}{}flag.\discretionary {-}{}{}cpp}, 
+		\hyperpage{512}
+  \item {exclusion\discretionary {-}{}{}\_\discretionary {-}{}{}flag.\discretionary {-}{}{}h}, 
+		\hyperpage{513}
+  \item {exclusion\discretionary {-}{}{}\_\discretionary {-}{}{}lock.\discretionary {-}{}{}h}, 
+		\hyperpage{513}
+  \item {exclusion\discretionary {-}{}{}\_\discretionary {-}{}{}mutex.\discretionary {-}{}{}cpp}, 
+		\hyperpage{514}
+  \item {exclusion\discretionary {-}{}{}\_\discretionary {-}{}{}mutex.\discretionary {-}{}{}h}, 
+		\hyperpage{515}
+  \item {exclusion\discretionary {-}{}{}\_\discretionary {-}{}{}recursive\discretionary {-}{}{}\_\discretionary {-}{}{}mutex.\discretionary {-}{}{}cpp}, 
+		\hyperpage{516}
+  \item {exclusion\discretionary {-}{}{}\_\discretionary {-}{}{}recursive\discretionary {-}{}{}\_\discretionary {-}{}{}mutex.\discretionary {-}{}{}h}, 
+		\hyperpage{516}
+  \item {exclusion\discretionary {-}{}{}\_\discretionary {-}{}{}waitable\discretionary {-}{}{}\_\discretionary {-}{}{}lock.\discretionary {-}{}{}h}, 
+		\hyperpage{517}
+
+  \indexspace
+
+  \item {File}
+    \subitem {hryky\discretionary {-}{}{}::log\discretionary {-}{}{}::writer\discretionary {-}{}{}::\discretionary {-}{}{}File}, 
+		\hyperpage{284}
+  \item {file.\discretionary {-}{}{}h}, \hyperpage{518}
+  \item {file\discretionary {-}{}{}\_\discretionary {-}{}{}descriptor\discretionary {-}{}{}\_\discretionary {-}{}{}entity.\discretionary {-}{}{}cpp}, 
+		\hyperpage{518}
+  \item {file\discretionary {-}{}{}\_\discretionary {-}{}{}descriptor\discretionary {-}{}{}\_\discretionary {-}{}{}entity.\discretionary {-}{}{}h}, 
+		\hyperpage{519}
+  \item {file\discretionary {-}{}{}\_\discretionary {-}{}{}descriptor\discretionary {-}{}{}\_\discretionary {-}{}{}entity.\discretionary {-}{}{}win32.\discretionary {-}{}{}cpp}, 
+		\hyperpage{520}
+  \item {file\discretionary {-}{}{}\_\discretionary {-}{}{}descriptor\discretionary {-}{}{}\_\discretionary {-}{}{}mode.\discretionary {-}{}{}cpp}, 
+		\hyperpage{521}
+  \item {file\discretionary {-}{}{}\_\discretionary {-}{}{}descriptor\discretionary {-}{}{}\_\discretionary {-}{}{}mode.\discretionary {-}{}{}h}, 
+		\hyperpage{521}
+  \item {file\discretionary {-}{}{}\_\discretionary {-}{}{}descriptor\discretionary {-}{}{}\_\discretionary {-}{}{}mode.\discretionary {-}{}{}win32.\discretionary {-}{}{}cpp}, 
+		\hyperpage{522}
+  \item {filesystem.\discretionary {-}{}{}h}, \hyperpage{523}
+  \item {filesystem\discretionary {-}{}{}\_\discretionary {-}{}{}common.\discretionary {-}{}{}cpp}, 
+		\hyperpage{523}
+  \item {filesystem\discretionary {-}{}{}\_\discretionary {-}{}{}common.\discretionary {-}{}{}h}, 
+		\hyperpage{524}
+  \item {Fixed}
+    \subitem {hryky\discretionary {-}{}{}::memory\discretionary {-}{}{}::heap\discretionary {-}{}{}::\discretionary {-}{}{}Fixed}, 
+		\hyperpage{301}
+  \item {fixed\discretionary {-}{}{}\_\discretionary {-}{}{}vector.\discretionary {-}{}{}h}, 
+		\hyperpage{525}
+  \item {Flag}
+    \subitem {hryky\discretionary {-}{}{}::exclusion\discretionary {-}{}{}::\discretionary {-}{}{}Flag}, 
+		\hyperpage{157}
+  \item {foreach.\discretionary {-}{}{}h}, \hyperpage{526}
+
+  \indexspace
+
+  \item {Generic Programming}, \hyperpage{61}
+    \subitem {dereference}, \hyperpage{61}
+  \item {geometry.\discretionary {-}{}{}h}, \hyperpage{527}
+  \item {geometry\discretionary {-}{}{}\_\discretionary {-}{}{}coord.\discretionary {-}{}{}h}, 
+		\hyperpage{528}
+  \item {geometry\discretionary {-}{}{}\_\discretionary {-}{}{}coord\discretionary {-}{}{}\_\discretionary {-}{}{}cartesian.\discretionary {-}{}{}h}, 
+		\hyperpage{528}
+  \item {geometry\discretionary {-}{}{}\_\discretionary {-}{}{}rect.\discretionary {-}{}{}h}, 
+		\hyperpage{530}
+  \item {get}
+    \subitem {hryky\discretionary {-}{}{}::log\discretionary {-}{}{}::writer}, 
+		\hyperpage{89}
+  \item {gl.\discretionary {-}{}{}h}, \hyperpage{531}
+  \item {gp.\discretionary {-}{}{}h}, \hyperpage{532}
+  \item {graphics.\discretionary {-}{}{}h}, \hyperpage{533}
+  \item {graphics\discretionary {-}{}{}\_\discretionary {-}{}{}common.\discretionary {-}{}{}cpp}, 
+		\hyperpage{534}
+  \item {graphics\discretionary {-}{}{}\_\discretionary {-}{}{}common.\discretionary {-}{}{}h}, 
+		\hyperpage{535}
+  \item {graphics\discretionary {-}{}{}\_\discretionary {-}{}{}module.\discretionary {-}{}{}cpp}, 
+		\hyperpage{536}
+  \item {graphics\discretionary {-}{}{}\_\discretionary {-}{}{}module.\discretionary {-}{}{}h}, 
+		\hyperpage{536}
+  \item {graphics\discretionary {-}{}{}\_\discretionary {-}{}{}window.\discretionary {-}{}{}cpp}, 
+		\hyperpage{537}
+  \item {graphics\discretionary {-}{}{}\_\discretionary {-}{}{}window.\discretionary {-}{}{}h}, 
+		\hyperpage{538}
+
+  \indexspace
+
+  \item {hamming\discretionary {-}{}{}\_\discretionary {-}{}{}weight}
+    \subitem {hryky}, \hyperpage{79}
+  \item {hamming\discretionary {-}{}{}\_\discretionary {-}{}{}weight.\discretionary {-}{}{}cpp}, 
+		\hyperpage{538}
+  \item {hamming\discretionary {-}{}{}\_\discretionary {-}{}{}weight.\discretionary {-}{}{}h}, 
+		\hyperpage{539}
+  \item {has\discretionary {-}{}{}\_\discretionary {-}{}{}const\discretionary {-}{}{}\_\discretionary {-}{}{}iterator.\discretionary {-}{}{}h}, 
+		\hyperpage{540}
+  \item {Heap}
+    \subitem {hryky\discretionary {-}{}{}::allocator\discretionary {-}{}{}::\discretionary {-}{}{}Heap}, 
+		\hyperpage{113}
+  \item {Holder}
+    \subitem {hryky\discretionary {-}{}{}::error\discretionary {-}{}{}::\discretionary {-}{}{}Holder}, 
+		\hyperpage{152}
+  \item {hryky}, \hyperpage{69}
+    \subitem {align\discretionary {-}{}{}\_\discretionary {-}{}{}ceil}, 
+		\hyperpage{78}
+    \subitem {align\discretionary {-}{}{}\_\discretionary {-}{}{}floor}, 
+		\hyperpage{78}
+    \subitem {hamming\discretionary {-}{}{}\_\discretionary {-}{}{}weight}, 
+		\hyperpage{79}
+    \subitem {instantiate}, \hyperpage{79}
+    \subitem {is\discretionary {-}{}{}\_\discretionary {-}{}{}aligned}, 
+		\hyperpage{79}
+    \subitem {main}, \hyperpage{79, 80}
+    \subitem {qsort}, \hyperpage{80}
+    \subitem {reduce}, \hyperpage{80, 81}
+    \subitem {release}, \hyperpage{81}
+    \subitem {sequence4}, \hyperpage{81}
+    \subitem {swap}, \hyperpage{81, 82}
+  \item {hryky.\discretionary {-}{}{}h}, \hyperpage{540}
+  \item {hryky\-::log\-::level\-::\-Kind}
+    \subitem {alert\-\_\-}, \hyperpage{280}
+    \subitem {crit\-\_\-}, \hyperpage{280}
+    \subitem {debug\-\_\-}, \hyperpage{279}
+    \subitem {emerg\-\_\-}, \hyperpage{280}
+    \subitem {err\-\_\-}, \hyperpage{280}
+    \subitem {info\-\_\-}, \hyperpage{279}
+    \subitem {notice\-\_\-}, \hyperpage{279}
+    \subitem {num\-\_\-}, \hyperpage{280}
+    \subitem {warning\-\_\-}, \hyperpage{280}
+  \item {hryky\-::memory\-::heap\-::\-Fixed}
+    \subitem {min\-\_\-alignment\-\_\-}, \hyperpage{301}
+    \subitem {min\-\_\-unit\-\_\-size\-\_\-}, \hyperpage{301}
+  \item {hryky\discretionary {-}{}{}::\discretionary {-}{}{}Adapter$<$ Base\discretionary {-}{}{}T, Value\discretionary {-}{}{}T $>$}, 
+		\hyperpage{105}
+  \item {hryky\discretionary {-}{}{}::\discretionary {-}{}{}Add\discretionary {-}{}{}Const$<$ Value\discretionary {-}{}{}T $>$}, 
+		\hyperpage{106}
+  \item {hryky\discretionary {-}{}{}::\discretionary {-}{}{}Add\discretionary {-}{}{}Const\discretionary {-}{}{}Pointer$<$ Value\discretionary {-}{}{}T $>$}, 
+		\hyperpage{107}
+  \item {hryky\discretionary {-}{}{}::\discretionary {-}{}{}Add\discretionary {-}{}{}Const\discretionary {-}{}{}Reference$<$ Value\discretionary {-}{}{}T $>$}, 
+		\hyperpage{108}
+  \item {hryky\discretionary {-}{}{}::\discretionary {-}{}{}Add\discretionary {-}{}{}Pointer$<$ Value\discretionary {-}{}{}T $>$}, 
+		\hyperpage{108}
+  \item {hryky\discretionary {-}{}{}::\discretionary {-}{}{}Add\discretionary {-}{}{}Reference$<$ Value\discretionary {-}{}{}T $>$}, 
+		\hyperpage{109}
+  \item {hryky\discretionary {-}{}{}::\discretionary {-}{}{}And$<$ Lhs\discretionary {-}{}{}T, Rhs\discretionary {-}{}{}T $>$}, 
+		\hyperpage{113}
+  \item {hryky\discretionary {-}{}{}::\discretionary {-}{}{}Any}
+    \subitem {cast}, \hyperpage{115}
+  \item {hryky\discretionary {-}{}{}::\discretionary {-}{}{}Any$<$ Allocator\discretionary {-}{}{}T $>$}, 
+		\hyperpage{113}
+  \item {hryky\discretionary {-}{}{}::\discretionary {-}{}{}Array$<$ Value\discretionary {-}{}{}T, Size $>$}, 
+		\hyperpage{115}
+  \item {hryky\discretionary {-}{}{}::\discretionary {-}{}{}As\discretionary {-}{}{}Parameter$<$ Value\discretionary {-}{}{}T $>$}, 
+		\hyperpage{116}
+  \item {hryky\discretionary {-}{}{}::\discretionary {-}{}{}Assignable$<$ Derived\discretionary {-}{}{}T $>$}, 
+		\hyperpage{116}
+  \item {hryky\discretionary {-}{}{}::\discretionary {-}{}{}Auto\discretionary {-}{}{}Delete}
+    \subitem {Auto\discretionary {-}{}{}Delete}, \hyperpage{124}
+  \item {hryky\discretionary {-}{}{}::\discretionary {-}{}{}Auto\discretionary {-}{}{}Delete$<$ Instance\discretionary {-}{}{}T $>$}, 
+		\hyperpage{123}
+  \item {hryky\discretionary {-}{}{}::\discretionary {-}{}{}Auto\discretionary {-}{}{}Free}, 
+		\hyperpage{124}
+    \subitem {Auto\discretionary {-}{}{}Free}, \hyperpage{125}
+  \item {hryky\discretionary {-}{}{}::\discretionary {-}{}{}Auto\discretionary {-}{}{}Func$<$ Ret\discretionary {-}{}{}T, func $>$}, 
+		\hyperpage{126}
+  \item {hryky\discretionary {-}{}{}::\discretionary {-}{}{}Auto\discretionary {-}{}{}Func1$<$ Ret\discretionary {-}{}{}T, Arg1\discretionary {-}{}{}T, func $>$}, 
+		\hyperpage{127}
+  \item {hryky\discretionary {-}{}{}::\discretionary {-}{}{}Auto\discretionary {-}{}{}Func2$<$ Ret\discretionary {-}{}{}T, Arg1\discretionary {-}{}{}T, Arg2\discretionary {-}{}{}T, func $>$}, 
+		\hyperpage{128}
+  \item {hryky\discretionary {-}{}{}::\discretionary {-}{}{}Auto\discretionary {-}{}{}Release}
+    \subitem {Auto\discretionary {-}{}{}Release}, \hyperpage{130}
+  \item {hryky\discretionary {-}{}{}::\discretionary {-}{}{}Auto\discretionary {-}{}{}Release$<$ Resource\discretionary {-}{}{}T $>$}, 
+		\hyperpage{129}
+  \item {hryky\discretionary {-}{}{}::\discretionary {-}{}{}Bitfield$<$ Bits\discretionary {-}{}{}T $>$}, 
+		\hyperpage{130}
+  \item {hryky\discretionary {-}{}{}::\discretionary {-}{}{}Bitset}
+    \subitem {hryky\discretionary {-}{}{}\_\discretionary {-}{}{}assign\discretionary {-}{}{}\_\discretionary {-}{}{}op}, 
+		\hyperpage{133}
+  \item {hryky\discretionary {-}{}{}::\discretionary {-}{}{}Bitset$<$ Bits\discretionary {-}{}{}Size $>$}, 
+		\hyperpage{132}
+  \item {hryky\discretionary {-}{}{}::\discretionary {-}{}{}Copyable$<$ Derived\discretionary {-}{}{}T $>$}, 
+		\hyperpage{136}
+  \item {hryky\discretionary {-}{}{}::\discretionary {-}{}{}Disable\discretionary {-}{}{}If$<$ Condition\discretionary {-}{}{}T, Value\discretionary {-}{}{}T $>$}, 
+		\hyperpage{139}
+  \item {hryky\discretionary {-}{}{}::\discretionary {-}{}{}Disable\discretionary {-}{}{}If\discretionary {-}{}{}C$<$ boolean, Value\discretionary {-}{}{}T $>$}, 
+		\hyperpage{140}
+  \item {hryky\discretionary {-}{}{}::\discretionary {-}{}{}Enable\discretionary {-}{}{}If$<$ Condition\discretionary {-}{}{}T, Value\discretionary {-}{}{}T $>$}, 
+		\hyperpage{149}
+  \item {hryky\discretionary {-}{}{}::\discretionary {-}{}{}Enable\discretionary {-}{}{}If\discretionary {-}{}{}C$<$ boolean, Value\discretionary {-}{}{}T $>$}, 
+		\hyperpage{149}
+  \item {hryky\discretionary {-}{}{}::\discretionary {-}{}{}Fixed\discretionary {-}{}{}Vector}
+    \subitem {capacity}, \hyperpage{168}
+  \item {hryky\discretionary {-}{}{}::\discretionary {-}{}{}Fixed\discretionary {-}{}{}Vector$<$ Value\discretionary {-}{}{}T, Capacity $>$}, 
+		\hyperpage{166}
+  \item {hryky\discretionary {-}{}{}::\discretionary {-}{}{}Foreach}
+    \subitem {offset}, \hyperpage{169}
+  \item {hryky\discretionary {-}{}{}::\discretionary {-}{}{}Foreach$<$ Container\discretionary {-}{}{}T, Iterator\discretionary {-}{}{}T $>$}, 
+		\hyperpage{168}
+  \item {hryky\discretionary {-}{}{}::\discretionary {-}{}{}Has\discretionary {-}{}{}Clear$<$ Value\discretionary {-}{}{}T $>$}, 
+		\hyperpage{179}
+  \item {hryky\discretionary {-}{}{}::\discretionary {-}{}{}Has\discretionary {-}{}{}Const\discretionary {-}{}{}Iterator$<$ Container\discretionary {-}{}{}T $>$}, 
+		\hyperpage{179}
+  \item {hryky\discretionary {-}{}{}::\discretionary {-}{}{}Has\discretionary {-}{}{}Higher$<$ Value\discretionary {-}{}{}T $>$}, 
+		\hyperpage{179}
+  \item {hryky\discretionary {-}{}{}::\discretionary {-}{}{}Indent}, 
+		\hyperpage{248}
+    \subitem {Indent}, \hyperpage{250}
+  \item {hryky\discretionary {-}{}{}::\discretionary {-}{}{}Indent\discretionary {-}{}{}::\discretionary {-}{}{}Increment}, 
+		\hyperpage{250}
+  \item {hryky\discretionary {-}{}{}::\discretionary {-}{}{}Index$<$ Int\discretionary {-}{}{}T $>$}, 
+		\hyperpage{250}
+  \item {hryky\discretionary {-}{}{}::\discretionary {-}{}{}Intrusive\discretionary {-}{}{}Ptr$<$ Value\discretionary {-}{}{}T $>$}, 
+		\hyperpage{251}
+  \item {hryky\discretionary {-}{}{}::\discretionary {-}{}{}Is\discretionary {-}{}{}As\discretionary {-}{}{}String$<$ Value\discretionary {-}{}{}T $>$}, 
+		\hyperpage{261}
+  \item {hryky\discretionary {-}{}{}::\discretionary {-}{}{}Is\discretionary {-}{}{}Base\discretionary {-}{}{}Of$<$ Base\discretionary {-}{}{}T, Derived\discretionary {-}{}{}T $>$}, 
+		\hyperpage{262}
+  \item {hryky\discretionary {-}{}{}::\discretionary {-}{}{}Is\discretionary {-}{}{}Char$<$ char $>$}, 
+		\hyperpage{262}
+  \item {hryky\discretionary {-}{}{}::\discretionary {-}{}{}Is\discretionary {-}{}{}Char$<$ Value\discretionary {-}{}{}T $>$}, 
+		\hyperpage{262}
+  \item {hryky\discretionary {-}{}{}::\discretionary {-}{}{}Is\discretionary {-}{}{}Enum$<$ Value\discretionary {-}{}{}T $>$}, 
+		\hyperpage{263}
+  \item {hryky\discretionary {-}{}{}::\discretionary {-}{}{}Is\discretionary {-}{}{}Floating\discretionary {-}{}{}Point$<$ Value\discretionary {-}{}{}T $>$}, 
+		\hyperpage{263}
+  \item {hryky\discretionary {-}{}{}::\discretionary {-}{}{}Is\discretionary {-}{}{}Integer$<$ Value\discretionary {-}{}{}T $>$}, 
+		\hyperpage{263}
+  \item {hryky\discretionary {-}{}{}::\discretionary {-}{}{}Is\discretionary {-}{}{}Numeric$<$ Value\discretionary {-}{}{}T $>$}, 
+		\hyperpage{264}
+  \item {hryky\discretionary {-}{}{}::\discretionary {-}{}{}Is\discretionary {-}{}{}Same$<$ Lhs\discretionary {-}{}{}T, Rhs\discretionary {-}{}{}T $>$}, 
+		\hyperpage{264}
+  \item {hryky\discretionary {-}{}{}::\discretionary {-}{}{}Is\discretionary {-}{}{}Same$<$ Value\discretionary {-}{}{}T, Value\discretionary {-}{}{}T $>$}, 
+		\hyperpage{264}
+  \item {hryky\discretionary {-}{}{}::\discretionary {-}{}{}Is\discretionary {-}{}{}Signed$<$ int16\discretionary {-}{}{}\_\discretionary {-}{}{}t $>$}, 
+		\hyperpage{265}
+  \item {hryky\discretionary {-}{}{}::\discretionary {-}{}{}Is\discretionary {-}{}{}Signed$<$ int32\discretionary {-}{}{}\_\discretionary {-}{}{}t $>$}, 
+		\hyperpage{265}
+  \item {hryky\discretionary {-}{}{}::\discretionary {-}{}{}Is\discretionary {-}{}{}Signed$<$ int64\discretionary {-}{}{}\_\discretionary {-}{}{}t $>$}, 
+		\hyperpage{265}
+  \item {hryky\discretionary {-}{}{}::\discretionary {-}{}{}Is\discretionary {-}{}{}Signed$<$ int8\discretionary {-}{}{}\_\discretionary {-}{}{}t $>$}, 
+		\hyperpage{266}
+  \item {hryky\discretionary {-}{}{}::\discretionary {-}{}{}Is\discretionary {-}{}{}Signed$<$ int\discretionary {-}{}{}\_\discretionary {-}{}{}t $>$}, 
+		\hyperpage{266}
+  \item {hryky\discretionary {-}{}{}::\discretionary {-}{}{}Is\discretionary {-}{}{}Signed$<$ Value\discretionary {-}{}{}T $>$}, 
+		\hyperpage{264}
+  \item {hryky\discretionary {-}{}{}::\discretionary {-}{}{}Is\discretionary {-}{}{}Unsigned$<$ uint16\discretionary {-}{}{}\_\discretionary {-}{}{}t $>$}, 
+		\hyperpage{267}
+  \item {hryky\discretionary {-}{}{}::\discretionary {-}{}{}Is\discretionary {-}{}{}Unsigned$<$ uint32\discretionary {-}{}{}\_\discretionary {-}{}{}t $>$}, 
+		\hyperpage{267}
+  \item {hryky\discretionary {-}{}{}::\discretionary {-}{}{}Is\discretionary {-}{}{}Unsigned$<$ uint8\discretionary {-}{}{}\_\discretionary {-}{}{}t $>$}, 
+		\hyperpage{267}
+  \item {hryky\discretionary {-}{}{}::\discretionary {-}{}{}Is\discretionary {-}{}{}Unsigned$<$ Value\discretionary {-}{}{}T $>$}, 
+		\hyperpage{266}
+  \item {hryky\discretionary {-}{}{}::\discretionary {-}{}{}Iterator\discretionary {-}{}{}Of$<$ Container\discretionary {-}{}{}T, has\discretionary {-}{}{}\_\discretionary {-}{}{}const\discretionary {-}{}{}\_\discretionary {-}{}{}iterator $>$}, 
+		\hyperpage{273}
+  \item {hryky\discretionary {-}{}{}::\discretionary {-}{}{}Kind}
+    \subitem {Kind}, \hyperpage{275}
+    \subitem {swap}, \hyperpage{275}
+  \item {hryky\discretionary {-}{}{}::\discretionary {-}{}{}Kind$<$ Raw\discretionary {-}{}{}T, Initial $>$}, 
+		\hyperpage{274}
+  \item {hryky\discretionary {-}{}{}::\discretionary {-}{}{}Literal\discretionary {-}{}{}String}, 
+		\hyperpage{276}
+    \subitem {Literal\discretionary {-}{}{}String}, \hyperpage{277}
+  \item {hryky\discretionary {-}{}{}::\discretionary {-}{}{}Max\discretionary {-}{}{}Of$<$ Value\discretionary {-}{}{}T $>$}, 
+		\hyperpage{287}
+  \item {hryky\discretionary {-}{}{}::\discretionary {-}{}{}Min\discretionary {-}{}{}Of$<$ Value\discretionary {-}{}{}T $>$}, 
+		\hyperpage{306}
+  \item {hryky\discretionary {-}{}{}::\discretionary {-}{}{}Narrow\discretionary {-}{}{}Token}
+    \subitem {operator()}, \hyperpage{308}
+  \item {hryky\discretionary {-}{}{}::\discretionary {-}{}{}Narrow\discretionary {-}{}{}Token$<$ Result\discretionary {-}{}{}T, Size $>$}, 
+		\hyperpage{307}
+  \item {hryky\discretionary {-}{}{}::\discretionary {-}{}{}Noncopyable}, 
+		\hyperpage{308}
+  \item {hryky\discretionary {-}{}{}::\discretionary {-}{}{}Not$<$ Value\discretionary {-}{}{}T $>$}, 
+		\hyperpage{309}
+  \item {hryky\discretionary {-}{}{}::\discretionary {-}{}{}Not\discretionary {-}{}{}C$<$ Boolean $>$}, 
+		\hyperpage{310}
+  \item {hryky\discretionary {-}{}{}::\discretionary {-}{}{}Null}, 
+		\hyperpage{311}
+  \item {hryky\discretionary {-}{}{}::\discretionary {-}{}{}Offset\discretionary {-}{}{}Ptr}
+    \subitem {operator+=}, \hyperpage{313}
+  \item {hryky\discretionary {-}{}{}::\discretionary {-}{}{}Offset\discretionary {-}{}{}Ptr$<$ Origin\discretionary {-}{}{}T, Offset\discretionary {-}{}{}T, Value\discretionary {-}{}{}T $>$}, 
+		\hyperpage{311}
+  \item {hryky\discretionary {-}{}{}::\discretionary {-}{}{}Or$<$ Lhs\discretionary {-}{}{}T, Rhs\discretionary {-}{}{}T $>$}, 
+		\hyperpage{315}
+  \item {hryky\discretionary {-}{}{}::\discretionary {-}{}{}Placementnewable}, 
+		\hyperpage{318}
+  \item {hryky\discretionary {-}{}{}::\discretionary {-}{}{}Placementnewonly}, 
+		\hyperpage{319}
+  \item {hryky\discretionary {-}{}{}::\discretionary {-}{}{}Range$<$ Iterator\discretionary {-}{}{}T $>$}, 
+		\hyperpage{322}
+  \item {hryky\discretionary {-}{}{}::\discretionary {-}{}{}Remove\discretionary {-}{}{}Const$<$ const Value\discretionary {-}{}{}T $>$}, 
+		\hyperpage{355}
+  \item {hryky\discretionary {-}{}{}::\discretionary {-}{}{}Remove\discretionary {-}{}{}Const$<$ Value\discretionary {-}{}{}T $>$}, 
+		\hyperpage{355}
+  \item {hryky\discretionary {-}{}{}::\discretionary {-}{}{}Remove\discretionary {-}{}{}Pointer$<$ Value\discretionary {-}{}{}T $>$}, 
+		\hyperpage{356}
+  \item {hryky\discretionary {-}{}{}::\discretionary {-}{}{}Scoped\discretionary {-}{}{}Array}
+    \subitem {begin}, \hyperpage{360}
+    \subitem {end}, \hyperpage{360}
+  \item {hryky\discretionary {-}{}{}::\discretionary {-}{}{}Scoped\discretionary {-}{}{}Array$<$ Value\discretionary {-}{}{}T $>$}, 
+		\hyperpage{359}
+  \item {hryky\discretionary {-}{}{}::\discretionary {-}{}{}Sequence}
+    \subitem {print}, \hyperpage{362}
+  \item {hryky\discretionary {-}{}{}::\discretionary {-}{}{}Sequence$<$ First\discretionary {-}{}{}T, hryky\discretionary {-}{}{}::\discretionary {-}{}{}Null $>$}, 
+		\hyperpage{369}
+  \item {hryky\discretionary {-}{}{}::\discretionary {-}{}{}Sequence$<$ First\discretionary {-}{}{}T, Rest\discretionary {-}{}{}T $>$}, 
+		\hyperpage{361}
+  \item {hryky\discretionary {-}{}{}::\discretionary {-}{}{}Sequence$<$ hryky\discretionary {-}{}{}::\discretionary {-}{}{}Null, hryky\discretionary {-}{}{}::\discretionary {-}{}{}Null $>$}, 
+		\hyperpage{369}
+  \item {hryky\discretionary {-}{}{}::\discretionary {-}{}{}Sequence1$<$ Arg1\discretionary {-}{}{}T $>$}, 
+		\hyperpage{362}
+  \item {hryky\discretionary {-}{}{}::\discretionary {-}{}{}Sequence2$<$ Arg1\discretionary {-}{}{}T, Arg2\discretionary {-}{}{}T $>$}, 
+		\hyperpage{364}
+  \item {hryky\discretionary {-}{}{}::\discretionary {-}{}{}Sequence3$<$ Arg1\discretionary {-}{}{}T, Arg2\discretionary {-}{}{}T, Arg3\discretionary {-}{}{}T $>$}, 
+		\hyperpage{366}
+  \item {hryky\discretionary {-}{}{}::\discretionary {-}{}{}Sequence4$<$ Arg1\discretionary {-}{}{}T, Arg2\discretionary {-}{}{}T, Arg3\discretionary {-}{}{}T, Arg4\discretionary {-}{}{}T $>$}, 
+		\hyperpage{367}
+  \item {hryky\discretionary {-}{}{}::\discretionary {-}{}{}Shared\discretionary {-}{}{}Ptr$<$ Value\discretionary {-}{}{}T, Lockable\discretionary {-}{}{}T, Allocator\discretionary {-}{}{}T $>$}, 
+		\hyperpage{370}
+  \item {hryky\discretionary {-}{}{}::\discretionary {-}{}{}Signed\discretionary {-}{}{}Bits\discretionary {-}{}{}Enough$<$ Sint\discretionary {-}{}{}Value, Bits\discretionary {-}{}{}T $>$}, 
+		\hyperpage{373}
+  \item {hryky\discretionary {-}{}{}::\discretionary {-}{}{}Signed\discretionary {-}{}{}Enough\discretionary {-}{}{}Bytes$<$ Bytes\discretionary {-}{}{}Size $>$}, 
+		\hyperpage{373}
+  \item {hryky\discretionary {-}{}{}::\discretionary {-}{}{}Signed\discretionary {-}{}{}Enough\discretionary {-}{}{}Exponent$<$ Exponent $>$}, 
+		\hyperpage{373}
+  \item {hryky\discretionary {-}{}{}::\discretionary {-}{}{}String}
+    \subitem {capacity}, \hyperpage{377}
+    \subitem {operator$<$}, \hyperpage{377}
+    \subitem {operator$<$=}, \hyperpage{377, 378}
+    \subitem {operator$>$}, \hyperpage{378}
+    \subitem {operator$>$=}, \hyperpage{378}
+    \subitem {operator==}, \hyperpage{378}
+    \subitem {String}, \hyperpage{377}
+  \item {hryky\discretionary {-}{}{}::\discretionary {-}{}{}String$<$ Char\discretionary {-}{}{}T, Allocator\discretionary {-}{}{}T $>$}, 
+		\hyperpage{373}
+  \item {hryky\discretionary {-}{}{}::\discretionary {-}{}{}Substring$<$ Origin\discretionary {-}{}{}T, Offset\discretionary {-}{}{}T, Value\discretionary {-}{}{}T $>$}, 
+		\hyperpage{378}
+  \item {hryky\discretionary {-}{}{}::\discretionary {-}{}{}Unsigned\discretionary {-}{}{}Bits\discretionary {-}{}{}Enough$<$ Uint\discretionary {-}{}{}Value, Bits\discretionary {-}{}{}T $>$}, 
+		\hyperpage{426}
+  \item {hryky\discretionary {-}{}{}::\discretionary {-}{}{}Unsigned\discretionary {-}{}{}Enough\discretionary {-}{}{}Bytes$<$ Bytes\discretionary {-}{}{}Size $>$}, 
+		\hyperpage{426}
+  \item {hryky\discretionary {-}{}{}::\discretionary {-}{}{}Unsigned\discretionary {-}{}{}Enough\discretionary {-}{}{}Exponent$<$ Exponent $>$}, 
+		\hyperpage{427}
+  \item {hryky\discretionary {-}{}{}::\discretionary {-}{}{}Vector}
+    \subitem {capacity}, \hyperpage{444}
+    \subitem {reserve}, \hyperpage{444}
+  \item {hryky\discretionary {-}{}{}::\discretionary {-}{}{}Vector$<$ Value\discretionary {-}{}{}T, Allocator\discretionary {-}{}{}T $>$}, 
+		\hyperpage{441}
+  \item {hryky\discretionary {-}{}{}::allocator\discretionary {-}{}{}::\discretionary {-}{}{}Base$<$ Value\discretionary {-}{}{}T $>$}, 
+		\hyperpage{109}
+  \item {hryky\discretionary {-}{}{}::allocator\discretionary {-}{}{}::\discretionary {-}{}{}Global$<$ Value\discretionary {-}{}{}T $>$}, 
+		\hyperpage{110}
+  \item {hryky\discretionary {-}{}{}::allocator\discretionary {-}{}{}::\discretionary {-}{}{}Heap}
+    \subitem {$\sim $\discretionary {-}{}{}Heap}, \hyperpage{113}
+    \subitem {Heap}, \hyperpage{113}
+  \item {hryky\discretionary {-}{}{}::allocator\discretionary {-}{}{}::\discretionary {-}{}{}Heap$<$ Value\discretionary {-}{}{}T, Heap\discretionary {-}{}{}Ptr\discretionary {-}{}{}T $>$}, 
+		\hyperpage{112}
+  \item {hryky\discretionary {-}{}{}::atomic}, \hyperpage{82}
+  \item {hryky\discretionary {-}{}{}::atomic\discretionary {-}{}{}::\discretionary {-}{}{}Accessor}
+    \subitem {Accessor}, \hyperpage{119, 120}
+    \subitem {operator value\discretionary {-}{}{}\_\discretionary {-}{}{}type}, 
+		\hyperpage{120}
+    \subitem {operator=}, \hyperpage{120}
+  \item {hryky\discretionary {-}{}{}::atomic\discretionary {-}{}{}::\discretionary {-}{}{}Accessor$<$ Value\discretionary {-}{}{}T, Lockable\discretionary {-}{}{}T $>$}, 
+		\hyperpage{117}
+  \item {hryky\discretionary {-}{}{}::atomic\discretionary {-}{}{}::\discretionary {-}{}{}Writer$<$ Value\discretionary {-}{}{}T, Lockable\discretionary {-}{}{}T $>$}, 
+		\hyperpage{121}
+  \item {hryky\discretionary {-}{}{}::chrono}, \hyperpage{83}
+  \item {hryky\discretionary {-}{}{}::clock\discretionary {-}{}{}::\discretionary {-}{}{}Auto\discretionary {-}{}{}Elapsed}, 
+		\hyperpage{134}
+  \item {hryky\discretionary {-}{}{}::color\discretionary {-}{}{}::\discretionary {-}{}{}Rgba$<$ Red\discretionary {-}{}{}T, Green\discretionary {-}{}{}T, Blue\discretionary {-}{}{}T, Alpha\discretionary {-}{}{}T $>$}, 
+		\hyperpage{134}
+  \item {hryky\discretionary {-}{}{}::date\discretionary {-}{}{}::\discretionary {-}{}{}Entity}, 
+		\hyperpage{137}
+  \item {hryky\discretionary {-}{}{}::debug\discretionary {-}{}{}::\discretionary {-}{}{}Source}, 
+		\hyperpage{138}
+    \subitem {Source}, \hyperpage{139}
+  \item {hryky\discretionary {-}{}{}::display}, \hyperpage{83}
+    \subitem {swap}, \hyperpage{84}
+  \item {hryky\discretionary {-}{}{}::display\discretionary {-}{}{}::\discretionary {-}{}{}Config}, 
+		\hyperpage{141}
+  \item {hryky\discretionary {-}{}{}::display\discretionary {-}{}{}::\discretionary {-}{}{}Driver}, 
+		\hyperpage{141}
+    \subitem {traverse}, \hyperpage{142}
+  \item {hryky\discretionary {-}{}{}::display\discretionary {-}{}{}::\discretionary {-}{}{}Environment}, 
+		\hyperpage{143}
+    \subitem {traverse}, \hyperpage{144}
+  \item {hryky\discretionary {-}{}{}::display\discretionary {-}{}{}::\discretionary {-}{}{}Environment\discretionary {-}{}{}::\discretionary {-}{}{}Reset\discretionary {-}{}{}Parameter}, 
+		\hyperpage{144}
+  \item {hryky\discretionary {-}{}{}::display\discretionary {-}{}{}::\discretionary {-}{}{}Mode}, 
+		\hyperpage{145}
+  \item {hryky\discretionary {-}{}{}::display\discretionary {-}{}{}::\discretionary {-}{}{}Mode\discretionary {-}{}{}::\discretionary {-}{}{}Reset\discretionary {-}{}{}Parameter}, 
+		\hyperpage{146}
+  \item {hryky\discretionary {-}{}{}::display\discretionary {-}{}{}::\discretionary {-}{}{}Screen}, 
+		\hyperpage{147}
+  \item {hryky\discretionary {-}{}{}::display\discretionary {-}{}{}::\discretionary {-}{}{}Traverser}, 
+		\hyperpage{148}
+    \subitem {operator()}, \hyperpage{148}
+  \item {hryky\discretionary {-}{}{}::error}, \hyperpage{85}
+  \item {hryky\discretionary {-}{}{}::error\discretionary {-}{}{}::\discretionary {-}{}{}Base}, 
+		\hyperpage{150}
+  \item {hryky\discretionary {-}{}{}::error\discretionary {-}{}{}::\discretionary {-}{}{}Holder}, 
+		\hyperpage{151}
+    \subitem {Holder}, \hyperpage{152}
+  \item {hryky\discretionary {-}{}{}::error\discretionary {-}{}{}::\discretionary {-}{}{}String}, 
+		\hyperpage{152}
+    \subitem {String}, \hyperpage{154}
+  \item {hryky\discretionary {-}{}{}::exclusion}, \hyperpage{85}
+  \item {hryky\discretionary {-}{}{}::exclusion\discretionary {-}{}{}::\discretionary {-}{}{}Cond}, 
+		\hyperpage{154}
+    \subitem {Cond}, \hyperpage{154}
+    \subitem {notify\discretionary {-}{}{}\_\discretionary {-}{}{}all}, 
+		\hyperpage{155}
+    \subitem {timed\discretionary {-}{}{}\_\discretionary {-}{}{}wait}, 
+		\hyperpage{155}
+  \item {hryky\discretionary {-}{}{}::exclusion\discretionary {-}{}{}::\discretionary {-}{}{}Counter}, 
+		\hyperpage{155}
+  \item {hryky\discretionary {-}{}{}::exclusion\discretionary {-}{}{}::\discretionary {-}{}{}Flag}, 
+		\hyperpage{156}
+    \subitem {$\sim $\discretionary {-}{}{}Flag}, \hyperpage{157}
+    \subitem {disable}, \hyperpage{157}
+    \subitem {enable}, \hyperpage{158}
+    \subitem {Flag}, \hyperpage{157}
+    \subitem {wait\discretionary {-}{}{}\_\discretionary {-}{}{}false}, 
+		\hyperpage{158}
+    \subitem {wait\discretionary {-}{}{}\_\discretionary {-}{}{}true}, 
+		\hyperpage{158}
+  \item {hryky\discretionary {-}{}{}::exclusion\discretionary {-}{}{}::\discretionary {-}{}{}Lock$<$ Lockable\discretionary {-}{}{}T $>$}, 
+		\hyperpage{159}
+  \item {hryky\discretionary {-}{}{}::exclusion\discretionary {-}{}{}::\discretionary {-}{}{}Lock$<$ Null $>$}, 
+		\hyperpage{159}
+  \item {hryky\discretionary {-}{}{}::exclusion\discretionary {-}{}{}::\discretionary {-}{}{}Mutex}, 
+		\hyperpage{160}
+    \subitem {Mutex}, \hyperpage{161}
+  \item {hryky\discretionary {-}{}{}::exclusion\discretionary {-}{}{}::\discretionary {-}{}{}Mutex\discretionary {-}{}{}::\discretionary {-}{}{}Raw}, 
+		\hyperpage{161}
+  \item {hryky\discretionary {-}{}{}::exclusion\discretionary {-}{}{}::\discretionary {-}{}{}Recursive\discretionary {-}{}{}Mutex}, 
+		\hyperpage{161}
+    \subitem {Recursive\discretionary {-}{}{}Mutex}, \hyperpage{162}
+    \subitem {unlock}, \hyperpage{162}
+  \item {hryky\discretionary {-}{}{}::exclusion\discretionary {-}{}{}::\discretionary {-}{}{}Recursive\discretionary {-}{}{}Mutex\discretionary {-}{}{}::\discretionary {-}{}{}Raw}, 
+		\hyperpage{162}
+  \item {hryky\discretionary {-}{}{}::exclusion\discretionary {-}{}{}::\discretionary {-}{}{}Waitable\discretionary {-}{}{}Lock$<$ Lockable\discretionary {-}{}{}T $>$}, 
+		\hyperpage{162}
+  \item {hryky\discretionary {-}{}{}::exclusion\discretionary {-}{}{}::\discretionary {-}{}{}Waitable\discretionary {-}{}{}Lock$<$ Null $>$}, 
+		\hyperpage{163}
+  \item {hryky\discretionary {-}{}{}::file\discretionary {-}{}{}::descriptor\discretionary {-}{}{}::\discretionary {-}{}{}Entity}, 
+		\hyperpage{164}
+  \item {hryky\discretionary {-}{}{}::file\discretionary {-}{}{}::descriptor\discretionary {-}{}{}::\discretionary {-}{}{}Mode}, 
+		\hyperpage{165}
+  \item {hryky\discretionary {-}{}{}::geometry}, \hyperpage{86}
+    \subitem {swap}, \hyperpage{86}
+  \item {hryky\discretionary {-}{}{}::geometry\discretionary {-}{}{}::\discretionary {-}{}{}Rect$<$ Coord\discretionary {-}{}{}T $>$}, 
+		\hyperpage{175}
+  \item {hryky\discretionary {-}{}{}::geometry\discretionary {-}{}{}::coord\discretionary {-}{}{}::\discretionary {-}{}{}Cartesian$<$ Value\discretionary {-}{}{}T, Dimension $>$}, 
+		\hyperpage{169}
+  \item {hryky\discretionary {-}{}{}::geometry\discretionary {-}{}{}::coord\discretionary {-}{}{}::\discretionary {-}{}{}Cartesian2\discretionary {-}{}{}D$<$ Value\discretionary {-}{}{}T $>$}, 
+		\hyperpage{171}
+  \item {hryky\discretionary {-}{}{}::geometry\discretionary {-}{}{}::coord\discretionary {-}{}{}::\discretionary {-}{}{}Cartesian3\discretionary {-}{}{}D$<$ Value\discretionary {-}{}{}T $>$}, 
+		\hyperpage{173}
+  \item {hryky\discretionary {-}{}{}::graphics}, \hyperpage{87}
+  \item {hryky\discretionary {-}{}{}::graphics\discretionary {-}{}{}::\discretionary {-}{}{}Module}, 
+		\hyperpage{177}
+  \item {hryky\discretionary {-}{}{}::graphics\discretionary {-}{}{}::\discretionary {-}{}{}Module\discretionary {-}{}{}::\discretionary {-}{}{}Reset\discretionary {-}{}{}Parameter}, 
+		\hyperpage{178}
+  \item {hryky\discretionary {-}{}{}::hryky\discretionary {-}{}{}::\discretionary {-}{}{}Is\discretionary {-}{}{}Floating\discretionary {-}{}{}Point$<$ double $>$}, 
+		\hyperpage{179}
+  \item {hryky\discretionary {-}{}{}::hryky\discretionary {-}{}{}::\discretionary {-}{}{}Is\discretionary {-}{}{}Floating\discretionary {-}{}{}Point$<$ float $>$}, 
+		\hyperpage{180}
+  \item {hryky\discretionary {-}{}{}::hryky\discretionary {-}{}{}::\discretionary {-}{}{}Is\discretionary {-}{}{}Unsigned$<$ uint64\discretionary {-}{}{}\_\discretionary {-}{}{}t $>$}, 
+		\hyperpage{180}
+  \item {hryky\discretionary {-}{}{}::hryky\discretionary {-}{}{}::\discretionary {-}{}{}Is\discretionary {-}{}{}Unsigned$<$ uint\discretionary {-}{}{}\_\discretionary {-}{}{}t $>$}, 
+		\hyperpage{180}
+  \item {hryky\discretionary {-}{}{}::hryky\discretionary {-}{}{}::\discretionary {-}{}{}Iterator\discretionary {-}{}{}Of$<$ Container\discretionary {-}{}{}T const, true $>$}, 
+		\hyperpage{181}
+  \item {hryky\discretionary {-}{}{}::hryky\discretionary {-}{}{}::\discretionary {-}{}{}Signed\discretionary {-}{}{}Bits\discretionary {-}{}{}Enough$<$ 0, Bits\discretionary {-}{}{}T $>$}, 
+		\hyperpage{181}
+  \item {hryky\discretionary {-}{}{}::hryky\discretionary {-}{}{}::\discretionary {-}{}{}Signed\discretionary {-}{}{}Bits\discretionary {-}{}{}Enough$<$-\/1, Bits\discretionary {-}{}{}T $>$}, 
+		\hyperpage{181}
+  \item {hryky\discretionary {-}{}{}::hryky\discretionary {-}{}{}::\discretionary {-}{}{}Signed\discretionary {-}{}{}Enough\discretionary {-}{}{}Bytes$<$ 0u $>$}, 
+		\hyperpage{182}
+  \item {hryky\discretionary {-}{}{}::hryky\discretionary {-}{}{}::\discretionary {-}{}{}Signed\discretionary {-}{}{}Enough\discretionary {-}{}{}Exponent$<$ 0 $>$}, 
+		\hyperpage{182}
+  \item {hryky\discretionary {-}{}{}::hryky\discretionary {-}{}{}::\discretionary {-}{}{}Signed\discretionary {-}{}{}Enough\discretionary {-}{}{}Exponent$<$ 1 $>$}, 
+		\hyperpage{182}
+  \item {hryky\discretionary {-}{}{}::hryky\discretionary {-}{}{}::\discretionary {-}{}{}Signed\discretionary {-}{}{}Enough\discretionary {-}{}{}Exponent$<$ 2 $>$}, 
+		\hyperpage{182}
+  \item {hryky\discretionary {-}{}{}::hryky\discretionary {-}{}{}::\discretionary {-}{}{}Signed\discretionary {-}{}{}Enough\discretionary {-}{}{}Exponent$<$ 3 $>$}, 
+		\hyperpage{183}
+  \item {hryky\discretionary {-}{}{}::hryky\discretionary {-}{}{}::\discretionary {-}{}{}Unsigned\discretionary {-}{}{}Bits\discretionary {-}{}{}Enough$<$ 0u, Bits\discretionary {-}{}{}T $>$}, 
+		\hyperpage{183}
+  \item {hryky\discretionary {-}{}{}::hryky\discretionary {-}{}{}::\discretionary {-}{}{}Unsigned\discretionary {-}{}{}Bits\discretionary {-}{}{}Enough$<$ 1u, Bits\discretionary {-}{}{}T $>$}, 
+		\hyperpage{183}
+  \item {hryky\discretionary {-}{}{}::hryky\discretionary {-}{}{}::\discretionary {-}{}{}Unsigned\discretionary {-}{}{}Enough\discretionary {-}{}{}Bytes$<$ 0u $>$}, 
+		\hyperpage{184}
+  \item {hryky\discretionary {-}{}{}::hryky\discretionary {-}{}{}::\discretionary {-}{}{}Unsigned\discretionary {-}{}{}Enough\discretionary {-}{}{}Exponent$<$ 0 $>$}, 
+		\hyperpage{184}
+  \item {hryky\discretionary {-}{}{}::hryky\discretionary {-}{}{}::\discretionary {-}{}{}Unsigned\discretionary {-}{}{}Enough\discretionary {-}{}{}Exponent$<$ 1 $>$}, 
+		\hyperpage{184}
+  \item {hryky\discretionary {-}{}{}::hryky\discretionary {-}{}{}::\discretionary {-}{}{}Unsigned\discretionary {-}{}{}Enough\discretionary {-}{}{}Exponent$<$ 2 $>$}, 
+		\hyperpage{185}
+  \item {hryky\discretionary {-}{}{}::hryky\discretionary {-}{}{}::\discretionary {-}{}{}Unsigned\discretionary {-}{}{}Enough\discretionary {-}{}{}Exponent$<$ 3 $>$}, 
+		\hyperpage{185}
+  \item {hryky\discretionary {-}{}{}::http}, \hyperpage{87}
+    \subitem {swap}, \hyperpage{88}
+  \item {hryky\discretionary {-}{}{}::http\discretionary {-}{}{}::\discretionary {-}{}{}Entity}, 
+		\hyperpage{186}
+  \item {hryky\discretionary {-}{}{}::http\discretionary {-}{}{}::\discretionary {-}{}{}Parser}, 
+		\hyperpage{242}
+    \subitem {parse}, \hyperpage{243}
+  \item {hryky\discretionary {-}{}{}::http\discretionary {-}{}{}::\discretionary {-}{}{}Stream}, 
+		\hyperpage{247}
+  \item {hryky\discretionary {-}{}{}::http\discretionary {-}{}{}::body\discretionary {-}{}{}::\discretionary {-}{}{}Entity}, 
+		\hyperpage{185}
+  \item {hryky\discretionary {-}{}{}::http\discretionary {-}{}{}::header\discretionary {-}{}{}::\discretionary {-}{}{}Entity}, 
+		\hyperpage{215}
+  \item {hryky\discretionary {-}{}{}::http\discretionary {-}{}{}::header\discretionary {-}{}{}::\discretionary {-}{}{}Parser}, 
+		\hyperpage{230}
+  \item {hryky\discretionary {-}{}{}::http\discretionary {-}{}{}::header\discretionary {-}{}{}::accept\discretionary {-}{}{}::\discretionary {-}{}{}Entity}, 
+		\hyperpage{191}
+  \item {hryky\discretionary {-}{}{}::http\discretionary {-}{}{}::header\discretionary {-}{}{}::accept\discretionary {-}{}{}::charset\discretionary {-}{}{}::\discretionary {-}{}{}Entity}, 
+		\hyperpage{188}
+  \item {hryky\discretionary {-}{}{}::http\discretionary {-}{}{}::header\discretionary {-}{}{}::accept\discretionary {-}{}{}::charset\discretionary {-}{}{}::content\discretionary {-}{}{}::\discretionary {-}{}{}Entity}, 
+		\hyperpage{187}
+  \item {hryky\discretionary {-}{}{}::http\discretionary {-}{}{}::header\discretionary {-}{}{}::accept\discretionary {-}{}{}::content\discretionary {-}{}{}::\discretionary {-}{}{}Entity}, 
+		\hyperpage{189}
+  \item {hryky\discretionary {-}{}{}::http\discretionary {-}{}{}::header\discretionary {-}{}{}::accept\discretionary {-}{}{}::encoding\discretionary {-}{}{}::\discretionary {-}{}{}Entity}, 
+		\hyperpage{191}
+  \item {hryky\discretionary {-}{}{}::http\discretionary {-}{}{}::header\discretionary {-}{}{}::accept\discretionary {-}{}{}::encoding\discretionary {-}{}{}::content\discretionary {-}{}{}::\discretionary {-}{}{}Entity}, 
+		\hyperpage{190}
+  \item {hryky\discretionary {-}{}{}::http\discretionary {-}{}{}::header\discretionary {-}{}{}::accept\discretionary {-}{}{}::extension\discretionary {-}{}{}::\discretionary {-}{}{}Entity}, 
+		\hyperpage{192}
+  \item {hryky\discretionary {-}{}{}::http\discretionary {-}{}{}::header\discretionary {-}{}{}::accept\discretionary {-}{}{}::language\discretionary {-}{}{}::\discretionary {-}{}{}Entity}, 
+		\hyperpage{194}
+  \item {hryky\discretionary {-}{}{}::http\discretionary {-}{}{}::header\discretionary {-}{}{}::accept\discretionary {-}{}{}::language\discretionary {-}{}{}::content\discretionary {-}{}{}::\discretionary {-}{}{}Entity}, 
+		\hyperpage{193}
+  \item {hryky\discretionary {-}{}{}::http\discretionary {-}{}{}::header\discretionary {-}{}{}::accept\discretionary {-}{}{}::params\discretionary {-}{}{}::\discretionary {-}{}{}Entity}, 
+		\hyperpage{195}
+  \item {hryky\discretionary {-}{}{}::http\discretionary {-}{}{}::header\discretionary {-}{}{}::cache\discretionary {-}{}{}::control\discretionary {-}{}{}::\discretionary {-}{}{}Entity}, 
+		\hyperpage{196}
+  \item {hryky\discretionary {-}{}{}::http\discretionary {-}{}{}::header\discretionary {-}{}{}::cache\discretionary {-}{}{}::directive\discretionary {-}{}{}::\discretionary {-}{}{}Adapter$<$ Value\discretionary {-}{}{}T $>$}, 
+		\hyperpage{197}
+  \item {hryky\discretionary {-}{}{}::http\discretionary {-}{}{}::header\discretionary {-}{}{}::cache\discretionary {-}{}{}::directive\discretionary {-}{}{}::\discretionary {-}{}{}Base}, 
+		\hyperpage{199}
+  \item {hryky\discretionary {-}{}{}::http\discretionary {-}{}{}::header\discretionary {-}{}{}::cache\discretionary {-}{}{}::directive\discretionary {-}{}{}::\discretionary {-}{}{}Field}, 
+		\hyperpage{204}
+  \item {hryky\discretionary {-}{}{}::http\discretionary {-}{}{}::header\discretionary {-}{}{}::cache\discretionary {-}{}{}::directive\discretionary {-}{}{}::\discretionary {-}{}{}Second}, 
+		\hyperpage{205}
+  \item {hryky\discretionary {-}{}{}::http\discretionary {-}{}{}::header\discretionary {-}{}{}::cache\discretionary {-}{}{}::directive\discretionary {-}{}{}::\discretionary {-}{}{}Specifier}, 
+		\hyperpage{206}
+  \item {hryky\discretionary {-}{}{}::http\discretionary {-}{}{}::header\discretionary {-}{}{}::cache\discretionary {-}{}{}::directive\discretionary {-}{}{}::dispatcher\discretionary {-}{}{}::\discretionary {-}{}{}Apply}, 
+		\hyperpage{200}
+    \subitem {operator()}, \hyperpage{202}
+  \item {hryky\discretionary {-}{}{}::http\discretionary {-}{}{}::header\discretionary {-}{}{}::cache\discretionary {-}{}{}::directive\discretionary {-}{}{}::dispatcher\discretionary {-}{}{}::\discretionary {-}{}{}Base}, 
+		\hyperpage{203}
+  \item {hryky\discretionary {-}{}{}::http\discretionary {-}{}{}::header\discretionary {-}{}{}::comment\discretionary {-}{}{}::\discretionary {-}{}{}Adapter$<$ Value\discretionary {-}{}{}T $>$}, 
+		\hyperpage{207}
+  \item {hryky\discretionary {-}{}{}::http\discretionary {-}{}{}::header\discretionary {-}{}{}::comment\discretionary {-}{}{}::\discretionary {-}{}{}Base}, 
+		\hyperpage{209}
+  \item {hryky\discretionary {-}{}{}::http\discretionary {-}{}{}::header\discretionary {-}{}{}::comment\discretionary {-}{}{}::\discretionary {-}{}{}Sequence}, 
+		\hyperpage{210}
+  \item {hryky\discretionary {-}{}{}::http\discretionary {-}{}{}::header\discretionary {-}{}{}::comment\discretionary {-}{}{}::\discretionary {-}{}{}String}, 
+		\hyperpage{211}
+  \item {hryky\discretionary {-}{}{}::http\discretionary {-}{}{}::header\discretionary {-}{}{}::connection\discretionary {-}{}{}::\discretionary {-}{}{}Entity}, 
+		\hyperpage{212}
+  \item {hryky\discretionary {-}{}{}::http\discretionary {-}{}{}::header\discretionary {-}{}{}::content\discretionary {-}{}{}::length\discretionary {-}{}{}::\discretionary {-}{}{}Entity}, 
+		\hyperpage{213}
+  \item {hryky\discretionary {-}{}{}::http\discretionary {-}{}{}::header\discretionary {-}{}{}::content\discretionary {-}{}{}::type\discretionary {-}{}{}::\discretionary {-}{}{}Entity}, 
+		\hyperpage{214}
+  \item {hryky\discretionary {-}{}{}::http\discretionary {-}{}{}::header\discretionary {-}{}{}::date\discretionary {-}{}{}::\discretionary {-}{}{}Entity}, 
+		\hyperpage{214}
+  \item {hryky\discretionary {-}{}{}::http\discretionary {-}{}{}::header\discretionary {-}{}{}::expires\discretionary {-}{}{}::\discretionary {-}{}{}Entity}, 
+		\hyperpage{216}
+  \item {hryky\discretionary {-}{}{}::http\discretionary {-}{}{}::header\discretionary {-}{}{}::field\discretionary {-}{}{}::\discretionary {-}{}{}Adapter$<$ Value\discretionary {-}{}{}T $>$}, 
+		\hyperpage{217}
+  \item {hryky\discretionary {-}{}{}::http\discretionary {-}{}{}::header\discretionary {-}{}{}::field\discretionary {-}{}{}::\discretionary {-}{}{}Base}, 
+		\hyperpage{219}
+  \item {hryky\discretionary {-}{}{}::http\discretionary {-}{}{}::header\discretionary {-}{}{}::field\discretionary {-}{}{}::dispatcher\discretionary {-}{}{}::\discretionary {-}{}{}Apply}, 
+		\hyperpage{220}
+  \item {hryky\discretionary {-}{}{}::http\discretionary {-}{}{}::header\discretionary {-}{}{}::field\discretionary {-}{}{}::dispatcher\discretionary {-}{}{}::\discretionary {-}{}{}Base}, 
+		\hyperpage{223}
+  \item {hryky\discretionary {-}{}{}::http\discretionary {-}{}{}::header\discretionary {-}{}{}::field\discretionary {-}{}{}::extension\discretionary {-}{}{}::\discretionary {-}{}{}Entity}, 
+		\hyperpage{225}
+  \item {hryky\discretionary {-}{}{}::http\discretionary {-}{}{}::header\discretionary {-}{}{}::host\discretionary {-}{}{}::\discretionary {-}{}{}Entity}, 
+		\hyperpage{226}
+  \item {hryky\discretionary {-}{}{}::http\discretionary {-}{}{}::header\discretionary {-}{}{}::language\discretionary {-}{}{}::\discretionary {-}{}{}Entity}, 
+		\hyperpage{227}
+  \item {hryky\discretionary {-}{}{}::http\discretionary {-}{}{}::header\discretionary {-}{}{}::location\discretionary {-}{}{}::\discretionary {-}{}{}Entity}, 
+		\hyperpage{228}
+  \item {hryky\discretionary {-}{}{}::http\discretionary {-}{}{}::header\discretionary {-}{}{}::media\discretionary {-}{}{}\_\discretionary {-}{}{}type\discretionary {-}{}{}::\discretionary {-}{}{}Entity}, 
+		\hyperpage{229}
+  \item {hryky\discretionary {-}{}{}::http\discretionary {-}{}{}::header\discretionary {-}{}{}::parameter\discretionary {-}{}{}::\discretionary {-}{}{}Entity}, 
+		\hyperpage{230}
+  \item {hryky\discretionary {-}{}{}::http\discretionary {-}{}{}::header\discretionary {-}{}{}::product\discretionary {-}{}{}::\discretionary {-}{}{}Entity}, 
+		\hyperpage{232}
+  \item {hryky\discretionary {-}{}{}::http\discretionary {-}{}{}::header\discretionary {-}{}{}::product\discretionary {-}{}{}\_\discretionary {-}{}{}comment\discretionary {-}{}{}::\discretionary {-}{}{}Adapter$<$ Value\discretionary {-}{}{}T $>$}, 
+		\hyperpage{234}
+  \item {hryky\discretionary {-}{}{}::http\discretionary {-}{}{}::header\discretionary {-}{}{}::product\discretionary {-}{}{}\_\discretionary {-}{}{}comment\discretionary {-}{}{}::\discretionary {-}{}{}Base}, 
+		\hyperpage{235}
+  \item {hryky\discretionary {-}{}{}::http\discretionary {-}{}{}::header\discretionary {-}{}{}::product\discretionary {-}{}{}\_\discretionary {-}{}{}comment\discretionary {-}{}{}::dispatcher\discretionary {-}{}{}::\discretionary {-}{}{}Apply$<$ Receiver\discretionary {-}{}{}T $>$}, 
+		\hyperpage{236}
+  \item {hryky\discretionary {-}{}{}::http\discretionary {-}{}{}::header\discretionary {-}{}{}::product\discretionary {-}{}{}\_\discretionary {-}{}{}comment\discretionary {-}{}{}::dispatcher\discretionary {-}{}{}::\discretionary {-}{}{}Base}, 
+		\hyperpage{238}
+  \item {hryky\discretionary {-}{}{}::http\discretionary {-}{}{}::header\discretionary {-}{}{}::server\discretionary {-}{}{}::\discretionary {-}{}{}Entity}, 
+		\hyperpage{239}
+  \item {hryky\discretionary {-}{}{}::http\discretionary {-}{}{}::header\discretionary {-}{}{}::user\discretionary {-}{}{}\_\discretionary {-}{}{}agent\discretionary {-}{}{}::\discretionary {-}{}{}Entity}, 
+		\hyperpage{240}
+  \item {hryky\discretionary {-}{}{}::http\discretionary {-}{}{}::method\discretionary {-}{}{}::\discretionary {-}{}{}Entity}, 
+		\hyperpage{241}
+  \item {hryky\discretionary {-}{}{}::http\discretionary {-}{}{}::request\discretionary {-}{}{}::\discretionary {-}{}{}Entity}, 
+		\hyperpage{244}
+    \subitem {Entity}, \hyperpage{245}
+  \item {hryky\discretionary {-}{}{}::http\discretionary {-}{}{}::request\discretionary {-}{}{}::line\discretionary {-}{}{}::\discretionary {-}{}{}Entity}, 
+		\hyperpage{245}
+  \item {hryky\discretionary {-}{}{}::http\discretionary {-}{}{}::seconds\discretionary {-}{}{}::\discretionary {-}{}{}Entity}, 
+		\hyperpage{246}
+  \item {hryky\discretionary {-}{}{}::http\discretionary {-}{}{}::version\discretionary {-}{}{}::\discretionary {-}{}{}Entity}, 
+		\hyperpage{248}
+  \item {hryky\discretionary {-}{}{}::ip\discretionary {-}{}{}::port\discretionary {-}{}{}::\discretionary {-}{}{}Writer}, 
+		\hyperpage{253}
+  \item {hryky\discretionary {-}{}{}::ip\discretionary {-}{}{}::v4\discretionary {-}{}{}::\discretionary {-}{}{}Entity}, 
+		\hyperpage{254}
+    \subitem {Entity}, \hyperpage{255}
+  \item {hryky\discretionary {-}{}{}::ip\discretionary {-}{}{}::v4\discretionary {-}{}{}::\discretionary {-}{}{}Parser}, 
+		\hyperpage{255}
+    \subitem {operator()}, \hyperpage{257}
+  \item {hryky\discretionary {-}{}{}::ip\discretionary {-}{}{}::v6\discretionary {-}{}{}::\discretionary {-}{}{}Entity}, 
+		\hyperpage{257}
+    \subitem {Entity}, \hyperpage{258}
+  \item {hryky\discretionary {-}{}{}::ip\discretionary {-}{}{}::v6\discretionary {-}{}{}::\discretionary {-}{}{}Writer}, 
+		\hyperpage{258}
+  \item {hryky\discretionary {-}{}{}::ip\discretionary {-}{}{}::vf\discretionary {-}{}{}::\discretionary {-}{}{}Entity}, 
+		\hyperpage{259}
+  \item {hryky\discretionary {-}{}{}::ip\discretionary {-}{}{}::vf\discretionary {-}{}{}::\discretionary {-}{}{}Writer}, 
+		\hyperpage{260}
+  \item {hryky\discretionary {-}{}{}::iterator\discretionary {-}{}{}::random\discretionary {-}{}{}::\discretionary {-}{}{}Base$<$ Container\discretionary {-}{}{}T, Value\discretionary {-}{}{}T, Pointer\discretionary {-}{}{}T, Reference\discretionary {-}{}{}T $>$}, 
+		\hyperpage{267}
+  \item {hryky\discretionary {-}{}{}::iterator\discretionary {-}{}{}::random\discretionary {-}{}{}::\discretionary {-}{}{}Immutable$<$ Container\discretionary {-}{}{}T, Value\discretionary {-}{}{}T, Pointer\discretionary {-}{}{}T, Reference\discretionary {-}{}{}T, Const\discretionary {-}{}{}Pointer\discretionary {-}{}{}T, Const\discretionary {-}{}{}Reference\discretionary {-}{}{}T $>$}, 
+		\hyperpage{269}
+  \item {hryky\discretionary {-}{}{}::iterator\discretionary {-}{}{}::random\discretionary {-}{}{}::\discretionary {-}{}{}Mutable$<$ Container\discretionary {-}{}{}T, Value\discretionary {-}{}{}T, Pointer\discretionary {-}{}{}T, Reference\discretionary {-}{}{}T $>$}, 
+		\hyperpage{271}
+  \item {hryky\discretionary {-}{}{}::log}, \hyperpage{88}
+  \item {hryky\discretionary {-}{}{}::log\discretionary {-}{}{}::\discretionary {-}{}{}Auto\discretionary {-}{}{}Elapsed}, 
+		\hyperpage{277}
+  \item {hryky\discretionary {-}{}{}::log\discretionary {-}{}{}::level\discretionary {-}{}{}::\discretionary {-}{}{}Entity}, 
+		\hyperpage{278}
+    \subitem {Entity}, \hyperpage{279}
+  \item {hryky\discretionary {-}{}{}::log\discretionary {-}{}{}::level\discretionary {-}{}{}::\discretionary {-}{}{}Kind}, 
+		\hyperpage{279}
+    \subitem {Raw}, \hyperpage{279}
+  \item {hryky\discretionary {-}{}{}::log\discretionary {-}{}{}::writer}, 
+		\hyperpage{88}
+    \subitem {get}, \hyperpage{89}
+  \item {hryky\discretionary {-}{}{}::log\discretionary {-}{}{}::writer\discretionary {-}{}{}::\discretionary {-}{}{}Base}, 
+		\hyperpage{280}
+    \subitem {$\sim $\discretionary {-}{}{}Base}, \hyperpage{282}
+    \subitem {Base}, \hyperpage{282}
+    \subitem {operator()}, \hyperpage{282}
+  \item {hryky\discretionary {-}{}{}::log\discretionary {-}{}{}::writer\discretionary {-}{}{}::\discretionary {-}{}{}File}, 
+		\hyperpage{282}
+    \subitem {$\sim $\discretionary {-}{}{}File}, \hyperpage{284}
+    \subitem {File}, \hyperpage{284}
+    \subitem {operator()}, \hyperpage{284}
+  \item {hryky\discretionary {-}{}{}::log\discretionary {-}{}{}::writer\discretionary {-}{}{}::\discretionary {-}{}{}Push}, 
+		\hyperpage{284}
+  \item {hryky\discretionary {-}{}{}::log\discretionary {-}{}{}::writer\discretionary {-}{}{}::\discretionary {-}{}{}Stream}
+    \subitem {operator()}, \hyperpage{287}
+  \item {hryky\discretionary {-}{}{}::log\discretionary {-}{}{}::writer\discretionary {-}{}{}::\discretionary {-}{}{}Stream$<$ Value\discretionary {-}{}{}T $>$}, 
+		\hyperpage{285}
+  \item {hryky\discretionary {-}{}{}::memory}, \hyperpage{89}
+  \item {hryky\discretionary {-}{}{}::memory\discretionary {-}{}{}::global}, 
+		\hyperpage{89}
+  \item {hryky\discretionary {-}{}{}::memory\discretionary {-}{}{}::global\discretionary {-}{}{}::\discretionary {-}{}{}Boot}, 
+		\hyperpage{287}
+    \subitem {Boot}, \hyperpage{288}
+  \item {hryky\discretionary {-}{}{}::memory\discretionary {-}{}{}::global\discretionary {-}{}{}::\discretionary {-}{}{}Push}, 
+		\hyperpage{288}
+    \subitem {$\sim $\discretionary {-}{}{}Push}, \hyperpage{289}
+    \subitem {Push}, \hyperpage{289}
+  \item {hryky\discretionary {-}{}{}::memory\discretionary {-}{}{}::heap}, 
+		\hyperpage{90}
+  \item {hryky\discretionary {-}{}{}::memory\discretionary {-}{}{}::heap\discretionary {-}{}{}::\discretionary {-}{}{}Adapter}
+    \subitem {allocatable\discretionary {-}{}{}\_\discretionary {-}{}{}size}, 
+		\hyperpage{291}
+    \subitem {allocate}, \hyperpage{291}
+    \subitem {deallocate}, \hyperpage{292}
+  \item {hryky\discretionary {-}{}{}::memory\discretionary {-}{}{}::heap\discretionary {-}{}{}::\discretionary {-}{}{}Adapter$<$ Impl\discretionary {-}{}{}T $>$}, 
+		\hyperpage{289}
+  \item {hryky\discretionary {-}{}{}::memory\discretionary {-}{}{}::heap\discretionary {-}{}{}::\discretionary {-}{}{}Arbitrary}
+    \subitem {$\sim $\discretionary {-}{}{}Arbitrary}, \hyperpage{293}
+    \subitem {allocatable\discretionary {-}{}{}\_\discretionary {-}{}{}size}, 
+		\hyperpage{294}
+    \subitem {allocate}, \hyperpage{294}
+    \subitem {Arbitrary}, \hyperpage{293}
+    \subitem {deallocate}, \hyperpage{295}
+    \subitem {offset\discretionary {-}{}{}\_\discretionary {-}{}{}type}, 
+		\hyperpage{293}
+    \subitem {reset}, \hyperpage{295, 296}
+    \subitem {verify}, \hyperpage{296}
+  \item {hryky\discretionary {-}{}{}::memory\discretionary {-}{}{}::heap\discretionary {-}{}{}::\discretionary {-}{}{}Arbitrary$<$ Offset\discretionary {-}{}{}T $>$}, 
+		\hyperpage{292}
+  \item {hryky\discretionary {-}{}{}::memory\discretionary {-}{}{}::heap\discretionary {-}{}{}::\discretionary {-}{}{}Arbitrary$<$ Offset\discretionary {-}{}{}T $>$\discretionary {-}{}{}::\discretionary {-}{}{}Address}, 
+		\hyperpage{296}
+  \item {hryky\discretionary {-}{}{}::memory\discretionary {-}{}{}::heap\discretionary {-}{}{}::\discretionary {-}{}{}Base}, 
+		\hyperpage{297}
+    \subitem {allocatable\discretionary {-}{}{}\_\discretionary {-}{}{}size}, 
+		\hyperpage{299}
+    \subitem {allocate}, \hyperpage{299}
+    \subitem {deallocate}, \hyperpage{299}
+  \item {hryky\discretionary {-}{}{}::memory\discretionary {-}{}{}::heap\discretionary {-}{}{}::\discretionary {-}{}{}Fixed}, 
+		\hyperpage{299}
+    \subitem {$\sim $\discretionary {-}{}{}Fixed}, \hyperpage{301}
+    \subitem {allocate}, \hyperpage{301}
+    \subitem {buffer\discretionary {-}{}{}\_\discretionary {-}{}{}size}, 
+		\hyperpage{301}
+    \subitem {deallocate}, \hyperpage{301}
+    \subitem {Fixed}, \hyperpage{301}
+    \subitem {reduce}, \hyperpage{302}
+    \subitem {reset}, \hyperpage{302}
+    \subitem {verify}, \hyperpage{303}
+  \item {hryky\discretionary {-}{}{}::memory\discretionary {-}{}{}::heap\discretionary {-}{}{}::\discretionary {-}{}{}Fixed\discretionary {-}{}{}::\discretionary {-}{}{}Address}, 
+		\hyperpage{303}
+  \item {hryky\discretionary {-}{}{}::memory\discretionary {-}{}{}::heap\discretionary {-}{}{}::\discretionary {-}{}{}Lock$<$ Locked\discretionary {-}{}{}T, Lockable\discretionary {-}{}{}T $>$}, 
+		\hyperpage{304}
+  \item {hryky\discretionary {-}{}{}::memory\discretionary {-}{}{}::heap\discretionary {-}{}{}::\discretionary {-}{}{}Standard}, 
+		\hyperpage{306}
+    \subitem {Standard}, \hyperpage{306}
+  \item {hryky\discretionary {-}{}{}::opengl}, \hyperpage{91}
+  \item {hryky\discretionary {-}{}{}::opengl\discretionary {-}{}{}::\discretionary {-}{}{}Module}, 
+		\hyperpage{313}
+  \item {hryky\discretionary {-}{}{}::opengl\discretionary {-}{}{}::\discretionary {-}{}{}Module\discretionary {-}{}{}::\discretionary {-}{}{}Clear\discretionary {-}{}{}Framebuffer\discretionary {-}{}{}Parameter}, 
+		\hyperpage{313}
+  \item {hryky\discretionary {-}{}{}::opengl\discretionary {-}{}{}::\discretionary {-}{}{}Module\discretionary {-}{}{}::\discretionary {-}{}{}Reset\discretionary {-}{}{}Parameter}, 
+		\hyperpage{314}
+  \item {hryky\discretionary {-}{}{}::opengl\discretionary {-}{}{}::\discretionary {-}{}{}Version}, 
+		\hyperpage{314}
+    \subitem {Version}, \hyperpage{315}
+  \item {hryky\discretionary {-}{}{}::parser}, \hyperpage{92}
+    \subitem {swap}, \hyperpage{92}
+  \item {hryky\discretionary {-}{}{}::parser\discretionary {-}{}{}::\discretionary {-}{}{}Base}
+    \subitem {$\sim $\discretionary {-}{}{}Base}, \hyperpage{317}
+  \item {hryky\discretionary {-}{}{}::parser\discretionary {-}{}{}::\discretionary {-}{}{}Base$<$ Generated\discretionary {-}{}{}T $>$}, 
+		\hyperpage{315}
+  \item {hryky\discretionary {-}{}{}::pixcel}, \hyperpage{92}
+  \item {hryky\discretionary {-}{}{}::pixel\discretionary {-}{}{}::\discretionary {-}{}{}Format}, 
+		\hyperpage{317}
+  \item {hryky\discretionary {-}{}{}::pixel\discretionary {-}{}{}::\discretionary {-}{}{}Format\discretionary {-}{}{}::\discretionary {-}{}{}Traits}, 
+		\hyperpage{318}
+  \item {hryky\discretionary {-}{}{}::profiler\discretionary {-}{}{}::\discretionary {-}{}{}Cumulate$<$ Value\discretionary {-}{}{}T $>$}, 
+		\hyperpage{320}
+  \item {hryky\discretionary {-}{}{}::qsort\discretionary {-}{}{}\_\discretionary {-}{}{}internal}, 
+		\hyperpage{92}
+    \subitem {partition}, \hyperpage{93}
+    \subitem {pivot\discretionary {-}{}{}\_\discretionary {-}{}{}position}, 
+		\hyperpage{93}
+  \item {hryky\discretionary {-}{}{}::random}, \hyperpage{94}
+  \item {hryky\discretionary {-}{}{}::random\discretionary {-}{}{}::distribution}, 
+		\hyperpage{94}
+  \item {hryky\discretionary {-}{}{}::random\discretionary {-}{}{}::distribution\discretionary {-}{}{}::\discretionary {-}{}{}Normal$<$ Value\discretionary {-}{}{}T $>$}, 
+		\hyperpage{321}
+  \item {hryky\discretionary {-}{}{}::random\discretionary {-}{}{}::distribution\discretionary {-}{}{}::\discretionary {-}{}{}Uniform$<$ Value\discretionary {-}{}{}T $>$}, 
+		\hyperpage{322}
+  \item {hryky\discretionary {-}{}{}::reduction}, \hyperpage{94}
+    \subitem {map}, \hyperpage{96, 97}
+    \subitem {reduce}, \hyperpage{98}
+    \subitem {swap}, \hyperpage{98, 99}
+  \item {hryky\discretionary {-}{}{}::reduction\discretionary {-}{}{}::\discretionary {-}{}{}Address}, 
+		\hyperpage{323}
+    \subitem {delete\discretionary {-}{}{}\_\discretionary {-}{}{}self}, 
+		\hyperpage{325}
+    \subitem {dispatch}, \hyperpage{325}
+  \item {hryky\discretionary {-}{}{}::reduction\discretionary {-}{}{}::\discretionary {-}{}{}Array}, 
+		\hyperpage{326}
+    \subitem {delete\discretionary {-}{}{}\_\discretionary {-}{}{}self}, 
+		\hyperpage{328}
+    \subitem {dispatch}, \hyperpage{328}
+  \item {hryky\discretionary {-}{}{}::reduction\discretionary {-}{}{}::\discretionary {-}{}{}Base}, 
+		\hyperpage{329}
+    \subitem {delete\discretionary {-}{}{}\_\discretionary {-}{}{}self}, 
+		\hyperpage{330}
+    \subitem {dispatch}, \hyperpage{330}
+  \item {hryky\discretionary {-}{}{}::reduction\discretionary {-}{}{}::\discretionary {-}{}{}Bool}, 
+		\hyperpage{331}
+    \subitem {delete\discretionary {-}{}{}\_\discretionary {-}{}{}self}, 
+		\hyperpage{333}
+    \subitem {dispatch}, \hyperpage{333}
+  \item {hryky\discretionary {-}{}{}::reduction\discretionary {-}{}{}::\discretionary {-}{}{}Char}, 
+		\hyperpage{333}
+    \subitem {delete\discretionary {-}{}{}\_\discretionary {-}{}{}self}, 
+		\hyperpage{335}
+    \subitem {dispatch}, \hyperpage{335}
+  \item {hryky\discretionary {-}{}{}::reduction\discretionary {-}{}{}::\discretionary {-}{}{}Dispatcher}, 
+		\hyperpage{336}
+  \item {hryky\discretionary {-}{}{}::reduction\discretionary {-}{}{}::\discretionary {-}{}{}Float}, 
+		\hyperpage{338}
+    \subitem {delete\discretionary {-}{}{}\_\discretionary {-}{}{}self}, 
+		\hyperpage{340}
+    \subitem {dispatch}, \hyperpage{340}
+  \item {hryky\discretionary {-}{}{}::reduction\discretionary {-}{}{}::\discretionary {-}{}{}Int}, 
+		\hyperpage{341}
+    \subitem {delete\discretionary {-}{}{}\_\discretionary {-}{}{}self}, 
+		\hyperpage{342}
+    \subitem {dispatch}, \hyperpage{342}
+    \subitem {value}, \hyperpage{343}
+  \item {hryky\discretionary {-}{}{}::reduction\discretionary {-}{}{}::\discretionary {-}{}{}Map}, 
+		\hyperpage{343}
+    \subitem {append}, \hyperpage{346}
+    \subitem {delete\discretionary {-}{}{}\_\discretionary {-}{}{}self}, 
+		\hyperpage{347}
+    \subitem {dispatch}, \hyperpage{347}
+    \subitem {Map}, \hyperpage{346}
+    \subitem {map}, \hyperpage{347}
+  \item {hryky\discretionary {-}{}{}::reduction\discretionary {-}{}{}::\discretionary {-}{}{}Stream}
+    \subitem {operator()}, \hyperpage{350}
+    \subitem {Stream}, \hyperpage{350}
+  \item {hryky\discretionary {-}{}{}::reduction\discretionary {-}{}{}::\discretionary {-}{}{}Stream$<$ Stream\discretionary {-}{}{}T $>$}, 
+		\hyperpage{348}
+  \item {hryky\discretionary {-}{}{}::reduction\discretionary {-}{}{}::\discretionary {-}{}{}String}, 
+		\hyperpage{350}
+    \subitem {delete\discretionary {-}{}{}\_\discretionary {-}{}{}self}, 
+		\hyperpage{352}
+    \subitem {dispatch}, \hyperpage{352}
+  \item {hryky\discretionary {-}{}{}::reduction\discretionary {-}{}{}::\discretionary {-}{}{}Uint}, 
+		\hyperpage{353}
+    \subitem {delete\discretionary {-}{}{}\_\discretionary {-}{}{}self}, 
+		\hyperpage{355}
+    \subitem {dispatch}, \hyperpage{355}
+  \item {hryky\discretionary {-}{}{}::scale}, \hyperpage{99}
+    \subitem {swap}, \hyperpage{100}
+  \item {hryky\discretionary {-}{}{}::scale\discretionary {-}{}{}::\discretionary {-}{}{}Entity$<$ Raw\discretionary {-}{}{}T, Higher\discretionary {-}{}{}T, Radix $>$}, 
+		\hyperpage{356}
+  \item {hryky\discretionary {-}{}{}::scale\discretionary {-}{}{}::\discretionary {-}{}{}Is\discretionary {-}{}{}Lower$<$ Lhs\discretionary {-}{}{}T, Rhs\discretionary {-}{}{}T $>$}, 
+		\hyperpage{357}
+  \item {hryky\discretionary {-}{}{}::scale\discretionary {-}{}{}::\discretionary {-}{}{}Is\discretionary {-}{}{}Lower\discretionary {-}{}{}Equal$<$ hryky\discretionary {-}{}{}::\discretionary {-}{}{}Null, Rhs\discretionary {-}{}{}T $>$}, 
+		\hyperpage{358}
+  \item {hryky\discretionary {-}{}{}::scale\discretionary {-}{}{}::\discretionary {-}{}{}Is\discretionary {-}{}{}Lower\discretionary {-}{}{}Equal$<$ Lhs\discretionary {-}{}{}T, Rhs\discretionary {-}{}{}T $>$}, 
+		\hyperpage{357}
+  \item {hryky\discretionary {-}{}{}::scale\discretionary {-}{}{}::\discretionary {-}{}{}Lower\discretionary {-}{}{}Of$<$ Lhs\discretionary {-}{}{}T, Rhs\discretionary {-}{}{}T, Is\discretionary {-}{}{}Lower $>$}, 
+		\hyperpage{358}
+  \item {hryky\discretionary {-}{}{}::scale\discretionary {-}{}{}::\discretionary {-}{}{}Lower\discretionary {-}{}{}Of$<$ Lhs\discretionary {-}{}{}T, Rhs\discretionary {-}{}{}T, true $>$}, 
+		\hyperpage{358}
+  \item {hryky\discretionary {-}{}{}::scale\discretionary {-}{}{}::\discretionary {-}{}{}Radix$<$ Low\discretionary {-}{}{}T, High\discretionary {-}{}{}T $>$}, 
+		\hyperpage{359}
+  \item {hryky\discretionary {-}{}{}::scale\discretionary {-}{}{}::\discretionary {-}{}{}Radix$<$ Value\discretionary {-}{}{}T, Value\discretionary {-}{}{}T $>$}, 
+		\hyperpage{359}
+  \item {hryky\discretionary {-}{}{}::task}, \hyperpage{100}
+  \item {hryky\discretionary {-}{}{}::task\discretionary {-}{}{}::\discretionary {-}{}{}Concurrency}, 
+		\hyperpage{379}
+    \subitem {$\sim $\discretionary {-}{}{}Concurrency}, 
+		\hyperpage{381}
+    \subitem {Concurrency}, \hyperpage{381}
+    \subitem {join}, \hyperpage{381}
+    \subitem {reset}, \hyperpage{381}
+    \subitem {sequence}, \hyperpage{381}
+    \subitem {units\discretionary {-}{}{}\_\discretionary {-}{}{}size}, 
+		\hyperpage{381}
+  \item {hryky\discretionary {-}{}{}::task\discretionary {-}{}{}::\discretionary {-}{}{}Concurrency\discretionary {-}{}{}::\discretionary {-}{}{}Reset\discretionary {-}{}{}Parameter}, 
+		\hyperpage{382}
+  \item {hryky\discretionary {-}{}{}::task\discretionary {-}{}{}::\discretionary {-}{}{}Sequence\discretionary {-}{}{}::\discretionary {-}{}{}Reset\discretionary {-}{}{}Parameter}, 
+		\hyperpage{398}
+  \item {hryky\discretionary {-}{}{}::task\discretionary {-}{}{}::distributor}, 
+		\hyperpage{101}
+  \item {hryky\discretionary {-}{}{}::task\discretionary {-}{}{}::distributor\discretionary {-}{}{}::\discretionary {-}{}{}Base}, 
+		\hyperpage{383}
+    \subitem {$\sim $\discretionary {-}{}{}Base}, \hyperpage{386}
+    \subitem {attach}, \hyperpage{386}
+    \subitem {Base}, \hyperpage{386}
+    \subitem {implement}, \hyperpage{386}
+    \subitem {join}, \hyperpage{386}
+    \subitem {reset}, \hyperpage{387}
+  \item {hryky\discretionary {-}{}{}::task\discretionary {-}{}{}::distributor\discretionary {-}{}{}::\discretionary {-}{}{}Base\discretionary {-}{}{}::\discretionary {-}{}{}Reset\discretionary {-}{}{}Parameter}, 
+		\hyperpage{387}
+    \subitem {Reset\discretionary {-}{}{}Parameter}, \hyperpage{388}
+  \item {hryky\discretionary {-}{}{}::task\discretionary {-}{}{}::distributor\discretionary {-}{}{}::\discretionary {-}{}{}Base\discretionary {-}{}{}::\discretionary {-}{}{}Worker\discretionary {-}{}{}Observer}, 
+		\hyperpage{388}
+    \subitem {attach}, \hyperpage{389}
+    \subitem {detach}, \hyperpage{390}
+    \subitem {error}, \hyperpage{390}
+  \item {hryky\discretionary {-}{}{}::task\discretionary {-}{}{}::distributor\discretionary {-}{}{}::\discretionary {-}{}{}Batch}
+    \subitem {attach}, \hyperpage{393}
+    \subitem {implement}, \hyperpage{393}
+    \subitem {join}, \hyperpage{393}
+  \item {hryky\discretionary {-}{}{}::task\discretionary {-}{}{}::distributor\discretionary {-}{}{}::\discretionary {-}{}{}Batch$<$ Task\discretionary {-}{}{}T $>$}, 
+		\hyperpage{390}
+  \item {hryky\discretionary {-}{}{}::task\discretionary {-}{}{}::distributor\discretionary {-}{}{}::\discretionary {-}{}{}Batch$<$ Task\discretionary {-}{}{}T $>$\discretionary {-}{}{}::\discretionary {-}{}{}Reset\discretionary {-}{}{}Parameter}, 
+		\hyperpage{394}
+  \item {hryky\discretionary {-}{}{}::task\discretionary {-}{}{}::distributor\discretionary {-}{}{}::\discretionary {-}{}{}Batch\discretionary {-}{}{}::\discretionary {-}{}{}Reset\discretionary {-}{}{}Parameter}
+    \subitem {Reset\discretionary {-}{}{}Parameter}, \hyperpage{394}
+  \item {hryky\discretionary {-}{}{}::task\discretionary {-}{}{}::distributor\discretionary {-}{}{}::\discretionary {-}{}{}Impl}
+    \subitem {attach}, \hyperpage{397}
+    \subitem {implement}, \hyperpage{397}
+    \subitem {join}, \hyperpage{397}
+    \subitem {reset}, \hyperpage{397}
+  \item {hryky\discretionary {-}{}{}::task\discretionary {-}{}{}::distributor\discretionary {-}{}{}::\discretionary {-}{}{}Impl$<$ Worker\discretionary {-}{}{}T $>$}, 
+		\hyperpage{394}
+  \item {hryky\discretionary {-}{}{}::task\discretionary {-}{}{}::worker}, 
+		\hyperpage{101}
+  \item {hryky\discretionary {-}{}{}::task\discretionary {-}{}{}::worker\discretionary {-}{}{}::\discretionary {-}{}{}Base}, 
+		\hyperpage{398}
+    \subitem {$\sim $\discretionary {-}{}{}Base}, \hyperpage{400}
+    \subitem {attach}, \hyperpage{401}
+    \subitem {Base}, \hyperpage{400}
+    \subitem {reset}, \hyperpage{401}
+  \item {hryky\discretionary {-}{}{}::task\discretionary {-}{}{}::worker\discretionary {-}{}{}::\discretionary {-}{}{}Base\discretionary {-}{}{}::\discretionary {-}{}{}Detach}, 
+		\hyperpage{401}
+  \item {hryky\discretionary {-}{}{}::task\discretionary {-}{}{}::worker\discretionary {-}{}{}::\discretionary {-}{}{}Base\discretionary {-}{}{}::\discretionary {-}{}{}Observer}, 
+		\hyperpage{402}
+    \subitem {attach}, \hyperpage{403}
+    \subitem {detach}, \hyperpage{403}
+    \subitem {error}, \hyperpage{404}
+  \item {hryky\discretionary {-}{}{}::task\discretionary {-}{}{}::worker\discretionary {-}{}{}::\discretionary {-}{}{}Base\discretionary {-}{}{}::\discretionary {-}{}{}Reset\discretionary {-}{}{}Parameter}, 
+		\hyperpage{404}
+    \subitem {Reset\discretionary {-}{}{}Parameter}, \hyperpage{405}
+  \item {hryky\discretionary {-}{}{}::task\discretionary {-}{}{}::worker\discretionary {-}{}{}::\discretionary {-}{}{}Base\discretionary {-}{}{}::\discretionary {-}{}{}Run}, 
+		\hyperpage{406}
+  \item {hryky\discretionary {-}{}{}::task\discretionary {-}{}{}::worker\discretionary {-}{}{}::\discretionary {-}{}{}Batch}
+    \subitem {attach}, \hyperpage{408}
+    \subitem {distributor}, \hyperpage{409}
+  \item {hryky\discretionary {-}{}{}::task\discretionary {-}{}{}::worker\discretionary {-}{}{}::\discretionary {-}{}{}Batch$<$ Task\discretionary {-}{}{}T $>$}, 
+		\hyperpage{407}
+  \item {hryky\discretionary {-}{}{}::task\discretionary {-}{}{}::worker\discretionary {-}{}{}::\discretionary {-}{}{}Batch$<$ Task\discretionary {-}{}{}T $>$\discretionary {-}{}{}::\discretionary {-}{}{}Reset\discretionary {-}{}{}Parameter}, 
+		\hyperpage{409}
+  \item {hryky\discretionary {-}{}{}::task\discretionary {-}{}{}::worker\discretionary {-}{}{}::\discretionary {-}{}{}Batch\discretionary {-}{}{}::\discretionary {-}{}{}Reset\discretionary {-}{}{}Parameter}
+    \subitem {Reset\discretionary {-}{}{}Parameter}, \hyperpage{411}
+  \item {hryky\discretionary {-}{}{}::task\discretionary {-}{}{}::worker\discretionary {-}{}{}::\discretionary {-}{}{}Quicksort}
+    \subitem {attach}, \hyperpage{413}
+    \subitem {distributor}, \hyperpage{413}
+  \item {hryky\discretionary {-}{}{}::task\discretionary {-}{}{}::worker\discretionary {-}{}{}::\discretionary {-}{}{}Quicksort$<$ Task\discretionary {-}{}{}T $>$}, 
+		\hyperpage{411}
+  \item {hryky\discretionary {-}{}{}::testing}, \hyperpage{102}
+  \item {hryky\discretionary {-}{}{}::testing\discretionary {-}{}{}::\discretionary {-}{}{}Log}, 
+		\hyperpage{414}
+  \item {hryky\discretionary {-}{}{}::testing\discretionary {-}{}{}::\discretionary {-}{}{}Random}, 
+		\hyperpage{414}
+    \subitem {Random}, \hyperpage{415}
+  \item {hryky\discretionary {-}{}{}::testing\discretionary {-}{}{}::\discretionary {-}{}{}Registry}, 
+		\hyperpage{415}
+  \item {hryky\discretionary {-}{}{}::testing\discretionary {-}{}{}::\discretionary {-}{}{}Registry\discretionary {-}{}{}::\discretionary {-}{}{}Enregister}, 
+		\hyperpage{416}
+  \item {hryky\discretionary {-}{}{}::testing\discretionary {-}{}{}::unit\discretionary {-}{}{}::\discretionary {-}{}{}Base}, 
+		\hyperpage{416}
+  \item {hryky\discretionary {-}{}{}::thread}, \hyperpage{102}
+    \subitem {reduce}, \hyperpage{103}
+  \item {hryky\discretionary {-}{}{}::thread\discretionary {-}{}{}::\discretionary {-}{}{}Pool}, 
+		\hyperpage{417}
+    \subitem {join}, \hyperpage{418}
+    \subitem {Pool}, \hyperpage{418}
+  \item {hryky\discretionary {-}{}{}::thread\discretionary {-}{}{}::\discretionary {-}{}{}Pool\discretionary {-}{}{}::\discretionary {-}{}{}Inactivate}, 
+		\hyperpage{419}
+  \item {hryky\discretionary {-}{}{}::thread\discretionary {-}{}{}::\discretionary {-}{}{}Pool\discretionary {-}{}{}::\discretionary {-}{}{}Reset\discretionary {-}{}{}Parameter}, 
+		\hyperpage{419}
+  \item {hryky\discretionary {-}{}{}::thread\discretionary {-}{}{}::\discretionary {-}{}{}Pool\discretionary {-}{}{}::\discretionary {-}{}{}Terminate}, 
+		\hyperpage{420}
+  \item {hryky\discretionary {-}{}{}::thread\discretionary {-}{}{}::\discretionary {-}{}{}Resource}, 
+		\hyperpage{421}
+    \subitem {ideal\discretionary {-}{}{}\_\discretionary {-}{}{}processor}, 
+		\hyperpage{423}
+    \subitem {Resource}, \hyperpage{423}
+    \subitem {terminate}, \hyperpage{423}
+  \item {hryky\discretionary {-}{}{}::thread\discretionary {-}{}{}::\discretionary {-}{}{}Resource\discretionary {-}{}{}::\discretionary {-}{}{}Reset\discretionary {-}{}{}Parameter}, 
+		\hyperpage{424}
+  \item {hryky\discretionary {-}{}{}::thread\discretionary {-}{}{}::callable\discretionary {-}{}{}::\discretionary {-}{}{}Base}, 
+		\hyperpage{417}
+  \item {hryky\discretionary {-}{}{}::type\discretionary {-}{}{}::\discretionary {-}{}{}Id$<$ Value\discretionary {-}{}{}T $>$}, 
+		\hyperpage{424}
+  \item {hryky\discretionary {-}{}{}::type\discretionary {-}{}{}::\discretionary {-}{}{}Info}, 
+		\hyperpage{425}
+  \item {hryky\discretionary {-}{}{}::type\discretionary {-}{}{}::\discretionary {-}{}{}Name$<$ Value\discretionary {-}{}{}T $>$}, 
+		\hyperpage{426}
+  \item {hryky\discretionary {-}{}{}::uri}, \hyperpage{103}
+    \subitem {is\discretionary {-}{}{}\_\discretionary {-}{}{}segment}, 
+		\hyperpage{104}
+    \subitem {swap}, \hyperpage{104}
+  \item {hryky\discretionary {-}{}{}::uri\discretionary {-}{}{}::\discretionary {-}{}{}Entity}, 
+		\hyperpage{429}
+  \item {hryky\discretionary {-}{}{}::uri\discretionary {-}{}{}::\discretionary {-}{}{}Parser}, 
+		\hyperpage{433}
+    \subitem {operator()}, \hyperpage{435}
+  \item {hryky\discretionary {-}{}{}::uri\discretionary {-}{}{}::authority\discretionary {-}{}{}::\discretionary {-}{}{}Entity}, 
+		\hyperpage{427}
+    \subitem {Entity}, \hyperpage{428}
+  \item {hryky\discretionary {-}{}{}::uri\discretionary {-}{}{}::fragment\discretionary {-}{}{}::\discretionary {-}{}{}Entity}, 
+		\hyperpage{430}
+  \item {hryky\discretionary {-}{}{}::uri\discretionary {-}{}{}::hierarchy\discretionary {-}{}{}::\discretionary {-}{}{}Entity}, 
+		\hyperpage{431}
+  \item {hryky\discretionary {-}{}{}::uri\discretionary {-}{}{}::host\discretionary {-}{}{}::\discretionary {-}{}{}Entity}, 
+		\hyperpage{432}
+    \subitem {ipv4}, \hyperpage{433}
+    \subitem {ipv6}, \hyperpage{433}
+    \subitem {regname}, \hyperpage{433}
+  \item {hryky\discretionary {-}{}{}::uri\discretionary {-}{}{}::path\discretionary {-}{}{}::\discretionary {-}{}{}Entity}, 
+		\hyperpage{436}
+  \item {hryky\discretionary {-}{}{}::uri\discretionary {-}{}{}::port\discretionary {-}{}{}::\discretionary {-}{}{}Entity}, 
+		\hyperpage{437}
+    \subitem {Entity}, \hyperpage{437}
+  \item {hryky\discretionary {-}{}{}::uri\discretionary {-}{}{}::query\discretionary {-}{}{}::\discretionary {-}{}{}Entity}, 
+		\hyperpage{438}
+  \item {hryky\discretionary {-}{}{}::uri\discretionary {-}{}{}::regname\discretionary {-}{}{}::\discretionary {-}{}{}Entity}, 
+		\hyperpage{439}
+  \item {hryky\discretionary {-}{}{}::uri\discretionary {-}{}{}::scheme\discretionary {-}{}{}::\discretionary {-}{}{}Entity}, 
+		\hyperpage{440}
+  \item {hryky\discretionary {-}{}{}::uri\discretionary {-}{}{}::userinfo\discretionary {-}{}{}::\discretionary {-}{}{}Entity}, 
+		\hyperpage{440}
+  \item {hryky\discretionary {-}{}{}::writer\discretionary {-}{}{}::\discretionary {-}{}{}Adapter$<$ Value\discretionary {-}{}{}T $>$}, 
+		\hyperpage{444}
+  \item {hryky\discretionary {-}{}{}::writer\discretionary {-}{}{}::\discretionary {-}{}{}Base}, 
+		\hyperpage{446}
+    \subitem {operator()}, \hyperpage{448}
+  \item {hryky\discretionary {-}{}{}\_\discretionary {-}{}{}accessor}
+    \subitem {common.\discretionary {-}{}{}h}, \hyperpage{478}
+  \item {hryky\discretionary {-}{}{}\_\discretionary {-}{}{}accessor\discretionary {-}{}{}\_\discretionary {-}{}{}read}
+    \subitem {common.\discretionary {-}{}{}h}, \hyperpage{479}
+  \item {hryky\discretionary {-}{}{}\_\discretionary {-}{}{}accessor\discretionary {-}{}{}\_\discretionary {-}{}{}row}
+    \subitem {common.\discretionary {-}{}{}h}, \hyperpage{479}
+  \item {hryky\discretionary {-}{}{}\_\discretionary {-}{}{}accessor\discretionary {-}{}{}\_\discretionary {-}{}{}row\discretionary {-}{}{}\_\discretionary {-}{}{}write}
+    \subitem {common.\discretionary {-}{}{}h}, \hyperpage{479}
+  \item {hryky\discretionary {-}{}{}\_\discretionary {-}{}{}accessor\discretionary {-}{}{}\_\discretionary {-}{}{}write}
+    \subitem {common.\discretionary {-}{}{}h}, \hyperpage{479}
+  \item {hryky\discretionary {-}{}{}\_\discretionary {-}{}{}assign\discretionary {-}{}{}\_\discretionary {-}{}{}op}
+    \subitem {hryky\discretionary {-}{}{}::\discretionary {-}{}{}Bitset}, 
+		\hyperpage{133}
+  \item {hryky\discretionary {-}{}{}\_\discretionary {-}{}{}case\discretionary {-}{}{}\_\discretionary {-}{}{}ascii\discretionary {-}{}{}\_\discretionary {-}{}{}lohexdig}
+    \subitem {ascii\discretionary {-}{}{}\_\discretionary {-}{}{}common.\discretionary {-}{}{}h}, 
+		\hyperpage{466}
+  \item {hryky\discretionary {-}{}{}\_\discretionary {-}{}{}case\discretionary {-}{}{}\_\discretionary {-}{}{}ascii\discretionary {-}{}{}\_\discretionary {-}{}{}uphexdig}
+    \subitem {ascii\discretionary {-}{}{}\_\discretionary {-}{}{}common.\discretionary {-}{}{}h}, 
+		\hyperpage{466}
+  \item {hryky\discretionary {-}{}{}\_\discretionary {-}{}{}case\discretionary {-}{}{}\_\discretionary {-}{}{}uri\discretionary {-}{}{}\_\discretionary {-}{}{}unreserved\discretionary {-}{}{}\_\discretionary {-}{}{}symbol}
+    \subitem {uri\discretionary {-}{}{}\_\discretionary {-}{}{}common.\discretionary {-}{}{}h}, 
+		\hyperpage{786}
+  \item {hryky\discretionary {-}{}{}\_\discretionary {-}{}{}debug\discretionary {-}{}{}\_\discretionary {-}{}{}break}
+    \subitem {debug\discretionary {-}{}{}\_\discretionary {-}{}{}common.\discretionary {-}{}{}h}, 
+		\hyperpage{486}
+  \item {hryky\discretionary {-}{}{}\_\discretionary {-}{}{}log}
+    \subitem {log\discretionary {-}{}{}\_\discretionary {-}{}{}writer\discretionary {-}{}{}\_\discretionary {-}{}{}common.\discretionary {-}{}{}h}, 
+		\hyperpage{664}
+  \item {hryky\discretionary {-}{}{}\_\discretionary {-}{}{}log\discretionary {-}{}{}\_\discretionary {-}{}{}debug}
+    \subitem {log\discretionary {-}{}{}\_\discretionary {-}{}{}writer\discretionary {-}{}{}\_\discretionary {-}{}{}common.\discretionary {-}{}{}h}, 
+		\hyperpage{664}
+  \item {hryky\discretionary {-}{}{}\_\discretionary {-}{}{}throw}
+    \subitem {debug\discretionary {-}{}{}\_\discretionary {-}{}{}common.\discretionary {-}{}{}h}, 
+		\hyperpage{486}
+  \item {http.\discretionary {-}{}{}h}, \hyperpage{541}
+  \item {http\discretionary {-}{}{}\_\discretionary {-}{}{}body\discretionary {-}{}{}\_\discretionary {-}{}{}entity.\discretionary {-}{}{}cpp}, 
+		\hyperpage{543}
+  \item {http\discretionary {-}{}{}\_\discretionary {-}{}{}body\discretionary {-}{}{}\_\discretionary {-}{}{}entity.\discretionary {-}{}{}h}, 
+		\hyperpage{544}
+  \item {http\discretionary {-}{}{}\_\discretionary {-}{}{}common\discretionary {-}{}{}\_\discretionary {-}{}{}impl.\discretionary {-}{}{}cpp}, 
+		\hyperpage{544}
+  \item {http\discretionary {-}{}{}\_\discretionary {-}{}{}common\discretionary {-}{}{}\_\discretionary {-}{}{}impl.\discretionary {-}{}{}h}, 
+		\hyperpage{545}
+  \item {http\discretionary {-}{}{}\_\discretionary {-}{}{}entity.\discretionary {-}{}{}cpp}, 
+		\hyperpage{546}
+  \item {http\discretionary {-}{}{}\_\discretionary {-}{}{}entity.\discretionary {-}{}{}h}, 
+		\hyperpage{547}
+  \item {http\discretionary {-}{}{}\_\discretionary {-}{}{}header\discretionary {-}{}{}\_\discretionary {-}{}{}accept\discretionary {-}{}{}\_\discretionary {-}{}{}charset\discretionary {-}{}{}\_\discretionary {-}{}{}content\discretionary {-}{}{}\_\discretionary {-}{}{}entity.\discretionary {-}{}{}cpp}, 
+		\hyperpage{548}
+  \item {http\discretionary {-}{}{}\_\discretionary {-}{}{}header\discretionary {-}{}{}\_\discretionary {-}{}{}accept\discretionary {-}{}{}\_\discretionary {-}{}{}charset\discretionary {-}{}{}\_\discretionary {-}{}{}content\discretionary {-}{}{}\_\discretionary {-}{}{}entity.\discretionary {-}{}{}h}, 
+		\hyperpage{548}
+  \item {http\discretionary {-}{}{}\_\discretionary {-}{}{}header\discretionary {-}{}{}\_\discretionary {-}{}{}accept\discretionary {-}{}{}\_\discretionary {-}{}{}charset\discretionary {-}{}{}\_\discretionary {-}{}{}entity.\discretionary {-}{}{}cpp}, 
+		\hyperpage{549}
+  \item {http\discretionary {-}{}{}\_\discretionary {-}{}{}header\discretionary {-}{}{}\_\discretionary {-}{}{}accept\discretionary {-}{}{}\_\discretionary {-}{}{}charset\discretionary {-}{}{}\_\discretionary {-}{}{}entity.\discretionary {-}{}{}h}, 
+		\hyperpage{550}
+  \item {http\discretionary {-}{}{}\_\discretionary {-}{}{}header\discretionary {-}{}{}\_\discretionary {-}{}{}accept\discretionary {-}{}{}\_\discretionary {-}{}{}content\discretionary {-}{}{}\_\discretionary {-}{}{}entity.\discretionary {-}{}{}cpp}, 
+		\hyperpage{551}
+  \item {http\discretionary {-}{}{}\_\discretionary {-}{}{}header\discretionary {-}{}{}\_\discretionary {-}{}{}accept\discretionary {-}{}{}\_\discretionary {-}{}{}content\discretionary {-}{}{}\_\discretionary {-}{}{}entity.\discretionary {-}{}{}h}, 
+		\hyperpage{551}
+  \item {http\discretionary {-}{}{}\_\discretionary {-}{}{}header\discretionary {-}{}{}\_\discretionary {-}{}{}accept\discretionary {-}{}{}\_\discretionary {-}{}{}encoding\discretionary {-}{}{}\_\discretionary {-}{}{}content\discretionary {-}{}{}\_\discretionary {-}{}{}entity.\discretionary {-}{}{}cpp}, 
+		\hyperpage{552}
+  \item {http\discretionary {-}{}{}\_\discretionary {-}{}{}header\discretionary {-}{}{}\_\discretionary {-}{}{}accept\discretionary {-}{}{}\_\discretionary {-}{}{}encoding\discretionary {-}{}{}\_\discretionary {-}{}{}content\discretionary {-}{}{}\_\discretionary {-}{}{}entity.\discretionary {-}{}{}h}, 
+		\hyperpage{553}
+  \item {http\discretionary {-}{}{}\_\discretionary {-}{}{}header\discretionary {-}{}{}\_\discretionary {-}{}{}accept\discretionary {-}{}{}\_\discretionary {-}{}{}encoding\discretionary {-}{}{}\_\discretionary {-}{}{}entity.\discretionary {-}{}{}cpp}, 
+		\hyperpage{553}
+  \item {http\discretionary {-}{}{}\_\discretionary {-}{}{}header\discretionary {-}{}{}\_\discretionary {-}{}{}accept\discretionary {-}{}{}\_\discretionary {-}{}{}encoding\discretionary {-}{}{}\_\discretionary {-}{}{}entity.\discretionary {-}{}{}h}, 
+		\hyperpage{554}
+  \item {http\discretionary {-}{}{}\_\discretionary {-}{}{}header\discretionary {-}{}{}\_\discretionary {-}{}{}accept\discretionary {-}{}{}\_\discretionary {-}{}{}entity.\discretionary {-}{}{}cpp}, 
+		\hyperpage{555}
+  \item {http\discretionary {-}{}{}\_\discretionary {-}{}{}header\discretionary {-}{}{}\_\discretionary {-}{}{}accept\discretionary {-}{}{}\_\discretionary {-}{}{}entity.\discretionary {-}{}{}h}, 
+		\hyperpage{555}
+  \item {http\discretionary {-}{}{}\_\discretionary {-}{}{}header\discretionary {-}{}{}\_\discretionary {-}{}{}accept\discretionary {-}{}{}\_\discretionary {-}{}{}extension\discretionary {-}{}{}\_\discretionary {-}{}{}common.\discretionary {-}{}{}h}, 
+		\hyperpage{556}
+  \item {http\discretionary {-}{}{}\_\discretionary {-}{}{}header\discretionary {-}{}{}\_\discretionary {-}{}{}accept\discretionary {-}{}{}\_\discretionary {-}{}{}extension\discretionary {-}{}{}\_\discretionary {-}{}{}entity.\discretionary {-}{}{}cpp}, 
+		\hyperpage{557}
+  \item {http\discretionary {-}{}{}\_\discretionary {-}{}{}header\discretionary {-}{}{}\_\discretionary {-}{}{}accept\discretionary {-}{}{}\_\discretionary {-}{}{}extension\discretionary {-}{}{}\_\discretionary {-}{}{}entity.\discretionary {-}{}{}h}, 
+		\hyperpage{557}
+  \item {http\discretionary {-}{}{}\_\discretionary {-}{}{}header\discretionary {-}{}{}\_\discretionary {-}{}{}accept\discretionary {-}{}{}\_\discretionary {-}{}{}language\discretionary {-}{}{}\_\discretionary {-}{}{}content\discretionary {-}{}{}\_\discretionary {-}{}{}entity.\discretionary {-}{}{}cpp}, 
+		\hyperpage{558}
+  \item {http\discretionary {-}{}{}\_\discretionary {-}{}{}header\discretionary {-}{}{}\_\discretionary {-}{}{}accept\discretionary {-}{}{}\_\discretionary {-}{}{}language\discretionary {-}{}{}\_\discretionary {-}{}{}content\discretionary {-}{}{}\_\discretionary {-}{}{}entity.\discretionary {-}{}{}h}, 
+		\hyperpage{559}
+  \item {http\discretionary {-}{}{}\_\discretionary {-}{}{}header\discretionary {-}{}{}\_\discretionary {-}{}{}accept\discretionary {-}{}{}\_\discretionary {-}{}{}language\discretionary {-}{}{}\_\discretionary {-}{}{}entity.\discretionary {-}{}{}cpp}, 
+		\hyperpage{560}
+  \item {http\discretionary {-}{}{}\_\discretionary {-}{}{}header\discretionary {-}{}{}\_\discretionary {-}{}{}accept\discretionary {-}{}{}\_\discretionary {-}{}{}language\discretionary {-}{}{}\_\discretionary {-}{}{}entity.\discretionary {-}{}{}h}, 
+		\hyperpage{560}
+  \item {http\discretionary {-}{}{}\_\discretionary {-}{}{}header\discretionary {-}{}{}\_\discretionary {-}{}{}accept\discretionary {-}{}{}\_\discretionary {-}{}{}params\discretionary {-}{}{}\_\discretionary {-}{}{}entity.\discretionary {-}{}{}cpp}, 
+		\hyperpage{561}
+  \item {http\discretionary {-}{}{}\_\discretionary {-}{}{}header\discretionary {-}{}{}\_\discretionary {-}{}{}accept\discretionary {-}{}{}\_\discretionary {-}{}{}params\discretionary {-}{}{}\_\discretionary {-}{}{}entity.\discretionary {-}{}{}h}, 
+		\hyperpage{562}
+  \item {http\discretionary {-}{}{}\_\discretionary {-}{}{}header\discretionary {-}{}{}\_\discretionary {-}{}{}cache\discretionary {-}{}{}\_\discretionary {-}{}{}common.\discretionary {-}{}{}h}, 
+		\hyperpage{563}
+  \item {http\discretionary {-}{}{}\_\discretionary {-}{}{}header\discretionary {-}{}{}\_\discretionary {-}{}{}cache\discretionary {-}{}{}\_\discretionary {-}{}{}control\discretionary {-}{}{}\_\discretionary {-}{}{}common.\discretionary {-}{}{}h}, 
+		\hyperpage{563}
+  \item {http\discretionary {-}{}{}\_\discretionary {-}{}{}header\discretionary {-}{}{}\_\discretionary {-}{}{}cache\discretionary {-}{}{}\_\discretionary {-}{}{}control\discretionary {-}{}{}\_\discretionary {-}{}{}entity.\discretionary {-}{}{}cpp}, 
+		\hyperpage{564}
+  \item {http\discretionary {-}{}{}\_\discretionary {-}{}{}header\discretionary {-}{}{}\_\discretionary {-}{}{}cache\discretionary {-}{}{}\_\discretionary {-}{}{}control\discretionary {-}{}{}\_\discretionary {-}{}{}entity.\discretionary {-}{}{}h}, 
+		\hyperpage{565}
+  \item {http\discretionary {-}{}{}\_\discretionary {-}{}{}header\discretionary {-}{}{}\_\discretionary {-}{}{}cache\discretionary {-}{}{}\_\discretionary {-}{}{}directive\discretionary {-}{}{}\_\discretionary {-}{}{}adapter.\discretionary {-}{}{}h}, 
+		\hyperpage{566}
+  \item {http\discretionary {-}{}{}\_\discretionary {-}{}{}header\discretionary {-}{}{}\_\discretionary {-}{}{}cache\discretionary {-}{}{}\_\discretionary {-}{}{}directive\discretionary {-}{}{}\_\discretionary {-}{}{}base.\discretionary {-}{}{}cpp}, 
+		\hyperpage{566}
+  \item {http\discretionary {-}{}{}\_\discretionary {-}{}{}header\discretionary {-}{}{}\_\discretionary {-}{}{}cache\discretionary {-}{}{}\_\discretionary {-}{}{}directive\discretionary {-}{}{}\_\discretionary {-}{}{}common.\discretionary {-}{}{}h}, 
+		\hyperpage{567}
+  \item {http\discretionary {-}{}{}\_\discretionary {-}{}{}header\discretionary {-}{}{}\_\discretionary {-}{}{}cache\discretionary {-}{}{}\_\discretionary {-}{}{}directive\discretionary {-}{}{}\_\discretionary {-}{}{}dispatcher\discretionary {-}{}{}\_\discretionary {-}{}{}apply.\discretionary {-}{}{}cpp}, 
+		\hyperpage{567}
+  \item {http\discretionary {-}{}{}\_\discretionary {-}{}{}header\discretionary {-}{}{}\_\discretionary {-}{}{}cache\discretionary {-}{}{}\_\discretionary {-}{}{}directive\discretionary {-}{}{}\_\discretionary {-}{}{}dispatcher\discretionary {-}{}{}\_\discretionary {-}{}{}apply.\discretionary {-}{}{}h}, 
+		\hyperpage{568}
+  \item {http\discretionary {-}{}{}\_\discretionary {-}{}{}header\discretionary {-}{}{}\_\discretionary {-}{}{}cache\discretionary {-}{}{}\_\discretionary {-}{}{}directive\discretionary {-}{}{}\_\discretionary {-}{}{}dispatcher\discretionary {-}{}{}\_\discretionary {-}{}{}base.\discretionary {-}{}{}cpp}, 
+		\hyperpage{569}
+  \item {http\discretionary {-}{}{}\_\discretionary {-}{}{}header\discretionary {-}{}{}\_\discretionary {-}{}{}cache\discretionary {-}{}{}\_\discretionary {-}{}{}directive\discretionary {-}{}{}\_\discretionary {-}{}{}dispatcher\discretionary {-}{}{}\_\discretionary {-}{}{}base.\discretionary {-}{}{}h}, 
+		\hyperpage{570}
+  \item {http\discretionary {-}{}{}\_\discretionary {-}{}{}header\discretionary {-}{}{}\_\discretionary {-}{}{}cache\discretionary {-}{}{}\_\discretionary {-}{}{}directive\discretionary {-}{}{}\_\discretionary {-}{}{}field.\discretionary {-}{}{}cpp}, 
+		\hyperpage{570}
+  \item {http\discretionary {-}{}{}\_\discretionary {-}{}{}header\discretionary {-}{}{}\_\discretionary {-}{}{}cache\discretionary {-}{}{}\_\discretionary {-}{}{}directive\discretionary {-}{}{}\_\discretionary {-}{}{}field.\discretionary {-}{}{}h}, 
+		\hyperpage{571}
+  \item {http\discretionary {-}{}{}\_\discretionary {-}{}{}header\discretionary {-}{}{}\_\discretionary {-}{}{}cache\discretionary {-}{}{}\_\discretionary {-}{}{}directive\discretionary {-}{}{}\_\discretionary {-}{}{}second.\discretionary {-}{}{}cpp}, 
+		\hyperpage{572}
+  \item {http\discretionary {-}{}{}\_\discretionary {-}{}{}header\discretionary {-}{}{}\_\discretionary {-}{}{}cache\discretionary {-}{}{}\_\discretionary {-}{}{}directive\discretionary {-}{}{}\_\discretionary {-}{}{}second.\discretionary {-}{}{}h}, 
+		\hyperpage{572}
+  \item {http\discretionary {-}{}{}\_\discretionary {-}{}{}header\discretionary {-}{}{}\_\discretionary {-}{}{}cache\discretionary {-}{}{}\_\discretionary {-}{}{}directive\discretionary {-}{}{}\_\discretionary {-}{}{}specifier.\discretionary {-}{}{}cpp}, 
+		\hyperpage{573}
+  \item {http\discretionary {-}{}{}\_\discretionary {-}{}{}header\discretionary {-}{}{}\_\discretionary {-}{}{}cache\discretionary {-}{}{}\_\discretionary {-}{}{}directive\discretionary {-}{}{}\_\discretionary {-}{}{}specifier.\discretionary {-}{}{}h}, 
+		\hyperpage{574}
+  \item {http\discretionary {-}{}{}\_\discretionary {-}{}{}header\discretionary {-}{}{}\_\discretionary {-}{}{}comment\discretionary {-}{}{}\_\discretionary {-}{}{}adapter.\discretionary {-}{}{}h}, 
+		\hyperpage{575}
+  \item {http\discretionary {-}{}{}\_\discretionary {-}{}{}header\discretionary {-}{}{}\_\discretionary {-}{}{}comment\discretionary {-}{}{}\_\discretionary {-}{}{}base.\discretionary {-}{}{}cpp}, 
+		\hyperpage{575}
+  \item {http\discretionary {-}{}{}\_\discretionary {-}{}{}header\discretionary {-}{}{}\_\discretionary {-}{}{}comment\discretionary {-}{}{}\_\discretionary {-}{}{}base.\discretionary {-}{}{}h}, 
+		\hyperpage{576}
+  \item {http\discretionary {-}{}{}\_\discretionary {-}{}{}header\discretionary {-}{}{}\_\discretionary {-}{}{}comment\discretionary {-}{}{}\_\discretionary {-}{}{}sequence.\discretionary {-}{}{}cpp}, 
+		\hyperpage{577}
+  \item {http\discretionary {-}{}{}\_\discretionary {-}{}{}header\discretionary {-}{}{}\_\discretionary {-}{}{}comment\discretionary {-}{}{}\_\discretionary {-}{}{}sequence.\discretionary {-}{}{}h}, 
+		\hyperpage{577}
+  \item {http\discretionary {-}{}{}\_\discretionary {-}{}{}header\discretionary {-}{}{}\_\discretionary {-}{}{}comment\discretionary {-}{}{}\_\discretionary {-}{}{}string.\discretionary {-}{}{}cpp}, 
+		\hyperpage{578}
+  \item {http\discretionary {-}{}{}\_\discretionary {-}{}{}header\discretionary {-}{}{}\_\discretionary {-}{}{}comment\discretionary {-}{}{}\_\discretionary {-}{}{}string.\discretionary {-}{}{}h}, 
+		\hyperpage{579}
+  \item {http\discretionary {-}{}{}\_\discretionary {-}{}{}header\discretionary {-}{}{}\_\discretionary {-}{}{}common.\discretionary {-}{}{}cpp}, 
+		\hyperpage{580}
+  \item {http\discretionary {-}{}{}\_\discretionary {-}{}{}header\discretionary {-}{}{}\_\discretionary {-}{}{}common.\discretionary {-}{}{}h}, 
+		\hyperpage{580}
+  \item {http\discretionary {-}{}{}\_\discretionary {-}{}{}header\discretionary {-}{}{}\_\discretionary {-}{}{}connection\discretionary {-}{}{}\_\discretionary {-}{}{}common.\discretionary {-}{}{}cpp}, 
+		\hyperpage{581}
+  \item {http\discretionary {-}{}{}\_\discretionary {-}{}{}header\discretionary {-}{}{}\_\discretionary {-}{}{}connection\discretionary {-}{}{}\_\discretionary {-}{}{}common.\discretionary {-}{}{}h}, 
+		\hyperpage{582}
+  \item {http\discretionary {-}{}{}\_\discretionary {-}{}{}header\discretionary {-}{}{}\_\discretionary {-}{}{}connection\discretionary {-}{}{}\_\discretionary {-}{}{}entity.\discretionary {-}{}{}cpp}, 
+		\hyperpage{582}
+  \item {http\discretionary {-}{}{}\_\discretionary {-}{}{}header\discretionary {-}{}{}\_\discretionary {-}{}{}connection\discretionary {-}{}{}\_\discretionary {-}{}{}entity.\discretionary {-}{}{}h}, 
+		\hyperpage{583}
+  \item {http\discretionary {-}{}{}\_\discretionary {-}{}{}header\discretionary {-}{}{}\_\discretionary {-}{}{}content\discretionary {-}{}{}\_\discretionary {-}{}{}common.\discretionary {-}{}{}h}, 
+		\hyperpage{584}
+  \item {http\discretionary {-}{}{}\_\discretionary {-}{}{}header\discretionary {-}{}{}\_\discretionary {-}{}{}content\discretionary {-}{}{}\_\discretionary {-}{}{}length\discretionary {-}{}{}\_\discretionary {-}{}{}entity.\discretionary {-}{}{}cpp}, 
+		\hyperpage{584}
+  \item {http\discretionary {-}{}{}\_\discretionary {-}{}{}header\discretionary {-}{}{}\_\discretionary {-}{}{}content\discretionary {-}{}{}\_\discretionary {-}{}{}length\discretionary {-}{}{}\_\discretionary {-}{}{}entity.\discretionary {-}{}{}h}, 
+		\hyperpage{585}
+  \item {http\discretionary {-}{}{}\_\discretionary {-}{}{}header\discretionary {-}{}{}\_\discretionary {-}{}{}content\discretionary {-}{}{}\_\discretionary {-}{}{}type\discretionary {-}{}{}\_\discretionary {-}{}{}entity.\discretionary {-}{}{}cpp}, 
+		\hyperpage{586}
+  \item {http\discretionary {-}{}{}\_\discretionary {-}{}{}header\discretionary {-}{}{}\_\discretionary {-}{}{}content\discretionary {-}{}{}\_\discretionary {-}{}{}type\discretionary {-}{}{}\_\discretionary {-}{}{}entity.\discretionary {-}{}{}h}, 
+		\hyperpage{586}
+  \item {http\discretionary {-}{}{}\_\discretionary {-}{}{}header\discretionary {-}{}{}\_\discretionary {-}{}{}date\discretionary {-}{}{}\_\discretionary {-}{}{}entity.\discretionary {-}{}{}cpp}, 
+		\hyperpage{587}
+  \item {http\discretionary {-}{}{}\_\discretionary {-}{}{}header\discretionary {-}{}{}\_\discretionary {-}{}{}entity.\discretionary {-}{}{}cpp}, 
+		\hyperpage{588}
+  \item {http\discretionary {-}{}{}\_\discretionary {-}{}{}header\discretionary {-}{}{}\_\discretionary {-}{}{}entity.\discretionary {-}{}{}h}, 
+		\hyperpage{588}
+  \item {http\discretionary {-}{}{}\_\discretionary {-}{}{}header\discretionary {-}{}{}\_\discretionary {-}{}{}expires\discretionary {-}{}{}\_\discretionary {-}{}{}entity.\discretionary {-}{}{}cpp}, 
+		\hyperpage{589}
+  \item {http\discretionary {-}{}{}\_\discretionary {-}{}{}header\discretionary {-}{}{}\_\discretionary {-}{}{}expires\discretionary {-}{}{}\_\discretionary {-}{}{}entity.\discretionary {-}{}{}h}, 
+		\hyperpage{590}
+  \item {http\discretionary {-}{}{}\_\discretionary {-}{}{}header\discretionary {-}{}{}\_\discretionary {-}{}{}field\discretionary {-}{}{}\_\discretionary {-}{}{}adapter.\discretionary {-}{}{}h}, 
+		\hyperpage{591}
+  \item {http\discretionary {-}{}{}\_\discretionary {-}{}{}header\discretionary {-}{}{}\_\discretionary {-}{}{}field\discretionary {-}{}{}\_\discretionary {-}{}{}base.\discretionary {-}{}{}cpp}, 
+		\hyperpage{591}
+  \item {http\discretionary {-}{}{}\_\discretionary {-}{}{}header\discretionary {-}{}{}\_\discretionary {-}{}{}field\discretionary {-}{}{}\_\discretionary {-}{}{}base.\discretionary {-}{}{}h}, 
+		\hyperpage{592}
+  \item {http\discretionary {-}{}{}\_\discretionary {-}{}{}header\discretionary {-}{}{}\_\discretionary {-}{}{}field\discretionary {-}{}{}\_\discretionary {-}{}{}common.\discretionary {-}{}{}cpp}, 
+		\hyperpage{593}
+  \item {http\discretionary {-}{}{}\_\discretionary {-}{}{}header\discretionary {-}{}{}\_\discretionary {-}{}{}field\discretionary {-}{}{}\_\discretionary {-}{}{}common.\discretionary {-}{}{}h}, 
+		\hyperpage{593}
+  \item {http\discretionary {-}{}{}\_\discretionary {-}{}{}header\discretionary {-}{}{}\_\discretionary {-}{}{}field\discretionary {-}{}{}\_\discretionary {-}{}{}dispatcher\discretionary {-}{}{}\_\discretionary {-}{}{}apply.\discretionary {-}{}{}cpp}, 
+		\hyperpage{594}
+  \item {http\discretionary {-}{}{}\_\discretionary {-}{}{}header\discretionary {-}{}{}\_\discretionary {-}{}{}field\discretionary {-}{}{}\_\discretionary {-}{}{}dispatcher\discretionary {-}{}{}\_\discretionary {-}{}{}apply.\discretionary {-}{}{}h}, 
+		\hyperpage{595}
+  \item {http\discretionary {-}{}{}\_\discretionary {-}{}{}header\discretionary {-}{}{}\_\discretionary {-}{}{}field\discretionary {-}{}{}\_\discretionary {-}{}{}dispatcher\discretionary {-}{}{}\_\discretionary {-}{}{}base.\discretionary {-}{}{}cpp}, 
+		\hyperpage{595}
+  \item {http\discretionary {-}{}{}\_\discretionary {-}{}{}header\discretionary {-}{}{}\_\discretionary {-}{}{}field\discretionary {-}{}{}\_\discretionary {-}{}{}dispatcher\discretionary {-}{}{}\_\discretionary {-}{}{}base.\discretionary {-}{}{}h}, 
+		\hyperpage{596}
+  \item {http\discretionary {-}{}{}\_\discretionary {-}{}{}header\discretionary {-}{}{}\_\discretionary {-}{}{}field\discretionary {-}{}{}\_\discretionary {-}{}{}extension\discretionary {-}{}{}\_\discretionary {-}{}{}common.\discretionary {-}{}{}h}, 
+		\hyperpage{597}
+  \item {http\discretionary {-}{}{}\_\discretionary {-}{}{}header\discretionary {-}{}{}\_\discretionary {-}{}{}field\discretionary {-}{}{}\_\discretionary {-}{}{}extension\discretionary {-}{}{}\_\discretionary {-}{}{}entity.\discretionary {-}{}{}cpp}, 
+		\hyperpage{598}
+  \item {http\discretionary {-}{}{}\_\discretionary {-}{}{}header\discretionary {-}{}{}\_\discretionary {-}{}{}field\discretionary {-}{}{}\_\discretionary {-}{}{}extension\discretionary {-}{}{}\_\discretionary {-}{}{}entity.\discretionary {-}{}{}h}, 
+		\hyperpage{598}
+  \item {http\discretionary {-}{}{}\_\discretionary {-}{}{}header\discretionary {-}{}{}\_\discretionary {-}{}{}host\discretionary {-}{}{}\_\discretionary {-}{}{}entity.\discretionary {-}{}{}cpp}, 
+		\hyperpage{599}
+  \item {http\discretionary {-}{}{}\_\discretionary {-}{}{}header\discretionary {-}{}{}\_\discretionary {-}{}{}host\discretionary {-}{}{}\_\discretionary {-}{}{}entity.\discretionary {-}{}{}h}, 
+		\hyperpage{600}
+  \item {http\discretionary {-}{}{}\_\discretionary {-}{}{}header\discretionary {-}{}{}\_\discretionary {-}{}{}language\discretionary {-}{}{}\_\discretionary {-}{}{}common.\discretionary {-}{}{}h}, 
+		\hyperpage{600}
+  \item {http\discretionary {-}{}{}\_\discretionary {-}{}{}header\discretionary {-}{}{}\_\discretionary {-}{}{}language\discretionary {-}{}{}\_\discretionary {-}{}{}entity.\discretionary {-}{}{}cpp}, 
+		\hyperpage{601}
+  \item {http\discretionary {-}{}{}\_\discretionary {-}{}{}header\discretionary {-}{}{}\_\discretionary {-}{}{}language\discretionary {-}{}{}\_\discretionary {-}{}{}entity.\discretionary {-}{}{}h}, 
+		\hyperpage{602}
+  \item {http\discretionary {-}{}{}\_\discretionary {-}{}{}header\discretionary {-}{}{}\_\discretionary {-}{}{}location\discretionary {-}{}{}\_\discretionary {-}{}{}entity.\discretionary {-}{}{}cpp}, 
+		\hyperpage{602}
+  \item {http\discretionary {-}{}{}\_\discretionary {-}{}{}header\discretionary {-}{}{}\_\discretionary {-}{}{}location\discretionary {-}{}{}\_\discretionary {-}{}{}entity.\discretionary {-}{}{}h}, 
+		\hyperpage{603}
+  \item {http\discretionary {-}{}{}\_\discretionary {-}{}{}header\discretionary {-}{}{}\_\discretionary {-}{}{}media\discretionary {-}{}{}\_\discretionary {-}{}{}type\discretionary {-}{}{}\_\discretionary {-}{}{}common.\discretionary {-}{}{}h}, 
+		\hyperpage{604}
+  \item {http\discretionary {-}{}{}\_\discretionary {-}{}{}header\discretionary {-}{}{}\_\discretionary {-}{}{}media\discretionary {-}{}{}\_\discretionary {-}{}{}type\discretionary {-}{}{}\_\discretionary {-}{}{}entity.\discretionary {-}{}{}cpp}, 
+		\hyperpage{604}
+  \item {http\discretionary {-}{}{}\_\discretionary {-}{}{}header\discretionary {-}{}{}\_\discretionary {-}{}{}media\discretionary {-}{}{}\_\discretionary {-}{}{}type\discretionary {-}{}{}\_\discretionary {-}{}{}entity.\discretionary {-}{}{}h}, 
+		\hyperpage{605}
+  \item {http\discretionary {-}{}{}\_\discretionary {-}{}{}header\discretionary {-}{}{}\_\discretionary {-}{}{}parameter\discretionary {-}{}{}\_\discretionary {-}{}{}common.\discretionary {-}{}{}h}, 
+		\hyperpage{606}
+  \item {http\discretionary {-}{}{}\_\discretionary {-}{}{}header\discretionary {-}{}{}\_\discretionary {-}{}{}parameter\discretionary {-}{}{}\_\discretionary {-}{}{}entity.\discretionary {-}{}{}cpp}, 
+		\hyperpage{606}
+  \item {http\discretionary {-}{}{}\_\discretionary {-}{}{}header\discretionary {-}{}{}\_\discretionary {-}{}{}parameter\discretionary {-}{}{}\_\discretionary {-}{}{}entity.\discretionary {-}{}{}h}, 
+		\hyperpage{607}
+  \item {http\discretionary {-}{}{}\_\discretionary {-}{}{}header\discretionary {-}{}{}\_\discretionary {-}{}{}parser.\discretionary {-}{}{}cpp}, 
+		\hyperpage{608}
+  \item {http\discretionary {-}{}{}\_\discretionary {-}{}{}header\discretionary {-}{}{}\_\discretionary {-}{}{}parser.\discretionary {-}{}{}h}, 
+		\hyperpage{608}
+  \item {http\discretionary {-}{}{}\_\discretionary {-}{}{}header\discretionary {-}{}{}\_\discretionary {-}{}{}product\discretionary {-}{}{}\_\discretionary {-}{}{}comment\discretionary {-}{}{}\_\discretionary {-}{}{}adapter.\discretionary {-}{}{}h}, 
+		\hyperpage{610}
+  \item {http\discretionary {-}{}{}\_\discretionary {-}{}{}header\discretionary {-}{}{}\_\discretionary {-}{}{}product\discretionary {-}{}{}\_\discretionary {-}{}{}comment\discretionary {-}{}{}\_\discretionary {-}{}{}base.\discretionary {-}{}{}cpp}, 
+		\hyperpage{610}
+  \item {http\discretionary {-}{}{}\_\discretionary {-}{}{}header\discretionary {-}{}{}\_\discretionary {-}{}{}product\discretionary {-}{}{}\_\discretionary {-}{}{}comment\discretionary {-}{}{}\_\discretionary {-}{}{}base.\discretionary {-}{}{}h}, 
+		\hyperpage{611}
+  \item {http\discretionary {-}{}{}\_\discretionary {-}{}{}header\discretionary {-}{}{}\_\discretionary {-}{}{}product\discretionary {-}{}{}\_\discretionary {-}{}{}comment\discretionary {-}{}{}\_\discretionary {-}{}{}dispatcher\discretionary {-}{}{}\_\discretionary {-}{}{}apply.\discretionary {-}{}{}h}, 
+		\hyperpage{612}
+  \item {http\discretionary {-}{}{}\_\discretionary {-}{}{}header\discretionary {-}{}{}\_\discretionary {-}{}{}product\discretionary {-}{}{}\_\discretionary {-}{}{}comment\discretionary {-}{}{}\_\discretionary {-}{}{}dispatcher\discretionary {-}{}{}\_\discretionary {-}{}{}base.\discretionary {-}{}{}cpp}, 
+		\hyperpage{613}
+  \item {http\discretionary {-}{}{}\_\discretionary {-}{}{}header\discretionary {-}{}{}\_\discretionary {-}{}{}product\discretionary {-}{}{}\_\discretionary {-}{}{}comment\discretionary {-}{}{}\_\discretionary {-}{}{}dispatcher\discretionary {-}{}{}\_\discretionary {-}{}{}base.\discretionary {-}{}{}h}, 
+		\hyperpage{613}
+  \item {http\discretionary {-}{}{}\_\discretionary {-}{}{}header\discretionary {-}{}{}\_\discretionary {-}{}{}product\discretionary {-}{}{}\_\discretionary {-}{}{}entity.\discretionary {-}{}{}cpp}, 
+		\hyperpage{614}
+  \item {http\discretionary {-}{}{}\_\discretionary {-}{}{}header\discretionary {-}{}{}\_\discretionary {-}{}{}product\discretionary {-}{}{}\_\discretionary {-}{}{}entity.\discretionary {-}{}{}h}, 
+		\hyperpage{614}
+  \item {http\discretionary {-}{}{}\_\discretionary {-}{}{}header\discretionary {-}{}{}\_\discretionary {-}{}{}server\discretionary {-}{}{}\_\discretionary {-}{}{}entity.\discretionary {-}{}{}cpp}, 
+		\hyperpage{615}
+  \item {http\discretionary {-}{}{}\_\discretionary {-}{}{}header\discretionary {-}{}{}\_\discretionary {-}{}{}server\discretionary {-}{}{}\_\discretionary {-}{}{}entity.\discretionary {-}{}{}h}, 
+		\hyperpage{616}
+  \item {http\discretionary {-}{}{}\_\discretionary {-}{}{}header\discretionary {-}{}{}\_\discretionary {-}{}{}user\discretionary {-}{}{}\_\discretionary {-}{}{}agent\discretionary {-}{}{}\_\discretionary {-}{}{}entity.\discretionary {-}{}{}cpp}, 
+		\hyperpage{617}
+  \item {http\discretionary {-}{}{}\_\discretionary {-}{}{}header\discretionary {-}{}{}\_\discretionary {-}{}{}user\discretionary {-}{}{}\_\discretionary {-}{}{}agent\discretionary {-}{}{}\_\discretionary {-}{}{}entity.\discretionary {-}{}{}h}, 
+		\hyperpage{617}
+  \item {http\discretionary {-}{}{}\_\discretionary {-}{}{}method\discretionary {-}{}{}\_\discretionary {-}{}{}common.\discretionary {-}{}{}cpp}, 
+		\hyperpage{618}
+  \item {http\discretionary {-}{}{}\_\discretionary {-}{}{}method\discretionary {-}{}{}\_\discretionary {-}{}{}common.\discretionary {-}{}{}h}, 
+		\hyperpage{619}
+  \item {http\discretionary {-}{}{}\_\discretionary {-}{}{}method\discretionary {-}{}{}\_\discretionary {-}{}{}common\discretionary {-}{}{}\_\discretionary {-}{}{}impl.\discretionary {-}{}{}h}, 
+		\hyperpage{620}
+  \item {http\discretionary {-}{}{}\_\discretionary {-}{}{}method\discretionary {-}{}{}\_\discretionary {-}{}{}entity.\discretionary {-}{}{}cpp}, 
+		\hyperpage{620}
+  \item {http\discretionary {-}{}{}\_\discretionary {-}{}{}method\discretionary {-}{}{}\_\discretionary {-}{}{}entity.\discretionary {-}{}{}h}, 
+		\hyperpage{621}
+  \item {http\discretionary {-}{}{}\_\discretionary {-}{}{}parser.\discretionary {-}{}{}cpp}, 
+		\hyperpage{622}
+  \item {http\discretionary {-}{}{}\_\discretionary {-}{}{}parser.\discretionary {-}{}{}h}, 
+		\hyperpage{622}
+  \item {http\discretionary {-}{}{}\_\discretionary {-}{}{}parser\discretionary {-}{}{}\_\discretionary {-}{}{}common.\discretionary {-}{}{}h}, 
+		\hyperpage{623}
+  \item {http\discretionary {-}{}{}\_\discretionary {-}{}{}request\discretionary {-}{}{}\_\discretionary {-}{}{}entity.\discretionary {-}{}{}cpp}, 
+		\hyperpage{624}
+  \item {http\discretionary {-}{}{}\_\discretionary {-}{}{}request\discretionary {-}{}{}\_\discretionary {-}{}{}entity.\discretionary {-}{}{}h}, 
+		\hyperpage{624}
+  \item {http\discretionary {-}{}{}\_\discretionary {-}{}{}request\discretionary {-}{}{}\_\discretionary {-}{}{}line\discretionary {-}{}{}\_\discretionary {-}{}{}entity.\discretionary {-}{}{}cpp}, 
+		\hyperpage{625}
+  \item {http\discretionary {-}{}{}\_\discretionary {-}{}{}request\discretionary {-}{}{}\_\discretionary {-}{}{}line\discretionary {-}{}{}\_\discretionary {-}{}{}entity.\discretionary {-}{}{}h}, 
+		\hyperpage{626}
+  \item {http\discretionary {-}{}{}\_\discretionary {-}{}{}seconds\discretionary {-}{}{}\_\discretionary {-}{}{}common.\discretionary {-}{}{}h}, 
+		\hyperpage{626}
+  \item {http\discretionary {-}{}{}\_\discretionary {-}{}{}seconds\discretionary {-}{}{}\_\discretionary {-}{}{}entity.\discretionary {-}{}{}cpp}, 
+		\hyperpage{627}
+  \item {http\discretionary {-}{}{}\_\discretionary {-}{}{}seconds\discretionary {-}{}{}\_\discretionary {-}{}{}entity.\discretionary {-}{}{}h}, 
+		\hyperpage{628}
+  \item {http\discretionary {-}{}{}\_\discretionary {-}{}{}stream.\discretionary {-}{}{}h}, 
+		\hyperpage{628}
+  \item {http\discretionary {-}{}{}\_\discretionary {-}{}{}version\discretionary {-}{}{}\_\discretionary {-}{}{}entity.\discretionary {-}{}{}cpp}, 
+		\hyperpage{629}
+  \item {http\discretionary {-}{}{}\_\discretionary {-}{}{}version\discretionary {-}{}{}\_\discretionary {-}{}{}entity.\discretionary {-}{}{}h}, 
+		\hyperpage{630}
+
+  \indexspace
+
+  \item {ideal\discretionary {-}{}{}\_\discretionary {-}{}{}processor}
+    \subitem {hryky\discretionary {-}{}{}::thread\discretionary {-}{}{}::\discretionary {-}{}{}Resource}, 
+		\hyperpage{423}
+  \item {implement}
+    \subitem {hryky\discretionary {-}{}{}::task\discretionary {-}{}{}::distributor\discretionary {-}{}{}::\discretionary {-}{}{}Base}, 
+		\hyperpage{386}
+    \subitem {hryky\discretionary {-}{}{}::task\discretionary {-}{}{}::distributor\discretionary {-}{}{}::\discretionary {-}{}{}Batch}, 
+		\hyperpage{393}
+    \subitem {hryky\discretionary {-}{}{}::task\discretionary {-}{}{}::distributor\discretionary {-}{}{}::\discretionary {-}{}{}Impl}, 
+		\hyperpage{397}
+  \item {Indent}
+    \subitem {hryky\discretionary {-}{}{}::\discretionary {-}{}{}Indent}, 
+		\hyperpage{250}
+  \item {indent.\discretionary {-}{}{}cpp}, \hyperpage{630}
+  \item {indent.\discretionary {-}{}{}h}, \hyperpage{631}
+  \item {index.\discretionary {-}{}{}h}, \hyperpage{632}
+  \item {info\-\_\-}
+    \subitem {hryky\-::log\-::level\-::\-Kind}, \hyperpage{279}
+  \item {instantiate}
+    \subitem {hryky}, \hyperpage{79}
+  \item {integer.\discretionary {-}{}{}h}, \hyperpage{633}
+  \item {intrusive\discretionary {-}{}{}\_\discretionary {-}{}{}ptr.\discretionary {-}{}{}h}, 
+		\hyperpage{634}
+  \item {ip.\discretionary {-}{}{}h}, \hyperpage{635}
+  \item {ip\discretionary {-}{}{}\_\discretionary {-}{}{}port\discretionary {-}{}{}\_\discretionary {-}{}{}writer.\discretionary {-}{}{}h}, 
+		\hyperpage{635}
+  \item {ip\discretionary {-}{}{}\_\discretionary {-}{}{}v4\discretionary {-}{}{}\_\discretionary {-}{}{}common.\discretionary {-}{}{}h}, 
+		\hyperpage{636}
+  \item {ip\discretionary {-}{}{}\_\discretionary {-}{}{}v4\discretionary {-}{}{}\_\discretionary {-}{}{}entity.\discretionary {-}{}{}cpp}, 
+		\hyperpage{637}
+  \item {ip\discretionary {-}{}{}\_\discretionary {-}{}{}v4\discretionary {-}{}{}\_\discretionary {-}{}{}entity.\discretionary {-}{}{}h}, 
+		\hyperpage{637}
+  \item {ip\discretionary {-}{}{}\_\discretionary {-}{}{}v4\discretionary {-}{}{}\_\discretionary {-}{}{}parser.\discretionary {-}{}{}h}, 
+		\hyperpage{638}
+  \item {ip\discretionary {-}{}{}\_\discretionary {-}{}{}v6\discretionary {-}{}{}\_\discretionary {-}{}{}common.\discretionary {-}{}{}h}, 
+		\hyperpage{639}
+  \item {ip\discretionary {-}{}{}\_\discretionary {-}{}{}v6\discretionary {-}{}{}\_\discretionary {-}{}{}entity.\discretionary {-}{}{}cpp}, 
+		\hyperpage{639}
+  \item {ip\discretionary {-}{}{}\_\discretionary {-}{}{}v6\discretionary {-}{}{}\_\discretionary {-}{}{}entity.\discretionary {-}{}{}h}, 
+		\hyperpage{640}
+  \item {ip\discretionary {-}{}{}\_\discretionary {-}{}{}v6\discretionary {-}{}{}\_\discretionary {-}{}{}writer.\discretionary {-}{}{}h}, 
+		\hyperpage{640}
+  \item {ip\discretionary {-}{}{}\_\discretionary {-}{}{}vf\discretionary {-}{}{}\_\discretionary {-}{}{}entity.\discretionary {-}{}{}cpp}, 
+		\hyperpage{642}
+  \item {ip\discretionary {-}{}{}\_\discretionary {-}{}{}vf\discretionary {-}{}{}\_\discretionary {-}{}{}entity.\discretionary {-}{}{}h}, 
+		\hyperpage{642}
+  \item {ip\discretionary {-}{}{}\_\discretionary {-}{}{}vf\discretionary {-}{}{}\_\discretionary {-}{}{}writer.\discretionary {-}{}{}h}, 
+		\hyperpage{643}
+  \item {ipv4}
+    \subitem {hryky\discretionary {-}{}{}::uri\discretionary {-}{}{}::host\discretionary {-}{}{}::\discretionary {-}{}{}Entity}, 
+		\hyperpage{433}
+  \item {ipv6}
+    \subitem {hryky\discretionary {-}{}{}::uri\discretionary {-}{}{}::host\discretionary {-}{}{}::\discretionary {-}{}{}Entity}, 
+		\hyperpage{433}
+  \item {is\discretionary {-}{}{}\_\discretionary {-}{}{}aligned}
+    \subitem {hryky}, \hyperpage{79}
+  \item {is\discretionary {-}{}{}\_\discretionary {-}{}{}as\discretionary {-}{}{}\_\discretionary {-}{}{}string.\discretionary {-}{}{}h}, 
+		\hyperpage{644}
+  \item {is\discretionary {-}{}{}\_\discretionary {-}{}{}base\discretionary {-}{}{}\_\discretionary {-}{}{}of.\discretionary {-}{}{}h}, 
+		\hyperpage{645}
+  \item {is\discretionary {-}{}{}\_\discretionary {-}{}{}char.\discretionary {-}{}{}h}, 
+		\hyperpage{645}
+  \item {is\discretionary {-}{}{}\_\discretionary {-}{}{}enum.\discretionary {-}{}{}h}, 
+		\hyperpage{646}
+  \item {is\discretionary {-}{}{}\_\discretionary {-}{}{}floating\discretionary {-}{}{}\_\discretionary {-}{}{}point.\discretionary {-}{}{}h}, 
+		\hyperpage{647}
+  \item {is\discretionary {-}{}{}\_\discretionary {-}{}{}integer.\discretionary {-}{}{}h}, 
+		\hyperpage{647}
+  \item {is\discretionary {-}{}{}\_\discretionary {-}{}{}numeric.\discretionary {-}{}{}h}, 
+		\hyperpage{648}
+  \item {is\discretionary {-}{}{}\_\discretionary {-}{}{}same.\discretionary {-}{}{}h}, 
+		\hyperpage{649}
+  \item {is\discretionary {-}{}{}\_\discretionary {-}{}{}segment}
+    \subitem {hryky\discretionary {-}{}{}::uri}, \hyperpage{104}
+  \item {is\discretionary {-}{}{}\_\discretionary {-}{}{}signed.\discretionary {-}{}{}h}, 
+		\hyperpage{650}
+  \item {is\discretionary {-}{}{}\_\discretionary {-}{}{}unsigned.\discretionary {-}{}{}h}, 
+		\hyperpage{651}
+  \item {iterator.\discretionary {-}{}{}h}, \hyperpage{652}
+  \item {iterator\discretionary {-}{}{}\_\discretionary {-}{}{}random.\discretionary {-}{}{}h}, 
+		\hyperpage{652}
+
+  \indexspace
+
+  \item {join}
+    \subitem {hryky\discretionary {-}{}{}::task\discretionary {-}{}{}::\discretionary {-}{}{}Concurrency}, 
+		\hyperpage{381}
+    \subitem {hryky\discretionary {-}{}{}::task\discretionary {-}{}{}::distributor\discretionary {-}{}{}::\discretionary {-}{}{}Base}, 
+		\hyperpage{386}
+    \subitem {hryky\discretionary {-}{}{}::task\discretionary {-}{}{}::distributor\discretionary {-}{}{}::\discretionary {-}{}{}Batch}, 
+		\hyperpage{393}
+    \subitem {hryky\discretionary {-}{}{}::task\discretionary {-}{}{}::distributor\discretionary {-}{}{}::\discretionary {-}{}{}Impl}, 
+		\hyperpage{397}
+    \subitem {hryky\discretionary {-}{}{}::thread\discretionary {-}{}{}::\discretionary {-}{}{}Pool}, 
+		\hyperpage{418}
+
+  \indexspace
+
+  \item {Kind}
+    \subitem {hryky\discretionary {-}{}{}::\discretionary {-}{}{}Kind}, 
+		\hyperpage{275}
+  \item {kind.\discretionary {-}{}{}h}, \hyperpage{653}
+
+  \indexspace
+
+  \item {literal\discretionary {-}{}{}\_\discretionary {-}{}{}string.\discretionary {-}{}{}cpp}, 
+		\hyperpage{654}
+  \item {literal\discretionary {-}{}{}\_\discretionary {-}{}{}string.\discretionary {-}{}{}h}, 
+		\hyperpage{655}
+  \item {Literal\discretionary {-}{}{}String}
+    \subitem {hryky\discretionary {-}{}{}::\discretionary {-}{}{}Literal\discretionary {-}{}{}String}, 
+		\hyperpage{277}
+  \item {log.\discretionary {-}{}{}h}, \hyperpage{656}
+  \item {log\discretionary {-}{}{}\_\discretionary {-}{}{}common.\discretionary {-}{}{}cpp}, 
+		\hyperpage{657}
+  \item {log\discretionary {-}{}{}\_\discretionary {-}{}{}common.\discretionary {-}{}{}h}, 
+		\hyperpage{657}
+  \item {log\discretionary {-}{}{}\_\discretionary {-}{}{}level\discretionary {-}{}{}\_\discretionary {-}{}{}common.\discretionary {-}{}{}cpp}, 
+		\hyperpage{658}
+  \item {log\discretionary {-}{}{}\_\discretionary {-}{}{}level\discretionary {-}{}{}\_\discretionary {-}{}{}common.\discretionary {-}{}{}h}, 
+		\hyperpage{658}
+  \item {log\discretionary {-}{}{}\_\discretionary {-}{}{}level\discretionary {-}{}{}\_\discretionary {-}{}{}entity.\discretionary {-}{}{}cpp}, 
+		\hyperpage{659}
+  \item {log\discretionary {-}{}{}\_\discretionary {-}{}{}level\discretionary {-}{}{}\_\discretionary {-}{}{}entity.\discretionary {-}{}{}h}, 
+		\hyperpage{659}
+  \item {log\discretionary {-}{}{}\_\discretionary {-}{}{}writer\discretionary {-}{}{}\_\discretionary {-}{}{}base.\discretionary {-}{}{}cpp}, 
+		\hyperpage{660}
+  \item {log\discretionary {-}{}{}\_\discretionary {-}{}{}writer\discretionary {-}{}{}\_\discretionary {-}{}{}base.\discretionary {-}{}{}h}, 
+		\hyperpage{661}
+  \item {log\discretionary {-}{}{}\_\discretionary {-}{}{}writer\discretionary {-}{}{}\_\discretionary {-}{}{}common.\discretionary {-}{}{}cpp}, 
+		\hyperpage{662}
+  \item {log\discretionary {-}{}{}\_\discretionary {-}{}{}writer\discretionary {-}{}{}\_\discretionary {-}{}{}common.\discretionary {-}{}{}h}, 
+		\hyperpage{662}
+    \subitem {hryky\discretionary {-}{}{}\_\discretionary {-}{}{}log}, 
+		\hyperpage{664}
+    \subitem {hryky\discretionary {-}{}{}\_\discretionary {-}{}{}log\discretionary {-}{}{}\_\discretionary {-}{}{}debug}, 
+		\hyperpage{664}
+  \item {log\discretionary {-}{}{}\_\discretionary {-}{}{}writer\discretionary {-}{}{}\_\discretionary {-}{}{}file.\discretionary {-}{}{}cpp}, 
+		\hyperpage{664}
+  \item {log\discretionary {-}{}{}\_\discretionary {-}{}{}writer\discretionary {-}{}{}\_\discretionary {-}{}{}file.\discretionary {-}{}{}h}, 
+		\hyperpage{665}
+  \item {log\discretionary {-}{}{}\_\discretionary {-}{}{}writer\discretionary {-}{}{}\_\discretionary {-}{}{}stream.\discretionary {-}{}{}h}, 
+		\hyperpage{666}
+
+  \indexspace
+
+  \item {main}
+    \subitem {hryky}, \hyperpage{79, 80}
+  \item {main.\discretionary {-}{}{}h}, \hyperpage{667}
+  \item {Map}
+    \subitem {hryky\discretionary {-}{}{}::reduction\discretionary {-}{}{}::\discretionary {-}{}{}Map}, 
+		\hyperpage{346}
+  \item {map}
+    \subitem {hryky\discretionary {-}{}{}::reduction}, 
+		\hyperpage{96, 97}
+    \subitem {hryky\discretionary {-}{}{}::reduction\discretionary {-}{}{}::\discretionary {-}{}{}Map}, 
+		\hyperpage{347}
+  \item {max\discretionary {-}{}{}\_\discretionary {-}{}{}of.\discretionary {-}{}{}h}, 
+		\hyperpage{668}
+  \item {memory.\discretionary {-}{}{}h}, \hyperpage{668}
+  \item {memory\discretionary {-}{}{}\_\discretionary {-}{}{}common.\discretionary {-}{}{}cpp}, 
+		\hyperpage{669}
+  \item {memory\discretionary {-}{}{}\_\discretionary {-}{}{}common.\discretionary {-}{}{}h}, 
+		\hyperpage{670}
+  \item {memory\discretionary {-}{}{}\_\discretionary {-}{}{}global.\discretionary {-}{}{}h}, 
+		\hyperpage{671}
+  \item {memory\discretionary {-}{}{}\_\discretionary {-}{}{}global\discretionary {-}{}{}\_\discretionary {-}{}{}common.\discretionary {-}{}{}cpp}, 
+		\hyperpage{672}
+  \item {memory\discretionary {-}{}{}\_\discretionary {-}{}{}global\discretionary {-}{}{}\_\discretionary {-}{}{}common.\discretionary {-}{}{}h}, 
+		\hyperpage{672}
+  \item {memory\discretionary {-}{}{}\_\discretionary {-}{}{}heap.\discretionary {-}{}{}h}, 
+		\hyperpage{674}
+  \item {memory\discretionary {-}{}{}\_\discretionary {-}{}{}heap\discretionary {-}{}{}\_\discretionary {-}{}{}arbitrary.\discretionary {-}{}{}cpp}, 
+		\hyperpage{675}
+  \item {memory\discretionary {-}{}{}\_\discretionary {-}{}{}heap\discretionary {-}{}{}\_\discretionary {-}{}{}arbitrary.\discretionary {-}{}{}h}, 
+		\hyperpage{675}
+  \item {memory\discretionary {-}{}{}\_\discretionary {-}{}{}heap\discretionary {-}{}{}\_\discretionary {-}{}{}base.\discretionary {-}{}{}h}, 
+		\hyperpage{677}
+  \item {memory\discretionary {-}{}{}\_\discretionary {-}{}{}heap\discretionary {-}{}{}\_\discretionary {-}{}{}fixed.\discretionary {-}{}{}cpp}, 
+		\hyperpage{678}
+  \item {memory\discretionary {-}{}{}\_\discretionary {-}{}{}heap\discretionary {-}{}{}\_\discretionary {-}{}{}fixed.\discretionary {-}{}{}h}, 
+		\hyperpage{678}
+  \item {memory\discretionary {-}{}{}\_\discretionary {-}{}{}heap\discretionary {-}{}{}\_\discretionary {-}{}{}lock.\discretionary {-}{}{}h}, 
+		\hyperpage{680}
+  \item {memory\discretionary {-}{}{}\_\discretionary {-}{}{}heap\discretionary {-}{}{}\_\discretionary {-}{}{}standard.\discretionary {-}{}{}cpp}, 
+		\hyperpage{681}
+  \item {memory\discretionary {-}{}{}\_\discretionary {-}{}{}heap\discretionary {-}{}{}\_\discretionary {-}{}{}standard.\discretionary {-}{}{}h}, 
+		\hyperpage{681}
+  \item {min\-\_\-alignment\-\_\-}
+    \subitem {hryky\-::memory\-::heap\-::\-Fixed}, \hyperpage{301}
+  \item {min\-\_\-unit\-\_\-size\-\_\-}
+    \subitem {hryky\-::memory\-::heap\-::\-Fixed}, \hyperpage{301}
+  \item {min\discretionary {-}{}{}\_\discretionary {-}{}{}of.\discretionary {-}{}{}h}, 
+		\hyperpage{682}
+  \item {Mutex}
+    \subitem {hryky\discretionary {-}{}{}::exclusion\discretionary {-}{}{}::\discretionary {-}{}{}Mutex}, 
+		\hyperpage{161}
+
+  \indexspace
+
+  \item {narrow\discretionary {-}{}{}\_\discretionary {-}{}{}token.\discretionary {-}{}{}h}, 
+		\hyperpage{683}
+  \item {noncopyable.\discretionary {-}{}{}h}, \hyperpage{684}
+  \item {not.\discretionary {-}{}{}h}, \hyperpage{684}
+  \item {notice\-\_\-}
+    \subitem {hryky\-::log\-::level\-::\-Kind}, \hyperpage{279}
+  \item {notify\discretionary {-}{}{}\_\discretionary {-}{}{}all}
+    \subitem {hryky\discretionary {-}{}{}::exclusion\discretionary {-}{}{}::\discretionary {-}{}{}Cond}, 
+		\hyperpage{155}
+  \item {null.\discretionary {-}{}{}h}, \hyperpage{685}
+  \item {num\-\_\-}
+    \subitem {hryky\-::log\-::level\-::\-Kind}, \hyperpage{280}
+
+  \indexspace
+
+  \item {offset}
+    \subitem {hryky\discretionary {-}{}{}::\discretionary {-}{}{}Foreach}, 
+		\hyperpage{169}
+  \item {offset\discretionary {-}{}{}\_\discretionary {-}{}{}ptr.\discretionary {-}{}{}h}, 
+		\hyperpage{686}
+  \item {offset\discretionary {-}{}{}\_\discretionary {-}{}{}type}
+    \subitem {hryky\discretionary {-}{}{}::memory\discretionary {-}{}{}::heap\discretionary {-}{}{}::\discretionary {-}{}{}Arbitrary}, 
+		\hyperpage{293}
+  \item {opengl.\discretionary {-}{}{}h}, \hyperpage{686}
+  \item {opengl\discretionary {-}{}{}\_\discretionary {-}{}{}common.\discretionary {-}{}{}h}, 
+		\hyperpage{687}
+  \item {opengl\discretionary {-}{}{}\_\discretionary {-}{}{}module.\discretionary {-}{}{}cpp}, 
+		\hyperpage{689}
+  \item {opengl\discretionary {-}{}{}\_\discretionary {-}{}{}module.\discretionary {-}{}{}h}, 
+		\hyperpage{689}
+  \item {opengl\discretionary {-}{}{}\_\discretionary {-}{}{}version.\discretionary {-}{}{}cpp}, 
+		\hyperpage{691}
+  \item {opengl\discretionary {-}{}{}\_\discretionary {-}{}{}version.\discretionary {-}{}{}h}, 
+		\hyperpage{691}
+  \item {operator value\discretionary {-}{}{}\_\discretionary {-}{}{}type}
+    \subitem {hryky\discretionary {-}{}{}::atomic\discretionary {-}{}{}::\discretionary {-}{}{}Accessor}, 
+		\hyperpage{120}
+  \item {operator$<$}
+    \subitem {hryky\discretionary {-}{}{}::\discretionary {-}{}{}String}, 
+		\hyperpage{377}
+  \item {operator$<$=}
+    \subitem {hryky\discretionary {-}{}{}::\discretionary {-}{}{}String}, 
+		\hyperpage{377, 378}
+  \item {operator$>$}
+    \subitem {hryky\discretionary {-}{}{}::\discretionary {-}{}{}String}, 
+		\hyperpage{378}
+  \item {operator$>$=}
+    \subitem {hryky\discretionary {-}{}{}::\discretionary {-}{}{}String}, 
+		\hyperpage{378}
+  \item {operator()}
+    \subitem {hryky\discretionary {-}{}{}::display\discretionary {-}{}{}::\discretionary {-}{}{}Traverser}, 
+		\hyperpage{148}
+    \subitem {hryky\discretionary {-}{}{}::http\discretionary {-}{}{}::header\discretionary {-}{}{}::cache\discretionary {-}{}{}::directive\discretionary {-}{}{}::dispatcher\discretionary {-}{}{}::\discretionary {-}{}{}Apply}, 
+		\hyperpage{202}
+    \subitem {hryky\discretionary {-}{}{}::ip\discretionary {-}{}{}::v4\discretionary {-}{}{}::\discretionary {-}{}{}Parser}, 
+		\hyperpage{257}
+    \subitem {hryky\discretionary {-}{}{}::log\discretionary {-}{}{}::writer\discretionary {-}{}{}::\discretionary {-}{}{}Base}, 
+		\hyperpage{282}
+    \subitem {hryky\discretionary {-}{}{}::log\discretionary {-}{}{}::writer\discretionary {-}{}{}::\discretionary {-}{}{}File}, 
+		\hyperpage{284}
+    \subitem {hryky\discretionary {-}{}{}::log\discretionary {-}{}{}::writer\discretionary {-}{}{}::\discretionary {-}{}{}Stream}, 
+		\hyperpage{287}
+    \subitem {hryky\discretionary {-}{}{}::\discretionary {-}{}{}Narrow\discretionary {-}{}{}Token}, 
+		\hyperpage{308}
+    \subitem {hryky\discretionary {-}{}{}::reduction\discretionary {-}{}{}::\discretionary {-}{}{}Stream}, 
+		\hyperpage{350}
+    \subitem {hryky\discretionary {-}{}{}::uri\discretionary {-}{}{}::\discretionary {-}{}{}Parser}, 
+		\hyperpage{435}
+    \subitem {hryky\discretionary {-}{}{}::writer\discretionary {-}{}{}::\discretionary {-}{}{}Base}, 
+		\hyperpage{448}
+  \item {operator+=}
+    \subitem {hryky\discretionary {-}{}{}::\discretionary {-}{}{}Offset\discretionary {-}{}{}Ptr}, 
+		\hyperpage{313}
+  \item {operator=}
+    \subitem {Atomic Operation}, \hyperpage{59}
+    \subitem {hryky\discretionary {-}{}{}::atomic\discretionary {-}{}{}::\discretionary {-}{}{}Accessor}, 
+		\hyperpage{120}
+  \item {operator==}
+    \subitem {hryky\discretionary {-}{}{}::\discretionary {-}{}{}String}, 
+		\hyperpage{378}
+  \item {or.\discretionary {-}{}{}h}, \hyperpage{692}
+
+  \indexspace
+
+  \item {parse}
+    \subitem {hryky\discretionary {-}{}{}::http\discretionary {-}{}{}::\discretionary {-}{}{}Parser}, 
+		\hyperpage{243}
+  \item {parser.\discretionary {-}{}{}h}, \hyperpage{693}
+  \item {parser\discretionary {-}{}{}\_\discretionary {-}{}{}base.\discretionary {-}{}{}h}, 
+		\hyperpage{694}
+  \item {partition}
+    \subitem {hryky\discretionary {-}{}{}::qsort\discretionary {-}{}{}\_\discretionary {-}{}{}internal}, 
+		\hyperpage{93}
+  \item {pivot\discretionary {-}{}{}\_\discretionary {-}{}{}position}
+    \subitem {hryky\discretionary {-}{}{}::qsort\discretionary {-}{}{}\_\discretionary {-}{}{}internal}, 
+		\hyperpage{93}
+  \item {pixel.\discretionary {-}{}{}h}, \hyperpage{695}
+  \item {pixel\discretionary {-}{}{}\_\discretionary {-}{}{}format.\discretionary {-}{}{}cpp}, 
+		\hyperpage{696}
+  \item {pixel\discretionary {-}{}{}\_\discretionary {-}{}{}format.\discretionary {-}{}{}h}, 
+		\hyperpage{696}
+  \item {placementnewable.\discretionary {-}{}{}h}, \hyperpage{698}
+  \item {placementnewonly.\discretionary {-}{}{}h}, \hyperpage{698}
+  \item {Pool}
+    \subitem {hryky\discretionary {-}{}{}::thread\discretionary {-}{}{}::\discretionary {-}{}{}Pool}, 
+		\hyperpage{418}
+  \item {precompiled.\discretionary {-}{}{}cpp}, \hyperpage{699}
+  \item {print}
+    \subitem {hryky\discretionary {-}{}{}::\discretionary {-}{}{}Sequence}, 
+		\hyperpage{362}
+  \item {profiler\discretionary {-}{}{}\_\discretionary {-}{}{}cumulate.\discretionary {-}{}{}h}, 
+		\hyperpage{699}
+  \item {Push}
+    \subitem {hryky\discretionary {-}{}{}::memory\discretionary {-}{}{}::global\discretionary {-}{}{}::\discretionary {-}{}{}Push}, 
+		\hyperpage{289}
+
+  \indexspace
+
+  \item {qsort}
+    \subitem {hryky}, \hyperpage{80}
+  \item {qsort.\discretionary {-}{}{}h}, \hyperpage{700}
+
+  \indexspace
+
+  \item {raii.\discretionary {-}{}{}h}, \hyperpage{701}
+  \item {Random}
+    \subitem {hryky\discretionary {-}{}{}::testing\discretionary {-}{}{}::\discretionary {-}{}{}Random}, 
+		\hyperpage{415}
+  \item {random.\discretionary {-}{}{}h}, \hyperpage{702}
+  \item {random\discretionary {-}{}{}\_\discretionary {-}{}{}common.\discretionary {-}{}{}h}, 
+		\hyperpage{703}
+  \item {random\discretionary {-}{}{}\_\discretionary {-}{}{}distribution\discretionary {-}{}{}\_\discretionary {-}{}{}normal.\discretionary {-}{}{}h}, 
+		\hyperpage{704}
+  \item {random\discretionary {-}{}{}\_\discretionary {-}{}{}distribution\discretionary {-}{}{}\_\discretionary {-}{}{}uniform.\discretionary {-}{}{}h}, 
+		\hyperpage{706}
+  \item {range.\discretionary {-}{}{}h}, \hyperpage{707}
+  \item {Raw}
+    \subitem {hryky\discretionary {-}{}{}::log\discretionary {-}{}{}::level\discretionary {-}{}{}::\discretionary {-}{}{}Kind}, 
+		\hyperpage{279}
+  \item {Recursive\discretionary {-}{}{}Mutex}
+    \subitem {hryky\discretionary {-}{}{}::exclusion\discretionary {-}{}{}::\discretionary {-}{}{}Recursive\discretionary {-}{}{}Mutex}, 
+		\hyperpage{162}
+  \item {reduce}
+    \subitem {hryky}, \hyperpage{80, 81}
+    \subitem {hryky\discretionary {-}{}{}::memory\discretionary {-}{}{}::heap\discretionary {-}{}{}::\discretionary {-}{}{}Fixed}, 
+		\hyperpage{302}
+    \subitem {hryky\discretionary {-}{}{}::reduction}, \hyperpage{98}
+    \subitem {hryky\discretionary {-}{}{}::thread}, \hyperpage{103}
+  \item {reduction.\discretionary {-}{}{}h}, \hyperpage{708}
+  \item {reduction\discretionary {-}{}{}\_\discretionary {-}{}{}address.\discretionary {-}{}{}cpp}, 
+		\hyperpage{709}
+  \item {reduction\discretionary {-}{}{}\_\discretionary {-}{}{}address.\discretionary {-}{}{}h}, 
+		\hyperpage{709}
+  \item {reduction\discretionary {-}{}{}\_\discretionary {-}{}{}array.\discretionary {-}{}{}cpp}, 
+		\hyperpage{710}
+  \item {reduction\discretionary {-}{}{}\_\discretionary {-}{}{}array.\discretionary {-}{}{}h}, 
+		\hyperpage{710}
+  \item {reduction\discretionary {-}{}{}\_\discretionary {-}{}{}base.\discretionary {-}{}{}cpp}, 
+		\hyperpage{711}
+  \item {reduction\discretionary {-}{}{}\_\discretionary {-}{}{}base.\discretionary {-}{}{}h}, 
+		\hyperpage{712}
+  \item {reduction\discretionary {-}{}{}\_\discretionary {-}{}{}bool.\discretionary {-}{}{}cpp}, 
+		\hyperpage{713}
+  \item {reduction\discretionary {-}{}{}\_\discretionary {-}{}{}bool.\discretionary {-}{}{}h}, 
+		\hyperpage{713}
+  \item {reduction\discretionary {-}{}{}\_\discretionary {-}{}{}char.\discretionary {-}{}{}cpp}, 
+		\hyperpage{714}
+  \item {reduction\discretionary {-}{}{}\_\discretionary {-}{}{}char.\discretionary {-}{}{}h}, 
+		\hyperpage{715}
+  \item {reduction\discretionary {-}{}{}\_\discretionary {-}{}{}common.\discretionary {-}{}{}cpp}, 
+		\hyperpage{716}
+  \item {reduction\discretionary {-}{}{}\_\discretionary {-}{}{}common.\discretionary {-}{}{}h}, 
+		\hyperpage{716}
+  \item {reduction\discretionary {-}{}{}\_\discretionary {-}{}{}dispatcher.\discretionary {-}{}{}cpp}, 
+		\hyperpage{717}
+  \item {reduction\discretionary {-}{}{}\_\discretionary {-}{}{}dispatcher.\discretionary {-}{}{}h}, 
+		\hyperpage{718}
+  \item {reduction\discretionary {-}{}{}\_\discretionary {-}{}{}float.\discretionary {-}{}{}cpp}, 
+		\hyperpage{718}
+  \item {reduction\discretionary {-}{}{}\_\discretionary {-}{}{}float.\discretionary {-}{}{}h}, 
+		\hyperpage{719}
+  \item {reduction\discretionary {-}{}{}\_\discretionary {-}{}{}int.\discretionary {-}{}{}cpp}, 
+		\hyperpage{720}
+  \item {reduction\discretionary {-}{}{}\_\discretionary {-}{}{}int.\discretionary {-}{}{}h}, 
+		\hyperpage{720}
+  \item {reduction\discretionary {-}{}{}\_\discretionary {-}{}{}map.\discretionary {-}{}{}cpp}, 
+		\hyperpage{721}
+  \item {reduction\discretionary {-}{}{}\_\discretionary {-}{}{}map.\discretionary {-}{}{}h}, 
+		\hyperpage{722}
+  \item {reduction\discretionary {-}{}{}\_\discretionary {-}{}{}string.\discretionary {-}{}{}cpp}, 
+		\hyperpage{723}
+  \item {reduction\discretionary {-}{}{}\_\discretionary {-}{}{}string.\discretionary {-}{}{}h}, 
+		\hyperpage{723}
+  \item {reduction\discretionary {-}{}{}\_\discretionary {-}{}{}uint.\discretionary {-}{}{}cpp}, 
+		\hyperpage{724}
+  \item {reduction\discretionary {-}{}{}\_\discretionary {-}{}{}uint.\discretionary {-}{}{}h}, 
+		\hyperpage{725}
+  \item {regname}
+    \subitem {hryky\discretionary {-}{}{}::uri\discretionary {-}{}{}::host\discretionary {-}{}{}::\discretionary {-}{}{}Entity}, 
+		\hyperpage{433}
+  \item {release}
+    \subitem {hryky}, \hyperpage{81}
+  \item {remove\discretionary {-}{}{}\_\discretionary {-}{}{}const.\discretionary {-}{}{}h}, 
+		\hyperpage{726}
+  \item {remove\discretionary {-}{}{}\_\discretionary {-}{}{}pointer.\discretionary {-}{}{}h}, 
+		\hyperpage{726}
+  \item {reserve}
+    \subitem {hryky\discretionary {-}{}{}::\discretionary {-}{}{}Vector}, 
+		\hyperpage{444}
+  \item {reset}
+    \subitem {Concurrent Task}, \hyperpage{67, 68}
+    \subitem {hryky\discretionary {-}{}{}::memory\discretionary {-}{}{}::heap\discretionary {-}{}{}::\discretionary {-}{}{}Arbitrary}, 
+		\hyperpage{295, 296}
+    \subitem {hryky\discretionary {-}{}{}::memory\discretionary {-}{}{}::heap\discretionary {-}{}{}::\discretionary {-}{}{}Fixed}, 
+		\hyperpage{302}
+    \subitem {hryky\discretionary {-}{}{}::task\discretionary {-}{}{}::\discretionary {-}{}{}Concurrency}, 
+		\hyperpage{381}
+    \subitem {hryky\discretionary {-}{}{}::task\discretionary {-}{}{}::distributor\discretionary {-}{}{}::\discretionary {-}{}{}Base}, 
+		\hyperpage{387}
+    \subitem {hryky\discretionary {-}{}{}::task\discretionary {-}{}{}::distributor\discretionary {-}{}{}::\discretionary {-}{}{}Impl}, 
+		\hyperpage{397}
+    \subitem {hryky\discretionary {-}{}{}::task\discretionary {-}{}{}::worker\discretionary {-}{}{}::\discretionary {-}{}{}Base}, 
+		\hyperpage{401}
+  \item {Reset\discretionary {-}{}{}Parameter}
+    \subitem {hryky\discretionary {-}{}{}::task\discretionary {-}{}{}::distributor\discretionary {-}{}{}::\discretionary {-}{}{}Base\discretionary {-}{}{}::\discretionary {-}{}{}Reset\discretionary {-}{}{}Parameter}, 
+		\hyperpage{388}
+    \subitem {hryky\discretionary {-}{}{}::task\discretionary {-}{}{}::distributor\discretionary {-}{}{}::\discretionary {-}{}{}Batch\discretionary {-}{}{}::\discretionary {-}{}{}Reset\discretionary {-}{}{}Parameter}, 
+		\hyperpage{394}
+    \subitem {hryky\discretionary {-}{}{}::task\discretionary {-}{}{}::worker\discretionary {-}{}{}::\discretionary {-}{}{}Base\discretionary {-}{}{}::\discretionary {-}{}{}Reset\discretionary {-}{}{}Parameter}, 
+		\hyperpage{405}
+    \subitem {hryky\discretionary {-}{}{}::task\discretionary {-}{}{}::worker\discretionary {-}{}{}::\discretionary {-}{}{}Batch\discretionary {-}{}{}::\discretionary {-}{}{}Reset\discretionary {-}{}{}Parameter}, 
+		\hyperpage{411}
+  \item {Resource}
+    \subitem {hryky\discretionary {-}{}{}::thread\discretionary {-}{}{}::\discretionary {-}{}{}Resource}, 
+		\hyperpage{423}
+  \item {run\discretionary {-}{}{}\_\discretionary {-}{}{}impl}
+    \subitem {Concurrent Task}, \hyperpage{68}
+
+  \indexspace
+
+  \item {scale.\discretionary {-}{}{}h}, \hyperpage{727}
+  \item {scale\discretionary {-}{}{}\_\discretionary {-}{}{}entity.\discretionary {-}{}{}h}, 
+		\hyperpage{728}
+  \item {scale\discretionary {-}{}{}\_\discretionary {-}{}{}has\discretionary {-}{}{}\_\discretionary {-}{}{}higher.\discretionary {-}{}{}h}, 
+		\hyperpage{729}
+  \item {scale\discretionary {-}{}{}\_\discretionary {-}{}{}is\discretionary {-}{}{}\_\discretionary {-}{}{}lower.\discretionary {-}{}{}h}, 
+		\hyperpage{731}
+  \item {scale\discretionary {-}{}{}\_\discretionary {-}{}{}is\discretionary {-}{}{}\_\discretionary {-}{}{}lower\discretionary {-}{}{}\_\discretionary {-}{}{}equal.\discretionary {-}{}{}h}, 
+		\hyperpage{732}
+  \item {scale\discretionary {-}{}{}\_\discretionary {-}{}{}lower\discretionary {-}{}{}\_\discretionary {-}{}{}of.\discretionary {-}{}{}h}, 
+		\hyperpage{733}
+  \item {scale\discretionary {-}{}{}\_\discretionary {-}{}{}radix.\discretionary {-}{}{}h}, 
+		\hyperpage{734}
+  \item {scoped\discretionary {-}{}{}\_\discretionary {-}{}{}array.\discretionary {-}{}{}h}, 
+		\hyperpage{735}
+  \item {sdl.\discretionary {-}{}{}h}, \hyperpage{736}
+  \item {sequence}
+    \subitem {hryky\discretionary {-}{}{}::task\discretionary {-}{}{}::\discretionary {-}{}{}Concurrency}, 
+		\hyperpage{381}
+  \item {sequence.\discretionary {-}{}{}h}, \hyperpage{737}
+  \item {sequence4}
+    \subitem {hryky}, \hyperpage{81}
+  \item {shared\discretionary {-}{}{}\_\discretionary {-}{}{}ptr.\discretionary {-}{}{}h}, 
+		\hyperpage{739}
+  \item {signed\discretionary {-}{}{}\_\discretionary {-}{}{}bits\discretionary {-}{}{}\_\discretionary {-}{}{}enough.\discretionary {-}{}{}h}, 
+		\hyperpage{740}
+  \item {signed\discretionary {-}{}{}\_\discretionary {-}{}{}enough.\discretionary {-}{}{}h}, 
+		\hyperpage{742}
+  \item {Source}
+    \subitem {hryky\discretionary {-}{}{}::debug\discretionary {-}{}{}::\discretionary {-}{}{}Source}, 
+		\hyperpage{139}
+  \item {Standard}
+    \subitem {hryky\discretionary {-}{}{}::memory\discretionary {-}{}{}::heap\discretionary {-}{}{}::\discretionary {-}{}{}Standard}, 
+		\hyperpage{306}
+  \item {stdint.\discretionary {-}{}{}h}, \hyperpage{743}
+  \item {Stream}
+    \subitem {hryky\discretionary {-}{}{}::reduction\discretionary {-}{}{}::\discretionary {-}{}{}Stream}, 
+		\hyperpage{350}
+  \item {String}
+    \subitem {hryky\discretionary {-}{}{}::error\discretionary {-}{}{}::\discretionary {-}{}{}String}, 
+		\hyperpage{154}
+    \subitem {hryky\discretionary {-}{}{}::\discretionary {-}{}{}String}, 
+		\hyperpage{377}
+  \item {string.\discretionary {-}{}{}h}, \hyperpage{744}
+  \item {substring.\discretionary {-}{}{}h}, \hyperpage{745}
+  \item {swap}
+    \subitem {hryky}, \hyperpage{81, 82}
+    \subitem {hryky\discretionary {-}{}{}::display}, \hyperpage{84}
+    \subitem {hryky\discretionary {-}{}{}::geometry}, \hyperpage{86}
+    \subitem {hryky\discretionary {-}{}{}::http}, \hyperpage{88}
+    \subitem {hryky\discretionary {-}{}{}::\discretionary {-}{}{}Kind}, 
+		\hyperpage{275}
+    \subitem {hryky\discretionary {-}{}{}::parser}, \hyperpage{92}
+    \subitem {hryky\discretionary {-}{}{}::reduction}, 
+		\hyperpage{98, 99}
+    \subitem {hryky\discretionary {-}{}{}::scale}, \hyperpage{100}
+    \subitem {hryky\discretionary {-}{}{}::uri}, \hyperpage{104}
+  \item {swap.\discretionary {-}{}{}h}, \hyperpage{746}
+
+  \indexspace
+
+  \item {task.\discretionary {-}{}{}h}, \hyperpage{747}
+  \item {task\discretionary {-}{}{}\_\discretionary {-}{}{}common.\discretionary {-}{}{}h}, 
+		\hyperpage{747}
+  \item {task\discretionary {-}{}{}\_\discretionary {-}{}{}concurrency.\discretionary {-}{}{}cpp}, 
+		\hyperpage{748}
+  \item {task\discretionary {-}{}{}\_\discretionary {-}{}{}concurrency.\discretionary {-}{}{}h}, 
+		\hyperpage{749}
+  \item {task\discretionary {-}{}{}\_\discretionary {-}{}{}distributor\discretionary {-}{}{}\_\discretionary {-}{}{}base.\discretionary {-}{}{}cpp}, 
+		\hyperpage{750}
+  \item {task\discretionary {-}{}{}\_\discretionary {-}{}{}distributor\discretionary {-}{}{}\_\discretionary {-}{}{}base.\discretionary {-}{}{}h}, 
+		\hyperpage{751}
+  \item {task\discretionary {-}{}{}\_\discretionary {-}{}{}distributor\discretionary {-}{}{}\_\discretionary {-}{}{}batch.\discretionary {-}{}{}h}, 
+		\hyperpage{752}
+  \item {task\discretionary {-}{}{}\_\discretionary {-}{}{}distributor\discretionary {-}{}{}\_\discretionary {-}{}{}impl.\discretionary {-}{}{}h}, 
+		\hyperpage{753}
+  \item {task\discretionary {-}{}{}\_\discretionary {-}{}{}sequence.\discretionary {-}{}{}cpp}, 
+		\hyperpage{754}
+  \item {task\discretionary {-}{}{}\_\discretionary {-}{}{}sequence.\discretionary {-}{}{}h}, 
+		\hyperpage{755}
+  \item {task\discretionary {-}{}{}\_\discretionary {-}{}{}worker\discretionary {-}{}{}\_\discretionary {-}{}{}base.\discretionary {-}{}{}cpp}, 
+		\hyperpage{756}
+  \item {task\discretionary {-}{}{}\_\discretionary {-}{}{}worker\discretionary {-}{}{}\_\discretionary {-}{}{}base.\discretionary {-}{}{}h}, 
+		\hyperpage{756}
+  \item {task\discretionary {-}{}{}\_\discretionary {-}{}{}worker\discretionary {-}{}{}\_\discretionary {-}{}{}batch.\discretionary {-}{}{}h}, 
+		\hyperpage{758}
+  \item {task\discretionary {-}{}{}\_\discretionary {-}{}{}worker\discretionary {-}{}{}\_\discretionary {-}{}{}quicksort.\discretionary {-}{}{}h}, 
+		\hyperpage{759}
+  \item {terminate}
+    \subitem {hryky\discretionary {-}{}{}::thread\discretionary {-}{}{}::\discretionary {-}{}{}Resource}, 
+		\hyperpage{423}
+  \item {testing.\discretionary {-}{}{}h}, \hyperpage{760}
+  \item {testing\discretionary {-}{}{}\_\discretionary {-}{}{}log.\discretionary {-}{}{}cpp}, 
+		\hyperpage{761}
+  \item {testing\discretionary {-}{}{}\_\discretionary {-}{}{}log.\discretionary {-}{}{}h}, 
+		\hyperpage{761}
+  \item {testing\discretionary {-}{}{}\_\discretionary {-}{}{}random.\discretionary {-}{}{}cpp}, 
+		\hyperpage{762}
+  \item {testing\discretionary {-}{}{}\_\discretionary {-}{}{}random.\discretionary {-}{}{}h}, 
+		\hyperpage{763}
+  \item {testing\discretionary {-}{}{}\_\discretionary {-}{}{}registry.\discretionary {-}{}{}cpp}, 
+		\hyperpage{764}
+  \item {testing\discretionary {-}{}{}\_\discretionary {-}{}{}registry.\discretionary {-}{}{}h}, 
+		\hyperpage{764}
+  \item {testing\discretionary {-}{}{}\_\discretionary {-}{}{}unit\discretionary {-}{}{}\_\discretionary {-}{}{}base.\discretionary {-}{}{}cpp}, 
+		\hyperpage{765}
+  \item {testing\discretionary {-}{}{}\_\discretionary {-}{}{}unit\discretionary {-}{}{}\_\discretionary {-}{}{}base.\discretionary {-}{}{}h}, 
+		\hyperpage{766}
+  \item {thread.\discretionary {-}{}{}h}, \hyperpage{766}
+  \item {thread\discretionary {-}{}{}\_\discretionary {-}{}{}callable\discretionary {-}{}{}\_\discretionary {-}{}{}base.\discretionary {-}{}{}h}, 
+		\hyperpage{767}
+  \item {thread\discretionary {-}{}{}\_\discretionary {-}{}{}common.\discretionary {-}{}{}cpp}, 
+		\hyperpage{768}
+  \item {thread\discretionary {-}{}{}\_\discretionary {-}{}{}common.\discretionary {-}{}{}h}, 
+		\hyperpage{769}
+  \item {thread\discretionary {-}{}{}\_\discretionary {-}{}{}pool.\discretionary {-}{}{}cpp}, 
+		\hyperpage{770}
+  \item {thread\discretionary {-}{}{}\_\discretionary {-}{}{}pool.\discretionary {-}{}{}h}, 
+		\hyperpage{771}
+  \item {thread\discretionary {-}{}{}\_\discretionary {-}{}{}resource.\discretionary {-}{}{}cpp}, 
+		\hyperpage{772}
+  \item {thread\discretionary {-}{}{}\_\discretionary {-}{}{}resource.\discretionary {-}{}{}h}, 
+		\hyperpage{772}
+  \item {timed\discretionary {-}{}{}\_\discretionary {-}{}{}wait}
+    \subitem {hryky\discretionary {-}{}{}::exclusion\discretionary {-}{}{}::\discretionary {-}{}{}Cond}, 
+		\hyperpage{155}
+  \item {traverse}
+    \subitem {hryky\discretionary {-}{}{}::display\discretionary {-}{}{}::\discretionary {-}{}{}Driver}, 
+		\hyperpage{142}
+    \subitem {hryky\discretionary {-}{}{}::display\discretionary {-}{}{}::\discretionary {-}{}{}Environment}, 
+		\hyperpage{144}
+  \item {type.\discretionary {-}{}{}h}, \hyperpage{774}
+  \item {type\discretionary {-}{}{}\_\discretionary {-}{}{}common.\discretionary {-}{}{}cpp}, 
+		\hyperpage{774}
+  \item {type\discretionary {-}{}{}\_\discretionary {-}{}{}common.\discretionary {-}{}{}h}, 
+		\hyperpage{775}
+  \item {type\discretionary {-}{}{}\_\discretionary {-}{}{}id.\discretionary {-}{}{}h}, 
+		\hyperpage{776}
+  \item {type\discretionary {-}{}{}\_\discretionary {-}{}{}info.\discretionary {-}{}{}cpp}, 
+		\hyperpage{777}
+  \item {type\discretionary {-}{}{}\_\discretionary {-}{}{}info.\discretionary {-}{}{}h}, 
+		\hyperpage{778}
+  \item {type\discretionary {-}{}{}\_\discretionary {-}{}{}name.\discretionary {-}{}{}h}, 
+		\hyperpage{779}
+
+  \indexspace
+
+  \item {units\discretionary {-}{}{}\_\discretionary {-}{}{}size}
+    \subitem {hryky\discretionary {-}{}{}::task\discretionary {-}{}{}::\discretionary {-}{}{}Concurrency}, 
+		\hyperpage{381}
+  \item {unlock}
+    \subitem {hryky\discretionary {-}{}{}::exclusion\discretionary {-}{}{}::\discretionary {-}{}{}Recursive\discretionary {-}{}{}Mutex}, 
+		\hyperpage{162}
+  \item {unsigned\discretionary {-}{}{}\_\discretionary {-}{}{}bits\discretionary {-}{}{}\_\discretionary {-}{}{}enough.\discretionary {-}{}{}h}, 
+		\hyperpage{780}
+  \item {unsigned\discretionary {-}{}{}\_\discretionary {-}{}{}enough.\discretionary {-}{}{}h}, 
+		\hyperpage{781}
+  \item {uri.\discretionary {-}{}{}h}, \hyperpage{782}
+  \item {uri\discretionary {-}{}{}\_\discretionary {-}{}{}authority\discretionary {-}{}{}\_\discretionary {-}{}{}entity.\discretionary {-}{}{}cpp}, 
+		\hyperpage{783}
+  \item {uri\discretionary {-}{}{}\_\discretionary {-}{}{}authority\discretionary {-}{}{}\_\discretionary {-}{}{}entity.\discretionary {-}{}{}h}, 
+		\hyperpage{783}
+  \item {uri\discretionary {-}{}{}\_\discretionary {-}{}{}common.\discretionary {-}{}{}cpp}, 
+		\hyperpage{784}
+  \item {uri\discretionary {-}{}{}\_\discretionary {-}{}{}common.\discretionary {-}{}{}h}, 
+		\hyperpage{785}
+    \subitem {hryky\discretionary {-}{}{}\_\discretionary {-}{}{}case\discretionary {-}{}{}\_\discretionary {-}{}{}uri\discretionary {-}{}{}\_\discretionary {-}{}{}unreserved\discretionary {-}{}{}\_\discretionary {-}{}{}symbol}, 
+		\hyperpage{786}
+  \item {uri\discretionary {-}{}{}\_\discretionary {-}{}{}entity.\discretionary {-}{}{}cpp}, 
+		\hyperpage{786}
+  \item {uri\discretionary {-}{}{}\_\discretionary {-}{}{}entity.\discretionary {-}{}{}h}, 
+		\hyperpage{786}
+  \item {uri\discretionary {-}{}{}\_\discretionary {-}{}{}fragment\discretionary {-}{}{}\_\discretionary {-}{}{}entity.\discretionary {-}{}{}cpp}, 
+		\hyperpage{787}
+  \item {uri\discretionary {-}{}{}\_\discretionary {-}{}{}fragment\discretionary {-}{}{}\_\discretionary {-}{}{}entity.\discretionary {-}{}{}h}, 
+		\hyperpage{788}
+  \item {uri\discretionary {-}{}{}\_\discretionary {-}{}{}hierarchy\discretionary {-}{}{}\_\discretionary {-}{}{}entity.\discretionary {-}{}{}cpp}, 
+		\hyperpage{789}
+  \item {uri\discretionary {-}{}{}\_\discretionary {-}{}{}hierarchy\discretionary {-}{}{}\_\discretionary {-}{}{}entity.\discretionary {-}{}{}h}, 
+		\hyperpage{789}
+  \item {uri\discretionary {-}{}{}\_\discretionary {-}{}{}host\discretionary {-}{}{}\_\discretionary {-}{}{}entity.\discretionary {-}{}{}cpp}, 
+		\hyperpage{790}
+  \item {uri\discretionary {-}{}{}\_\discretionary {-}{}{}host\discretionary {-}{}{}\_\discretionary {-}{}{}entity.\discretionary {-}{}{}h}, 
+		\hyperpage{791}
+  \item {uri\discretionary {-}{}{}\_\discretionary {-}{}{}parser.\discretionary {-}{}{}cpp}, 
+		\hyperpage{792}
+  \item {uri\discretionary {-}{}{}\_\discretionary {-}{}{}parser.\discretionary {-}{}{}h}, 
+		\hyperpage{792}
+  \item {uri\discretionary {-}{}{}\_\discretionary {-}{}{}path\discretionary {-}{}{}\_\discretionary {-}{}{}entity.\discretionary {-}{}{}cpp}, 
+		\hyperpage{793}
+  \item {uri\discretionary {-}{}{}\_\discretionary {-}{}{}path\discretionary {-}{}{}\_\discretionary {-}{}{}entity.\discretionary {-}{}{}h}, 
+		\hyperpage{794}
+  \item {uri\discretionary {-}{}{}\_\discretionary {-}{}{}port\discretionary {-}{}{}\_\discretionary {-}{}{}entity.\discretionary {-}{}{}cpp}, 
+		\hyperpage{795}
+  \item {uri\discretionary {-}{}{}\_\discretionary {-}{}{}port\discretionary {-}{}{}\_\discretionary {-}{}{}entity.\discretionary {-}{}{}h}, 
+		\hyperpage{795}
+  \item {uri\discretionary {-}{}{}\_\discretionary {-}{}{}query\discretionary {-}{}{}\_\discretionary {-}{}{}entity.\discretionary {-}{}{}cpp}, 
+		\hyperpage{796}
+  \item {uri\discretionary {-}{}{}\_\discretionary {-}{}{}query\discretionary {-}{}{}\_\discretionary {-}{}{}entity.\discretionary {-}{}{}h}, 
+		\hyperpage{797}
+  \item {uri\discretionary {-}{}{}\_\discretionary {-}{}{}regname\discretionary {-}{}{}\_\discretionary {-}{}{}entity.\discretionary {-}{}{}cpp}, 
+		\hyperpage{798}
+  \item {uri\discretionary {-}{}{}\_\discretionary {-}{}{}regname\discretionary {-}{}{}\_\discretionary {-}{}{}entity.\discretionary {-}{}{}h}, 
+		\hyperpage{798}
+  \item {uri\discretionary {-}{}{}\_\discretionary {-}{}{}scheme\discretionary {-}{}{}\_\discretionary {-}{}{}common.\discretionary {-}{}{}cpp}, 
+		\hyperpage{799}
+  \item {uri\discretionary {-}{}{}\_\discretionary {-}{}{}scheme\discretionary {-}{}{}\_\discretionary {-}{}{}common.\discretionary {-}{}{}h}, 
+		\hyperpage{800}
+  \item {uri\discretionary {-}{}{}\_\discretionary {-}{}{}scheme\discretionary {-}{}{}\_\discretionary {-}{}{}entity.\discretionary {-}{}{}cpp}, 
+		\hyperpage{801}
+  \item {uri\discretionary {-}{}{}\_\discretionary {-}{}{}scheme\discretionary {-}{}{}\_\discretionary {-}{}{}entity.\discretionary {-}{}{}h}, 
+		\hyperpage{801}
+  \item {uri\discretionary {-}{}{}\_\discretionary {-}{}{}userinfo\discretionary {-}{}{}\_\discretionary {-}{}{}entity.\discretionary {-}{}{}cpp}, 
+		\hyperpage{802}
+  \item {uri\discretionary {-}{}{}\_\discretionary {-}{}{}userinfo\discretionary {-}{}{}\_\discretionary {-}{}{}entity.\discretionary {-}{}{}h}, 
+		\hyperpage{803}
+
+  \indexspace
+
+  \item {value}
+    \subitem {hryky\discretionary {-}{}{}::reduction\discretionary {-}{}{}::\discretionary {-}{}{}Int}, 
+		\hyperpage{343}
+  \item {vector.\discretionary {-}{}{}h}, \hyperpage{804}
+  \item {verify}
+    \subitem {hryky\discretionary {-}{}{}::memory\discretionary {-}{}{}::heap\discretionary {-}{}{}::\discretionary {-}{}{}Arbitrary}, 
+		\hyperpage{296}
+    \subitem {hryky\discretionary {-}{}{}::memory\discretionary {-}{}{}::heap\discretionary {-}{}{}::\discretionary {-}{}{}Fixed}, 
+		\hyperpage{303}
+  \item {Version}
+    \subitem {hryky\discretionary {-}{}{}::opengl\discretionary {-}{}{}::\discretionary {-}{}{}Version}, 
+		\hyperpage{315}
+
+  \indexspace
+
+  \item {wait\discretionary {-}{}{}\_\discretionary {-}{}{}false}
+    \subitem {hryky\discretionary {-}{}{}::exclusion\discretionary {-}{}{}::\discretionary {-}{}{}Flag}, 
+		\hyperpage{158}
+  \item {wait\discretionary {-}{}{}\_\discretionary {-}{}{}true}
+    \subitem {hryky\discretionary {-}{}{}::exclusion\discretionary {-}{}{}::\discretionary {-}{}{}Flag}, 
+		\hyperpage{158}
+  \item {warning\-\_\-}
+    \subitem {hryky\-::log\-::level\-::\-Kind}, \hyperpage{280}
+  \item {win32.\discretionary {-}{}{}h}, \hyperpage{805}
+  \item {win32\discretionary {-}{}{}\_\discretionary {-}{}{}common.\discretionary {-}{}{}cpp}, 
+		\hyperpage{806}
+  \item {win32\discretionary {-}{}{}\_\discretionary {-}{}{}common.\discretionary {-}{}{}h}, 
+		\hyperpage{806}
+  \item {windows.\discretionary {-}{}{}h}, \hyperpage{807}
+  \item {Writer}
+    \subitem {Atomic Operation}, \hyperpage{59}
+  \item {writer.\discretionary {-}{}{}h}, \hyperpage{807}
+  \item {writer\discretionary {-}{}{}\_\discretionary {-}{}{}adapter.\discretionary {-}{}{}h}, 
+		\hyperpage{808}
+  \item {writer\discretionary {-}{}{}\_\discretionary {-}{}{}base.\discretionary {-}{}{}cpp}, 
+		\hyperpage{808}
+  \item {writer\discretionary {-}{}{}\_\discretionary {-}{}{}base.\discretionary {-}{}{}h}, 
+		\hyperpage{809}
+
+\end{theindex}

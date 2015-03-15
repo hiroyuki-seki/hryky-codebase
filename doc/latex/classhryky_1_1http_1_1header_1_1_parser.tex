@@ -1,0 +1,106 @@
+\hypertarget{classhryky_1_1http_1_1header_1_1_parser}{\section{hryky\-:\-:http\-:\-:header\-:\-:Parser Class Reference}
+\label{classhryky_1_1http_1_1header_1_1_parser}\index{hryky\-::http\-::header\-::\-Parser@{hryky\-::http\-::header\-::\-Parser}}
+}
+
+
+parses a text string of H\-T\-T\-P Message.  
+
+
+
+
+{\ttfamily \#include $<$http\-\_\-header\-\_\-parser.\-h$>$}
+
+
+
+Inheritance diagram for hryky\-:\-:http\-:\-:header\-:\-:Parser\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classhryky_1_1http_1_1header_1_1_parser__inherit__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classhryky_1_1http_1_1header_1_1_parser_aed496466ed39c1bcf709a3be673f3478}{typedef \hyperlink{classhryky_1_1http_1_1header_1_1_parser}{Parser} \hyperlink{classhryky_1_1http_1_1header_1_1_parser_aed496466ed39c1bcf709a3be673f3478}{this\-\_\-type}}\label{classhryky_1_1http_1_1header_1_1_parser_aed496466ed39c1bcf709a3be673f3478}
+
+\begin{DoxyCompactList}\small\item\em self. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classhryky_1_1http_1_1header_1_1_parser_a274efb7f946d3718efbfbc154750c278}{void \hyperlink{classhryky_1_1http_1_1header_1_1_parser_a274efb7f946d3718efbfbc154750c278}{clear} ()}\label{classhryky_1_1http_1_1header_1_1_parser_a274efb7f946d3718efbfbc154750c278}
+
+\begin{DoxyCompactList}\small\item\em releases the internal resources. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1http_1_1header_1_1_parser_a131ffc5be65b0aafa64241c87de5facd}{{\footnotesize template$<$template$<$ class $>$ class Adapter\-T, typename Value\-T $>$ }\\\hyperlink{classhryky_1_1_vector}{token\-\_\-type} \hyperlink{classhryky_1_1http_1_1header_1_1_parser_a131ffc5be65b0aafa64241c87de5facd}{create\-\_\-adapter\-\_\-token} (Value\-T const \&src)}\label{classhryky_1_1http_1_1header_1_1_parser_a131ffc5be65b0aafa64241c87de5facd}
+
+\begin{DoxyCompactList}\small\item\em creates a token holding shared pointer. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1http_1_1header_1_1_parser_ab563791ae22360bf7490fceb952d7601}{{\footnotesize template$<$typename Value\-T $>$ }\\\hyperlink{classhryky_1_1_vector}{token\-\_\-type} \hyperlink{classhryky_1_1http_1_1header_1_1_parser_ab563791ae22360bf7490fceb952d7601}{create\-\_\-cache\-\_\-directive\-\_\-token} (Value\-T const \&src)}\label{classhryky_1_1http_1_1header_1_1_parser_ab563791ae22360bf7490fceb952d7601}
+
+\begin{DoxyCompactList}\small\item\em creates a token holding cache directive. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1http_1_1header_1_1_parser_a1c184592556a67601aa3d6195a746dfb}{{\footnotesize template$<$typename Value\-T $>$ }\\\hyperlink{classhryky_1_1_vector}{token\-\_\-type} \hyperlink{classhryky_1_1http_1_1header_1_1_parser_a1c184592556a67601aa3d6195a746dfb}{create\-\_\-field\-\_\-token} (Value\-T const \&src)}\label{classhryky_1_1http_1_1header_1_1_parser_a1c184592556a67601aa3d6195a746dfb}
+
+\begin{DoxyCompactList}\small\item\em creates a token holding header field. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1http_1_1header_1_1_parser_a0593e9a0e2cd945d715cfbaf0a3f2fdb}{{\footnotesize template$<$typename Value\-T $>$ }\\\hyperlink{classhryky_1_1_vector}{token\-\_\-type} \hyperlink{classhryky_1_1http_1_1header_1_1_parser_a0593e9a0e2cd945d715cfbaf0a3f2fdb}{create\-\_\-shared\-\_\-ptr\-\_\-token} ()}\label{classhryky_1_1http_1_1header_1_1_parser_a0593e9a0e2cd945d715cfbaf0a3f2fdb}
+
+\begin{DoxyCompactList}\small\item\em creates a token which holds shared pointer. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1http_1_1header_1_1_parser_ab787930a2806672fdec7f55975e9e57f}{{\footnotesize template$<$typename Value\-T $>$ }\\\hyperlink{classhryky_1_1_vector}{token\-\_\-type} \hyperlink{classhryky_1_1http_1_1header_1_1_parser_ab787930a2806672fdec7f55975e9e57f}{create\-\_\-shared\-\_\-ptr\-\_\-token} (Value\-T $\ast$const ptr)}\label{classhryky_1_1http_1_1header_1_1_parser_ab787930a2806672fdec7f55975e9e57f}
+
+\begin{DoxyCompactList}\small\item\em creates a token which holds shared pointer. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1http_1_1header_1_1_parser_a0d76245a0fba088b5d7f7baa7039f86b}{{\footnotesize template$<$typename Value\-T $>$ }\\\hyperlink{classhryky_1_1_vector}{token\-\_\-type} \hyperlink{classhryky_1_1http_1_1header_1_1_parser_a0d76245a0fba088b5d7f7baa7039f86b}{create\-\_\-shared\-\_\-ptr\-\_\-token} (Value\-T const \&ref)}\label{classhryky_1_1http_1_1header_1_1_parser_a0d76245a0fba088b5d7f7baa7039f86b}
+
+\begin{DoxyCompactList}\small\item\em creates a token which holds shared pointer. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1http_1_1header_1_1_parser_aa3ec488303300e2af7ab5b1163eed501}{void \hyperlink{classhryky_1_1http_1_1header_1_1_parser_aa3ec488303300e2af7ab5b1163eed501}{entity} (\hyperlink{classhryky_1_1http_1_1header_1_1_entity}{header\-\_\-type} $\ast$const src)}\label{classhryky_1_1http_1_1header_1_1_parser_aa3ec488303300e2af7ab5b1163eed501}
+
+\begin{DoxyCompactList}\small\item\em assigns a destination to which the parsed result is stored. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1http_1_1header_1_1_parser_a141af3e67b7df44941b5cf2536ecce6b}{\hyperlink{classhryky_1_1http_1_1header_1_1_entity}{header\-\_\-type} $\ast$ \hyperlink{classhryky_1_1http_1_1header_1_1_parser_a141af3e67b7df44941b5cf2536ecce6b}{entity} ()}\label{classhryky_1_1http_1_1header_1_1_parser_a141af3e67b7df44941b5cf2536ecce6b}
+
+\begin{DoxyCompactList}\small\item\em retrieves the destination to which the parsed result is stored. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1parser_1_1_base_ade0723cedb648d9850423cc04fe4bdcf}{\hyperlink{classhryky_1_1memory_1_1heap_1_1_base}{heap\-\_\-type} \hyperlink{classhryky_1_1parser_1_1_base_ade0723cedb648d9850423cc04fe4bdcf}{heap} () const}\label{classhryky_1_1parser_1_1_base_ade0723cedb648d9850423cc04fe4bdcf}
+
+\begin{DoxyCompactList}\small\item\em retrieves the memory heap. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1http_1_1header_1_1_parser_ac5cb77a42333648c7e8229fdece7b052}{result\-\_\-type \hyperlink{classhryky_1_1http_1_1header_1_1_parser_ac5cb77a42333648c7e8229fdece7b052}{parse\-\_\-token} (\hyperlink{classhryky_1_1_vector}{token\-\_\-type} const \&token, token\-\_\-id\-\_\-type const token\-\_\-id)}\label{classhryky_1_1http_1_1header_1_1_parser_ac5cb77a42333648c7e8229fdece7b052}
+
+\begin{DoxyCompactList}\small\item\em parses a token with checking the termination. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1http_1_1header_1_1_parser_a3e9805064f5a4c2d6877ad0c492a6d4b}{\hyperlink{classhryky_1_1http_1_1header_1_1_parser_a3e9805064f5a4c2d6877ad0c492a6d4b}{Parser} ()}\label{classhryky_1_1http_1_1header_1_1_parser_a3e9805064f5a4c2d6877ad0c492a6d4b}
+
+\begin{DoxyCompactList}\small\item\em default constructor. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1http_1_1header_1_1_parser_a7c8a6e94f32eb350286dfdde5ad6d01f}{\hyperlink{classhryky_1_1http_1_1header_1_1_parser_a7c8a6e94f32eb350286dfdde5ad6d01f}{Parser} (\hyperlink{classhryky_1_1http_1_1header_1_1_parser_aed496466ed39c1bcf709a3be673f3478}{this\-\_\-type} const \&)}\label{classhryky_1_1http_1_1header_1_1_parser_a7c8a6e94f32eb350286dfdde5ad6d01f}
+
+\begin{DoxyCompactList}\small\item\em copy constructor. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1http_1_1header_1_1_parser_aa1e2013e7432d276cb491ab1c83f4485}{\hyperlink{classhryky_1_1http_1_1header_1_1_parser_aa1e2013e7432d276cb491ab1c83f4485}{Parser} (\hyperlink{classhryky_1_1http_1_1header_1_1_parser_aed496466ed39c1bcf709a3be673f3478}{this\-\_\-type} \&\&rhs)}\label{classhryky_1_1http_1_1header_1_1_parser_aa1e2013e7432d276cb491ab1c83f4485}
+
+\begin{DoxyCompactList}\small\item\em copy constructor by rvalue reference. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1http_1_1header_1_1_parser_af05ea7da6b61854b2d9e85a5f91e381b}{\hyperlink{classhryky_1_1http_1_1header_1_1_parser_af05ea7da6b61854b2d9e85a5f91e381b}{Parser} (\hyperlink{classhryky_1_1memory_1_1heap_1_1_base}{memory\-::heap\-\_\-type} const \hyperlink{classhryky_1_1parser_1_1_base_ade0723cedb648d9850423cc04fe4bdcf}{heap})}\label{classhryky_1_1http_1_1header_1_1_parser_af05ea7da6b61854b2d9e85a5f91e381b}
+
+\begin{DoxyCompactList}\small\item\em constructor with heap. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1http_1_1header_1_1_parser_a4ac02c5b2de84a6e8130148dc6064bb8}{\hyperlink{namespacehryky_a343a9a4c36a586be5c2693156200eadc}{reduction\-\_\-type} \hyperlink{classhryky_1_1http_1_1header_1_1_parser_a4ac02c5b2de84a6e8130148dc6064bb8}{reduce} (\hyperlink{namespacehryky_1_1reduction_ac686c30a4c8d196bbd0f05629a6b921f}{reduction\-::name\-\_\-type} const \&name) const }\label{classhryky_1_1http_1_1header_1_1_parser_a4ac02c5b2de84a6e8130148dc6064bb8}
+
+\begin{DoxyCompactList}\small\item\em decomposes the instance to primitive objects. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1parser_1_1_base_ab2b137d16fbe40d839ee136bd5304cab}{void \hyperlink{classhryky_1_1parser_1_1_base_ab2b137d16fbe40d839ee136bd5304cab}{swap} (\hyperlink{classhryky_1_1http_1_1header_1_1_parser_aed496466ed39c1bcf709a3be673f3478}{this\-\_\-type} \&src)}\label{classhryky_1_1parser_1_1_base_ab2b137d16fbe40d839ee136bd5304cab}
+
+\begin{DoxyCompactList}\small\item\em interchanges the each internal resources of two instances. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1http_1_1header_1_1_parser_a827667b5e98feeb979ec0b2e3b04f54f}{void \hyperlink{classhryky_1_1http_1_1header_1_1_parser_a827667b5e98feeb979ec0b2e3b04f54f}{swap} (\hyperlink{classhryky_1_1http_1_1header_1_1_parser_aed496466ed39c1bcf709a3be673f3478}{this\-\_\-type} \&src)}\label{classhryky_1_1http_1_1header_1_1_parser_a827667b5e98feeb979ec0b2e3b04f54f}
+
+\begin{DoxyCompactList}\small\item\em interchanges the each internal resources of two instances. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1parser_1_1_base_a28bfa66d197bcf4babb3806bcf3abafa}{void \hyperlink{classhryky_1_1parser_1_1_base_a28bfa66d197bcf4babb3806bcf3abafa}{trace} (typename base\-\_\-type\-::error\-\_\-type const \&error)}\label{classhryky_1_1parser_1_1_base_a28bfa66d197bcf4babb3806bcf3abafa}
+
+\begin{DoxyCompactList}\small\item\em outputs an information about error. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1http_1_1header_1_1_parser_a2885089027a621a0ec401856af5375c2}{\hyperlink{classhryky_1_1http_1_1header_1_1_parser_a2885089027a621a0ec401856af5375c2}{$\sim$\-Parser} ()}\label{classhryky_1_1http_1_1header_1_1_parser_a2885089027a621a0ec401856af5375c2}
+
+\begin{DoxyCompactList}\small\item\em destructor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classhryky_1_1http_1_1header_1_1_parser_ae6fc258cad5ece524092a5df9210ae8d}{\hyperlink{classhryky_1_1http_1_1header_1_1_parser_ae6fc258cad5ece524092a5df9210ae8d}{hryky\-\_\-assign\-\_\-op}}\label{classhryky_1_1http_1_1header_1_1_parser_ae6fc258cad5ece524092a5df9210ae8d}
+
+\begin{DoxyCompactList}\small\item\em assignment operator. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+parses a text string of H\-T\-T\-P Message. 
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{http__header__parser_8h}{http\-\_\-header\-\_\-parser.\-h}\item 
+\hyperlink{http__header__parser_8cpp}{http\-\_\-header\-\_\-parser.\-cpp}\end{DoxyCompactItemize}

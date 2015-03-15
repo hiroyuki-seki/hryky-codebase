@@ -1,0 +1,350 @@
+\hypertarget{classhryky_1_1memory_1_1heap_1_1_arbitrary}{\section{hryky\-:\-:memory\-:\-:heap\-:\-:Arbitrary$<$ Offset\-T $>$ Class Template Reference}
+\label{classhryky_1_1memory_1_1heap_1_1_arbitrary}\index{hryky\-::memory\-::heap\-::\-Arbitrary$<$ Offset\-T $>$@{hryky\-::memory\-::heap\-::\-Arbitrary$<$ Offset\-T $>$}}
+}
+
+
+'not' thread-\/safe memory allocation for usage in one thread.  
+
+
+
+
+{\ttfamily \#include $<$memory\-\_\-heap\-\_\-arbitrary.\-h$>$}
+
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structhryky_1_1memory_1_1heap_1_1_arbitrary_1_1_address}{Address}
+\begin{DoxyCompactList}\small\item\em wrapper to print an {\itshape address\/} allocated from {\itshape heap\/} \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+typedef Offset\-T \hyperlink{classhryky_1_1memory_1_1heap_1_1_arbitrary_a93027662f345b66e738ce8b2c9293e94}{offset\-\_\-type}
+\begin{DoxyCompactList}\small\item\em self \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+size\-\_\-t \hyperlink{classhryky_1_1memory_1_1heap_1_1_arbitrary_a8e1d7c4f3687a51825418f54be5d6465}{allocatable\-\_\-size} () const 
+\begin{DoxyCompactList}\small\item\em retrieves the maximum size of \hyperlink{classhryky_1_1memory_1_1heap_1_1_arbitrary_a9ea505daf2fab84a93059dbda040602d}{allocate()} can be successful. \end{DoxyCompactList}\item 
+size\-\_\-t \hyperlink{classhryky_1_1memory_1_1heap_1_1_arbitrary_ac37a725c3fbaf1b1024c1e9b194f27fd}{allocatable\-\_\-size} (\hyperlink{namespacehryky_aee1af251193c2d308aaa68ef7e36a540}{alignment\-\_\-type} const alignment) const 
+\begin{DoxyCompactList}\small\item\em retrieves the maximum size of \hyperlink{classhryky_1_1memory_1_1heap_1_1_arbitrary_a9ea505daf2fab84a93059dbda040602d}{allocate()} can be successful. \end{DoxyCompactList}\item 
+virtual void $\ast$ \hyperlink{classhryky_1_1memory_1_1heap_1_1_arbitrary_a9ea505daf2fab84a93059dbda040602d}{allocate} (size\-\_\-t const size)
+\begin{DoxyCompactList}\small\item\em allocates memory on default alignment. \end{DoxyCompactList}\item 
+void $\ast$ \hyperlink{classhryky_1_1memory_1_1heap_1_1_arbitrary_a5afa088b74580514007b3f7d5688843d}{allocate} (size\-\_\-t size, \hyperlink{namespacehryky_aee1af251193c2d308aaa68ef7e36a540}{alignment\-\_\-type} alignment)
+\begin{DoxyCompactList}\small\item\em allocates memory. \end{DoxyCompactList}\item 
+\hyperlink{classhryky_1_1memory_1_1heap_1_1_arbitrary_aea108b28a19e3cd537c4c02bc4d032e0}{Arbitrary} ()
+\begin{DoxyCompactList}\small\item\em default constructor \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1memory_1_1heap_1_1_arbitrary_a46c9013f2b61cdc826086df097fecb7c}{size\-\_\-t \hyperlink{classhryky_1_1memory_1_1heap_1_1_arbitrary_a46c9013f2b61cdc826086df097fecb7c}{capacity} () const }\label{classhryky_1_1memory_1_1heap_1_1_arbitrary_a46c9013f2b61cdc826086df097fecb7c}
+
+\begin{DoxyCompactList}\small\item\em gets the initial available size in bytes. \end{DoxyCompactList}\item 
+virtual bool \hyperlink{classhryky_1_1memory_1_1heap_1_1_arbitrary_ab8da13524b1b371f3bf40d61101dee9e}{deallocate} (void $\ast$const address)
+\begin{DoxyCompactList}\small\item\em deallocates memory. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1memory_1_1heap_1_1_arbitrary_a6ceca7a49c84cd56b06e3c86b82f5520}{\hyperlink{classhryky_1_1memory_1_1heap_1_1_arbitrary_a93027662f345b66e738ce8b2c9293e94}{offset\-\_\-type} \hyperlink{classhryky_1_1memory_1_1heap_1_1_arbitrary_a6ceca7a49c84cd56b06e3c86b82f5520}{free\-\_\-nodes\-\_\-size} () const }\label{classhryky_1_1memory_1_1heap_1_1_arbitrary_a6ceca7a49c84cd56b06e3c86b82f5520}
+
+\begin{DoxyCompactList}\small\item\em gets the number of fragmented free nodes. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1memory_1_1heap_1_1_arbitrary_aa2a502d1d07f6e4f38d1a98a6411c01d}{\hyperlink{namespacehryky_a343a9a4c36a586be5c2693156200eadc}{reduction\-\_\-type} \hyperlink{classhryky_1_1memory_1_1heap_1_1_arbitrary_aa2a502d1d07f6e4f38d1a98a6411c01d}{reduce} (\hyperlink{namespacehryky_1_1reduction_ac686c30a4c8d196bbd0f05629a6b921f}{reduction\-::name\-\_\-type} const \&name) const }\label{classhryky_1_1memory_1_1heap_1_1_arbitrary_aa2a502d1d07f6e4f38d1a98a6411c01d}
+
+\begin{DoxyCompactList}\small\item\em outputs the information of heap. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1memory_1_1heap_1_1_arbitrary_aee51396ef67a8913436071e1daab52f9}{\hyperlink{namespacehryky_a343a9a4c36a586be5c2693156200eadc}{reduction\-\_\-type} \hyperlink{classhryky_1_1memory_1_1heap_1_1_arbitrary_aee51396ef67a8913436071e1daab52f9}{reduce} (\hyperlink{namespacehryky_1_1reduction_ac686c30a4c8d196bbd0f05629a6b921f}{reduction\-::name\-\_\-type} const \&name, void const $\ast$address) const }\label{classhryky_1_1memory_1_1heap_1_1_arbitrary_aee51396ef67a8913436071e1daab52f9}
+
+\begin{DoxyCompactList}\small\item\em outputs the information of the address allocated by \hyperlink{classhryky_1_1memory_1_1heap_1_1_arbitrary}{hryky\-::memory\-::heap\-::\-Arbitrary}. \end{DoxyCompactList}\item 
+bool \hyperlink{classhryky_1_1memory_1_1heap_1_1_arbitrary_ab67808c9f978e20899f0ec136344fda0}{reset} (void $\ast$buffer, size\-\_\-t buffer\-\_\-size, \hyperlink{namespacehryky_aee1af251193c2d308aaa68ef7e36a540}{alignment\-\_\-type} alignment)
+\begin{DoxyCompactList}\small\item\em clears previous buffer and reinitialize instance. \end{DoxyCompactList}\item 
+bool \hyperlink{classhryky_1_1memory_1_1heap_1_1_arbitrary_a67375f66666ee418ea6584876bd12b44}{reset} (void $\ast$buffer, size\-\_\-t buffer\-\_\-size)
+\begin{DoxyCompactList}\small\item\em clears previous buffer and reinitialize instance with default alignment \end{DoxyCompactList}\item 
+bool \hyperlink{classhryky_1_1memory_1_1heap_1_1_arbitrary_a0fe78b479fc34967df52afa280c8d16d}{verify} () const 
+\begin{DoxyCompactList}\small\item\em checks validity \end{DoxyCompactList}\item 
+\hyperlink{classhryky_1_1memory_1_1heap_1_1_arbitrary_a836e315fb69fb1b7ea39869484d0229c}{$\sim$\-Arbitrary} ()
+\begin{DoxyCompactList}\small\item\em destrunctor \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$typename Offset\-T = size\-\_\-t$>$class hryky\-::memory\-::heap\-::\-Arbitrary$<$ Offset\-T $>$}
+
+'not' thread-\/safe memory allocation for usage in one thread. 
+
+\begin{DoxyAttention}{Attention}
+
+\end{DoxyAttention}
+restrictions\-:
+
+The total size of allocations depends on the address alignment passed to \hyperlink{classhryky_1_1memory_1_1heap_1_1_arbitrary_ab67808c9f978e20899f0ec136344fda0}{Arbitrary\-::reset()}. The bit-\/width of capacity depends on the alignment(1) and the bit-\/width of offset\-\_\-type(2). For example, if the (1) is \char`\"{}4\char`\"{} and (2) is \char`\"{}16\char`\"{}, the bit-\/width of capacity is \char`\"{}16 + 4 = 20\char`\"{}. Then, you can allocate memory amount to \char`\"{}0x10000(2$^\wedge$20) -\/ system\-\_\-size\char`\"{} bytes at most.
+
+The total number of allocation unit depends on the {\itshape Offset\-T\/} template argument. {\itshape Offset\-T\/} represents position of each memory block internally. Therefore, if you select Arbitrary$<$uint8\-\_\-t$>$ class, you can allocate (256 -\/ system usage) blocks at most.
+
+The all of member functions are \char`\"{}not\char`\"{} thread-\/safe. 
+
+\subsection{Member Typedef Documentation}
+\hypertarget{classhryky_1_1memory_1_1heap_1_1_arbitrary_a93027662f345b66e738ce8b2c9293e94}{\index{hryky\-::memory\-::heap\-::\-Arbitrary@{hryky\-::memory\-::heap\-::\-Arbitrary}!offset\-\_\-type@{offset\-\_\-type}}
+\index{offset\-\_\-type@{offset\-\_\-type}!hryky::memory::heap::Arbitrary@{hryky\-::memory\-::heap\-::\-Arbitrary}}
+\subsubsection[{offset\-\_\-type}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Offset\-T = size\-\_\-t$>$ typedef Offset\-T {\bf hryky\-::memory\-::heap\-::\-Arbitrary}$<$ Offset\-T $>$\-::{\bf offset\-\_\-type}}}\label{classhryky_1_1memory_1_1heap_1_1_arbitrary_a93027662f345b66e738ce8b2c9293e94}
+
+
+self 
+
+You can handle memory blocks up to the maximum number of {\itshape offset\-\_\-type\/}. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classhryky_1_1memory_1_1heap_1_1_arbitrary_aea108b28a19e3cd537c4c02bc4d032e0}{\index{hryky\-::memory\-::heap\-::\-Arbitrary@{hryky\-::memory\-::heap\-::\-Arbitrary}!Arbitrary@{Arbitrary}}
+\index{Arbitrary@{Arbitrary}!hryky::memory::heap::Arbitrary@{hryky\-::memory\-::heap\-::\-Arbitrary}}
+\subsubsection[{Arbitrary}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Offset\-T $>$ {\bf hryky\-::memory\-::heap\-::\-Arbitrary}$<$ Offset\-T $>$\-::{\bf Arbitrary} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}explicit\mbox{]}}}}\label{classhryky_1_1memory_1_1heap_1_1_arbitrary_aea108b28a19e3cd537c4c02bc4d032e0}
+
+
+default constructor 
+
+constructor. \hypertarget{classhryky_1_1memory_1_1heap_1_1_arbitrary_a836e315fb69fb1b7ea39869484d0229c}{\index{hryky\-::memory\-::heap\-::\-Arbitrary@{hryky\-::memory\-::heap\-::\-Arbitrary}!$\sim$\-Arbitrary@{$\sim$\-Arbitrary}}
+\index{$\sim$\-Arbitrary@{$\sim$\-Arbitrary}!hryky::memory::heap::Arbitrary@{hryky\-::memory\-::heap\-::\-Arbitrary}}
+\subsubsection[{$\sim$\-Arbitrary}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Offset\-T $>$ {\bf hryky\-::memory\-::heap\-::\-Arbitrary}$<$ Offset\-T $>$\-::$\sim${\bf Arbitrary} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classhryky_1_1memory_1_1heap_1_1_arbitrary_a836e315fb69fb1b7ea39869484d0229c}
+
+
+destrunctor 
+
+destrunctor. 
+
+\subsection{Member Function Documentation}
+\hypertarget{classhryky_1_1memory_1_1heap_1_1_arbitrary_a8e1d7c4f3687a51825418f54be5d6465}{\index{hryky\-::memory\-::heap\-::\-Arbitrary@{hryky\-::memory\-::heap\-::\-Arbitrary}!allocatable\-\_\-size@{allocatable\-\_\-size}}
+\index{allocatable\-\_\-size@{allocatable\-\_\-size}!hryky::memory::heap::Arbitrary@{hryky\-::memory\-::heap\-::\-Arbitrary}}
+\subsubsection[{allocatable\-\_\-size}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Offset\-T = size\-\_\-t$>$ size\-\_\-t {\bf hryky\-::memory\-::heap\-::\-Arbitrary}$<$ Offset\-T $>$\-::{\bf allocatable\-\_\-size} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}\label{classhryky_1_1memory_1_1heap_1_1_arbitrary_a8e1d7c4f3687a51825418f54be5d6465}
+
+
+retrieves the maximum size of \hyperlink{classhryky_1_1memory_1_1heap_1_1_arbitrary_a9ea505daf2fab84a93059dbda040602d}{allocate()} can be successful. 
+
+\begin{DoxyReturn}{Returns}
+the maximim size of \hyperlink{classhryky_1_1memory_1_1heap_1_1_arbitrary_a9ea505daf2fab84a93059dbda040602d}{allocate()} can be successful.
+\end{DoxyReturn}
+
+\begin{DoxyItemize}
+\item address alignment is based on the alignment past at \hyperlink{classhryky_1_1memory_1_1heap_1_1_arbitrary_ab67808c9f978e20899f0ec136344fda0}{Arbitrary\-::reset()}. 
+\end{DoxyItemize}\hypertarget{classhryky_1_1memory_1_1heap_1_1_arbitrary_ac37a725c3fbaf1b1024c1e9b194f27fd}{\index{hryky\-::memory\-::heap\-::\-Arbitrary@{hryky\-::memory\-::heap\-::\-Arbitrary}!allocatable\-\_\-size@{allocatable\-\_\-size}}
+\index{allocatable\-\_\-size@{allocatable\-\_\-size}!hryky::memory::heap::Arbitrary@{hryky\-::memory\-::heap\-::\-Arbitrary}}
+\subsubsection[{allocatable\-\_\-size}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Offset\-T $>$ size\-\_\-t {\bf hryky\-::memory\-::heap\-::\-Arbitrary}$<$ Offset\-T $>$\-::{\bf allocatable\-\_\-size} (
+\begin{DoxyParamCaption}
+\item[{{\bf alignment\-\_\-type} const}]{alignment}
+\end{DoxyParamCaption}
+) const}}\label{classhryky_1_1memory_1_1heap_1_1_arbitrary_ac37a725c3fbaf1b1024c1e9b194f27fd}
+
+
+retrieves the maximum size of \hyperlink{classhryky_1_1memory_1_1heap_1_1_arbitrary_a9ea505daf2fab84a93059dbda040602d}{allocate()} can be successful. 
+
+retrieves the maximum size of allocation can be successful.
+
+
+\begin{DoxyParams}{Parameters}
+{\em alignment} & is the unit of each allocation \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the maximim size of \hyperlink{classhryky_1_1memory_1_1heap_1_1_arbitrary_a9ea505daf2fab84a93059dbda040602d}{allocate()} can be successful. 
+\end{DoxyReturn}
+
+
+References \hyperlink{namespacehryky_a7ddd0f39f2f0953fe7e3cbaedaf98644}{hryky\-::align\-\_\-ceil()}, \hyperlink{log__writer__common_8h_a8d142be5e91677a27be199c3f4115ba6}{hryky\-\_\-log\-\_\-emerg}, and \hyperlink{namespacehryky_1_1reduction_ac5eae270cf8047b294dc4ff3e5e11a79}{hryky\-::reduction\-::map()}.
+
+\hypertarget{classhryky_1_1memory_1_1heap_1_1_arbitrary_a9ea505daf2fab84a93059dbda040602d}{\index{hryky\-::memory\-::heap\-::\-Arbitrary@{hryky\-::memory\-::heap\-::\-Arbitrary}!allocate@{allocate}}
+\index{allocate@{allocate}!hryky::memory::heap::Arbitrary@{hryky\-::memory\-::heap\-::\-Arbitrary}}
+\subsubsection[{allocate}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Offset\-T = size\-\_\-t$>$ virtual void$\ast$ {\bf hryky\-::memory\-::heap\-::\-Arbitrary}$<$ Offset\-T $>$\-::{\bf allocate} (
+\begin{DoxyParamCaption}
+\item[{size\-\_\-t const}]{size}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline, virtual\mbox{]}}}}\label{classhryky_1_1memory_1_1heap_1_1_arbitrary_a9ea505daf2fab84a93059dbda040602d}
+
+
+allocates memory on default alignment. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em size} & is the size of allocated memory \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+
+\begin{DoxyItemize}
+\item the address alignment of the returned address is based on the alignment past at \hyperlink{classhryky_1_1memory_1_1heap_1_1_arbitrary_ab67808c9f978e20899f0ec136344fda0}{Arbitrary\-::reset()}. 
+\end{DoxyItemize}
+\end{DoxyNote}
+\hypertarget{classhryky_1_1memory_1_1heap_1_1_arbitrary_a5afa088b74580514007b3f7d5688843d}{\index{hryky\-::memory\-::heap\-::\-Arbitrary@{hryky\-::memory\-::heap\-::\-Arbitrary}!allocate@{allocate}}
+\index{allocate@{allocate}!hryky::memory::heap::Arbitrary@{hryky\-::memory\-::heap\-::\-Arbitrary}}
+\subsubsection[{allocate}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Offset\-T $>$ void $\ast$ {\bf hryky\-::memory\-::heap\-::\-Arbitrary}$<$ Offset\-T $>$\-::{\bf allocate} (
+\begin{DoxyParamCaption}
+\item[{size\-\_\-t}]{size, }
+\item[{{\bf alignment\-\_\-type}}]{alignment}
+\end{DoxyParamCaption}
+)}}\label{classhryky_1_1memory_1_1heap_1_1_arbitrary_a5afa088b74580514007b3f7d5688843d}
+
+
+allocates memory. 
+
+allocates memory on specified alignment.
+
+
+\begin{DoxyParams}{Parameters}
+{\em size} & is the size of allocated memory. \\
+\hline
+{\em alignment} & is the address alingment of returned address. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em H\-R\-Y\-K\-Y\-\_\-\-N\-U\-L\-L\-P\-T\-R} & failure \\
+\hline
+{\em !\-H\-R\-Y\-K\-Y\-\_\-\-N\-U\-L\-L\-P\-T\-R} & an allocated address\\
+\hline
+\end{DoxyRetVals}
+\begin{DoxyNote}{Note}
+
+\begin{DoxyItemize}
+\item First-\/fit is adopted.
+\item If a found free block has enough room after allocated area, a new free block is created just behind allocated area. Then the new free block can be searched first at next allocation.
+
+...$|$ prev block $|$ found block $|$ next block $|$... =$>$ ...$|$ prev block $|$ allocated block $|$ free block $|$ next block $|$...
+\end{DoxyItemize}
+\end{DoxyNote}
+
+\begin{DoxyItemize}
+\item If the gap of alignment between a found free block and required alignment has enough room, a new free block is created just before allocated area. Then the new free block can be searched first at next allocation.
+
+...$|$ prev block $|$ found block $|$ next block $|$... =$>$ ...$|$ prev block $|$ free block $|$ allocated block $|$ next block $|$...
+\end{DoxyItemize}
+
+
+\begin{DoxyItemize}
+\item If both of new free blocks described above are created, the forward one is searched first at next allocation.
+
+...$|$ prev block $|$ found block $|$ next block $|$... =$>$ ...$|$ prev block $|$ forward free block $|$ allocated block $|$ backward free block $|$ next block $|$... 
+\end{DoxyItemize}
+
+References \hyperlink{namespacehryky_a7ddd0f39f2f0953fe7e3cbaedaf98644}{hryky\-::align\-\_\-ceil()}, \hyperlink{log__writer__common_8h_a8d142be5e91677a27be199c3f4115ba6}{hryky\-\_\-log\-\_\-emerg}, \hyperlink{log__writer__common_8h_ae5ad3dabb33f594695ef40753cb78aad}{hryky\-\_\-log\-\_\-err}, \hyperlink{common_8h_a4cd4ac09cfcdbd6b30ee69afc156e210}{H\-R\-Y\-K\-Y\-\_\-\-N\-U\-L\-L\-P\-T\-R}, and \hyperlink{namespacehryky_1_1reduction_ac5eae270cf8047b294dc4ff3e5e11a79}{hryky\-::reduction\-::map()}.
+
+\hypertarget{classhryky_1_1memory_1_1heap_1_1_arbitrary_ab8da13524b1b371f3bf40d61101dee9e}{\index{hryky\-::memory\-::heap\-::\-Arbitrary@{hryky\-::memory\-::heap\-::\-Arbitrary}!deallocate@{deallocate}}
+\index{deallocate@{deallocate}!hryky::memory::heap::Arbitrary@{hryky\-::memory\-::heap\-::\-Arbitrary}}
+\subsubsection[{deallocate}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Offset\-T $>$ bool {\bf hryky\-::memory\-::heap\-::\-Arbitrary}$<$ Offset\-T $>$\-::{\bf deallocate} (
+\begin{DoxyParamCaption}
+\item[{void $\ast$const}]{address}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}\label{classhryky_1_1memory_1_1heap_1_1_arbitrary_ab8da13524b1b371f3bf40d61101dee9e}
+
+
+deallocates memory. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em address} & is the deallocated address. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+success and failure.
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+
+\begin{DoxyItemize}
+\item If the block before deallocated block is free block, the forward block and deallocated block are concatenated.
+
+...$|$ free block(\-A) $|$ deallocated block(\-B) $|$ used block $|$... =$>$ ...$|$ free block(A+\-B) $|$ used block $|$...
+\end{DoxyItemize}
+\end{DoxyNote}
+
+\begin{DoxyItemize}
+\item If the block after deallocated block is free block, the backward block and deallocated block are concatenated.
+
+...$|$ used block $|$ deallocated block(\-A) $|$ free block(\-B) $|$... =$>$ ...$|$ used block $|$ free block(A+\-B) $|$... 
+\end{DoxyItemize}
+
+References \hyperlink{log__writer__common_8h_a8d142be5e91677a27be199c3f4115ba6}{hryky\-\_\-log\-\_\-emerg}, \hyperlink{log__writer__common_8h_ae5ad3dabb33f594695ef40753cb78aad}{hryky\-\_\-log\-\_\-err}, and \hyperlink{namespacehryky_1_1reduction_ac5eae270cf8047b294dc4ff3e5e11a79}{hryky\-::reduction\-::map()}.
+
+\hypertarget{classhryky_1_1memory_1_1heap_1_1_arbitrary_ab67808c9f978e20899f0ec136344fda0}{\index{hryky\-::memory\-::heap\-::\-Arbitrary@{hryky\-::memory\-::heap\-::\-Arbitrary}!reset@{reset}}
+\index{reset@{reset}!hryky::memory::heap::Arbitrary@{hryky\-::memory\-::heap\-::\-Arbitrary}}
+\subsubsection[{reset}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Offset\-T $>$ bool {\bf hryky\-::memory\-::heap\-::\-Arbitrary}$<$ Offset\-T $>$\-::{\bf reset} (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{buffer, }
+\item[{size\-\_\-t}]{buffer\-\_\-size, }
+\item[{{\bf alignment\-\_\-type}}]{alignment}
+\end{DoxyParamCaption}
+)}}\label{classhryky_1_1memory_1_1heap_1_1_arbitrary_ab67808c9f978e20899f0ec136344fda0}
+
+
+clears previous buffer and reinitialize instance. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em buffer} & is buffer in which the heap is created \\
+\hline
+{\em buffer\-\_\-size} & is the size of {\itshape buffer\/} \\
+\hline
+{\em alignment} & is the unit of each allocation \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+success and failure. 
+\end{DoxyReturn}
+\begin{DoxyAttention}{Attention}
+
+\begin{DoxyItemize}
+\item The maximum size of available buffer depends on {\itshape offset\-\_\-type\/} and {\itshape alignment\/}. 
+\end{DoxyItemize}
+\end{DoxyAttention}
+
+
+References \hyperlink{namespacehryky_a7ddd0f39f2f0953fe7e3cbaedaf98644}{hryky\-::align\-\_\-ceil()}, \hyperlink{namespacehryky_a84803d86a3bb217481dd0a180734fb8f}{hryky\-::align\-\_\-floor()}, \hyperlink{log__writer__common_8h_a8d142be5e91677a27be199c3f4115ba6}{hryky\-\_\-log\-\_\-emerg}, \hyperlink{log__writer__common_8h_a1a150b0b31f517e34b4f6604348f3cbf}{hryky\-\_\-log\-\_\-warning}, and \hyperlink{namespacehryky_1_1reduction_ac5eae270cf8047b294dc4ff3e5e11a79}{hryky\-::reduction\-::map()}.
+
+
+
+Referenced by \hyperlink{classhryky_1_1memory_1_1heap_1_1_arbitrary_a67375f66666ee418ea6584876bd12b44}{hryky\-::memory\-::heap\-::\-Arbitrary$<$ Offset\-T $>$\-::reset()}.
+
+\hypertarget{classhryky_1_1memory_1_1heap_1_1_arbitrary_a67375f66666ee418ea6584876bd12b44}{\index{hryky\-::memory\-::heap\-::\-Arbitrary@{hryky\-::memory\-::heap\-::\-Arbitrary}!reset@{reset}}
+\index{reset@{reset}!hryky::memory::heap::Arbitrary@{hryky\-::memory\-::heap\-::\-Arbitrary}}
+\subsubsection[{reset}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Offset\-T = size\-\_\-t$>$ bool {\bf hryky\-::memory\-::heap\-::\-Arbitrary}$<$ Offset\-T $>$\-::{\bf reset} (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{buffer, }
+\item[{size\-\_\-t}]{buffer\-\_\-size}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}\label{classhryky_1_1memory_1_1heap_1_1_arbitrary_a67375f66666ee418ea6584876bd12b44}
+
+
+clears previous buffer and reinitialize instance with default alignment 
+
+
+\begin{DoxyParams}{Parameters}
+{\em buffer} & is buffer in which the heap is created \\
+\hline
+{\em buffer\-\_\-size} & is the size of {\itshape buffer\/} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+success and failure 
+\end{DoxyReturn}
+
+
+References \hyperlink{classhryky_1_1memory_1_1heap_1_1_arbitrary_ab67808c9f978e20899f0ec136344fda0}{hryky\-::memory\-::heap\-::\-Arbitrary$<$ Offset\-T $>$\-::reset()}.
+
+\hypertarget{classhryky_1_1memory_1_1heap_1_1_arbitrary_a0fe78b479fc34967df52afa280c8d16d}{\index{hryky\-::memory\-::heap\-::\-Arbitrary@{hryky\-::memory\-::heap\-::\-Arbitrary}!verify@{verify}}
+\index{verify@{verify}!hryky::memory::heap::Arbitrary@{hryky\-::memory\-::heap\-::\-Arbitrary}}
+\subsubsection[{verify}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Offset\-T $>$ bool {\bf hryky\-::memory\-::heap\-::\-Arbitrary}$<$ Offset\-T $>$\-::{\bf verify} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classhryky_1_1memory_1_1heap_1_1_arbitrary_a0fe78b479fc34967df52afa280c8d16d}
+
+
+checks validity 
+
+checks validity. 
+
+References \hyperlink{log__writer__common_8h_a61bcce4d8e91e6fde78ce1be7d9ceac8}{hryky\-\_\-log\-\_\-crit}, and \hyperlink{namespacehryky_1_1reduction_ac5eae270cf8047b294dc4ff3e5e11a79}{hryky\-::reduction\-::map()}.
+
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{memory__heap__arbitrary_8h}{memory\-\_\-heap\-\_\-arbitrary.\-h}\item 
+\hyperlink{memory__heap__arbitrary_8cpp}{memory\-\_\-heap\-\_\-arbitrary.\-cpp}\end{DoxyCompactItemize}

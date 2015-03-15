@@ -1,0 +1,105 @@
+\hypertarget{enable__if_8h_source}{\section{enable\-\_\-if.\-h}
+}
+
+\begin{DoxyCode}
+00001 
+00009 \textcolor{preprocessor}{#ifndef ENABLE\_IF\_H\_20120317191826471}
+00010 \textcolor{preprocessor}{}\textcolor{preprocessor}{#define ENABLE\_IF\_H\_20120317191826471}
+00011 \textcolor{preprocessor}{}\textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00012 \textcolor{comment}{// macro definition}
+00013 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00014 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00015 \textcolor{comment}{// namespace}
+00016 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00017 \textcolor{keyword}{namespace }hryky
+00018 \{
+00020     \textcolor{keyword}{template} < \textcolor{keywordtype}{bool} \textcolor{keywordtype}{boolean}, \textcolor{keyword}{typename} valueT  >
+00021     \textcolor{keyword}{class }EnableIfC;
+00022     
+00024     \textcolor{keyword}{template} < \textcolor{keyword}{typename} ConditionT, \textcolor{keyword}{typename} ValueT >
+00025     \textcolor{keyword}{class }EnableIf;
+00026 
+00028     \textcolor{keyword}{template} < \textcolor{keywordtype}{bool} \textcolor{keywordtype}{boolean}, \textcolor{keyword}{typename} valueT  >
+00029     \textcolor{keyword}{class }DisableIfC;
+00030     
+00032     \textcolor{keyword}{template} < \textcolor{keyword}{typename} ConditionT, \textcolor{keyword}{typename} ValueT >
+00033     \textcolor{keyword}{class }DisableIf;
+00034 
+00035 \}
+00036 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00037 \textcolor{comment}{// class declarations}
+00038 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00044 \textcolor{comment}{}\textcolor{keyword}{template} < \textcolor{keywordtype}{bool} \textcolor{keywordtype}{boolean}, \textcolor{keyword}{typename} ValueT = \textcolor{keywordtype}{void} >
+\hypertarget{enable__if_8h_source_l00045}{}\hyperlink{classhryky_1_1_enable_if_c}{00045} \textcolor{keyword}{class }\hyperlink{classhryky_1_1_enable_if_c}{hryky::EnableIfC}
+00046 \{
+00047 \};
+00053 \textcolor{keyword}{template} < \textcolor{keyword}{typename} ConditionT, \textcolor{keyword}{typename} ValueT = \textcolor{keywordtype}{void} >
+\hypertarget{enable__if_8h_source_l00054}{}\hyperlink{classhryky_1_1_enable_if}{00054} \textcolor{keyword}{class }\hyperlink{classhryky_1_1_enable_if}{hryky::EnableIf} : \textcolor{keyword}{public} \hyperlink{classhryky_1_1_enable_if_c}{hryky::EnableIfC}<ConditionT::value, ValueT>
+00055 \{
+00056 \};
+00062 \textcolor{keyword}{template} < \textcolor{keywordtype}{bool} \textcolor{keywordtype}{boolean}, \textcolor{keyword}{typename} ValueT = \textcolor{keywordtype}{void} >
+\hypertarget{enable__if_8h_source_l00063}{}\hyperlink{classhryky_1_1_disable_if_c}{00063} \textcolor{keyword}{class }\hyperlink{classhryky_1_1_disable_if_c}{hryky::DisableIfC}
+00064 \{
+00065 \};
+00071 \textcolor{keyword}{template} < \textcolor{keyword}{typename} ConditionT, \textcolor{keyword}{typename} ValueT = \textcolor{keywordtype}{void} >
+\hypertarget{enable__if_8h_source_l00072}{}\hyperlink{classhryky_1_1_disable_if}{00072} \textcolor{keyword}{class }\hyperlink{classhryky_1_1_disable_if}{hryky::DisableIf} : \textcolor{keyword}{public} \hyperlink{classhryky_1_1_disable_if_c}{hryky::DisableIfC}<ConditionT::value, ValueT>
+00073 \{
+00074 \};
+00075 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00076 \textcolor{comment}{// class specializations}
+00077 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00078 \textcolor{keyword}{namespace }hryky
+00079 \{
+00085 \textcolor{keyword}{template} < \textcolor{keyword}{typename} ValueT >
+00086 \textcolor{keyword}{class }\hyperlink{classhryky_1_1_enable_if_c}{EnableIfC}<true, ValueT>
+00087 \{
+00088 \textcolor{keyword}{public} :
+00089     \textcolor{keyword}{typedef} ValueT  type;
+00090 \};
+00096 \textcolor{keyword}{template} < \textcolor{keyword}{typename} ValueT >
+00097 \textcolor{keyword}{class }DisableIfC<false, ValueT>
+00098 \{
+00099 \textcolor{keyword}{public} :
+00100     \textcolor{keyword}{typedef} ValueT  type;
+00101 \};
+00102 \}
+00103 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00104 \textcolor{comment}{// public member functions}
+00105 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00106 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00107 \textcolor{comment}{// protected member functions}
+00108 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00109 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00110 \textcolor{comment}{// private member functions}
+00111 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00112 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00113 \textcolor{comment}{// global function prototypes}
+00114 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00115 \textcolor{keyword}{namespace }hryky
+00116 \{
+00117 \}
+00118 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00119 \textcolor{comment}{// global function definitions}
+00120 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00121 \textcolor{preprocessor}{#endif // ENABLE\_IF\_H\_20120317191826471}
+00122 \textcolor{preprocessor}{}
+00123 \textcolor{comment}{// end of file}
+\end{DoxyCode}

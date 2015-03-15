@@ -1,0 +1,113 @@
+\hypertarget{ascii__common_8h}{\section{ascii\-\_\-common.\-h File Reference}
+\label{ascii__common_8h}\index{ascii\-\_\-common.\-h@{ascii\-\_\-common.\-h}}
+}
+
+
+common definitions for hryky\-::ascii.  
+
+
+{\ttfamily \#include \char`\"{}hryky/common.\-h\char`\"{}}\\*
+This graph shows which files directly or indirectly include this file\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ascii__common_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \hyperlink{namespacehryky}{hryky}
+\begin{DoxyCompactList}\small\item\em the root of all namespaces in hryky-\/codebase. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Defines}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{ascii__common_8h_a47d4ffa4b332a1ab083be8c783dfc747}{\#define \hyperlink{ascii__common_8h_a47d4ffa4b332a1ab083be8c783dfc747}{hryky\-\_\-case\-\_\-ascii\-\_\-alpha}~hryky\-\_\-case\-\_\-ascii\-\_\-upalpha\-: case \hyperlink{ascii__common_8h_a717df946132a61c99180b3081c67f061}{hryky\-\_\-case\-\_\-ascii\-\_\-loalpha}}\label{ascii__common_8h_a47d4ffa4b332a1ab083be8c783dfc747}
+
+\begin{DoxyCompactList}\small\item\em pseudo label of 'case' statement for alphabets of A\-S\-C\-I\-I. \end{DoxyCompactList}\item 
+\hypertarget{ascii__common_8h_af3b829211fb615ab5b9909c32198fa73}{\#define \hyperlink{ascii__common_8h_af3b829211fb615ab5b9909c32198fa73}{hryky\-\_\-case\-\_\-ascii\-\_\-control}}\label{ascii__common_8h_af3b829211fb615ab5b9909c32198fa73}
+
+\begin{DoxyCompactList}\small\item\em pseudo label of 'case' statement for control characters of A\-S\-C\-I\-I. \end{DoxyCompactList}\item 
+\hypertarget{ascii__common_8h_a1bfc5c1dc33636f04de66a0352dd40da}{\#define \hyperlink{ascii__common_8h_a1bfc5c1dc33636f04de66a0352dd40da}{hryky\-\_\-case\-\_\-ascii\-\_\-digit}}\label{ascii__common_8h_a1bfc5c1dc33636f04de66a0352dd40da}
+
+\begin{DoxyCompactList}\small\item\em pseudo label of 'case' statement for decimal numbers of A\-S\-C\-I\-I. \end{DoxyCompactList}\item 
+\hypertarget{ascii__common_8h_a06a569e9665ef789619ee5e5e34e9e0d}{\#define \hyperlink{ascii__common_8h_a06a569e9665ef789619ee5e5e34e9e0d}{hryky\-\_\-case\-\_\-ascii\-\_\-hexdig}}\label{ascii__common_8h_a06a569e9665ef789619ee5e5e34e9e0d}
+
+\begin{DoxyCompactList}\small\item\em pseudo lable of 'case' statement for hexadecimal numbers of A\-S\-C\-I\-I. \end{DoxyCompactList}\item 
+\hypertarget{ascii__common_8h_a717df946132a61c99180b3081c67f061}{\#define \hyperlink{ascii__common_8h_a717df946132a61c99180b3081c67f061}{hryky\-\_\-case\-\_\-ascii\-\_\-loalpha}}\label{ascii__common_8h_a717df946132a61c99180b3081c67f061}
+
+\begin{DoxyCompactList}\small\item\em pseudo label of 'case' statement for lower case characters of A\-S\-C\-I\-I. \end{DoxyCompactList}\item 
+\#define \hyperlink{ascii__common_8h_a0fb932e22325e0f21f3be2f369882583}{hryky\-\_\-case\-\_\-ascii\-\_\-lohexdig}~'a'\-: case 'b'\-: case 'c'\-: case 'd'\-: case 'e'\-: case 'f'
+\item 
+\hypertarget{ascii__common_8h_a421999a0fac019126ceb8ca958a0d968}{\#define \hyperlink{ascii__common_8h_a421999a0fac019126ceb8ca958a0d968}{hryky\-\_\-case\-\_\-ascii\-\_\-printable}}\label{ascii__common_8h_a421999a0fac019126ceb8ca958a0d968}
+
+\begin{DoxyCompactList}\small\item\em pseudo label of 'case' statement for printable characters of A\-S\-C\-I\-I. \end{DoxyCompactList}\item 
+\hypertarget{ascii__common_8h_af55d335795d0ce4ac4d3ab957caa9c09}{\#define \hyperlink{ascii__common_8h_af55d335795d0ce4ac4d3ab957caa9c09}{hryky\-\_\-case\-\_\-ascii\-\_\-upalpha}}\label{ascii__common_8h_af55d335795d0ce4ac4d3ab957caa9c09}
+
+\begin{DoxyCompactList}\small\item\em pseudo label of 'case' statement for upper case characters of A\-S\-C\-I\-I. \end{DoxyCompactList}\item 
+\#define \hyperlink{ascii__common_8h_a0cc0876b6139ba610ca15e1319961510}{hryky\-\_\-case\-\_\-ascii\-\_\-uphexdig}~'A'\-: case 'B'\-: case 'C'\-: case 'D'\-: case 'E'\-: case 'F'
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{namespacehryky_1_1ascii_a725bce1d010fd1538a8d0cce83cd0082}{bool {\bfseries hryky\-::ascii\-::is\-\_\-alpha} (octet\-\_\-type const octet)}\label{namespacehryky_1_1ascii_a725bce1d010fd1538a8d0cce83cd0082}
+
+\begin{DoxyCompactList}\small\item\em confirms that an octet is a alphabet. \end{DoxyCompactList}\item 
+\hypertarget{namespacehryky_1_1ascii_a48e8f34b5325bb14cd0d31aa2a1388c4}{bool {\bfseries hryky\-::ascii\-::is\-\_\-control} (octet\-\_\-type const octet)}\label{namespacehryky_1_1ascii_a48e8f34b5325bb14cd0d31aa2a1388c4}
+
+\begin{DoxyCompactList}\small\item\em confirms whether the octet is a non-\/printable control character. \end{DoxyCompactList}\item 
+\hypertarget{namespacehryky_1_1ascii_a8896830caa56b867cb52d1322a337521}{bool {\bfseries hryky\-::ascii\-::is\-\_\-digit} (octet\-\_\-type const octet)}\label{namespacehryky_1_1ascii_a8896830caa56b867cb52d1322a337521}
+
+\begin{DoxyCompactList}\small\item\em confirms that an octet is a D\-I\-G\-I\-T of U\-R\-I. \end{DoxyCompactList}\item 
+\hypertarget{namespacehryky_1_1ascii_ae5fa3e0d60f956044cd88bd412fa740c}{bool {\bfseries hryky\-::ascii\-::is\-\_\-hexdig} (octet\-\_\-type const octet)}\label{namespacehryky_1_1ascii_ae5fa3e0d60f956044cd88bd412fa740c}
+
+\begin{DoxyCompactList}\small\item\em confirms that an octet is a H\-E\-X\-D\-I\-G of U\-R\-I. \end{DoxyCompactList}\item 
+\hypertarget{namespacehryky_1_1ascii_a63488fd697638e991cf62b56804bd1b2}{bool {\bfseries hryky\-::ascii\-::is\-\_\-loalpha} (octet\-\_\-type const octet)}\label{namespacehryky_1_1ascii_a63488fd697638e991cf62b56804bd1b2}
+
+\begin{DoxyCompactList}\small\item\em confirms that an octet is a lowercase character of alphabet. \end{DoxyCompactList}\item 
+bool {\bfseries hryky\-::ascii\-::is\-\_\-upalpha} (octet\-\_\-type const octet)
+\begin{DoxyCompactList}\small\item\em confirms that an octet is an uppercase character of alphabet. \end{DoxyCompactList}\item 
+\hypertarget{namespacehryky_1_1ascii_a5c86118022f64d1f48c6ea97c6e48f56}{bool {\bfseries hryky\-::ascii\-::to\-\_\-digit} (uint8\-\_\-t \&dest, octet\-\_\-type const octet)}\label{namespacehryky_1_1ascii_a5c86118022f64d1f48c6ea97c6e48f56}
+
+\begin{DoxyCompactList}\small\item\em converts an octet to the corresponding number in decimal. \end{DoxyCompactList}\item 
+\hypertarget{namespacehryky_1_1ascii_a3522a921b4803c4b066e8247fbc70927}{uint8\-\_\-t {\bfseries hryky\-::ascii\-::to\-\_\-digit} (octet\-\_\-type const octet)}\label{namespacehryky_1_1ascii_a3522a921b4803c4b066e8247fbc70927}
+
+\begin{DoxyCompactList}\small\item\em converts an octet to the corresponding number in decimal without checking an error. \end{DoxyCompactList}\item 
+\hypertarget{namespacehryky_1_1ascii_af8c4aa1656f273c83ea8997717cdac2b}{bool {\bfseries hryky\-::ascii\-::to\-\_\-hexdig} (uint8\-\_\-t \&dest, octet\-\_\-type const octet)}\label{namespacehryky_1_1ascii_af8c4aa1656f273c83ea8997717cdac2b}
+
+\begin{DoxyCompactList}\small\item\em converts an octet to the corresponding number in hexadecimal. \end{DoxyCompactList}\item 
+\hypertarget{namespacehryky_1_1ascii_a7b0467bab483b59655417034a8bd1680}{uint8\-\_\-t {\bfseries hryky\-::ascii\-::to\-\_\-hexdig} (octet\-\_\-type const octet)}\label{namespacehryky_1_1ascii_a7b0467bab483b59655417034a8bd1680}
+
+\begin{DoxyCompactList}\small\item\em converts an octet to the corresponding number in hexadecimal without checking an error. \end{DoxyCompactList}\item 
+\hypertarget{namespacehryky_1_1ascii_a6d4ea42513d61fdb361c253bedefa3fc}{octet\-\_\-type {\bfseries hryky\-::ascii\-::to\-\_\-lower} (octet\-\_\-type const octet)}\label{namespacehryky_1_1ascii_a6d4ea42513d61fdb361c253bedefa3fc}
+
+\begin{DoxyCompactList}\small\item\em converts the upper-\/case character to the lower-\/case character. \end{DoxyCompactList}\item 
+\hypertarget{namespacehryky_1_1ascii_ad03236d47e96c3d1d3e9b2f93078b287}{octet\-\_\-type {\bfseries hryky\-::ascii\-::to\-\_\-uppper} (octet\-\_\-type const octet)}\label{namespacehryky_1_1ascii_ad03236d47e96c3d1d3e9b2f93078b287}
+
+\begin{DoxyCompactList}\small\item\em convert the lower-\/case character to the upper-\/case character. \end{DoxyCompactList}\item 
+\hypertarget{namespacehryky_1_1ascii_a56f2c154f493a0b145e6d7b66b8f2948}{bool {\bfseries hryky\-::ascii\-::verify} (octet\-\_\-type const octet)}\label{namespacehryky_1_1ascii_a56f2c154f493a0b145e6d7b66b8f2948}
+
+\begin{DoxyCompactList}\small\item\em confirms whether the octet is in the range of A\-S\-C\-I\-I Codes. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+common definitions for hryky\-::ascii. \begin{DoxyAuthor}{Author}
+H\-R\-Y\-K\-Y 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+
+\end{DoxyVersion}
+\begin{DoxyParagraph}{Id\-:}
+\hyperlink{ascii__common_8h}{ascii\-\_\-common.\-h} 140 2013-\/01-\/23 14\-:52\-:44\-Z \href{mailto:hryky.private@gmail.com}{\tt hryky.\-private@gmail.\-com} 
+\end{DoxyParagraph}
+
+
+\subsection{Define Documentation}
+\hypertarget{ascii__common_8h_a0fb932e22325e0f21f3be2f369882583}{\index{ascii\-\_\-common.\-h@{ascii\-\_\-common.\-h}!hryky\-\_\-case\-\_\-ascii\-\_\-lohexdig@{hryky\-\_\-case\-\_\-ascii\-\_\-lohexdig}}
+\index{hryky\-\_\-case\-\_\-ascii\-\_\-lohexdig@{hryky\-\_\-case\-\_\-ascii\-\_\-lohexdig}!ascii_common.h@{ascii\-\_\-common.\-h}}
+\subsubsection[{hryky\-\_\-case\-\_\-ascii\-\_\-lohexdig}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf hryky\-\_\-case\-\_\-ascii\-\_\-lohexdig}~'a'\-: case 'b'\-: case 'c'\-: case 'd'\-: case 'e'\-: case 'f'}}\label{ascii__common_8h_a0fb932e22325e0f21f3be2f369882583}
+pseudo lable of 'case' statement for lower case characters in hexadecimal of A\-S\-C\-I\-I. \hypertarget{ascii__common_8h_a0cc0876b6139ba610ca15e1319961510}{\index{ascii\-\_\-common.\-h@{ascii\-\_\-common.\-h}!hryky\-\_\-case\-\_\-ascii\-\_\-uphexdig@{hryky\-\_\-case\-\_\-ascii\-\_\-uphexdig}}
+\index{hryky\-\_\-case\-\_\-ascii\-\_\-uphexdig@{hryky\-\_\-case\-\_\-ascii\-\_\-uphexdig}!ascii_common.h@{ascii\-\_\-common.\-h}}
+\subsubsection[{hryky\-\_\-case\-\_\-ascii\-\_\-uphexdig}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf hryky\-\_\-case\-\_\-ascii\-\_\-uphexdig}~'A'\-: case 'B'\-: case 'C'\-: case 'D'\-: case 'E'\-: case 'F'}}\label{ascii__common_8h_a0cc0876b6139ba610ca15e1319961510}
+pseudo lable of 'case' statement for upper case characters in hexadecimal of A\-S\-C\-I\-I. 

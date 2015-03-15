@@ -1,0 +1,71 @@
+\hypertarget{group__generic__programming}{\section{Generic Programming}
+\label{group__generic__programming}\index{Generic Programming@{Generic Programming}}
+}
+\subsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \hyperlink{namespacehryky}{hryky}
+\begin{DoxyCompactList}\small\item\em the root of all namespaces in hryky-\/codebase. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classhryky_1_1_add_const}{hryky\-::\-Add\-Const$<$ Value\-T $>$}
+\begin{DoxyCompactList}\small\item\em add const qualifier. \end{DoxyCompactList}\item 
+class \hyperlink{classhryky_1_1_add_const_pointer}{hryky\-::\-Add\-Const\-Pointer$<$ Value\-T $>$}
+\begin{DoxyCompactList}\small\item\em retrieves the traits as const pointer from any type. \end{DoxyCompactList}\item 
+class \hyperlink{classhryky_1_1_add_const_reference}{hryky\-::\-Add\-Const\-Reference$<$ Value\-T $>$}
+\begin{DoxyCompactList}\small\item\em retrieves the traits as const reference from any type. \end{DoxyCompactList}\item 
+class \hyperlink{classhryky_1_1_add_pointer}{hryky\-::\-Add\-Pointer$<$ Value\-T $>$}
+\begin{DoxyCompactList}\small\item\em retrieves the traits as pointer from any type . \end{DoxyCompactList}\item 
+class \hyperlink{classhryky_1_1_add_reference}{hryky\-::\-Add\-Reference$<$ Value\-T $>$}
+\begin{DoxyCompactList}\small\item\em retrieves the traits as reference from any type. \end{DoxyCompactList}\item 
+class \hyperlink{classhryky_1_1_disable_if}{hryky\-::\-Disable\-If$<$ Condition\-T, Value\-T $>$}
+\begin{DoxyCompactList}\small\item\em substitutes for std\-::disable\-\_\-if. \end{DoxyCompactList}\item 
+class \hyperlink{classhryky_1_1_disable_if_c}{hryky\-::\-Disable\-If\-C$<$ boolean, Value\-T $>$}
+\begin{DoxyCompactList}\small\item\em substitutes for std\-::disable\-\_\-if\-\_\-c. \end{DoxyCompactList}\item 
+class \hyperlink{classhryky_1_1_enable_if}{hryky\-::\-Enable\-If$<$ Condition\-T, Value\-T $>$}
+\begin{DoxyCompactList}\small\item\em substitutes for std\-::enable\-\_\-if. \end{DoxyCompactList}\item 
+class \hyperlink{classhryky_1_1_enable_if_c}{hryky\-::\-Enable\-If\-C$<$ boolean, Value\-T $>$}
+\begin{DoxyCompactList}\small\item\em substitutes for std\-::enable\-\_\-if\-\_\-c. \end{DoxyCompactList}\item 
+class \hyperlink{classhryky_1_1_max_of}{hryky\-::\-Max\-Of$<$ Value\-T $>$}
+\begin{DoxyCompactList}\small\item\em retrieves the maximum value. \end{DoxyCompactList}\item 
+class \hyperlink{classhryky_1_1_min_of}{hryky\-::\-Min\-Of$<$ Value\-T $>$}
+\begin{DoxyCompactList}\small\item\em retrieves the maximum value. \end{DoxyCompactList}\item 
+class \hyperlink{classhryky_1_1_remove_pointer}{hryky\-::\-Remove\-Pointer$<$ Value\-T $>$}
+\begin{DoxyCompactList}\small\item\em dereferences the pointer of any type. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename Value\-T $>$ }\\Remove\-Pointer$<$ Value\-T $\ast$ $>$\\*
+\-::result\-\_\-type \hyperlink{group__generic__programming_ga74adf3223a4335c89d64f985d0bcc29e}{hryky\-::dereference} (Value\-T $\ast$src)
+\begin{DoxyCompactList}\small\item\em dereferences the pointer of any type. \end{DoxyCompactList}\item 
+\hypertarget{group__generic__programming_ga4ea1ee0ac8835fd32da649ee7dea3355}{{\footnotesize template$<$typename Value\-T $>$ }\\Remove\-Pointer$<$ Value\-T $>$\\*
+\-::result\-\_\-type \hyperlink{group__generic__programming_ga4ea1ee0ac8835fd32da649ee7dea3355}{hryky\-::dereference} (Value\-T \&src)}\label{group__generic__programming_ga4ea1ee0ac8835fd32da649ee7dea3355}
+
+\begin{DoxyCompactList}\small\item\em returns an argument directly as reference. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{group__generic__programming_ga74adf3223a4335c89d64f985d0bcc29e}{\index{Generic Programming@{Generic Programming}!dereference@{dereference}}
+\index{dereference@{dereference}!Generic Programming@{Generic Programming}}
+\subsubsection[{dereference}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Value\-T $>$ {\bf hryky\-::\-Remove\-Pointer}$<$ Value\-T $\ast$ $>$\-::result\-\_\-type {\bf hryky\-::dereference} (
+\begin{DoxyParamCaption}
+\item[{Value\-T $\ast$}]{src}
+\end{DoxyParamCaption}
+)}}\label{group__generic__programming_ga74adf3223a4335c89d64f985d0bcc29e}
+
+
+dereferences the pointer of any type. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em src} & is dereferenced.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyItemize}
+\item {\itshape Value\-T\/} is the type to which a pointer is dereferenced. 
+\end{DoxyItemize}
+
+Referenced by \hyperlink{group__task_ga1f7366c2252fb0c7a7c8dc6f92a31e88}{hryky\-::task\-::worker\-::\-Batch$<$ Task\-T $>$\-::run\-\_\-impl()}.
+

@@ -1,0 +1,7 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$file__descriptor__mode_8h.html" title="retains the access mode for file descriptor." alt="" coords="307,80,459,107"/>
+<area shape="rect" id="node5" href="$file__descriptor__entity_8cpp.html" title="retains a file descriptor." alt="" coords="5,155,171,181"/>
+<area shape="rect" id="node7" href="$file__descriptor__mode_8cpp.html" title="retains the access mode for file descriptor." alt="" coords="195,155,361,181"/>
+<area shape="rect" id="node9" href="$file__descriptor__entity_8win32_8cpp.html" title="retains a file descripter for Win32." alt="" coords="387,155,589,181"/>
+<area shape="rect" id="node11" href="$file__descriptor__mode_8win32_8cpp.html" title="retains the access mode for file descriptor for Win32." alt="" coords="613,155,816,181"/>
+</map>

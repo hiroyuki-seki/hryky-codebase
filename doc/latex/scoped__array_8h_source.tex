@@ -1,0 +1,180 @@
+\hypertarget{scoped__array_8h_source}{\section{scoped\-\_\-array.\-h}
+}
+
+\begin{DoxyCode}
+00001 
+00007 \textcolor{preprocessor}{#ifndef SCOPED\_ARRAY\_H\_20120204020838755}
+00008 \textcolor{preprocessor}{}\textcolor{preprocessor}{#define SCOPED\_ARRAY\_H\_20120204020838755}
+00009 \textcolor{preprocessor}{}\textcolor{preprocessor}{#include <boost/scoped\_array.hpp>}
+00010 \textcolor{preprocessor}{#include "\hyperlink{log__writer__common_8h}{hryky/log/log_writer_common.h}"}
+00011 \textcolor{preprocessor}{#include "\hyperlink{foreach_8h}{hryky/foreach.h}"}
+00012 \textcolor{preprocessor}{#include "\hyperlink{iterator__random_8h}{hryky/iterator/iterator_random.h}"}
+00013 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00014 \textcolor{comment}{// macro definition}
+00015 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00016 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00017 \textcolor{comment}{// namespace}
+00018 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00019 \textcolor{keyword}{namespace }hryky
+00020 \{
+00022     \textcolor{keyword}{template} < \textcolor{keyword}{typename} ValueT >
+00023     \textcolor{keyword}{class }ScopedArray;
+00024 
+00026     \textcolor{keyword}{template} < \textcolor{keyword}{typename} ValueT >
+00027     \hyperlink{namespacehryky_a343a9a4c36a586be5c2693156200eadc}{reduction_type} \hyperlink{namespacehryky_af41cb3af6766761da0ff21b84527a52c}{reduce}(
+00028         \hyperlink{namespacehryky_1_1reduction_ac686c30a4c8d196bbd0f05629a6b921f}{reduction::name_type} \textcolor{keyword}{const} & name, ScopedArray<ValueT> \textcolor{keyword}{const} & \hyperlink{namespacehryky_1_1reduction_a9d45a4dc1ea9a6668ebd192f296f788c}{array});
+00029 
+00031     \textcolor{keyword}{template} < \textcolor{keyword}{typename} ValueT >
+00032     \textcolor{keywordtype}{void} \hyperlink{namespacehryky_a4282146df5ea2b68cb667896a2205909}{swap}(ScopedArray<ValueT> & lhs, ScopedArray<ValueT> & rhs);
+00033 
+00034 \}
+00035 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00036 \textcolor{comment}{// class declaration}
+00037 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00041 \textcolor{comment}{}\textcolor{keyword}{template} < \textcolor{keyword}{typename} ValueT >
+\hypertarget{scoped__array_8h_source_l00042}{}\hyperlink{classhryky_1_1_scoped_array}{00042} \textcolor{keyword}{class }\hyperlink{classhryky_1_1_scoped_array}{hryky::ScopedArray}
+00043 \{
+00044 \textcolor{keyword}{public} :
+00045 
+00046     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1_scoped_array}{ScopedArray<ValueT>}                             \hyperlink{classhryky_1_1_scoped_array}{this_type};
+\hypertarget{scoped__array_8h_source_l00047}{}\hyperlink{classhryky_1_1_scoped_array_ad6d2c3391acaf05f2ced3e6bd6bdf79a}{00047}     \textcolor{keyword}{typedef} ValueT                                          \hyperlink{classhryky_1_1_scoped_array_ad6d2c3391acaf05f2ced3e6bd6bdf79a}{value_type};
+00048     \textcolor{keyword}{typedef} std::size\_t                                     size\_type;
+00049     \textcolor{keyword}{typedef} std::ptrdiff\_t                                  difference\_type;
+00050     \textcolor{keyword}{typedef} \textcolor{keyword}{typename} \hyperlink{classhryky_1_1_add_pointer}{AddPointer<value_type>::type}           pointer;
+00051     \textcolor{keyword}{typedef} \textcolor{keyword}{typename} \hyperlink{classhryky_1_1_add_reference_a4b90c1381625432ba6152b7388bc4399}{AddReference<value_type>::type}         reference;
+00052     \textcolor{keyword}{typedef} \textcolor{keyword}{typename} \hyperlink{classhryky_1_1_add_const_pointer_a62e5c44fefac145f6bd2460e4c8d0ba2}{AddConstPointer<value_type>::type}      const\_pointer;
+00053     \textcolor{keyword}{typedef} \textcolor{keyword}{typename} \hyperlink{classhryky_1_1_add_const_reference_aa26e39e87462673d865c90e6a9798b5a}{AddConstReference<value_type>::type}    const\_reference;
+00054     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1iterator_1_1random_1_1_mutable}{hryky::iterator::random::Mutable<this_type>}     \hyperlink{classhryky_1_1iterator_1_1random_1_1_mutable}{iterator};
+00055     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1iterator_1_1random_1_1_immutable}{hryky::iterator::random::Immutable<this_type>}   \hyperlink{classhryky_1_1iterator_1_1random_1_1_immutable}{const_iterator};
+00056 
+\hypertarget{scoped__array_8h_source_l00058}{}\hyperlink{classhryky_1_1_scoped_array_a4b93ba1d040033ef3bbdf6e5d61e9555}{00058}     \textcolor{keyword}{explicit} \hyperlink{classhryky_1_1_scoped_array_a4b93ba1d040033ef3bbdf6e5d61e9555}{ScopedArray}() : raw\_(), size\_(0) \{\}
+00059 
+\hypertarget{scoped__array_8h_source_l00061}{}\hyperlink{classhryky_1_1_scoped_array_a4a086326723aaf63c6019505746f975b}{00061}     \hyperlink{classhryky_1_1_scoped_array_a4b93ba1d040033ef3bbdf6e5d61e9555}{ScopedArray}(pointer instance, size\_type \hyperlink{classhryky_1_1_scoped_array_a89cb48b5dbd1f1c95fab59516119eeb5}{size})
+00062         : raw\_(), size\_(size) \{
+00063         this->raw\_.reset(instance);
+00064     \}
+00065 
+\hypertarget{scoped__array_8h_source_l00067}{}\hyperlink{classhryky_1_1_scoped_array_a3c1945854b08a5ef4b31c8fb2f4eb332}{00067}     \hyperlink{classhryky_1_1_scoped_array_a3c1945854b08a5ef4b31c8fb2f4eb332}{~ScopedArray}() \{\};
+00068 
+\hypertarget{scoped__array_8h_source_l00070}{}\hyperlink{classhryky_1_1_scoped_array_ade219c7f6d901f2d937fde0de54e528b}{00070}     \textcolor{keywordtype}{void} \hyperlink{classhryky_1_1_scoped_array_ade219c7f6d901f2d937fde0de54e528b}{reset}(pointer instance, size\_type \hyperlink{classhryky_1_1_scoped_array_a89cb48b5dbd1f1c95fab59516119eeb5}{size}) \{
+00071         this->raw\_.reset(instance);
+00072         this->size\_ = \hyperlink{classhryky_1_1_scoped_array_a89cb48b5dbd1f1c95fab59516119eeb5}{size};
+00073     \}
+00074 
+\hypertarget{scoped__array_8h_source_l00076}{}\hyperlink{classhryky_1_1_scoped_array_ade5a9800bdfb865fee2dba3da9cad6dc}{00076}     \textcolor{keywordtype}{void} \hyperlink{classhryky_1_1_scoped_array_ade5a9800bdfb865fee2dba3da9cad6dc}{swap}(\hyperlink{classhryky_1_1_scoped_array}{this_type} & src) \{
+00077         this->raw\_.swap(src.raw\_);
+00078         \hyperlink{namespacehryky_add9c1c1fdfda07cd47bcb7c16d3a823a}{hryky_swap}(this->size\_, src.size\_);
+00079     \}
+00080 
+00082     iterator \hyperlink{classhryky_1_1_scoped_array_ad37d523c285b28838258c8f25d52292f}{begin}();
+00083     
+00085     const\_iterator \hyperlink{classhryky_1_1_scoped_array_ad37d523c285b28838258c8f25d52292f}{begin}() \textcolor{keyword}{const};
+00086     
+00088     iterator \hyperlink{classhryky_1_1_scoped_array_ad8e02862ca4c02c24c0c27d6d74bbb28}{end}();
+00089     
+00091     const\_iterator \hyperlink{classhryky_1_1_scoped_array_ad8e02862ca4c02c24c0c27d6d74bbb28}{end}() \textcolor{keyword}{const};
+00092 
+\hypertarget{scoped__array_8h_source_l00094}{}\hyperlink{classhryky_1_1_scoped_array_a89cb48b5dbd1f1c95fab59516119eeb5}{00094}     size\_type \hyperlink{classhryky_1_1_scoped_array_a89cb48b5dbd1f1c95fab59516119eeb5}{size}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} this->size\_; \}
+00095 
+\hypertarget{scoped__array_8h_source_l00097}{}\hyperlink{classhryky_1_1_scoped_array_a706a26ea220a93492fba1538b24a6178}{00097}     const\_reference \hyperlink{classhryky_1_1_scoped_array_a706a26ea220a93492fba1538b24a6178}{operator[]}(std::ptrdiff\_t index)\textcolor{keyword}{ const}
+00098 \textcolor{keyword}{    }\{ \textcolor{keywordflow}{return} this->raw\_[index]; \}
+00099 
+\hypertarget{scoped__array_8h_source_l00101}{}\hyperlink{classhryky_1_1_scoped_array_ab8969d5119f3a5e130bd01d9e1ddd722}{00101}     reference \hyperlink{classhryky_1_1_scoped_array_a706a26ea220a93492fba1538b24a6178}{operator[]}(std::ptrdiff\_t index)
+00102     \{ \textcolor{keywordflow}{return} this->raw\_[index]; \}
+00103 
+\hypertarget{scoped__array_8h_source_l00105}{}\hyperlink{classhryky_1_1_scoped_array_a646755893596d518d733797e283de55e}{00105}     \textcolor{keywordtype}{bool} \hyperlink{classhryky_1_1_scoped_array_a646755893596d518d733797e283de55e}{invalid}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} \hyperlink{common_8h_a4cd4ac09cfcdbd6b30ee69afc156e210}{HRYKY_NULLPTR} == this->raw\_.get(); \}
+00106 
+00107 \textcolor{keyword}{protected} :
+00108 
+00109 \textcolor{keyword}{private} :
+00110 
+00112     \textcolor{keyword}{typedef} boost::scoped\_array<ValueT>     raw\_type;
+00113 
+00115     \textcolor{keyword}{explicit} \hyperlink{classhryky_1_1_scoped_array_a4b93ba1d040033ef3bbdf6e5d61e9555}{ScopedArray}(\hyperlink{classhryky_1_1_scoped_array}{ScopedArray} \textcolor{keyword}{const} &);
+00116 
+00118     \hyperlink{classhryky_1_1_scoped_array}{ScopedArray} & operator=(\hyperlink{classhryky_1_1_scoped_array}{ScopedArray} \textcolor{keyword}{const} & rhs);
+00119 
+00120     raw\_type        raw\_;
+00121     size\_type       size\_;
+00122 
+00123 \};
+00124 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00125 \textcolor{comment}{// public member functions}
+00126 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00130 \textcolor{comment}{}\textcolor{keyword}{template} <\textcolor{keyword}{typename} ValueT>
+00131 \textcolor{keyword}{typename} \hyperlink{classhryky_1_1iterator_1_1random_1_1_mutable}{hryky::ScopedArray<ValueT>::iterator}
+\hypertarget{scoped__array_8h_source_l00132}{}\hyperlink{classhryky_1_1_scoped_array_ad37d523c285b28838258c8f25d52292f}{00132} \hyperlink{classhryky_1_1_scoped_array_ad37d523c285b28838258c8f25d52292f}{hryky::ScopedArray<ValueT>::begin}()
+00133 \{
+00134     \textcolor{keywordflow}{return} \hyperlink{classhryky_1_1iterator_1_1random_1_1_mutable}{iterator}(\textcolor{keyword}{this}, 0);
+00135 \}
+00139 \textcolor{keyword}{template} <\textcolor{keyword}{typename} ValueT>
+00140 \textcolor{keyword}{typename} \hyperlink{classhryky_1_1iterator_1_1random_1_1_immutable}{hryky::ScopedArray<ValueT>::const_iterator}
+\hypertarget{scoped__array_8h_source_l00141}{}\hyperlink{classhryky_1_1_scoped_array_af46f44b3d660894ce184b8a46675c0df}{00141} \hyperlink{classhryky_1_1_scoped_array_ad37d523c285b28838258c8f25d52292f}{hryky::ScopedArray<ValueT>::begin}()\textcolor{keyword}{ const}
+00142 \textcolor{keyword}{}\{
+00143     \textcolor{keywordflow}{return} \hyperlink{classhryky_1_1iterator_1_1random_1_1_immutable}{const_iterator}(\textcolor{keyword}{this}, 0);
+00144 \}
+00148 \textcolor{keyword}{template} <\textcolor{keyword}{typename} ValueT>
+00149 \textcolor{keyword}{typename} \hyperlink{classhryky_1_1iterator_1_1random_1_1_mutable}{hryky::ScopedArray<ValueT>::iterator}
+\hypertarget{scoped__array_8h_source_l00150}{}\hyperlink{classhryky_1_1_scoped_array_ad8e02862ca4c02c24c0c27d6d74bbb28}{00150} \hyperlink{classhryky_1_1_scoped_array_ad8e02862ca4c02c24c0c27d6d74bbb28}{hryky::ScopedArray<ValueT>::end}()
+00151 \{
+00152     \textcolor{keywordflow}{return} \hyperlink{classhryky_1_1iterator_1_1random_1_1_mutable}{iterator}(\textcolor{keyword}{this}, this->size\_);
+00153 \}
+00157 \textcolor{keyword}{template} <\textcolor{keyword}{typename} ValueT>
+00158 \textcolor{keyword}{typename} \hyperlink{classhryky_1_1iterator_1_1random_1_1_immutable}{hryky::ScopedArray<ValueT>::const_iterator}
+\hypertarget{scoped__array_8h_source_l00159}{}\hyperlink{classhryky_1_1_scoped_array_a037bc4e9b2071a052ba7f7fa82dc281d}{00159} \hyperlink{classhryky_1_1_scoped_array_ad8e02862ca4c02c24c0c27d6d74bbb28}{hryky::ScopedArray<ValueT>::end}()\textcolor{keyword}{ const}
+00160 \textcolor{keyword}{}\{
+00161     \textcolor{keywordflow}{return} \hyperlink{classhryky_1_1iterator_1_1random_1_1_immutable}{const_iterator}(\textcolor{keyword}{this}, this->size\_);
+00162 \}
+00163 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00164 \textcolor{comment}{// protected member functions}
+00165 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00166 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00167 \textcolor{comment}{// private member functions}
+00168 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00169 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00170 \textcolor{comment}{// global functions}
+00171 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00175 \textcolor{comment}{}\textcolor{keyword}{template} < \textcolor{keyword}{typename} ValueT >
+\hypertarget{scoped__array_8h_source_l00176}{}\hyperlink{namespacehryky_aed1bf2a7c53af0daf10e630e023ad6c2}{00176} \hyperlink{classhryky_1_1_intrusive_ptr}{hryky::reduction_type} \hyperlink{namespacehryky_af41cb3af6766761da0ff21b84527a52c}{hryky::reduce}(
+00177     \hyperlink{classhryky_1_1reduction_1_1_string}{reduction::name_type} \textcolor{keyword}{const} & name, \hyperlink{classhryky_1_1_scoped_array}{ScopedArray<ValueT>} \textcolor{keyword}{const} & src)
+00178 \{
+00179     \hyperlink{classhryky_1_1_intrusive_ptr}{reduction::map_type} \hyperlink{namespacehryky_1_1reduction_ac5eae270cf8047b294dc4ff3e5e11a79}{map} = \hyperlink{namespacehryky_1_1reduction_ac5eae270cf8047b294dc4ff3e5e11a79}{reduction::map}(name);
+00180 
+00181     ((*map)
+00182      .append(\textcolor{stringliteral}{"size"}, src.\hyperlink{classhryky_1_1_scoped_array_a89cb48b5dbd1f1c95fab59516119eeb5}{size}())
+00183      );
+00184 
+00185     \hyperlink{classhryky_1_1_intrusive_ptr}{reduction::array_type} elements = \hyperlink{namespacehryky_1_1reduction_a9d45a4dc1ea9a6668ebd192f296f788c}{reduction::array}(\textcolor{stringliteral}{"elements"});
+00186 
+00187     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1_scoped_array}{ScopedArray<ValueT>} \textcolor{keyword}{const} container\_type;
+00188     \hyperlink{classhryky_1_1_foreach}{Foreach<container_type>} \textcolor{keywordflow}{foreach}(src);
+00189     \textcolor{keywordflow}{for} (; \textcolor{keywordflow}{foreach}.valid(); ++\textcolor{keywordflow}{foreach}) \{
+00190         (*elements).append(*\textcolor{keywordflow}{foreach});
+00191     \}
+00192 
+00193     map->append(elements);
+00194     
+00195     \textcolor{keywordflow}{return} \hyperlink{namespacehryky_1_1reduction_ac5eae270cf8047b294dc4ff3e5e11a79}{map};
+00196 \}
+00200 \textcolor{keyword}{template} < \textcolor{keyword}{typename} ValueT >
+\hypertarget{scoped__array_8h_source_l00201}{}\hyperlink{namespacehryky_ab921feae350c8120f8c39673c98017a1}{00201} \textcolor{keywordtype}{void} \hyperlink{namespacehryky_a4282146df5ea2b68cb667896a2205909}{hryky::swap}(\hyperlink{classhryky_1_1_scoped_array}{ScopedArray<ValueT>} & lhs, \hyperlink{classhryky_1_1_scoped_array}{ScopedArray<ValueT>} & rhs)
+00202 \{
+00203     lhs.\hyperlink{classhryky_1_1_scoped_array_ade5a9800bdfb865fee2dba3da9cad6dc}{swap}(rhs);
+00204 \}
+00205 \textcolor{preprocessor}{#endif // SCOPED\_ARRAY\_H\_20120204020838755}
+00206 \textcolor{preprocessor}{}\textcolor{comment}{// end of file}
+\end{DoxyCode}

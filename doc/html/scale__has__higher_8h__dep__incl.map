@@ -1,0 +1,7 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$scale__is__lower_8h.html" title="confirms whether LHS is on the lower scale than RHS." alt="" coords="21,155,139,181"/>
+<area shape="rect" id="node13" href="$scale__is__lower__equal_8h.html" title="confirms whether LHS is on the scale lower than or equal to the one of RHS." alt="" coords="61,80,217,107"/>
+<area shape="rect" id="node5" href="$scale__entity_8h.html" title="retains the value on the scale." alt="" coords="29,304,131,331"/>
+<area shape="rect" id="node7" href="$scale_8h.html" title="collection of the hryky::unit modules." alt="" coords="97,379,161,405"/>
+<area shape="rect" id="node9" href="$scale__lower__of_8h.html" title="retrieves the lower type from two scales." alt="" coords="21,229,139,256"/>
+</map>

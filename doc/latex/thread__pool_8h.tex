@@ -1,0 +1,60 @@
+\hypertarget{thread__pool_8h}{\section{thread\-\_\-pool.\-h File Reference}
+\label{thread__pool_8h}\index{thread\-\_\-pool.\-h@{thread\-\_\-pool.\-h}}
+}
+
+
+manages the collection of reusable concurrent units.  
+
+
+{\ttfamily \#include \char`\"{}hryky/exclusion.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}hryky/reduction.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}hryky/memory/heap/memory\-\_\-heap\-\_\-base.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}hryky/thread/thread\-\_\-common.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}hryky/vector.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}hryky/reduction/reduction\-\_\-common.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}hryky/chrono.\-h\char`\"{}}\\*
+This graph shows which files directly or indirectly include this file\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{thread__pool_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classhryky_1_1thread_1_1_pool}{hryky\-::thread\-::\-Pool}
+\begin{DoxyCompactList}\small\item\em manages the collection of reusable concurrent units. \end{DoxyCompactList}\item 
+class \hyperlink{classhryky_1_1thread_1_1_pool_1_1_inactivate}{hryky\-::thread\-::\-Pool\-::\-Inactivate}
+\begin{DoxyCompactList}\small\item\em the wrapper to call inactivate(). \end{DoxyCompactList}\item 
+struct \hyperlink{structhryky_1_1thread_1_1_pool_1_1_reset_parameter}{hryky\-::thread\-::\-Pool\-::\-Reset\-Parameter}
+\begin{DoxyCompactList}\small\item\em parameters for \hyperlink{classhryky_1_1thread_1_1_pool_a7060b7e3c556334ec71aa2b42401231f}{reset()} \end{DoxyCompactList}\item 
+class \hyperlink{classhryky_1_1thread_1_1_pool_1_1_terminate}{hryky\-::thread\-::\-Pool\-::\-Terminate}
+\begin{DoxyCompactList}\small\item\em the wrapper to call terminate(). \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \hyperlink{namespacehryky}{hryky}
+\begin{DoxyCompactList}\small\item\em the root of all namespaces in hryky-\/codebase. \end{DoxyCompactList}\item 
+namespace \hyperlink{namespacehryky_1_1exclusion}{hryky\-::exclusion}
+\begin{DoxyCompactList}\small\item\em modules for exclusion control. \end{DoxyCompactList}\item 
+namespace \hyperlink{namespacehryky_1_1thread}{hryky\-::thread}
+\begin{DoxyCompactList}\small\item\em modules for managing concurrent resources. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+reduction\-\_\-type \hyperlink{namespacehryky_1_1thread_aed5a09e1236726d3b2a02cff74f53524}{hryky\-::thread\-::reduce} (reduction\-::name\-\_\-type const \&name, Pool const \&pool)
+\begin{DoxyCompactList}\small\item\em creates the instance to output information. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+manages the collection of reusable concurrent units. \begin{DoxyAuthor}{Author}
+H\-R\-Y\-K\-Y 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+
+\end{DoxyVersion}
+\begin{DoxyParagraph}{Id\-:}
+\hyperlink{thread__pool_8h}{thread\-\_\-pool.\-h} 150 2013-\/02-\/10 10\-:08\-:03\-Z \href{mailto:hryky.private@gmail.com}{\tt hryky.\-private@gmail.\-com} 
+\end{DoxyParagraph}

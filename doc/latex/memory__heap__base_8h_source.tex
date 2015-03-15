@@ -1,0 +1,194 @@
+\hypertarget{memory__heap__base_8h_source}{\section{memory\-\_\-heap\-\_\-base.\-h}
+}
+
+\begin{DoxyCode}
+00001 
+00007 \textcolor{preprocessor}{#ifndef MEMORY\_HEAP\_BASE\_H\_20120311185039451}
+00008 \textcolor{preprocessor}{}\textcolor{preprocessor}{#define MEMORY\_HEAP\_BASE\_H\_20120311185039451}
+00009 \textcolor{preprocessor}{}\textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00010 \textcolor{comment}{// macro definition}
+00011 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00012 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00013 \textcolor{comment}{// namespace}
+00014 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00015 \textcolor{keyword}{namespace }hryky
+00016 \{
+00017 \textcolor{keyword}{namespace }memory
+00018 \{
+00019 \textcolor{keyword}{namespace }\hyperlink{namespacehryky_1_1memory_1_1global_a6fc6103f67c837aa0f39b359588409cd}{heap}
+00020 \{
+00022     \textcolor{keyword}{class }Base;
+00023 
+00025     \textcolor{keyword}{template} < \textcolor{keyword}{typename} ImplT >
+00026     \textcolor{keyword}{class }Adapter;
+00027     
+00028 \}
+00029     \textcolor{keyword}{typedef} heap::Base * heap\_type;
+00030 \}
+00031 \}
+00032 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00033 \textcolor{comment}{// class declarations}
+00034 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+\hypertarget{memory__heap__base_8h_source_l00038}{}\hyperlink{classhryky_1_1memory_1_1heap_1_1_base}{00038} \textcolor{comment}{}\textcolor{keyword}{class }\hyperlink{classhryky_1_1memory_1_1heap_1_1_base}{hryky::memory::heap::Base}
+00039 \{
+00040 \textcolor{keyword}{public} :
+00041 
+\hypertarget{memory__heap__base_8h_source_l00050}{}\hyperlink{classhryky_1_1memory_1_1heap_1_1_base_a068b1ee5b4e759df5e19dff37eecaf92}{00050}     \textcolor{keywordtype}{void} * \hyperlink{classhryky_1_1memory_1_1heap_1_1_base_a068b1ee5b4e759df5e19dff37eecaf92}{allocate}(\textcolor{keywordtype}{size\_t} \textcolor{keyword}{const} size) \{
+00051         \textcolor{keywordflow}{return} this->allocate\_impl(size);
+00052     \}
+00053 
+\hypertarget{memory__heap__base_8h_source_l00059}{}\hyperlink{classhryky_1_1memory_1_1heap_1_1_base_ac9629d3eb869729c475d9c8edf28461c}{00059}     \textcolor{keyword}{virtual} \textcolor{keywordtype}{bool} \hyperlink{classhryky_1_1memory_1_1heap_1_1_base_ac9629d3eb869729c475d9c8edf28461c}{deallocate}(\textcolor{keywordtype}{void} * \textcolor{keyword}{const} address) \{
+00060         \textcolor{keywordflow}{return} this->deallocate\_impl(address);
+00061     \}
+00062 
+\hypertarget{memory__heap__base_8h_source_l00067}{}\hyperlink{classhryky_1_1memory_1_1heap_1_1_base_ae760477ddca7ffdfc1e950946d9179fb}{00067}     \textcolor{keywordtype}{size\_t} \hyperlink{classhryky_1_1memory_1_1heap_1_1_base_ae760477ddca7ffdfc1e950946d9179fb}{allocatable_size}()\textcolor{keyword}{ const}
+00068 \textcolor{keyword}{    }\{
+00069         \textcolor{keywordflow}{return} this->allocatable\_size\_impl();
+00070     \}
+00071 
+00073     \textcolor{keyword}{template} < \textcolor{keyword}{typename} ValueT >
+00074     ValueT * \hyperlink{classhryky_1_1memory_1_1heap_1_1_base_a147663574da9f0202cbfbc139358ae6b}{instantiate}();
+00075 
+00077     \textcolor{keyword}{template} <\textcolor{keyword}{typename} ValueT>
+00078     ValueT * \hyperlink{classhryky_1_1memory_1_1heap_1_1_base_a147663574da9f0202cbfbc139358ae6b}{instantiate}(ValueT \textcolor{keyword}{const} & rhs);
+00079 
+00081     \textcolor{keyword}{template} <\textcolor{keyword}{typename} ValueT>
+00082     \textcolor{keywordtype}{void} \hyperlink{classhryky_1_1memory_1_1heap_1_1_base_a03d3126311af90ea5c9807425fb971a6}{release}(ValueT * \textcolor{keyword}{const} instance);
+00083 
+00084 \textcolor{keyword}{private} :
+00085 
+00089     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} * allocate\_impl(\textcolor{keywordtype}{size\_t} \textcolor{keyword}{const} size) = 0;
+00090     
+00091 
+00095     \textcolor{keyword}{virtual} \textcolor{keywordtype}{bool} deallocate\_impl(\textcolor{keywordtype}{void} * \textcolor{keyword}{const} address) = 0;
+00096 
+00100     \textcolor{keyword}{virtual} \textcolor{keywordtype}{size\_t} allocatable\_size\_impl() \textcolor{keyword}{const} = 0;
+00101     
+00102 \};
+00106 \textcolor{keyword}{template} < \textcolor{keyword}{typename} ImplT >
+\hypertarget{memory__heap__base_8h_source_l00107}{}\hyperlink{classhryky_1_1memory_1_1heap_1_1_adapter}{00107} \textcolor{keyword}{class }\hyperlink{classhryky_1_1memory_1_1heap_1_1_adapter}{hryky::memory::heap::Adapter}
+00108     : \textcolor{keyword}{public} \hyperlink{classhryky_1_1memory_1_1heap_1_1_base}{hryky::memory::heap::Base}
+00109 \{
+00110 \textcolor{keyword}{public} :
+00111 
+\hypertarget{memory__heap__base_8h_source_l00112}{}\hyperlink{classhryky_1_1memory_1_1heap_1_1_adapter_a9087ede8b831771da3798c41cfb8b8e7}{00112}     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1memory_1_1heap_1_1_adapter}{Adapter<ImplT>}      \hyperlink{classhryky_1_1memory_1_1heap_1_1_adapter_a9087ede8b831771da3798c41cfb8b8e7}{this_type};
+\hypertarget{memory__heap__base_8h_source_l00113}{}\hyperlink{classhryky_1_1memory_1_1heap_1_1_adapter_a69dfccb0d6f7aa6aeef6bd65841a76d9}{00113}     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1memory_1_1heap_1_1_base}{Base}                \hyperlink{classhryky_1_1memory_1_1heap_1_1_adapter_a69dfccb0d6f7aa6aeef6bd65841a76d9}{base_type};
+00114     \textcolor{keyword}{typedef} ImplT               value\_type;
+00115     \textcolor{keyword}{typedef} ImplT &             reference;
+00116 
+00118     \hyperlink{classhryky_1_1memory_1_1heap_1_1_adapter_a7f9d6a8bed08928631c24e6bf74f581b}{Adapter}(reference impl);
+00119 
+00120 \textcolor{keyword}{protected} :
+00121 
+\hypertarget{memory__heap__base_8h_source_l00125}{}\hyperlink{classhryky_1_1memory_1_1heap_1_1_adapter_a630650b1be0542f99c920da0f34aa6e4}{00125}     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} * \hyperlink{classhryky_1_1memory_1_1heap_1_1_adapter_a630650b1be0542f99c920da0f34aa6e4}{allocate_impl}(\textcolor{keywordtype}{size\_t} \textcolor{keyword}{const} size) \{
+00126         \textcolor{keywordflow}{return} this->impl\_.allocate(size);
+00127     \}
+00128 
+\hypertarget{memory__heap__base_8h_source_l00132}{}\hyperlink{classhryky_1_1memory_1_1heap_1_1_adapter_a9f41a74072b1ed33925ed6d30d077cb0}{00132}     \textcolor{keyword}{virtual} \textcolor{keywordtype}{bool} \hyperlink{classhryky_1_1memory_1_1heap_1_1_adapter_a9f41a74072b1ed33925ed6d30d077cb0}{deallocate_impl}(\textcolor{keywordtype}{void} * \textcolor{keyword}{const} address) \{
+00133         \textcolor{keywordflow}{return} this->impl\_.deallocate(address);
+00134     \}
+00135 
+\hypertarget{memory__heap__base_8h_source_l00139}{}\hyperlink{classhryky_1_1memory_1_1heap_1_1_adapter_ab42aed85df5a090c225eae420252ba3d}{00139}     \textcolor{keyword}{virtual} \textcolor{keywordtype}{size\_t} \hyperlink{classhryky_1_1memory_1_1heap_1_1_adapter_ab42aed85df5a090c225eae420252ba3d}{allocatable_size_impl}()\textcolor{keyword}{ const}
+00140 \textcolor{keyword}{    }\{
+00141         \textcolor{keywordflow}{return} this->impl\_.allocatable\_size();
+00142     \}
+00143 
+00144 \textcolor{keyword}{private} :
+00145 
+00146     reference   impl\_;
+00147 
+00148 
+00149 \};
+00150 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00151 \textcolor{comment}{// class specializations}
+00152 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00153 \textcolor{keyword}{namespace }hryky
+00154 \{
+00155 \textcolor{keyword}{namespace }memory
+00156 \{
+00157 \textcolor{keyword}{namespace }\hyperlink{namespacehryky_1_1memory_1_1global_a6fc6103f67c837aa0f39b359588409cd}{heap}
+00158 \{
+00159 \}
+00160 \}
+00161 \}
+00162 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00163 \textcolor{comment}{// public member functions}
+00164 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00168 \textcolor{comment}{}\textcolor{keyword}{template} <\textcolor{keyword}{typename} ValueT>
+\hypertarget{memory__heap__base_8h_source_l00169}{}\hyperlink{classhryky_1_1memory_1_1heap_1_1_base_a147663574da9f0202cbfbc139358ae6b}{00169} ValueT * \hyperlink{classhryky_1_1memory_1_1heap_1_1_base_a147663574da9f0202cbfbc139358ae6b}{hryky::memory::heap::Base::instantiate}()
+00170 \{
+00171     ValueT * \textcolor{keyword}{const} instance = \textcolor{keyword}{reinterpret\_cast<}ValueT *\textcolor{keyword}{>}(
+00172         this->\hyperlink{classhryky_1_1memory_1_1heap_1_1_base_a068b1ee5b4e759df5e19dff37eecaf92}{allocate}(\textcolor{keyword}{sizeof}(ValueT)));
+00173     \textcolor{keywordflow}{if} (\hyperlink{common_8h_a4cd4ac09cfcdbd6b30ee69afc156e210}{HRYKY_NULLPTR} == instance) \{
+00174         \textcolor{keywordflow}{return} \hyperlink{common_8h_a4cd4ac09cfcdbd6b30ee69afc156e210}{HRYKY_NULLPTR};
+00175     \}
+00176     \textcolor{keyword}{new} (instance) ValueT;
+00177     
+00178     \textcolor{keywordflow}{return} instance;
+00179 \}
+00183 \textcolor{keyword}{template} <\textcolor{keyword}{typename} ValueT>
+\hypertarget{memory__heap__base_8h_source_l00184}{}\hyperlink{classhryky_1_1memory_1_1heap_1_1_base_a7faca1782110d1dc7089caaede624444}{00184} ValueT * \hyperlink{namespacehryky_a7e731db6d90571cf1aea6e113d43b6ad}{hryky::memory::heap::Base::instantiate}(ValueT \textcolor{keyword}{const} & rhs)
+00185 \{
+00186     ValueT * \textcolor{keyword}{const} instance = \textcolor{keyword}{reinterpret\_cast<}ValueT *\textcolor{keyword}{>}(
+00187         this->allocate(\textcolor{keyword}{sizeof}(ValueT)));
+00188     \textcolor{keywordflow}{if} (\hyperlink{common_8h_a4cd4ac09cfcdbd6b30ee69afc156e210}{HRYKY_NULLPTR} == instance) \{
+00189         \textcolor{keywordflow}{return} \hyperlink{common_8h_a4cd4ac09cfcdbd6b30ee69afc156e210}{HRYKY_NULLPTR};
+00190     \}
+00191     \textcolor{keyword}{new} (instance) ValueT(rhs);
+00192     
+00193     \textcolor{keywordflow}{return} instance;
+00194 \}
+00198 \textcolor{keyword}{template} <\textcolor{keyword}{typename} ValueT>
+\hypertarget{memory__heap__base_8h_source_l00199}{}\hyperlink{classhryky_1_1memory_1_1heap_1_1_base_a03d3126311af90ea5c9807425fb971a6}{00199} \textcolor{keywordtype}{void} \hyperlink{namespacehryky_a9bdf380c3703ef316b807edae92a930a}{hryky::memory::heap::Base::release}(ValueT * \textcolor{keyword}{const} instance)
+00200 \{
+00201     instance->~ValueT();
+00202     this->deallocate(instance);
+00203 \}
+00207 \textcolor{keyword}{template} < \textcolor{keyword}{typename} ImplT >
+\hypertarget{memory__heap__base_8h_source_l00208}{}\hyperlink{classhryky_1_1memory_1_1heap_1_1_adapter_a7f9d6a8bed08928631c24e6bf74f581b}{00208} \hyperlink{classhryky_1_1memory_1_1heap_1_1_adapter}{hryky::memory::heap::Adapter<ImplT>::Adapter}(reference impl)
+00209     : impl\_(impl)
+00210 \{
+00211     \textcolor{keywordflow}{return};
+00212 \}
+00213 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00214 \textcolor{comment}{// protected member functions}
+00215 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00216 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00217 \textcolor{comment}{// private member functions}
+00218 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00219 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00220 \textcolor{comment}{// global function prototypes}
+00221 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00222 \textcolor{keyword}{namespace }hryky
+00223 \{
+00224 \textcolor{keyword}{namespace }memory
+00225 \{
+00226 \textcolor{keyword}{namespace }\hyperlink{namespacehryky_1_1memory_1_1global_a6fc6103f67c837aa0f39b359588409cd}{heap}
+00227 \{
+00228 \}
+00229 \}
+00230 \}
+00231 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00232 \textcolor{comment}{// global function definitions}
+00233 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00234 \textcolor{preprocessor}{#endif // MEMORY\_HEAP\_BASE\_H\_20120311185039451}
+00235 \textcolor{preprocessor}{}\textcolor{comment}{// end of file}
+\end{DoxyCode}

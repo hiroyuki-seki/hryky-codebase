@@ -1,0 +1,128 @@
+\hypertarget{reduction__dispatcher_8h_source}{\section{reduction\-\_\-dispatcher.\-h}
+}
+
+\begin{DoxyCode}
+00001 
+00007 \textcolor{preprocessor}{#ifndef REDUCTION\_DISPATCHER\_H\_20120923230611629}
+00008 \textcolor{preprocessor}{}\textcolor{preprocessor}{#define REDUCTION\_DISPATCHER\_H\_20120923230611629}
+00009 \textcolor{preprocessor}{}\textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00010 \textcolor{comment}{// macro definition}
+00011 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00012 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00013 \textcolor{comment}{// namespace}
+00014 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00015 \textcolor{keyword}{namespace }hryky
+00016 \{
+00017 \textcolor{keyword}{namespace }reduction
+00018 \{
+00020     \textcolor{keyword}{class }Dispatcher;
+00021 
+00022     \textcolor{keyword}{class }Address;
+00023     \textcolor{keyword}{class }Array;
+00024     \textcolor{keyword}{class }Bool;
+00025     \textcolor{keyword}{class }Float;
+00026     \textcolor{keyword}{class }Char;
+00027     \textcolor{keyword}{class }Int;
+00028     \textcolor{keyword}{class }Map;
+00029     \textcolor{keyword}{class }String;
+00030     \textcolor{keyword}{class }Uint;
+00031 
+00032 \} \textcolor{comment}{// namespace reduction}
+00033 \} \textcolor{comment}{// namespace hryky}
+00034 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00035 \textcolor{comment}{// class declarations}
+00036 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+\hypertarget{reduction__dispatcher_8h_source_l00040}{}\hyperlink{classhryky_1_1reduction_1_1_dispatcher}{00040} \textcolor{comment}{}\textcolor{keyword}{class }\hyperlink{classhryky_1_1reduction_1_1_dispatcher}{hryky::reduction::Dispatcher}
+00041 \{
+00042 \textcolor{keyword}{public} :
+00043 
+\hypertarget{reduction__dispatcher_8h_source_l00044}{}\hyperlink{classhryky_1_1reduction_1_1_dispatcher_a8a3ef8b3aa55fc7139de687a9be4f693}{00044}     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1reduction_1_1_dispatcher}{Dispatcher} \hyperlink{classhryky_1_1reduction_1_1_dispatcher_a8a3ef8b3aa55fc7139de687a9be4f693}{this_type};
+00045 
+00047     \textcolor{keyword}{virtual} \hyperlink{classhryky_1_1reduction_1_1_dispatcher_a6bc629fb556cf0f771021bb1087474a8}{~Dispatcher}();
+00048 
+00050     \hyperlink{classhryky_1_1_intrusive_ptr}{reduction_type} \hyperlink{classhryky_1_1reduction_1_1_dispatcher_a776eb4999cca982ff8220cdd4a247685}{reduce}(\hyperlink{classhryky_1_1reduction_1_1_string}{reduction::name_type} \textcolor{keyword}{const} & name) \textcolor{keyword}{const};
+00051 
+00053     \textcolor{keywordtype}{void} \hyperlink{classhryky_1_1reduction_1_1_dispatcher_a04c37d34d2599e7e5954cb974641e6c7}{swap}(\hyperlink{classhryky_1_1reduction_1_1_dispatcher}{this_type} & src);
+00054 
+00055     \textcolor{keyword}{virtual} \textcolor{keywordtype}{bool} operator()(\hyperlink{classhryky_1_1reduction_1_1_address}{Address} \textcolor{keyword}{const} &) = 0;
+00056     \textcolor{keyword}{virtual} \textcolor{keywordtype}{bool} operator()(\hyperlink{classhryky_1_1reduction_1_1_array}{Array} \textcolor{keyword}{const} &) = 0;
+00057     \textcolor{keyword}{virtual} \textcolor{keywordtype}{bool} operator()(\hyperlink{classhryky_1_1reduction_1_1_bool}{Bool} \textcolor{keyword}{const} &) = 0;
+00058     \textcolor{keyword}{virtual} \textcolor{keywordtype}{bool} operator()(\hyperlink{classhryky_1_1reduction_1_1_float}{Float} \textcolor{keyword}{const} &) = 0;
+00059     \textcolor{keyword}{virtual} \textcolor{keywordtype}{bool} operator()(\hyperlink{classhryky_1_1reduction_1_1_int}{Int} \textcolor{keyword}{const} &) = 0;
+00060     \textcolor{keyword}{virtual} \textcolor{keywordtype}{bool} operator()(\hyperlink{classhryky_1_1reduction_1_1_map}{Map} \textcolor{keyword}{const} &) = 0;
+00061     \textcolor{keyword}{virtual} \textcolor{keywordtype}{bool} operator()(\hyperlink{classhryky_1_1reduction_1_1_string}{String} \textcolor{keyword}{const} &) = 0;
+00062     \textcolor{keyword}{virtual} \textcolor{keywordtype}{bool} operator()(\hyperlink{classhryky_1_1reduction_1_1_uint}{Uint} \textcolor{keyword}{const} &) = 0;
+00063     \textcolor{keyword}{virtual} \textcolor{keywordtype}{bool} operator()(\hyperlink{classhryky_1_1reduction_1_1_char}{Char} \textcolor{keyword}{const} &) = 0;
+00064 
+00065 \textcolor{keyword}{protected} :
+00066 
+00068     \hyperlink{classhryky_1_1reduction_1_1_dispatcher_a700388b49ff9e305c873d5f070e38951}{Dispatcher}();
+00069 
+00071     \hyperlink{classhryky_1_1reduction_1_1_dispatcher_a700388b49ff9e305c873d5f070e38951}{Dispatcher}(\hyperlink{classhryky_1_1reduction_1_1_dispatcher}{this_type} \textcolor{keyword}{const} &);
+00072 
+00074     \hyperlink{classhryky_1_1reduction_1_1_dispatcher_a700388b49ff9e305c873d5f070e38951}{Dispatcher}(\hyperlink{classhryky_1_1reduction_1_1_dispatcher}{this_type} && rhs);
+00075 
+\hypertarget{reduction__dispatcher_8h_source_l00077}{}\hyperlink{classhryky_1_1reduction_1_1_dispatcher_a476bd9236d0f139f1d910f3136c338f1}{00077}     \hyperlink{classhryky_1_1reduction_1_1_dispatcher_a476bd9236d0f139f1d910f3136c338f1}{hryky_assign_op};
+00078 
+00080     \textcolor{keywordtype}{void} \hyperlink{classhryky_1_1reduction_1_1_dispatcher_a213555cff0e556163c353f138156891b}{clear}();
+00081 
+00082 \textcolor{keyword}{private} :
+00083 
+00084 \};
+00085 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00086 \textcolor{comment}{// class specializations}
+00087 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00088 \textcolor{keyword}{namespace }hryky
+00089 \{
+00090 \textcolor{keyword}{namespace }reduction
+00091 \{
+00092 \} \textcolor{comment}{// namespace reduction}
+00093 \} \textcolor{comment}{// namespace hryky}
+00094 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00095 \textcolor{comment}{// public member functions}
+00096 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00097 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00098 \textcolor{comment}{// protected member functions}
+00099 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00100 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00101 \textcolor{comment}{// private member functions}
+00102 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00103 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00104 \textcolor{comment}{// global function prototypes}
+00105 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00106 \textcolor{keyword}{namespace }hryky
+00107 \{
+00108 \textcolor{keyword}{namespace }reduction
+00109 \{
+00111     \hyperlink{namespacehryky_a343a9a4c36a586be5c2693156200eadc}{reduction_type} \hyperlink{namespacehryky_1_1reduction_a064022926c530d18aeb1b2abdf71800b}{reduce}(
+00112         \hyperlink{namespacehryky_1_1reduction_ac686c30a4c8d196bbd0f05629a6b921f}{reduction::name_type} \textcolor{keyword}{const} & name, Dispatcher \textcolor{keyword}{const} & src);
+00113 
+00115     \textcolor{keywordtype}{void} \hyperlink{namespacehryky_1_1reduction_a493c83efdf5f9e9c49ba77e1b65325a1}{swap}(
+00116         Dispatcher & lhs, Dispatcher & rhs);
+00117 
+00118 \} \textcolor{comment}{// namespace reduction}
+00119 \} \textcolor{comment}{// namespace hryky}
+00120 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00121 \textcolor{comment}{// global function definitions}
+00122 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00123 \textcolor{preprocessor}{#endif // REDUCTION\_DISPATCHER\_H\_20120923230611629}
+00124 \textcolor{preprocessor}{}\textcolor{comment}{// end of file}
+\end{DoxyCode}

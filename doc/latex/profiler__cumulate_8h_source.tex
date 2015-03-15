@@ -1,0 +1,93 @@
+\hypertarget{profiler__cumulate_8h_source}{\section{profiler\-\_\-cumulate.\-h}
+}
+
+\begin{DoxyCode}
+00001 
+00007 \textcolor{preprocessor}{#ifndef PROFILER\_CUMULATE\_H\_20111213230405627}
+00008 \textcolor{preprocessor}{}\textcolor{preprocessor}{#define PROFILER\_CUMULATE\_H\_20111213230405627}
+00009 \textcolor{preprocessor}{}\textcolor{preprocessor}{#include "\hyperlink{add__reference_8h}{hryky/gp/add_reference.h}"}
+00010 \textcolor{preprocessor}{#include "\hyperlink{clock_8h}{hryky/clock.h}"}
+00011 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00012 \textcolor{comment}{// macro definition}
+00013 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00014 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00015 \textcolor{comment}{// namespace}
+00016 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00017 \textcolor{keyword}{namespace }hryky
+00018 \{
+00019 \textcolor{keyword}{namespace }profiler
+00020 \{
+00022     \textcolor{keyword}{template} < \textcolor{keyword}{typename} ValueT >
+00023     \textcolor{keyword}{class }Cumulate;
+00024 \}
+00025 \}
+00026 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00027 \textcolor{comment}{// class declaration}
+00028 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00032 \textcolor{comment}{}\textcolor{keyword}{template} < \textcolor{keyword}{typename} ValueT >
+\hypertarget{profiler__cumulate_8h_source_l00033}{}\hyperlink{classhryky_1_1profiler_1_1_cumulate}{00033} \textcolor{keyword}{class }\hyperlink{classhryky_1_1profiler_1_1_cumulate}{hryky::profiler::Cumulate}
+00034 \{
+00035 \textcolor{keyword}{public} :
+00036 
+\hypertarget{profiler__cumulate_8h_source_l00038}{}\hyperlink{classhryky_1_1profiler_1_1_cumulate_a940a94f3263b46fa9073b0e99561f39d}{00038}     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1profiler_1_1_cumulate}{hryky::profiler::Cumulate<ValueT>} \hyperlink{classhryky_1_1profiler_1_1_cumulate_a940a94f3263b46fa9073b0e99561f39d}{this_type};
+00039 
+00040     \textcolor{keyword}{typedef} ValueT                                  value\_type;
+00041     \textcolor{keyword}{typedef} \textcolor{keyword}{typename} \hyperlink{classhryky_1_1_add_reference_a4b90c1381625432ba6152b7388bc4399}{AddReference<ValueT>::type}     reference;
+00042 
+\hypertarget{profiler__cumulate_8h_source_l00044}{}\hyperlink{classhryky_1_1profiler_1_1_cumulate_a2f40d09f296a528c8b8fd707b3681534}{00044}     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1profiler_1_1_cumulate}{Cumulate} * \hyperlink{classhryky_1_1profiler_1_1_cumulate_a2f40d09f296a528c8b8fd707b3681534}{instance_type};
+00045 
+00047     \hyperlink{classhryky_1_1profiler_1_1_cumulate}{Cumulate}(\textcolor{keyword}{typename} reference dest);
+00048 
+00050     \hyperlink{classhryky_1_1profiler_1_1_cumulate_aa0f40543187530e3cc2f3deb50a85726}{~Cumulate}();
+00051 
+00052 \textcolor{keyword}{protected} :
+00053 
+00054 \textcolor{keyword}{private} :
+00055 
+00057     \textcolor{keyword}{explicit} \hyperlink{classhryky_1_1profiler_1_1_cumulate}{Cumulate}();
+00058 
+00060     \textcolor{keyword}{explicit} \hyperlink{classhryky_1_1profiler_1_1_cumulate}{Cumulate}(\hyperlink{classhryky_1_1profiler_1_1_cumulate}{Cumulate} \textcolor{keyword}{const} &);
+00061 
+00063     \hyperlink{classhryky_1_1profiler_1_1_cumulate}{Cumulate} & operator=(\hyperlink{classhryky_1_1profiler_1_1_cumulate}{Cumulate} \textcolor{keyword}{const} &rhs);
+00064 
+00065     reference           dest\_;  
+00066     clock::timer\_type   timer\_; 
+00067 
+00068 \};
+00069 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00070 \textcolor{comment}{// public member functions}
+00071 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00075 \textcolor{comment}{}\textcolor{keyword}{template} <\textcolor{keyword}{typename} ValueT>
+\hypertarget{profiler__cumulate_8h_source_l00076}{}\hyperlink{classhryky_1_1profiler_1_1_cumulate_a7dc86263b187cbd5fd60da1e4c3a442b}{00076} \hyperlink{classhryky_1_1profiler_1_1_cumulate}{hryky::profiler::Cumulate<ValueT>::Cumulate}(reference dest)
+00077     : dest\_(dest), timer\_()
+00078 \{
+00079     \textcolor{keywordflow}{return};
+00080 \}
+00084 \textcolor{keyword}{template} <\textcolor{keyword}{typename} ValueT>
+\hypertarget{profiler__cumulate_8h_source_l00085}{}\hyperlink{classhryky_1_1profiler_1_1_cumulate_aa0f40543187530e3cc2f3deb50a85726}{00085} \hyperlink{classhryky_1_1profiler_1_1_cumulate}{hryky::profiler::Cumulate<ValueT>::~Cumulate}()
+00086 \{
+00087     clock::duration\_type \textcolor{keyword}{const} duration = this->timer\_.elapsed();
+00088 
+00089     this->dest\_ += ValueT(duration);
+00090 \}
+00091 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00092 \textcolor{comment}{// protected member functions}
+00093 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00094 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00095 \textcolor{comment}{// private member functions}
+00096 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00097 \textcolor{preprocessor}{#endif // PROFILER\_CUMULATE\_H\_20111213230405627}
+00098 \textcolor{preprocessor}{}\textcolor{comment}{// end of file}
+\end{DoxyCode}

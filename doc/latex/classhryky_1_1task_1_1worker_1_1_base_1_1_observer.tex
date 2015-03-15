@@ -1,0 +1,93 @@
+\hypertarget{classhryky_1_1task_1_1worker_1_1_base_1_1_observer}{\section{hryky\-:\-:task\-:\-:worker\-:\-:Base\-:\-:Observer Class Reference}
+\label{classhryky_1_1task_1_1worker_1_1_base_1_1_observer}\index{hryky\-::task\-::worker\-::\-Base\-::\-Observer@{hryky\-::task\-::worker\-::\-Base\-::\-Observer}}
+}
+
+
+callback functions.  
+
+
+
+
+{\ttfamily \#include $<$task\-\_\-worker\-\_\-base.\-h$>$}
+
+
+
+Inheritance diagram for hryky\-:\-:task\-:\-:worker\-:\-:Base\-:\-:Observer\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=298pt]{classhryky_1_1task_1_1worker_1_1_base_1_1_observer__inherit__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classhryky_1_1task_1_1worker_1_1_base_1_1_observer_aef35602a4e0be27fa2adb725c4e5e1c2}{attach} (\hyperlink{classhryky_1_1task_1_1worker_1_1_base}{attach\-\_\-param\-\_\-type} worker)
+\begin{DoxyCompactList}\small\item\em callback function called just before the worker is attached. \end{DoxyCompactList}\item 
+void \hyperlink{classhryky_1_1task_1_1worker_1_1_base_1_1_observer_a006d60c6079bb4b48d4cdac44b5377db}{detach} (\hyperlink{classhryky_1_1task_1_1worker_1_1_base}{detach\-\_\-param\-\_\-type} worker)
+\begin{DoxyCompactList}\small\item\em callback function called just before the worker is detached. \end{DoxyCompactList}\item 
+void \hyperlink{classhryky_1_1task_1_1worker_1_1_base_1_1_observer_a93a45d6703ea5f96ffaab7fc52cffa73}{error} (error\-\_\-param\-\_\-type param)
+\begin{DoxyCompactList}\small\item\em callback function called just after some error occurs. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+callback functions. 
+
+\subsection{Member Function Documentation}
+\hypertarget{classhryky_1_1task_1_1worker_1_1_base_1_1_observer_aef35602a4e0be27fa2adb725c4e5e1c2}{\index{hryky\-::task\-::worker\-::\-Base\-::\-Observer@{hryky\-::task\-::worker\-::\-Base\-::\-Observer}!attach@{attach}}
+\index{attach@{attach}!hryky::task::worker::Base::Observer@{hryky\-::task\-::worker\-::\-Base\-::\-Observer}}
+\subsubsection[{attach}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf hryky\-::task\-::worker\-::\-Base\-::\-Observer\-::attach} (
+\begin{DoxyParamCaption}
+\item[{{\bf attach\-\_\-param\-\_\-type}}]{worker}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}\label{classhryky_1_1task_1_1worker_1_1_base_1_1_observer_aef35602a4e0be27fa2adb725c4e5e1c2}
+
+
+callback function called just before the worker is attached. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em worker} & is the attached worker.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyItemize}
+\item derived class must implement attach\-\_\-impl(). 
+\end{DoxyItemize}\hypertarget{classhryky_1_1task_1_1worker_1_1_base_1_1_observer_a006d60c6079bb4b48d4cdac44b5377db}{\index{hryky\-::task\-::worker\-::\-Base\-::\-Observer@{hryky\-::task\-::worker\-::\-Base\-::\-Observer}!detach@{detach}}
+\index{detach@{detach}!hryky::task::worker::Base::Observer@{hryky\-::task\-::worker\-::\-Base\-::\-Observer}}
+\subsubsection[{detach}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf hryky\-::task\-::worker\-::\-Base\-::\-Observer\-::detach} (
+\begin{DoxyParamCaption}
+\item[{{\bf detach\-\_\-param\-\_\-type}}]{worker}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}\label{classhryky_1_1task_1_1worker_1_1_base_1_1_observer_a006d60c6079bb4b48d4cdac44b5377db}
+
+
+callback function called just before the worker is detached. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em worker} & is the attached worker.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyItemize}
+\item derived class must implement detach\-\_\-impl(). 
+\end{DoxyItemize}\hypertarget{classhryky_1_1task_1_1worker_1_1_base_1_1_observer_a93a45d6703ea5f96ffaab7fc52cffa73}{\index{hryky\-::task\-::worker\-::\-Base\-::\-Observer@{hryky\-::task\-::worker\-::\-Base\-::\-Observer}!error@{error}}
+\index{error@{error}!hryky::task::worker::Base::Observer@{hryky\-::task\-::worker\-::\-Base\-::\-Observer}}
+\subsubsection[{error}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf hryky\-::task\-::worker\-::\-Base\-::\-Observer\-::error} (
+\begin{DoxyParamCaption}
+\item[{error\-\_\-param\-\_\-type}]{param}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}\label{classhryky_1_1task_1_1worker_1_1_base_1_1_observer_a93a45d6703ea5f96ffaab7fc52cffa73}
+
+
+callback function called just after some error occurs. 
+
+
+\begin{DoxyItemize}
+\item derived class can implement error\-\_\-impl(). 
+\end{DoxyItemize}
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{task__worker__base_8h}{task\-\_\-worker\-\_\-base.\-h}\end{DoxyCompactItemize}

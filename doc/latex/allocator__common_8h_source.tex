@@ -1,0 +1,116 @@
+\hypertarget{allocator__common_8h_source}{\section{allocator\-\_\-common.\-h}
+}
+
+\begin{DoxyCode}
+00001 
+00007 \textcolor{preprocessor}{#ifndef ALLOCATOR\_COMMON\_H\_20121215194753491}
+00008 \textcolor{preprocessor}{}\textcolor{preprocessor}{#define ALLOCATOR\_COMMON\_H\_20121215194753491}
+00009 \textcolor{preprocessor}{}\textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00010 \textcolor{comment}{// macro definition}
+00011 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00012 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00013 \textcolor{comment}{// namespace}
+00014 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00015 \textcolor{keyword}{namespace }hryky
+00016 \{
+00018     \textcolor{keyword}{template} <\textcolor{keyword}{typename} AllocatorT>
+00019     \textcolor{keyword}{typename} AllocatorT::pointer \hyperlink{namespacehryky_a7e731db6d90571cf1aea6e113d43b6ad}{instantiate}(AllocatorT & allocator);
+00020 
+00022     \textcolor{keyword}{template} <\textcolor{keyword}{typename} AllocatorT, \textcolor{keyword}{typename} Arg1T>
+00023     \textcolor{keyword}{typename} AllocatorT::pointer \hyperlink{namespacehryky_a7e731db6d90571cf1aea6e113d43b6ad}{instantiate}(
+00024         AllocatorT & allocator, Arg1T \textcolor{keyword}{const} & arg1);
+00025 
+00027     \textcolor{keyword}{template} <\textcolor{keyword}{typename} AllocatorT, \textcolor{keyword}{typename} Arg1T, \textcolor{keyword}{typename} Arg2T>
+00028     \textcolor{keyword}{typename} AllocatorT::pointer \hyperlink{namespacehryky_a7e731db6d90571cf1aea6e113d43b6ad}{instantiate}(
+00029         AllocatorT & allocator, Arg1T \textcolor{keyword}{const} & arg1, Arg2T \textcolor{keyword}{const} & arg2);
+00030 
+00032     \textcolor{keyword}{template} <\textcolor{keyword}{typename} AllocatorT>
+00033     \textcolor{keywordtype}{void} \hyperlink{namespacehryky_a9bdf380c3703ef316b807edae92a930a}{release}(AllocatorT & allocator, \textcolor{keyword}{typename} AllocatorT::pointer instance)
+      ;
+00034 
+00035 \textcolor{keyword}{namespace }allocator
+00036 \{
+00037 \} \textcolor{comment}{// namespace allocator}
+00038 \} \textcolor{comment}{// namespace hryky}
+00039 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00040 \textcolor{comment}{// struct declaration}
+00041 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00042 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00043 \textcolor{comment}{// class declaration}
+00044 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00045 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00046 \textcolor{comment}{// global function prototypes}
+00047 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00048 \textcolor{keyword}{namespace }hryky
+00049 \{
+00050 \textcolor{keyword}{namespace }allocator
+00051 \{
+00052 \} \textcolor{comment}{// namespace allocator}
+00053 \} \textcolor{comment}{// namespace hryky}
+00054 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00055 \textcolor{comment}{// global function definitions}
+00056 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00060 \textcolor{comment}{}\textcolor{keyword}{template} <\textcolor{keyword}{typename} AllocatorT>
+\hypertarget{allocator__common_8h_source_l00061}{}\hyperlink{namespacehryky_a7e731db6d90571cf1aea6e113d43b6ad}{00061} \textcolor{keyword}{typename} AllocatorT::pointer \hyperlink{namespacehryky_a7e731db6d90571cf1aea6e113d43b6ad}{hryky::instantiate}(AllocatorT & allocator)
+00062 \{
+00063     \textcolor{keyword}{typename} AllocatorT::pointer \textcolor{keyword}{const} instance =
+00064         \textcolor{keyword}{reinterpret\_cast<}typename AllocatorT::pointer\textcolor{keyword}{>}(
+00065             allocator.allocate(1));
+00066     \textcolor{keywordflow}{if} (\hyperlink{common_8h_a4cd4ac09cfcdbd6b30ee69afc156e210}{HRYKY_NULLPTR} == instance) \{
+00067         \textcolor{keywordflow}{return} \hyperlink{common_8h_a4cd4ac09cfcdbd6b30ee69afc156e210}{HRYKY_NULLPTR};
+00068     \}
+00069     \textcolor{keyword}{new} (instance) \textcolor{keyword}{typename} AllocatorT::value\_type;
+00070     
+00071     \textcolor{keywordflow}{return} instance;
+00072 \}
+00076 \textcolor{keyword}{template} <\textcolor{keyword}{typename} AllocatorT, \textcolor{keyword}{typename} Arg1T>
+\hypertarget{allocator__common_8h_source_l00077}{}\hyperlink{namespacehryky_a02b5dc8e5806eb5545fa209d700b7f11}{00077} \textcolor{keyword}{typename} AllocatorT::pointer \hyperlink{namespacehryky_a7e731db6d90571cf1aea6e113d43b6ad}{hryky::instantiate}(
+00078     AllocatorT & allocator, Arg1T \textcolor{keyword}{const} & arg1)
+00079 \{
+00080     \textcolor{keyword}{typename} AllocatorT::pointer \textcolor{keyword}{const} instance =
+00081         \textcolor{keyword}{reinterpret\_cast<}typename AllocatorT::pointer\textcolor{keyword}{>}(allocator.allocate(1));
+00082     \textcolor{keywordflow}{if} (\hyperlink{common_8h_a4cd4ac09cfcdbd6b30ee69afc156e210}{HRYKY_NULLPTR} == instance) \{
+00083         \textcolor{keywordflow}{return} \hyperlink{common_8h_a4cd4ac09cfcdbd6b30ee69afc156e210}{HRYKY_NULLPTR};
+00084     \}
+00085 
+00086     \textcolor{keyword}{new} (instance) \textcolor{keyword}{typename} AllocatorT::value\_type(arg1);
+00087     
+00088     \textcolor{keywordflow}{return} instance;
+00089 \}
+00093 \textcolor{keyword}{template} <\textcolor{keyword}{typename} AllocatorT, \textcolor{keyword}{typename} Arg1T, \textcolor{keyword}{typename} Arg2T>
+\hypertarget{allocator__common_8h_source_l00094}{}\hyperlink{namespacehryky_a0456c0aabb3bf6ffab33cb74f490761a}{00094} \textcolor{keyword}{typename} AllocatorT::pointer \hyperlink{namespacehryky_a7e731db6d90571cf1aea6e113d43b6ad}{hryky::instantiate}(
+00095     AllocatorT & allocator, Arg1T \textcolor{keyword}{const} & arg1, Arg2T \textcolor{keyword}{const} & arg2)
+00096 \{
+00097     \textcolor{keyword}{typename} AllocatorT::pointer \textcolor{keyword}{const} instance =
+00098         \textcolor{keyword}{reinterpret\_cast<}typename AllocatorT::pointer\textcolor{keyword}{>}(allocator.allocate(1));
+00099     \textcolor{keywordflow}{if} (\hyperlink{common_8h_a4cd4ac09cfcdbd6b30ee69afc156e210}{HRYKY_NULLPTR} == instance) \{
+00100         \textcolor{keywordflow}{return} \hyperlink{common_8h_a4cd4ac09cfcdbd6b30ee69afc156e210}{HRYKY_NULLPTR};
+00101     \}
+00102 
+00103     \textcolor{keyword}{new} (instance) \textcolor{keyword}{typename} AllocatorT::value\_type(arg1, arg2);
+00104     
+00105     \textcolor{keywordflow}{return} instance;
+00106 \}
+00110 \textcolor{keyword}{template} <\textcolor{keyword}{typename} AllocatorT>
+\hypertarget{allocator__common_8h_source_l00111}{}\hyperlink{namespacehryky_a9bdf380c3703ef316b807edae92a930a}{00111} \textcolor{keywordtype}{void} \hyperlink{namespacehryky_a9bdf380c3703ef316b807edae92a930a}{hryky::release}(
+00112     AllocatorT & allocator, \textcolor{keyword}{typename} AllocatorT::pointer instance)
+00113 \{
+00114     allocator.destroy(instance);
+00115     allocator.deallocate(instance, 1);
+00116 \}
+00117 
+00118 \textcolor{preprocessor}{#endif // ALLOCATOR\_COMMON\_H\_20121215194753491}
+00119 \textcolor{preprocessor}{}\textcolor{comment}{// end of file}
+\end{DoxyCode}

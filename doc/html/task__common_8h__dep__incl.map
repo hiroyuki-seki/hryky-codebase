@@ -1,0 +1,17 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$task__concurrency_8h.html" title="manages concurrency units." alt="" coords="163,304,299,331"/>
+<area shape="rect" id="node22" href="$task__distributor__base_8h.html" title="attaches workers to the concurrent units." alt="" coords="712,155,869,181"/>
+<area shape="rect" id="node31" href="$task__sequence_8h.html" title="manages workers in a thread." alt="" coords="94,453,215,480"/>
+<area shape="rect" id="node36" href="$task__worker__base_8h.html" title="executes tasks." alt="" coords="443,80,581,107"/>
+<area shape="rect" id="node39" href="$task__worker__batch_8h.html" title="executes tasks in common use." alt="" coords="155,155,297,181"/>
+<area shape="rect" id="node5" href="$task_8h.html" title="task modules." alt="" coords="524,379,583,405"/>
+<area shape="rect" id="node11" href="$task__concurrency_8cpp.html" title="manages concurrent units." alt="" coords="37,528,187,555"/>
+<area shape="rect" id="node13" href="$task__distributor__base_8cpp.html" title="attaches workers to the concurrent units." alt="" coords="699,528,869,555"/>
+<area shape="rect" id="node15" href="$task__sequence_8cpp.html" title="manages workers in a thread." alt="" coords="211,528,345,555"/>
+<area shape="rect" id="node7" href="$hryky_8h.html" title="include the entire headers of hryky&#45;codebase." alt="" coords="521,453,585,480"/>
+<area shape="rect" id="node9" href="$task_2src_2precompiled_8h_source.html" title="precompiled.h" alt="" coords="342,453,444,480"/>
+<area shape="rect" id="node17" href="$task__worker__base_8cpp.html" title="executes tasks." alt="" coords="371,528,523,555"/>
+<area shape="rect" id="node24" href="$task__distributor__impl_8h.html" title="base class of implementation for task::distributor::Base." alt="" coords="713,229,865,256"/>
+<area shape="rect" id="node26" href="$task__distributor__batch_8h.html" title="manages workers which executes multiple tasks." alt="" coords="662,304,823,331"/>
+<area shape="rect" id="node42" href="$task__worker__quicksort_8h.html" title="executes quick&#45;sort concurrently." alt="" coords="373,155,536,181"/>
+</map>

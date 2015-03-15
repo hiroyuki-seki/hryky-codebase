@@ -1,0 +1,4 @@
+<map id="G" name="G">
+<area shape="rect" id="node1" href="$classhryky_1_1memory_1_1heap_1_1_base.html" title="interface of dynamic memory allocation." alt="" coords="6,5,189,32"/>
+<area shape="rect" id="node3" href="$classhryky_1_1memory_1_1heap_1_1_adapter.html" title="facilitate the definition of a derived class from hryky::memory::heap::Base." alt="" coords="237,5,491,32"/>
+</map>

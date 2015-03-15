@@ -1,0 +1,51 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$debug__source_8h.html" title="retains a debugging information of source position." alt="" coords="368,80,483,107"/>
+<area shape="rect" id="node28" href="$log__writer__file_8h.html" title="output log message." alt="" coords="5,304,115,331"/>
+<area shape="rect" id="node45" href="$display__driver_8h.html" title="retains the information of each display driver." alt="" coords="2733,453,2843,480"/>
+<area shape="rect" id="node63" href="$display__common_8h.html" title="common definitions of display module." alt="" coords="2636,155,2767,181"/>
+<area shape="rect" id="node79" href="$error__string_8h.html" title="holds the message about the error as string." alt="" coords="2797,80,2896,107"/>
+<area shape="rect" id="node86" href="$reduction__base_8h.html" title="the interface of decomposing." alt="" coords="1558,155,1679,181"/>
+<area shape="rect" id="node112" href="$reduction__string_8h.html" title="primitive type of reduction as string." alt="" coords="2377,229,2503,256"/>
+<area shape="rect" id="node127" href="$uri__entity_8h.html" title="retains the information of URI." alt="" coords="3017,80,3103,107"/>
+<area shape="rect" id="node133" href="$win32__common_8h.html" title="common utilities for win32." alt="" coords="3152,80,3275,107"/>
+<area shape="rect" id="node5" href="$ascii__common_8cpp.html" title="utility for US&#45;ASCII." alt="" coords="268,379,399,405"/>
+<area shape="rect" id="node7" href="$intrusive__ptr_8h.html" title="basic functionality of intrusive pointer." alt="" coords="575,155,677,181"/>
+<area shape="rect" id="node17" href="$log__writer__common_8h.html" title="functions for log writer." alt="" coords="279,304,424,331"/>
+<area shape="rect" id="node58" href="$debug_8h.html" title="collection of hryky::debug module." alt="" coords="330,155,397,181"/>
+<area shape="rect" id="node60" href="$debug__source_8cpp.html" title="retains a debugging information of source position." alt="" coords="423,155,551,181"/>
+<area shape="rect" id="node9" href="$bitfield_8h.html" title="initializes and clears bitfields." alt="" coords="381,229,451,256"/>
+<area shape="rect" id="node11" href="$literal__string_8cpp.html" title="retains a literal string." alt="" coords="551,379,668,405"/>
+<area shape="rect" id="node13" href="$date__entity_8cpp.html" title="retains a month and a day." alt="" coords="1083,379,1193,405"/>
+<area shape="rect" id="node15" href="$log__writer__base_8h.html" title="output log message [interface]." alt="" coords="81,229,204,256"/>
+<area shape="rect" id="node34" href="$reduction__map_8h.html" title="aggregates the multiple named values with each name." alt="" coords="578,229,696,256"/>
+<area shape="rect" id="node24" href="$log_8h.html" title="collection of the log modules." alt="" coords="44,379,95,405"/>
+<area shape="rect" id="node20" href="$parser__base_8h.html" title="base class for parsing syntax." alt="" coords="423,379,527,405"/>
+<area shape="rect" id="node22" href="$debug__common_8cpp.html" title="common definitions of debug module." alt="" coords="692,379,831,405"/>
+<area shape="rect" id="node26" href="$display__driver_8cpp.html" title="retains the information of each display driver." alt="" coords="1347,528,1472,555"/>
+<area shape="rect" id="node31" href="$log__writer__file_8cpp.html" title="output log message." alt="" coords="119,379,244,405"/>
+<area shape="rect" id="node37" href="$display__environment_8h.html" title="collects the available display environments." alt="" coords="2637,528,2787,555"/>
+<area shape="rect" id="node41" href="$display__mode_8h.html" title="retains the information of the resolution and color format of a display." alt="" coords="2901,304,3013,331"/>
+<area shape="rect" id="node52" href="$reduction_8h.html" title="reduces instances to primitive objects." alt="" coords="1366,304,1452,331"/>
+<area shape="rect" id="node39" href="$display_8h.html" title="collection of the display modules." alt="" coords="2889,603,2964,629"/>
+<area shape="rect" id="node43" href="$display__screen_8h.html" title="retains the information of each display screen." alt="" coords="2844,379,2964,405"/>
+<area shape="rect" id="node65" href="$display__config_8h.html" title="retains the configuration of display." alt="" coords="2951,229,3065,256"/>
+<area shape="rect" id="node72" href="$display__traverser_8h.html" title="traverses the all display configurations in the environment." alt="" coords="2543,453,2673,480"/>
+<area shape="rect" id="node76" href="$display__common_8cpp.html" title="common definitions of display module." alt="" coords="2629,229,2773,256"/>
+<area shape="rect" id="node81" href="$error_8h.html" title="modules to handle errors." alt="" coords="2927,155,2985,181"/>
+<area shape="rect" id="node83" href="$error__string_8cpp.html" title="holds the string about the error as string." alt="" coords="2791,155,2903,181"/>
+<area shape="rect" id="node88" href="$http__entity_8h.html" title="retains the information about a HTTP Message." alt="" coords="1903,229,1997,256"/>
+<area shape="rect" id="node91" href="$pixel__format_8cpp.html" title="represents pixel format." alt="" coords="2236,229,2353,256"/>
+<area shape="rect" id="node93" href="$reduction__address_8h.html" title="primitive type of reduction as memory address." alt="" coords="2073,229,2212,256"/>
+<area shape="rect" id="node96" href="$reduction__array_8h.html" title="aggregates the multiple values without their names." alt="" coords="1204,229,1327,256"/>
+<area shape="rect" id="node99" href="$reduction__bool_8h.html" title="primitive type of reduction as boolean." alt="" coords="1351,229,1468,256"/>
+<area shape="rect" id="node102" href="$reduction__char_8h.html" title="primitive type of reduction for char." alt="" coords="721,229,839,256"/>
+<area shape="rect" id="node105" href="$reduction__float_8h.html" title="primitive type of reduction as floating point." alt="" coords="1492,229,1609,256"/>
+<area shape="rect" id="node108" href="$reduction__int_8h.html" title="primitive type of reduction as signed integer." alt="" coords="1633,229,1740,256"/>
+<area shape="rect" id="node118" href="$reduction__uint_8h.html" title="primitive type of reduction as unsigned integer." alt="" coords="1764,229,1879,256"/>
+<area shape="rect" id="node122" href="$reduction__base_8cpp.html" title="the interface of decomposing." alt="" coords="863,229,997,256"/>
+<area shape="rect" id="node124" href="$reduction__common_8cpp.html" title="common definitions of reduce(." alt="" coords="1023,229,1180,256"/>
+<area shape="rect" id="node116" href="$reduction__string_8cpp.html" title="primitive type of reduction as string." alt="" coords="2364,304,2503,331"/>
+<area shape="rect" id="node129" href="$uri_8h.html" title="modules to handle URI." alt="" coords="3134,155,3180,181"/>
+<area shape="rect" id="node131" href="$uri__entity_8cpp.html" title="retains the information of URI." alt="" coords="3010,155,3109,181"/>
+<area shape="rect" id="node135" href="$win32_8h.html" title="modules depending on Win32 API." alt="" coords="3205,155,3272,181"/>
+</map>

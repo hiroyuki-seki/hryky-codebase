@@ -1,0 +1,108 @@
+\hypertarget{classhryky_1_1_any}{\section{hryky\-:\-:Any$<$ Allocator\-T $>$ Class Template Reference}
+\label{classhryky_1_1_any}\index{hryky\-::\-Any$<$ Allocator\-T $>$@{hryky\-::\-Any$<$ Allocator\-T $>$}}
+}
+
+
+arbitrary typed value without polymorphism.  
+
+
+
+
+{\ttfamily \#include $<$any.\-h$>$}
+
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classhryky_1_1_any_accb3d649460111ed6f04293f3e5865bc}{typedef \hyperlink{classhryky_1_1_any}{Any}$<$ Allocator\-T $>$ \hyperlink{classhryky_1_1_any_accb3d649460111ed6f04293f3e5865bc}{this\-\_\-type}}\label{classhryky_1_1_any_accb3d649460111ed6f04293f3e5865bc}
+
+\begin{DoxyCompactList}\small\item\em self. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classhryky_1_1_any_a3d0d9135c798b3bfb4428fc04f168414}{\hyperlink{classhryky_1_1_any_a3d0d9135c798b3bfb4428fc04f168414}{Any} ()}\label{classhryky_1_1_any_a3d0d9135c798b3bfb4428fc04f168414}
+
+\begin{DoxyCompactList}\small\item\em default constructor. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1_any_aa95b8ee5fd959cbcf14a63ba5fe40ab1}{\hyperlink{classhryky_1_1_any_aa95b8ee5fd959cbcf14a63ba5fe40ab1}{Any} (\hyperlink{classhryky_1_1_any_accb3d649460111ed6f04293f3e5865bc}{this\-\_\-type} const \&)}\label{classhryky_1_1_any_aa95b8ee5fd959cbcf14a63ba5fe40ab1}
+
+\begin{DoxyCompactList}\small\item\em copy constructor. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1_any_a4ceb1ab2d59e3d07a6dd1186ecb2b2c5}{\hyperlink{classhryky_1_1_any_a4ceb1ab2d59e3d07a6dd1186ecb2b2c5}{Any} (\hyperlink{classhryky_1_1_any_accb3d649460111ed6f04293f3e5865bc}{this\-\_\-type} \&\&rhs)}\label{classhryky_1_1_any_a4ceb1ab2d59e3d07a6dd1186ecb2b2c5}
+
+\begin{DoxyCompactList}\small\item\em copy constructor by rvalue reference. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1_any_a29310c8ac9eb7914a68da33ac430ba9f}{{\footnotesize template$<$typename Value\-T $>$ }\\\hyperlink{classhryky_1_1_any_a29310c8ac9eb7914a68da33ac430ba9f}{Any} (Value\-T const rhs, typename \hyperlink{classhryky_1_1_enable_if}{Enable\-If}$<$ \hyperlink{classhryky_1_1_is_unsigned}{Is\-Unsigned}$<$ Value\-T $>$ $>$\-::type $\ast$=\hyperlink{common_8h_a4cd4ac09cfcdbd6b30ee69afc156e210}{H\-R\-Y\-K\-Y\-\_\-\-N\-U\-L\-L\-P\-T\-R})}\label{classhryky_1_1_any_a29310c8ac9eb7914a68da33ac430ba9f}
+
+\begin{DoxyCompactList}\small\item\em constructor with an unsigned integer value. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1_any_a4e101053b5c51d90939b458f7243a420}{{\footnotesize template$<$typename Value\-T $>$ }\\\hyperlink{classhryky_1_1_any_a4e101053b5c51d90939b458f7243a420}{Any} (Value\-T const rhs, typename \hyperlink{classhryky_1_1_enable_if}{Enable\-If}$<$ \hyperlink{classhryky_1_1_is_signed}{Is\-Signed}$<$ Value\-T $>$ $>$\-::type $\ast$=\hyperlink{common_8h_a4cd4ac09cfcdbd6b30ee69afc156e210}{H\-R\-Y\-K\-Y\-\_\-\-N\-U\-L\-L\-P\-T\-R})}\label{classhryky_1_1_any_a4e101053b5c51d90939b458f7243a420}
+
+\begin{DoxyCompactList}\small\item\em constructor with an signed integer value. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1_any_aeb3fe2ce3157fc1d59d5f681c41d4aed}{{\footnotesize template$<$typename Value\-T $>$ }\\\hyperlink{classhryky_1_1_any_aeb3fe2ce3157fc1d59d5f681c41d4aed}{Any} (Value\-T const rhs, typename \hyperlink{classhryky_1_1_enable_if}{Enable\-If}$<$ \hyperlink{classhryky_1_1_is_floating_point}{Is\-Floating\-Point}$<$ Value\-T $>$ $>$\-::type $\ast$=\hyperlink{common_8h_a4cd4ac09cfcdbd6b30ee69afc156e210}{H\-R\-Y\-K\-Y\-\_\-\-N\-U\-L\-L\-P\-T\-R})}\label{classhryky_1_1_any_aeb3fe2ce3157fc1d59d5f681c41d4aed}
+
+\begin{DoxyCompactList}\small\item\em constructor with an floatint point value. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1_any_abc9a34a6126cea0b2449159c5d121d46}{{\footnotesize template$<$typename Value\-T $>$ }\\\hyperlink{classhryky_1_1_any_abc9a34a6126cea0b2449159c5d121d46}{Any} (Value\-T const rhs, typename \hyperlink{classhryky_1_1_enable_if}{Enable\-If}$<$ \hyperlink{classhryky_1_1_is_enum}{Is\-Enum}$<$ Value\-T $>$ $>$\-::type $\ast$=\hyperlink{common_8h_a4cd4ac09cfcdbd6b30ee69afc156e210}{H\-R\-Y\-K\-Y\-\_\-\-N\-U\-L\-L\-P\-T\-R})}\label{classhryky_1_1_any_abc9a34a6126cea0b2449159c5d121d46}
+
+\begin{DoxyCompactList}\small\item\em constructor with an enum value. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1_any_a1634e976c18ada5c81aec15178cc9c4f}{{\footnotesize template$<$typename Value\-T $>$ }\\\hyperlink{classhryky_1_1_any_a1634e976c18ada5c81aec15178cc9c4f}{Any} (Value\-T const \&obj, allocator\-\_\-type const \&allocator)}\label{classhryky_1_1_any_a1634e976c18ada5c81aec15178cc9c4f}
+
+\begin{DoxyCompactList}\small\item\em constructor with an arbitrary type of value. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1_any_ac0e23acd8cc393f4f9c4188229cb9c9e}{{\footnotesize template$<$typename Value\-T $>$ }\\Value\-T \hyperlink{classhryky_1_1_any_ac0e23acd8cc393f4f9c4188229cb9c9e}{cast} (typename \hyperlink{classhryky_1_1_enable_if}{Enable\-If}$<$ \hyperlink{classhryky_1_1_is_numeric}{Is\-Numeric}$<$ Value\-T $>$ $>$\-::type $\ast$=\hyperlink{common_8h_a4cd4ac09cfcdbd6b30ee69afc156e210}{H\-R\-Y\-K\-Y\-\_\-\-N\-U\-L\-L\-P\-T\-R}) const }\label{classhryky_1_1_any_ac0e23acd8cc393f4f9c4188229cb9c9e}
+
+\begin{DoxyCompactList}\small\item\em casts to a numeric value. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1_any_a37e3de98575a1b8c72a0fb7f5df978b7}{{\footnotesize template$<$typename Value\-T $>$ }\\Value\-T \hyperlink{classhryky_1_1_any_a37e3de98575a1b8c72a0fb7f5df978b7}{cast} (typename \hyperlink{classhryky_1_1_enable_if}{Enable\-If}$<$ \hyperlink{classhryky_1_1_is_enum}{Is\-Enum}$<$ Value\-T $>$ $>$\-::type $\ast$=\hyperlink{common_8h_a4cd4ac09cfcdbd6b30ee69afc156e210}{H\-R\-Y\-K\-Y\-\_\-\-N\-U\-L\-L\-P\-T\-R}) const }\label{classhryky_1_1_any_a37e3de98575a1b8c72a0fb7f5df978b7}
+
+\begin{DoxyCompactList}\small\item\em casts to an enum value. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Value\-T $>$ }\\Value\-T $\ast$ \hyperlink{classhryky_1_1_any_a37f25821261f4c71fbe4f319837d327d}{cast} (typename \hyperlink{classhryky_1_1_disable_if}{Disable\-If}$<$ \hyperlink{classhryky_1_1_or}{Or}$<$ \hyperlink{classhryky_1_1_is_numeric}{Is\-Numeric}$<$ Value\-T $>$, \hyperlink{classhryky_1_1_is_enum}{Is\-Enum}$<$ Value\-T $>$ $>$ $>$\-::type $\ast$=\hyperlink{common_8h_a4cd4ac09cfcdbd6b30ee69afc156e210}{H\-R\-Y\-K\-Y\-\_\-\-N\-U\-L\-L\-P\-T\-R})
+\begin{DoxyCompactList}\small\item\em casts to an arbitrary type. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1_any_af8beccd8c9d59f2c45fc4c1037eb5d94}{{\footnotesize template$<$typename Value\-T $>$ }\\Value\-T const $\ast$ \hyperlink{classhryky_1_1_any_af8beccd8c9d59f2c45fc4c1037eb5d94}{cast} (typename \hyperlink{classhryky_1_1_disable_if}{Disable\-If}$<$ \hyperlink{classhryky_1_1_or}{Or}$<$ \hyperlink{classhryky_1_1_is_numeric}{Is\-Numeric}$<$ Value\-T $>$, \hyperlink{classhryky_1_1_is_enum}{Is\-Enum}$<$ Value\-T $>$ $>$ $>$\-::type $\ast$=\hyperlink{common_8h_a4cd4ac09cfcdbd6b30ee69afc156e210}{H\-R\-Y\-K\-Y\-\_\-\-N\-U\-L\-L\-P\-T\-R}) const }\label{classhryky_1_1_any_af8beccd8c9d59f2c45fc4c1037eb5d94}
+
+\begin{DoxyCompactList}\small\item\em casts to an arbitrary immutable type. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1_any_a307624acbd5252242b0665a0d5d5e62e}{void \hyperlink{classhryky_1_1_any_a307624acbd5252242b0665a0d5d5e62e}{clear} ()}\label{classhryky_1_1_any_a307624acbd5252242b0665a0d5d5e62e}
+
+\begin{DoxyCompactList}\small\item\em releases the internal resources. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1_any_a84875d62c0f9f76ddcfb896b8ab6a275}{{\footnotesize template$<$typename Value\-T $>$ }\\\hyperlink{classhryky_1_1_any_accb3d649460111ed6f04293f3e5865bc}{this\-\_\-type} \& \hyperlink{classhryky_1_1_any_a84875d62c0f9f76ddcfb896b8ab6a275}{operator=} (Value\-T const \&rhs)}\label{classhryky_1_1_any_a84875d62c0f9f76ddcfb896b8ab6a275}
+
+\begin{DoxyCompactList}\small\item\em assignment operator for arbitrary type. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1_any_a53cbd925fa67505daab6e79749559517}{\hyperlink{namespacehryky_a343a9a4c36a586be5c2693156200eadc}{reduction\-\_\-type} \hyperlink{classhryky_1_1_any_a53cbd925fa67505daab6e79749559517}{reduce} (\hyperlink{namespacehryky_1_1reduction_ac686c30a4c8d196bbd0f05629a6b921f}{reduction\-::name\-\_\-type} const \&name) const }\label{classhryky_1_1_any_a53cbd925fa67505daab6e79749559517}
+
+\begin{DoxyCompactList}\small\item\em decomposes the instance to primitive objects. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1_any_a1603aaa3243f8aaae407c6a5e4287bb6}{void \hyperlink{classhryky_1_1_any_a1603aaa3243f8aaae407c6a5e4287bb6}{swap} (\hyperlink{classhryky_1_1_any_accb3d649460111ed6f04293f3e5865bc}{this\-\_\-type} \&src)}\label{classhryky_1_1_any_a1603aaa3243f8aaae407c6a5e4287bb6}
+
+\begin{DoxyCompactList}\small\item\em interchanges the each internal resources of two instances. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1_any_a17068d39ea56f8b086e4c97086082b30}{\hyperlink{classhryky_1_1type_1_1_info}{type\-::info\-\_\-type} const \& \hyperlink{classhryky_1_1_any_a17068d39ea56f8b086e4c97086082b30}{type\-\_\-info} () const }\label{classhryky_1_1_any_a17068d39ea56f8b086e4c97086082b30}
+
+\begin{DoxyCompactList}\small\item\em retrieves the information of the internal type. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1_any_a703e5beebe52102b0db2cef37f92df3f}{\hyperlink{classhryky_1_1_any_a703e5beebe52102b0db2cef37f92df3f}{$\sim$\-Any} ()}\label{classhryky_1_1_any_a703e5beebe52102b0db2cef37f92df3f}
+
+\begin{DoxyCompactList}\small\item\em destructor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classhryky_1_1_any_a1c57a0eab6d8c5b21bc607eb2c2b0a76}{\hyperlink{classhryky_1_1_any_a1c57a0eab6d8c5b21bc607eb2c2b0a76}{hryky\-\_\-assign\-\_\-op}}\label{classhryky_1_1_any_a1c57a0eab6d8c5b21bc607eb2c2b0a76}
+
+\begin{DoxyCompactList}\small\item\em assignment operator. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$typename Allocator\-T = allocator\-::\-Heap$<$int$>$$>$class hryky\-::\-Any$<$ Allocator\-T $>$}
+
+arbitrary typed value without polymorphism. 
+
+\subsection{Member Function Documentation}
+\hypertarget{classhryky_1_1_any_a37f25821261f4c71fbe4f319837d327d}{\index{hryky\-::\-Any@{hryky\-::\-Any}!cast@{cast}}
+\index{cast@{cast}!hryky::Any@{hryky\-::\-Any}}
+\subsubsection[{cast}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Allocator\-T $>$ template$<$typename Value\-T $>$ Value\-T $\ast$ {\bf hryky\-::\-Any}$<$ Allocator\-T $>$\-::{\bf cast} (
+\begin{DoxyParamCaption}
+\item[{typename {\bf Disable\-If}$<$ {\bf Or}$<$ {\bf Is\-Numeric}$<$ Value\-T $>$, {\bf Is\-Enum}$<$ Value\-T $>$ $>$ $>$\-::type $\ast$}]{ = {\ttfamily {\bf H\-R\-Y\-K\-Y\-\_\-\-N\-U\-L\-L\-P\-T\-R}}}
+\end{DoxyParamCaption}
+)}}\label{classhryky_1_1_any_a37f25821261f4c71fbe4f319837d327d}
+
+
+casts to an arbitrary type. 
+
+casts to an arbitrary mutable type. 
+
+References \hyperlink{log__writer__common_8h_ae5ad3dabb33f594695ef40753cb78aad}{hryky\-\_\-log\-\_\-err}, and \hyperlink{common_8h_a4cd4ac09cfcdbd6b30ee69afc156e210}{H\-R\-Y\-K\-Y\-\_\-\-N\-U\-L\-L\-P\-T\-R}.
+
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{any_8h}{any.\-h}\end{DoxyCompactItemize}

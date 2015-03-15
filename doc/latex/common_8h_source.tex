@@ -1,0 +1,142 @@
+\hypertarget{common_8h_source}{\section{common.\-h}
+}
+
+\begin{DoxyCode}
+00001 
+00007 \textcolor{preprocessor}{#ifndef COMMON\_H\_20111021154357322}
+00008 \textcolor{preprocessor}{}\textcolor{preprocessor}{#define COMMON\_H\_20111021154357322}
+00009 \textcolor{preprocessor}{}\textcolor{preprocessor}{#include "\hyperlink{stdint_8h}{hryky/stdint.h}"}
+00010 \textcolor{preprocessor}{#include "\hyperlink{noncopyable_8h}{hryky/noncopyable.h}"}
+00011 \textcolor{preprocessor}{#include "\hyperlink{gp_8h}{hryky/gp.h}"}
+00012 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00013 \textcolor{comment}{// macro definition}
+00014 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00015 
+\hypertarget{common_8h_source_l00017}{}\hyperlink{common_8h_a4cd4ac09cfcdbd6b30ee69afc156e210}{00017} \textcolor{preprocessor}{#define HRYKY\_NULLPTR   nullptr}
+00018 \textcolor{preprocessor}{}
+\hypertarget{common_8h_source_l00020}{}\hyperlink{common_8h_a9ab2728caa46163f328bd32fe4d9ff12}{00020} \textcolor{preprocessor}{#define HRYKY\_LITERAL\_STRING(value) \(\backslash\)}
+00021 \textcolor{preprocessor}{    hryky::LiteralString(#value)}
+00022 \textcolor{preprocessor}{}
+00023 \textcolor{preprocessor}{#define hryky\_assign\_op \(\backslash\)}
+00024 \textcolor{preprocessor}{    this\_type & operator=(this\_type const & rhs) \(\backslash\)}
+00025 \textcolor{preprocessor}{    \{ \(\backslash\)}
+00026 \textcolor{preprocessor}{        if (this == &rhs) \{ return *this; \} \(\backslash\)}
+00027 \textcolor{preprocessor}{        this\_type(rhs).swap(*this); \(\backslash\)}
+00028 \textcolor{preprocessor}{        return *this; \(\backslash\)}
+00029 \textcolor{preprocessor}{    \}}
+00030 \textcolor{preprocessor}{}
+00031 \textcolor{preprocessor}{#define hryky\_copy\_member(name) \(\backslash\)}
+00032 \textcolor{preprocessor}{    name##\_(rhs.##name##\_)}
+00033 \textcolor{preprocessor}{}
+00034 \textcolor{preprocessor}{#define hryky\_rvalue\_init(name) \(\backslash\)}
+00035 \textcolor{preprocessor}{    name##\_(std::move(rhs.##name##\_))}
+00036 \textcolor{preprocessor}{}
+00037 \textcolor{preprocessor}{#define hryky\_swap\_member(name) \(\backslash\)}
+00038 \textcolor{preprocessor}{    hryky\_swap(this->##name##\_, src.##name##\_);}
+00039 \textcolor{preprocessor}{}
+00040 
+00041 \textcolor{comment}{//--------------------------------------}
+00042 \textcolor{comment}{// define built-in type accessor of class member}
+00043 \textcolor{comment}{//--------------------------------------}
+00050 \textcolor{comment}{}\textcolor{preprocessor}{#define hryky\_getter(\_type, basename) \(\backslash\)}
+00051 \textcolor{preprocessor}{    \_type basename() const \{ return this->basename##\_; \}\(\backslash\)}
+00052 \textcolor{preprocessor}{}
+00053 \textcolor{preprocessor}{}
+00059 \textcolor{preprocessor}{#define hryky\_setter(\_type, basename) \(\backslash\)}
+00060 \textcolor{preprocessor}{    void basename(AsParameter<\_type>::type src) \{ this->basename##\_ = src; \}\(\backslash\)}
+00061 \textcolor{preprocessor}{}
+00062 \textcolor{preprocessor}{}
+00071 \textcolor{preprocessor}{#define hryky\_setter\_row(member\_type, basename) \(\backslash\)}
+00072 \textcolor{preprocessor}{    this\_type & basename(AsParameter< member\_type >::type src) \(\backslash\)}
+00073 \textcolor{preprocessor}{    \{ this->basename##\_ = src; return *this; \}\(\backslash\)}
+00074 \textcolor{preprocessor}{}
+00075 \textcolor{preprocessor}{}
+00081 \textcolor{preprocessor}{#define hryky\_accessor\_func(\_type, basename) \(\backslash\)}
+00082 \textcolor{preprocessor}{    hryky\_getter(\_type, basename);\(\backslash\)}
+00083 \textcolor{preprocessor}{    hryky\_setter(\_type, basename);\(\backslash\)}
+00084 \textcolor{preprocessor}{}
+00085 \textcolor{preprocessor}{}
+00094 \textcolor{preprocessor}{#define hryky\_accessor\_row\_func(type, basename) \(\backslash\)}
+00095 \textcolor{preprocessor}{    hryky\_getter(type, basename);\(\backslash\)}
+00096 \textcolor{preprocessor}{    hryky\_setter\_row(type, basename);\(\backslash\)}
+00097 \textcolor{preprocessor}{}
+00098 \textcolor{preprocessor}{}
+\hypertarget{common_8h_source_l00103}{}\hyperlink{common_8h_a80b197d8fe7a5d4aca402c77703278d7}{00103} \textcolor{preprocessor}{#define hryky\_accessor(type, basename) \(\backslash\)}
+00104 \textcolor{preprocessor}{    public :\(\backslash\)}
+00105 \textcolor{preprocessor}{        hryky\_accessor\_func(type, basename);\(\backslash\)}
+00106 \textcolor{preprocessor}{    protected :\(\backslash\)}
+00107 \textcolor{preprocessor}{        type basename##\_;\(\backslash\)}
+00108 \textcolor{preprocessor}{}
+00109 \textcolor{preprocessor}{}
+\hypertarget{common_8h_source_l00117}{}\hyperlink{common_8h_a53c1a7f63ecaf9a35fedc7c6ca996e84}{00117} \textcolor{preprocessor}{#define hryky\_accessor\_row(type, basename) \(\backslash\)}
+00118 \textcolor{preprocessor}{    public :\(\backslash\)}
+00119 \textcolor{preprocessor}{        hryky\_accessor\_row\_func(type, basename);\(\backslash\)}
+00120 \textcolor{preprocessor}{    protected :\(\backslash\)}
+00121 \textcolor{preprocessor}{        type basename##\_;\(\backslash\)}
+00122 \textcolor{preprocessor}{}
+00123 \textcolor{preprocessor}{}
+\hypertarget{common_8h_source_l00128}{}\hyperlink{common_8h_aa006947a022e09b05cfdf88588cd72eb}{00128} \textcolor{preprocessor}{#define hryky\_accessor\_read(type, basename) \(\backslash\)}
+00129 \textcolor{preprocessor}{    public :\(\backslash\)}
+00130 \textcolor{preprocessor}{        hryky\_getter(type, basename);\(\backslash\)}
+00131 \textcolor{preprocessor}{    protected :\(\backslash\)}
+00132 \textcolor{preprocessor}{        type basename##\_;\(\backslash\)}
+00133 \textcolor{preprocessor}{}
+00134 \textcolor{preprocessor}{}
+\hypertarget{common_8h_source_l00139}{}\hyperlink{common_8h_a3bd7ca3bde3227a8dc2207a3229d5330}{00139} \textcolor{preprocessor}{#define hryky\_accessor\_write(type, basename) \(\backslash\)}
+00140 \textcolor{preprocessor}{    public :\(\backslash\)}
+00141 \textcolor{preprocessor}{        hryky\_setter(type, basename);\(\backslash\)}
+00142 \textcolor{preprocessor}{    protected :\(\backslash\)}
+00143 \textcolor{preprocessor}{        type basename##\_;\(\backslash\)}
+00144 \textcolor{preprocessor}{}
+00145 \textcolor{preprocessor}{}
+\hypertarget{common_8h_source_l00153}{}\hyperlink{common_8h_aea6c22c6bcc25a46e463aa05bbc6a4e3}{00153} \textcolor{preprocessor}{#define hryky\_accessor\_row\_write(type, basename) \(\backslash\)}
+00154 \textcolor{preprocessor}{    public :\(\backslash\)}
+00155 \textcolor{preprocessor}{        hryky\_setter\_row(type, basename);\(\backslash\)}
+00156 \textcolor{preprocessor}{    protected :\(\backslash\)}
+00157 \textcolor{preprocessor}{        type basename##\_;\(\backslash\)}
+00158 \textcolor{preprocessor}{}
+00159 \textcolor{preprocessor}{}\textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00160 \textcolor{comment}{// namespace}
+00161 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00162 \textcolor{keyword}{namespace }hryky
+00163 \{
+00164 \}
+00165 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00166 \textcolor{comment}{// class declaration}
+00167 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00168 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00169 \textcolor{comment}{// function declaration}
+00170 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00171 \textcolor{keyword}{namespace }hryky
+00172 \{
+00177     \textcolor{keyword}{template} < \textcolor{keyword}{typename} T >
+00178     \textcolor{keywordtype}{void} \hyperlink{namespacehryky_a9bdf380c3703ef316b807edae92a930a}{release}(T * & ptr);
+00179 
+00180 \} \textcolor{comment}{// namespace hryky}
+00181 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00182 \textcolor{comment}{// function definitions}
+00183 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00184 \textcolor{comment}{//--------------------------------}
+00185 \textcolor{comment}{// address management}
+00186 \textcolor{comment}{//--------------------------------}
+00193 \textcolor{comment}{}\textcolor{keyword}{template} < \textcolor{keyword}{typename} T >
+\hypertarget{common_8h_source_l00194}{}\hyperlink{namespacehryky_a23f2789a7915f2abfc21c0fed0c772b7}{00194} \textcolor{keywordtype}{void} \hyperlink{namespacehryky_a9bdf380c3703ef316b807edae92a930a}{hryky::release}(T * & ptr)
+00195 \{
+00196     \textcolor{keywordflow}{if} (\hyperlink{common_8h_a4cd4ac09cfcdbd6b30ee69afc156e210}{HRYKY_NULLPTR} == ptr) \{ \textcolor{keywordflow}{return}; \}
+00197     
+00198     ptr->release();
+00199     ptr = \hyperlink{common_8h_a4cd4ac09cfcdbd6b30ee69afc156e210}{HRYKY_NULLPTR};
+00200 \}
+00201 \textcolor{preprocessor}{#endif // COMMON\_H\_20111021154357322}
+00202 \textcolor{preprocessor}{}\textcolor{comment}{// end of file}
+\end{DoxyCode}

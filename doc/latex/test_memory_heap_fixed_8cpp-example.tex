@@ -1,0 +1,333 @@
+\hypertarget{test_memory_heap_fixed_8cpp-example}{\section{test\-\_\-memory\-\_\-heap\-\_\-fixed.\-cpp}
+}
+
+\begin{DoxyCodeInclude}
+\textcolor{comment}{/*}
+\textcolor{comment}{  @file         test\_memory\_heap\_fixed.cpp}
+\textcolor{comment}{  @brief        tests hryky::memory::heap::Fixed.}
+\textcolor{comment}{  @since        2011-11-10T01:16:40+0900}
+\textcolor{comment}{  @author       HRYKY}
+\textcolor{comment}{  @version      $Id: test\_memory\_heap\_fixed.cpp 135 2013-01-18 16:53:58Z
+       hryky.private@gmail.com $}
+\textcolor{comment}{ */}
+\textcolor{preprocessor}{#include <precompiled.h>}
+\textcolor{preprocessor}{#include "\hyperlink{testing_8h}{hryky/testing.h}"}
+\textcolor{preprocessor}{#include "\hyperlink{random_8h}{hryky/random.h}"}
+\textcolor{preprocessor}{#include "\hyperlink{memory_8h}{hryky/memory.h}"}
+\textcolor{preprocessor}{#include "\hyperlink{common_8h}{hryky/common.h}"}
+\textcolor{preprocessor}{#include "\hyperlink{raii_8h}{hryky/raii.h}"}
+\textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+\textcolor{comment}{// macro}
+\textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+\textcolor{preprocessor}{#define PRINT\_ALLOCATION\_HISTORY            (1)}
+\textcolor{preprocessor}{}\textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+\textcolor{comment}{// declarations}
+\textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+\textcolor{keyword}{namespace }hryky
+\{
+\textcolor{keyword}{namespace }test
+\{
+\textcolor{keyword}{namespace}
+\{
+    \textcolor{comment}{// enregisters a test}
+    \textcolor{keyword}{class }Test : \hyperlink{classhryky_1_1testing_1_1unit_1_1_base}{hryky::testing::unit::Base}
+    \{
+    \textcolor{keyword}{public} :
+        Test() : \hyperlink{classhryky_1_1testing_1_1unit_1_1_base}{hryky::testing::unit::Base}(\textcolor{stringliteral}{"memory\_heap\_fixed"}) \{\}
+
+    \textcolor{keyword}{private} :
+        \textcolor{comment}{// tests hryky::memory::heap::Fixed.}
+        \textcolor{keyword}{virtual} \textcolor{keywordtype}{bool} run\_impl();
+    \};
+    Test \textcolor{keyword}{const} g\_test;
+
+\} \textcolor{comment}{// namespace *anonymous*}
+\} \textcolor{comment}{// namespace test}
+\} \textcolor{comment}{// namespace hryky}
+\textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+\textcolor{comment}{// static functions}
+\textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+\textcolor{keyword}{namespace }hryky
+\{
+\textcolor{keyword}{namespace }test
+\{
+\textcolor{keyword}{namespace}
+\{
+\textcolor{comment}{/*}
+\textcolor{comment}{  @brief        tests hryky::memory::heap::Fixed.}
+\textcolor{comment}{  @since        2011-12-17T19:45:38+0900}
+\textcolor{comment}{ */}
+\textcolor{keywordtype}{bool} Test::run\_impl()
+\{
+    \textcolor{comment}{// initialize logging.}
+    testing::Log log(*\textcolor{keyword}{this});
+
+    \textcolor{comment}{// initialize a generator of pseudo random number.}
+    testing::Random random;
+
+    log.reduce().append(\textcolor{stringliteral}{"random"}, random);
+    
+    \textcolor{comment}{// initializes the generator of pseudo-random number according to the
+       uniform distribution.}
+    random::distribution::Uniform<uint32\_t>
+        allocations\_number\_dist(random.generator(), 1, 0x1000);
+
+    \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1memory_1_1heap_1_1_fixed}{hryky::memory::heap::Fixed} memory\_heap\_type;
+
+    \textcolor{comment}{// initializes the generator of pseudo-random number according to the
+       normal distribution.}
+    random::distribution::Normal<memory\_heap\_type::index\_type> units\_size\_dist(
+        random.generator(),
+        0x1000,         \textcolor{comment}{// deviation}
+        0x400,          \textcolor{comment}{// mean}
+        1,              \textcolor{comment}{// min}
+        0x10000);       \textcolor{comment}{// max}
+    memory\_heap\_type::index\_type \textcolor{keyword}{const} units\_size = units\_size\_dist();
+
+    \textcolor{comment}{// initializes the generator of pseudo-random number according to the
+       normal distribution.}
+    random::distribution::Normal<memory\_heap\_type::index\_type> unit\_size\_dist(
+        random.generator(),
+        0x40,           \textcolor{comment}{// deviation}
+        0x40,           \textcolor{comment}{// mean}
+        1,              \textcolor{comment}{// min}
+        0x10000);       \textcolor{comment}{// max}
+    \textcolor{keywordtype}{size\_t} \textcolor{keyword}{const} unit\_size = unit\_size\_dist();
+
+    \hyperlink{namespacehryky_aee1af251193c2d308aaa68ef7e36a540}{alignment_type} \textcolor{keyword}{const} alignment = memory\_heap\_type::min\_alignment\_;
+
+    \textcolor{keywordtype}{size\_t} \textcolor{keyword}{const} buffer\_size =
+        memory\_heap\_type::buffer\_size(unit\_size, units\_size);
+
+    (log.reduce()
+     .append(\textcolor{stringliteral}{"unit\_size"}, unit\_size)
+     .append(\textcolor{stringliteral}{"units\_size"}, units\_size)
+     .append(\textcolor{stringliteral}{"buffer\_size"}, buffer\_size)
+     );
+
+    \textcolor{keywordtype}{void} * buffer = std::malloc(buffer\_size + (1 << alignment));
+    AutoFree free\_buffer(buffer);
+
+    \textcolor{keywordflow}{if} (\hyperlink{common_8h_a4cd4ac09cfcdbd6b30ee69afc156e210}{HRYKY_NULLPTR} == buffer) \{
+        \hyperlink{log__writer__common_8h_a61bcce4d8e91e6fde78ce1be7d9ceac8}{hryky_log_crit}(
+            (*\hyperlink{namespacehryky_1_1reduction_ac5eae270cf8047b294dc4ff3e5e11a79}{reduction::map}(\textcolor{stringliteral}{"failed to allocate buffer for the test of
+       memory::Heap::Arbitrary"}))
+            .append(\textcolor{stringliteral}{"the size of one unit"}, unit\_size)
+            .append(\textcolor{stringliteral}{"the number of units"},  units\_size)
+            .append(\textcolor{stringliteral}{"the size of buffer"},   buffer\_size)
+            );
+        \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+    \}
+
+    \hyperlink{namespacehryky_a50f9095eab4dc96e5fa813f8fc8fba7e}{hryky::memset}(buffer, -1, buffer\_size);
+
+    memory\_heap\_type \hyperlink{namespacehryky_1_1memory_1_1global_a6fc6103f67c837aa0f39b359588409cd}{heap};
+
+    \textcolor{keywordflow}{if} (!heap.reset(buffer, buffer\_size, unit\_size)) \{
+        \hyperlink{log__writer__common_8h_a61bcce4d8e91e6fde78ce1be7d9ceac8}{hryky_log_crit}(
+            (*\hyperlink{namespacehryky_1_1reduction_ac5eae270cf8047b294dc4ff3e5e11a79}{reduction::map}(\textcolor{stringliteral}{"failed to reset memory::heap::Arbitrary"}))
+            .append(\textcolor{stringliteral}{"buffer\_size"}, buffer\_size)
+            );
+        \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+    \}
+
+    \textcolor{keywordflow}{if} (!heap.verify()) \{
+        \hyperlink{log__writer__common_8h_a61bcce4d8e91e6fde78ce1be7d9ceac8}{hryky_log_crit}(\textcolor{stringliteral}{"Verification failed."});
+        \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+    \}
+
+    \textcolor{keywordtype}{size\_t} \textcolor{keyword}{const} allocations\_size\_width =   0x10000;
+    \textcolor{keywordtype}{size\_t} \textcolor{keyword}{const} allocations\_size\_min =     0x1000;
+
+    \textcolor{keywordtype}{size\_t} \textcolor{keyword}{const} allocations\_size =
+        allocations\_number\_dist() % allocations\_size\_width + 
+      allocations\_size\_min;
+
+    log.reduce().append(\textcolor{stringliteral}{"allocations size"}, allocations\_size);
+
+    \textcolor{keyword}{typedef} std::list< void * > allocations\_type;
+
+    allocations\_type allocations;
+
+    \{
+        \textcolor{keywordtype}{size\_t} allocation\_id = 0;
+        \textcolor{keywordflow}{for} (; allocations\_size != allocation\_id; ++allocation\_id) \{
+            \textcolor{keywordflow}{if} (allocations.empty() || 0 == (allocations\_number\_dist() & 1)) \{
+                \textcolor{keywordtype}{void} * allocated = heap.allocate();
+
+                \textcolor{keywordflow}{if} (\hyperlink{common_8h_a4cd4ac09cfcdbd6b30ee69afc156e210}{HRYKY_NULLPTR} == allocated) \{
+                    (log.reduce()
+                     .append(
+                         (*\hyperlink{namespacehryky_1_1reduction_ac5eae270cf8047b294dc4ff3e5e11a79}{reduction::map}(\textcolor{stringliteral}{"failed to allocate"}))
+                         .append(\textcolor{stringliteral}{"index"}, allocation\_id)
+                         .append(\textcolor{stringliteral}{"heap"}, heap)
+                         )
+                     );
+
+                    \textcolor{keywordflow}{if} (0 != heap.available\_size()) \{
+                        \hyperlink{log__writer__common_8h_a61bcce4d8e91e6fde78ce1be7d9ceac8}{hryky_log_crit}(
+                            (*\hyperlink{namespacehryky_1_1reduction_ac5eae270cf8047b294dc4ff3e5e11a79}{reduction::map}(\textcolor{stringliteral}{"unexpected allocation failure
+       occurred"}))
+                            .append(\textcolor{stringliteral}{"allocation\_id"}, allocation\_id)
+                            .append(\textcolor{stringliteral}{"units\_size"}, units\_size)
+                            );
+                        \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+                    \}
+                    
+                    \textcolor{keywordflow}{break};
+                \}
+
+                \{
+                    uint8\_t * ptr = \textcolor{keyword}{reinterpret\_cast<}uint8\_t *\textcolor{keyword}{>}(allocated);
+                    uint8\_t * \textcolor{keyword}{const} end = ptr + unit\_size;
+
+                    \textcolor{keywordflow}{for} (; end != ptr; ++ptr) \{
+                        *ptr = \textcolor{keyword}{static\_cast<}uint8\_t\textcolor{keyword}{>}(\textcolor{keyword}{reinterpret\_cast<}\textcolor{keywordtype}{size\_t}\textcolor{keyword}{>}(
+      ptr));
+                    \}
+                \}
+
+\textcolor{preprocessor}{#if PRINT\_ALLOCATION\_HISTORY}
+\textcolor{preprocessor}{}                (log.reduce()
+                 .append(\textcolor{stringliteral}{"allocate"},    memory\_heap\_type::Address(heap, 
+      allocated))
+                 .append(\textcolor{stringliteral}{"available"},   heap.available\_size())
+                 );
+\textcolor{preprocessor}{#endif // PRINT\_ALLOCATION\_HISTORY}
+\textcolor{preprocessor}{}
+                allocations\_type::iterator itr = allocations.begin();
+
+                \textcolor{keywordtype}{size\_t} \textcolor{keyword}{const} offset = allocations\_number\_dist() % (allocations.
+      size() + 1);
+
+                \textcolor{keywordtype}{size\_t} offset\_id = 0;
+                \textcolor{keywordflow}{for} (; offset != offset\_id; ++offset\_id) \{
+                    ++itr;
+                \}
+
+                allocations.insert(
+                    itr, allocations\_type::value\_type(allocated));
+            \}
+            \textcolor{keywordflow}{else} \{
+                allocations\_type::iterator itr = allocations.begin();
+
+                \textcolor{keywordtype}{size\_t} \textcolor{keyword}{const} offset = allocations\_number\_dist() % allocations.
+      size();
+
+                \textcolor{keywordtype}{size\_t} offset\_id = 0;
+                \textcolor{keywordflow}{for} (; offset != offset\_id; ++offset\_id) \{
+                    ++itr;
+                \}
+
+\textcolor{preprocessor}{#if PRINT\_ALLOCATION\_HISTORY}
+\textcolor{preprocessor}{}                (log.reduce()
+                 .append(\textcolor{stringliteral}{"deallocate"},  memory\_heap\_type::Address(heap, *itr))
+                 .append(\textcolor{stringliteral}{"avaiable"},    heap.available\_size())
+                 );
+\textcolor{preprocessor}{#endif // PRINT\_ALLOCATION\_HISTORY}
+\textcolor{preprocessor}{}
+                \textcolor{keywordflow}{if} (!heap.deallocate(*itr)) \{
+                    \hyperlink{log__writer__common_8h_a61bcce4d8e91e6fde78ce1be7d9ceac8}{hryky_log_crit}(
+                        (*\hyperlink{namespacehryky_1_1reduction_ac5eae270cf8047b294dc4ff3e5e11a79}{reduction::map}(\textcolor{stringliteral}{"failed to deallocate"}))
+                        .append(\textcolor{stringliteral}{"index"},    allocation\_id)
+                        .append(\textcolor{stringliteral}{"address"},  *itr)
+                        .append(\textcolor{stringliteral}{"heap"},     heap)
+                        );
+                    \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+                \}
+
+                allocations.erase(itr);
+            \}
+        \}
+
+        \textcolor{keywordflow}{if} (!heap.verify()) \{
+            \hyperlink{log__writer__common_8h_a61bcce4d8e91e6fde78ce1be7d9ceac8}{hryky_log_crit}(\textcolor{stringliteral}{"Verification failed."});
+            \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+        \}
+    \}
+
+    \textcolor{keywordtype}{size\_t} count = 0;
+
+    \textcolor{keywordflow}{while} (!allocations.empty()) \{
+        allocations\_type::iterator itr = allocations.begin();
+
+        \{
+            uint8\_t * ptr = \textcolor{keyword}{reinterpret\_cast<}uint8\_t *\textcolor{keyword}{>}(*itr);
+            uint8\_t * \textcolor{keyword}{const} end = ptr + unit\_size;
+
+            \textcolor{keywordflow}{for} (; end != ptr; ++ptr) \{
+                \textcolor{keywordflow}{if} ((*ptr) !=
+                     static\_cast<uint8\_t>(reinterpret\_cast<size\_t>(ptr)))
+                \{
+                    \hyperlink{log__writer__common_8h_a61bcce4d8e91e6fde78ce1be7d9ceac8}{hryky_log_crit}(
+                        (*\hyperlink{namespacehryky_1_1reduction_ac5eae270cf8047b294dc4ff3e5e11a79}{reduction::map}(\textcolor{stringliteral}{"memory corruption occurred"}))
+                        .append(\textcolor{stringliteral}{"count"},                                    
+      count)
+                        .append(\textcolor{stringliteral}{"octet\_address"},                            ptr
+      )
+                        .append(\textcolor{stringliteral}{"begin"},                                    *
+      itr)
+                        .append(\textcolor{stringliteral}{"end"},                                      end
+      )
+                        .append(\textcolor{stringliteral}{"address"}, memory\_heap\_type::Address(heap,  *
+      itr))
+                        );
+                    \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+                \}
+            \}
+        \}
+
+        \textcolor{keywordtype}{size\_t} \textcolor{keyword}{const} offset = allocations\_number\_dist() % allocations.size();
+
+        \textcolor{keywordtype}{size\_t} offset\_id = 0;
+        \textcolor{keywordflow}{for} (; offset != offset\_id; ++offset\_id) \{
+            ++itr;
+        \}
+
+\textcolor{preprocessor}{#if PRINT\_ALLOCATION\_HISTORY}
+\textcolor{preprocessor}{}        (log.reduce()
+         .append(\textcolor{stringliteral}{"deallocate"}, memory\_heap\_type::Address(heap, *itr))
+         .append(\textcolor{stringliteral}{"available"}, heap.available\_size())
+         );
+\textcolor{preprocessor}{#endif // PRINT\_ALLOCATION\_HISTORY}
+\textcolor{preprocessor}{}
+        \textcolor{keywordflow}{if} (!heap.deallocate(*itr)) \{
+            \hyperlink{log__writer__common_8h_a61bcce4d8e91e6fde78ce1be7d9ceac8}{hryky_log_crit}(
+                (*\hyperlink{namespacehryky_1_1reduction_ac5eae270cf8047b294dc4ff3e5e11a79}{reduction::map}(\textcolor{stringliteral}{"failed to deallocate"}))
+                .append(\textcolor{stringliteral}{"index"},    count)
+                .append(\textcolor{stringliteral}{"address"},  *itr)
+                .append(\textcolor{stringliteral}{"heap"},     heap)
+                );
+            \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+        \}
+
+        allocations.erase(itr);
+        ++count;
+    \}
+
+    \textcolor{keywordflow}{if} (!heap.verify()) \{
+        \hyperlink{log__writer__common_8h_a61bcce4d8e91e6fde78ce1be7d9ceac8}{hryky_log_crit}(\textcolor{stringliteral}{"Verification failed."});
+        \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+    \}
+
+    \textcolor{comment}{// log\_out.disable();}
+
+    \textcolor{keywordflow}{return} \textcolor{keyword}{true};
+\}
+\} \textcolor{comment}{// namespace *anonymous*}
+\} \textcolor{comment}{// namespace test}
+\} \textcolor{comment}{// namespace hryky}
+\textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+\textcolor{comment}{// explicit instantiation}
+\textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+\textcolor{comment}{// end of file}
+\end{DoxyCodeInclude}
+ 

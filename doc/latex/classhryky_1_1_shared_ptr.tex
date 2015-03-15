@@ -1,0 +1,96 @@
+\hypertarget{classhryky_1_1_shared_ptr}{\section{hryky\-:\-:Shared\-Ptr$<$ Value\-T, Lockable\-T, Allocator\-T $>$ Class Template Reference}
+\label{classhryky_1_1_shared_ptr}\index{hryky\-::\-Shared\-Ptr$<$ Value\-T, Lockable\-T, Allocator\-T $>$@{hryky\-::\-Shared\-Ptr$<$ Value\-T, Lockable\-T, Allocator\-T $>$}}
+}
+
+
+smart pointer which has a reference count.  
+
+
+
+
+{\ttfamily \#include $<$shared\-\_\-ptr.\-h$>$}
+
+
+
+Inheritance diagram for hryky\-:\-:Shared\-Ptr$<$ Value\-T, Lockable\-T, Allocator\-T $>$\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=318pt]{classhryky_1_1_shared_ptr__inherit__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classhryky_1_1_shared_ptr_a0fa551b79990485506c88137044ec4b8}{typedef \hyperlink{classhryky_1_1_shared_ptr}{Shared\-Ptr}$<$ Value\-T, \\*
+Lockable\-T, Allocator\-T $>$ \hyperlink{classhryky_1_1_shared_ptr_a0fa551b79990485506c88137044ec4b8}{this\-\_\-type}}\label{classhryky_1_1_shared_ptr_a0fa551b79990485506c88137044ec4b8}
+
+\begin{DoxyCompactList}\small\item\em self. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classhryky_1_1_shared_ptr_a6238460a4d882766f62458ad727f7bb4}{Allocator\-T const \& \hyperlink{classhryky_1_1_shared_ptr_a6238460a4d882766f62458ad727f7bb4}{allocator} () const }\label{classhryky_1_1_shared_ptr_a6238460a4d882766f62458ad727f7bb4}
+
+\begin{DoxyCompactList}\small\item\em retrieves the allocator. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1_shared_ptr_a9d49dd75843e0643e8caffd7f740a802}{bool \hyperlink{classhryky_1_1_shared_ptr_a9d49dd75843e0643e8caffd7f740a802}{invalid} () const }\label{classhryky_1_1_shared_ptr_a9d49dd75843e0643e8caffd7f740a802}
+
+\begin{DoxyCompactList}\small\item\em confirms whether the internal pointer is null. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1_shared_ptr_ad7132caf81766715ba384f576e2b1b62}{reference \hyperlink{classhryky_1_1_shared_ptr_ad7132caf81766715ba384f576e2b1b62}{operator$\ast$} () const }\label{classhryky_1_1_shared_ptr_ad7132caf81766715ba384f576e2b1b62}
+
+\begin{DoxyCompactList}\small\item\em dereferences the internal pointer. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1_shared_ptr_aa12d9a92ab59e8f6c1c06a93390fc1fd}{pointer \hyperlink{classhryky_1_1_shared_ptr_aa12d9a92ab59e8f6c1c06a93390fc1fd}{operator-\/$>$} () const }\label{classhryky_1_1_shared_ptr_aa12d9a92ab59e8f6c1c06a93390fc1fd}
+
+\begin{DoxyCompactList}\small\item\em retrieves the internal pointer. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1_shared_ptr_abd4590ba41a2c8837130a38f08f531ba}{{\footnotesize template$<$typename Rhs\-T $>$ }\\\hyperlink{classhryky_1_1_shared_ptr_a0fa551b79990485506c88137044ec4b8}{this\-\_\-type} \& \hyperlink{classhryky_1_1_shared_ptr_abd4590ba41a2c8837130a38f08f531ba}{operator=} (Rhs\-T const \&rhs)}\label{classhryky_1_1_shared_ptr_abd4590ba41a2c8837130a38f08f531ba}
+
+\begin{DoxyCompactList}\small\item\em assigns an arbitrary type. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1_shared_ptr_a27d2068eec13586b1998d337eceffbad}{\hyperlink{namespacehryky_a343a9a4c36a586be5c2693156200eadc}{hryky\-::reduction\-\_\-type} \hyperlink{classhryky_1_1_shared_ptr_a27d2068eec13586b1998d337eceffbad}{reduce} (\hyperlink{namespacehryky_1_1reduction_ac686c30a4c8d196bbd0f05629a6b921f}{reduction\-::name\-\_\-type} const \&name) const }\label{classhryky_1_1_shared_ptr_a27d2068eec13586b1998d337eceffbad}
+
+\begin{DoxyCompactList}\small\item\em decomposes the instance to primitive objects. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1_shared_ptr_ae0b292aca6b803da2a8333be15775852}{\hyperlink{classhryky_1_1_shared_ptr_ae0b292aca6b803da2a8333be15775852}{Shared\-Ptr} ()}\label{classhryky_1_1_shared_ptr_ae0b292aca6b803da2a8333be15775852}
+
+\begin{DoxyCompactList}\small\item\em default constructor. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1_shared_ptr_aeb55aedc7398bb3989a9b7293688721e}{\hyperlink{classhryky_1_1_shared_ptr_aeb55aedc7398bb3989a9b7293688721e}{Shared\-Ptr} (\hyperlink{classhryky_1_1_shared_ptr_a0fa551b79990485506c88137044ec4b8}{this\-\_\-type} const \&rhs)}\label{classhryky_1_1_shared_ptr_aeb55aedc7398bb3989a9b7293688721e}
+
+\begin{DoxyCompactList}\small\item\em copy constructor. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1_shared_ptr_a3e14d3aa2f8ff15fa3e7d6ef58339dd4}{\hyperlink{classhryky_1_1_shared_ptr_a3e14d3aa2f8ff15fa3e7d6ef58339dd4}{Shared\-Ptr} (\hyperlink{classhryky_1_1_shared_ptr_a0fa551b79990485506c88137044ec4b8}{this\-\_\-type} \&\&rhs)}\label{classhryky_1_1_shared_ptr_a3e14d3aa2f8ff15fa3e7d6ef58339dd4}
+
+\begin{DoxyCompactList}\small\item\em copy constructor by rvalue reference. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1_shared_ptr_adc02319bdbd429f83307290b3ab4a298}{{\footnotesize template$<$typename Rhs\-T $>$ }\\\hyperlink{classhryky_1_1_shared_ptr_adc02319bdbd429f83307290b3ab4a298}{Shared\-Ptr} (Rhs\-T const \&rhs)}\label{classhryky_1_1_shared_ptr_adc02319bdbd429f83307290b3ab4a298}
+
+\begin{DoxyCompactList}\small\item\em constructor with same type or derived type. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1_shared_ptr_a7348d5624e30228d7f3477ae93e2cf68}{\hyperlink{classhryky_1_1_shared_ptr_a7348d5624e30228d7f3477ae93e2cf68}{Shared\-Ptr} (pointer ptr)}\label{classhryky_1_1_shared_ptr_a7348d5624e30228d7f3477ae93e2cf68}
+
+\begin{DoxyCompactList}\small\item\em constructor with a pointer. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1_shared_ptr_a6d3392ff4a95549180e6045797e7982c}{\hyperlink{classhryky_1_1_shared_ptr_a6d3392ff4a95549180e6045797e7982c}{Shared\-Ptr} (allocator\-\_\-type const \&\hyperlink{classhryky_1_1_shared_ptr_a6238460a4d882766f62458ad727f7bb4}{allocator})}\label{classhryky_1_1_shared_ptr_a6d3392ff4a95549180e6045797e7982c}
+
+\begin{DoxyCompactList}\small\item\em constructor with allocator. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1_shared_ptr_aa9c65a69a23f91e48be1e7e9c0c5cf74}{\hyperlink{classhryky_1_1_shared_ptr_aa9c65a69a23f91e48be1e7e9c0c5cf74}{Shared\-Ptr} (pointer ptr, allocator\-\_\-type const \&\hyperlink{classhryky_1_1_shared_ptr_a6238460a4d882766f62458ad727f7bb4}{allocator})}\label{classhryky_1_1_shared_ptr_aa9c65a69a23f91e48be1e7e9c0c5cf74}
+
+\begin{DoxyCompactList}\small\item\em constructor with a pointer and an allocator. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1_shared_ptr_a31ff2b6615bf4240b3ec8bcbcc06acc0}{void \hyperlink{classhryky_1_1_shared_ptr_a31ff2b6615bf4240b3ec8bcbcc06acc0}{swap} (\hyperlink{classhryky_1_1_shared_ptr_a0fa551b79990485506c88137044ec4b8}{this\-\_\-type} \&src)}\label{classhryky_1_1_shared_ptr_a31ff2b6615bf4240b3ec8bcbcc06acc0}
+
+\begin{DoxyCompactList}\small\item\em interchanges resources. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1_shared_ptr_a8a0abab882ae5fdee33fe7cac6b99780}{\hyperlink{classhryky_1_1_shared_ptr_a8a0abab882ae5fdee33fe7cac6b99780}{$\sim$\-Shared\-Ptr} ()}\label{classhryky_1_1_shared_ptr_a8a0abab882ae5fdee33fe7cac6b99780}
+
+\begin{DoxyCompactList}\small\item\em destructor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classhryky_1_1_shared_ptr_a51f756b899403aa6c8a182bb5bbfd6a8}{static \hyperlink{classhryky_1_1_shared_ptr_a0fa551b79990485506c88137044ec4b8}{this\-\_\-type} \hyperlink{classhryky_1_1_shared_ptr_a51f756b899403aa6c8a182bb5bbfd6a8}{instantiate} (allocator\-\_\-type \&\hyperlink{classhryky_1_1_shared_ptr_a6238460a4d882766f62458ad727f7bb4}{allocator})}\label{classhryky_1_1_shared_ptr_a51f756b899403aa6c8a182bb5bbfd6a8}
+
+\begin{DoxyCompactList}\small\item\em creates a shared pointer which has a new instance. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1_shared_ptr_a74208f1d0f90c51593b6d811934d65de}{{\footnotesize template$<$typename Arg1\-T $>$ }\\static \hyperlink{classhryky_1_1_shared_ptr_a0fa551b79990485506c88137044ec4b8}{this\-\_\-type} \hyperlink{classhryky_1_1_shared_ptr_a74208f1d0f90c51593b6d811934d65de}{instantiate} (allocator\-\_\-type \&\hyperlink{classhryky_1_1_shared_ptr_a6238460a4d882766f62458ad727f7bb4}{allocator}, Arg1\-T const \&arg1)}\label{classhryky_1_1_shared_ptr_a74208f1d0f90c51593b6d811934d65de}
+
+\begin{DoxyCompactList}\small\item\em creates a shared pointer which has a new instance. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$typename Value\-T, typename Lockable\-T = Null, typename Allocator\-T = allocator\-::\-Heap$<$\-Value\-T$>$$>$class hryky\-::\-Shared\-Ptr$<$ Value\-T, Lockable\-T, Allocator\-T $>$}
+
+smart pointer which has a reference count. 
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{shared__ptr_8h}{shared\-\_\-ptr.\-h}\end{DoxyCompactItemize}

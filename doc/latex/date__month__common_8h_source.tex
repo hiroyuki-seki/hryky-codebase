@@ -1,0 +1,82 @@
+\hypertarget{date__month__common_8h_source}{\section{date\-\_\-month\-\_\-common.\-h}
+}
+
+\begin{DoxyCode}
+00001 
+00007 \textcolor{preprocessor}{#ifndef DATE\_MONTH\_COMMON\_H\_20121229222914603}
+00008 \textcolor{preprocessor}{}\textcolor{preprocessor}{#define DATE\_MONTH\_COMMON\_H\_20121229222914603}
+00009 \textcolor{preprocessor}{}\textcolor{preprocessor}{#include "\hyperlink{kind_8h}{hryky/kind.h}"}
+00010 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00011 \textcolor{comment}{// macro definition}
+00012 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00013 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00014 \textcolor{comment}{// namespace}
+00015 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00016 \textcolor{keyword}{namespace }hryky
+00017 \{
+00018 \textcolor{keyword}{namespace }date
+00019 \{
+00020 \textcolor{keyword}{namespace }month
+00021 \{
+00022     \textcolor{keyword}{struct }Kind \{
+00023         \textcolor{keyword}{enum} Raw \{
+00024             january\_,
+00025             february\_,
+00026             march\_,
+00027             april\_,
+00028             may\_,
+00029             june\_,
+00030             july\_,
+00031             august\_,
+00032             september\_,
+00033             october\_,
+00034             november\_,
+00035             december\_,
+00036             num\_,
+00037             invalid\_ = -1,
+00038         \};
+00039     \};
+00040     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1_kind}{hryky::Kind<Kind, Kind::invalid_>} kind\_type;
+00041 
+00042 \} \textcolor{comment}{// namespace month}
+00043 
+00044     \textcolor{keyword}{typedef} month::kind\_type month\_type;
+00045 
+00046 \} \textcolor{comment}{// namespace date}
+00047 \} \textcolor{comment}{// namespace hryky}
+00048 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00049 \textcolor{comment}{// struct declaration}
+00050 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00051 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00052 \textcolor{comment}{// class declaration}
+00053 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00054 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00055 \textcolor{comment}{// global function prototypes}
+00056 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00057 \textcolor{keyword}{namespace }hryky
+00058 \{
+00059 \textcolor{keyword}{namespace }date
+00060 \{
+00061 \textcolor{keyword}{namespace }month
+00062 \{
+00063 \} \textcolor{comment}{// namespace month}
+00064 \} \textcolor{comment}{// namespace date}
+00065 \} \textcolor{comment}{// namespace hryky}
+00066 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00067 \textcolor{comment}{// global function definitions}
+00068 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00069 \textcolor{preprocessor}{#endif // DATE\_MONTH\_COMMON\_H\_20121229222914603}
+00070 \textcolor{preprocessor}{}\textcolor{comment}{// end of file}
+\end{DoxyCode}

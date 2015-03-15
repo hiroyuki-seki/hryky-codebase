@@ -1,0 +1,181 @@
+\hypertarget{array_8h_source}{\section{array.\-h}
+}
+
+\begin{DoxyCode}
+00001 
+00007 \textcolor{preprocessor}{#ifndef ARRAY\_H\_20120331175726414}
+00008 \textcolor{preprocessor}{}\textcolor{preprocessor}{#define ARRAY\_H\_20120331175726414}
+00009 \textcolor{preprocessor}{}\textcolor{preprocessor}{#include "\hyperlink{add__pointer_8h}{hryky/gp/add_pointer.h}"}
+00010 \textcolor{preprocessor}{#include "\hyperlink{add__reference_8h}{hryky/gp/add_reference.h}"}
+00011 \textcolor{preprocessor}{#include "\hyperlink{add__const__pointer_8h}{hryky/gp/add_const_pointer.h}"}
+00012 \textcolor{preprocessor}{#include "\hyperlink{add__const__reference_8h}{hryky/gp/add_const_reference.h}"}
+00013 \textcolor{preprocessor}{#include "\hyperlink{iterator__random_8h}{hryky/iterator/iterator_random.h}"}
+00014 \textcolor{preprocessor}{#include "\hyperlink{reduction__map_8h}{hryky/reduction/reduction_map.h}"}
+00015 \textcolor{preprocessor}{#include "\hyperlink{memory__common_8h}{hryky/memory/memory_common.h}"}
+00016 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00017 \textcolor{comment}{// macro definition}
+00018 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00019 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00020 \textcolor{comment}{// namespace}
+00021 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00022 \textcolor{keyword}{namespace }hryky
+00023 \{
+00025     \textcolor{keyword}{template} < \textcolor{keyword}{typename} ValueT, \textcolor{keywordtype}{size\_t} Size >
+00026     \textcolor{keyword}{class }Array;
+00027 \}
+00028 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00029 \textcolor{comment}{// class declarations}
+00030 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00034 \textcolor{comment}{}\textcolor{keyword}{template} < \textcolor{keyword}{typename} ValueT, \textcolor{keywordtype}{size\_t} Size >
+\hypertarget{array_8h_source_l00035}{}\hyperlink{classhryky_1_1_array}{00035} \textcolor{keyword}{class }\hyperlink{classhryky_1_1_array}{hryky::Array}
+00036 \{
+00037 \textcolor{keyword}{public} :
+00038 
+\hypertarget{array_8h_source_l00039}{}\hyperlink{classhryky_1_1_array_ace26d248a47909ee3875cb7b5a2047e6}{00039}     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1_array}{Array<ValueT, Size>}                             \hyperlink{classhryky_1_1_array_ace26d248a47909ee3875cb7b5a2047e6}{this_type};
+00040     \textcolor{keyword}{typedef} ValueT                                          value\_type;
+00041     \textcolor{keyword}{typedef} std::size\_t                                     size\_type;
+00042     \textcolor{keyword}{typedef} std::ptrdiff\_t                                  difference\_type;
+00043     \textcolor{keyword}{typedef} \textcolor{keyword}{typename} \hyperlink{classhryky_1_1_add_pointer}{AddPointer<value_type>::type}           pointer;
+00044     \textcolor{keyword}{typedef} \textcolor{keyword}{typename} \hyperlink{classhryky_1_1_add_reference_a4b90c1381625432ba6152b7388bc4399}{AddReference<value_type>::type}         reference;
+00045     \textcolor{keyword}{typedef} \textcolor{keyword}{typename} \hyperlink{classhryky_1_1_add_const_pointer_a62e5c44fefac145f6bd2460e4c8d0ba2}{AddConstPointer<value_type>::type}      const\_pointer;
+00046     \textcolor{keyword}{typedef} \textcolor{keyword}{typename} \hyperlink{classhryky_1_1_add_const_reference_aa26e39e87462673d865c90e6a9798b5a}{AddConstReference<value_type>::type}    const\_reference;
+00047     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1iterator_1_1random_1_1_mutable}{hryky::iterator::random::Mutable<this_type>}     \hyperlink{classhryky_1_1iterator_1_1random_1_1_mutable}{iterator};
+00048     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1iterator_1_1random_1_1_immutable}{hryky::iterator::random::Immutable<this_type>}   \hyperlink{classhryky_1_1iterator_1_1random_1_1_immutable}{const_iterator};
+00049     \textcolor{keyword}{typedef} std::reverse\_iterator<iterator>                 reverse\_iterator;
+00050     \textcolor{keyword}{typedef} std::reverse\_iterator<const\_iterator>           
+      const\_reverse\_iterator;
+00051 
+00052     reference       operator[](size\_type index) \{ \textcolor{keywordflow}{return} this->raw\_[index]; \}
+00053     const\_reference operator[](size\_type index)\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} this->raw\_[index
+      ]; \}
+00054 
+00056     iterator \hyperlink{classhryky_1_1_array_a12db8f567aa91dbbae25dca68db6e4d3}{begin}();
+00057 
+00059     const\_iterator \hyperlink{classhryky_1_1_array_a12db8f567aa91dbbae25dca68db6e4d3}{begin}() \textcolor{keyword}{const};
+00060 
+00062     iterator \hyperlink{classhryky_1_1_array_a56e39a6620eeb368c9b237a82d7507bb}{end}();
+00063 
+00065     const\_iterator \hyperlink{classhryky_1_1_array_a56e39a6620eeb368c9b237a82d7507bb}{end}() \textcolor{keyword}{const};
+00066 
+00067     size\_type       size()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} Size; \}
+00068 
+00069     \textcolor{keywordtype}{void} swap(\hyperlink{classhryky_1_1_array_ace26d248a47909ee3875cb7b5a2047e6}{this_type} & src) \{
+00070         \textcolor{keywordtype}{size\_t} index = 0;
+00071 
+00072         \textcolor{keywordflow}{for} (; Size != index; ++index) \{
+00073             \hyperlink{namespacehryky_add9c1c1fdfda07cd47bcb7c16d3a823a}{hryky_swap}(this->raw\_[index], src[index]);
+00074         \}
+00075     \}
+00076 
+00077     \textcolor{keywordtype}{void} clear() \{ \hyperlink{namespacehryky_a50f9095eab4dc96e5fa813f8fc8fba7e}{hryky::memset}(&this->raw\_[0], 0, \textcolor{keyword}{sizeof}(this->raw\_)); \}
+00078 
+00079     value\_type      raw\_[Size];
+00080 
+00081 \textcolor{keyword}{protected} :
+00082 
+00083 \textcolor{keyword}{private} :
+00084 
+00085 \};
+00086 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00087 \textcolor{comment}{// class specializations}
+00088 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00089 \textcolor{keyword}{namespace }hryky
+00090 \{
+00091 \}
+00092 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00093 \textcolor{comment}{// public member functions}
+00094 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00098 \textcolor{comment}{}\textcolor{keyword}{template} <\textcolor{keyword}{typename} ValueT, \textcolor{keywordtype}{size\_t} Size>
+00099 \textcolor{keyword}{typename} \hyperlink{classhryky_1_1iterator_1_1random_1_1_mutable}{hryky::Array<ValueT, Size>::iterator}
+\hypertarget{array_8h_source_l00100}{}\hyperlink{classhryky_1_1_array_a12db8f567aa91dbbae25dca68db6e4d3}{00100} \hyperlink{classhryky_1_1_array_a12db8f567aa91dbbae25dca68db6e4d3}{hryky::Array<ValueT, Size>::begin}()
+00101 \{
+00102     \textcolor{keywordflow}{return} \hyperlink{classhryky_1_1iterator_1_1random_1_1_mutable}{iterator}(\textcolor{keyword}{this}, 0);
+00103 \}
+00107 \textcolor{keyword}{template} <\textcolor{keyword}{typename} ValueT, \textcolor{keywordtype}{size\_t} Size>
+00108 \textcolor{keyword}{typename} \hyperlink{classhryky_1_1iterator_1_1random_1_1_immutable}{hryky::Array<ValueT, Size>::const_iterator}
+\hypertarget{array_8h_source_l00109}{}\hyperlink{classhryky_1_1_array_a2e6fb08c9e286b0f33e17b98182a4cc7}{00109} \hyperlink{classhryky_1_1_array_a12db8f567aa91dbbae25dca68db6e4d3}{hryky::Array<ValueT, Size>::begin}()\textcolor{keyword}{ const}
+00110 \textcolor{keyword}{}\{
+00111     \textcolor{keywordflow}{return} \hyperlink{classhryky_1_1iterator_1_1random_1_1_immutable}{const_iterator}(\textcolor{keyword}{this}, 0);
+00112 \}
+00116 \textcolor{keyword}{template} <\textcolor{keyword}{typename} ValueT, \textcolor{keywordtype}{size\_t} Size>
+00117 \textcolor{keyword}{typename} \hyperlink{classhryky_1_1iterator_1_1random_1_1_mutable}{hryky::Array<ValueT, Size>::iterator}
+\hypertarget{array_8h_source_l00118}{}\hyperlink{classhryky_1_1_array_a56e39a6620eeb368c9b237a82d7507bb}{00118} \hyperlink{classhryky_1_1_array_a56e39a6620eeb368c9b237a82d7507bb}{hryky::Array<ValueT, Size>::end}()
+00119 \{
+00120     \textcolor{keywordflow}{return} \hyperlink{classhryky_1_1iterator_1_1random_1_1_mutable}{iterator}(\textcolor{keyword}{this}, Size);
+00121 \}
+00125 \textcolor{keyword}{template} <\textcolor{keyword}{typename} ValueT, \textcolor{keywordtype}{size\_t} Size>
+00126 \textcolor{keyword}{typename} \hyperlink{classhryky_1_1iterator_1_1random_1_1_immutable}{hryky::Array<ValueT, Size>::const_iterator}
+\hypertarget{array_8h_source_l00127}{}\hyperlink{classhryky_1_1_array_a1aa3afc76c5f450c572fef4a3cf0254d}{00127} \hyperlink{classhryky_1_1_array_a56e39a6620eeb368c9b237a82d7507bb}{hryky::Array<ValueT, Size>::end}()\textcolor{keyword}{ const}
+00128 \textcolor{keyword}{}\{
+00129     \textcolor{keywordflow}{return} \hyperlink{classhryky_1_1iterator_1_1random_1_1_immutable}{const_iterator}(\textcolor{keyword}{this}, Size);
+00130 \}
+00131 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00132 \textcolor{comment}{// protected member functions}
+00133 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00134 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00135 \textcolor{comment}{// private member functions}
+00136 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00137 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00138 \textcolor{comment}{// global function prototypes}
+00139 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00140 \textcolor{keyword}{namespace }hryky
+00141 \{
+00143     \textcolor{keyword}{template} <\textcolor{keyword}{typename} ValueT, \textcolor{keywordtype}{size\_t} Size>
+00144     \textcolor{keywordtype}{void} \hyperlink{namespacehryky_a4282146df5ea2b68cb667896a2205909}{swap}(\hyperlink{classhryky_1_1_array}{Array<ValueT, Size>} & lhs, \hyperlink{classhryky_1_1_array}{Array<ValueT, Size>} & rhs);
+00145 
+00147     \textcolor{keyword}{template} <\textcolor{keyword}{typename} ValueT, \textcolor{keywordtype}{size\_t} Size>
+00148     \hyperlink{classhryky_1_1_intrusive_ptr}{reduction_type} \hyperlink{namespacehryky_af41cb3af6766761da0ff21b84527a52c}{reduce}(
+00149         \hyperlink{classhryky_1_1reduction_1_1_string}{reduction::name_type} \textcolor{keyword}{const} & name, \hyperlink{classhryky_1_1_array}{Array<ValueT, Size>} \textcolor{keyword}{const} & src);
+00150 
+00151 \}
+00152 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00153 \textcolor{comment}{// global function definitions}
+00154 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00158 \textcolor{comment}{}\textcolor{keyword}{template} <\textcolor{keyword}{typename} ValueT, \textcolor{keywordtype}{size\_t} Size>
+\hypertarget{array_8h_source_l00159}{}\hyperlink{namespacehryky_a7bca9e1fce78881655d3c9e23dad3691}{00159} \textcolor{keywordtype}{void} \hyperlink{namespacehryky_a4282146df5ea2b68cb667896a2205909}{hryky::swap}(\hyperlink{classhryky_1_1_array}{Array<ValueT, Size>} & lhs, \hyperlink{classhryky_1_1_array}{Array<ValueT, Size>} & rhs)
+00160 \{
+00161     lhs.swap(rhs);
+00162 \}
+00166 \textcolor{keyword}{template} <\textcolor{keyword}{typename} ValueT, \textcolor{keywordtype}{size\_t} Size>
+\hypertarget{array_8h_source_l00167}{}\hyperlink{namespacehryky_aa477737bab9053e12bd5640f91549b26}{00167} \hyperlink{classhryky_1_1_intrusive_ptr}{hryky::reduction_type} \hyperlink{namespacehryky_af41cb3af6766761da0ff21b84527a52c}{hryky::reduce}(
+00168     \hyperlink{classhryky_1_1reduction_1_1_string}{reduction::name_type} \textcolor{keyword}{const} & name, \hyperlink{classhryky_1_1_array}{Array<ValueT, Size>} \textcolor{keyword}{const} & src)
+00169 \{
+00170     \hyperlink{classhryky_1_1_intrusive_ptr}{reduction::map_type} \hyperlink{namespacehryky_1_1reduction_ac5eae270cf8047b294dc4ff3e5e11a79}{map} = \hyperlink{namespacehryky_1_1reduction_ac5eae270cf8047b294dc4ff3e5e11a79}{reduction::map}(name);
+00171 
+00172     ((*map)
+00173      .append(\textcolor{stringliteral}{"size"}, src.size())
+00174      );
+00175 
+00176     \hyperlink{classhryky_1_1_intrusive_ptr}{reduction::array_type} elements = \hyperlink{namespacehryky_1_1reduction_a9d45a4dc1ea9a6668ebd192f296f788c}{reduction::array}(\textcolor{stringliteral}{"elements"});
+00177 
+00178     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1_array}{Array<ValueT, Size>} \textcolor{keyword}{const} container\_type;
+00179     \hyperlink{classhryky_1_1_foreach}{Foreach<container_type>} \textcolor{keywordflow}{foreach}(src);
+00180     \textcolor{keywordflow}{for} (; \textcolor{keywordflow}{foreach}.valid(); ++\textcolor{keywordflow}{foreach}) \{
+00181         (*elements).append(*\textcolor{keywordflow}{foreach});
+00182     \}
+00183 
+00184     map->append(elements);
+00185     
+00186     \textcolor{keywordflow}{return} \hyperlink{namespacehryky_1_1reduction_ac5eae270cf8047b294dc4ff3e5e11a79}{map};
+00187 \}
+00188 \textcolor{preprocessor}{#endif // ARRAY\_H\_20120331175726414}
+00189 \textcolor{preprocessor}{}\textcolor{comment}{// end of file}
+\end{DoxyCode}

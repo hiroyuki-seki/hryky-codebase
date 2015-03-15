@@ -1,0 +1,51 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$exclusion_8h.html" title="exclusive control modules." alt="" coords="877,304,965,331"/>
+<area shape="rect" id="node17" href="$exclusion__recursive__mutex_8cpp.html" title="exclusion object : mutex which can be called recursively." alt="" coords="29,453,232,480"/>
+<area shape="rect" id="node41" href="$memory__heap__lock_8h.html" title="performs the exclusion control at the allocation and deallocation of heap." alt="" coords="958,80,1105,107"/>
+<area shape="rect" id="node5" href="$hryky_8h.html" title="include the entire headers of hryky&#45;codebase." alt="" coords="978,379,1042,405"/>
+<area shape="rect" id="node7" href="$exclusion_2src_2precompiled_8h_source.html" title="precompiled.h" alt="" coords="514,379,616,405"/>
+<area shape="rect" id="node19" href="$thread__pool_8h.html" title="manages the collection of reusable concurrent units." alt="" coords="1170,379,1269,405"/>
+<area shape="rect" id="node31" href="$thread__resource_8cpp.html" title="holds the resource of concurrent unit." alt="" coords="803,603,942,629"/>
+<area shape="rect" id="node35" href="$thread__resource_8h.html" title="holds the resource of concurrent unit." alt="" coords="867,528,993,555"/>
+<area shape="rect" id="node9" href="$exclusion__cond_8cpp.html" title="exclusion object : condition variable." alt="" coords="579,453,716,480"/>
+<area shape="rect" id="node11" href="$exclusion__counter_8cpp.html" title="joinable counter." alt="" coords="741,453,893,480"/>
+<area shape="rect" id="node13" href="$exclusion__flag_8cpp.html" title="synchronizes the change of a boolean value." alt="" coords="256,453,385,480"/>
+<area shape="rect" id="node15" href="$exclusion__mutex_8cpp.html" title="exclusion object : mutex." alt="" coords="410,453,554,480"/>
+<area shape="rect" id="node21" href="$thread_8h.html" title="collection of the thread module." alt="" coords="1185,453,1254,480"/>
+<area shape="rect" id="node29" href="$thread__pool_8cpp.html" title="manages the collection of reusable concurrent units." alt="" coords="1222,603,1337,629"/>
+<area shape="rect" id="node23" href="$task__concurrency_8cpp.html" title="manages concurrent units." alt="" coords="1144,528,1294,555"/>
+<area shape="rect" id="node25" href="$task__sequence_8cpp.html" title="manages workers in a thread." alt="" coords="1319,528,1453,555"/>
+<area shape="rect" id="node27" href="$thread_2src_2precompiled_8h_source.html" title="precompiled.h" alt="" coords="1018,528,1120,555"/>
+<area shape="rect" id="node43" href="$memory__global__common_8h.html" title="retains a heap for global new/delete." alt="" coords="3118,155,3297,181"/>
+<area shape="rect" id="node119" href="$memory__heap_8h.html" title="the collection of hryky::memory::heap modules." alt="" coords="973,155,1088,181"/>
+<area shape="rect" id="node45" href="$allocator__heap_8h.html" title="allocator using memory::heap::Base." alt="" coords="4161,229,4278,256"/>
+<area shape="rect" id="node63" href="$reduction__base_8h.html" title="the interface of decomposing." alt="" coords="4686,379,4806,405"/>
+<area shape="rect" id="node65" href="$vector_8h.html" title="substitutes for std::vector container." alt="" coords="3174,304,3241,331"/>
+<area shape="rect" id="node88" href="$http__request__entity_8cpp.html" title="retains the information of HTTP Request." alt="" coords="1659,528,1817,555"/>
+<area shape="rect" id="node102" href="$task__distributor__base_8h.html" title="attaches workers to the concurrent units." alt="" coords="4402,379,4560,405"/>
+<area shape="rect" id="node108" href="$memory__global_8h.html" title="the collection of hryky::memory::global modules." alt="" coords="1067,229,1188,256"/>
+<area shape="rect" id="node113" href="$memory__global__common_8cpp.html" title="retains a heap for global new/delete." alt="" coords="4784,229,4976,256"/>
+<area shape="rect" id="node117" href="$task__worker__batch_8h.html" title="executes tasks in common use." alt="" coords="1212,229,1354,256"/>
+<area shape="rect" id="node47" href="$allocator_8h.html" title="the collection of hryky::allocator modules." alt="" coords="4272,304,4354,331"/>
+<area shape="rect" id="node49" href="$any_8h.html" title="arbitrary typed value without polymorphism." alt="" coords="4192,304,4246,331"/>
+<area shape="rect" id="node51" href="$shared__ptr_8h.html" title="smart pointer which has a reference count." alt="" coords="4074,304,4168,331"/>
+<area shape="rect" id="node57" href="$string_8h.html" title="substitutes for std::string." alt="" coords="4643,304,4708,331"/>
+<area shape="rect" id="node53" href="$http__header__comment__sequence_8h.html" title="retains the array of http::header::comment::Base components." alt="" coords="4008,379,4233,405"/>
+<area shape="rect" id="node55" href="$http__header__user__agent__entity_8h.html" title="retains the information about HTTP &#39;User&#45;Agent&#39; field." alt="" coords="3702,453,3913,480"/>
+<area shape="rect" id="node59" href="$display__driver_8h.html" title="retains the information of each display driver." alt="" coords="4088,453,4198,480"/>
+<area shape="rect" id="node61" href="$display__environment_8h.html" title="collects the available display environments." alt="" coords="3115,528,3265,555"/>
+<area shape="rect" id="node69" href="$display__screen_8h.html" title="retains the information of each display screen." alt="" coords="4258,379,4378,405"/>
+<area shape="rect" id="node72" href="$http__header__accept__charset__entity_8h.html" title="retains the information for &#39;Accept&#45;Charset&#39; field of HTTP Header." alt="" coords="3696,379,3932,405"/>
+<area shape="rect" id="node74" href="$http__header__accept__encoding__entity_8h.html" title="retains the information for &#39;Accept&#45;Encoding&#39; field of HTTP Header." alt="" coords="1430,379,1676,405"/>
+<area shape="rect" id="node76" href="$http__header__accept__language__entity_8h.html" title="retains the information for &#39;Accept&#45;Language&#39; field of HTTP Header." alt="" coords="1700,379,1945,405"/>
+<area shape="rect" id="node78" href="$http__header__accept__params__entity_8h.html" title="retains the information for &#39;accept&#45;params&#39; of HTTP Header." alt="" coords="1963,453,2198,480"/>
+<area shape="rect" id="node81" href="$http__header__comment__string_8h.html" title="retains the octets as constituent of comment hierarchy." alt="" coords="2255,379,2456,405"/>
+<area shape="rect" id="node83" href="$http__header__common_8h.html" title="common definitions of http::header module." alt="" coords="2020,379,2178,405"/>
+<area shape="rect" id="node86" href="$http__request__entity_8h.html" title="retains the information of HTTP Request." alt="" coords="1794,453,1938,480"/>
+<area shape="rect" id="node90" href="$http__header__field__extension__common_8h.html" title="common definitions for http::header::field::extension." alt="" coords="2481,379,2732,405"/>
+<area shape="rect" id="node92" href="$http__header__language__entity_8h.html" title="retains the information for &#39;language&#45;tag&#39; of HTTP Header." alt="" coords="2756,379,2954,405"/>
+<area shape="rect" id="node94" href="$http__header__media__type__entity_8h.html" title="retains the information for &#39;media&#45;range&#39; of HTTP Header." alt="" coords="2979,379,3193,405"/>
+<area shape="rect" id="node96" href="$http__header__parameter__common_8h.html" title="common definition for http::header::parameter module." alt="" coords="3218,379,3440,405"/>
+<area shape="rect" id="node100" href="$ip__v4__parser_8h.html" title="parses characters representing IPv4 Address." alt="" coords="3464,379,3569,405"/>
+<area shape="rect" id="node110" href="$memory_8h.html" title="memory constrol modules." alt="" coords="989,304,1069,331"/>
+</map>

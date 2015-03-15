@@ -1,0 +1,203 @@
+\hypertarget{classhryky_1_1exclusion_1_1_flag}{\section{hryky\-:\-:exclusion\-:\-:Flag Class Reference}
+\label{classhryky_1_1exclusion_1_1_flag}\index{hryky\-::exclusion\-::\-Flag@{hryky\-::exclusion\-::\-Flag}}
+}
+
+
+synchronizes the change of a boolean value.  
+
+
+
+
+{\ttfamily \#include $<$exclusion\-\_\-flag.\-h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{classhryky_1_1exclusion_1_1_flag_a4ae4fa875b550b52110cf8a4c7f17ba3}{disable} ()
+\begin{DoxyCompactList}\small\item\em changes the boolean value to false. \end{DoxyCompactList}\item 
+bool \hyperlink{classhryky_1_1exclusion_1_1_flag_abe4af02d81a4ad094d20a125f2df6729}{enable} ()
+\begin{DoxyCompactList}\small\item\em changes the boolean value to true. \end{DoxyCompactList}\item 
+\hyperlink{classhryky_1_1exclusion_1_1_flag_a120d138be1d3f8d67ee976415f84de48}{Flag} ()
+\begin{DoxyCompactList}\small\item\em default constructor \end{DoxyCompactList}\item 
+\hyperlink{classhryky_1_1exclusion_1_1_flag_a3ac22a61223381dc74b43a30bcf13e69}{Flag} (bool value)
+\begin{DoxyCompactList}\small\item\em constructor with a boolean value \end{DoxyCompactList}\item 
+void \hyperlink{classhryky_1_1exclusion_1_1_flag_a91a07b6bb4c9ed4a83773a7c12438af4}{wait\-\_\-false} ()
+\begin{DoxyCompactList}\small\item\em suspends for an indefinite period until the boolean value comes to false. \end{DoxyCompactList}\item 
+bool \hyperlink{classhryky_1_1exclusion_1_1_flag_a40ff4b857d6b8ae797f420fcdbeba7e3}{wait\-\_\-false} (\hyperlink{namespacehryky_1_1exclusion_ad196e82d77cdc66488c1ad69363688b8}{duration\-\_\-type} const \&duration)
+\begin{DoxyCompactList}\small\item\em suspends until the boolean value comes to false or the duration elapses. \end{DoxyCompactList}\item 
+void \hyperlink{classhryky_1_1exclusion_1_1_flag_a3df221c5f42cb3c98393d939f09703a9}{wait\-\_\-true} ()
+\begin{DoxyCompactList}\small\item\em suspends for an indefinite period until the boolean value comes to true. \end{DoxyCompactList}\item 
+bool \hyperlink{classhryky_1_1exclusion_1_1_flag_ad509e6796350ea9bd77b373018b4af95}{wait\-\_\-true} (\hyperlink{namespacehryky_1_1exclusion_ad196e82d77cdc66488c1ad69363688b8}{duration\-\_\-type} const \&duration)
+\begin{DoxyCompactList}\small\item\em suspends until the boolean value comes to true or the duration elapses. \end{DoxyCompactList}\item 
+\hyperlink{classhryky_1_1exclusion_1_1_flag_ad48e064a56c9e63e98e029284816f31e}{$\sim$\-Flag} ()
+\begin{DoxyCompactList}\small\item\em destructor \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+synchronizes the change of a boolean value. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classhryky_1_1exclusion_1_1_flag_a120d138be1d3f8d67ee976415f84de48}{\index{hryky\-::exclusion\-::\-Flag@{hryky\-::exclusion\-::\-Flag}!Flag@{Flag}}
+\index{Flag@{Flag}!hryky::exclusion::Flag@{hryky\-::exclusion\-::\-Flag}}
+\subsubsection[{Flag}]{\setlength{\rightskip}{0pt plus 5cm}{\bf hryky\-::exclusion\-::\-Flag\-::\-Flag} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}explicit\mbox{]}}}}\label{classhryky_1_1exclusion_1_1_flag_a120d138be1d3f8d67ee976415f84de48}
+
+
+default constructor 
+
+constructor. \hypertarget{classhryky_1_1exclusion_1_1_flag_a3ac22a61223381dc74b43a30bcf13e69}{\index{hryky\-::exclusion\-::\-Flag@{hryky\-::exclusion\-::\-Flag}!Flag@{Flag}}
+\index{Flag@{Flag}!hryky::exclusion::Flag@{hryky\-::exclusion\-::\-Flag}}
+\subsubsection[{Flag}]{\setlength{\rightskip}{0pt plus 5cm}{\bf hryky\-::exclusion\-::\-Flag\-::\-Flag} (
+\begin{DoxyParamCaption}
+\item[{bool}]{value}
+\end{DoxyParamCaption}
+)}}\label{classhryky_1_1exclusion_1_1_flag_a3ac22a61223381dc74b43a30bcf13e69}
+
+
+constructor with a boolean value 
+
+initializes with a boolean value. \hypertarget{classhryky_1_1exclusion_1_1_flag_ad48e064a56c9e63e98e029284816f31e}{\index{hryky\-::exclusion\-::\-Flag@{hryky\-::exclusion\-::\-Flag}!$\sim$\-Flag@{$\sim$\-Flag}}
+\index{$\sim$\-Flag@{$\sim$\-Flag}!hryky::exclusion::Flag@{hryky\-::exclusion\-::\-Flag}}
+\subsubsection[{$\sim$\-Flag}]{\setlength{\rightskip}{0pt plus 5cm}{\bf hryky\-::exclusion\-::\-Flag\-::$\sim$\-Flag} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classhryky_1_1exclusion_1_1_flag_ad48e064a56c9e63e98e029284816f31e}
+
+
+destructor 
+
+destrunctor. 
+
+\subsection{Member Function Documentation}
+\hypertarget{classhryky_1_1exclusion_1_1_flag_a4ae4fa875b550b52110cf8a4c7f17ba3}{\index{hryky\-::exclusion\-::\-Flag@{hryky\-::exclusion\-::\-Flag}!disable@{disable}}
+\index{disable@{disable}!hryky::exclusion::Flag@{hryky\-::exclusion\-::\-Flag}}
+\subsubsection[{disable}]{\setlength{\rightskip}{0pt plus 5cm}bool {\bf hryky\-::exclusion\-::\-Flag\-::disable} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classhryky_1_1exclusion_1_1_flag_a4ae4fa875b550b52110cf8a4c7f17ba3}
+
+
+changes the boolean value to false. 
+
+\begin{DoxyReturn}{Returns}
+previous value.
+\end{DoxyReturn}
+The all units waiting that this value becomes true are notified. \hypertarget{classhryky_1_1exclusion_1_1_flag_abe4af02d81a4ad094d20a125f2df6729}{\index{hryky\-::exclusion\-::\-Flag@{hryky\-::exclusion\-::\-Flag}!enable@{enable}}
+\index{enable@{enable}!hryky::exclusion::Flag@{hryky\-::exclusion\-::\-Flag}}
+\subsubsection[{enable}]{\setlength{\rightskip}{0pt plus 5cm}bool {\bf hryky\-::exclusion\-::\-Flag\-::enable} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classhryky_1_1exclusion_1_1_flag_abe4af02d81a4ad094d20a125f2df6729}
+
+
+changes the boolean value to true. 
+
+\begin{DoxyReturn}{Returns}
+previous value.
+\end{DoxyReturn}
+The all units waiting that this value becomes false are notified. \hypertarget{classhryky_1_1exclusion_1_1_flag_a91a07b6bb4c9ed4a83773a7c12438af4}{\index{hryky\-::exclusion\-::\-Flag@{hryky\-::exclusion\-::\-Flag}!wait\-\_\-false@{wait\-\_\-false}}
+\index{wait\-\_\-false@{wait\-\_\-false}!hryky::exclusion::Flag@{hryky\-::exclusion\-::\-Flag}}
+\subsubsection[{wait\-\_\-false}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf hryky\-::exclusion\-::\-Flag\-::wait\-\_\-false} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classhryky_1_1exclusion_1_1_flag_a91a07b6bb4c9ed4a83773a7c12438af4}
+
+
+suspends for an indefinite period until the boolean value comes to false. 
+
+\begin{DoxyAttention}{Attention}
+
+\begin{DoxyItemize}
+\item This function might suspend the caller context for long periods. 
+\end{DoxyItemize}
+\end{DoxyAttention}
+\hypertarget{classhryky_1_1exclusion_1_1_flag_a40ff4b857d6b8ae797f420fcdbeba7e3}{\index{hryky\-::exclusion\-::\-Flag@{hryky\-::exclusion\-::\-Flag}!wait\-\_\-false@{wait\-\_\-false}}
+\index{wait\-\_\-false@{wait\-\_\-false}!hryky::exclusion::Flag@{hryky\-::exclusion\-::\-Flag}}
+\subsubsection[{wait\-\_\-false}]{\setlength{\rightskip}{0pt plus 5cm}bool {\bf hryky\-::exclusion\-::\-Flag\-::wait\-\_\-false} (
+\begin{DoxyParamCaption}
+\item[{{\bf duration\-\_\-type} const \&}]{duration}
+\end{DoxyParamCaption}
+)}}\label{classhryky_1_1exclusion_1_1_flag_a40ff4b857d6b8ae797f420fcdbeba7e3}
+
+
+suspends until the boolean value comes to false or the duration elapses. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em duration} & is a period of time which the suspension will expire. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em true} & if the wait completed successfully. \\
+\hline
+{\em false} & if the {\itshape duration\/} elapsed. \\
+\hline
+\end{DoxyRetVals}
+\begin{DoxyAttention}{Attention}
+
+\begin{DoxyItemize}
+\item This function might suspend the caller context for long periods. 
+\end{DoxyItemize}
+\end{DoxyAttention}
+\hypertarget{classhryky_1_1exclusion_1_1_flag_a3df221c5f42cb3c98393d939f09703a9}{\index{hryky\-::exclusion\-::\-Flag@{hryky\-::exclusion\-::\-Flag}!wait\-\_\-true@{wait\-\_\-true}}
+\index{wait\-\_\-true@{wait\-\_\-true}!hryky::exclusion::Flag@{hryky\-::exclusion\-::\-Flag}}
+\subsubsection[{wait\-\_\-true}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf hryky\-::exclusion\-::\-Flag\-::wait\-\_\-true} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classhryky_1_1exclusion_1_1_flag_a3df221c5f42cb3c98393d939f09703a9}
+
+
+suspends for an indefinite period until the boolean value comes to true. 
+
+suspends until for an indefinite period the boolean value comes to true.
+
+\begin{DoxyAttention}{Attention}
+
+\begin{DoxyItemize}
+\item This function might suspend the caller context for long periods. 
+\end{DoxyItemize}
+\end{DoxyAttention}
+\hypertarget{classhryky_1_1exclusion_1_1_flag_ad509e6796350ea9bd77b373018b4af95}{\index{hryky\-::exclusion\-::\-Flag@{hryky\-::exclusion\-::\-Flag}!wait\-\_\-true@{wait\-\_\-true}}
+\index{wait\-\_\-true@{wait\-\_\-true}!hryky::exclusion::Flag@{hryky\-::exclusion\-::\-Flag}}
+\subsubsection[{wait\-\_\-true}]{\setlength{\rightskip}{0pt plus 5cm}bool {\bf hryky\-::exclusion\-::\-Flag\-::wait\-\_\-true} (
+\begin{DoxyParamCaption}
+\item[{{\bf duration\-\_\-type} const \&}]{duration}
+\end{DoxyParamCaption}
+)}}\label{classhryky_1_1exclusion_1_1_flag_ad509e6796350ea9bd77b373018b4af95}
+
+
+suspends until the boolean value comes to true or the duration elapses. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em duration} & is a period of time which the suspension will expire. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em true} & if the wait completed successfully. \\
+\hline
+{\em false} & if the {\itshape duration\/} elapsed. \\
+\hline
+\end{DoxyRetVals}
+\begin{DoxyAttention}{Attention}
+
+\begin{DoxyItemize}
+\item This function might suspend the caller context for long periods. 
+\end{DoxyItemize}
+\end{DoxyAttention}
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{exclusion__flag_8h}{exclusion\-\_\-flag.\-h}\item 
+\hyperlink{exclusion__flag_8cpp}{exclusion\-\_\-flag.\-cpp}\end{DoxyCompactItemize}

@@ -1,0 +1,77 @@
+\hypertarget{date__week__common_8h_source}{\section{date\-\_\-week\-\_\-common.\-h}
+}
+
+\begin{DoxyCode}
+00001 
+00007 \textcolor{preprocessor}{#ifndef DATE\_WEEK\_COMMON\_H\_20121229222634601}
+00008 \textcolor{preprocessor}{}\textcolor{preprocessor}{#define DATE\_WEEK\_COMMON\_H\_20121229222634601}
+00009 \textcolor{preprocessor}{}\textcolor{preprocessor}{#include "\hyperlink{kind_8h}{hryky/kind.h}"}
+00010 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00011 \textcolor{comment}{// macro definition}
+00012 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00013 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00014 \textcolor{comment}{// namespace}
+00015 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00016 \textcolor{keyword}{namespace }hryky
+00017 \{
+00018 \textcolor{keyword}{namespace }date
+00019 \{
+00020 \textcolor{keyword}{namespace }week
+00021 \{
+00022     \textcolor{keyword}{struct }Kind \{
+00023         \textcolor{keyword}{enum} Raw \{
+00024             sunday\_,
+00025             monday\_,
+00026             tuesday\_,
+00027             wednesday\_,
+00028             thursday\_,
+00029             friday\_,
+00030             saturday\_,
+00031             num\_,
+00032             invalid\_ = -1,
+00033         \};
+00034     \};
+00035     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1_kind}{hryky::Kind<Kind, Kind::invalid_>} kind\_type;
+00036     
+00037 \} \textcolor{comment}{// namespace week}
+00038 
+00039     \textcolor{keyword}{typedef} week::kind\_type week\_type;
+00040 
+00041 \} \textcolor{comment}{// namespace date}
+00042 \} \textcolor{comment}{// namespace hryky}
+00043 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00044 \textcolor{comment}{// struct declaration}
+00045 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00046 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00047 \textcolor{comment}{// class declaration}
+00048 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00049 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00050 \textcolor{comment}{// global function prototypes}
+00051 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00052 \textcolor{keyword}{namespace }hryky
+00053 \{
+00054 \textcolor{keyword}{namespace }date
+00055 \{
+00056 \textcolor{keyword}{namespace }week
+00057 \{
+00058 \} \textcolor{comment}{// namespace week}
+00059 \} \textcolor{comment}{// namespace date}
+00060 \} \textcolor{comment}{// namespace hryky}
+00061 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00062 \textcolor{comment}{// global function definitions}
+00063 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00064 \textcolor{preprocessor}{#endif // DATE\_WEEK\_COMMON\_H\_20121229222634601}
+00065 \textcolor{preprocessor}{}\textcolor{comment}{// end of file}
+\end{DoxyCode}

@@ -1,0 +1,160 @@
+\hypertarget{exclusion__waitable__lock_8h_source}{\section{exclusion\-\_\-waitable\-\_\-lock.\-h}
+}
+
+\begin{DoxyCode}
+00001 
+00010 \textcolor{preprocessor}{#ifndef EXCLUSION\_WAITABLE\_LOCK\_H\_20120417232334641}
+00011 \textcolor{preprocessor}{}\textcolor{preprocessor}{#define EXCLUSION\_WAITABLE\_LOCK\_H\_20120417232334641}
+00012 \textcolor{preprocessor}{}\textcolor{preprocessor}{#include <thread>}
+00013 \textcolor{preprocessor}{#include "\hyperlink{null_8h}{hryky/gp/null.h}"}
+00014 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00015 \textcolor{comment}{// macro definition}
+00016 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00017 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00018 \textcolor{comment}{// namespace}
+00019 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00020 \textcolor{keyword}{namespace }hryky
+00021 \{
+00022 \textcolor{keyword}{namespace }exclusion
+00023 \{
+00026     \textcolor{keyword}{template} < \textcolor{keyword}{typename} LockableT >
+00027     \textcolor{keyword}{class }WaitableLock;
+00028 \}
+00029 \}
+00030 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00031 \textcolor{comment}{// class declarations}
+00032 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00037 \textcolor{comment}{}\textcolor{keyword}{template} < \textcolor{keyword}{typename} LockableT >
+\hypertarget{exclusion__waitable__lock_8h_source_l00038}{}\hyperlink{classhryky_1_1exclusion_1_1_waitable_lock}{00038} \textcolor{keyword}{class }\hyperlink{classhryky_1_1exclusion_1_1_waitable_lock}{hryky::exclusion::WaitableLock}
+00039 \{
+00040 \textcolor{keyword}{public} :
+00041 
+\hypertarget{exclusion__waitable__lock_8h_source_l00042}{}\hyperlink{classhryky_1_1exclusion_1_1_waitable_lock_ac04c20cbf4a51c9dac3ae485ff40c723}{00042}     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1exclusion_1_1_waitable_lock}{WaitableLock<LockableT>} \hyperlink{classhryky_1_1exclusion_1_1_waitable_lock_ac04c20cbf4a51c9dac3ae485ff40c723}{this_type};
+00043     \textcolor{keyword}{typedef} LockableT               lockable\_type;
+00044 
+00045 \textcolor{preprocessor}{#if HRYKY\_USE\_BOOST\_EXCLUSION}
+00046 \textcolor{preprocessor}{}    \textcolor{keyword}{typedef} boost::unique\_lock<typename lockable\_type::raw\_type> raw\_type;
+00047 \textcolor{preprocessor}{#else}
+00048 \textcolor{preprocessor}{}    \textcolor{keyword}{typedef} std::unique\_lock<typename lockable\_type::raw\_type> raw\_type;
+00049 \textcolor{preprocessor}{#endif}
+00050 \textcolor{preprocessor}{}
+00051     \textcolor{comment}{// retrieves the raw object by limited classes.}
+00052     \textcolor{keyword}{struct }Raw
+00053     \{
+00054         \textcolor{keyword}{friend} \textcolor{keyword}{class }\hyperlink{classhryky_1_1exclusion_1_1_cond}{Cond};
+00055         
+00056         Raw(\hyperlink{classhryky_1_1exclusion_1_1_waitable_lock}{WaitableLock} & instance)
+00057             : instance\_(instance)
+00058         \{\}
+00059         
+00060         raw\_type & operator()()
+00061         \{
+00062             \textcolor{keywordflow}{return} this->instance\_.raw\_;
+00063         \}
+00064         
+00065         \hyperlink{classhryky_1_1exclusion_1_1_waitable_lock}{WaitableLock} & instance\_;
+00066     \};
+00067 
+\hypertarget{exclusion__waitable__lock_8h_source_l00069}{}\hyperlink{classhryky_1_1exclusion_1_1_waitable_lock_a57940b01639eedd771e6eabc709c633c}{00069}     \hyperlink{classhryky_1_1exclusion_1_1_waitable_lock_a19be1a19921bc2a0cab7e4b9334fa838}{WaitableLock}(lockable\_type & lockable)
+00070         : raw\_() \{
+00071         raw\_type(lockable\_type::Raw(lockable)()).swap(this->raw\_);
+00072     \}
+00073 
+\hypertarget{exclusion__waitable__lock_8h_source_l00075}{}\hyperlink{classhryky_1_1exclusion_1_1_waitable_lock_ab2038d9f27a781b2f3255fed935100f7}{00075}     \hyperlink{classhryky_1_1exclusion_1_1_waitable_lock_ab2038d9f27a781b2f3255fed935100f7}{~WaitableLock}() \{
+00076         \textcolor{keywordflow}{return};
+00077     \}
+00078 
+00079 \textcolor{keyword}{protected} :
+00080 
+00082     \textcolor{keyword}{explicit} \hyperlink{classhryky_1_1exclusion_1_1_waitable_lock_a19be1a19921bc2a0cab7e4b9334fa838}{WaitableLock}();
+00083 
+00084 \textcolor{keyword}{private} :
+00085 
+00087     \textcolor{keyword}{explicit} \hyperlink{classhryky_1_1exclusion_1_1_waitable_lock_a19be1a19921bc2a0cab7e4b9334fa838}{WaitableLock}(\hyperlink{classhryky_1_1exclusion_1_1_waitable_lock_ac04c20cbf4a51c9dac3ae485ff40c723}{this_type} \textcolor{keyword}{const} &);
+00088 
+00090     \textcolor{comment}{// hryky\_rvalue\_constructor(WaitableLock);}
+00091 
+00093     hryky\_assign\_op;
+00094 
+00095     raw\_type    raw\_;
+00096 
+00097 \};
+00098 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00099 \textcolor{comment}{// class specializations}
+00100 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00101 \textcolor{keyword}{namespace }hryky
+00102 \{
+00103 \textcolor{keyword}{namespace }exclusion
+00104 \{
+00109 \textcolor{keyword}{template} < >
+\hypertarget{exclusion__waitable__lock_8h_source_l00110}{}\hyperlink{classhryky_1_1exclusion_1_1_waitable_lock_3_01_null_01_4}{00110} \textcolor{keyword}{class }\hyperlink{classhryky_1_1exclusion_1_1_waitable_lock}{WaitableLock}<\hyperlink{classhryky_1_1_null}{Null}>
+00111 \{
+00112 \textcolor{keyword}{public} :
+00113 
+\hypertarget{exclusion__waitable__lock_8h_source_l00114}{}\hyperlink{classhryky_1_1exclusion_1_1_waitable_lock_3_01_null_01_4_a1c0e5189f19c3cd9ee43c1b0b76f1e25}{00114}     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1exclusion_1_1_waitable_lock_3_01_null_01_4}{WaitableLock<Null>}  \hyperlink{classhryky_1_1exclusion_1_1_waitable_lock_3_01_null_01_4_a1c0e5189f19c3cd9ee43c1b0b76f1e25}{this_type};
+00115     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1_null}{Null}                \hyperlink{classhryky_1_1_null}{lockable_type};
+00116     
+\hypertarget{exclusion__waitable__lock_8h_source_l00118}{}\hyperlink{classhryky_1_1exclusion_1_1_waitable_lock_3_01_null_01_4_a88f47b5bf2f9ce4674eaaa49cb53e2da}{00118}     \hyperlink{classhryky_1_1exclusion_1_1_waitable_lock_3_01_null_01_4_a88f47b5bf2f9ce4674eaaa49cb53e2da}{WaitableLock}(\hyperlink{classhryky_1_1_null}{lockable_type} &) \{
+00119     \}
+00120 
+\hypertarget{exclusion__waitable__lock_8h_source_l00122}{}\hyperlink{classhryky_1_1exclusion_1_1_waitable_lock_3_01_null_01_4_ae7eea2e5dee665c0c24930d2ffc96aec}{00122}     \hyperlink{classhryky_1_1exclusion_1_1_waitable_lock_3_01_null_01_4_ae7eea2e5dee665c0c24930d2ffc96aec}{~WaitableLock}() \{
+00123     \}
+00124 
+00125 \textcolor{keyword}{protected} :
+00126 
+00128     \textcolor{keyword}{explicit} \hyperlink{classhryky_1_1exclusion_1_1_waitable_lock_a19be1a19921bc2a0cab7e4b9334fa838}{WaitableLock}();
+00129 
+00130 \textcolor{keyword}{private} :
+00131 
+00133     \textcolor{keyword}{explicit} \hyperlink{classhryky_1_1exclusion_1_1_waitable_lock_a19be1a19921bc2a0cab7e4b9334fa838}{WaitableLock}(\hyperlink{classhryky_1_1exclusion_1_1_waitable_lock_ac04c20cbf4a51c9dac3ae485ff40c723}{this_type} \textcolor{keyword}{const} &);
+00134 
+00136     \textcolor{comment}{// hryky\_rvalue\_constructor(WaitableLock);}
+00137 
+00138     \hyperlink{classhryky_1_1exclusion_1_1_waitable_lock_ac04c20cbf4a51c9dac3ae485ff40c723}{this_type} & operator=(\hyperlink{classhryky_1_1exclusion_1_1_waitable_lock_ac04c20cbf4a51c9dac3ae485ff40c723}{this_type} \textcolor{keyword}{const} &);
+00139 
+00140 \};
+00141 \}
+00142 \}
+00143 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00144 \textcolor{comment}{// public member functions}
+00145 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00146 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00147 \textcolor{comment}{// protected member functions}
+00148 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00149 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00150 \textcolor{comment}{// private member functions}
+00151 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00152 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00153 \textcolor{comment}{// global function prototypes}
+00154 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00155 \textcolor{keyword}{namespace }hryky
+00156 \{
+00157 \textcolor{keyword}{namespace }exclusion
+00158 \{
+00159 \}
+00160 \}
+00161 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00162 \textcolor{comment}{// global function definitions}
+00163 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00164 \textcolor{preprocessor}{#endif // EXCLUSION\_WAITABLE\_LOCK\_H\_20120417232334641}
+00165 \textcolor{preprocessor}{}
+00166 \textcolor{comment}{// end of file}
+\end{DoxyCode}

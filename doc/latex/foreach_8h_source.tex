@@ -1,0 +1,263 @@
+\hypertarget{foreach_8h_source}{\section{foreach.\-h}
+}
+
+\begin{DoxyCode}
+00001 
+00007 \textcolor{preprocessor}{#ifndef FOREACH\_H\_20120906225616622}
+00008 \textcolor{preprocessor}{}\textcolor{preprocessor}{#define FOREACH\_H\_20120906225616622}
+00009 \textcolor{preprocessor}{}\textcolor{preprocessor}{#include "hryky/gp/iterator\_of.h"}
+00010 \textcolor{preprocessor}{#include "\hyperlink{reduction__common_8h}{hryky/reduction/reduction_common.h}"}
+00011 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00012 \textcolor{comment}{// macro definition}
+00013 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00014 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00015 \textcolor{comment}{// namespace}
+00016 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00017 \textcolor{keyword}{namespace }hryky
+00018 \{
+00020     \textcolor{keyword}{template} < \textcolor{keyword}{typename} ContainerT, \textcolor{keyword}{typename} IteratorT >
+00021     \textcolor{keyword}{class }Foreach;
+00022 
+00023 \} \textcolor{comment}{// namespace hryky}
+00024 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00025 \textcolor{comment}{// class declarations}
+00026 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00030 \textcolor{comment}{}\textcolor{keyword}{template} <
+00031     \textcolor{keyword}{typename} ContainerT,
+00032     \textcolor{keyword}{typename} IteratorT = IteratorOf<ContainerT>::type >
+\hypertarget{foreach_8h_source_l00033}{}\hyperlink{classhryky_1_1_foreach}{00033} \textcolor{keyword}{class }\hyperlink{classhryky_1_1_foreach}{hryky::Foreach}
+00034 \{
+00035 \textcolor{keyword}{public} :
+00036 
+\hypertarget{foreach_8h_source_l00037}{}\hyperlink{classhryky_1_1_foreach_a57418e3f3130d8e58f62b54d6c209798}{00037}     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1_foreach}{Foreach}                                 \hyperlink{classhryky_1_1_foreach_a57418e3f3130d8e58f62b54d6c209798}{this_type};
+00038     \textcolor{keyword}{typedef} ContainerT                              container\_type;
+00039     \textcolor{keyword}{typedef} IteratorT                               iterator;
+00040     \textcolor{keyword}{typedef} \textcolor{keyword}{typename} ContainerT::difference\_type    difference\_type;
+00041     \textcolor{keyword}{typedef} \textcolor{keyword}{typename} \hyperlink{namespacehryky_1_1display_a88ee3bfa154cce4c6715af0c3f53d062}{ContainerT::size_type}          size\_type;
+00042 
+00043     \textcolor{keyword}{typedef} \textcolor{keyword}{typename} std::iterator\_traits<IteratorT>::reference reference;
+00044     \textcolor{keyword}{typedef} \textcolor{keyword}{typename} std::iterator\_traits<IteratorT>::pointer   pointer;
+00045     
+00046 
+00048     \hyperlink{classhryky_1_1_foreach}{Foreach}(container\_type & container);
+00049 
+00051     \hyperlink{classhryky_1_1_foreach}{Foreach}(\hyperlink{classhryky_1_1_foreach}{this_type} \textcolor{keyword}{const} &);
+00052 
+00054     \hyperlink{classhryky_1_1_foreach}{Foreach}(\hyperlink{classhryky_1_1_foreach}{this_type} && rhs);
+00055 
+\hypertarget{foreach_8h_source_l00057}{}\hyperlink{classhryky_1_1_foreach_adb929133383d80020ed63d371efa71a8}{00057}     \hyperlink{classhryky_1_1_foreach_adb929133383d80020ed63d371efa71a8}{hryky_assign_op};
+00058 
+00060     \textcolor{keywordtype}{void} \hyperlink{classhryky_1_1_foreach_a2b0583cb5e910f561c8bc2e2c87cc37e}{clear}();
+00061 
+00063     \hyperlink{classhryky_1_1_intrusive_ptr}{reduction_type} \hyperlink{classhryky_1_1_foreach_a13a52462dd8b0dddf02ea2784517bf7a}{reduce}(\hyperlink{classhryky_1_1reduction_1_1_string}{reduction::name_type} \textcolor{keyword}{const} & name) \textcolor{keyword}{const};
+00064 
+00066     \hyperlink{classhryky_1_1_foreach}{this_type} & \hyperlink{classhryky_1_1_foreach_a630beb6360fa3cabbb602d80cd5f5b44}{operator++}();
+00067 
+00069     \hyperlink{classhryky_1_1_foreach}{this_type} \hyperlink{classhryky_1_1_foreach_a630beb6360fa3cabbb602d80cd5f5b44}{operator++}(\textcolor{keywordtype}{int});
+00070 
+00072     reference \hyperlink{classhryky_1_1_foreach_a20deebc90d417dacd6052ffab3bf03e2}{operator*}() \textcolor{keyword}{const};
+00073 
+00075     pointer \hyperlink{classhryky_1_1_foreach_a14234edb35e385a4d5ced44f41571bf8}{operator->}() \textcolor{keyword}{const};
+00076 
+00078     \hyperlink{classhryky_1_1_foreach}{this_type} \hyperlink{classhryky_1_1_foreach_a7e92bdcb9a54fe6a1713e6e23fb3fa56}{operator+}(difference\_type \textcolor{keyword}{const} rhs) \textcolor{keyword}{const};
+00079 
+00081     \textcolor{keywordtype}{bool} \hyperlink{classhryky_1_1_foreach_a45a07a1b312298448623a13c0e626d3a}{valid}() \textcolor{keyword}{const};
+00082 
+00085     difference\_type \hyperlink{classhryky_1_1_foreach_aab1aceaecb09f71b9ba33ca9ceb49fb1}{offset}() \textcolor{keyword}{const};
+00086 
+00088     iterator \hyperlink{classhryky_1_1_foreach_af92e7d3b0f4b07a22856f64ade36f456}{begin}() \textcolor{keyword}{const};
+00089 
+00091     iterator \hyperlink{classhryky_1_1_foreach_abc6a85f2269646d8f110df39aff5555e}{end}() \textcolor{keyword}{const};
+00092 
+00094     size\_type \hyperlink{classhryky_1_1_foreach_a4f53055669dda7a72378659f24e21418}{size}() \textcolor{keyword}{const};
+00095 
+00096 \textcolor{keyword}{protected} :
+00097 
+00099     \textcolor{keywordtype}{void} \hyperlink{classhryky_1_1_foreach_a3c8dd1fa22806ebb2966caeed1280960}{swap}(\hyperlink{classhryky_1_1_foreach}{this_type} & src);
+00100 
+00101 \textcolor{keyword}{private} :
+00102 
+00104     \hyperlink{classhryky_1_1_foreach}{Foreach}();
+00105 
+00106     iterator begin\_;
+00107     iterator end\_;
+00108     iterator itr\_;
+00109 
+00110 \};
+00111 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00112 \textcolor{comment}{// class specializations}
+00113 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00114 \textcolor{keyword}{namespace }hryky
+00115 \{
+00116 \} \textcolor{comment}{// namespace hryky}
+00117 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00118 \textcolor{comment}{// public member functions}
+00119 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00123 \textcolor{comment}{}\textcolor{keyword}{template} < \textcolor{keyword}{typename} ContainerT, \textcolor{keyword}{typename} IteratorT >
+\hypertarget{foreach_8h_source_l00124}{}\hyperlink{classhryky_1_1_foreach_af47d8a0d8fc0256928e8fdf293bc1b9a}{00124} \hyperlink{classhryky_1_1_foreach}{hryky::Foreach<ContainerT, IteratorT>::Foreach}(container\_type & container)
+00125     : begin\_(container.begin())
+00126       , end\_(container.end())
+00127       , itr\_(begin\_)
+00128 \{
+00129     \textcolor{keywordflow}{return};
+00130 \}
+00134 \textcolor{keyword}{template} < \textcolor{keyword}{typename} ContainerT, \textcolor{keyword}{typename} IteratorT >
+\hypertarget{foreach_8h_source_l00135}{}\hyperlink{classhryky_1_1_foreach_a7d4e81ae23eccd7c85a2730cdd74fe3e}{00135} \hyperlink{classhryky_1_1_foreach}{hryky::Foreach<ContainerT, IteratorT>::Foreach}(\hyperlink{classhryky_1_1_foreach}{this_type} \textcolor{keyword}{const} & rhs)
+00136     : begin\_(rhs.begin\_)
+00137       , end\_(rhs.end\_)
+00138       , itr\_(rhs.itr\_)
+00139 \{
+00140 \}
+00144 \textcolor{keyword}{template} <\textcolor{keyword}{typename} ContainerT, \textcolor{keyword}{typename} IteratorT>
+\hypertarget{foreach_8h_source_l00145}{}\hyperlink{classhryky_1_1_foreach_a135d90ee04a04f300032795ef9ed095d}{00145} \hyperlink{classhryky_1_1_foreach}{hryky::Foreach<ContainerT, IteratorT>::Foreach}(\hyperlink{classhryky_1_1_foreach}{this_type} && rhs)
+00146     : begin\_(std::move(rhs.begin\_))
+00147       , end\_(std::move(rhs.end\_))
+00148       , itr\_(std::move(rhs.itr\_))
+00149 \{
+00150 \}
+00154 \textcolor{keyword}{template} < \textcolor{keyword}{typename} ContainerT, \textcolor{keyword}{typename} IteratorT >
+\hypertarget{foreach_8h_source_l00155}{}\hyperlink{classhryky_1_1_foreach_a13a52462dd8b0dddf02ea2784517bf7a}{00155} \hyperlink{classhryky_1_1_intrusive_ptr}{hryky::reduction_type} \hyperlink{namespacehryky_af41cb3af6766761da0ff21b84527a52c}{hryky::Foreach<ContainerT, IteratorT>::reduce}(
+00156     \hyperlink{classhryky_1_1reduction_1_1_string}{reduction::name_type} \textcolor{keyword}{const} & name)\textcolor{keyword}{ const}
+00157 \textcolor{keyword}{}\{
+00158     \hyperlink{classhryky_1_1_intrusive_ptr}{reduction::map_type} \hyperlink{namespacehryky_1_1reduction_ac5eae270cf8047b294dc4ff3e5e11a79}{map} = \hyperlink{namespacehryky_1_1reduction_ac5eae270cf8047b294dc4ff3e5e11a79}{reduction::map}(name);
+00159 
+00160     ((*map)
+00161      .append(\textcolor{stringliteral}{"begin"}, this->begin\_)
+00162      .append(\textcolor{stringliteral}{"end"}, this->end\_)
+00163      .append(\textcolor{stringliteral}{"itr"}, this->itr\_));
+00164     
+00165     \textcolor{keywordflow}{return} \hyperlink{namespacehryky_1_1reduction_ac5eae270cf8047b294dc4ff3e5e11a79}{map};
+00166 \}
+00170 \textcolor{keyword}{template} < \textcolor{keyword}{typename} ContainerT, \textcolor{keyword}{typename} IteratorT >
+00171 \hyperlink{classhryky_1_1_foreach}{hryky::Foreach<ContainerT, IteratorT>} & 
+\hypertarget{foreach_8h_source_l00172}{}\hyperlink{classhryky_1_1_foreach_a630beb6360fa3cabbb602d80cd5f5b44}{00172} \hyperlink{classhryky_1_1_foreach}{hryky::Foreach<ContainerT, IteratorT>::operator++}()
+00173 \{
+00174     ++this->itr\_;
+00175     \textcolor{keywordflow}{return} *\textcolor{keyword}{this};
+00176 \}
+00180 \textcolor{keyword}{template} < \textcolor{keyword}{typename} ContainerT, \textcolor{keyword}{typename} IteratorT >
+00181 \hyperlink{classhryky_1_1_foreach}{hryky::Foreach<ContainerT, IteratorT>}
+\hypertarget{foreach_8h_source_l00182}{}\hyperlink{classhryky_1_1_foreach_a1e142eef50ffce824c28e6d0ede15c63}{00182} \hyperlink{classhryky_1_1_foreach}{hryky::Foreach<ContainerT, IteratorT>::operator++}(\textcolor{keywordtype}{int})
+00183 \{
+00184     \hyperlink{classhryky_1_1_foreach}{this_type} \textcolor{keyword}{const} result(*\textcolor{keyword}{this});
+00185 
+00186     this->operator++();
+00187     
+00188     \textcolor{keywordflow}{return} result;
+00189 \}
+00193 \textcolor{keyword}{template} < \textcolor{keyword}{typename} ContainerT, \textcolor{keyword}{typename} IteratorT >
+00194 \textcolor{keyword}{typename} hryky::Foreach<ContainerT, IteratorT>::reference 
+\hypertarget{foreach_8h_source_l00195}{}\hyperlink{classhryky_1_1_foreach_a20deebc90d417dacd6052ffab3bf03e2}{00195} \hyperlink{classhryky_1_1_foreach}{hryky::Foreach<ContainerT, IteratorT>::operator*}()\textcolor{keyword}{ const}
+00196 \textcolor{keyword}{}\{
+00197     \textcolor{keywordflow}{return} *this->itr\_;
+00198 \}
+00202 \textcolor{keyword}{template} < \textcolor{keyword}{typename} ContainerT, \textcolor{keyword}{typename} IteratorT >
+00203 \textcolor{keyword}{typename} hryky::Foreach<ContainerT, IteratorT>::pointer 
+\hypertarget{foreach_8h_source_l00204}{}\hyperlink{classhryky_1_1_foreach_a14234edb35e385a4d5ced44f41571bf8}{00204} \hyperlink{classhryky_1_1_foreach}{hryky::Foreach<ContainerT, IteratorT>::operator->}()\textcolor{keyword}{ const}
+00205 \textcolor{keyword}{}\{
+00206     \textcolor{keywordflow}{return} &*(this->itr\_);
+00207 \}
+00211 \textcolor{keyword}{template} < \textcolor{keyword}{typename} ContainerT, \textcolor{keyword}{typename} IteratorT >
+00212 \hyperlink{classhryky_1_1_foreach}{hryky::Foreach<ContainerT, IteratorT>} 
+\hypertarget{foreach_8h_source_l00213}{}\hyperlink{classhryky_1_1_foreach_a7e92bdcb9a54fe6a1713e6e23fb3fa56}{00213} \hyperlink{classhryky_1_1_foreach}{hryky::Foreach<ContainerT, IteratorT>::operator+}(
+00214     difference\_type \textcolor{keyword}{const} rhs)\textcolor{keyword}{ const}
+00215 \textcolor{keyword}{}\{
+00216     \hyperlink{classhryky_1_1_foreach}{this_type} \textcolor{keyword}{const} result(*\textcolor{keyword}{this});
+00217 
+00218     result.itr\_ += rhs;
+00219     
+00220     \textcolor{keywordflow}{return} result;
+00221 \}
+00225 \textcolor{keyword}{template} < \textcolor{keyword}{typename} ContainerT, \textcolor{keyword}{typename} IteratorT >
+\hypertarget{foreach_8h_source_l00226}{}\hyperlink{classhryky_1_1_foreach_a45a07a1b312298448623a13c0e626d3a}{00226} \textcolor{keywordtype}{bool} \hyperlink{classhryky_1_1_foreach}{hryky::Foreach<ContainerT, IteratorT>::valid}()\textcolor{keyword}{ const}
+00227 \textcolor{keyword}{}\{
+00228     \textcolor{keywordflow}{return} this->end\_ != this->itr\_;
+00229 \}
+00234 \textcolor{keyword}{template} < \textcolor{keyword}{typename} ContainerT, \textcolor{keyword}{typename} IteratorT >
+00235 \textcolor{keyword}{typename} hryky::Foreach<ContainerT, IteratorT>::difference\_type
+\hypertarget{foreach_8h_source_l00236}{}\hyperlink{classhryky_1_1_foreach_aab1aceaecb09f71b9ba33ca9ceb49fb1}{00236} \hyperlink{classhryky_1_1_foreach}{hryky::Foreach<ContainerT, IteratorT>::offset}()\textcolor{keyword}{ const}
+00237 \textcolor{keyword}{}\{
+00238     \textcolor{keywordflow}{return} this->itr\_ - this->begin\_;
+00239 \}
+00243 \textcolor{keyword}{template} < \textcolor{keyword}{typename} ContainerT, \textcolor{keyword}{typename} IteratorT >
+\hypertarget{foreach_8h_source_l00244}{}\hyperlink{classhryky_1_1_foreach_af92e7d3b0f4b07a22856f64ade36f456}{00244} IteratorT \hyperlink{classhryky_1_1_foreach}{hryky::Foreach<ContainerT, IteratorT>::begin}()\textcolor{keyword}{ const}
+00245 \textcolor{keyword}{}\{
+00246     \textcolor{keywordflow}{return} this->begin\_;
+00247 \}
+00251 \textcolor{keyword}{template} < \textcolor{keyword}{typename} ContainerT, \textcolor{keyword}{typename} IteratorT >
+\hypertarget{foreach_8h_source_l00252}{}\hyperlink{classhryky_1_1_foreach_abc6a85f2269646d8f110df39aff5555e}{00252} IteratorT \hyperlink{classhryky_1_1_foreach}{hryky::Foreach<ContainerT, IteratorT>::end}()\textcolor{keyword}{ const}
+00253 \textcolor{keyword}{}\{
+00254     \textcolor{keywordflow}{return} this->end\_;
+00255 \}
+00259 \textcolor{keyword}{template} < \textcolor{keyword}{typename} ContainerT, \textcolor{keyword}{typename} IteratorT >
+00260 \textcolor{keyword}{typename} hryky::Foreach<ContainerT, IteratorT>::size\_type 
+\hypertarget{foreach_8h_source_l00261}{}\hyperlink{classhryky_1_1_foreach_a4f53055669dda7a72378659f24e21418}{00261} \hyperlink{classhryky_1_1_foreach}{hryky::Foreach<ContainerT, IteratorT>::size}()\textcolor{keyword}{ const}
+00262 \textcolor{keyword}{}\{
+00263     \textcolor{keywordflow}{return} this->end() - this->begin();
+00264 \}
+00265 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00266 \textcolor{comment}{// protected member functions}
+00267 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00271 \textcolor{comment}{}\textcolor{keyword}{template} < \textcolor{keyword}{typename} ContainerT, \textcolor{keyword}{typename} IteratorT >
+\hypertarget{foreach_8h_source_l00272}{}\hyperlink{classhryky_1_1_foreach_a3c8dd1fa22806ebb2966caeed1280960}{00272} \textcolor{keywordtype}{void} \hyperlink{namespacehryky_a4282146df5ea2b68cb667896a2205909}{hryky::Foreach<ContainerT, IteratorT>::swap}(\hyperlink{classhryky_1_1_foreach}{this_type} & src)
+00273 \{
+00274     \hyperlink{namespacehryky_add9c1c1fdfda07cd47bcb7c16d3a823a}{hryky_swap}(this->begin\_, src.begin\_);
+00275     \hyperlink{namespacehryky_add9c1c1fdfda07cd47bcb7c16d3a823a}{hryky_swap}(this->end\_, src.end\_);
+00276     \hyperlink{namespacehryky_add9c1c1fdfda07cd47bcb7c16d3a823a}{hryky_swap}(this->itr\_, src.itr\_);
+00277 \}
+00278 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00279 \textcolor{comment}{// private member functions}
+00280 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00281 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00282 \textcolor{comment}{// global function prototypes}
+00283 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00284 \textcolor{keyword}{namespace }hryky
+00285 \{
+00287     \textcolor{keyword}{template} < \textcolor{keyword}{typename} ContainerT, \textcolor{keyword}{typename} IteratorT >
+00288     \hyperlink{classhryky_1_1_intrusive_ptr}{reduction_type} \hyperlink{namespacehryky_af41cb3af6766761da0ff21b84527a52c}{reduce}(
+00289         \hyperlink{classhryky_1_1reduction_1_1_string}{reduction::name_type} \textcolor{keyword}{const} & name,
+00290         \hyperlink{classhryky_1_1_foreach}{Foreach<ContainerT, IteratorT>} \textcolor{keyword}{const} & src);
+00291 
+00293     \textcolor{keyword}{template} < \textcolor{keyword}{typename} ContainerT, \textcolor{keyword}{typename} IteratorT >
+00294     \textcolor{keywordtype}{void} \hyperlink{namespacehryky_a4282146df5ea2b68cb667896a2205909}{swap}(
+00295         \hyperlink{classhryky_1_1_foreach}{Foreach<ContainerT, IteratorT>} & lhs, \hyperlink{classhryky_1_1_foreach}{Foreach<ContainerT, IteratorT>} & 
+      rhs);
+00296 
+00297 \} \textcolor{comment}{// namespace hryky}
+00298 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00299 \textcolor{comment}{// global function definitions}
+00300 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00304 \textcolor{comment}{}\textcolor{keyword}{template} < \textcolor{keyword}{typename} ContainerT, \textcolor{keyword}{typename} IteratorT >
+\hypertarget{foreach_8h_source_l00305}{}\hyperlink{namespacehryky_a1ed5921c3b79b513b658b10f5a963c50}{00305} \hyperlink{classhryky_1_1_intrusive_ptr}{hryky::reduction_type} \hyperlink{namespacehryky_af41cb3af6766761da0ff21b84527a52c}{hryky::reduce}(
+00306     \hyperlink{classhryky_1_1reduction_1_1_string}{reduction::name_type} \textcolor{keyword}{const} & name,
+00307     \hyperlink{classhryky_1_1_foreach}{Foreach<ContainerT, IteratorT>} \textcolor{keyword}{const} & src)
+00308 \{
+00309     \textcolor{keywordflow}{return} src.\hyperlink{classhryky_1_1_foreach_a13a52462dd8b0dddf02ea2784517bf7a}{reduce}(name);
+00310 \}
+00314 \textcolor{keyword}{template} < \textcolor{keyword}{typename} ContainerT, \textcolor{keyword}{typename} IteratorT >
+\hypertarget{foreach_8h_source_l00315}{}\hyperlink{namespacehryky_aa7ddc0b2566f433d6c53ad6e1b7291d0}{00315} \textcolor{keywordtype}{void} \hyperlink{namespacehryky_a4282146df5ea2b68cb667896a2205909}{hryky::swap}(
+00316     \hyperlink{classhryky_1_1_foreach}{Foreach<ContainerT, IteratorT>} & lhs, \hyperlink{classhryky_1_1_foreach}{Foreach<ContainerT, IteratorT>} & rhs)
+00317 \{
+00318     lhs.\hyperlink{classhryky_1_1_foreach_a3c8dd1fa22806ebb2966caeed1280960}{swap}(rhs);
+00319 \}
+00320 \textcolor{preprocessor}{#endif // FOREACH\_H\_20120906225616622}
+00321 \textcolor{preprocessor}{}\textcolor{comment}{// end of file}
+\end{DoxyCode}

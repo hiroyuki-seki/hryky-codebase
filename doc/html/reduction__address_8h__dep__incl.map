@@ -1,0 +1,51 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$reduction_8h.html" title="reduces instances to primitive objects." alt="" coords="4633,80,4719,107"/>
+<area shape="rect" id="node137" href="$reduction__address_8cpp.html" title="primitive type of reduction as memory address." alt="" coords="4743,80,4896,107"/>
+<area shape="rect" id="node5" href="$ascii__common_8cpp.html" title="utility for US&#45;ASCII." alt="" coords="2557,155,2688,181"/>
+<area shape="rect" id="node7" href="$literal__string_8cpp.html" title="retains a literal string." alt="" coords="2712,155,2829,181"/>
+<area shape="rect" id="node9" href="$date__entity_8cpp.html" title="retains a month and a day." alt="" coords="2854,155,2964,181"/>
+<area shape="rect" id="node11" href="$display_2src_2precompiled_8h_source.html" title="precompiled.h" alt="" coords="3041,155,3143,181"/>
+<area shape="rect" id="node13" href="$display__driver_8cpp.html" title="retains the information of each display driver." alt="" coords="5,229,131,256"/>
+<area shape="rect" id="node15" href="$display__screen_8cpp.html" title="retains the information of each display screen." alt="" coords="155,229,289,256"/>
+<area shape="rect" id="node19" href="$exclusion__counter_8cpp.html" title="joinable counter." alt="" coords="3219,155,3371,181"/>
+<area shape="rect" id="node21" href="$file__descriptor__entity_8cpp.html" title="retains a file descriptor." alt="" coords="3395,155,3561,181"/>
+<area shape="rect" id="node23" href="$file__descriptor__mode_8cpp.html" title="retains the access mode for file descriptor." alt="" coords="3586,155,3752,181"/>
+<area shape="rect" id="node25" href="$file__descriptor__entity_8win32_8cpp.html" title="retains a file descripter for Win32." alt="" coords="3777,155,3980,181"/>
+<area shape="rect" id="node27" href="$http_2src_2precompiled_8h_source.html" title="precompiled.h" alt="" coords="5006,155,5108,181"/>
+<area shape="rect" id="node29" href="$http__body__entity_8cpp.html" title="retains a message&#45;body of HTTP Message." alt="" coords="314,229,456,256"/>
+<area shape="rect" id="node31" href="$http__entity_8cpp.html" title="retains the information about a HTTP Message." alt="" coords="481,229,588,256"/>
+<area shape="rect" id="node33" href="$http__header__accept__charset__content__entity_8cpp.html" title="retains the information for &#39;Accept&#45;Charset&#39; field&#45;content of HTTP Header." alt="" coords="613,229,912,256"/>
+<area shape="rect" id="node35" href="$http__header__accept__charset__entity_8cpp.html" title="retains the information for &#39;Accept&#45;Charset&#39; field of HTTP Header." alt="" coords="937,229,1188,256"/>
+<area shape="rect" id="node37" href="$http__header__accept__content__entity_8cpp.html" title="retains the information for &#39;Accept&#39; field&#45;content of HTTP Header." alt="" coords="1212,229,1463,256"/>
+<area shape="rect" id="node39" href="$http__header__accept__encoding__content__entity_8cpp.html" title="retains the information for &#39;Accept&#45;Encoding&#39; field&#45;content of HTTP Header." alt="" coords="1487,229,1796,256"/>
+<area shape="rect" id="node41" href="$http__header__accept__extension__entity_8cpp.html" title="retains the information for &#39;accept&#45;extension&#39; of HTTP Header." alt="" coords="1821,229,2083,256"/>
+<area shape="rect" id="node43" href="$http__header__accept__language__content__entity_8cpp.html" title="retains the information for &#39;Accept&#45;Language&#39; field&#45;content of HTTP Header." alt="" coords="2108,229,2417,256"/>
+<area shape="rect" id="node45" href="$http__header__accept__params__entity_8cpp.html" title="retains the information for &#39;accept&#45;params&#39; of HTTP Header." alt="" coords="2441,229,2692,256"/>
+<area shape="rect" id="node47" href="$http__header__cache__control__entity_8cpp.html" title="retains &#39;Cache&#45;Control&#39; field of HTTP Header." alt="" coords="2716,229,2959,256"/>
+<area shape="rect" id="node49" href="$http__header__cache__directive__base_8cpp.html" title="base class for cache directive of HTTP Header." alt="" coords="2983,229,3229,256"/>
+<area shape="rect" id="node51" href="$http__header__cache__directive__dispatcher__apply_8cpp.html" title="applies the implementation of cache&#45;directive to cache&#45;control." alt="" coords="3254,229,3569,256"/>
+<area shape="rect" id="node53" href="$http__header__cache__directive__dispatcher__base_8cpp.html" title="base class to be dispatched the implementation derived from http::header::cache::directive::Base." alt="" coords="3594,229,3907,256"/>
+<area shape="rect" id="node55" href="$http__header__cache__directive__field_8cpp.html" title="retains &#39;field&#45;name&#39;s of cache&#45;directive." alt="" coords="3931,229,4172,256"/>
+<area shape="rect" id="node57" href="$http__header__cache__directive__second_8cpp.html" title="retains delta&#45;seconds of cache&#45;directive in HTTP Header." alt="" coords="4197,229,4456,256"/>
+<area shape="rect" id="node59" href="$http__header__comment__base_8cpp.html" title="base class in order to retain octets and node composing hierarchical structure." alt="" coords="4481,229,4692,256"/>
+<area shape="rect" id="node61" href="$http__header__connection__entity_8cpp.html" title="retains the information about &#39;Connection&#39; field of HTTP Header." alt="" coords="4716,229,4940,256"/>
+<area shape="rect" id="node63" href="$http__header__date__entity_8cpp.html" title="retains the information for &#39;HTTP&#45;date&#39; of HTTP Header." alt="" coords="4964,229,5151,256"/>
+<area shape="rect" id="node65" href="$http__header__entity_8cpp.html" title="retains message&#45;headers of HTTP Message." alt="" coords="5175,229,5329,256"/>
+<area shape="rect" id="node67" href="$http__header__field__base_8cpp.html" title="base class for each field of HTTP Header." alt="" coords="5354,229,5533,256"/>
+<area shape="rect" id="node69" href="$http__header__field__dispatcher__apply_8cpp.html" title="applies the implementation of field to HTTP Header." alt="" coords="5559,229,5809,256"/>
+<area shape="rect" id="node71" href="$http__header__field__dispatcher__base_8cpp.html" title="base class to be dispatched the class derived from http::header::field::Base." alt="" coords="5834,229,6080,256"/>
+<area shape="rect" id="node73" href="$http__header__field__extension__entity_8cpp.html" title="retains the information for &#39;extension&#45;header&#39; field of HTTP Header." alt="" coords="6105,229,6351,256"/>
+<area shape="rect" id="node75" href="$http__header__host__entity_8cpp.html" title="retains the information of &#39;host&#39; field of HTTP header." alt="" coords="6376,229,6563,256"/>
+<area shape="rect" id="node77" href="$http__header__language__entity_8cpp.html" title="retains the information for &#39;language&#45;tag&#39; of HTTP Header." alt="" coords="6587,229,6800,256"/>
+<area shape="rect" id="node79" href="$http__header__media__type__entity_8cpp.html" title="retains the information for &#39;media&#45;range&#39; of HTTP Header." alt="" coords="6825,229,7052,256"/>
+<area shape="rect" id="node81" href="$http__header__parameter__entity_8cpp.html" title="retains the information for &#39;parameter&#39; of HTTP Syntax." alt="" coords="7077,229,7296,256"/>
+<area shape="rect" id="node83" href="$http__header__parser_8cpp.html" title="parses a text string of HTTP Message." alt="" coords="7321,229,7479,256"/>
+<area shape="rect" id="node85" href="$http__header__product__comment__base_8cpp.html" title="base class for holding &#39;comment&#39; and &#39;product&#39; representation polymorphically." alt="" coords="7504,229,7765,256"/>
+<area shape="rect" id="node87" href="$http__header__product__comment__dispatcher__base_8cpp.html" title="dispatches the implementation of http::header::product_comment::Base." alt="" coords="7789,229,8117,256"/>
+<area shape="rect" id="node89" href="$http__header__product__entity_8cpp.html" title="retains the information of HTTP Product Tokens." alt="" coords="8142,229,8345,256"/>
+<area shape="rect" id="node91" href="$http__header__server__entity_8cpp.html" title="retains the information for &#39;Server&#39; field of HTTP Header." alt="" coords="8371,229,8565,256"/>
+<area shape="rect" id="node93" href="$http__header__user__agent__entity_8cpp.html" title="retains the information about HTTP &#39;User&#45;Agent&#39; field." alt="" coords="8590,229,8815,256"/>
+<area shape="rect" id="node95" href="$http__parser_8cpp.html" title="writes out a HTTP Message." alt="" coords="8840,229,8952,256"/>
+<area shape="rect" id="node97" href="$http__request__entity_8cpp.html" title="retains the information of HTTP Request." alt="" coords="8977,229,9135,256"/>
+<area shape="rect" id="node99" href="$http__request__line__entity_8cpp.html" title="retains the information of the first line of HTTP Request Message." alt="" coords="9159,229,9344,256"/>
+</map>

@@ -1,0 +1,101 @@
+\hypertarget{classhryky_1_1allocator_1_1_heap}{\section{hryky\-:\-:allocator\-:\-:Heap$<$ Value\-T, Heap\-Ptr\-T $>$ Class Template Reference}
+\label{classhryky_1_1allocator_1_1_heap}\index{hryky\-::allocator\-::\-Heap$<$ Value\-T, Heap\-Ptr\-T $>$@{hryky\-::allocator\-::\-Heap$<$ Value\-T, Heap\-Ptr\-T $>$}}
+}
+
+
+allocator using \hyperlink{classhryky_1_1memory_1_1heap_1_1_base}{memory\-::heap\-::\-Base}.  
+
+
+
+
+{\ttfamily \#include $<$allocator\-\_\-heap.\-h$>$}
+
+
+
+Inheritance diagram for hryky\-:\-:allocator\-:\-:Heap$<$ Value\-T, Heap\-Ptr\-T $>$\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classhryky_1_1allocator_1_1_heap__inherit__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classhryky_1_1allocator_1_1_heap_aa6049d5dcf3b2ec29cc6597d183e80bc}{pointer \hyperlink{classhryky_1_1allocator_1_1_heap_aa6049d5dcf3b2ec29cc6597d183e80bc}{allocate} (size\-\_\-type count, void const $\ast$=\hyperlink{common_8h_a4cd4ac09cfcdbd6b30ee69afc156e210}{H\-R\-Y\-K\-Y\-\_\-\-N\-U\-L\-L\-P\-T\-R})}\label{classhryky_1_1allocator_1_1_heap_aa6049d5dcf3b2ec29cc6597d183e80bc}
+
+\begin{DoxyCompactList}\small\item\em allocates memory by Heap\-Ptr\-T. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1allocator_1_1_heap_a60545b7067de7bd142ada1b2ff5bf7f9}{void \hyperlink{classhryky_1_1allocator_1_1_heap_a60545b7067de7bd142ada1b2ff5bf7f9}{deallocate} (pointer ptr, size\-\_\-type)}\label{classhryky_1_1allocator_1_1_heap_a60545b7067de7bd142ada1b2ff5bf7f9}
+
+\begin{DoxyCompactList}\small\item\em deallocates memory by Heap\-Ptr\-T. \end{DoxyCompactList}\item 
+\hyperlink{classhryky_1_1allocator_1_1_heap_a6a7972f4ac65c5c1ad631cb0d4db6590}{Heap} ()
+\begin{DoxyCompactList}\small\item\em default constructor \end{DoxyCompactList}\item 
+\hyperlink{classhryky_1_1allocator_1_1_heap_a8e73ccf19f000b54365cbaf614d2c00d}{Heap} (\hyperlink{classhryky_1_1allocator_1_1_base}{this\-\_\-type} const \&rhs)
+\begin{DoxyCompactList}\small\item\em copy constructor \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1allocator_1_1_heap_a053e81bcd62ee93ba4e9650c55217f29}{\hyperlink{classhryky_1_1allocator_1_1_heap_a053e81bcd62ee93ba4e9650c55217f29}{Heap} (\hyperlink{classhryky_1_1allocator_1_1_base}{this\-\_\-type} \&\&rhs)}\label{classhryky_1_1allocator_1_1_heap_a053e81bcd62ee93ba4e9650c55217f29}
+
+\begin{DoxyCompactList}\small\item\em copy constructor by rvalue reference. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1allocator_1_1_heap_ace223f3243a7e5a396cf7b86f5dcfd0f}{\hyperlink{classhryky_1_1allocator_1_1_heap_ace223f3243a7e5a396cf7b86f5dcfd0f}{Heap} (Heap\-Ptr\-T \hyperlink{classhryky_1_1allocator_1_1_heap_a8e298fe26a676998b9bc5178c79961dc}{heap})}\label{classhryky_1_1allocator_1_1_heap_ace223f3243a7e5a396cf7b86f5dcfd0f}
+
+\begin{DoxyCompactList}\small\item\em constructor with Heap\-Ptr\-T. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1allocator_1_1_heap_a73751d2de2bd8ca6a88d7a3c5d2327dd}{{\footnotesize template$<$typename Other\-T $>$ }\\\hyperlink{classhryky_1_1allocator_1_1_heap_a73751d2de2bd8ca6a88d7a3c5d2327dd}{Heap} (\hyperlink{classhryky_1_1allocator_1_1_heap}{Heap}$<$ Other\-T, Heap\-Ptr\-T $>$ const \&rhs)}\label{classhryky_1_1allocator_1_1_heap_a73751d2de2bd8ca6a88d7a3c5d2327dd}
+
+\begin{DoxyCompactList}\small\item\em constructor with an allocator for other type. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1allocator_1_1_heap_a8e298fe26a676998b9bc5178c79961dc}{Heap\-Ptr\-T \hyperlink{classhryky_1_1allocator_1_1_heap_a8e298fe26a676998b9bc5178c79961dc}{heap} () const }\label{classhryky_1_1allocator_1_1_heap_a8e298fe26a676998b9bc5178c79961dc}
+
+\begin{DoxyCompactList}\small\item\em retrieves the internal representation. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1allocator_1_1_heap_a6e2a6c2d9a4d9542059b28fca4c4a2d6}{size\-\_\-type \hyperlink{classhryky_1_1allocator_1_1_heap_a6e2a6c2d9a4d9542059b28fca4c4a2d6}{max\-\_\-size} () const }\label{classhryky_1_1allocator_1_1_heap_a6e2a6c2d9a4d9542059b28fca4c4a2d6}
+
+\begin{DoxyCompactList}\small\item\em retrieves the maximum size by which an allocation can be successful. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1allocator_1_1_heap_a855528bfa428ad5289cbdff073311d68}{void \hyperlink{classhryky_1_1allocator_1_1_heap_a855528bfa428ad5289cbdff073311d68}{swap} (\hyperlink{classhryky_1_1allocator_1_1_base}{this\-\_\-type} \&src)}\label{classhryky_1_1allocator_1_1_heap_a855528bfa428ad5289cbdff073311d68}
+
+\begin{DoxyCompactList}\small\item\em interchanges the each internal resources of two instances. \end{DoxyCompactList}\item 
+\hyperlink{classhryky_1_1allocator_1_1_heap_a682f65aed73b63b9f7e86d6db413729d}{$\sim$\-Heap} ()
+\begin{DoxyCompactList}\small\item\em destructor \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$typename Value\-T, typename Heap\-Ptr\-T = hryky\-::memory\-::heap\-::\-Base $\ast$$>$class hryky\-::allocator\-::\-Heap$<$ Value\-T, Heap\-Ptr\-T $>$}
+
+allocator using \hyperlink{classhryky_1_1memory_1_1heap_1_1_base}{memory\-::heap\-::\-Base}. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classhryky_1_1allocator_1_1_heap_a6a7972f4ac65c5c1ad631cb0d4db6590}{\index{hryky\-::allocator\-::\-Heap@{hryky\-::allocator\-::\-Heap}!Heap@{Heap}}
+\index{Heap@{Heap}!hryky::allocator::Heap@{hryky\-::allocator\-::\-Heap}}
+\subsubsection[{Heap}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Value\-T , typename Heap\-Ptr\-T $>$ {\bf hryky\-::allocator\-::\-Heap}$<$ Value\-T, Heap\-Ptr\-T $>$\-::{\bf Heap} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classhryky_1_1allocator_1_1_heap_a6a7972f4ac65c5c1ad631cb0d4db6590}
+
+
+default constructor 
+
+default constructor. \hypertarget{classhryky_1_1allocator_1_1_heap_a8e73ccf19f000b54365cbaf614d2c00d}{\index{hryky\-::allocator\-::\-Heap@{hryky\-::allocator\-::\-Heap}!Heap@{Heap}}
+\index{Heap@{Heap}!hryky::allocator::Heap@{hryky\-::allocator\-::\-Heap}}
+\subsubsection[{Heap}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Value\-T , typename Heap\-Ptr\-T $>$ {\bf hryky\-::allocator\-::\-Heap}$<$ Value\-T, Heap\-Ptr\-T $>$\-::{\bf Heap} (
+\begin{DoxyParamCaption}
+\item[{{\bf this\-\_\-type} const \&}]{rhs}
+\end{DoxyParamCaption}
+)}}\label{classhryky_1_1allocator_1_1_heap_a8e73ccf19f000b54365cbaf614d2c00d}
+
+
+copy constructor 
+
+copy constructor. \hypertarget{classhryky_1_1allocator_1_1_heap_a682f65aed73b63b9f7e86d6db413729d}{\index{hryky\-::allocator\-::\-Heap@{hryky\-::allocator\-::\-Heap}!$\sim$\-Heap@{$\sim$\-Heap}}
+\index{$\sim$\-Heap@{$\sim$\-Heap}!hryky::allocator::Heap@{hryky\-::allocator\-::\-Heap}}
+\subsubsection[{$\sim$\-Heap}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Value\-T , typename Heap\-Ptr\-T $>$ {\bf hryky\-::allocator\-::\-Heap}$<$ Value\-T, Heap\-Ptr\-T $>$\-::$\sim${\bf Heap} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classhryky_1_1allocator_1_1_heap_a682f65aed73b63b9f7e86d6db413729d}
+
+
+destructor 
+
+destructor. 
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{allocator__heap_8h}{allocator\-\_\-heap.\-h}\end{DoxyCompactItemize}

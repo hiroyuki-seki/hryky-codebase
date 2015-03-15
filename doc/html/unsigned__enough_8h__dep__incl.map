@@ -1,0 +1,10 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$bitfield_8h.html" title="initializes and clears bitfields." alt="" coords="357,80,427,107"/>
+<area shape="rect" id="node15" href="$integer_8h.html" title="utility for builtin integer types." alt="" coords="471,80,543,107"/>
+<area shape="rect" id="node5" href="$file__descriptor__mode_8h.html" title="retains the access mode for file descriptor." alt="" coords="307,155,459,181"/>
+<area shape="rect" id="node7" href="$file__descriptor__entity_8cpp.html" title="retains a file descriptor." alt="" coords="5,229,171,256"/>
+<area shape="rect" id="node9" href="$file__descriptor__mode_8cpp.html" title="retains the access mode for file descriptor." alt="" coords="195,229,361,256"/>
+<area shape="rect" id="node11" href="$file__descriptor__entity_8win32_8cpp.html" title="retains a file descripter for Win32." alt="" coords="387,229,589,256"/>
+<area shape="rect" id="node13" href="$file__descriptor__mode_8win32_8cpp.html" title="retains the access mode for file descriptor for Win32." alt="" coords="613,229,816,256"/>
+<area shape="rect" id="node17" href="$bitset_8h.html" title="bitset of fixed size on compile time." alt="" coords="483,155,548,181"/>
+</map>

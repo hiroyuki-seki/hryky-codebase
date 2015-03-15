@@ -1,0 +1,161 @@
+\hypertarget{classhryky_1_1task_1_1worker_1_1_base}{\section{hryky\-:\-:task\-:\-:worker\-:\-:Base Class Reference}
+\label{classhryky_1_1task_1_1worker_1_1_base}\index{hryky\-::task\-::worker\-::\-Base@{hryky\-::task\-::worker\-::\-Base}}
+}
+
+
+executes tasks.  
+
+
+
+
+{\ttfamily \#include $<$task\-\_\-worker\-\_\-base.\-h$>$}
+
+
+
+Inheritance diagram for hryky\-:\-:task\-:\-:worker\-:\-:Base\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classhryky_1_1task_1_1worker_1_1_base__inherit__graph}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classhryky_1_1task_1_1worker_1_1_base_1_1_detach}{Detach}
+\begin{DoxyCompactList}\small\item\em allows to call detach() from the concurrent unit. \end{DoxyCompactList}\item 
+class \hyperlink{classhryky_1_1task_1_1worker_1_1_base_1_1_observer}{Observer}
+\begin{DoxyCompactList}\small\item\em callback functions. \end{DoxyCompactList}\item 
+struct \hyperlink{structhryky_1_1task_1_1worker_1_1_base_1_1_reset_parameter}{Reset\-Parameter}
+\begin{DoxyCompactList}\small\item\em parameter for \hyperlink{classhryky_1_1task_1_1worker_1_1_base_a2dfa3093b3165d58ed31aa575ae1b159}{reset()} \end{DoxyCompactList}\item 
+class \hyperlink{classhryky_1_1task_1_1worker_1_1_base_1_1_run}{Run}
+\begin{DoxyCompactList}\small\item\em allows to call run() from the concurrent unit. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classhryky_1_1task_1_1worker_1_1_base_a7e479f64d3081afe38ac8c001c784b6f}{typedef \hyperlink{classhryky_1_1task_1_1worker_1_1_base}{Base} \hyperlink{classhryky_1_1task_1_1worker_1_1_base_a7e479f64d3081afe38ac8c001c784b6f}{this\-\_\-type}}\label{classhryky_1_1task_1_1worker_1_1_base_a7e479f64d3081afe38ac8c001c784b6f}
+
+\begin{DoxyCompactList}\small\item\em self \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{classhryky_1_1task_1_1worker_1_1_base_ae17d5723d8aa5567ea6a47b67f8133c4}{attach} ()
+\begin{DoxyCompactList}\small\item\em attaches itself to the corresponding thread. \end{DoxyCompactList}\item 
+\hyperlink{classhryky_1_1task_1_1worker_1_1_base_a5ffe0568374d8b9b4c4ec32953fd6453}{Base} ()
+\begin{DoxyCompactList}\small\item\em default constructor \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1task_1_1worker_1_1_base_aa39b31ced492faec5dd3b6478b0a98df}{void \hyperlink{classhryky_1_1task_1_1worker_1_1_base_aa39b31ced492faec5dd3b6478b0a98df}{error} ()}\label{classhryky_1_1task_1_1worker_1_1_base_aa39b31ced492faec5dd3b6478b0a98df}
+
+\begin{DoxyCompactList}\small\item\em notifies that some error occurs. \end{DoxyCompactList}\item 
+bool \hyperlink{classhryky_1_1task_1_1worker_1_1_base_a2dfa3093b3165d58ed31aa575ae1b159}{reset} (\hyperlink{structhryky_1_1task_1_1worker_1_1_base_1_1_reset_parameter}{Reset\-Parameter} const \&param)
+\begin{DoxyCompactList}\small\item\em clears the existing resources and reinitializes. \end{DoxyCompactList}\item 
+virtual \hyperlink{classhryky_1_1task_1_1worker_1_1_base_a722da881b6c70cfcbde9243abcfbf334}{$\sim$\-Base} ()
+\begin{DoxyCompactList}\small\item\em destrunctor \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Types}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classhryky_1_1_noncopyable_aaf87abb55f700af85ecb0895f6178821}{typedef \hyperlink{classhryky_1_1_noncopyable}{Noncopyable} $\ast$ \hyperlink{classhryky_1_1_noncopyable_aaf87abb55f700af85ecb0895f6178821}{instance\-\_\-type}}\label{classhryky_1_1_noncopyable_aaf87abb55f700af85ecb0895f6178821}
+
+\begin{DoxyCompactList}\small\item\em instance type \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+executes tasks. 
+
+
+\begin{DoxyItemize}
+\item derived class must implement run\-\_\-impl(). 
+\end{DoxyItemize}
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classhryky_1_1task_1_1worker_1_1_base_a5ffe0568374d8b9b4c4ec32953fd6453}{\index{hryky\-::task\-::worker\-::\-Base@{hryky\-::task\-::worker\-::\-Base}!Base@{Base}}
+\index{Base@{Base}!hryky::task::worker::Base@{hryky\-::task\-::worker\-::\-Base}}
+\subsubsection[{Base}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Base\-::\-Base} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}explicit\mbox{]}}}}\label{classhryky_1_1task_1_1worker_1_1_base_a5ffe0568374d8b9b4c4ec32953fd6453}
+
+
+default constructor 
+
+constructor. \hypertarget{classhryky_1_1task_1_1worker_1_1_base_a722da881b6c70cfcbde9243abcfbf334}{\index{hryky\-::task\-::worker\-::\-Base@{hryky\-::task\-::worker\-::\-Base}!$\sim$\-Base@{$\sim$\-Base}}
+\index{$\sim$\-Base@{$\sim$\-Base}!hryky::task::worker::Base@{hryky\-::task\-::worker\-::\-Base}}
+\subsubsection[{$\sim$\-Base}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Base\-::$\sim$\-Base} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}\label{classhryky_1_1task_1_1worker_1_1_base_a722da881b6c70cfcbde9243abcfbf334}
+
+
+destrunctor 
+
+destrunctor. 
+
+\subsection{Member Function Documentation}
+\hypertarget{classhryky_1_1task_1_1worker_1_1_base_ae17d5723d8aa5567ea6a47b67f8133c4}{\index{hryky\-::task\-::worker\-::\-Base@{hryky\-::task\-::worker\-::\-Base}!attach@{attach}}
+\index{attach@{attach}!hryky::task::worker::Base@{hryky\-::task\-::worker\-::\-Base}}
+\subsubsection[{attach}]{\setlength{\rightskip}{0pt plus 5cm}bool {\bf Base\-::attach} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classhryky_1_1task_1_1worker_1_1_base_ae17d5723d8aa5567ea6a47b67f8133c4}
+
+
+attaches itself to the corresponding thread. 
+
+\begin{DoxyReturn}{Returns}
+success or failure.
+\end{DoxyReturn}
+
+\begin{DoxyItemize}
+\item This function becomes effective immediately.
+\end{DoxyItemize}
+
+\begin{DoxyAttention}{Attention}
+
+\begin{DoxyItemize}
+\item you must not call this function again while the worker is attached to the concurrent unit. 
+\end{DoxyItemize}
+\end{DoxyAttention}
+
+
+References \hyperlink{log__writer__common_8h_ae5ad3dabb33f594695ef40753cb78aad}{hryky\-\_\-log\-\_\-err}, \hyperlink{log__writer__common_8h_a1a150b0b31f517e34b4f6604348f3cbf}{hryky\-\_\-log\-\_\-warning}, \hyperlink{common_8h_a4cd4ac09cfcdbd6b30ee69afc156e210}{H\-R\-Y\-K\-Y\-\_\-\-N\-U\-L\-L\-P\-T\-R}, and \hyperlink{reduction__common_8h_afc72326c9900838c5db40438318794dd}{hryky\-\_\-reduce()}.
+
+
+
+Referenced by \hyperlink{group__task_ga54ecf037362d5f476c1cd9a984c1b720}{hryky\-::task\-::distributor\-::\-Batch$<$ Task\-T $>$\-::attach\-\_\-with()}.
+
+\hypertarget{classhryky_1_1task_1_1worker_1_1_base_a2dfa3093b3165d58ed31aa575ae1b159}{\index{hryky\-::task\-::worker\-::\-Base@{hryky\-::task\-::worker\-::\-Base}!reset@{reset}}
+\index{reset@{reset}!hryky::task::worker::Base@{hryky\-::task\-::worker\-::\-Base}}
+\subsubsection[{reset}]{\setlength{\rightskip}{0pt plus 5cm}bool {\bf Base\-::reset} (
+\begin{DoxyParamCaption}
+\item[{{\bf Reset\-Parameter} const \&}]{param}
+\end{DoxyParamCaption}
+)}}\label{classhryky_1_1task_1_1worker_1_1_base_a2dfa3093b3165d58ed31aa575ae1b159}
+
+
+clears the existing resources and reinitializes. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em param} & is the set of parameters to reset. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+failure and success. 
+\end{DoxyReturn}
+
+
+Reimplemented in \hyperlink{group__task_ga88b1f6b27be23acb9fd42203d7cd3933}{hryky\-::task\-::worker\-::\-Batch$<$ Task\-T $>$}.
+
+
+
+Referenced by \hyperlink{group__task_ga9ebf9038e6e40f583b3b26866e1f8131}{hryky\-::task\-::distributor\-::\-Batch$<$ Task\-T $>$\-::reset()}.
+
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{task__worker__base_8h}{task\-\_\-worker\-\_\-base.\-h}\item 
+\hyperlink{task__worker__base_8cpp}{task\-\_\-worker\-\_\-base.\-cpp}\end{DoxyCompactItemize}

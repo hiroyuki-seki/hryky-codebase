@@ -1,0 +1,122 @@
+\hypertarget{http__seconds__entity_8h_source}{\section{http\-\_\-seconds\-\_\-entity.\-h}
+}
+
+\begin{DoxyCode}
+00001 
+00007 \textcolor{preprocessor}{#ifndef HTTP\_SECONDS\_ENTITY\_H\_20121008151456302}
+00008 \textcolor{preprocessor}{}\textcolor{preprocessor}{#define HTTP\_SECONDS\_ENTITY\_H\_20121008151456302}
+00009 \textcolor{preprocessor}{}\textcolor{preprocessor}{#include "\hyperlink{http__seconds__common_8h}{hryky/http/http_seconds_common.h}"}
+00010 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00011 \textcolor{comment}{// macro definition}
+00012 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00013 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00014 \textcolor{comment}{// namespace}
+00015 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00016 \textcolor{keyword}{namespace }hryky
+00017 \{
+00018 \textcolor{keyword}{namespace }http
+00019 \{
+00020 \textcolor{keyword}{namespace }seconds
+00021 \{
+00023     \textcolor{keyword}{class }Entity;
+00024 
+00025 \} \textcolor{comment}{// namespace seconds}
+00026 \} \textcolor{comment}{// namespace http}
+00027 \} \textcolor{comment}{// namespace hryky}
+00028 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00029 \textcolor{comment}{// class declarations}
+00030 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+\hypertarget{http__seconds__entity_8h_source_l00034}{}\hyperlink{classhryky_1_1http_1_1seconds_1_1_entity}{00034} \textcolor{comment}{}\textcolor{keyword}{class }\hyperlink{classhryky_1_1http_1_1seconds_1_1_entity}{hryky::http::seconds::Entity}
+00035 \{
+00036 \textcolor{keyword}{public} :
+00037 
+\hypertarget{http__seconds__entity_8h_source_l00038}{}\hyperlink{classhryky_1_1http_1_1seconds_1_1_entity_a1a69109f5c7e9998e36e4a6eae23d74d}{00038}     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1http_1_1seconds_1_1_entity}{Entity} \hyperlink{classhryky_1_1http_1_1seconds_1_1_entity_a1a69109f5c7e9998e36e4a6eae23d74d}{this_type};
+00039 
+00041     \hyperlink{classhryky_1_1http_1_1seconds_1_1_entity_a932fb5a36c730e4192ee5e87708d46ee}{Entity}();
+00042 
+00044     \hyperlink{classhryky_1_1http_1_1seconds_1_1_entity_a932fb5a36c730e4192ee5e87708d46ee}{Entity}(raw\_type \textcolor{keyword}{const} raw);
+00045 
+00047     \hyperlink{classhryky_1_1http_1_1seconds_1_1_entity_a932fb5a36c730e4192ee5e87708d46ee}{Entity}(\hyperlink{classhryky_1_1http_1_1seconds_1_1_entity}{this_type} \textcolor{keyword}{const} &);
+00048 
+00050     \hyperlink{classhryky_1_1http_1_1seconds_1_1_entity_a932fb5a36c730e4192ee5e87708d46ee}{Entity}(\hyperlink{classhryky_1_1http_1_1seconds_1_1_entity}{this_type} && rhs);
+00051 
+00053     \hyperlink{classhryky_1_1http_1_1seconds_1_1_entity_a80eaea4353c48d3385378016f20069d8}{~Entity}();
+00054 
+\hypertarget{http__seconds__entity_8h_source_l00056}{}\hyperlink{classhryky_1_1http_1_1seconds_1_1_entity_addf62178d9ac1df309800eaeef020372}{00056}     \hyperlink{classhryky_1_1http_1_1seconds_1_1_entity_addf62178d9ac1df309800eaeef020372}{hryky_assign_op};
+00057 
+00059     \textcolor{keywordtype}{void} \hyperlink{classhryky_1_1http_1_1seconds_1_1_entity_a7307f57b5b5ddef286e1d2929cb01cf9}{clear}();
+00060 
+00062     \hyperlink{classhryky_1_1_intrusive_ptr}{reduction_type} \hyperlink{classhryky_1_1http_1_1seconds_1_1_entity_a3f4efe0188f6c81e708f81fcde7cf679}{reduce}(\hyperlink{classhryky_1_1reduction_1_1_string}{reduction::name_type} \textcolor{keyword}{const} & name) \textcolor{keyword}{const};
+00063 
+00065     \textcolor{keywordtype}{void} \hyperlink{classhryky_1_1http_1_1seconds_1_1_entity_aa6355c63a409960c53ffc609ae466967}{swap}(\hyperlink{classhryky_1_1http_1_1seconds_1_1_entity}{this_type} & src);
+00066 
+00067 \textcolor{keyword}{protected} :
+00068 
+00069 \textcolor{keyword}{private} :
+00070 
+00071     raw\_type raw\_;
+00072 
+00073 \};
+00074 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00075 \textcolor{comment}{// class specializations}
+00076 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00077 \textcolor{keyword}{namespace }hryky
+00078 \{
+00079 \textcolor{keyword}{namespace }http
+00080 \{
+00081 \textcolor{keyword}{namespace }seconds
+00082 \{
+00083 \} \textcolor{comment}{// namespace seconds}
+00084 \} \textcolor{comment}{// namespace http}
+00085 \} \textcolor{comment}{// namespace hryky}
+00086 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00087 \textcolor{comment}{// public member functions}
+00088 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00089 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00090 \textcolor{comment}{// protected member functions}
+00091 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00092 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00093 \textcolor{comment}{// private member functions}
+00094 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00095 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00096 \textcolor{comment}{// global function prototypes}
+00097 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00098 \textcolor{keyword}{namespace }hryky
+00099 \{
+00100 \textcolor{keyword}{namespace }http
+00101 \{
+00102 \textcolor{keyword}{namespace }seconds
+00103 \{
+00105     \hyperlink{namespacehryky_a343a9a4c36a586be5c2693156200eadc}{reduction_type} \hyperlink{namespacehryky_1_1http_a08fc36a78a8e2908140fcd102829a566}{reduce}(
+00106         \hyperlink{namespacehryky_1_1reduction_ac686c30a4c8d196bbd0f05629a6b921f}{reduction::name_type} \textcolor{keyword}{const} & name, Entity \textcolor{keyword}{const} & src);
+00107 
+00109     \textcolor{keywordtype}{void} \hyperlink{namespacehryky_1_1http_a38e62595ad532d18fbc65ceb61973aec}{swap}(
+00110         Entity & lhs, Entity & rhs);
+00111 
+00112 \} \textcolor{comment}{// namespace seconds}
+00113 \} \textcolor{comment}{// namespace http}
+00114 \} \textcolor{comment}{// namespace hryky}
+00115 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00116 \textcolor{comment}{// global function definitions}
+00117 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00118 \textcolor{preprocessor}{#endif // HTTP\_SECONDS\_ENTITY\_H\_20121008151456302}
+00119 \textcolor{preprocessor}{}\textcolor{comment}{// end of file}
+\end{DoxyCode}

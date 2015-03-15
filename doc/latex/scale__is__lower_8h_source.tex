@@ -1,0 +1,87 @@
+\hypertarget{scale__is__lower_8h_source}{\section{scale\-\_\-is\-\_\-lower.\-h}
+}
+
+\begin{DoxyCode}
+00001 
+00007 \textcolor{preprocessor}{#ifndef SCALE\_IS\_LOWER\_H\_20130101111540135}
+00008 \textcolor{preprocessor}{}\textcolor{preprocessor}{#define SCALE\_IS\_LOWER\_H\_20130101111540135}
+00009 \textcolor{preprocessor}{}\textcolor{preprocessor}{#include "\hyperlink{gp_8h}{hryky/gp.h}"}
+00010 \textcolor{preprocessor}{#include "\hyperlink{scale__is__lower__equal_8h}{hryky/scale/scale_is_lower_equal.h}"}
+00011 \textcolor{preprocessor}{#include "\hyperlink{scale__has__higher_8h}{hryky/scale/scale_has_higher.h}"}
+00012 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00013 \textcolor{comment}{// macro definition}
+00014 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00015 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00016 \textcolor{comment}{// namespace}
+00017 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00018 \textcolor{keyword}{namespace }hryky
+00019 \{
+00020 \textcolor{keyword}{namespace }scale
+00021 \{
+00023     \textcolor{keyword}{template} <\textcolor{keyword}{typename} LhsT, \textcolor{keyword}{typename} RhsT>
+00024     \textcolor{keyword}{class }IsLower;
+00025 
+00026 \} \textcolor{comment}{// namespace scale}
+00027 \} \textcolor{comment}{// namespace hryky}
+00028 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00029 \textcolor{comment}{// class declarations}
+00030 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00034 \textcolor{comment}{}\textcolor{keyword}{template} <\textcolor{keyword}{typename} LhsT, \textcolor{keyword}{typename} RhsT>
+\hypertarget{scale__is__lower_8h_source_l00035}{}\hyperlink{classhryky_1_1scale_1_1_is_lower}{00035} \textcolor{keyword}{class }\hyperlink{classhryky_1_1scale_1_1_is_lower}{hryky::scale::IsLower}
+00036 \{
+00037 \textcolor{keyword}{public} :
+00038 
+00039     \textcolor{keyword}{static} \textcolor{keywordtype}{bool} \textcolor{keyword}{const} value =
+00040         \textcolor{keyword}{typename} \hyperlink{classhryky_1_1scale_1_1_is_lower_equal}{IsLowerEqual<typename LhsT::higher_type, RhsT>::value};
+00041 \};
+00042 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00043 \textcolor{comment}{// class specializations}
+00044 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00045 \textcolor{keyword}{namespace }hryky
+00046 \{
+00047 \textcolor{keyword}{namespace }scale
+00048 \{
+00049 \} \textcolor{comment}{// namespace scale}
+00050 \} \textcolor{comment}{// namespace hryky}
+00051 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00052 \textcolor{comment}{// public member functions}
+00053 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00054 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00055 \textcolor{comment}{// protected member functions}
+00056 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00057 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00058 \textcolor{comment}{// private member functions}
+00059 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00060 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00061 \textcolor{comment}{// global function prototypes}
+00062 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00063 \textcolor{keyword}{namespace }hryky
+00064 \{
+00065 \textcolor{keyword}{namespace }scale
+00066 \{
+00067 \} \textcolor{comment}{// namespace scale}
+00068 \} \textcolor{comment}{// namespace hryky}
+00069 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00070 \textcolor{comment}{// global function definitions}
+00071 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00072 \textcolor{preprocessor}{#endif // SCALE\_IS\_LOWER\_H\_20130101111540135}
+00073 \textcolor{preprocessor}{}\textcolor{comment}{// end of file}
+\end{DoxyCode}

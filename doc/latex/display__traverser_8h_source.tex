@@ -1,0 +1,117 @@
+\hypertarget{display__traverser_8h_source}{\section{display\-\_\-traverser.\-h}
+}
+
+\begin{DoxyCode}
+00001 
+00007 \textcolor{preprocessor}{#ifndef DISPLAY\_TRAVERSER\_H\_20120917075431996}
+00008 \textcolor{preprocessor}{}\textcolor{preprocessor}{#define DISPLAY\_TRAVERSER\_H\_20120917075431996}
+00009 \textcolor{preprocessor}{}\textcolor{preprocessor}{#include <functional>}
+00010 \textcolor{preprocessor}{#include "\hyperlink{display__common_8h}{hryky/display/display_common.h}"}
+00011 \textcolor{preprocessor}{#include "\hyperlink{noncopyable_8h}{hryky/noncopyable.h}"}
+00012 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00013 \textcolor{comment}{// macro definition}
+00014 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00015 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00016 \textcolor{comment}{// namespace}
+00017 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00018 \textcolor{keyword}{namespace }hryky
+00019 \{
+00020 \textcolor{keyword}{namespace }display
+00021 \{
+00023     \textcolor{keyword}{class }Traverser;
+00024 
+00025     \textcolor{keyword}{class }Config;
+00026 
+00027 \} \textcolor{comment}{// namespace display}
+00028 \} \textcolor{comment}{// namespace hryky}
+00029 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00030 \textcolor{comment}{// class declarations}
+00031 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+\hypertarget{display__traverser_8h_source_l00035}{}\hyperlink{classhryky_1_1display_1_1_traverser}{00035} \textcolor{comment}{}\textcolor{keyword}{class }\hyperlink{classhryky_1_1display_1_1_traverser}{hryky::display::Traverser}
+00036     : \textcolor{keyword}{public} std::unary\_function<Config const &, bool>
+00037 \{
+00038 \textcolor{keyword}{public} :
+00039 
+\hypertarget{display__traverser_8h_source_l00040}{}\hyperlink{classhryky_1_1display_1_1_traverser_a96d51504370e112d234076449e2fec47}{00040}     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1display_1_1_traverser}{Traverser} \hyperlink{classhryky_1_1display_1_1_traverser_a96d51504370e112d234076449e2fec47}{this_type};
+00041 
+00043     \hyperlink{classhryky_1_1display_1_1_traverser_a6ea76dfd47de0a8baf0eb9855d6dc069}{Traverser}();
+00044 
+00046     \hyperlink{classhryky_1_1display_1_1_traverser_a6ea76dfd47de0a8baf0eb9855d6dc069}{Traverser}(\hyperlink{classhryky_1_1display_1_1_traverser}{this_type} \textcolor{keyword}{const} &);
+00047 
+00049     \hyperlink{classhryky_1_1display_1_1_traverser_a6ea76dfd47de0a8baf0eb9855d6dc069}{Traverser}(\hyperlink{classhryky_1_1display_1_1_traverser}{this_type} && rhs);
+00050 
+00052     \hyperlink{classhryky_1_1display_1_1_traverser_a652ce240d436375ce190527c30351e61}{~Traverser}();
+00053 
+\hypertarget{display__traverser_8h_source_l00055}{}\hyperlink{classhryky_1_1display_1_1_traverser_af60b72f550a1d60839a5a5e3851b6f73}{00055}     \hyperlink{classhryky_1_1display_1_1_traverser_af60b72f550a1d60839a5a5e3851b6f73}{hryky_assign_op};
+00056 
+00058     \textcolor{keywordtype}{void} \hyperlink{classhryky_1_1display_1_1_traverser_acb0875c02060747ef7407663c1dba492}{clear}();
+00059 
+00061     \hyperlink{classhryky_1_1_intrusive_ptr}{reduction_type} \hyperlink{classhryky_1_1display_1_1_traverser_a11a530ae46d01adeba0c92c0ef45d83b}{reduce}(\hyperlink{classhryky_1_1reduction_1_1_string}{reduction::name_type} \textcolor{keyword}{const} & name) \textcolor{keyword}{const};
+00062 
+00064     \textcolor{keywordtype}{void} \hyperlink{classhryky_1_1display_1_1_traverser_a6e618d472947eb171c5ce80af4c55dc2}{swap}(\hyperlink{classhryky_1_1display_1_1_traverser}{this_type} & src);
+00065 
+00071     \textcolor{keyword}{virtual} result\_type \hyperlink{classhryky_1_1display_1_1_traverser_aea08c97fa5b3aea2f2173b7aeef1044a}{operator()}(argument\_type config) = 0;
+00072 
+00073 
+00074 \textcolor{keyword}{protected} :
+00075 
+00076 \textcolor{keyword}{private} :
+00077 
+00078 \};
+00079 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00080 \textcolor{comment}{// class specializations}
+00081 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00082 \textcolor{keyword}{namespace }hryky
+00083 \{
+00084 \textcolor{keyword}{namespace }display
+00085 \{
+00086 \} \textcolor{comment}{// namespace display}
+00087 \} \textcolor{comment}{// namespace hryky}
+00088 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00089 \textcolor{comment}{// public member functions}
+00090 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00091 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00092 \textcolor{comment}{// protected member functions}
+00093 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00094 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00095 \textcolor{comment}{// private member functions}
+00096 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00097 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00098 \textcolor{comment}{// global function prototypes}
+00099 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00100 \textcolor{keyword}{namespace }hryky
+00101 \{
+00102 \textcolor{keyword}{namespace }display
+00103 \{
+00105     \hyperlink{namespacehryky_a343a9a4c36a586be5c2693156200eadc}{reduction_type} \hyperlink{namespacehryky_1_1display_a705ac3a5de0998e1e0d3fa595044ec55}{reduce}(
+00106         \hyperlink{namespacehryky_1_1reduction_ac686c30a4c8d196bbd0f05629a6b921f}{reduction::name_type} \textcolor{keyword}{const} & name, Traverser \textcolor{keyword}{const} & src);
+00107 
+00109     \textcolor{keywordtype}{void} \hyperlink{namespacehryky_1_1display_ad28f0d5e406742090973e6c81321a00f}{swap}(
+00110         Traverser & lhs, Traverser & rhs);
+00111 
+00112 \} \textcolor{comment}{// namespace display}
+00113 \} \textcolor{comment}{// namespace hryky}
+00114 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00115 \textcolor{comment}{// global function definitions}
+00116 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00117 \textcolor{preprocessor}{#endif // DISPLAY\_TRAVERSER\_H\_20120917075431996}
+00118 \textcolor{preprocessor}{}\textcolor{comment}{// end of file}
+\end{DoxyCode}

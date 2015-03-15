@@ -1,0 +1,131 @@
+\hypertarget{range_8h_source}{\section{range.\-h}
+}
+
+\begin{DoxyCode}
+00001 
+00007 \textcolor{preprocessor}{#ifndef RANGE\_H\_20120205174018402}
+00008 \textcolor{preprocessor}{}\textcolor{preprocessor}{#define RANGE\_H\_20120205174018402}
+00009 \textcolor{preprocessor}{}\textcolor{preprocessor}{#include "\hyperlink{reduction__map_8h}{hryky/reduction/reduction_map.h}"}
+00010 \textcolor{preprocessor}{#include "\hyperlink{foreach_8h}{hryky/foreach.h}"}
+00011 \textcolor{preprocessor}{#include "\hyperlink{gp_8h}{hryky/gp.h}"}
+00012 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00013 \textcolor{comment}{// macro definition}
+00014 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00015 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00016 \textcolor{comment}{// namespace}
+00017 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00018 \textcolor{keyword}{namespace }hryky
+00019 \{
+00021     \textcolor{keyword}{template} < \textcolor{keyword}{typename} IteratorT >
+00022     \textcolor{keyword}{class }Range;
+00023 
+00025     \textcolor{keyword}{template} < \textcolor{keyword}{typename} IteratorT >
+00026     Range<IteratorT> \hyperlink{namespacehryky_a6093192359bc9630d58d6158bd0178f4}{range}(IteratorT begin, IteratorT end);
+00027 
+00029     \textcolor{keyword}{template} < \textcolor{keyword}{typename} IteratorT >
+00030     \hyperlink{namespacehryky_a343a9a4c36a586be5c2693156200eadc}{reduction_type} \hyperlink{namespacehryky_af41cb3af6766761da0ff21b84527a52c}{reduce}(
+00031         \hyperlink{namespacehryky_1_1reduction_ac686c30a4c8d196bbd0f05629a6b921f}{reduction::name_type} \textcolor{keyword}{const} & name, Range<IteratorT> \textcolor{keyword}{const} & \hyperlink{namespacehryky_a6093192359bc9630d58d6158bd0178f4}{range});
+00032 
+00034     \textcolor{keyword}{template} < \textcolor{keyword}{typename} ValueT, \textcolor{keywordtype}{size\_t} Size >
+00035     Range<ValueT *> \hyperlink{namespacehryky_a6093192359bc9630d58d6158bd0178f4}{range}(ValueT (&\hyperlink{namespacehryky_1_1reduction_a9d45a4dc1ea9a6668ebd192f296f788c}{array})[Size]);
+00036 
+00037 \}
+00038 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00039 \textcolor{comment}{// class declaration}
+00040 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00044 \textcolor{comment}{}\textcolor{keyword}{template} <\textcolor{keyword}{typename} IteratorT>
+\hypertarget{range_8h_source_l00045}{}\hyperlink{classhryky_1_1_range}{00045} \textcolor{keyword}{class }\hyperlink{classhryky_1_1_range}{hryky::Range}
+00046 \{
+00047 \textcolor{keyword}{public} :
+00048 
+\hypertarget{range_8h_source_l00050}{}\hyperlink{classhryky_1_1_range_a19d3a6ea685d44106936a6304fe44ec1}{00050}     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1_range}{hryky::Range<IteratorT>} \hyperlink{classhryky_1_1_range_a19d3a6ea685d44106936a6304fe44ec1}{this_type};
+00051 
+00052     \textcolor{keyword}{typedef} IteratorT                                   iterator;
+00053     \textcolor{keyword}{typedef} \textcolor{keyword}{typename} AsParameter<iterator>::type        iterator\_param\_type;
+00054     \textcolor{keyword}{typedef} std::iterator\_traits<IteratorT>             iterator\_traits;
+00055     \textcolor{keyword}{typedef} \textcolor{keyword}{typename} iterator\_traits::difference\_type   difference\_type;
+00056     \textcolor{keyword}{typedef} \textcolor{keyword}{typename} iterator\_traits::value\_type        value\_type;
+00057     \textcolor{keyword}{typedef} \textcolor{keyword}{typename} iterator\_traits::pointer           pointer;
+00058     \textcolor{keyword}{typedef} \textcolor{keyword}{typename} iterator\_traits::reference         reference;
+00059     \textcolor{keyword}{typedef} std::size\_t                                 size\_type;
+00060 
+\hypertarget{range_8h_source_l00062}{}\hyperlink{classhryky_1_1_range_ae63ff553300d8c509419fcbae9b6f95d}{00062}     \hyperlink{classhryky_1_1_range_ae63ff553300d8c509419fcbae9b6f95d}{Range}(iterator\_param\_type \hyperlink{classhryky_1_1_range_aaa45d0481e79fb4d22ec8f048fa23086}{begin}, iterator\_param\_type \hyperlink{classhryky_1_1_range_a202ec210efd7e9cb9a22b2e98ab21107}{end})
+00063         : begin\_(begin), end\_(end) \{\}
+00064 
+\hypertarget{range_8h_source_l00066}{}\hyperlink{classhryky_1_1_range_aaa45d0481e79fb4d22ec8f048fa23086}{00066}     iterator \hyperlink{classhryky_1_1_range_aaa45d0481e79fb4d22ec8f048fa23086}{begin}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} this->begin\_; \}
+00067 
+\hypertarget{range_8h_source_l00069}{}\hyperlink{classhryky_1_1_range_a202ec210efd7e9cb9a22b2e98ab21107}{00069}     iterator \hyperlink{classhryky_1_1_range_a202ec210efd7e9cb9a22b2e98ab21107}{end}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} this->end\_; \}
+00070 
+\hypertarget{range_8h_source_l00072}{}\hyperlink{classhryky_1_1_range_a4a5a9552aa2ddadbac3904bd90fa3ea8}{00072}     \textcolor{keywordtype}{bool} \hyperlink{classhryky_1_1_range_a4a5a9552aa2ddadbac3904bd90fa3ea8}{empty}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} this->begin\_ == this->end\_; \}
+00073 
+\hypertarget{range_8h_source_l00075}{}\hyperlink{classhryky_1_1_range_a38820cf89240d336b89648f5ec9948ad}{00075}     size\_type \hyperlink{classhryky_1_1_range_a38820cf89240d336b89648f5ec9948ad}{size}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} this->\hyperlink{classhryky_1_1_range_a202ec210efd7e9cb9a22b2e98ab21107}{end}() - this->\hyperlink{classhryky_1_1_range_aaa45d0481e79fb4d22ec8f048fa23086}{begin}(); \}
+00076 
+00077 \textcolor{keyword}{protected} :
+00078 
+00079 \textcolor{keyword}{private} :
+00080 
+00081     IteratorT   begin\_;
+00082     IteratorT   end\_;
+00083 
+00084 \};
+00085 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00086 \textcolor{comment}{// public member functions}
+00087 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00088 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00089 \textcolor{comment}{// protected member functions}
+00090 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00091 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00092 \textcolor{comment}{// private member functions}
+00093 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00094 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00095 \textcolor{comment}{// global functions}
+00096 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00100 \textcolor{comment}{}\textcolor{keyword}{template} < \textcolor{keyword}{typename} IteratorT >
+\hypertarget{range_8h_source_l00101}{}\hyperlink{namespacehryky_a6093192359bc9630d58d6158bd0178f4}{00101} \hyperlink{classhryky_1_1_range}{hryky::Range<IteratorT>} \hyperlink{namespacehryky_a6093192359bc9630d58d6158bd0178f4}{hryky::range}(IteratorT begin, IteratorT end)
+00102 \{
+00103     \textcolor{keywordflow}{return} \hyperlink{classhryky_1_1_range}{Range<IteratorT>}(begin, end);
+00104 \}
+00108 \textcolor{keyword}{template} < \textcolor{keyword}{typename} ValueT, \textcolor{keywordtype}{size\_t} Size >
+\hypertarget{range_8h_source_l00109}{}\hyperlink{namespacehryky_a6a1faca6d065095210f29e66a3219e1d}{00109} \hyperlink{classhryky_1_1_range}{hryky::Range<ValueT *>} \hyperlink{namespacehryky_a6093192359bc9630d58d6158bd0178f4}{hryky::range}(ValueT (&\hyperlink{namespacehryky_1_1reduction_a9d45a4dc1ea9a6668ebd192f296f788c}{array})[Size])
+00110 \{
+00111     \textcolor{keywordflow}{return} \hyperlink{classhryky_1_1_range}{Range<ValueT *>}(&\hyperlink{namespacehryky_1_1reduction_a9d45a4dc1ea9a6668ebd192f296f788c}{array}[0], &array[Size]);
+00112 \}
+00116 \textcolor{keyword}{template} < \textcolor{keyword}{typename} IteratorT >
+\hypertarget{range_8h_source_l00117}{}\hyperlink{namespacehryky_aa954d2cf6f43a8ae87f6bbf18331ef3e}{00117} \hyperlink{classhryky_1_1_intrusive_ptr}{hryky::reduction_type} \hyperlink{namespacehryky_af41cb3af6766761da0ff21b84527a52c}{hryky::reduce}(
+00118     \hyperlink{classhryky_1_1reduction_1_1_string}{reduction::name_type} \textcolor{keyword}{const} & name, \hyperlink{classhryky_1_1_range}{Range<IteratorT>} \textcolor{keyword}{const} & src)
+00119 \{
+00120     \hyperlink{classhryky_1_1_intrusive_ptr}{reduction::map_type} \hyperlink{namespacehryky_1_1reduction_ac5eae270cf8047b294dc4ff3e5e11a79}{map} = \hyperlink{namespacehryky_1_1reduction_ac5eae270cf8047b294dc4ff3e5e11a79}{reduction::map}(name);
+00121 
+00122     ((*map)
+00123      .append(\textcolor{stringliteral}{"size"}, src.\hyperlink{classhryky_1_1_range_a38820cf89240d336b89648f5ec9948ad}{size}())
+00124      );
+00125 
+00126     \hyperlink{classhryky_1_1_intrusive_ptr}{reduction::array_type} elements = \hyperlink{namespacehryky_1_1reduction_a9d45a4dc1ea9a6668ebd192f296f788c}{reduction::array}(\textcolor{stringliteral}{"elements"});
+00127 
+00128     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1_range}{Range<IteratorT>} \textcolor{keyword}{const} container\_type;
+00129     \hyperlink{classhryky_1_1_foreach}{Foreach<container_type>} \textcolor{keywordflow}{foreach}(src);
+00130     \textcolor{keywordflow}{for} (; \textcolor{keywordflow}{foreach}.valid(); ++\textcolor{keywordflow}{foreach}) \{
+00131         (*elements).append(*\textcolor{keywordflow}{foreach});
+00132     \}
+00133 
+00134     map->append(elements);
+00135     
+00136     \textcolor{keywordflow}{return} \hyperlink{namespacehryky_1_1reduction_ac5eae270cf8047b294dc4ff3e5e11a79}{map};
+00137 \}
+00138 \textcolor{preprocessor}{#endif // RANGE\_H\_20120205174018402}
+00139 \textcolor{preprocessor}{}\textcolor{comment}{// end of file}
+\end{DoxyCode}

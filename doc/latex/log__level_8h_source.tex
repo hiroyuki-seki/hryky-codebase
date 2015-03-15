@@ -1,0 +1,92 @@
+\hypertarget{log__level_8h_source}{\section{log\-\_\-level.\-h}
+}
+
+\begin{DoxyCode}
+00001 
+00008 \textcolor{preprocessor}{#ifndef LOG\_LEVEL\_H\_20120121111702136}
+00009 \textcolor{preprocessor}{}\textcolor{preprocessor}{#define LOG\_LEVEL\_H\_20120121111702136}
+00010 \textcolor{preprocessor}{}\textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00011 \textcolor{comment}{// macro definition}
+00012 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00013 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00014 \textcolor{comment}{// namespace}
+00015 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00016 \textcolor{keyword}{namespace }hryky
+00017 \{
+00018 \textcolor{keyword}{namespace }log
+00019 \{
+00021     \textcolor{keyword}{class }Level;
+00022 
+00024     std::ostream & \hyperlink{namespacehryky_1_1log_a7cae8a06047228844df53c04f0b12bae}{operator<<}(std::ostream & lhs, Level \textcolor{keyword}{const} & rhs);
+00025 \}
+00026 \}
+00027 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00028 \textcolor{comment}{// class declaration}
+00029 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+\hypertarget{log__level_8h_source_l00034}{}\hyperlink{classhryky_1_1log_1_1_level}{00034} \textcolor{comment}{}\textcolor{keyword}{class }\hyperlink{classhryky_1_1log_1_1_level}{hryky::log::Level}
+00035 \{
+00036 \textcolor{keyword}{public} :
+00037 
+\hypertarget{log__level_8h_source_l00039}{}\hyperlink{classhryky_1_1log_1_1_level_a2a7ccc2d552dfdf72dc1d543e18c4780}{00039}     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1log_1_1_level}{hryky::log::Level} \hyperlink{classhryky_1_1log_1_1_level_a2a7ccc2d552dfdf72dc1d543e18c4780}{this_type};
+00040 
+\hypertarget{log__level_8h_source_l00042}{}\hyperlink{classhryky_1_1log_1_1_level_a9e6bba8f272859b212f49e4478a863d7}{00042}     \textcolor{keyword}{enum} \hyperlink{classhryky_1_1log_1_1_level_a9e6bba8f272859b212f49e4478a863d7}{kind_type}
+00043     \{
+\hypertarget{log__level_8h_source_l00047}{}\hyperlink{classhryky_1_1log_1_1_level_a9e6bba8f272859b212f49e4478a863d7a9e66c9bec86b804ca7b483d470b3d1fc}{00047}         \hyperlink{classhryky_1_1log_1_1_level_a9e6bba8f272859b212f49e4478a863d7a9e66c9bec86b804ca7b483d470b3d1fc}{debug_},
+\hypertarget{log__level_8h_source_l00058}{}\hyperlink{classhryky_1_1log_1_1_level_a9e6bba8f272859b212f49e4478a863d7af1fa5c4581c2c7715e12d2717adc5705}{00058}         \hyperlink{classhryky_1_1log_1_1_level_a9e6bba8f272859b212f49e4478a863d7af1fa5c4581c2c7715e12d2717adc5705}{info_},
+\hypertarget{log__level_8h_source_l00069}{}\hyperlink{classhryky_1_1log_1_1_level_a9e6bba8f272859b212f49e4478a863d7a89fea8b8aac2d57814d50d86678baead}{00069}         \hyperlink{classhryky_1_1log_1_1_level_a9e6bba8f272859b212f49e4478a863d7a89fea8b8aac2d57814d50d86678baead}{notice_},
+\hypertarget{log__level_8h_source_l00080}{}\hyperlink{classhryky_1_1log_1_1_level_a9e6bba8f272859b212f49e4478a863d7a495a85e2f2bc926a2b27e55522b165fa}{00080}         \hyperlink{classhryky_1_1log_1_1_level_a9e6bba8f272859b212f49e4478a863d7a495a85e2f2bc926a2b27e55522b165fa}{warning_},
+\hypertarget{log__level_8h_source_l00092}{}\hyperlink{classhryky_1_1log_1_1_level_a9e6bba8f272859b212f49e4478a863d7a40b4bfcc7ad7c7cc81b208d017d73cf3}{00092}         \hyperlink{classhryky_1_1log_1_1_level_a9e6bba8f272859b212f49e4478a863d7a40b4bfcc7ad7c7cc81b208d017d73cf3}{err_},
+\hypertarget{log__level_8h_source_l00106}{}\hyperlink{classhryky_1_1log_1_1_level_a9e6bba8f272859b212f49e4478a863d7a1aee1f138c8b27174506f680faaaa177}{00106}         \hyperlink{classhryky_1_1log_1_1_level_a9e6bba8f272859b212f49e4478a863d7a1aee1f138c8b27174506f680faaaa177}{crit_},
+\hypertarget{log__level_8h_source_l00120}{}\hyperlink{classhryky_1_1log_1_1_level_a9e6bba8f272859b212f49e4478a863d7a2bb8a07f237e71df835ee42379218ea7}{00120}         \hyperlink{classhryky_1_1log_1_1_level_a9e6bba8f272859b212f49e4478a863d7a2bb8a07f237e71df835ee42379218ea7}{alert_},
+\hypertarget{log__level_8h_source_l00130}{}\hyperlink{classhryky_1_1log_1_1_level_a9e6bba8f272859b212f49e4478a863d7a89780835043440040b9a3e7c03d44008}{00130}         \hyperlink{classhryky_1_1log_1_1_level_a9e6bba8f272859b212f49e4478a863d7a89780835043440040b9a3e7c03d44008}{emerg_},
+00131 
+\hypertarget{log__level_8h_source_l00133}{}\hyperlink{classhryky_1_1log_1_1_level_a9e6bba8f272859b212f49e4478a863d7ad7a9a505788d17fe8ff399bb536bfc08}{00133}         \hyperlink{classhryky_1_1log_1_1_level_a9e6bba8f272859b212f49e4478a863d7ad7a9a505788d17fe8ff399bb536bfc08}{num_},
+00134     \};
+00135     
+00137     \textcolor{keyword}{explicit} \hyperlink{classhryky_1_1log_1_1_level_afcd6b4cf5a5c2405a5e13b0b85fe052d}{Level}();
+00138 
+00140     \hyperlink{classhryky_1_1log_1_1_level_afcd6b4cf5a5c2405a5e13b0b85fe052d}{Level}(\hyperlink{classhryky_1_1log_1_1_level_a9e6bba8f272859b212f49e4478a863d7}{kind_type} kind);
+00141 
+00143     \textcolor{keyword}{explicit} \hyperlink{classhryky_1_1log_1_1_level_afcd6b4cf5a5c2405a5e13b0b85fe052d}{Level}(\hyperlink{classhryky_1_1log_1_1_level}{Level} \textcolor{keyword}{const} &);
+00144 
+00146     \hyperlink{classhryky_1_1log_1_1_level}{Level} & \hyperlink{classhryky_1_1log_1_1_level_ad7e9458e5590f0dc233c3f74f3ef0fc8}{operator=}(\hyperlink{classhryky_1_1log_1_1_level}{Level} \textcolor{keyword}{const} & rhs);
+00147 
+00149     \hyperlink{classhryky_1_1log_1_1_level_a7384e672659038dc87f0963634dc68a0}{~Level}();
+00150 
+00152     \textcolor{keywordtype}{char} \textcolor{keyword}{const} * \hyperlink{classhryky_1_1log_1_1_level_ab1e3f9df6c97b0afcb99a9967663be6c}{c_str}() \textcolor{keyword}{const};
+00153 
+00155     \textcolor{keywordtype}{bool} \hyperlink{classhryky_1_1log_1_1_level_a928952372bb99d04076e8f28bad73576}{operator<}(\hyperlink{classhryky_1_1log_1_1_level_a2a7ccc2d552dfdf72dc1d543e18c4780}{this_type} \textcolor{keyword}{const} & rhs) \textcolor{keyword}{const};
+00156 
+00158     \textcolor{keywordtype}{bool} \hyperlink{classhryky_1_1log_1_1_level_a4c466927aa1adcbae2adb0c274bd3345}{operator>}(\hyperlink{classhryky_1_1log_1_1_level_a2a7ccc2d552dfdf72dc1d543e18c4780}{this_type} \textcolor{keyword}{const} & rhs) \textcolor{keyword}{const};
+00159 
+00160 \textcolor{keyword}{protected} :
+00161 
+00162 \textcolor{keyword}{private} :
+00163 
+00164     \hyperlink{classhryky_1_1log_1_1_level_a9e6bba8f272859b212f49e4478a863d7}{kind_type}   kind\_;
+00165 
+00166 \};
+00167 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00168 \textcolor{comment}{// public member functions}
+00169 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00170 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00171 \textcolor{comment}{// protected member functions}
+00172 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00173 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00174 \textcolor{comment}{// private member functions}
+00175 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00176 \textcolor{preprocessor}{#endif // LOG\_LEVEL\_H\_20120121111702136}
+00177 \textcolor{preprocessor}{}\textcolor{comment}{// end of file}
+\end{DoxyCode}

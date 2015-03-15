@@ -1,0 +1,140 @@
+\hypertarget{log__writer__common_8h_source}{\section{log\-\_\-writer\-\_\-common.\-h}
+}
+
+\begin{DoxyCode}
+00001 
+00007 \textcolor{preprocessor}{#ifndef LOG\_WRITER\_COMMON\_H\_20111105105026118}
+00008 \textcolor{preprocessor}{}\textcolor{preprocessor}{#define LOG\_WRITER\_COMMON\_H\_20111105105026118}
+00009 \textcolor{preprocessor}{}\textcolor{preprocessor}{#include "\hyperlink{clock_8h}{hryky/clock.h}"}
+00010 \textcolor{preprocessor}{#include "\hyperlink{common_8h}{hryky/common.h}"}
+00011 \textcolor{preprocessor}{#include "\hyperlink{debug__source_8h}{hryky/debug/debug_source.h}"}
+00012 \textcolor{preprocessor}{#include "\hyperlink{log__common_8h}{hryky/log/log_common.h}"}
+00013 \textcolor{preprocessor}{#include "\hyperlink{log__writer__base_8h}{hryky/log/log_writer_base.h}"}
+00014 \textcolor{preprocessor}{#include "\hyperlink{log__level__entity_8h}{hryky/log/log_level_entity.h}"}
+00015 \textcolor{preprocessor}{#include "\hyperlink{literal__string_8h}{hryky/literal_string.h}"}
+00016 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00017 \textcolor{comment}{// macro definition}
+00018 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+\hypertarget{log__writer__common_8h_source_l00022}{}\hyperlink{log__writer__common_8h_a8d142be5e91677a27be199c3f4115ba6}{00022} \textcolor{comment}{}\textcolor{preprocessor}{#define hryky\_log\_emerg(message) \(\backslash\)}
+00023 \textcolor{preprocessor}{    hryky\_log(hryky::log::level::Kind::emerg\_, (message))}
+00024 \textcolor{preprocessor}{}
+\hypertarget{log__writer__common_8h_source_l00027}{}\hyperlink{log__writer__common_8h_a8cb8f66bf45015fc1b64ed8d52bf8d59}{00027} \textcolor{preprocessor}{#define hryky\_log\_alert(message) \(\backslash\)}
+00028 \textcolor{preprocessor}{    hryky\_log(hryky::log::level::Kind::alert\_, (message))}
+00029 \textcolor{preprocessor}{}
+\hypertarget{log__writer__common_8h_source_l00032}{}\hyperlink{log__writer__common_8h_a61bcce4d8e91e6fde78ce1be7d9ceac8}{00032} \textcolor{preprocessor}{#define hryky\_log\_crit(message) \(\backslash\)}
+00033 \textcolor{preprocessor}{    hryky\_log(hryky::log::level::Kind::crit\_, (message))}
+00034 \textcolor{preprocessor}{}
+\hypertarget{log__writer__common_8h_source_l00037}{}\hyperlink{log__writer__common_8h_ae5ad3dabb33f594695ef40753cb78aad}{00037} \textcolor{preprocessor}{#define hryky\_log\_err(message) \(\backslash\)}
+00038 \textcolor{preprocessor}{    hryky\_log(hryky::log::level::Kind::err\_, (message))}
+00039 \textcolor{preprocessor}{}
+\hypertarget{log__writer__common_8h_source_l00042}{}\hyperlink{log__writer__common_8h_a1a150b0b31f517e34b4f6604348f3cbf}{00042} \textcolor{preprocessor}{#define hryky\_log\_warning(message) \(\backslash\)}
+00043 \textcolor{preprocessor}{    hryky\_log(hryky::log::level::Kind::warning\_, (message))}
+00044 \textcolor{preprocessor}{}
+\hypertarget{log__writer__common_8h_source_l00047}{}\hyperlink{log__writer__common_8h_ab209c7143422edf2ce0c5baa844629d7}{00047} \textcolor{preprocessor}{#define hryky\_log\_notice(message) \(\backslash\)}
+00048 \textcolor{preprocessor}{    hryky\_log(hryky::log::level::Kind::notice\_, (message))}
+00049 \textcolor{preprocessor}{}
+\hypertarget{log__writer__common_8h_source_l00052}{}\hyperlink{log__writer__common_8h_a7a87a8f432de12bbdfa8d6ee1a998fe2}{00052} \textcolor{preprocessor}{#define hryky\_log\_info(message) \(\backslash\)}
+00053 \textcolor{preprocessor}{    hryky\_log(hryky::log::level::Kind::info\_, (message))}
+00054 \textcolor{preprocessor}{}
+00059 \textcolor{preprocessor}{#if defined(NDEBUG)}
+00060 \textcolor{preprocessor}{}\textcolor{preprocessor}{#   define hryky\_log\_debug(message)}
+00061 \textcolor{preprocessor}{}\textcolor{preprocessor}{#else // defined(NDEBUG)}
+\hypertarget{log__writer__common_8h_source_l00062}{}\hyperlink{log__writer__common_8h_ad94e7301fdfeec6ecd1cb63b4c81325a}{00062} \textcolor{preprocessor}{}\textcolor{preprocessor}{#   define hryky\_log\_debug(message) \(\backslash\)}
+00063 \textcolor{preprocessor}{    hryky\_log(hryky::log::level::Kind::debug\_, (message))}
+00064 \textcolor{preprocessor}{}\textcolor{preprocessor}{#endif // defined(NDEBUG)}
+00065 \textcolor{preprocessor}{}
+\hypertarget{log__writer__common_8h_source_l00069}{}\hyperlink{log__writer__common_8h_afae8fb8916745daf220c3d3da57ce825}{00069} \textcolor{preprocessor}{#define hryky\_log(level, message) \(\backslash\)}
+00070 \textcolor{preprocessor}{    hryky::log::write(hryky\_source\_position, (level), (message))}
+00071 \textcolor{preprocessor}{}\textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00072 \textcolor{comment}{// namespace}
+00073 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00074 \textcolor{keyword}{namespace }hryky
+00075 \{
+00076 \textcolor{keyword}{namespace }log
+00077 \{
+00079     \textcolor{keyword}{struct }AutoElapsed;
+00080 
+00082     \textcolor{keyword}{template} <\textcolor{keyword}{typename} MessageT>
+00083     \textcolor{keywordtype}{void} \hyperlink{namespacehryky_1_1log_a5c7e76e7e42521f83c90fc8813f1f3ea}{write}(
+00084         debug::Source \textcolor{keyword}{const} & source,
+00085         level::kind\_type \textcolor{keyword}{const} level,
+00086         MessageT \textcolor{keyword}{const} & message);
+00087 
+00089 \textcolor{keyword}{namespace }writer
+00090 \{
+00094     writer\_type & \textcolor{keyword}{get}();
+00095 
+00097     \textcolor{keyword}{struct }Push;
+00098     
+00099 \} \textcolor{comment}{// namespace writer}
+00100 \} \textcolor{comment}{// namespace log}
+00101 \} \textcolor{comment}{// namespace hryky}
+00102 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00103 \textcolor{comment}{// struct declaration}
+00104 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00105 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00106 \textcolor{comment}{// class declaration}
+00107 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+\hypertarget{log__writer__common_8h_source_l00111}{}\hyperlink{structhryky_1_1log_1_1_auto_elapsed}{00111} \textcolor{comment}{}\textcolor{keyword}{struct }\hyperlink{structhryky_1_1log_1_1_auto_elapsed}{hryky::log::AutoElapsed} : \hyperlink{classhryky_1_1_noncopyable}{Noncopyable}
+00112 \{
+00113     \hyperlink{structhryky_1_1log_1_1_auto_elapsed}{AutoElapsed}(
+00114         std::ostringstream & out,
+00115         \textcolor{keywordtype}{char} \textcolor{keyword}{const} * \textcolor{keyword}{const} name)
+00116         : out\_(out), timer\_() \{
+00117         out << name << \textcolor{stringliteral}{" => \{"};
+00118     \}
+00119 
+00120     ~\hyperlink{structhryky_1_1log_1_1_auto_elapsed}{AutoElapsed}() \{
+00121         (this->out\_
+00122          << \textcolor{stringliteral}{" elapsed => "}
+00123          << this->timer\_.elapsed().count() 
+00124          << \textcolor{stringliteral}{", \}"}
+00125          );
+00126     \}
+00127 \textcolor{keyword}{private} :
+00128 
+00129     std::ostringstream &    out\_;
+00130     clock::timer\_type       timer\_;
+00131 \};
+\hypertarget{log__writer__common_8h_source_l00135}{}\hyperlink{structhryky_1_1log_1_1writer_1_1_push}{00135} \textcolor{keyword}{struct }\hyperlink{structhryky_1_1log_1_1writer_1_1_push}{hryky::log::writer::Push} : \hyperlink{classhryky_1_1_noncopyable}{Noncopyable}
+00136 \{
+00138     \hyperlink{structhryky_1_1log_1_1writer_1_1_push_adba8c36516d5f2d9fe6e53e6f8ede057}{Push}(\hyperlink{classhryky_1_1log_1_1writer_1_1_base}{writer_type} & writer);
+00139 
+00141     \hyperlink{structhryky_1_1log_1_1writer_1_1_push_a3fce2613648599bac54658a141d38275}{~Push}();
+00142 
+00143 \textcolor{keyword}{private} :
+00144     \hyperlink{classhryky_1_1log_1_1writer_1_1_base}{Base} &      prev\_;
+00145 \};
+00146 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00147 \textcolor{comment}{// global function definition}
+00148 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00152 \textcolor{comment}{}\textcolor{keyword}{template} <\textcolor{keyword}{typename} MessageT>
+\hypertarget{log__writer__common_8h_source_l00153}{}\hyperlink{namespacehryky_1_1log_a5c7e76e7e42521f83c90fc8813f1f3ea}{00153} \textcolor{keywordtype}{void} \hyperlink{namespacehryky_1_1log_a5c7e76e7e42521f83c90fc8813f1f3ea}{hryky::log::write}(
+00154     \hyperlink{classhryky_1_1debug_1_1_source}{debug::Source} \textcolor{keyword}{const} & source,
+00155     \hyperlink{classhryky_1_1_kind}{level::kind_type} \textcolor{keyword}{const} level,
+00156     MessageT \textcolor{keyword}{const} & message)
+00157 \{
+00158     \hyperlink{classhryky_1_1log_1_1writer_1_1_base}{writer_type} & writer = \hyperlink{namespacehryky_1_1log_1_1writer_a67d38d407be7aaf3cc9ed3ac8e3b2835}{writer::get}();
+00159     
+00160     \textcolor{keywordflow}{if} (!writer.\hyperlink{classhryky_1_1log_1_1writer_1_1_base_a8ce37ac3efe4c77e4020bdbaebda85b3}{available}(level)) \{
+00161         \textcolor{keywordflow}{return};
+00162     \}
+00163 
+00164     std::ostringstream stream;
+00165     stream << source << \hyperlink{classhryky_1_1log_1_1level_1_1_entity}{level_type}(level) << message << std::endl;
+00166 
+00167     writer(stream.str().data(), stream.str().size());
+00168 \}
+00169 \textcolor{preprocessor}{#endif // LOG\_WRITER\_COMMON\_H\_20111105105026118}
+00170 \textcolor{preprocessor}{}\textcolor{comment}{// end of file}
+\end{DoxyCode}

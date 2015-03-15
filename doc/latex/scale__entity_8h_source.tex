@@ -1,0 +1,271 @@
+\hypertarget{scale__entity_8h_source}{\section{scale\-\_\-entity.\-h}
+}
+
+\begin{DoxyCode}
+00001 
+00007 \textcolor{preprocessor}{#ifndef SCALE\_ENTITY\_H\_20130101143242272}
+00008 \textcolor{preprocessor}{}\textcolor{preprocessor}{#define SCALE\_ENTITY\_H\_20130101143242272}
+00009 \textcolor{preprocessor}{}\textcolor{preprocessor}{#include "\hyperlink{reduction__common_8h}{hryky/reduction/reduction_common.h}"}
+00010 \textcolor{preprocessor}{#include "\hyperlink{scale__is__lower_8h}{hryky/scale/scale_is_lower.h}"}
+00011 \textcolor{preprocessor}{#include "\hyperlink{scale__lower__of_8h}{hryky/scale/scale_lower_of.h}"}
+00012 \textcolor{preprocessor}{#include "\hyperlink{swap_8h}{hryky/swap.h}"}
+00013 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00014 \textcolor{comment}{// macro definition}
+00015 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00016 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00017 \textcolor{comment}{// namespace}
+00018 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00019 \textcolor{keyword}{namespace }hryky
+00020 \{
+\hypertarget{scale__entity_8h_source_l00021}{}\hyperlink{namespacehryky_1_1scale}{00021} \textcolor{keyword}{namespace }scale
+00022 \{
+00024     \textcolor{keyword}{template} <\textcolor{keyword}{typename} RawT, \textcolor{keyword}{typename} HigherT, hryky::\textcolor{keywordtype}{int}64\_t Radix>
+00025     \textcolor{keyword}{class }\hyperlink{classhryky_1_1scale_1_1_entity}{Entity};
+00026 
+00027 \} \textcolor{comment}{// namespace scale}
+00028 \} \textcolor{comment}{// namespace hryky}
+00029 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00030 \textcolor{comment}{// class declarations}
+00031 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00035 \textcolor{comment}{}\textcolor{keyword}{template} <\textcolor{keyword}{typename} RawT, \textcolor{keyword}{typename} HigherT, hryky::\textcolor{keywordtype}{int}64\_t Radix>
+\hypertarget{scale__entity_8h_source_l00036}{}\hyperlink{classhryky_1_1scale_1_1_entity}{00036} \textcolor{keyword}{class }\hyperlink{classhryky_1_1scale_1_1_entity}{hryky::scale::Entity}
+00037 \{
+00038 \textcolor{keyword}{public} :
+00039 
+\hypertarget{scale__entity_8h_source_l00040}{}\hyperlink{classhryky_1_1scale_1_1_entity_af312f46dc3d31369144a960d386790c3}{00040}     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1scale_1_1_entity}{Entity<RawT, HigherT, Radix>} \hyperlink{classhryky_1_1scale_1_1_entity_af312f46dc3d31369144a960d386790c3}{this_type};
+00041     \textcolor{keyword}{typedef} RawT raw\_type;
+00042     \textcolor{keyword}{typedef} HigherT higher\_type;
+00043 
+00044     \textcolor{keyword}{static} int64\_t \textcolor{keyword}{const} higher\_radix = \hyperlink{classhryky_1_1scale_1_1_radix}{Radix};
+00045 
+00047     \hyperlink{classhryky_1_1scale_1_1_entity_aa350dc64a99ba08a1dbc8ac40e18d97e}{Entity}();
+00048 
+00050     \hyperlink{classhryky_1_1scale_1_1_entity_aa350dc64a99ba08a1dbc8ac40e18d97e}{Entity}(\hyperlink{classhryky_1_1scale_1_1_entity}{this_type} \textcolor{keyword}{const} &);
+00051 
+00053     \hyperlink{classhryky_1_1scale_1_1_entity_aa350dc64a99ba08a1dbc8ac40e18d97e}{Entity}(\hyperlink{classhryky_1_1scale_1_1_entity}{this_type} && rhs);
+00054 
+00056     \hyperlink{classhryky_1_1scale_1_1_entity_aa350dc64a99ba08a1dbc8ac40e18d97e}{Entity}(raw\_type \textcolor{keyword}{const} rhs);
+00057 
+00059     \textcolor{keyword}{template} <\textcolor{keyword}{typename} ValueT>
+00060     \hyperlink{classhryky_1_1scale_1_1_entity_aa350dc64a99ba08a1dbc8ac40e18d97e}{Entity}(
+00061         ValueT \textcolor{keyword}{const} & rhs,
+00062         \textcolor{keyword}{typename} \hyperlink{classhryky_1_1_enable_if}{EnableIf}<
+00063             \hyperlink{classhryky_1_1scale_1_1_is_lower_equal}{scale::IsLowerEqual<typename this_type::higher_type, ValueT >}
+00064         >::type * = \hyperlink{common_8h_a4cd4ac09cfcdbd6b30ee69afc156e210}{HRYKY_NULLPTR});
+00065 
+00067     \textcolor{keyword}{template} <\textcolor{keyword}{typename} ValueT>
+00068     \hyperlink{classhryky_1_1scale_1_1_entity_aa350dc64a99ba08a1dbc8ac40e18d97e}{Entity}(
+00069         ValueT \textcolor{keyword}{const} & rhs,
+00070         \textcolor{keyword}{typename} \hyperlink{classhryky_1_1_enable_if}{EnableIf}<
+00071             \hyperlink{classhryky_1_1scale_1_1_is_lower_equal}{scale::IsLowerEqual<typename ValueT::higher_type, this_type >}
+00072         >::type * = \hyperlink{common_8h_a4cd4ac09cfcdbd6b30ee69afc156e210}{HRYKY_NULLPTR});
+00073 
+00075     \hyperlink{classhryky_1_1scale_1_1_entity_a80ab2b2ee794a72d1a56b1e918ed9d9f}{~Entity}();
+00076 
+\hypertarget{scale__entity_8h_source_l00078}{}\hyperlink{classhryky_1_1scale_1_1_entity_a498a751268cf889acf420366f1261947}{00078}     \hyperlink{classhryky_1_1scale_1_1_entity_a498a751268cf889acf420366f1261947}{hryky_assign_op};
+00079 
+00081     \textcolor{keyword}{template} <\textcolor{keyword}{typename} ValueT>
+00082     \textcolor{keyword}{typename} scale::LowerOf<this\_type, ValueT>::type
+00083         \hyperlink{classhryky_1_1scale_1_1_entity_a0e711f3283eab1061dc77c94bcb13ccf}{operator+}(ValueT \textcolor{keyword}{const} & rhs) \textcolor{keyword}{const};
+00084 
+00086     \textcolor{keywordtype}{void} \hyperlink{classhryky_1_1scale_1_1_entity_ae0d0dd27d319afcc138de2c4dd733370}{clear}();
+00087 
+00089     \hyperlink{classhryky_1_1_intrusive_ptr}{reduction_type} \hyperlink{classhryky_1_1scale_1_1_entity_aa745d5ef4401aa7f06ba72b91d06a3df}{reduce}(\hyperlink{classhryky_1_1reduction_1_1_string}{reduction::name_type} \textcolor{keyword}{const} & name) \textcolor{keyword}{const};
+00090 
+00092     \textcolor{keywordtype}{void} \hyperlink{classhryky_1_1scale_1_1_entity_a8ec8cc49ba0fd7e19cfe2ed714d62663}{swap}(\hyperlink{classhryky_1_1scale_1_1_entity}{this_type} & src);
+00093 
+00095     RawT \hyperlink{classhryky_1_1scale_1_1_entity_ac9d555edcbc0d8f8369f386a7b4d4d0f}{raw}() \textcolor{keyword}{const};
+00096 
+00097 \textcolor{keyword}{protected} :
+00098 
+00099 \textcolor{keyword}{private} :
+00100 
+00101     raw\_type raw\_;
+00102 
+00103 \};
+00104 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00105 \textcolor{comment}{// class specializations}
+00106 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00107 \textcolor{keyword}{namespace }hryky
+00108 \{
+00109 \textcolor{keyword}{namespace }scale
+00110 \{
+00111 \} \textcolor{comment}{// namespace scale}
+00112 \} \textcolor{comment}{// namespace hryky}
+00113 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00114 \textcolor{comment}{// public member functions}
+00115 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00119 \textcolor{comment}{}\textcolor{keyword}{template} <\textcolor{keyword}{typename} RawT, \textcolor{keyword}{typename} HigherT, hryky::\textcolor{keywordtype}{int}64\_t Radix>
+\hypertarget{scale__entity_8h_source_l00120}{}\hyperlink{classhryky_1_1scale_1_1_entity_aa350dc64a99ba08a1dbc8ac40e18d97e}{00120} \hyperlink{classhryky_1_1scale_1_1_entity_aa350dc64a99ba08a1dbc8ac40e18d97e}{hryky::scale::Entity<RawT, HigherT, Radix>::Entity}()
+00121     : raw\_()
+00122 \{
+00123 \}
+00127 \textcolor{keyword}{template} <\textcolor{keyword}{typename} RawT, \textcolor{keyword}{typename} HigherT, hryky::\textcolor{keywordtype}{int}64\_t Radix>
+\hypertarget{scale__entity_8h_source_l00128}{}\hyperlink{classhryky_1_1scale_1_1_entity_a3200eaffe5613c22fdd61ca962f193a0}{00128} \hyperlink{classhryky_1_1scale_1_1_entity}{hryky::scale::Entity<RawT, HigherT, Radix>::Entity}(\hyperlink{classhryky_1_1scale_1_1_entity}{this_type} \textcolor{keyword}{const} & rhs)
+00129     : raw\_(rhs.raw\_)
+00130 \{
+00131 \}
+00135 \textcolor{keyword}{template} <\textcolor{keyword}{typename} RawT, \textcolor{keyword}{typename} HigherT, hryky::\textcolor{keywordtype}{int}64\_t Radix>
+\hypertarget{scale__entity_8h_source_l00136}{}\hyperlink{classhryky_1_1scale_1_1_entity_ae6d72480f79d0e666036870ccba763a6}{00136} \hyperlink{classhryky_1_1scale_1_1_entity}{hryky::scale::Entity<RawT, HigherT, Radix>::Entity}(\hyperlink{classhryky_1_1scale_1_1_entity}{this_type} && rhs)
+00137     : hryky\_rvalue\_init(raw)
+00138 \{
+00139 \}
+00143 \textcolor{keyword}{template} <\textcolor{keyword}{typename} RawT, \textcolor{keyword}{typename} HigherT, hryky::\textcolor{keywordtype}{int}64\_t Radix>
+\hypertarget{scale__entity_8h_source_l00144}{}\hyperlink{classhryky_1_1scale_1_1_entity_aababe40f5fca9a4e7dc227854039fd06}{00144} \hyperlink{classhryky_1_1scale_1_1_entity}{hryky::scale::Entity<RawT, HigherT, Radix>::Entity}(raw\_type \textcolor{keyword}{const} raw)
+00145     : raw\_(raw)
+00146 \{
+00147 \}
+00151 \textcolor{keyword}{template} <\textcolor{keyword}{typename} RawT, \textcolor{keyword}{typename} HigherT, hryky::\textcolor{keywordtype}{int}64\_t Radix>
+00152 \textcolor{keyword}{template} <\textcolor{keyword}{typename} ValueT>
+\hypertarget{scale__entity_8h_source_l00153}{}\hyperlink{classhryky_1_1scale_1_1_entity_a1928287ec77e5a97d0b700d4406a5f54}{00153} \hyperlink{classhryky_1_1scale_1_1_entity}{hryky::scale::Entity<RawT, HigherT, Radix>::Entity}(
+00154     ValueT \textcolor{keyword}{const} & rhs,
+00155     \textcolor{keyword}{typename} \hyperlink{classhryky_1_1_enable_if}{EnableIf}<
+00156         \hyperlink{classhryky_1_1scale_1_1_is_lower_equal}{scale::IsLowerEqual<typename this_type::higher_type, ValueT >} >::type *
+      )
+00157     : raw\_(scale::\hyperlink{classhryky_1_1scale_1_1_radix}{Radix}<\hyperlink{classhryky_1_1scale_1_1_entity}{this_type}, ValueT>::value * rhs.raw())
+00158 \{
+00159 \}
+00163 \textcolor{keyword}{template} <\textcolor{keyword}{typename} RawT, \textcolor{keyword}{typename} HigherT, hryky::\textcolor{keywordtype}{int}64\_t Radix>
+00164 \textcolor{keyword}{template} <\textcolor{keyword}{typename} ValueT>
+\hypertarget{scale__entity_8h_source_l00165}{}\hyperlink{classhryky_1_1scale_1_1_entity_a1a7021b0210b2967d25f541371468947}{00165} \hyperlink{classhryky_1_1scale_1_1_entity}{hryky::scale::Entity<RawT, HigherT, Radix>::Entity}(
+00166     ValueT \textcolor{keyword}{const} & rhs,
+00167     \textcolor{keyword}{typename} \hyperlink{classhryky_1_1_enable_if}{EnableIf}<
+00168         \hyperlink{classhryky_1_1scale_1_1_is_lower_equal}{scale::IsLowerEqual<typename ValueT::higher_type, this_type >} >::type *
+      )
+00169     : raw\_(static\_cast<raw\_type>(
+00170         rhs.raw() / scale::\hyperlink{classhryky_1_1scale_1_1_radix}{Radix}<ValueT, \hyperlink{classhryky_1_1scale_1_1_entity}{this_type}>::value))
+00171 \{
+00172 \}
+00176 \textcolor{keyword}{template} <\textcolor{keyword}{typename} RawT, \textcolor{keyword}{typename} HigherT, hryky::\textcolor{keywordtype}{int}64\_t Radix>
+\hypertarget{scale__entity_8h_source_l00177}{}\hyperlink{classhryky_1_1scale_1_1_entity_a80ab2b2ee794a72d1a56b1e918ed9d9f}{00177} \hyperlink{classhryky_1_1scale_1_1_entity}{hryky::scale::Entity<RawT, HigherT, Radix>::~Entity}()
+00178 \{
+00179 \}
+00183 \textcolor{keyword}{template} <\textcolor{keyword}{typename} RawT, \textcolor{keyword}{typename} HigherT, hryky::\textcolor{keywordtype}{int}64\_t Radix>
+00184 \textcolor{keyword}{template} <\textcolor{keyword}{typename} ValueT>
+00185 \textcolor{keyword}{typename} \hyperlink{classhryky_1_1scale_1_1_lower_of}{hryky::scale::LowerOf<hryky::scale::Entity<RawT, HigherT, Radix>}, 
+      ValueT>::type 
+\hypertarget{scale__entity_8h_source_l00186}{}\hyperlink{classhryky_1_1scale_1_1_entity_a0e711f3283eab1061dc77c94bcb13ccf}{00186} \hyperlink{classhryky_1_1scale_1_1_entity}{hryky::scale::Entity<RawT, HigherT, Radix>::operator+}(ValueT \textcolor{keyword}{const} & rhs)\textcolor{keyword}{ const}
+00187 \textcolor{keyword}{}\{
+00188     \textcolor{keywordflow}{return} \hyperlink{namespacehryky_1_1scale_ac2fe4df99c737fa954907b456a705f75}{scale::add}(*\textcolor{keyword}{this}, rhs);
+00189 \}
+00193 \textcolor{keyword}{template} <\textcolor{keyword}{typename} RawT, \textcolor{keyword}{typename} HigherT, hryky::\textcolor{keywordtype}{int}64\_t Radix>
+\hypertarget{scale__entity_8h_source_l00194}{}\hyperlink{classhryky_1_1scale_1_1_entity_ae0d0dd27d319afcc138de2c4dd733370}{00194} \textcolor{keywordtype}{void} \hyperlink{namespacehryky_aa201297ea9530da954a7230be71cc19d}{hryky::scale::Entity<RawT, HigherT, Radix>::clear}()
+00195 \{
+00196     this->raw\_ = raw\_type();
+00197 \}
+00201 \textcolor{keyword}{template} <\textcolor{keyword}{typename} RawT, \textcolor{keyword}{typename} HigherT, hryky::\textcolor{keywordtype}{int}64\_t Radix>
+00202 \hyperlink{classhryky_1_1_intrusive_ptr}{hryky::reduction_type}
+\hypertarget{scale__entity_8h_source_l00203}{}\hyperlink{classhryky_1_1scale_1_1_entity_aa745d5ef4401aa7f06ba72b91d06a3df}{00203} \hyperlink{namespacehryky_1_1scale_a6bbb1a80e433741768d3590c888ff644}{hryky::scale::Entity<RawT, HigherT, Radix>::reduce}(
+00204     \hyperlink{classhryky_1_1reduction_1_1_string}{reduction::name_type} \textcolor{keyword}{const} & name)\textcolor{keyword}{ const}
+00205 \textcolor{keyword}{}\{
+00206     \textcolor{keywordflow}{return} \hyperlink{reduction__common_8h_afc72326c9900838c5db40438318794dd}{hryky_reduce}(name, this->raw\_);
+00207 \}
+00211 \textcolor{keyword}{template} <\textcolor{keyword}{typename} RawT, \textcolor{keyword}{typename} HigherT, hryky::\textcolor{keywordtype}{int}64\_t Radix>
+\hypertarget{scale__entity_8h_source_l00212}{}\hyperlink{classhryky_1_1scale_1_1_entity_a8ec8cc49ba0fd7e19cfe2ed714d62663}{00212} \textcolor{keywordtype}{void} \hyperlink{namespacehryky_1_1scale_ae4a4f26481f5a12c26e0d3c93f1d1bbc}{hryky::scale::Entity<RawT, HigherT, Radix>::swap}(\hyperlink{classhryky_1_1scale_1_1_entity}{this_type} & src)
+00213 \{
+00214     \hyperlink{namespacehryky_add9c1c1fdfda07cd47bcb7c16d3a823a}{hryky_swap}(this->raw\_, src.raw\_);
+00215 \}
+00219 \textcolor{keyword}{template} <\textcolor{keyword}{typename} RawT, \textcolor{keyword}{typename} HigherT, hryky::\textcolor{keywordtype}{int}64\_t Radix>
+\hypertarget{scale__entity_8h_source_l00220}{}\hyperlink{classhryky_1_1scale_1_1_entity_ac9d555edcbc0d8f8369f386a7b4d4d0f}{00220} RawT \hyperlink{classhryky_1_1scale_1_1_entity}{hryky::scale::Entity<RawT, HigherT, Radix>::raw}()\textcolor{keyword}{ const}
+00221 \textcolor{keyword}{}\{
+00222     \textcolor{keywordflow}{return} this->raw\_;
+00223 \}
+00224 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00225 \textcolor{comment}{// protected member functions}
+00226 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00227 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00228 \textcolor{comment}{// private member functions}
+00229 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00230 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00231 \textcolor{comment}{// global function prototypes}
+00232 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00233 \textcolor{keyword}{namespace }hryky
+00234 \{
+00235 \textcolor{keyword}{namespace }scale
+00236 \{
+00238     \textcolor{keyword}{template} <\textcolor{keyword}{typename} RawT, \textcolor{keyword}{typename} HigherT, hryky::\textcolor{keywordtype}{int}64\_t Radix>
+00239     \hyperlink{classhryky_1_1_intrusive_ptr}{reduction_type} \hyperlink{namespacehryky_1_1scale_a6bbb1a80e433741768d3590c888ff644}{reduce}(
+00240         \hyperlink{classhryky_1_1reduction_1_1_string}{reduction::name_type} \textcolor{keyword}{const} & name,
+00241         \hyperlink{classhryky_1_1scale_1_1_entity}{Entity<RawT, HigherT, Radix>} \textcolor{keyword}{const} & src);
+00242 
+00244     \textcolor{keyword}{template} <\textcolor{keyword}{typename} RawT, \textcolor{keyword}{typename} HigherT, hryky::\textcolor{keywordtype}{int}64\_t Radix>
+00245     \textcolor{keywordtype}{void} \hyperlink{namespacehryky_1_1scale_ae4a4f26481f5a12c26e0d3c93f1d1bbc}{swap}(
+00246         \hyperlink{classhryky_1_1scale_1_1_entity}{Entity<RawT, HigherT, Radix>} & lhs,
+00247         \hyperlink{classhryky_1_1scale_1_1_entity}{Entity<RawT, HigherT, Radix>} & rhs);
+00248 
+00250     \textcolor{keyword}{template} <\textcolor{keyword}{typename} LhsT, \textcolor{keyword}{typename} RhsT>
+00251     LhsT \hyperlink{namespacehryky_1_1scale_ac2fe4df99c737fa954907b456a705f75}{add}(
+00252         LhsT \textcolor{keyword}{const} & lhs,
+00253         RhsT \textcolor{keyword}{const} & rhs,
+00254         \textcolor{keyword}{typename} \hyperlink{classhryky_1_1_enable_if}{EnableIf}<
+00255             \hyperlink{classhryky_1_1scale_1_1_is_lower_equal}{scale::IsLowerEqual<typename LhsT::higher_type, RhsT>}
+00256         >::type * = \hyperlink{common_8h_a4cd4ac09cfcdbd6b30ee69afc156e210}{HRYKY_NULLPTR});
+00257 
+00259     \textcolor{keyword}{template} <\textcolor{keyword}{typename} LhsT, \textcolor{keyword}{typename} RhsT>
+00260     RhsT \hyperlink{namespacehryky_1_1scale_ac2fe4df99c737fa954907b456a705f75}{add}(
+00261         LhsT \textcolor{keyword}{const} & lhs,
+00262         RhsT \textcolor{keyword}{const} & rhs,
+00263         \textcolor{keyword}{typename} \hyperlink{classhryky_1_1_enable_if}{EnableIf}<
+00264             \hyperlink{classhryky_1_1scale_1_1_is_lower_equal}{scale::IsLowerEqual<typename RhsT::higher_type, LhsT>}
+00265         >::type * = \hyperlink{common_8h_a4cd4ac09cfcdbd6b30ee69afc156e210}{HRYKY_NULLPTR});
+00266 
+00267 \} \textcolor{comment}{// namespace scale}
+00268 \} \textcolor{comment}{// namespace hryky}
+00269 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00270 \textcolor{comment}{// global function definitions}
+00271 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00275 \textcolor{comment}{}\textcolor{keyword}{template} <\textcolor{keyword}{typename} RawT, \textcolor{keyword}{typename} HigherT, hryky::\textcolor{keywordtype}{int}64\_t Radix>
+\hypertarget{scale__entity_8h_source_l00276}{}\hyperlink{namespacehryky_1_1scale_a6bbb1a80e433741768d3590c888ff644}{00276} \hyperlink{classhryky_1_1_intrusive_ptr}{hryky::reduction_type} \hyperlink{namespacehryky_1_1scale_a6bbb1a80e433741768d3590c888ff644}{hryky::scale::reduce}(
+00277     \hyperlink{classhryky_1_1reduction_1_1_string}{reduction::name_type} \textcolor{keyword}{const} & name,
+00278     \hyperlink{classhryky_1_1scale_1_1_entity}{Entity<RawT, HigherT, Radix>} \textcolor{keyword}{const} & src)
+00279 \{
+00280     \textcolor{keywordflow}{return} src.\hyperlink{classhryky_1_1scale_1_1_entity_aa745d5ef4401aa7f06ba72b91d06a3df}{reduce}(name);
+00281 \}
+00285 \textcolor{keyword}{template} <\textcolor{keyword}{typename} RawT, \textcolor{keyword}{typename} HigherT, hryky::\textcolor{keywordtype}{int}64\_t Radix>
+\hypertarget{scale__entity_8h_source_l00286}{}\hyperlink{namespacehryky_1_1scale_ae4a4f26481f5a12c26e0d3c93f1d1bbc}{00286} \textcolor{keywordtype}{void} \hyperlink{namespacehryky_1_1scale_ae4a4f26481f5a12c26e0d3c93f1d1bbc}{hryky::scale::swap}(
+00287     \hyperlink{classhryky_1_1scale_1_1_entity}{Entity<RawT, HigherT, Radix>} & lhs,
+00288     \hyperlink{classhryky_1_1scale_1_1_entity}{Entity<RawT, HigherT, Radix>} & rhs)
+00289 \{
+00290     lhs.\hyperlink{classhryky_1_1scale_1_1_entity_a8ec8cc49ba0fd7e19cfe2ed714d62663}{swap}(rhs);
+00291 \}
+00295 \textcolor{keyword}{template} <\textcolor{keyword}{typename} LhsT, \textcolor{keyword}{typename} RhsT>
+\hypertarget{scale__entity_8h_source_l00296}{}\hyperlink{namespacehryky_1_1scale_ac2fe4df99c737fa954907b456a705f75}{00296} LhsT \hyperlink{namespacehryky_1_1scale_ac2fe4df99c737fa954907b456a705f75}{hryky::scale::add}(
+00297     LhsT \textcolor{keyword}{const} & lhs,
+00298     RhsT \textcolor{keyword}{const} & rhs,
+00299     \textcolor{keyword}{typename} \hyperlink{classhryky_1_1_enable_if}{EnableIf}<
+00300         \hyperlink{classhryky_1_1scale_1_1_is_lower_equal}{scale::IsLowerEqual<typename LhsT::higher_type, RhsT>}
+00301     >::type *)
+00302 \{
+00303     \textcolor{keywordflow}{return} LhsT(lhs.raw() + \hyperlink{classhryky_1_1scale_1_1_radix}{scale::Radix<LhsT, RhsT>::value} * rhs.raw());
+00304 \}
+00308 \textcolor{keyword}{template} <\textcolor{keyword}{typename} LhsT, \textcolor{keyword}{typename} RhsT>
+\hypertarget{scale__entity_8h_source_l00309}{}\hyperlink{namespacehryky_1_1scale_ad9e9b8df1f0e41c8de221227e2ea1a8f}{00309} RhsT \hyperlink{namespacehryky_1_1scale_ac2fe4df99c737fa954907b456a705f75}{hryky::scale::add}(
+00310     LhsT \textcolor{keyword}{const} & lhs,
+00311     RhsT \textcolor{keyword}{const} & rhs,
+00312     \textcolor{keyword}{typename} \hyperlink{classhryky_1_1_enable_if}{EnableIf}<
+00313         \hyperlink{classhryky_1_1scale_1_1_is_lower_equal}{scale::IsLowerEqual<typename RhsT::higher_type, LhsT>}
+00314     >::type *)
+00315 \{
+00316     \textcolor{keywordflow}{return} RhsT(\hyperlink{classhryky_1_1scale_1_1_radix}{scale::Radix<RhsT, LhsT>::value} * lhs.raw() + rhs.raw());
+00317 \}
+00318 \textcolor{preprocessor}{#endif // SCALE\_ENTITY\_H\_20130101143242272}
+00319 \textcolor{preprocessor}{}\textcolor{comment}{// end of file}
+\end{DoxyCode}

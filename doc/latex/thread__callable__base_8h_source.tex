@@ -1,0 +1,71 @@
+\hypertarget{thread__callable__base_8h_source}{\section{thread\-\_\-callable\-\_\-base.\-h}
+}
+
+\begin{DoxyCode}
+00001 
+00007 \textcolor{preprocessor}{#ifndef THREAD\_CALLABLE\_BASE\_H\_20111223183320439}
+00008 \textcolor{preprocessor}{}\textcolor{preprocessor}{#define THREAD\_CALLABLE\_BASE\_H\_20111223183320439}
+00009 \textcolor{preprocessor}{}\textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00010 \textcolor{comment}{// macro definition}
+00011 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00012 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00013 \textcolor{comment}{// namespace}
+00014 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00015 \textcolor{keyword}{namespace }hryky
+00016 \{
+00017 \textcolor{keyword}{namespace }thread
+00018 \{
+00019 \textcolor{keyword}{namespace }callable
+00020 \{
+00022     \textcolor{keyword}{class }Base;
+00023 \}
+00024 \}
+00025 \}
+00026 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00027 \textcolor{comment}{// class declaration}
+00028 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+\hypertarget{thread__callable__base_8h_source_l00032}{}\hyperlink{classhryky_1_1thread_1_1callable_1_1_base}{00032} \textcolor{comment}{}\textcolor{keyword}{class }\hyperlink{classhryky_1_1thread_1_1callable_1_1_base}{hryky::thread::callable::Base}
+00033 \{
+00034 \textcolor{keyword}{public} :
+00035 
+\hypertarget{thread__callable__base_8h_source_l00037}{}\hyperlink{classhryky_1_1thread_1_1callable_1_1_base_ad3922e54cf5990b08625fad40aae60b3}{00037}     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1thread_1_1callable_1_1_base}{hryky::thread::callable::Base} \hyperlink{classhryky_1_1thread_1_1callable_1_1_base_ad3922e54cf5990b08625fad40aae60b3}{this_type};
+00038 
+\hypertarget{thread__callable__base_8h_source_l00040}{}\hyperlink{classhryky_1_1thread_1_1callable_1_1_base_aeda337d4158d695451f0dabc9d88cf58}{00040}     \textcolor{keyword}{explicit} \hyperlink{classhryky_1_1thread_1_1callable_1_1_base_aeda337d4158d695451f0dabc9d88cf58}{Base}() \{\};
+00041 
+\hypertarget{thread__callable__base_8h_source_l00043}{}\hyperlink{classhryky_1_1thread_1_1callable_1_1_base_aa35fa37ef7032fb5843cd834f3c323fd}{00043}     \textcolor{keyword}{virtual} \hyperlink{classhryky_1_1thread_1_1callable_1_1_base_aa35fa37ef7032fb5843cd834f3c323fd}{~Base}() \{\};
+00044 
+00045     \textcolor{keywordtype}{void} run() \{
+00046         this->run\_impl();
+00047     \}
+00048 
+00049 \textcolor{keyword}{protected} :
+00050 
+00051 \textcolor{keyword}{private} :
+00052 
+00056     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} run\_impl() = 0;
+00057 
+00058 \};
+00059 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00060 \textcolor{comment}{// public member functions}
+00061 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00062 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00063 \textcolor{comment}{// protected member functions}
+00064 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00065 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00066 \textcolor{comment}{// private member functions}
+00067 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00068 \textcolor{preprocessor}{#endif // THREAD\_CALLABLE\_BASE\_H\_20111223183320439}
+00069 \textcolor{preprocessor}{}\textcolor{comment}{// end of file}
+\end{DoxyCode}

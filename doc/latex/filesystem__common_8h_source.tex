@@ -1,0 +1,63 @@
+\hypertarget{filesystem__common_8h_source}{\section{filesystem\-\_\-common.\-h}
+}
+
+\begin{DoxyCode}
+00001 
+00007 \textcolor{preprocessor}{#ifndef FILESYSTEM\_COMMON\_H\_20120911123302189}
+00008 \textcolor{preprocessor}{}\textcolor{preprocessor}{#define FILESYSTEM\_COMMON\_H\_20120911123302189}
+00009 \textcolor{preprocessor}{}\textcolor{preprocessor}{#include <boost/filesystem.hpp>}
+00010 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00011 \textcolor{comment}{// macro definition}
+00012 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00013 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00014 \textcolor{comment}{// namespace}
+00015 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00016 \textcolor{keyword}{namespace }hryky
+00017 \{
+00018 \textcolor{keyword}{namespace }filesystem
+00019 \{
+00021     \textcolor{keyword}{typedef} boost::filesystem::path     path\_type;
+00022 
+00023 \} \textcolor{comment}{// namespace filesystem}
+00024 \} \textcolor{comment}{// namespace hryky}
+00025 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00026 \textcolor{comment}{// struct declaration}
+00027 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00028 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00029 \textcolor{comment}{// class declaration}
+00030 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00031 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00032 \textcolor{comment}{// global function prototypes}
+00033 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00034 \textcolor{keyword}{namespace }hryky
+00035 \{
+00036 \textcolor{keyword}{namespace }filesystem
+00037 \{
+00044     path\_type home();
+00045 
+00047     path\_type current\_path();
+00048 
+00050     path\_type absolute(
+00051         path\_type \textcolor{keyword}{const} & path,
+00052         path\_type \textcolor{keyword}{const} & current = current\_path());
+00053 
+00054 \} \textcolor{comment}{// namespace filesystem}
+00055 \} \textcolor{comment}{// namespace hryky}
+00056 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00057 \textcolor{comment}{// global function definitions}
+00058 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00059 \textcolor{preprocessor}{#endif // FILESYSTEM\_COMMON\_H\_20120911123302189}
+00060 \textcolor{preprocessor}{}\textcolor{comment}{// end of file}
+\end{DoxyCode}

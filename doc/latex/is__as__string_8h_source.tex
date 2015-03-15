@@ -1,0 +1,100 @@
+\hypertarget{is__as__string_8h_source}{\section{is\-\_\-as\-\_\-string.\-h}
+}
+
+\begin{DoxyCode}
+00001 
+00007 \textcolor{preprocessor}{#ifndef TYPE\_IS\_AS\_STRING\_H\_20120925125540205}
+00008 \textcolor{preprocessor}{}\textcolor{preprocessor}{#define TYPE\_IS\_AS\_STRING\_H\_20120925125540205}
+00009 \textcolor{preprocessor}{}\textcolor{preprocessor}{#include "\hyperlink{stdint_8h}{hryky/stdint.h}"}
+00010 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00011 \textcolor{comment}{// macro definition}
+00012 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00013 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00014 \textcolor{comment}{// namespace}
+00015 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00016 \textcolor{keyword}{namespace }hryky
+00017 \{
+00019     \textcolor{keyword}{template} < \textcolor{keyword}{typename} ValueT >
+00020     \textcolor{keyword}{class }IsAsString;
+00021 
+00022 \} \textcolor{comment}{// namespace hryky}
+00023 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00024 \textcolor{comment}{// class declarations}
+00025 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00029 \textcolor{comment}{}\textcolor{keyword}{template} < \textcolor{keyword}{typename} ValueT >
+\hypertarget{is__as__string_8h_source_l00030}{}\hyperlink{classhryky_1_1_is_as_string}{00030} \textcolor{keyword}{class }\hyperlink{classhryky_1_1_is_as_string}{hryky::IsAsString}
+00031 \{
+00032 \textcolor{keyword}{private} :
+00033     \textcolor{keyword}{typedef} uint16\_t    yes;
+00034     \textcolor{keyword}{typedef} uint8\_t     no;
+00035 
+00036     \textcolor{keyword}{template} < \textcolor{keyword}{typename} TargetT, \textcolor{keywordtype}{size\_t} (TargetT::*)() const>
+00037         \textcolor{keyword}{struct }TestSize;
+00038     \textcolor{keyword}{template} < \textcolor{keyword}{typename} TargetT
+00039         , \textcolor{keyword}{typename} TargetT::const\_pointer (TargetT::*)() \textcolor{keyword}{const}>
+00040         \textcolor{keyword}{struct} TestData;
+00041     
+00042     \textcolor{keyword}{template} < \textcolor{keyword}{typename} TargetT >
+00043     \textcolor{keyword}{static} yes test\_size(TestSize<TargetT, &TargetT::size> *);
+00044     
+00045     \textcolor{keyword}{template} < \textcolor{keyword}{typename} TargetT >
+00046     \textcolor{keyword}{static} no test\_size(...);
+00047 
+00048     \textcolor{keyword}{template} < \textcolor{keyword}{typename} TargetT >
+00049     \textcolor{keyword}{static} yes test\_data(TestData<TargetT, &TargetT::data> *);
+00050     
+00051     \textcolor{keyword}{template} < \textcolor{keyword}{typename} TargetT >
+00052     \textcolor{keyword}{static} no test\_data(...);
+00053 
+00054 \textcolor{keyword}{public} :
+00055     \textcolor{keyword}{static} \textcolor{keywordtype}{bool} \textcolor{keyword}{const} value = (
+00056         \textcolor{keyword}{sizeof}(test\_size<ValueT>(0)) == \textcolor{keyword}{sizeof}(yes)
+00057         && \textcolor{keyword}{sizeof}(test\_data<ValueT>(0)) == \textcolor{keyword}{sizeof}(yes)
+00058         );
+00059     
+00060 \};
+00061 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00062 \textcolor{comment}{// class specializations}
+00063 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00064 \textcolor{keyword}{namespace }hryky
+00065 \{
+00066 \} \textcolor{comment}{// namespace hryky}
+00067 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00068 \textcolor{comment}{// public member functions}
+00069 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00070 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00071 \textcolor{comment}{// protected member functions}
+00072 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00073 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00074 \textcolor{comment}{// private member functions}
+00075 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00076 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00077 \textcolor{comment}{// global function prototypes}
+00078 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00079 \textcolor{keyword}{namespace }hryky
+00080 \{
+00081 \} \textcolor{comment}{// namespace hryky}
+00082 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00083 \textcolor{comment}{// global function definitions}
+00084 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00085 \textcolor{preprocessor}{#endif // TYPE\_IS\_AS\_STRING\_H\_20120925125540205}
+00086 \textcolor{preprocessor}{}\textcolor{comment}{// end of file}
+\end{DoxyCode}

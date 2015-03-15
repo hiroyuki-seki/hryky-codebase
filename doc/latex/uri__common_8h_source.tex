@@ -1,0 +1,92 @@
+\hypertarget{uri__common_8h_source}{\section{uri\-\_\-common.\-h}
+}
+
+\begin{DoxyCode}
+00001 
+00007 \textcolor{preprocessor}{#ifndef URI\_COMMON\_H\_20120716164045361}
+00008 \textcolor{preprocessor}{}\textcolor{preprocessor}{#define URI\_COMMON\_H\_20120716164045361}
+00009 \textcolor{preprocessor}{}\textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00010 \textcolor{comment}{// macro definition}
+00011 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+\hypertarget{uri__common_8h_source_l00013}{}\hyperlink{uri__common_8h_a4dc560630c0ded780a840caf93f18fba}{00013} \textcolor{comment}{}\textcolor{preprocessor}{#define hryky\_case\_uri\_gen\_delim \(\backslash\)}
+00014 \textcolor{preprocessor}{    ':': case '/': case '?': case '#': case '[': case ']': case '@'}
+00015 \textcolor{preprocessor}{}
+\hypertarget{uri__common_8h_source_l00017}{}\hyperlink{uri__common_8h_a10832250340841ffbb48d83dec89c018}{00017} \textcolor{preprocessor}{#define hryky\_case\_uri\_sub\_delim \(\backslash\)}
+00018 \textcolor{preprocessor}{hryky\_case\_uri\_sub\_delim\_except\_plus: case '+'}
+00019 \textcolor{preprocessor}{}
+\hypertarget{uri__common_8h_source_l00021}{}\hyperlink{uri__common_8h_a4f5e4526c4734e4157e802257fab962b}{00021} \textcolor{preprocessor}{#define hryky\_case\_uri\_sub\_delim\_except\_plus \(\backslash\)}
+00022 \textcolor{preprocessor}{    '!': case '$': case '&': case '\(\backslash\)'': case '(': case ')': case '*': \(\backslash\)}
+00023 \textcolor{preprocessor}{case ',': case ';': case '='}
+00024 \textcolor{preprocessor}{}
+\hypertarget{uri__common_8h_source_l00026}{}\hyperlink{uri__common_8h_ac314b59e898dd0725b090fad9598b1cd}{00026} \textcolor{preprocessor}{#define hryky\_case\_uri\_unreserved \(\backslash\)}
+00027 \textcolor{preprocessor}{hryky\_case\_uri\_unreserved\_symbol: \(\backslash\)}
+00028 \textcolor{preprocessor}{case hryky\_case\_ascii\_alpha: case hryky\_case\_ascii\_digit}
+00029 \textcolor{preprocessor}{}
+\hypertarget{uri__common_8h_source_l00033}{}\hyperlink{uri__common_8h_a97f2bc87896eb262146b89f9126df056}{00033} \textcolor{preprocessor}{#define hryky\_case\_uri\_unreserved\_symbol \(\backslash\)}
+00034 \textcolor{preprocessor}{    uri::hyphen\_: case uri::period\_: case uri::underscore\_: case uri::tilde\_}
+00035 \textcolor{preprocessor}{}
+00036 
+\hypertarget{uri__common_8h_source_l00038}{}\hyperlink{uri__common_8h_a24efe8713741bd7b33f727a87f9379b4}{00038} \textcolor{preprocessor}{#define hryky\_case\_uri\_segment \(\backslash\)}
+00039 \textcolor{preprocessor}{    ':': case '@': case hryky\_case\_uri\_sub\_delim: case
+       hryky\_case\_uri\_unreserved}
+00040 \textcolor{preprocessor}{}\textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00041 \textcolor{comment}{// namespace}
+00042 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00043 \textcolor{keyword}{namespace }hryky
+00044 \{
+00045 \textcolor{keyword}{namespace }uri
+00046 \{
+00047     \hyperlink{namespacehryky_a488cba8b666be33ccca70e819684e3c8}{octet_type} \textcolor{keyword}{const} hyphen\_ =      0x2D;
+00048     \hyperlink{namespacehryky_a488cba8b666be33ccca70e819684e3c8}{octet_type} \textcolor{keyword}{const} period\_ =      0x2E;
+00049     \hyperlink{namespacehryky_a488cba8b666be33ccca70e819684e3c8}{octet_type} \textcolor{keyword}{const} underscore\_ =  0x5F;
+00050     \hyperlink{namespacehryky_a488cba8b666be33ccca70e819684e3c8}{octet_type} \textcolor{keyword}{const} tilde\_ =       0x7E;
+00051 
+00052     \textcolor{keyword}{typedef} Vector<octet\_type> segment\_type;
+00053     
+00054 \} \textcolor{comment}{// namespace uri}
+00055 \} \textcolor{comment}{// namespace hryky}
+00056 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00057 \textcolor{comment}{// struct declaration}
+00058 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00059 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00060 \textcolor{comment}{// class declaration}
+00061 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00062 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00063 \textcolor{comment}{// global function prototypes}
+00064 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00065 \textcolor{keyword}{namespace }hryky
+00066 \{
+00067 \textcolor{keyword}{namespace }uri
+00068 \{
+00070     \textcolor{keywordtype}{bool} \hyperlink{namespacehryky_1_1uri_a5eeaf4345e31b2201835c256b5a1d099}{is_gen_delim}(\hyperlink{namespacehryky_a488cba8b666be33ccca70e819684e3c8}{octet_type} \textcolor{keyword}{const} octet);
+00071 
+00073     \textcolor{keywordtype}{bool} \hyperlink{namespacehryky_1_1uri_a0f9e547bf72c6148ff436dbffc94651e}{is_sub_delim}(\hyperlink{namespacehryky_a488cba8b666be33ccca70e819684e3c8}{octet_type} \textcolor{keyword}{const} octet);
+00074 
+00076     \textcolor{keywordtype}{bool} \hyperlink{namespacehryky_1_1uri_a3051f943d27c6213bba82b8cb8e0b6c5}{is_reserved}(\hyperlink{namespacehryky_a488cba8b666be33ccca70e819684e3c8}{octet_type} \textcolor{keyword}{const} octet);
+00077 
+00079     \textcolor{keywordtype}{bool} \hyperlink{namespacehryky_1_1uri_a95ad9502034176c355abd2c716d107d3}{is_unreserved}(\hyperlink{namespacehryky_a488cba8b666be33ccca70e819684e3c8}{octet_type} \textcolor{keyword}{const} octet);
+00080 
+00086     \textcolor{keywordtype}{bool} \hyperlink{namespacehryky_1_1uri_ab7d939b992c5f913bc116db33e213786}{is_segment}(\hyperlink{namespacehryky_a488cba8b666be33ccca70e819684e3c8}{octet_type} \textcolor{keyword}{const} octet);
+00087 
+00088     
+00089 
+00090 \} \textcolor{comment}{// namespace uri}
+00091 \} \textcolor{comment}{// namespace hryky}
+00092 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00093 \textcolor{comment}{// global function definitions}
+00094 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00095 \textcolor{preprocessor}{#endif // URI\_COMMON\_H\_20120716164045361}
+00096 \textcolor{preprocessor}{}\textcolor{comment}{// end of file}
+\end{DoxyCode}

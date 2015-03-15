@@ -1,0 +1,220 @@
+\hypertarget{test_main_8cpp-example}{\section{test\-\_\-main.\-cpp}
+}
+
+\begin{DoxyCodeInclude}
+\textcolor{comment}{/*}
+\textcolor{comment}{  @file         test\_main.cpp}
+\textcolor{comment}{  @brief        the entry point of all tests.}
+\textcolor{comment}{  @since        2011-12-17T15:32:25+0900}
+\textcolor{comment}{  @author       HRYKY}
+\textcolor{comment}{  @version      $Id: test\_main.cpp 150 2013-02-10 10:08:03Z
+       hryky.private@gmail.com $}
+\textcolor{comment}{ */}
+\textcolor{preprocessor}{#include <precompiled.h>}
+\textcolor{preprocessor}{#include <boost/filesystem.hpp>}
+\textcolor{preprocessor}{#include "\hyperlink{windows_8h}{hryky/windows.h}"}
+\textcolor{preprocessor}{#include "\hyperlink{main_8h}{hryky/main.h}"}
+\textcolor{preprocessor}{#include "\hyperlink{memory_8h}{hryky/memory.h}"}
+\textcolor{preprocessor}{#include "\hyperlink{testing_8h}{hryky/testing.h}"}
+\textcolor{preprocessor}{#include "\hyperlink{filesystem_8h}{hryky/filesystem.h}"}
+\textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+\textcolor{comment}{// macro}
+\textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+\textcolor{comment}{// overloads global new/delete.}
+\hyperlink{memory__global__common_8h_a64f3ccc3424c9c440b03c07f96249051}{HRYKY_DEFINE_GLOBAL_NEW_DELETE}();
+\textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+\textcolor{comment}{// anonymous namespace}
+\textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+\textcolor{keyword}{namespace}
+\{
+    \textcolor{comment}{// This function is invoked when ::operator new() cannot allocate memory.}
+    \textcolor{keywordtype}{void} handle\_bad\_alloc();
+
+    \textcolor{keywordtype}{size\_t} \textcolor{keyword}{const}    g\_buffer\_size           = 0x400 * 0x400 * 0x40;
+    \textcolor{keywordtype}{char}            g\_buffer[g\_buffer\_size] = \{0, \};
+
+\}
+\textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+\textcolor{comment}{// prototypes}
+\textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+\textcolor{comment}{// the entry point of all tests.}
+\textcolor{keywordtype}{int} \hyperlink{namespacehryky_acf43d20e6c0b5e4b54931d42b46443a1}{main}(\textcolor{keywordtype}{int} argc, \textcolor{keywordtype}{char} * argv[]);
+
+\textcolor{keyword}{namespace }hryky
+\{
+\textcolor{keyword}{namespace }test
+\{
+    \textcolor{comment}{// picks a test by command-line options.}
+    \textcolor{keywordtype}{int} \hyperlink{namespacehryky_1_1testing_a3f6a3cf63bf23525fe1e462fd3b83474}{main_impl}(\textcolor{keywordtype}{int} \textcolor{keyword}{const} argc, \textcolor{keywordtype}{char} \textcolor{keyword}{const} * \textcolor{keyword}{const} argv[]);
+
+    \textcolor{comment}{// call std::set\_new\_handler() the beggining of this instantiation}
+    \textcolor{keyword}{struct }SetNewHandler
+    \{
+        SetNewHandler(std::new\_handler handler)
+        \{
+            std::set\_new\_handler(handler);
+        \}
+    \};
+    SetNewHandler \textcolor{keyword}{const} set\_new\_handler(handle\_bad\_alloc);
+
+\}
+\}
+\textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+\textcolor{comment}{// global functions}
+\textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+\textcolor{comment}{/*}
+\textcolor{comment}{  @brief        the entry point of all tests.}
+\textcolor{comment}{  @since        2011-12-17T15:33:23+0900}
+\textcolor{comment}{ */}
+\textcolor{keywordtype}{int} \hyperlink{namespacehryky_acf43d20e6c0b5e4b54931d42b46443a1}{main}(\textcolor{keywordtype}{int} argc, \textcolor{keywordtype}{char} * argv[])
+\{
+\textcolor{preprocessor}{#if defined(\_WIN32)}
+\textcolor{preprocessor}{}    \_CrtSetDbgFlag (\_CRTDBG\_ALLOC\_MEM\_DF | \_CRTDBG\_LEAK\_CHECK\_DF);
+    \_CrtSetReportMode(\_CRT\_ASSERT, \_CRTDBG\_MODE\_FILE | \_CRTDBG\_MODE\_WNDW);
+    \_CrtSetReportFile(\_CRT\_ASSERT, \_CRTDBG\_FILE\_STDERR);
+    \textcolor{comment}{// \_CrtSetBreakAlloc(168449);}
+    \textcolor{comment}{// \_CrtSetBreakAlloc(3072);}
+\textcolor{preprocessor}{#endif // defined(\_WIN32)}
+\textcolor{preprocessor}{}
+
+    \textcolor{keywordflow}{return} \hyperlink{namespacehryky_acf43d20e6c0b5e4b54931d42b46443a1}{hryky::main}(argc, argv, \hyperlink{namespacehryky_1_1testing_a3f6a3cf63bf23525fe1e462fd3b83474}{hryky::testing::main_impl});
+\}
+\textcolor{comment}{/*}
+\textcolor{comment}{  @brief        picks a test by command-line options.}
+\textcolor{comment}{  @since        2011-12-17T15:37:12+0900}
+\textcolor{comment}{ */}
+\textcolor{keywordtype}{int} \hyperlink{namespacehryky_1_1testing_a3f6a3cf63bf23525fe1e462fd3b83474}{hryky::testing::main_impl}(\textcolor{keywordtype}{int} \textcolor{keyword}{const} argc, \textcolor{keywordtype}{char} \textcolor{keyword}{const} * \textcolor{keyword}{const} argv[])
+\{
+    \{
+        \textcolor{comment}{/*}
+\textcolor{comment}{          @attention}
+\textcolor{comment}{          - boost::filesystem::path::codecvt() has a static variable which}
+\textcolor{comment}{            calls operator new. The corresponding operator delete is called}
+\textcolor{comment}{            at the end of program.}
+\textcolor{comment}{         */}
+        filesystem::path\_type::codecvt();
+
+        std::ostringstream os;
+        os << static\_cast<uint64\_t>(0);
+
+        std::locale locale;
+        std::use\_facet<std::codecvt<char,char,int> >(locale);
+    \}
+
+    \textcolor{keyword}{typedef} memory::heap::Arbitrary<> heap\_type;
+    \textcolor{keyword}{typedef} memory::heap::Lock<heap\_type, exclusion::Mutex> lockable\_heap\_type;
+    \textcolor{keyword}{typedef} memory::heap::Adapter<lockable\_heap\_type> adapter\_heap\_type;
+
+    heap\_type               \hyperlink{namespacehryky_1_1memory_1_1global_a6fc6103f67c837aa0f39b359588409cd}{heap};
+    lockable\_heap\_type      lockable\_heap(heap);
+    adapter\_heap\_type       adapter\_heap(lockable\_heap);
+
+    \textcolor{keywordflow}{if} (!heap.reset(g\_buffer, g\_buffer\_size)) \{
+        std::cerr << \textcolor{stringliteral}{"initialization of global heap failed."} << std::endl;
+        \textcolor{keywordflow}{return} -1;
+    \}
+    
+    \{
+        memory::global::Push \textcolor{keyword}{const} push\_global\_heap(&adapter\_heap);
+
+        BOOST\_ASSERT(1 < argc);
+
+        std::string \textcolor{keyword}{const} testname = std::string(argv[1]);
+
+        \textcolor{comment}{// instantiates writer to output log into a file}
+        log::writer::File log\_writer;
+
+        \{
+            filesystem::path\_type \textcolor{keyword}{const} home = filesystem::home();
+
+            \textcolor{keywordflow}{if} (home.empty()) \{
+                \hyperlink{log__writer__common_8h_a8d142be5e91677a27be199c3f4115ba6}{hryky_log_emerg}(\textcolor{stringliteral}{"failed to get home directory."});
+                \textcolor{keywordflow}{return} 1;
+            \}
+
+            \textcolor{keyword}{namespace }fs = boost::filesystem;
+
+            filesystem::path\_type app\_root(
+                home/\textcolor{stringliteral}{"kemonomichi.jp"}/\textcolor{stringliteral}{"hryky-codebase"}/(\textcolor{stringliteral}{"test\_"} + testname));
+
+            \textcolor{keywordflow}{if} (!fs::exists(app\_root)) \{
+                fs::create\_directories(app\_root);
+            \}
+
+            filesystem::path\_type \textcolor{keyword}{const} path =
+                app\_root / (\textcolor{stringliteral}{"test\_"} + testname + \textcolor{stringliteral}{"\_log.txt"});
+
+            log\_writer.path(log::writer::File::path\_type(
+                path.string<std::string>().c\_str()));
+        \}
+
+        \textcolor{comment}{// enregisters the writer here and unregisters the writer at the end of
+       this scope.}
+        log::writer::Push \textcolor{keyword}{const} push\_log\_writer(log\_writer);
+
+        \textcolor{comment}{// retrieves the associative array of unit tests as singleton.}
+        testing::Registry & registry = testing::Registry::instance();
+
+        \textcolor{comment}{// retrieves the corresponding unit test by name.}
+        testing::Registry::unit\_type \textcolor{keyword}{const} & unit = registry[testname.c\_str()];
+
+        \textcolor{keywordflow}{if} (\hyperlink{common_8h_a4cd4ac09cfcdbd6b30ee69afc156e210}{HRYKY_NULLPTR} == unit) \{
+            \textcolor{comment}{// output the information as the "emergency" level}
+            \hyperlink{log__writer__common_8h_a8d142be5e91677a27be199c3f4115ba6}{hryky_log_emerg}(
+                (*\hyperlink{namespacehryky_1_1reduction_ac5eae270cf8047b294dc4ff3e5e11a79}{reduction::map}(\textcolor{stringliteral}{"invalid testname"}))
+                 .append(\textcolor{stringliteral}{"testname"}, testname.c\_str()));
+            \textcolor{keywordflow}{return} 1;
+        \}
+
+        \textcolor{comment}{// invokes the unit test.}
+        \textcolor{keywordflow}{if} (!unit->run()) \{
+            \textcolor{comment}{// output the information as the "alert" level}
+            \hyperlink{log__writer__common_8h_a8cb8f66bf45015fc1b64ed8d52bf8d59}{hryky_log_alert}(
+                (*\hyperlink{namespacehryky_1_1reduction_ac5eae270cf8047b294dc4ff3e5e11a79}{reduction::map}(\textcolor{stringliteral}{"failed"}))
+                .append(\textcolor{stringliteral}{"testname"}, testname.c\_str()));
+            \textcolor{keywordflow}{return} 1;
+        \}
+    \}
+
+    \hyperlink{log__writer__common_8h_ad94e7301fdfeec6ecd1cb63b4c81325a}{hryky_log_debug}(\hyperlink{reduction__common_8h_afc72326c9900838c5db40438318794dd}{hryky_reduce}(\textcolor{stringliteral}{"heap"}, heap));
+
+    \textcolor{keywordflow}{return} 0;
+\}
+\textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+\textcolor{comment}{// static functions}
+\textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+\textcolor{keyword}{namespace}
+\{
+\textcolor{comment}{/*}
+\textcolor{comment}{  @brief        This function is invoked when ::operator new() cannot allocate
+       memory.}
+\textcolor{comment}{  @since        2012-04-28T19:21:33+0900}
+\textcolor{comment}{ */}
+\textcolor{keywordtype}{void} handle\_bad\_alloc()
+\{
+    \textcolor{keywordflow}{throw} std::bad\_alloc();
+\}
+\}
+\textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+\textcolor{comment}{// Registry public functions}
+\textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+\textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+\textcolor{comment}{// explicit instantiation}
+\textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+\textcolor{comment}{// end of file}
+\end{DoxyCodeInclude}
+ 

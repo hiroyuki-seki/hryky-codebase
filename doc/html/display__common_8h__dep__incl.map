@@ -1,0 +1,16 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$display__config_8h.html" title="retains the configuration of display." alt="" coords="253,80,368,107"/>
+<area shape="rect" id="node5" href="$display__mode_8h.html" title="retains the information of the resolution and color format of a display." alt="" coords="302,155,415,181"/>
+<area shape="rect" id="node7" href="$display__screen_8h.html" title="retains the information of each display screen." alt="" coords="352,229,472,256"/>
+<area shape="rect" id="node9" href="$display__driver_8h.html" title="retains the information of each display driver." alt="" coords="505,304,615,331"/>
+<area shape="rect" id="node13" href="$display_8h.html" title="collection of the display modules." alt="" coords="429,453,504,480"/>
+<area shape="rect" id="node17" href="$display__common_8cpp.html" title="common definitions of display module." alt="" coords="5,603,149,629"/>
+<area shape="rect" id="node40" href="$display__traverser_8h.html" title="traverses the all display configurations in the environment." alt="" coords="781,379,912,405"/>
+<area shape="rect" id="node23" href="$display__mode_8cpp.html" title="retains the information of the resolution and color format of a display." alt="" coords="174,603,300,629"/>
+<area shape="rect" id="node25" href="$display__screen_8cpp.html" title="retains the information of each display screen." alt="" coords="325,603,459,629"/>
+<area shape="rect" id="node11" href="$display__environment_8h.html" title="collects the available display environments." alt="" coords="555,379,705,405"/>
+<area shape="rect" id="node19" href="$display__driver_8cpp.html" title="retains the information of each display driver." alt="" coords="672,603,797,629"/>
+<area shape="rect" id="node21" href="$display__environment_8cpp.html" title="collects the available display environments." alt="" coords="483,603,647,629"/>
+<area shape="rect" id="node15" href="$display_2src_2precompiled_8h_source.html" title="precompiled.h" alt="" coords="415,528,517,555"/>
+<area shape="rect" id="node27" href="$display__traverser_8cpp.html" title="traverses the all display modes in the environment." alt="" coords="821,603,965,629"/>
+</map>

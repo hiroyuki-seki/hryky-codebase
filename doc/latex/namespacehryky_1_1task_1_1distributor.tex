@@ -1,0 +1,30 @@
+\hypertarget{namespacehryky_1_1task_1_1distributor}{\section{hryky\-:\-:task\-:\-:distributor Namespace Reference}
+\label{namespacehryky_1_1task_1_1distributor}\index{hryky\-::task\-::distributor@{hryky\-::task\-::distributor}}
+}
+
+
+modules to distribute each worker to concurrent units.  
+
+
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classhryky_1_1task_1_1distributor_1_1_base}{Base}
+\begin{DoxyCompactList}\small\item\em attaches workers to the concurrent units. \end{DoxyCompactList}\item 
+class \hyperlink{classhryky_1_1task_1_1distributor_1_1_batch}{Batch}
+\begin{DoxyCompactList}\small\item\em manages workers which executes multiple tasks. \end{DoxyCompactList}\item 
+class \hyperlink{classhryky_1_1task_1_1distributor_1_1_impl}{Impl}
+\begin{DoxyCompactList}\small\item\em base class of implementation for \hyperlink{classhryky_1_1task_1_1distributor_1_1_base}{task\-::distributor\-::\-Base}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{group__task_gaee44063e86225742b935c19f76d7d7c4}{{\footnotesize template$<$typename Worker\-T $>$ }\\\hyperlink{namespacehryky_a343a9a4c36a586be5c2693156200eadc}{reduction\-\_\-type} \hyperlink{group__task_gaee44063e86225742b935c19f76d7d7c4}{reduce} (\hyperlink{namespacehryky_1_1reduction_ac686c30a4c8d196bbd0f05629a6b921f}{reduction\-::name\-\_\-type} const \&name, \hyperlink{classhryky_1_1task_1_1distributor_1_1_impl}{Impl}$<$ Worker\-T $>$ const \&impl)}\label{group__task_gaee44063e86225742b935c19f76d7d7c4}
+
+\begin{DoxyCompactList}\small\item\em outputs the information of \hyperlink{classhryky_1_1task_1_1distributor_1_1_impl}{hryky\-::task\-::distributor\-::\-Impl}. \end{DoxyCompactList}\item 
+\hypertarget{group__task_ga89a7a92c43485c438438ab4b97184a27}{{\footnotesize template$<$typename Task\-T $>$ }\\\hyperlink{namespacehryky_a343a9a4c36a586be5c2693156200eadc}{reduction\-\_\-type} \hyperlink{group__task_ga89a7a92c43485c438438ab4b97184a27}{reduce} (\hyperlink{namespacehryky_1_1reduction_ac686c30a4c8d196bbd0f05629a6b921f}{reduction\-::name\-\_\-type} const \&name, \hyperlink{classhryky_1_1task_1_1distributor_1_1_batch}{Batch}$<$ Task\-T $>$ const \&batch)}\label{group__task_ga89a7a92c43485c438438ab4b97184a27}
+
+\begin{DoxyCompactList}\small\item\em outputs the information of \hyperlink{classhryky_1_1task_1_1distributor_1_1_batch}{hryky\-::task\-::distributor\-::\-Batch}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+modules to distribute each worker to concurrent units. 

@@ -1,0 +1,4 @@
+<map id="G" name="G">
+<area shape="rect" id="node5" href="$classhryky_1_1memory_1_1heap_1_1_adapter.html" title="{hryky::memory::heap::Adapter\&lt; lock_heap_type \&gt;\n||+ Adapter()\l# allocatable_size_impl()\l# allocate_impl()\l# deallocate_impl()\l}" alt="" coords="5,395,317,517"/>
+<area shape="rect" id="node2" href="$classhryky_1_1memory_1_1heap_1_1_base.html" title="interface of dynamic memory allocation." alt="" coords="70,6,252,157"/>
+</map>

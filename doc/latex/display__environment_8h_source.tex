@@ -1,0 +1,128 @@
+\hypertarget{display__environment_8h_source}{\section{display\-\_\-environment.\-h}
+}
+
+\begin{DoxyCode}
+00001 
+00007 \textcolor{preprocessor}{#ifndef DISPLAY\_ENVIRONMENT\_H\_20120128121804179}
+00008 \textcolor{preprocessor}{}\textcolor{preprocessor}{#define DISPLAY\_ENVIRONMENT\_H\_20120128121804179}
+00009 \textcolor{preprocessor}{}\textcolor{preprocessor}{#include "\hyperlink{display__driver_8h}{hryky/display/display_driver.h}"}
+00010 \textcolor{preprocessor}{#include "\hyperlink{reduction__map_8h}{hryky/reduction/reduction_map.h}"}
+00011 \textcolor{preprocessor}{#include "\hyperlink{memory__heap__base_8h}{hryky/memory/heap/memory_heap_base.h}"}
+00012 \textcolor{preprocessor}{#include "\hyperlink{noncopyable_8h}{hryky/noncopyable.h}"}
+00013 \textcolor{preprocessor}{#include "\hyperlink{vector_8h}{hryky/vector.h}"}
+00014 \textcolor{preprocessor}{#include "\hyperlink{foreach_8h}{hryky/foreach.h}"}
+00015 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00016 \textcolor{comment}{// macro definition}
+00017 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00018 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00019 \textcolor{comment}{// namespace}
+00020 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00021 \textcolor{keyword}{namespace }hryky
+00022 \{
+00023 \textcolor{keyword}{namespace }display
+00024 \{
+00026     \textcolor{keyword}{class }Environment;
+00027 \}
+00028 \}
+00029 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00030 \textcolor{comment}{// class declaration}
+00031 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+\hypertarget{display__environment_8h_source_l00035}{}\hyperlink{classhryky_1_1display_1_1_environment}{00035} \textcolor{comment}{}\textcolor{keyword}{class }\hyperlink{classhryky_1_1display_1_1_environment}{hryky::display::Environment}
+00036 \{
+00037 \textcolor{keyword}{public} :
+00038 
+\hypertarget{display__environment_8h_source_l00040}{}\hyperlink{classhryky_1_1display_1_1_environment_a6318fe148797bbe0f7ca7417f3c391bd}{00040}     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1display_1_1_environment}{hryky::display::Environment} \hyperlink{classhryky_1_1display_1_1_environment_a6318fe148797bbe0f7ca7417f3c391bd}{this_type};
+00041     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1memory_1_1heap_1_1_base}{memory::heap_type}           \hyperlink{classhryky_1_1memory_1_1heap_1_1_base}{heap_type};
+00042     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1display_1_1_driver}{Driver}                      \hyperlink{classhryky_1_1display_1_1_driver}{driver_type};
+00043 
+\hypertarget{display__environment_8h_source_l00045}{}\hyperlink{structhryky_1_1display_1_1_environment_1_1_reset_parameter}{00045}     \textcolor{keyword}{struct }\hyperlink{structhryky_1_1display_1_1_environment_1_1_reset_parameter}{ResetParameter} : \hyperlink{classhryky_1_1_noncopyable}{Noncopyable}
+00046     \{
+00047         \hyperlink{structhryky_1_1display_1_1_environment_1_1_reset_parameter}{ResetParameter}()
+00048         \{\}
+00049     \};
+00050 
+00052     \textcolor{keyword}{explicit} \hyperlink{classhryky_1_1display_1_1_environment_a6aa1944cd601088914cd9912d8026c3f}{Environment}();
+00053 
+00055     \hyperlink{classhryky_1_1display_1_1_environment_a6aa1944cd601088914cd9912d8026c3f}{Environment}(\hyperlink{classhryky_1_1memory_1_1heap_1_1_base}{heap_type} \hyperlink{namespacehryky_1_1memory_1_1global_a6fc6103f67c837aa0f39b359588409cd}{heap});
+00056 
+00058     \hyperlink{classhryky_1_1display_1_1_environment_a6aa1944cd601088914cd9912d8026c3f}{Environment}(\hyperlink{classhryky_1_1display_1_1_environment}{this_type} \textcolor{keyword}{const} & rhs);
+00059 
+00061     \hyperlink{classhryky_1_1display_1_1_environment_a6aa1944cd601088914cd9912d8026c3f}{Environment}(\hyperlink{classhryky_1_1display_1_1_environment}{this_type} && rhs);
+00062 
+00064     \hyperlink{classhryky_1_1display_1_1_environment_ab9e755344813de00eab713376467d05f}{~Environment}();
+00065 
+\hypertarget{display__environment_8h_source_l00067}{}\hyperlink{classhryky_1_1display_1_1_environment_a0faeddd11e44b7cbc98524c763b31ffc}{00067}     \hyperlink{classhryky_1_1display_1_1_environment_a0faeddd11e44b7cbc98524c763b31ffc}{hryky_assign_op};
+00068 
+00070     \textcolor{keywordtype}{void} \hyperlink{classhryky_1_1display_1_1_environment_a0dafa38bd5f67903c9c2ae491a09d862}{clear}();
+00071 
+00073     \textcolor{keywordtype}{void} \hyperlink{classhryky_1_1display_1_1_environment_aac7b13f9cd51fb642aad55b3fd387fb5}{swap}(\hyperlink{classhryky_1_1display_1_1_environment}{this_type} & src);
+00074 
+00076     \textcolor{keywordtype}{bool} \hyperlink{classhryky_1_1display_1_1_environment_ae9bf389c9271424c89a536ce16945b8f}{reset}(\hyperlink{structhryky_1_1display_1_1_environment_1_1_reset_parameter}{ResetParameter} \textcolor{keyword}{const} & param);
+00077 
+00079     \hyperlink{classhryky_1_1_intrusive_ptr}{reduction_type} \hyperlink{classhryky_1_1display_1_1_environment_a1983f9c09e1bae5ae132b704874f0f68}{reduce}(\hyperlink{classhryky_1_1reduction_1_1_string}{reduction::name_type} \textcolor{keyword}{const} & name) \textcolor{keyword}{const};
+00080 
+00086     \textcolor{keyword}{template} < \textcolor{keyword}{typename} FunctorT >
+00087     \textcolor{keywordtype}{bool} \hyperlink{classhryky_1_1display_1_1_environment_a249714e231c16676ade24abbf9570a30}{traverse}(FunctorT & functor) \textcolor{keyword}{const};
+00088 
+00089 \textcolor{keyword}{protected} :
+00090 
+00091 \textcolor{keyword}{private} :
+00092 
+00093     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1_vector}{Vector<driver_type>} \hyperlink{classhryky_1_1_vector}{drivers_type};
+00094 
+00095     \hyperlink{classhryky_1_1_vector}{drivers_type}    drivers\_;
+00096     \hyperlink{namespacehryky_1_1display_a438d20137cf00d71a4a72dfb7233ec90}{driver_id_type}  initial\_driver\_id\_;
+00097 
+00098 \};
+00099 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00100 \textcolor{comment}{// public member functions}
+00101 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00105 \textcolor{comment}{}\textcolor{keyword}{template} < \textcolor{keyword}{typename} FunctorT >
+\hypertarget{display__environment_8h_source_l00106}{}\hyperlink{classhryky_1_1display_1_1_environment_a249714e231c16676ade24abbf9570a30}{00106} \textcolor{keywordtype}{bool} \hyperlink{classhryky_1_1display_1_1_environment_a249714e231c16676ade24abbf9570a30}{hryky::display::Environment::traverse}(
+00107     FunctorT & functor)\textcolor{keyword}{ const}
+00108 \textcolor{keyword}{}\{
+00109     \hyperlink{classhryky_1_1_foreach}{Foreach<drivers_type const>} \textcolor{keywordflow}{foreach}(this->drivers\_);
+00110     \textcolor{keywordflow}{for} (; \textcolor{keywordflow}{foreach}.valid(); ++\textcolor{keywordflow}{foreach}) \{
+00111         \textcolor{keywordflow}{if} (!(*foreach).traverse(functor)) \{
+00112             \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+00113         \}
+00114     \}
+00115     \textcolor{keywordflow}{return} \textcolor{keyword}{true};
+00116 \}
+00117 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00118 \textcolor{comment}{// protected member functions}
+00119 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00120 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00121 \textcolor{comment}{// private member functions}
+00122 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00123 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00124 \textcolor{comment}{// global function prototype}
+00125 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00126 \textcolor{keyword}{namespace }hryky
+00127 \{
+00128 \textcolor{keyword}{namespace }display
+00129 \{
+00131     \hyperlink{classhryky_1_1_intrusive_ptr}{reduction_type} \hyperlink{namespacehryky_1_1display_a705ac3a5de0998e1e0d3fa595044ec55}{reduce}(
+00132         \hyperlink{classhryky_1_1reduction_1_1_string}{reduction::name_type} \textcolor{keyword}{const} & name, \hyperlink{classhryky_1_1display_1_1_environment}{Environment} \textcolor{keyword}{const} & environment);
+00133     
+00135     \textcolor{keywordtype}{void} \hyperlink{namespacehryky_1_1display_ad28f0d5e406742090973e6c81321a00f}{swap}(\hyperlink{classhryky_1_1display_1_1_environment}{Environment} & lhs, \hyperlink{classhryky_1_1display_1_1_environment}{Environment} & rhs);
+00136 
+00137 \}
+00138 \}
+00139 \textcolor{preprocessor}{#endif // DISPLAY\_ENVIRONMENT\_H\_20120128121804179}
+00140 \textcolor{preprocessor}{}\textcolor{comment}{// end of file}
+\end{DoxyCode}

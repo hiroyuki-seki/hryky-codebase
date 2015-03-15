@@ -1,0 +1,96 @@
+\hypertarget{allocator__base_8h_source}{\section{allocator\-\_\-base.\-h}
+}
+
+\begin{DoxyCode}
+00001 
+00007 \textcolor{preprocessor}{#ifndef ALLOCATOR\_BASE\_H\_20111105154314321}
+00008 \textcolor{preprocessor}{}\textcolor{preprocessor}{#define ALLOCATOR\_BASE\_H\_20111105154314321}
+00009 \textcolor{preprocessor}{}\textcolor{preprocessor}{#include <new>}
+00010 \textcolor{preprocessor}{#include "\hyperlink{gp_8h}{hryky/gp.h}"}
+00011 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00012 \textcolor{comment}{// macro definition}
+00013 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00014 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00015 \textcolor{comment}{// namespace}
+00016 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00017 \textcolor{keyword}{namespace }hryky
+00018 \{
+00019 \textcolor{keyword}{namespace }allocator
+00020 \{
+00022     \textcolor{keyword}{template} < \textcolor{keyword}{typename} ValueT >
+00023     \textcolor{keyword}{class }Base;
+00024 \}
+00025 \}
+00026 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00027 \textcolor{comment}{// class declaration}
+00028 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00032 \textcolor{comment}{}\textcolor{keyword}{template} < \textcolor{keyword}{typename} ValueT >
+\hypertarget{allocator__base_8h_source_l00033}{}\hyperlink{classhryky_1_1allocator_1_1_base}{00033} \textcolor{keyword}{class }\hyperlink{classhryky_1_1allocator_1_1_base}{hryky::allocator::Base}
+00034 \{
+00035 \textcolor{keyword}{public} :
+00036     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1allocator_1_1_base}{Base<ValueT>}                                    \hyperlink{classhryky_1_1allocator_1_1_base}{this_type};
+00037     \textcolor{keyword}{typedef} \textcolor{keyword}{typename} RemoveConst<ValueT>::type              value\_type;
+00038     \textcolor{keyword}{typedef} \textcolor{keyword}{typename} \hyperlink{classhryky_1_1_add_pointer}{AddPointer<value_type>::type}           pointer;
+00039     \textcolor{keyword}{typedef} \textcolor{keyword}{typename} \hyperlink{classhryky_1_1_add_const_pointer_a62e5c44fefac145f6bd2460e4c8d0ba2}{AddConstPointer<value_type>::type}      const\_pointer;
+00040     \textcolor{keyword}{typedef} \textcolor{keyword}{typename} \hyperlink{classhryky_1_1_add_reference_a4b90c1381625432ba6152b7388bc4399}{AddReference<value_type>::type}         reference;
+00041     \textcolor{keyword}{typedef} \textcolor{keyword}{typename} \hyperlink{classhryky_1_1_add_const_reference_aa26e39e87462673d865c90e6a9798b5a}{AddConstReference<value_type>::type}    const\_reference;
+00042     \textcolor{keyword}{typedef} std::size\_t                                     size\_type;
+00043     \textcolor{keyword}{typedef} std::ptrdiff\_t                                  difference\_type;
+00044 
+00045     \textcolor{keyword}{template}<\textcolor{keyword}{typename} OtherT>
+00046     \textcolor{keyword}{struct }rebind
+00047     \{
+00048         \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1allocator_1_1_base}{Base<OtherT>} other;
+00049     \};
+00050 
+\hypertarget{allocator__base_8h_source_l00052}{}\hyperlink{classhryky_1_1allocator_1_1_base_a1823634e5b3af6182517befa6a4f8a41}{00052}     \hyperlink{classhryky_1_1allocator_1_1_base_a1823634e5b3af6182517befa6a4f8a41}{Base}() \{\}
+00053 
+\hypertarget{allocator__base_8h_source_l00055}{}\hyperlink{classhryky_1_1allocator_1_1_base_ae323e547fa7887864709a70d706cab8c}{00055}     \hyperlink{classhryky_1_1allocator_1_1_base_ae323e547fa7887864709a70d706cab8c}{~Base}() \{\}
+00056 
+\hypertarget{allocator__base_8h_source_l00058}{}\hyperlink{classhryky_1_1allocator_1_1_base_a286aff80c28a5fff8879c8dd60a13fa0}{00058}     \hyperlink{classhryky_1_1allocator_1_1_base_a286aff80c28a5fff8879c8dd60a13fa0}{Base}(\hyperlink{classhryky_1_1allocator_1_1_base}{this_type} \textcolor{keyword}{const} &) \{\}
+00059 
+\hypertarget{allocator__base_8h_source_l00061}{}\hyperlink{classhryky_1_1allocator_1_1_base_af34929ffe25b77cd087a678b43e5dd44}{00061}     \hyperlink{classhryky_1_1allocator_1_1_base_af34929ffe25b77cd087a678b43e5dd44}{Base}(\hyperlink{classhryky_1_1allocator_1_1_base}{this_type} && rhs) \{\}
+00062 
+00064     \textcolor{keyword}{template}<\textcolor{keyword}{typename} OtherT>
+\hypertarget{allocator__base_8h_source_l00065}{}\hyperlink{classhryky_1_1allocator_1_1_base_a210f34c1c05082586f727cc25fec5d00}{00065}     \hyperlink{classhryky_1_1allocator_1_1_base_a210f34c1c05082586f727cc25fec5d00}{Base}(\hyperlink{classhryky_1_1allocator_1_1_base}{Base<OtherT>} \textcolor{keyword}{const} &) \{\}
+00066 
+00067     \textcolor{keywordtype}{bool} operator==(this\_type \textcolor{keyword}{const} &)\textcolor{keyword}{ const }\{
+00068         \textcolor{keywordflow}{return} \textcolor{keyword}{true};
+00069     \}
+00070     \textcolor{keywordtype}{bool} operator!=(this\_type \textcolor{keyword}{const} & rhs)\textcolor{keyword}{ const }\{
+00071         \textcolor{keywordflow}{return} !operator==(rhs);
+00072     \}
+00073 
+00074     pointer address(reference src)\textcolor{keyword}{ const }\{
+00075         \textcolor{keywordflow}{return} &src;
+00076     \}
+00077     const\_pointer address(const\_reference src)\textcolor{keyword}{ const }\{
+00078         \textcolor{keywordflow}{return} &src;
+00079     \}
+00080 
+00081     \textcolor{keywordtype}{void} construct(pointer ptr, const\_reference src) \{
+00082         \textcolor{keyword}{new}(ptr) value\_type(src);
+00083     \}
+00084     \textcolor{keywordtype}{void} destroy(pointer ptr) \{
+00085         ptr->~value\_type();
+00086     \}
+00087 
+00088     size\_type max\_size()\textcolor{keyword}{ const }\{
+00089         \textcolor{keywordflow}{return} std::numeric\_limits<size\_type>::(max)() / \textcolor{keyword}{sizeof}(value\_type);
+00090     \}
+00091 
+00092 \};
+00093 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00094 \textcolor{comment}{// inline functions}
+00095 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00096 \textcolor{preprocessor}{#endif // ALLOCATOR\_BASE\_H\_20111105154314321}
+00097 \textcolor{preprocessor}{}\textcolor{comment}{// end of file}
+\end{DoxyCode}

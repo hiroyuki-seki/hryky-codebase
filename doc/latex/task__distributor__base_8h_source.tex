@@ -1,0 +1,175 @@
+\hypertarget{task__distributor__base_8h_source}{\section{task\-\_\-distributor\-\_\-base.\-h}
+}
+
+\begin{DoxyCode}
+00001 
+00009 \textcolor{preprocessor}{#ifndef TASK\_DISTRIBUTOR\_BASE\_H\_20111120173739401}
+00010 \textcolor{preprocessor}{}\textcolor{preprocessor}{#define TASK\_DISTRIBUTOR\_BASE\_H\_20111120173739401}
+00011 \textcolor{preprocessor}{}\textcolor{preprocessor}{#include "\hyperlink{exclusion__cond_8h}{hryky/exclusion/exclusion_cond.h}"}
+00012 \textcolor{preprocessor}{#include "\hyperlink{exclusion__mutex_8h}{hryky/exclusion/exclusion_mutex.h}"}
+00013 \textcolor{preprocessor}{#include "\hyperlink{memory__global__common_8h}{hryky/memory/global/memory_global_common.h}"}
+00014 \textcolor{preprocessor}{#include "\hyperlink{noncopyable_8h}{hryky/noncopyable.h}"}
+00015 \textcolor{preprocessor}{#include "\hyperlink{task__common_8h}{hryky/task/task_common.h}"}
+00016 \textcolor{preprocessor}{#include "\hyperlink{task__worker__base_8h}{hryky/task/task_worker_base.h}"}
+00017 \textcolor{preprocessor}{#include "\hyperlink{add__reference_8h}{hryky/gp/add_reference.h}"}
+00018 \textcolor{preprocessor}{#include "\hyperlink{vector_8h}{hryky/vector.h}"}
+00019 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00020 \textcolor{comment}{// macro definition}
+00021 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00022 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00023 \textcolor{comment}{// namespace}
+00024 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00025 \textcolor{keyword}{namespace }hryky
+00026 \{
+00027 \textcolor{keyword}{namespace }task
+00028 \{
+00030     \textcolor{keyword}{class }Concurrency;
+00031 
+\hypertarget{task__distributor__base_8h_source_l00033}{}\hyperlink{namespacehryky_1_1task_1_1distributor}{00033} \textcolor{keyword}{namespace }distributor
+00034 \{
+00036     \textcolor{keyword}{class }\hyperlink{classhryky_1_1task_1_1distributor_1_1_base}{Base};
+00037 \} \textcolor{comment}{// namespace distributor}
+00038 \} \textcolor{comment}{// namespace task}
+00039 \textcolor{keyword}{namespace }exclusion
+00040 \{
+00041     \textcolor{keyword}{template} < \textcolor{keyword}{typename} LockableT >
+00042     \textcolor{keyword}{class }Lock;
+00043     
+00044     \textcolor{keyword}{template} < \textcolor{keyword}{typename} LockableT >
+00045     \textcolor{keyword}{class }WaitableLock;
+00046     
+00047 \} \textcolor{comment}{// namespace exclusion}
+00048 \} \textcolor{comment}{// namespace hryky}
+00049 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00050 \textcolor{comment}{// class declaration}
+00051 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+\hypertarget{task__distributor__base_8h_source_l00059}{}\hyperlink{classhryky_1_1task_1_1distributor_1_1_base}{00059} \textcolor{comment}{}\textcolor{keyword}{class }\hyperlink{classhryky_1_1task_1_1distributor_1_1_base}{hryky::task::distributor::Base} : \hyperlink{classhryky_1_1_noncopyable}{Noncopyable}
+00060 \{
+00061 \textcolor{keyword}{public} :
+00062 
+\hypertarget{task__distributor__base_8h_source_l00063}{}\hyperlink{classhryky_1_1task_1_1distributor_1_1_base_a5c531dbd3d9dcc53402447d8300de184}{00063}     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1task_1_1distributor_1_1_base}{Base}                \hyperlink{classhryky_1_1task_1_1distributor_1_1_base_a5c531dbd3d9dcc53402447d8300de184}{this_type};
+00064     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1memory_1_1heap_1_1_base}{memory::heap_type}   \hyperlink{classhryky_1_1memory_1_1heap_1_1_base}{heap_type};
+00065 
+\hypertarget{task__distributor__base_8h_source_l00067}{}\hyperlink{structhryky_1_1task_1_1distributor_1_1_base_1_1_reset_parameter}{00067}     \textcolor{keyword}{struct }\hyperlink{structhryky_1_1task_1_1distributor_1_1_base_1_1_reset_parameter}{ResetParameter} : \hyperlink{classhryky_1_1_noncopyable}{Noncopyable}
+00068     \{
+\hypertarget{task__distributor__base_8h_source_l00069}{}\hyperlink{structhryky_1_1task_1_1distributor_1_1_base_1_1_reset_parameter_a9b8e7bc5f6c6da9ebea0495387681438}{00069}         \textcolor{keyword}{typedef} \hyperlink{structhryky_1_1task_1_1distributor_1_1_base_1_1_reset_parameter}{ResetParameter} \hyperlink{structhryky_1_1task_1_1distributor_1_1_base_1_1_reset_parameter_a9b8e7bc5f6c6da9ebea0495387681438}{this_type};
+00070 
+\hypertarget{task__distributor__base_8h_source_l00075}{}\hyperlink{structhryky_1_1task_1_1distributor_1_1_base_1_1_reset_parameter_a1b649aff20ad0e8259b7aea383ad2b1c}{00075}         \hyperlink{structhryky_1_1task_1_1distributor_1_1_base_1_1_reset_parameter_a1b649aff20ad0e8259b7aea383ad2b1c}{ResetParameter}(\hyperlink{classhryky_1_1task_1_1_concurrency}{Concurrency} & concurrency)
+00076             : concurrency\_(concurrency), heap\_() \{\}
+00077 
+00078     \textcolor{keyword}{private} :
+00079         hryky\_accessor\_read(\hyperlink{classhryky_1_1task_1_1_concurrency}{Concurrency} &,  concurrency);
+00080         hryky\_accessor\_row(\hyperlink{classhryky_1_1memory_1_1heap_1_1_base}{heap_type},       \hyperlink{namespacehryky_1_1memory_1_1global_a6fc6103f67c837aa0f39b359588409cd}{heap});
+00081     \};
+00082 
+00084     \textcolor{keyword}{explicit} \hyperlink{classhryky_1_1task_1_1distributor_1_1_base_a5ffe0568374d8b9b4c4ec32953fd6453}{Base}();
+00085 
+00087     \textcolor{keyword}{virtual} \hyperlink{classhryky_1_1task_1_1distributor_1_1_base_a722da881b6c70cfcbde9243abcfbf334}{~Base}();
+00088 
+00092     \textcolor{keywordtype}{bool} \hyperlink{classhryky_1_1task_1_1distributor_1_1_base_a2dfa3093b3165d58ed31aa575ae1b159}{reset}(ResetParameter \textcolor{keyword}{const} & param);
+00093 
+00105     \textcolor{keywordtype}{bool} \hyperlink{classhryky_1_1task_1_1distributor_1_1_base_ae17d5723d8aa5567ea6a47b67f8133c4}{attach}();
+00106 
+00117     \textcolor{keywordtype}{bool} \hyperlink{classhryky_1_1task_1_1distributor_1_1_base_a15a4600d30363d1393a68ec3d1ec415e}{join}();
+00118 
+\hypertarget{task__distributor__base_8h_source_l00120}{}\hyperlink{classhryky_1_1task_1_1distributor_1_1_base_adfb7b94cdf47e1bdd4f1775bb3264602}{00120}     \textcolor{keywordtype}{size\_t} \hyperlink{classhryky_1_1task_1_1distributor_1_1_base_adfb7b94cdf47e1bdd4f1775bb3264602}{workers_size}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} this->workers\_.\hyperlink{classhryky_1_1_vector_a4bf9016a68dd7bf4967bf202b884a4fa}{size}(); \}
+00121 
+\hypertarget{task__distributor__base_8h_source_l00123}{}\hyperlink{classhryky_1_1task_1_1distributor_1_1_base_acd23149eb623c0e2e9c90cf0f1d6f87b}{00123}     \textcolor{keywordtype}{bool} \hyperlink{classhryky_1_1task_1_1distributor_1_1_base_acd23149eb623c0e2e9c90cf0f1d6f87b}{error}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} this->error\_; \}
+00124 
+00125 \textcolor{keyword}{protected} :
+00126 
+00127     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1task_1_1worker_1_1_base}{worker::Base} *                      worker\_type;
+00128     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1_vector}{Vector<worker_type>}                 workers\_type;
+00129 
+\hypertarget{task__distributor__base_8h_source_l00131}{}\hyperlink{classhryky_1_1task_1_1distributor_1_1_base_1_1_worker_observer}{00131}     \textcolor{keyword}{class }\hyperlink{classhryky_1_1task_1_1distributor_1_1_base_1_1_worker_observer}{WorkerObserver} : \textcolor{keyword}{public} \hyperlink{classhryky_1_1task_1_1worker_1_1_base_1_1_observer}{worker::Base::Observer}
+00132     \{
+00133     \textcolor{keyword}{public} :
+00134         \hyperlink{classhryky_1_1task_1_1distributor_1_1_base_1_1_worker_observer}{WorkerObserver}()
+00135             : distributor\_(\hyperlink{common_8h_a4cd4ac09cfcdbd6b30ee69afc156e210}{HRYKY_NULLPTR})
+00136         \{\}
+00137 
+\hypertarget{task__distributor__base_8h_source_l00139}{}\hyperlink{classhryky_1_1task_1_1distributor_1_1_base_1_1_worker_observer_a54b231849b0ff42c96eaa37f5bc3d9de}{00139}         \textcolor{keywordtype}{void} \hyperlink{classhryky_1_1task_1_1distributor_1_1_base_1_1_worker_observer_a54b231849b0ff42c96eaa37f5bc3d9de}{distributor}(\hyperlink{classhryky_1_1task_1_1distributor_1_1_base}{Base} * src) \{ this->distributor\_ = src; \}
+00140 
+00141     \textcolor{keyword}{protected} :
+00142         \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} attach\_impl(attach\_param\_type) \{
+00143             this->distributor\_->increment\_working();
+00144         \}
+00145 
+00146         \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} detach\_impl(detach\_param\_type) \{
+00147             this->distributor\_->decrement\_working();
+00148         \}
+00149 
+00150         \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} error\_impl(error\_param\_type) \{
+00151             this->distributor\_->error\_ = \textcolor{keyword}{true};
+00152         \}
+00153 
+00154     \textcolor{keyword}{private} :
+00155         \hyperlink{classhryky_1_1task_1_1distributor_1_1_base_a5ffe0568374d8b9b4c4ec32953fd6453}{Base} * distributor\_;
+00156     \};
+00157     
+\hypertarget{task__distributor__base_8h_source_l00159}{}\hyperlink{classhryky_1_1task_1_1distributor_1_1_base_a69590e9a4cbe85a69eeb6d5477e994cd}{00159}     workers\_type::reference \hyperlink{classhryky_1_1task_1_1distributor_1_1_base_a69590e9a4cbe85a69eeb6d5477e994cd}{worker}(\textcolor{keywordtype}{size\_t} index) \{ \textcolor{keywordflow}{return} this->workers\_[index]
+      ; \}
+00160 
+\hypertarget{task__distributor__base_8h_source_l00162}{}\hyperlink{classhryky_1_1task_1_1distributor_1_1_base_a22e3708e0f85225fb71fd408498711b8}{00162}     \hyperlink{classhryky_1_1iterator_1_1random_1_1_mutable}{workers_type::iterator} \hyperlink{classhryky_1_1task_1_1distributor_1_1_base_a22e3708e0f85225fb71fd408498711b8}{workers_begin}() \{ \textcolor{keywordflow}{return} this->workers\_.\hyperlink{classhryky_1_1_vector_aa032aa9e48dce836e68434e6ad58f0f5}{begin}(); \}
+00163 
+\hypertarget{task__distributor__base_8h_source_l00165}{}\hyperlink{classhryky_1_1task_1_1distributor_1_1_base_aabbf01ac8d82db60c55233d92c229ecb}{00165}     \hyperlink{classhryky_1_1iterator_1_1random_1_1_immutable}{workers_type::const_iterator} \hyperlink{classhryky_1_1task_1_1distributor_1_1_base_aabbf01ac8d82db60c55233d92c229ecb}{workers_begin}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} this->workers\_.
+      \hyperlink{classhryky_1_1_vector_aa032aa9e48dce836e68434e6ad58f0f5}{begin}(); \}
+00166 
+\hypertarget{task__distributor__base_8h_source_l00168}{}\hyperlink{classhryky_1_1task_1_1distributor_1_1_base_a0a79720e4447f391b1cff42b229b40c7}{00168}     \hyperlink{classhryky_1_1iterator_1_1random_1_1_mutable}{workers_type::iterator} \hyperlink{classhryky_1_1task_1_1distributor_1_1_base_a0a79720e4447f391b1cff42b229b40c7}{workers_end}() \{ \textcolor{keywordflow}{return} this->workers\_.\hyperlink{classhryky_1_1_vector_ae17851e0d811d052645dd6e5a507f365}{end}(); \}
+00169 
+\hypertarget{task__distributor__base_8h_source_l00171}{}\hyperlink{classhryky_1_1task_1_1distributor_1_1_base_a3414d5dd315dda5fd80b6cb49e6bdc59}{00171}     \hyperlink{classhryky_1_1iterator_1_1random_1_1_immutable}{workers_type::const_iterator} \hyperlink{classhryky_1_1task_1_1distributor_1_1_base_a3414d5dd315dda5fd80b6cb49e6bdc59}{workers_end}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} this->workers\_.\hyperlink{classhryky_1_1_vector_ae17851e0d811d052645dd6e5a507f365}{end}
+      (); \}
+00172 
+00174     \textcolor{keywordtype}{bool} \hyperlink{classhryky_1_1task_1_1distributor_1_1_base_aaed765a0ab4b2f79082ca8b66251dc7a}{implement}(\hyperlink{classhryky_1_1task_1_1worker_1_1_base}{worker::Base} & \hyperlink{classhryky_1_1task_1_1distributor_1_1_base_a69590e9a4cbe85a69eeb6d5477e994cd}{worker}, \textcolor{keywordtype}{size\_t} index);
+00175 
+00176 \textcolor{keyword}{private} :
+00177 
+00178     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1exclusion_1_1_mutex}{exclusion::Mutex}                    mutex\_type;
+00179     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1exclusion_1_1_cond}{exclusion::Cond}                     cond\_type;
+00180     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1exclusion_1_1_lock}{exclusion::Lock<mutex_type>}         lock\_type;
+00181     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1exclusion_1_1_waitable_lock}{exclusion::WaitableLock<mutex_type>} waitable\_lock\_type;
+00182 
+00184     \textcolor{keyword}{explicit} \hyperlink{classhryky_1_1task_1_1distributor_1_1_base_a5ffe0568374d8b9b4c4ec32953fd6453}{Base}(\hyperlink{classhryky_1_1task_1_1distributor_1_1_base}{Base} \textcolor{keyword}{const} &);
+00185 
+00187     \hyperlink{classhryky_1_1task_1_1distributor_1_1_base}{Base} & operator=(\hyperlink{classhryky_1_1task_1_1distributor_1_1_base}{Base} \textcolor{keyword}{const} &rhs);
+00188 
+00190     \textcolor{keywordtype}{void} clear();
+00191 
+00193     \textcolor{keywordtype}{void} increment\_working();
+00194 
+00196     \textcolor{keywordtype}{void} decrement\_working();
+00197 
+00198     \hyperlink{classhryky_1_1task_1_1_concurrency}{Concurrency} *               concurrency\_;
+00199     workers\_type                workers\_;
+00200     mutex\_type                  working\_mutex\_;
+00201     cond\_type                   join\_cond\_;
+00202     \textcolor{keywordtype}{size\_t}                      working\_count\_;
+00203     \textcolor{keywordtype}{bool}                        joining\_;
+00204     \textcolor{keywordtype}{bool}                        error\_;
+00205 
+00206 \};
+00207 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00208 \textcolor{comment}{// public member functions}
+00209 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00210 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00211 \textcolor{comment}{// protected member functions}
+00212 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00213 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00214 \textcolor{comment}{// private member functions}
+00215 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00216 \textcolor{preprocessor}{#endif // TASK\_DISTRIBUTOR\_BASE\_H\_20111120173739401}
+00217 \textcolor{preprocessor}{}
+00218 \textcolor{comment}{// end of file}
+\end{DoxyCode}

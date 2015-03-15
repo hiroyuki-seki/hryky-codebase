@@ -1,0 +1,223 @@
+\hypertarget{parser__base_8h_source}{\section{parser\-\_\-base.\-h}
+}
+
+\begin{DoxyCode}
+00001 
+00007 \textcolor{preprocessor}{#ifndef PARSER\_BASE\_H\_20130103094805075}
+00008 \textcolor{preprocessor}{}\textcolor{preprocessor}{#define PARSER\_BASE\_H\_20130103094805075}
+00009 \textcolor{preprocessor}{}\textcolor{preprocessor}{#include "\hyperlink{any_8h}{hryky/any.h}"}
+00010 \textcolor{preprocessor}{#include "\hyperlink{ascii_8h}{hryky/ascii.h}"}
+00011 \textcolor{preprocessor}{#include "\hyperlink{log__writer__common_8h}{hryky/log/log_writer_common.h}"}
+00012 \textcolor{preprocessor}{#include "\hyperlink{reduction__map_8h}{hryky/reduction/reduction_map.h}"}
+00013 \textcolor{preprocessor}{#include "\hyperlink{memory__heap__base_8h}{hryky/memory/heap/memory_heap_base.h}"}
+00014 \textcolor{preprocessor}{#include "\hyperlink{range_8h}{hryky/range.h}"}
+00015 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00016 \textcolor{comment}{// macro definition}
+00017 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00018 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00019 \textcolor{comment}{// namespace}
+00020 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00021 \textcolor{keyword}{namespace }hryky
+00022 \{
+\hypertarget{parser__base_8h_source_l00023}{}\hyperlink{namespacehryky_1_1parser}{00023} \textcolor{keyword}{namespace }parser
+00024 \{
+00026     \textcolor{keyword}{template} <\textcolor{keyword}{typename} GeneratedT>
+00027     \textcolor{keyword}{class }\hyperlink{classhryky_1_1parser_1_1_base}{Base};
+00028 
+00029 \} \textcolor{comment}{// namespace parser}
+00030 \} \textcolor{comment}{// namespace hryky}
+00031 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00032 \textcolor{comment}{// class declarations}
+00033 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00037 \textcolor{comment}{}\textcolor{keyword}{template} <\textcolor{keyword}{typename} GeneratedT>
+\hypertarget{parser__base_8h_source_l00038}{}\hyperlink{classhryky_1_1parser_1_1_base}{00038} \textcolor{keyword}{class }\hyperlink{classhryky_1_1parser_1_1_base}{hryky::parser::Base}
+00039     : \textcolor{keyword}{public} GeneratedT
+00040 \{
+00041 \textcolor{keyword}{public} :
+00042 
+00043     \textcolor{keyword}{typedef} GeneratedT base\_type;
+\hypertarget{parser__base_8h_source_l00044}{}\hyperlink{classhryky_1_1parser_1_1_base_af5836311fb3f235ddc6e08809ca2ad68}{00044}     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1parser_1_1_base}{Base} \hyperlink{classhryky_1_1parser_1_1_base_af5836311fb3f235ddc6e08809ca2ad68}{this_type};
+00045     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1memory_1_1heap_1_1_base}{memory::heap_type} \hyperlink{classhryky_1_1memory_1_1heap_1_1_base}{heap_type};
+00046 
+00048     \hyperlink{classhryky_1_1parser_1_1_base_a5ffe0568374d8b9b4c4ec32953fd6453}{Base}();
+00049 
+00051     \hyperlink{classhryky_1_1parser_1_1_base_a5ffe0568374d8b9b4c4ec32953fd6453}{Base}(\hyperlink{classhryky_1_1memory_1_1heap_1_1_base}{heap_type} \textcolor{keyword}{const} \hyperlink{classhryky_1_1parser_1_1_base_ade0723cedb648d9850423cc04fe4bdcf}{heap});
+00052 
+00054     \hyperlink{classhryky_1_1parser_1_1_base_a5ffe0568374d8b9b4c4ec32953fd6453}{Base}(\hyperlink{classhryky_1_1parser_1_1_base}{this_type} \textcolor{keyword}{const} &);
+00055 
+00057     \hyperlink{classhryky_1_1parser_1_1_base_a5ffe0568374d8b9b4c4ec32953fd6453}{Base}(\hyperlink{classhryky_1_1parser_1_1_base}{this_type} && rhs);
+00058 
+00065     \hyperlink{classhryky_1_1parser_1_1_base_a722da881b6c70cfcbde9243abcfbf334}{~Base}();
+00066 
+\hypertarget{parser__base_8h_source_l00068}{}\hyperlink{classhryky_1_1parser_1_1_base_acccef708f7bd17701a0478ad662f9bb5}{00068}     \hyperlink{classhryky_1_1parser_1_1_base_acccef708f7bd17701a0478ad662f9bb5}{hryky_assign_op};
+00069 
+00071     \textcolor{keywordtype}{void} \hyperlink{classhryky_1_1parser_1_1_base_a135bce05655e290c78fa83196199a576}{clear}();
+00072 
+00074     \hyperlink{classhryky_1_1_intrusive_ptr}{reduction_type} \hyperlink{classhryky_1_1parser_1_1_base_a2809ad5f75abd2266e6804e90094bc05}{reduce}(\hyperlink{classhryky_1_1reduction_1_1_string}{reduction::name_type} \textcolor{keyword}{const} & name) \textcolor{keyword}{const};
+00075 
+00077     \textcolor{keywordtype}{void} \hyperlink{classhryky_1_1parser_1_1_base_ab2b137d16fbe40d839ee136bd5304cab}{swap}(\hyperlink{classhryky_1_1parser_1_1_base}{this_type} & src);
+00078 
+00080     \hyperlink{classhryky_1_1memory_1_1heap_1_1_base}{heap_type} \hyperlink{classhryky_1_1parser_1_1_base_ade0723cedb648d9850423cc04fe4bdcf}{heap}() \textcolor{keyword}{const};
+00081 
+00083     \textcolor{keywordtype}{void} \hyperlink{classhryky_1_1parser_1_1_base_a28bfa66d197bcf4babb3806bcf3abafa}{trace}(\textcolor{keyword}{typename} base\_type::error\_type \textcolor{keyword}{const} & error);
+00084 
+00085 \textcolor{keyword}{protected} :
+00086 
+00087 \textcolor{keyword}{private} :
+00088 
+00089     \hyperlink{classhryky_1_1memory_1_1heap_1_1_base}{heap_type} heap\_;
+00090 
+00091 \};
+00092 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00093 \textcolor{comment}{// class specializations}
+00094 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00095 \textcolor{keyword}{namespace }hryky
+00096 \{
+00097 \textcolor{keyword}{namespace }parser
+00098 \{
+00099 \} \textcolor{comment}{// namespace parser}
+00100 \} \textcolor{comment}{// namespace hryky}
+00101 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00102 \textcolor{comment}{// public member functions}
+00103 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00107 \textcolor{comment}{}\textcolor{keyword}{template} <\textcolor{keyword}{typename} GeneratedT>
+\hypertarget{parser__base_8h_source_l00108}{}\hyperlink{classhryky_1_1parser_1_1_base_a5ffe0568374d8b9b4c4ec32953fd6453}{00108} \hyperlink{classhryky_1_1parser_1_1_base_a5ffe0568374d8b9b4c4ec32953fd6453}{hryky::parser::Base<GeneratedT>::Base}()
+00109     : base\_type()
+00110       , heap\_(memory::global::\hyperlink{namespacehryky_1_1memory_1_1global_a6fc6103f67c837aa0f39b359588409cd}{heap}())
+00111 \{
+00112     this->is\_trace(\textcolor{keyword}{true});
+00113 \}
+00117 \textcolor{keyword}{template} <\textcolor{keyword}{typename} GeneratedT>
+\hypertarget{parser__base_8h_source_l00118}{}\hyperlink{classhryky_1_1parser_1_1_base_ae4a18c6bd5f5f323df696bbed4aa6b97}{00118} \hyperlink{classhryky_1_1parser_1_1_base}{hryky::parser::Base<GeneratedT>::Base}(\hyperlink{classhryky_1_1memory_1_1heap_1_1_base}{heap_type} \textcolor{keyword}{const} \hyperlink{namespacehryky_1_1memory_1_1global_a6fc6103f67c837aa0f39b359588409cd}{heap})
+00119     : base\_type()
+00120       , heap\_(heap)
+00121 \{
+00122     this->is\_trace(\textcolor{keyword}{true});
+00123 \}
+00127 \textcolor{keyword}{template} <\textcolor{keyword}{typename} GeneratedT>
+\hypertarget{parser__base_8h_source_l00128}{}\hyperlink{classhryky_1_1parser_1_1_base_a663fa22bf8197e0acf1adc4ff4f74cd8}{00128} \hyperlink{classhryky_1_1parser_1_1_base}{hryky::parser::Base<GeneratedT>::Base}(\hyperlink{classhryky_1_1parser_1_1_base}{this_type} \textcolor{keyword}{const} & rhs)
+00129     : base\_type(rhs)
+00130       , heap\_(rhs.heap\_)
+00131 \{
+00132 \}
+00136 \textcolor{keyword}{template} <\textcolor{keyword}{typename} GeneratedT>
+\hypertarget{parser__base_8h_source_l00137}{}\hyperlink{classhryky_1_1parser_1_1_base_a09ce91786e009adb52fcf031bdb249e6}{00137} \hyperlink{classhryky_1_1parser_1_1_base}{hryky::parser::Base<GeneratedT>::Base}(\hyperlink{classhryky_1_1parser_1_1_base}{this_type} && rhs)
+00138     : base\_type(std::move(rhs))
+00139       , hryky\_rvalue\_init(\hyperlink{namespacehryky_1_1memory_1_1global_a6fc6103f67c837aa0f39b359588409cd}{heap})
+00140 \{
+00141 \}
+00145 \textcolor{keyword}{template} <\textcolor{keyword}{typename} GeneratedT>
+\hypertarget{parser__base_8h_source_l00146}{}\hyperlink{classhryky_1_1parser_1_1_base_a722da881b6c70cfcbde9243abcfbf334}{00146} \hyperlink{classhryky_1_1parser_1_1_base}{hryky::parser::Base<GeneratedT>::~Base}()
+00147 \{
+00148 \}
+00152 \textcolor{keyword}{template} <\textcolor{keyword}{typename} GeneratedT>
+\hypertarget{parser__base_8h_source_l00153}{}\hyperlink{classhryky_1_1parser_1_1_base_a135bce05655e290c78fa83196199a576}{00153} \textcolor{keywordtype}{void} \hyperlink{namespacehryky_aa201297ea9530da954a7230be71cc19d}{hryky::parser::Base<GeneratedT>::clear}()
+00154 \{
+00155     this->\hyperlink{namespacehryky_aa201297ea9530da954a7230be71cc19d}{base_type::clear}();
+00156 \}
+00160 \textcolor{keyword}{template} <\textcolor{keyword}{typename} GeneratedT>
+\hypertarget{parser__base_8h_source_l00161}{}\hyperlink{classhryky_1_1parser_1_1_base_a2809ad5f75abd2266e6804e90094bc05}{00161} \hyperlink{classhryky_1_1_intrusive_ptr}{hryky::reduction_type} \hyperlink{namespacehryky_1_1parser_a41d3abfe59948313b274c24612cfcbf2}{hryky::parser::Base<GeneratedT>::reduce}(
+00162     \hyperlink{classhryky_1_1reduction_1_1_string}{reduction::name_type} \textcolor{keyword}{const} & name)\textcolor{keyword}{ const}
+00163 \textcolor{keyword}{}\{
+00164     \hyperlink{classhryky_1_1_intrusive_ptr}{reduction::map_type} \hyperlink{namespacehryky_1_1reduction_ac5eae270cf8047b294dc4ff3e5e11a79}{map} = \hyperlink{namespacehryky_1_1reduction_ac5eae270cf8047b294dc4ff3e5e11a79}{reduction::map}(name);
+00165     ((*map)
+00166      .append(\textcolor{stringliteral}{"last\_result"}, this->last\_result())
+00167      );
+00168     \textcolor{keywordflow}{return} \hyperlink{namespacehryky_1_1reduction_ac5eae270cf8047b294dc4ff3e5e11a79}{map};
+00169 \}
+00173 \textcolor{keyword}{template} <\textcolor{keyword}{typename} GeneratedT>
+\hypertarget{parser__base_8h_source_l00174}{}\hyperlink{classhryky_1_1parser_1_1_base_ab2b137d16fbe40d839ee136bd5304cab}{00174} \textcolor{keywordtype}{void} \hyperlink{namespacehryky_1_1parser_acbeac181da6c2a9f92e921f9133cfa8f}{hryky::parser::Base<GeneratedT>::swap}(\hyperlink{classhryky_1_1parser_1_1_base}{this_type} & src)
+00175 \{
+00176     this->\hyperlink{namespacehryky_1_1parser_acbeac181da6c2a9f92e921f9133cfa8f}{base_type::swap}(src);
+00177     \hyperlink{namespacehryky_add9c1c1fdfda07cd47bcb7c16d3a823a}{hryky_swap}(this->heap\_, src.heap\_);
+00178 \}
+00182 \textcolor{keyword}{template} <\textcolor{keyword}{typename} GeneratedT>
+\hypertarget{parser__base_8h_source_l00183}{}\hyperlink{classhryky_1_1parser_1_1_base_ade0723cedb648d9850423cc04fe4bdcf}{00183} \hyperlink{classhryky_1_1memory_1_1heap_1_1_base}{hryky::memory::heap_type} \hyperlink{namespacehryky_1_1memory_1_1global_a6fc6103f67c837aa0f39b359588409cd}{hryky::parser::Base<GeneratedT>::heap}()\textcolor{keyword}{ const}
+00184 \textcolor{keyword}{}\{
+00185     \textcolor{keywordflow}{return} this->heap\_;
+00186 \}
+00190 \textcolor{keyword}{template} <\textcolor{keyword}{typename} GeneratedT>
+\hypertarget{parser__base_8h_source_l00191}{}\hyperlink{classhryky_1_1parser_1_1_base_a28bfa66d197bcf4babb3806bcf3abafa}{00191} \textcolor{keywordtype}{void} \hyperlink{classhryky_1_1parser_1_1_base}{hryky::parser::Base<GeneratedT>::trace}(\textcolor{keyword}{typename} base\_type::error\_type \textcolor{keyword}{
+      const} & error)
+00192 \{
+00193     \textcolor{keywordflow}{switch} (error.level()) \{
+00194     \textcolor{keywordflow}{case} Error::Level::debug\_:
+00195         \hyperlink{log__writer__common_8h_ad94e7301fdfeec6ecd1cb63b4c81325a}{hryky_log_debug}(
+00196             (*\hyperlink{namespacehryky_1_1reduction_ac5eae270cf8047b294dc4ff3e5e11a79}{reduction::map}(\textcolor{stringliteral}{""}))
+00197             .append(\textcolor{stringliteral}{""}, error.cstr()));
+00198         \textcolor{keywordflow}{break};
+00199         
+00200     \textcolor{keywordflow}{case} Error::Level::error\_:
+00201         \hyperlink{log__writer__common_8h_ad94e7301fdfeec6ecd1cb63b4c81325a}{hryky_log_debug}(
+00202             (*\hyperlink{namespacehryky_1_1reduction_ac5eae270cf8047b294dc4ff3e5e11a79}{reduction::map}(\textcolor{stringliteral}{""}))
+00203             .append(\textcolor{stringliteral}{""}, error.cstr()));
+00204         \textcolor{keywordflow}{break};
+00205 
+00206     \textcolor{keywordflow}{default}:
+00207         \hyperlink{log__writer__common_8h_ad94e7301fdfeec6ecd1cb63b4c81325a}{hryky_log_debug}(\textcolor{stringliteral}{"invalid error level"});
+00208         \textcolor{keywordflow}{break};
+00209     \}
+00210 \}
+00211 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00212 \textcolor{comment}{// protected member functions}
+00213 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00214 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00215 \textcolor{comment}{// private member functions}
+00216 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00217 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00218 \textcolor{comment}{// global function prototypes}
+00219 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00220 \textcolor{keyword}{namespace }hryky
+00221 \{
+00222 \textcolor{keyword}{namespace }parser
+00223 \{
+00225     \textcolor{keyword}{template} <\textcolor{keyword}{typename} GeneratedT>
+00226     \hyperlink{classhryky_1_1_intrusive_ptr}{reduction_type} \hyperlink{namespacehryky_1_1parser_a41d3abfe59948313b274c24612cfcbf2}{reduce}(
+00227         \hyperlink{classhryky_1_1reduction_1_1_string}{reduction::name_type} \textcolor{keyword}{const} & name,
+00228         \hyperlink{classhryky_1_1parser_1_1_base}{Base<GeneratedT>} \textcolor{keyword}{const} & src);
+00229 
+00231     \textcolor{keyword}{template} <\textcolor{keyword}{typename} GeneratedT>
+00232     \textcolor{keywordtype}{void} \hyperlink{namespacehryky_1_1parser_acbeac181da6c2a9f92e921f9133cfa8f}{swap}(
+00233         \hyperlink{classhryky_1_1parser_1_1_base}{Base<GeneratedT>} & lhs,
+00234         \hyperlink{classhryky_1_1parser_1_1_base}{Base<GeneratedT>} & rhs);
+00235 
+00236 \} \textcolor{comment}{// namespace parser}
+00237 \} \textcolor{comment}{// namespace hryky}
+00238 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00239 \textcolor{comment}{// global function definitions}
+00240 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00244 \textcolor{comment}{}\textcolor{keyword}{template} <\textcolor{keyword}{typename} GeneratedT>
+\hypertarget{parser__base_8h_source_l00245}{}\hyperlink{namespacehryky_1_1parser_a41d3abfe59948313b274c24612cfcbf2}{00245} \hyperlink{classhryky_1_1_intrusive_ptr}{hryky::reduction_type} \hyperlink{namespacehryky_1_1parser_a41d3abfe59948313b274c24612cfcbf2}{hryky::parser::reduce}(
+00246     \hyperlink{classhryky_1_1reduction_1_1_string}{reduction::name_type} \textcolor{keyword}{const} & name,
+00247     \hyperlink{classhryky_1_1parser_1_1_base}{Base<GeneratedT>} \textcolor{keyword}{const} & src)
+00248 \{
+00249     \textcolor{keywordflow}{return} src.\hyperlink{classhryky_1_1parser_1_1_base_a2809ad5f75abd2266e6804e90094bc05}{reduce}(name);
+00250 \}
+00254 \textcolor{keyword}{template} <\textcolor{keyword}{typename} GeneratedT>
+\hypertarget{parser__base_8h_source_l00255}{}\hyperlink{namespacehryky_1_1parser_acbeac181da6c2a9f92e921f9133cfa8f}{00255} \textcolor{keywordtype}{void} \hyperlink{namespacehryky_1_1parser_acbeac181da6c2a9f92e921f9133cfa8f}{hryky::parser::swap}(
+00256     \hyperlink{classhryky_1_1parser_1_1_base}{Base<GeneratedT>} & lhs,
+00257     \hyperlink{classhryky_1_1parser_1_1_base}{Base<GeneratedT>} & rhs)
+00258 \{
+00259     lhs.\hyperlink{classhryky_1_1parser_1_1_base_ab2b137d16fbe40d839ee136bd5304cab}{swap}(rhs);
+00260 \}
+00261 \textcolor{preprocessor}{#endif // PARSER\_BASE\_H\_20130103094805075}
+00262 \textcolor{preprocessor}{}\textcolor{comment}{// end of file}
+\end{DoxyCode}

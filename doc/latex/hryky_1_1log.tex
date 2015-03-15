@@ -1,0 +1,123 @@
+This module is intended to output the runtime information. The destinations to which the information will be saved can be file or memory. The elements in the information can be hierarchical structures.\hypertarget{hryky_1_1log_writer_File}{}\section{hryky\-::log\-::writer\-::\-File}\label{hryky_1_1log_writer_File}
+\hyperlink{classhryky_1_1log_1_1writer_1_1_file}{hryky\-::log\-::writer\-::\-File} writes messages out to a file. hryky\-::log\-::writer\-::\-File\-::operator() can be called thread safely.
+
+\hypertarget{hryky_1_1task_Initialization}{}\subsection{Initialization}\label{hryky_1_1task_Initialization}
+
+\begin{DoxyCodeInclude}
+        \textcolor{comment}{// instantiates writer to output log into a file}
+        log::writer::File log\_writer;
+
+\end{DoxyCodeInclude}
+
+
+But in many case, the instance of this class can be registered to be used from all threads.\hypertarget{hryky_1_1log_registration}{}\subsection{assignment of common writer}\label{hryky_1_1log_registration}
+
+\begin{DoxyCodeInclude}
+
+\end{DoxyCodeInclude}
+\hypertarget{hryky_1_1log_logging}{}\subsection{output of the message with log-\/level}\label{hryky_1_1log_logging}
+to write simple message 
+\begin{DoxyCodeInclude}
+
+\end{DoxyCodeInclude}
+
+
+
+\begin{DoxyCodeInclude}
+
+\end{DoxyCodeInclude}
+
+
+The difference between the log levels is documented with hryky\-::log\-::\-Level in log\-\_\-level.\-h.
+
+
+
+manipulators can be passed to the logging macro. 
+\begin{DoxyCodeInclude}
+
+\end{DoxyCodeInclude}
+\hypertarget{hryky_1_1log_reduction}{}\section{hryky\-::reduction\-::\-Base}\label{hryky_1_1log_reduction}
+The derived classes from \hyperlink{classhryky_1_1reduction_1_1_base}{hryky\-::reduction\-::\-Base} are used to decompose object to primitive objects.
+
+
+
+
+\begin{DoxyCodeInclude}
+
+\end{DoxyCodeInclude}
+ ;\hypertarget{hryky_1_1log_aggregation}{}\subsection{multiple elements in one map}\label{hryky_1_1log_aggregation}
+\hyperlink{classhryky_1_1reduction_1_1_map}{hryky\-::reduction\-::\-Map} can handle the named value together.
+
+
+\begin{DoxyCodeInclude}
+
+\end{DoxyCodeInclude}
+ );\hypertarget{hryky_1_1log_nested}{}\subsection{hierarchical structure}\label{hryky_1_1log_nested}
+\hyperlink{classhryky_1_1reduction_1_1_map}{hryky\-::reduction\-::\-Map} can include another instance of same class.
+
+
+\begin{DoxyCodeInclude}
+
+\end{DoxyCodeInclude}
+ ;\hypertarget{hryky_1_1log_custom}{}\subsection{Usage of custom class}\label{hryky_1_1log_custom}
+If you want to use your arbitrary class as the second argument of \hyperlink{classhryky_1_1reduction_1_1_map_a46fcabdd08327b7bdc4c72edb3623e7a}{hryky\-::reduction\-::\-Map\-::append}, you have to define the function to instantiate \hyperlink{namespacehryky_a343a9a4c36a586be5c2693156200eadc}{hryky\-::reduction\-\_\-type} in the namespace where your class is defined as below.
+
+
+\begin{DoxyCode}
+  \hyperlink{classhryky_1_1_intrusive_ptr}{hryky::reduction_type} \hyperlink{namespacehryky_af41cb3af6766761da0ff21b84527a52c}{NameSpaceOfYourClass::reduce}(
+    \hyperlink{classhryky_1_1reduction_1_1_string}{hryky::reduction::name_type} \textcolor{keyword}{const} & name, YourClass \textcolor{keyword}{const} & instance)
+  \{
+    ...
+  \}
+\end{DoxyCode}
+
+
+In \hyperlink{classhryky_1_1reduction_1_1_map_a46fcabdd08327b7bdc4c72edb3623e7a}{hryky\-::reduction\-::\-Map\-::append()}, an appropriate \hyperlink{namespacehryky_af41cb3af6766761da0ff21b84527a52c}{reduce()} is called with the use of C++ A\-D\-L(\-Argument Dependent Lookup).
+
+
+
+
+\begin{DoxyCodeInclude}
+    \textcolor{comment}{// This class can be used as the second argument of
+       hryky::reduction::Map::append().}
+    \textcolor{keyword}{class }UserValue
+    \{
+    \textcolor{keyword}{public} :
+        UserValue(\textcolor{keywordtype}{int} value) : value\_(value) \{\}
+        \textcolor{keywordtype}{int} value()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} this->value\_; \}
+    \textcolor{keyword}{private} :
+        \textcolor{keywordtype}{int} value\_;
+    \};
+
+\end{DoxyCodeInclude}
+
+
+
+\begin{DoxyCodeInclude}
+    ((*map)
+     .append(
+         (*\hyperlink{namespacehryky_1_1reduction_ac5eae270cf8047b294dc4ff3e5e11a79}{reduction::map}(\textcolor{stringliteral}{"aggregation"}))
+         .append(\textcolor{stringliteral}{"int\_20"},          \textcolor{keywordtype}{int}(20))
+         .append(\textcolor{stringliteral}{"float\_20.0f"},     \textcolor{keywordtype}{float}(20.0f))
+         .append(\textcolor{stringliteral}{"bool\_true"},       \textcolor{keywordtype}{bool}(\textcolor{keyword}{true}))
+         .append(\textcolor{stringliteral}{"user\_value"},      UserValue(4))
+
+\end{DoxyCodeInclude}
+
+
+
+\begin{DoxyCodeInclude}
+\hyperlink{classhryky_1_1_intrusive_ptr}{hryky::reduction_type} \hyperlink{namespacehryky_af41cb3af6766761da0ff21b84527a52c}{hryky::test::reduce}(
+    \hyperlink{namespacehryky_1_1reduction_ac686c30a4c8d196bbd0f05629a6b921f}{reduction::name_type} \textcolor{keyword}{const} & name, UserValue \textcolor{keyword}{const} & param) \{
+    \textcolor{comment}{// instantiates reduction\_type as key-value pairs.}
+    \hyperlink{namespacehryky_1_1reduction_a64228de3f2cff9ed9d5ad836a120c7f7}{reduction::map_type} map = \hyperlink{namespacehryky_1_1reduction_ac5eae270cf8047b294dc4ff3e5e11a79}{reduction::map}(name);
+
+    \textcolor{comment}{// appends the child pair to the reduction::map\_type.}
+    map->append(\textcolor{stringliteral}{"value"}, param.value());
+
+    \textcolor{comment}{// returns hryky::reduction\_type}
+    \textcolor{keywordflow}{return} \hyperlink{namespacehryky_1_1reduction_ac5eae270cf8047b294dc4ff3e5e11a79}{map};
+\}
+
+\end{DoxyCodeInclude}
+ 

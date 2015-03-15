@@ -1,0 +1,82 @@
+\hypertarget{clock__common_8h_source}{\section{clock\-\_\-common.\-h}
+}
+
+\begin{DoxyCode}
+00001 
+00007 \textcolor{preprocessor}{#ifndef CLOCK\_COMMON\_H\_20120218192544476}
+00008 \textcolor{preprocessor}{}\textcolor{preprocessor}{#define CLOCK\_COMMON\_H\_20120218192544476}
+00009 \textcolor{preprocessor}{}
+00010 \textcolor{preprocessor}{#define HRYKY\_USE\_BOOST\_CHRONO\_TIMER     (104700 >= BOOST\_VERSION)}
+00011 \textcolor{preprocessor}{}
+00012 \textcolor{preprocessor}{#include <boost/chrono.hpp>}
+00013 \textcolor{preprocessor}{#if HRYKY\_USE\_BOOST\_CHRONO\_TIMER}
+00014 \textcolor{preprocessor}{}\textcolor{preprocessor}{#   include <boost/chrono/timer.hpp>}
+00015 \textcolor{preprocessor}{#else}
+00016 \textcolor{preprocessor}{}\textcolor{preprocessor}{#   include <boost/chrono/stopwatches.hpp>}
+00017 \textcolor{preprocessor}{#endif}
+00018 \textcolor{preprocessor}{}\textcolor{preprocessor}{#include "\hyperlink{noncopyable_8h}{hryky/noncopyable.h}"}
+00019 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00020 \textcolor{comment}{// macro definition}
+00021 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00022 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00023 \textcolor{comment}{// namespace}
+00024 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00025 \textcolor{keyword}{namespace }hryky
+00026 \{
+00027 \textcolor{keyword}{namespace }clock
+00028 \{
+00029     \textcolor{keyword}{typedef} boost::chrono::high\_resolution\_clock        clock\_type;
+00030     \textcolor{keyword}{typedef} clock\_type::duration                        duration\_type;
+00031     \textcolor{keyword}{typedef} boost::chrono::nanoseconds                  nanoseconds;
+00032     \textcolor{keyword}{typedef} boost::chrono::microseconds                 microseconds;
+00033     \textcolor{keyword}{typedef} boost::chrono::milliseconds                 milliseconds;
+00034     \textcolor{keyword}{typedef} boost::chrono::seconds                      seconds;
+00035     \textcolor{keyword}{typedef} boost::chrono::minutes                      minutes;
+00036     \textcolor{keyword}{typedef} boost::chrono::hours                        hours;
+00037     
+00038 \textcolor{preprocessor}{#if HRYKY\_USE\_BOOST\_CHRONO\_TIMER}
+00039 \textcolor{preprocessor}{}    \textcolor{keyword}{typedef} boost::chrono::timer<clock\_type>            timer\_type;
+00040 \textcolor{preprocessor}{#else}
+00041 \textcolor{preprocessor}{}    \textcolor{keyword}{typedef} boost::chrono::simple\_stopwatch<clock\_type> timer\_type;
+00042 \textcolor{preprocessor}{#endif}
+00043 \textcolor{preprocessor}{}
+00045     \textcolor{keyword}{struct }AutoElapsed;
+00046     
+00047 \}
+00048 \}
+00049 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00050 \textcolor{comment}{// struct declaration}
+00051 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+\hypertarget{clock__common_8h_source_l00055}{}\hyperlink{structhryky_1_1clock_1_1_auto_elapsed}{00055} \textcolor{comment}{}\textcolor{keyword}{struct }\hyperlink{structhryky_1_1clock_1_1_auto_elapsed}{hryky::clock::AutoElapsed} : \hyperlink{classhryky_1_1_noncopyable}{Noncopyable}
+00056 \{
+00057     \hyperlink{structhryky_1_1clock_1_1_auto_elapsed}{AutoElapsed}(duration\_type & duration)
+00058         : duration\_(duration), timer\_() \{
+00059     \}
+00060 
+00061     ~\hyperlink{structhryky_1_1clock_1_1_auto_elapsed}{AutoElapsed}() \{
+00062         this->duration\_ = this->timer\_.elapsed();
+00063     \}
+00064 \textcolor{keyword}{private} :
+00065 
+00066     duration\_type &         duration\_;
+00067     timer\_type              timer\_;
+00068 \};
+00069 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00070 \textcolor{comment}{// class declaration}
+00071 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00072 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00073 \textcolor{comment}{// function definition}
+00074 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00075 \textcolor{preprocessor}{#endif // CLOCK\_COMMON\_H\_20120218192544476}
+00076 \textcolor{preprocessor}{}\textcolor{comment}{// end of file}
+\end{DoxyCode}

@@ -1,0 +1,401 @@
+\hypertarget{exclusion__atomic_8h_source}{\section{exclusion\-\_\-atomic.\-h}
+}
+
+\begin{DoxyCode}
+00001 
+00010 \textcolor{preprocessor}{#ifndef EXCLUSION\_ATOMIC\_H\_20111129151333301}
+00011 \textcolor{preprocessor}{}\textcolor{preprocessor}{#define EXCLUSION\_ATOMIC\_H\_20111129151333301}
+00012 \textcolor{preprocessor}{}\textcolor{preprocessor}{#include "\hyperlink{exclusion__lock_8h}{hryky/exclusion/exclusion_lock.h}"}
+00013 \textcolor{preprocessor}{#include "\hyperlink{common_8h}{hryky/common.h}"}
+00014 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00015 \textcolor{comment}{// macro definition}
+00016 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00017 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00018 \textcolor{comment}{// namespace}
+00019 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00020 \textcolor{keyword}{namespace }hryky
+00021 \{
+\hypertarget{exclusion__atomic_8h_source_l00022}{}\hyperlink{namespacehryky_1_1exclusion}{00022} \textcolor{keyword}{namespace }exclusion
+00023 \{
+00025     \textcolor{keyword}{template} < \textcolor{keyword}{typename} ValueT, \textcolor{keyword}{typename} LockableT >
+00026     \textcolor{keyword}{class }\hyperlink{classhryky_1_1exclusion_1_1_atomic_writing}{AtomicWriting};
+00027     
+00029     \textcolor{keyword}{template} < \textcolor{keyword}{typename} ValueT, \textcolor{keyword}{typename} LockableT >
+00030     \textcolor{keyword}{class }\hyperlink{classhryky_1_1exclusion_1_1_atomic}{Atomic};
+00031     
+00032 \} \textcolor{comment}{// namespace exclusion}
+00033 \} \textcolor{comment}{// namespace hryky}
+00034 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00035 \textcolor{comment}{// class declaration}
+00036 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00042 \textcolor{comment}{}\textcolor{keyword}{template} < \textcolor{keyword}{typename} ValueT, \textcolor{keyword}{typename} LockableT = exclusion::Mutex >
+\hypertarget{exclusion__atomic_8h_source_l00043}{}\hyperlink{classhryky_1_1exclusion_1_1_atomic_writing}{00043} \textcolor{keyword}{class }\hyperlink{classhryky_1_1exclusion_1_1_atomic_writing}{hryky::exclusion::AtomicWriting}
+00044 \{
+00045 \textcolor{keyword}{public} :
+00046 
+00047     \textcolor{keyword}{typedef} ValueT      value\_type;
+00048     \textcolor{keyword}{typedef} LockableT   lockable\_type;
+00049 
+\hypertarget{exclusion__atomic_8h_source_l00051}{}\hyperlink{classhryky_1_1exclusion_1_1_atomic_writing_afc6301af19df5cf042e0cbed6d273b2a}{00051}     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1exclusion_1_1_atomic_writing}{AtomicWriting<ValueT, LockableT>} \hyperlink{classhryky_1_1exclusion_1_1_atomic_writing_afc6301af19df5cf042e0cbed6d273b2a}{this_type};
+00052 
+\hypertarget{exclusion__atomic_8h_source_l00054}{}\hyperlink{classhryky_1_1exclusion_1_1_atomic_writing_a53b4f66f0702e2c4ca4705468827af7a}{00054}     \textcolor{keyword}{explicit} \hyperlink{classhryky_1_1exclusion_1_1_atomic_writing_a53b4f66f0702e2c4ca4705468827af7a}{AtomicWriting}() : lockable\_(), value\_() \{\}
+00055 
+00060     \hyperlink{classhryky_1_1exclusion_1_1_atomic_writing_a53b4f66f0702e2c4ca4705468827af7a}{AtomicWriting}(
+00061         \textcolor{keyword}{typename} \hyperlink{classhryky_1_1_call_traits}{CallTraits<value_type>::param_type} \hyperlink{namespacehryky_1_1log_1_1format_a5b9af9c1a7b018d54144acfb1b8cc960}{value});
+00062 
+00064     \hyperlink{group__exclusion__control_gaaff919108eef9ef3545064188cba65f0}{~AtomicWriting}();
+00065 
+00070     \textcolor{keyword}{explicit} \hyperlink{classhryky_1_1exclusion_1_1_atomic_writing_a53b4f66f0702e2c4ca4705468827af7a}{AtomicWriting}(\hyperlink{classhryky_1_1exclusion_1_1_atomic_writing_afc6301af19df5cf042e0cbed6d273b2a}{this_type} \textcolor{keyword}{const} & rhs);
+00071 
+00077     \hyperlink{classhryky_1_1exclusion_1_1_atomic_writing_afc6301af19df5cf042e0cbed6d273b2a}{this_type} & \hyperlink{group__exclusion__control_ga4e15c7309396df54b08bf6d62c91ea98}{operator=}(\hyperlink{classhryky_1_1exclusion_1_1_atomic_writing_afc6301af19df5cf042e0cbed6d273b2a}{this_type} \textcolor{keyword}{const} &rhs);
+00078 
+00084     \hyperlink{classhryky_1_1exclusion_1_1_atomic_writing_afc6301af19df5cf042e0cbed6d273b2a}{this_type} & \hyperlink{group__exclusion__control_ga4e15c7309396df54b08bf6d62c91ea98}{operator=}(
+00085         \textcolor{keyword}{typename} \hyperlink{classhryky_1_1_call_traits}{CallTraits<value_type>::param_type} rhs);
+00086 
+00093     value\_type \hyperlink{group__exclusion__control_gac693764e6a7a576464f5a48e3d9816d6}{compare_and_swap}(
+00094         \textcolor{keyword}{typename} \hyperlink{classhryky_1_1_call_traits}{CallTraits<value_type>::param_type} old\_value,
+00095         \textcolor{keyword}{typename} \hyperlink{classhryky_1_1_call_traits}{CallTraits<value_type>::param_type} new\_value);
+00096 
+00105     \textcolor{keyword}{template} < \textcolor{keyword}{typename} FunctorT >
+00106     ValueT \hyperlink{group__exclusion__control_gadd8b9f70d3ffa0442def7fca8fe2437c}{exclude}(FunctorT & functor);
+00107 
+00111     \hyperlink{group__exclusion__control_ga3893c9d48406bce7b4b07cc0e4b7d20b}{operator ValueT}() \textcolor{keyword}{const};
+00112 
+00114     \hyperlink{classhryky_1_1exclusion_1_1_atomic_writing_afc6301af19df5cf042e0cbed6d273b2a}{this_type} & \hyperlink{group__exclusion__control_gac0a6adb61a1a89d0a111bad5edb63eac}{operator+=}(\textcolor{keyword}{typename} \hyperlink{classhryky_1_1_call_traits}{CallTraits<ValueT>::param_type} rhs);
+00115 
+00117     \hyperlink{classhryky_1_1exclusion_1_1_atomic_writing_afc6301af19df5cf042e0cbed6d273b2a}{this_type} & \hyperlink{group__exclusion__control_gaa75c713c9c844df689e0ef44d9cf074e}{operator++}();
+00118 
+00120     value\_type \hyperlink{group__exclusion__control_gaa75c713c9c844df689e0ef44d9cf074e}{operator++}(\textcolor{keywordtype}{int});
+00121 
+00123     \hyperlink{classhryky_1_1exclusion_1_1_atomic_writing_afc6301af19df5cf042e0cbed6d273b2a}{this_type} & \hyperlink{group__exclusion__control_ga64d9930a9aaf9415d206872f01886685}{operator-=}(\textcolor{keyword}{typename} \hyperlink{classhryky_1_1_call_traits}{CallTraits<ValueT>::param_type} rhs);
+00124 
+00126     \hyperlink{classhryky_1_1exclusion_1_1_atomic_writing_afc6301af19df5cf042e0cbed6d273b2a}{this_type} & \hyperlink{group__exclusion__control_ga2eb1f0dc7165aaf81287e2a05ea05f41}{operator--}();
+00127 
+00129     value\_type \hyperlink{group__exclusion__control_ga2eb1f0dc7165aaf81287e2a05ea05f41}{operator--}(\textcolor{keywordtype}{int});
+00130 
+00132     \hyperlink{classhryky_1_1exclusion_1_1_atomic_writing_afc6301af19df5cf042e0cbed6d273b2a}{this_type} & \hyperlink{group__exclusion__control_ga6d7035d7bdfa0baa65e1e5580a617b34}{operator*=}(\textcolor{keyword}{typename} \hyperlink{classhryky_1_1_call_traits}{CallTraits<ValueT>::param_type} rhs);
+00133 
+00135     \hyperlink{classhryky_1_1exclusion_1_1_atomic_writing_afc6301af19df5cf042e0cbed6d273b2a}{this_type} & \hyperlink{group__exclusion__control_ga298b802dc512f56b62eb79bdc842311d}{operator/=}(\textcolor{keyword}{typename} \hyperlink{classhryky_1_1_call_traits}{CallTraits<ValueT>::param_type} rhs);
+00136 
+00138     \hyperlink{classhryky_1_1exclusion_1_1_atomic_writing_afc6301af19df5cf042e0cbed6d273b2a}{this_type} & \hyperlink{group__exclusion__control_ga5c08a4d5bb6ceea2b2f91f9786a9945f}{operator%=}(\textcolor{keyword}{typename} \hyperlink{classhryky_1_1_call_traits}{CallTraits<ValueT>::param_type} rhs);
+00139 
+00140 \textcolor{keyword}{protected} :
+00141 
+00142     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1exclusion_1_1_lock}{Lock<LockableT>} lock\_type;
+00143 
+00144     \textcolor{keyword}{mutable} lockable\_type   lockable\_;
+00145     value\_type              value\_;
+00146 
+00147 \textcolor{keyword}{private} :
+00148 
+00149 \};
+00155 \textcolor{keyword}{template} < \textcolor{keyword}{typename} ValueT, \textcolor{keyword}{typename} LockableT = exclusion::Mutex >
+\hypertarget{exclusion__atomic_8h_source_l00156}{}\hyperlink{classhryky_1_1exclusion_1_1_atomic}{00156} \textcolor{keyword}{class }\hyperlink{classhryky_1_1exclusion_1_1_atomic}{hryky::exclusion::Atomic} : \textcolor{keyword}{public} \hyperlink{classhryky_1_1exclusion_1_1_atomic_writing}{AtomicWriting}<ValueT, LockableT>
+00157 \{
+00158 \textcolor{keyword}{public} :
+00159 
+00160     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1exclusion_1_1_atomic_writing}{AtomicWriting<ValueT, LockableT>}    \hyperlink{classhryky_1_1exclusion_1_1_atomic_writing}{base_type};
+\hypertarget{exclusion__atomic_8h_source_l00161}{}\hyperlink{classhryky_1_1exclusion_1_1_atomic_ad9cd74bf1ea868347402716d7ce72fd7}{00161}     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1exclusion_1_1_atomic}{Atomic<ValueT, LockableT>}           \hyperlink{classhryky_1_1exclusion_1_1_atomic_ad9cd74bf1ea868347402716d7ce72fd7}{this_type};
+00162 
+\hypertarget{exclusion__atomic_8h_source_l00164}{}\hyperlink{classhryky_1_1exclusion_1_1_atomic_aa23e6ff98a0a017cb9ea60d118e4e3c0}{00164}     \hyperlink{classhryky_1_1exclusion_1_1_atomic_aa23e6ff98a0a017cb9ea60d118e4e3c0}{Atomic}() : \hyperlink{classhryky_1_1exclusion_1_1_atomic_writing}{base_type}() \{\};
+00165 
+\hypertarget{exclusion__atomic_8h_source_l00170}{}\hyperlink{classhryky_1_1exclusion_1_1_atomic_a090ee4942c75bdd38d2339500d3a907e}{00170}     \hyperlink{classhryky_1_1exclusion_1_1_atomic_aa23e6ff98a0a017cb9ea60d118e4e3c0}{Atomic}(
+00171         \textcolor{keyword}{typename} \hyperlink{classhryky_1_1_call_traits}{CallTraits<value_type>::param_type} \hyperlink{namespacehryky_1_1log_1_1format_a5b9af9c1a7b018d54144acfb1b8cc960}{value}) : \hyperlink{classhryky_1_1exclusion_1_1_atomic_writing}{base_type}(value) \{
+      \}
+00172 
+\hypertarget{exclusion__atomic_8h_source_l00179}{}\hyperlink{classhryky_1_1exclusion_1_1_atomic_a82c68fd9ea035f8b98d63bd585de21bf}{00179}     \hyperlink{classhryky_1_1exclusion_1_1_atomic_a82c68fd9ea035f8b98d63bd585de21bf}{Atomic}(\hyperlink{classhryky_1_1exclusion_1_1_atomic_writing}{this_type} \textcolor{keyword}{const} & rhs) : \hyperlink{classhryky_1_1exclusion_1_1_atomic_writing}{base_type}(value\_type(rhs)) \{\};
+00180 
+\hypertarget{exclusion__atomic_8h_source_l00188}{}\hyperlink{classhryky_1_1exclusion_1_1_atomic_a166a7f8b91df69f877ad2a530eea5a0a}{00188}     \hyperlink{classhryky_1_1exclusion_1_1_atomic_writing}{this_type} & \hyperlink{classhryky_1_1exclusion_1_1_atomic_a166a7f8b91df69f877ad2a530eea5a0a}{operator=}(\hyperlink{classhryky_1_1exclusion_1_1_atomic_writing}{this_type} \textcolor{keyword}{const} &rhs) \{
+00189         this->\hyperlink{group__exclusion__control_ga4e15c7309396df54b08bf6d62c91ea98}{base_type::operator=}(value\_type(rhs));
+00190         \textcolor{keywordflow}{return} *\textcolor{keyword}{this};
+00191     \}
+00192 
+\hypertarget{exclusion__atomic_8h_source_l00198}{}\hyperlink{classhryky_1_1exclusion_1_1_atomic_a29b0c850cd2fb169455a898acd6a4a03}{00198}     \hyperlink{classhryky_1_1exclusion_1_1_atomic_writing}{this_type} & \hyperlink{classhryky_1_1exclusion_1_1_atomic_a166a7f8b91df69f877ad2a530eea5a0a}{operator=}(
+00199         \textcolor{keyword}{typename} \hyperlink{classhryky_1_1_call_traits}{CallTraits<value_type>::param_type} rhs) \{
+00200         this->\hyperlink{group__exclusion__control_ga4e15c7309396df54b08bf6d62c91ea98}{base_type::operator=}(rhs);
+00201         \textcolor{keywordflow}{return} *\textcolor{keyword}{this};
+00202     \}
+00203 
+\hypertarget{exclusion__atomic_8h_source_l00208}{}\hyperlink{classhryky_1_1exclusion_1_1_atomic_a86b7e74f617451e268f58ca8e153c672}{00208}     \hyperlink{classhryky_1_1exclusion_1_1_atomic_a86b7e74f617451e268f58ca8e153c672}{operator value_type}()\textcolor{keyword}{ const}
+00209 \textcolor{keyword}{    }\{
+00210         \hyperlink{classhryky_1_1exclusion_1_1_lock}{lock_type} \textcolor{keyword}{const} lock(this->lockable\_);
+00211         
+00212         value\_type \hyperlink{namespacehryky_1_1log_1_1format_a5b9af9c1a7b018d54144acfb1b8cc960}{value} = this->value\_;
+00213         
+00214         \textcolor{keywordflow}{return} \hyperlink{namespacehryky_1_1log_1_1format_a5b9af9c1a7b018d54144acfb1b8cc960}{value};
+00215     \}
+00216 
+\hypertarget{exclusion__atomic_8h_source_l00218}{}\hyperlink{classhryky_1_1exclusion_1_1_atomic_a47dfca877c930888865d7b3edbbb8c9c}{00218}     \hyperlink{classhryky_1_1exclusion_1_1_atomic_writing}{this_type} & \hyperlink{classhryky_1_1exclusion_1_1_atomic_a47dfca877c930888865d7b3edbbb8c9c}{operator+=}(\textcolor{keyword}{typename} \hyperlink{classhryky_1_1_call_traits}{CallTraits<ValueT>::param_type} rhs) \{
+00219         this->\hyperlink{group__exclusion__control_gac0a6adb61a1a89d0a111bad5edb63eac}{base_type::operator+=}(rhs);
+00220 
+00221         \textcolor{keywordflow}{return} *\textcolor{keyword}{this};
+00222     \}
+00223 
+\hypertarget{exclusion__atomic_8h_source_l00225}{}\hyperlink{classhryky_1_1exclusion_1_1_atomic_a37830d7c98f4494a1274127a427b84db}{00225}     \hyperlink{classhryky_1_1exclusion_1_1_atomic_writing}{this_type} & \hyperlink{classhryky_1_1exclusion_1_1_atomic_a37830d7c98f4494a1274127a427b84db}{operator++}() \{
+00226         this->\hyperlink{group__exclusion__control_gaa75c713c9c844df689e0ef44d9cf074e}{base_type::operator++}();
+00227         \textcolor{keywordflow}{return} *\textcolor{keyword}{this};
+00228     \}
+00229 
+\hypertarget{exclusion__atomic_8h_source_l00231}{}\hyperlink{classhryky_1_1exclusion_1_1_atomic_a5c6f6492d00d72e7a521197b81ffe4f4}{00231}     value\_type \hyperlink{classhryky_1_1exclusion_1_1_atomic_a5c6f6492d00d72e7a521197b81ffe4f4}{operator++}(\textcolor{keywordtype}{int}) \{
+00232         value\_type \textcolor{keyword}{const} \hyperlink{namespacehryky_1_1log_1_1format_a5b9af9c1a7b018d54144acfb1b8cc960}{value} = value\_type(*\textcolor{keyword}{this});
+00233         \{
+00234             \hyperlink{classhryky_1_1exclusion_1_1_lock}{lock_type} \textcolor{keyword}{const} lock(this->lockable\_);
+00235             ++this->value\_;
+00236         \}
+00237         \textcolor{keywordflow}{return} \hyperlink{namespacehryky_1_1log_1_1format_a5b9af9c1a7b018d54144acfb1b8cc960}{value};
+00238     \}
+00239 
+\hypertarget{exclusion__atomic_8h_source_l00241}{}\hyperlink{classhryky_1_1exclusion_1_1_atomic_afede1ba980888cb83c5b42dfa2732a2e}{00241}     \hyperlink{classhryky_1_1exclusion_1_1_atomic_writing}{this_type} & \hyperlink{classhryky_1_1exclusion_1_1_atomic_afede1ba980888cb83c5b42dfa2732a2e}{operator-=}(\textcolor{keyword}{typename} \hyperlink{classhryky_1_1_call_traits}{CallTraits<ValueT>::param_type} rhs) \{
+00242         this->\hyperlink{group__exclusion__control_ga64d9930a9aaf9415d206872f01886685}{base_type::operator-=}(rhs);
+00243 
+00244         \textcolor{keywordflow}{return} *\textcolor{keyword}{this};
+00245     \}
+00246 
+\hypertarget{exclusion__atomic_8h_source_l00248}{}\hyperlink{classhryky_1_1exclusion_1_1_atomic_aa0c5006bed7305f9ef60685bd8772abe}{00248}     \hyperlink{classhryky_1_1exclusion_1_1_atomic_writing}{this_type} & \hyperlink{classhryky_1_1exclusion_1_1_atomic_aa0c5006bed7305f9ef60685bd8772abe}{operator--}() \{
+00249         this->\hyperlink{group__exclusion__control_ga2eb1f0dc7165aaf81287e2a05ea05f41}{base_type::operator--}();
+00250         \textcolor{keywordflow}{return} *\textcolor{keyword}{this};
+00251     \}
+00252 
+\hypertarget{exclusion__atomic_8h_source_l00254}{}\hyperlink{classhryky_1_1exclusion_1_1_atomic_aa621bcf7758e9731800e6a5e9fcc99fe}{00254}     value\_type \hyperlink{classhryky_1_1exclusion_1_1_atomic_aa621bcf7758e9731800e6a5e9fcc99fe}{operator--}(\textcolor{keywordtype}{int}) \{
+00255         value\_type \textcolor{keyword}{const} \hyperlink{namespacehryky_1_1log_1_1format_a5b9af9c1a7b018d54144acfb1b8cc960}{value} = value\_type(*\textcolor{keyword}{this});
+00256         \{
+00257             \hyperlink{classhryky_1_1exclusion_1_1_lock}{lock_type} \textcolor{keyword}{const} lock(this->lockable\_);
+00258             --this->value\_;
+00259         \}
+00260         \textcolor{keywordflow}{return} \hyperlink{namespacehryky_1_1log_1_1format_a5b9af9c1a7b018d54144acfb1b8cc960}{value};
+00261     \}
+00262 
+\hypertarget{exclusion__atomic_8h_source_l00264}{}\hyperlink{classhryky_1_1exclusion_1_1_atomic_a7d22cfe9d6a79ac37ba1aee863cc43f6}{00264}     \hyperlink{classhryky_1_1exclusion_1_1_atomic_writing}{this_type} & \hyperlink{classhryky_1_1exclusion_1_1_atomic_a7d22cfe9d6a79ac37ba1aee863cc43f6}{operator*=}(\textcolor{keyword}{typename} \hyperlink{classhryky_1_1_call_traits}{CallTraits<ValueT>::param_type} rhs) \{
+00265         this->\hyperlink{group__exclusion__control_ga6d7035d7bdfa0baa65e1e5580a617b34}{base_type::operator*=}(rhs);
+00266 
+00267         \textcolor{keywordflow}{return} *\textcolor{keyword}{this};
+00268     \}
+00269 
+\hypertarget{exclusion__atomic_8h_source_l00271}{}\hyperlink{classhryky_1_1exclusion_1_1_atomic_a0b07a1b5d5e61787454cddd78c74598a}{00271}     \hyperlink{classhryky_1_1exclusion_1_1_atomic_writing}{this_type} & \hyperlink{classhryky_1_1exclusion_1_1_atomic_a0b07a1b5d5e61787454cddd78c74598a}{operator/=}(\textcolor{keyword}{typename} \hyperlink{classhryky_1_1_call_traits}{CallTraits<ValueT>::param_type} rhs) \{
+00272         this->\hyperlink{group__exclusion__control_ga298b802dc512f56b62eb79bdc842311d}{base_type::operator/=}(rhs);
+00273 
+00274         \textcolor{keywordflow}{return} *\textcolor{keyword}{this};
+00275     \}
+00276 
+\hypertarget{exclusion__atomic_8h_source_l00278}{}\hyperlink{classhryky_1_1exclusion_1_1_atomic_a354df441e4246a412891e3cd52e47ef8}{00278}     \hyperlink{classhryky_1_1exclusion_1_1_atomic_writing}{this_type} & \hyperlink{classhryky_1_1exclusion_1_1_atomic_a354df441e4246a412891e3cd52e47ef8}{operator%=}(\textcolor{keyword}{typename} \hyperlink{classhryky_1_1_call_traits}{CallTraits<ValueT>::param_type} rhs) \{
+00279         this->\hyperlink{group__exclusion__control_ga5c08a4d5bb6ceea2b2f91f9786a9945f}{base_type::operator%=}(rhs);
+00280 
+00281         \textcolor{keywordflow}{return} *\textcolor{keyword}{this};
+00282     \}
+00283 
+00284 \};
+00285 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00286 \textcolor{comment}{// class specializations}
+00287 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00288 \textcolor{keyword}{namespace }hryky
+00289 \{
+00290 \textcolor{keyword}{namespace }exclusion
+00291 \{
+00292 \} \textcolor{comment}{// exclusion}
+00293 \} \textcolor{comment}{// hryky}
+00294 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00295 \textcolor{comment}{// inline functions}
+00296 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00297 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00298 \textcolor{comment}{// public function of hryky::exclusion::AtomicWriting}
+00299 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00304 \textcolor{comment}{}\textcolor{keyword}{template} < \textcolor{keyword}{typename} ValueT, \textcolor{keyword}{typename} LockableT >
+\hypertarget{exclusion__atomic_8h_source_l00305}{}\hyperlink{group__exclusion__control_ga2f63c0a66bb7b03eed3607ae9d14d126}{00305} \hyperlink{classhryky_1_1exclusion_1_1_atomic_writing_a53b4f66f0702e2c4ca4705468827af7a}{hryky::exclusion::AtomicWriting<ValueT, LockableT>::AtomicWriting}(
+00306     \textcolor{keyword}{typename} \hyperlink{classhryky_1_1_call_traits}{CallTraits<value_type>::param_type} \hyperlink{namespacehryky_1_1log_1_1format_a5b9af9c1a7b018d54144acfb1b8cc960}{value})
+00307     : lockable\_(), value\_(value)
+00308 \{
+00309 \}
+00314 \textcolor{keyword}{template} < \textcolor{keyword}{typename} ValueT, \textcolor{keyword}{typename} LockableT >
+\hypertarget{exclusion__atomic_8h_source_l00315}{}\hyperlink{group__exclusion__control_gaaff919108eef9ef3545064188cba65f0}{00315} \hyperlink{classhryky_1_1exclusion_1_1_atomic_writing}{hryky::exclusion::AtomicWriting<ValueT, LockableT>::~AtomicWriting}()
+00316 \{
+00317     \textcolor{keywordflow}{return};
+00318 \}
+00323 \textcolor{keyword}{template} < \textcolor{keyword}{typename} ValueT, \textcolor{keyword}{typename} LockableT >
+\hypertarget{exclusion__atomic_8h_source_l00324}{}\hyperlink{group__exclusion__control_gac7297c603e75cf09b560894b0dedeb68}{00324} \hyperlink{classhryky_1_1exclusion_1_1_atomic_writing}{hryky::exclusion::AtomicWriting<ValueT, LockableT>::AtomicWriting}(
+00325     \hyperlink{classhryky_1_1exclusion_1_1_atomic_writing}{this_type} \textcolor{keyword}{const} & rhs)
+00326     : lockable\_(), value\_(rhs.value\_)
+00327 \{
+00328 \}
+00333 \textcolor{keyword}{template} < \textcolor{keyword}{typename} ValueT, \textcolor{keyword}{typename} LockableT >
+00334 \hyperlink{classhryky_1_1exclusion_1_1_atomic_writing}{hryky::exclusion::AtomicWriting<ValueT, LockableT>} & 
+\hypertarget{exclusion__atomic_8h_source_l00335}{}\hyperlink{group__exclusion__control_ga4e15c7309396df54b08bf6d62c91ea98}{00335} \hyperlink{classhryky_1_1exclusion_1_1_atomic_writing}{hryky::exclusion::AtomicWriting<ValueT, LockableT>::operator=}(
+00336     \hyperlink{classhryky_1_1exclusion_1_1_atomic_writing}{this_type} \textcolor{keyword}{const} & rhs)
+00337 \{
+00338     \textcolor{keywordflow}{if} ( \textcolor{keyword}{this} == &rhs ) \{ \textcolor{keywordflow}{return} *\textcolor{keyword}{this}; \}
+00339     
+00340     \hyperlink{classhryky_1_1exclusion_1_1_lock}{lock_type} \textcolor{keyword}{const} lock(this->lockable\_);
+00341 
+00342     this->value\_ = rhs.value\_;
+00343 
+00344     \textcolor{keywordflow}{return} *\textcolor{keyword}{this};
+00345 \}
+00350 \textcolor{keyword}{template} < \textcolor{keyword}{typename} ValueT, \textcolor{keyword}{typename} LockableT >
+00351 \hyperlink{classhryky_1_1exclusion_1_1_atomic_writing}{hryky::exclusion::AtomicWriting<ValueT, LockableT>} & 
+\hypertarget{exclusion__atomic_8h_source_l00352}{}\hyperlink{group__exclusion__control_ga593ba1b3b563f04eeac4e468b77f7009}{00352} \hyperlink{classhryky_1_1exclusion_1_1_atomic_writing}{hryky::exclusion::AtomicWriting<ValueT, LockableT>::operator=}(
+00353     \textcolor{keyword}{typename} \hyperlink{classhryky_1_1_call_traits}{CallTraits<value_type>::param_type} rhs)
+00354 \{
+00355     \hyperlink{classhryky_1_1exclusion_1_1_lock}{lock_type} \textcolor{keyword}{const} lock(this->lockable\_);
+00356 
+00357     this->value\_ = rhs;
+00358 
+00359     \textcolor{keywordflow}{return} *\textcolor{keyword}{this};
+00360 \}
+00365 \textcolor{keyword}{template} < \textcolor{keyword}{typename} ValueT, \textcolor{keyword}{typename} LockableT >
+\hypertarget{exclusion__atomic_8h_source_l00366}{}\hyperlink{group__exclusion__control_gac693764e6a7a576464f5a48e3d9816d6}{00366} ValueT \hyperlink{classhryky_1_1exclusion_1_1_atomic_writing}{hryky::exclusion::AtomicWriting<ValueT, LockableT>::compare_and_swap}(
+00367     \textcolor{keyword}{typename} \hyperlink{classhryky_1_1_call_traits}{CallTraits<value_type>::param_type} old\_value,
+00368     \textcolor{keyword}{typename} \hyperlink{classhryky_1_1_call_traits}{CallTraits<value_type>::param_type} new\_value)
+00369 \{
+00370     \hyperlink{classhryky_1_1exclusion_1_1_lock}{lock_type} \textcolor{keyword}{const} lock(this->lockable\_);
+00371 
+00372     \textcolor{keywordflow}{if} ( this->value\_ != old\_value ) \{ \textcolor{keywordflow}{return} this->value\_; \}
+00373 
+00374     this->value\_ = new\_value;
+00375 
+00376     \textcolor{keywordflow}{return} old\_value;
+00377 \}
+00382 \textcolor{keyword}{template} < \textcolor{keyword}{typename} ValueT, \textcolor{keyword}{typename} LockableT >
+00383 \textcolor{keyword}{template} < \textcolor{keyword}{typename} FunctorT >
+\hypertarget{exclusion__atomic_8h_source_l00384}{}\hyperlink{group__exclusion__control_gadd8b9f70d3ffa0442def7fca8fe2437c}{00384} ValueT \hyperlink{classhryky_1_1exclusion_1_1_atomic_writing}{hryky::exclusion::AtomicWriting<ValueT, LockableT>::exclude}(
+00385     FunctorT & functor)
+00386 \{
+00387     \hyperlink{classhryky_1_1exclusion_1_1_lock}{lock_type} \textcolor{keyword}{const} lock(this->lockable\_);
+00388 
+00389     this->value\_ = functor(this->value\_);
+00390     
+00391     \textcolor{keywordflow}{return} this->value\_;
+00392 \}
+00397 \textcolor{keyword}{template} < \textcolor{keyword}{typename} ValueT, \textcolor{keyword}{typename} LockableT >
+\hypertarget{exclusion__atomic_8h_source_l00398}{}\hyperlink{group__exclusion__control_ga3893c9d48406bce7b4b07cc0e4b7d20b}{00398} \hyperlink{classhryky_1_1exclusion_1_1_atomic_writing}{hryky::exclusion::AtomicWriting<ValueT, LockableT>::operator ValueT}()\textcolor{keyword}{ const}
+00399 \textcolor{keyword}{}\{
+00400     \textcolor{keywordflow}{return} this->value\_;
+00401 \}
+00406 \textcolor{keyword}{template} < \textcolor{keyword}{typename} ValueT, \textcolor{keyword}{typename} LockableT >
+00407 \hyperlink{classhryky_1_1exclusion_1_1_atomic_writing}{hryky::exclusion::AtomicWriting<ValueT, LockableT>} & 
+\hypertarget{exclusion__atomic_8h_source_l00408}{}\hyperlink{group__exclusion__control_gac0a6adb61a1a89d0a111bad5edb63eac}{00408} \hyperlink{classhryky_1_1exclusion_1_1_atomic_writing}{hryky::exclusion::AtomicWriting<ValueT, LockableT>::operator+=}(
+00409     \textcolor{keyword}{typename} \hyperlink{classhryky_1_1_call_traits}{CallTraits<ValueT>::param_type} rhs)
+00410 \{
+00411     \hyperlink{classhryky_1_1exclusion_1_1_lock}{lock_type} \textcolor{keyword}{const} lock(this->lockable\_);
+00412 
+00413     this->value\_ += rhs;
+00414     
+00415     \textcolor{keywordflow}{return} *\textcolor{keyword}{this};
+00416 \}
+00421 \textcolor{keyword}{template} < \textcolor{keyword}{typename} ValueT, \textcolor{keyword}{typename} LockableT >
+00422 \hyperlink{classhryky_1_1exclusion_1_1_atomic_writing}{hryky::exclusion::AtomicWriting<ValueT, LockableT>} & 
+\hypertarget{exclusion__atomic_8h_source_l00423}{}\hyperlink{group__exclusion__control_gaa75c713c9c844df689e0ef44d9cf074e}{00423} \hyperlink{classhryky_1_1exclusion_1_1_atomic_writing}{hryky::exclusion::AtomicWriting<ValueT, LockableT>::operator++}()
+00424 \{
+00425     \hyperlink{classhryky_1_1exclusion_1_1_lock}{lock_type} \textcolor{keyword}{const} lock(this->lockable\_);
+00426 
+00427     ++this->value\_;
+00428 
+00429     \textcolor{keywordflow}{return} *\textcolor{keyword}{this};
+00430 \}
+00435 \textcolor{keyword}{template} < \textcolor{keyword}{typename} ValueT, \textcolor{keyword}{typename} LockableT >
+00436 ValueT
+\hypertarget{exclusion__atomic_8h_source_l00437}{}\hyperlink{group__exclusion__control_ga6c7259992061b671eb6659fb2ce28f9c}{00437} \hyperlink{classhryky_1_1exclusion_1_1_atomic_writing}{hryky::exclusion::AtomicWriting<ValueT, LockableT>::operator++}(\textcolor{keywordtype}{int})
+00438 \{
+00439     value\_type \textcolor{keyword}{const} \hyperlink{namespacehryky_1_1log_1_1format_a5b9af9c1a7b018d54144acfb1b8cc960}{value} = this->value\_;
+00440     \{
+00441         \hyperlink{classhryky_1_1exclusion_1_1_lock}{lock_type} \textcolor{keyword}{const} lock(this->lockable\_);
+00442         ++this->value\_;
+00443     \}
+00444     \textcolor{keywordflow}{return} \hyperlink{namespacehryky_1_1log_1_1format_a5b9af9c1a7b018d54144acfb1b8cc960}{value};
+00445 \}
+00450 \textcolor{keyword}{template} < \textcolor{keyword}{typename} ValueT, \textcolor{keyword}{typename} LockableT >
+00451 \hyperlink{classhryky_1_1exclusion_1_1_atomic_writing}{hryky::exclusion::AtomicWriting<ValueT, LockableT>} & 
+\hypertarget{exclusion__atomic_8h_source_l00452}{}\hyperlink{group__exclusion__control_ga64d9930a9aaf9415d206872f01886685}{00452} \hyperlink{classhryky_1_1exclusion_1_1_atomic_writing}{hryky::exclusion::AtomicWriting<ValueT, LockableT>::operator-=}(
+00453     \textcolor{keyword}{typename} \hyperlink{classhryky_1_1_call_traits}{CallTraits<ValueT>::param_type} rhs)
+00454 \{
+00455     \hyperlink{classhryky_1_1exclusion_1_1_lock}{lock_type} \textcolor{keyword}{const} lock(this->lockable\_);
+00456 
+00457     this->value\_ -= rhs;
+00458     
+00459     \textcolor{keywordflow}{return} *\textcolor{keyword}{this};
+00460 \}
+00465 \textcolor{keyword}{template} < \textcolor{keyword}{typename} ValueT, \textcolor{keyword}{typename} LockableT >
+00466 \hyperlink{classhryky_1_1exclusion_1_1_atomic_writing}{hryky::exclusion::AtomicWriting<ValueT, LockableT>} & 
+\hypertarget{exclusion__atomic_8h_source_l00467}{}\hyperlink{group__exclusion__control_ga2eb1f0dc7165aaf81287e2a05ea05f41}{00467} \hyperlink{classhryky_1_1exclusion_1_1_atomic_writing}{hryky::exclusion::AtomicWriting<ValueT, LockableT>::operator--}()
+00468 \{
+00469     \hyperlink{classhryky_1_1exclusion_1_1_lock}{lock_type} \textcolor{keyword}{const} lock(this->lockable\_);
+00470 
+00471     --this->value\_;
+00472 
+00473     \textcolor{keywordflow}{return} *\textcolor{keyword}{this};
+00474 \}
+00479 \textcolor{keyword}{template} < \textcolor{keyword}{typename} ValueT, \textcolor{keyword}{typename} LockableT >
+00480 ValueT
+\hypertarget{exclusion__atomic_8h_source_l00481}{}\hyperlink{group__exclusion__control_ga39cdbea957f1abd0251446989d3f82ec}{00481} \hyperlink{classhryky_1_1exclusion_1_1_atomic_writing}{hryky::exclusion::AtomicWriting<ValueT, LockableT>::operator--}(\textcolor{keywordtype}{int})
+00482 \{
+00483     value\_type \textcolor{keyword}{const} \hyperlink{namespacehryky_1_1log_1_1format_a5b9af9c1a7b018d54144acfb1b8cc960}{value} = this->value\_;
+00484     \{
+00485         \hyperlink{classhryky_1_1exclusion_1_1_lock}{lock_type} \textcolor{keyword}{const} lock(this->lockable\_);
+00486         --this->value\_;
+00487     \}
+00488     \textcolor{keywordflow}{return} \hyperlink{namespacehryky_1_1log_1_1format_a5b9af9c1a7b018d54144acfb1b8cc960}{value};
+00489 \}
+00494 \textcolor{keyword}{template} < \textcolor{keyword}{typename} ValueT, \textcolor{keyword}{typename} LockableT >
+00495 \hyperlink{classhryky_1_1exclusion_1_1_atomic_writing}{hryky::exclusion::AtomicWriting<ValueT, LockableT>} & 
+\hypertarget{exclusion__atomic_8h_source_l00496}{}\hyperlink{group__exclusion__control_ga6d7035d7bdfa0baa65e1e5580a617b34}{00496} \hyperlink{classhryky_1_1exclusion_1_1_atomic_writing}{hryky::exclusion::AtomicWriting<ValueT, LockableT>::operator*=}(
+00497     \textcolor{keyword}{typename} \hyperlink{classhryky_1_1_call_traits}{CallTraits<ValueT>::param_type} rhs)
+00498 \{
+00499     \hyperlink{classhryky_1_1exclusion_1_1_lock}{lock_type} \textcolor{keyword}{const} lock(this->lockable\_);
+00500 
+00501     this->value\_ *= rhs;
+00502     
+00503     \textcolor{keywordflow}{return} *\textcolor{keyword}{this};
+00504 \}
+00509 \textcolor{keyword}{template} < \textcolor{keyword}{typename} ValueT, \textcolor{keyword}{typename} LockableT >
+00510 \hyperlink{classhryky_1_1exclusion_1_1_atomic_writing}{hryky::exclusion::AtomicWriting<ValueT, LockableT>} & 
+\hypertarget{exclusion__atomic_8h_source_l00511}{}\hyperlink{group__exclusion__control_ga298b802dc512f56b62eb79bdc842311d}{00511} \hyperlink{classhryky_1_1exclusion_1_1_atomic_writing}{hryky::exclusion::AtomicWriting<ValueT, LockableT>::operator/=}(
+00512     \textcolor{keyword}{typename} \hyperlink{classhryky_1_1_call_traits}{CallTraits<ValueT>::param_type} rhs)
+00513 \{
+00514     \hyperlink{classhryky_1_1exclusion_1_1_lock}{lock_type} \textcolor{keyword}{const} lock(this->lockable\_);
+00515 
+00516     this->value\_ /= rhs;
+00517     
+00518     \textcolor{keywordflow}{return} *\textcolor{keyword}{this};
+00519 \}
+00524 \textcolor{keyword}{template} < \textcolor{keyword}{typename} ValueT, \textcolor{keyword}{typename} LockableT >
+00525 \hyperlink{classhryky_1_1exclusion_1_1_atomic_writing}{hryky::exclusion::AtomicWriting<ValueT, LockableT>} & 
+\hypertarget{exclusion__atomic_8h_source_l00526}{}\hyperlink{group__exclusion__control_ga5c08a4d5bb6ceea2b2f91f9786a9945f}{00526} \hyperlink{classhryky_1_1exclusion_1_1_atomic_writing}{hryky::exclusion::AtomicWriting<ValueT, LockableT>::operator%=}(
+00527     \textcolor{keyword}{typename} \hyperlink{classhryky_1_1_call_traits}{CallTraits<ValueT>::param_type} rhs)
+00528 \{
+00529     \hyperlink{classhryky_1_1exclusion_1_1_lock}{lock_type} \textcolor{keyword}{const} lock(this->lockable\_);
+00530 
+00531     this->value\_ %= rhs;
+00532     
+00533     \textcolor{keywordflow}{return} *\textcolor{keyword}{this};
+00534 \}
+00535 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00536 \textcolor{comment}{// function prototypes}
+00537 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00538 \textcolor{keyword}{namespace }hryky
+00539 \{
+00540 \textcolor{keyword}{namespace }exclusion
+00541 \{
+00542 
+00543 \} \textcolor{comment}{// namespace exclusion}
+00544 \} \textcolor{comment}{// namespace hryky}
+00545 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00546 \textcolor{comment}{// function definition}
+00547 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00548 \textcolor{preprocessor}{#endif // EXCLUSION\_ATOMIC\_H\_20111129151333301}
+00549 \textcolor{preprocessor}{}
+00550 \textcolor{comment}{// end of file}
+\end{DoxyCode}

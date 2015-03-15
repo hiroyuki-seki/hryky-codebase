@@ -1,0 +1,91 @@
+\hypertarget{memory__global__common_8h}{\section{memory\-\_\-global\-\_\-common.\-h File Reference}
+\label{memory__global__common_8h}\index{memory\-\_\-global\-\_\-common.\-h@{memory\-\_\-global\-\_\-common.\-h}}
+}
+
+
+retains a heap for global new/delete.  
+
+
+{\ttfamily \#include \char`\"{}hryky/memory/heap/memory\-\_\-heap\-\_\-base.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}hryky/memory/heap/memory\-\_\-heap\-\_\-standard.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}hryky/memory/heap/memory\-\_\-heap\-\_\-lock.\-h\char`\"{}}\\*
+This graph shows which files directly or indirectly include this file\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{memory__global__common_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classhryky_1_1memory_1_1global_1_1_boot}{hryky\-::memory\-::global\-::\-Boot}
+\begin{DoxyCompactList}\small\item\em creates a heap to allocate the memory before the entry point. \end{DoxyCompactList}\item 
+class \hyperlink{classhryky_1_1memory_1_1global_1_1_push}{hryky\-::memory\-::global\-::\-Push}
+\begin{DoxyCompactList}\small\item\em adds the global common heap during the current scope. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \hyperlink{namespacehryky}{hryky}
+\begin{DoxyCompactList}\small\item\em the root of all namespaces in hryky-\/codebase. \end{DoxyCompactList}\item 
+namespace \hyperlink{namespacehryky_1_1memory}{hryky\-::memory}
+\begin{DoxyCompactList}\small\item\em modules to manage memory allocation. \end{DoxyCompactList}\item 
+namespace \hyperlink{namespacehryky_1_1memory_1_1global}{hryky\-::memory\-::global}
+\begin{DoxyCompactList}\small\item\em modules to manage the allocation from global operator new \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Defines}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{memory__global__common_8h_a64f3ccc3424c9c440b03c07f96249051}{H\-R\-Y\-K\-Y\-\_\-\-D\-E\-F\-I\-N\-E\-\_\-\-G\-L\-O\-B\-A\-L\-\_\-\-N\-E\-W\-\_\-\-D\-E\-L\-E\-T\-E}()
+\begin{DoxyCompactList}\small\item\em overloads global operator new and delete. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{namespacehryky_1_1memory_1_1global_a6fc6103f67c837aa0f39b359588409cd}{heap\-\_\-type \hyperlink{namespacehryky_1_1memory_1_1global_a6fc6103f67c837aa0f39b359588409cd}{hryky\-::memory\-::global\-::heap} ()}\label{namespacehryky_1_1memory_1_1global_a6fc6103f67c837aa0f39b359588409cd}
+
+\begin{DoxyCompactList}\small\item\em retrieves the interface to allocate memory by global new/delete. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+retains a heap for global new/delete. \begin{DoxyAuthor}{Author}
+H\-R\-Y\-K\-Y 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+
+\end{DoxyVersion}
+\begin{DoxyParagraph}{Id\-:}
+\hyperlink{memory__global__common_8h}{memory\-\_\-global\-\_\-common.\-h} 150 2013-\/02-\/10 10\-:08\-:03\-Z \href{mailto:hryky.private@gmail.com}{\tt hryky.\-private@gmail.\-com} 
+\end{DoxyParagraph}
+
+
+\subsection{Define Documentation}
+\hypertarget{memory__global__common_8h_a64f3ccc3424c9c440b03c07f96249051}{\index{memory\-\_\-global\-\_\-common.\-h@{memory\-\_\-global\-\_\-common.\-h}!H\-R\-Y\-K\-Y\-\_\-\-D\-E\-F\-I\-N\-E\-\_\-\-G\-L\-O\-B\-A\-L\-\_\-\-N\-E\-W\-\_\-\-D\-E\-L\-E\-T\-E@{H\-R\-Y\-K\-Y\-\_\-\-D\-E\-F\-I\-N\-E\-\_\-\-G\-L\-O\-B\-A\-L\-\_\-\-N\-E\-W\-\_\-\-D\-E\-L\-E\-T\-E}}
+\index{H\-R\-Y\-K\-Y\-\_\-\-D\-E\-F\-I\-N\-E\-\_\-\-G\-L\-O\-B\-A\-L\-\_\-\-N\-E\-W\-\_\-\-D\-E\-L\-E\-T\-E@{H\-R\-Y\-K\-Y\-\_\-\-D\-E\-F\-I\-N\-E\-\_\-\-G\-L\-O\-B\-A\-L\-\_\-\-N\-E\-W\-\_\-\-D\-E\-L\-E\-T\-E}!memory_global_common.h@{memory\-\_\-global\-\_\-common.\-h}}
+\subsubsection[{H\-R\-Y\-K\-Y\-\_\-\-D\-E\-F\-I\-N\-E\-\_\-\-G\-L\-O\-B\-A\-L\-\_\-\-N\-E\-W\-\_\-\-D\-E\-L\-E\-T\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf H\-R\-Y\-K\-Y\-\_\-\-D\-E\-F\-I\-N\-E\-\_\-\-G\-L\-O\-B\-A\-L\-\_\-\-N\-E\-W\-\_\-\-D\-E\-L\-E\-T\-E}(
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{memory__global__common_8h_a64f3ccc3424c9c440b03c07f96249051}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\textcolor{keywordtype}{void} * operator new(\textcolor{keywordtype}{size\_t} size)\(\backslash\)
+    \{\(\backslash\)
+        if (0 == size) \{ \textcolor{keywordflow}{return} \hyperlink{common_8h_a4cd4ac09cfcdbd6b30ee69afc156e210}{HRYKY_NULLPTR}; \}\(\backslash\)
+        return \hyperlink{namespacehryky_1_1memory_1_1global_a6fc6103f67c837aa0f39b359588409cd}{hryky::memory::global::heap}()->\hyperlink{classhryky_1_1memory_1_1heap_1_1_base_a068b1ee5b4e759df5e19dff37eecaf92}{allocate}(size);\(\backslash\)
+    \}\(\backslash\)
+    void operator delete(\textcolor{keywordtype}{void} *ptr)\(\backslash\)
+    \{\(\backslash\)
+        if (\hyperlink{common_8h_a4cd4ac09cfcdbd6b30ee69afc156e210}{HRYKY_NULLPTR} == ptr) \{ \textcolor{keywordflow}{return}; \}\hyperlink{namespacehryky_1_1memory_1_1global_a6fc6103f67c837aa0f39b359588409cd}{\}
+\hyperlink{namespacehryky_1_1memory_1_1global_a6fc6103f67c837aa0f39b359588409cd}{		hryky::memory::global::heap}()->\hyperlink{classhryky_1_1memory_1_1heap_1_1_base_ac9629d3eb869729c475d9c8edf28461c}{deallocate}(ptr);\(\backslash\)
+    \}
+\end{DoxyCode}
+
+
+overloads global operator new and delete. 
+
+
+\begin{DoxyItemize}
+\item This macro defines the functions overloading global new/delete. 
+\end{DoxyItemize}\begin{Desc}
+\item[Examples\-: ]\par
+\hyperlink{test_main_8cpp-example}{test\-\_\-main.\-cpp}.\end{Desc}

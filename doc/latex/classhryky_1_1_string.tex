@@ -1,0 +1,368 @@
+\hypertarget{classhryky_1_1_string}{\section{hryky\-:\-:String$<$ Char\-T, Allocator\-T $>$ Class Template Reference}
+\label{classhryky_1_1_string}\index{hryky\-::\-String$<$ Char\-T, Allocator\-T $>$@{hryky\-::\-String$<$ Char\-T, Allocator\-T $>$}}
+}
+
+
+substitutes for std\-::string.  
+
+
+
+
+{\ttfamily \#include $<$string.\-h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classhryky_1_1_string_a7b717e6b7a107d6fdc7c0371fa71fcb8}{\hyperlink{classhryky_1_1_string}{this\-\_\-type} \& \hyperlink{classhryky_1_1_string_a7b717e6b7a107d6fdc7c0371fa71fcb8}{append} (\hyperlink{classhryky_1_1_string}{this\-\_\-type} const \&src)}\label{classhryky_1_1_string_a7b717e6b7a107d6fdc7c0371fa71fcb8}
+
+\begin{DoxyCompactList}\small\item\em appends the additional string at the end of this instance. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1_string_a79e1ddcf05952e24719cab2213f5a9a2}{\hyperlink{classhryky_1_1_string}{this\-\_\-type} \& \hyperlink{classhryky_1_1_string_a79e1ddcf05952e24719cab2213f5a9a2}{append} (\hyperlink{classhryky_1_1_string}{this\-\_\-type} const \&str, size\-\_\-type offset, size\-\_\-type \hyperlink{classhryky_1_1_string_a9db0f71dce7b2de86a54ab5323759265}{size})}\label{classhryky_1_1_string_a79e1ddcf05952e24719cab2213f5a9a2}
+
+\begin{DoxyCompactList}\small\item\em appends the substring of the other string at the end of this instance. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1_string_a615f5e44a0d32341b0e94147a3a1c8a9}{\hyperlink{classhryky_1_1_string}{this\-\_\-type} \& \hyperlink{classhryky_1_1_string_a615f5e44a0d32341b0e94147a3a1c8a9}{append} (const\-\_\-pointer str, size\-\_\-type str\-\_\-size)}\label{classhryky_1_1_string_a615f5e44a0d32341b0e94147a3a1c8a9}
+
+\begin{DoxyCompactList}\small\item\em appends an array of characters with the lengh of the array. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1_string_a6ef06ff34990a702f16c422d8080e40d}{{\footnotesize template$<$typename Input\-Iterator $>$ }\\\hyperlink{classhryky_1_1_string}{this\-\_\-type} \& \hyperlink{classhryky_1_1_string_a6ef06ff34990a702f16c422d8080e40d}{append} (Input\-Iterator first, Input\-Iterator last)}\label{classhryky_1_1_string_a6ef06ff34990a702f16c422d8080e40d}
+
+\begin{DoxyCompactList}\small\item\em appends the elements between two iterators. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1_string_a7bf5bd2385beb66a4d7d034eae00b9b1}{\hyperlink{classhryky_1_1_string}{this\-\_\-type} \& \hyperlink{classhryky_1_1_string_a7bf5bd2385beb66a4d7d034eae00b9b1}{assign} (\hyperlink{classhryky_1_1_string}{this\-\_\-type} const \&str)}\label{classhryky_1_1_string_a7bf5bd2385beb66a4d7d034eae00b9b1}
+
+\begin{DoxyCompactList}\small\item\em assigns the content from the other string. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1_string_a15549f6cd3f2a7957fc4d09d2ee1a346}{\hyperlink{classhryky_1_1_string}{this\-\_\-type} \& \hyperlink{classhryky_1_1_string_a15549f6cd3f2a7957fc4d09d2ee1a346}{assign} (\hyperlink{classhryky_1_1_string}{this\-\_\-type} const \&str, size\-\_\-type pos, size\-\_\-type \hyperlink{classhryky_1_1_string_a9db0f71dce7b2de86a54ab5323759265}{size})}\label{classhryky_1_1_string_a15549f6cd3f2a7957fc4d09d2ee1a346}
+
+\begin{DoxyCompactList}\small\item\em assigns the substring of the other string. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1_string_a566ec0f2ab898625ae1a575a5b25c55a}{\hyperlink{classhryky_1_1_string}{this\-\_\-type} \& \hyperlink{classhryky_1_1_string_a566ec0f2ab898625ae1a575a5b25c55a}{assign} (const\-\_\-pointer str, size\-\_\-type \hyperlink{classhryky_1_1_string_a9db0f71dce7b2de86a54ab5323759265}{size})}\label{classhryky_1_1_string_a566ec0f2ab898625ae1a575a5b25c55a}
+
+\begin{DoxyCompactList}\small\item\em assigns an array of characters. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1_string_aa9cd66f59bbf315959cdcf1e4dd627a2}{{\footnotesize template$<$typename Input\-Iterator $>$ }\\\hyperlink{classhryky_1_1_string}{this\-\_\-type} \& \hyperlink{classhryky_1_1_string_aa9cd66f59bbf315959cdcf1e4dd627a2}{assign} (Input\-Iterator first, Input\-Iterator last)}\label{classhryky_1_1_string_aa9cd66f59bbf315959cdcf1e4dd627a2}
+
+\begin{DoxyCompactList}\small\item\em assigns elements between two iterators. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1_string_a94674af895596884bb7f365e922afb9d}{const\-\_\-reference \hyperlink{classhryky_1_1_string_a94674af895596884bb7f365e922afb9d}{at} (size\-\_\-type const index) const }\label{classhryky_1_1_string_a94674af895596884bb7f365e922afb9d}
+
+\begin{DoxyCompactList}\small\item\em retrieves the immutable element specified by index. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1_string_a73cc0252b25bad7447d79d405a2d92ba}{reference \hyperlink{classhryky_1_1_string_a73cc0252b25bad7447d79d405a2d92ba}{at} (size\-\_\-type const index)}\label{classhryky_1_1_string_a73cc0252b25bad7447d79d405a2d92ba}
+
+\begin{DoxyCompactList}\small\item\em retrieves the mutable element specified by index. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1_string_a92a226785218c05625b4b7278dcfc2bc}{\hyperlink{classhryky_1_1iterator_1_1random_1_1_mutable}{iterator} \hyperlink{classhryky_1_1_string_a92a226785218c05625b4b7278dcfc2bc}{begin} ()}\label{classhryky_1_1_string_a92a226785218c05625b4b7278dcfc2bc}
+
+\begin{DoxyCompactList}\small\item\em retrieves a forward iterator referring to the first mutable element. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1_string_a7f2317d6159493bd53dfeacaaa681022}{\hyperlink{classhryky_1_1iterator_1_1random_1_1_immutable}{const\-\_\-iterator} \hyperlink{classhryky_1_1_string_a7f2317d6159493bd53dfeacaaa681022}{begin} () const }\label{classhryky_1_1_string_a7f2317d6159493bd53dfeacaaa681022}
+
+\begin{DoxyCompactList}\small\item\em retrieves a forward iterator referring to the first immutable element. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1_string_a6cbb3af33227054fa85010603cbfa430}{const\-\_\-pointer \hyperlink{classhryky_1_1_string_a6cbb3af33227054fa85010603cbfa430}{c\-\_\-str} () const }\label{classhryky_1_1_string_a6cbb3af33227054fa85010603cbfa430}
+
+\begin{DoxyCompactList}\small\item\em retrieves null-\/terminated characters. \end{DoxyCompactList}\item 
+size\-\_\-type \hyperlink{classhryky_1_1_string_afe570a5245b8ae9fb91ab0aebecc5b5a}{capacity} () const 
+\item 
+\hypertarget{classhryky_1_1_string_aeb2e094c044bcfc83c814e1610a98e70}{void \hyperlink{classhryky_1_1_string_aeb2e094c044bcfc83c814e1610a98e70}{clear} ()}\label{classhryky_1_1_string_aeb2e094c044bcfc83c814e1610a98e70}
+
+\begin{DoxyCompactList}\small\item\em removes the all elements in this string. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1_string_af61f2a74347fabebd76f9fa810341724}{const\-\_\-pointer \hyperlink{classhryky_1_1_string_af61f2a74347fabebd76f9fa810341724}{data} () const }\label{classhryky_1_1_string_af61f2a74347fabebd76f9fa810341724}
+
+\begin{DoxyCompactList}\small\item\em retrieves the internal array of characters. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1_string_aff01fafe438f65219695edae5459ed31}{bool \hyperlink{classhryky_1_1_string_aff01fafe438f65219695edae5459ed31}{empty} () const }\label{classhryky_1_1_string_aff01fafe438f65219695edae5459ed31}
+
+\begin{DoxyCompactList}\small\item\em confirms whether container has no element. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1_string_a2830c2985a440d5cb2ab58d81d7ec941}{\hyperlink{classhryky_1_1iterator_1_1random_1_1_mutable}{iterator} \hyperlink{classhryky_1_1_string_a2830c2985a440d5cb2ab58d81d7ec941}{end} ()}\label{classhryky_1_1_string_a2830c2985a440d5cb2ab58d81d7ec941}
+
+\begin{DoxyCompactList}\small\item\em retrieves a forward iterator referring to the last mutable element. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1_string_aeb43f91d3bb9badde257256d7c84e155}{\hyperlink{classhryky_1_1iterator_1_1random_1_1_immutable}{const\-\_\-iterator} \hyperlink{classhryky_1_1_string_aeb43f91d3bb9badde257256d7c84e155}{end} () const }\label{classhryky_1_1_string_aeb43f91d3bb9badde257256d7c84e155}
+
+\begin{DoxyCompactList}\small\item\em retrieves a forward iterator referring to the last immutable element. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1_string_ab45f3fadb1ffe1fc9fdd1de9e3c87df9}{\hyperlink{classhryky_1_1iterator_1_1random_1_1_mutable}{iterator} \hyperlink{classhryky_1_1_string_ab45f3fadb1ffe1fc9fdd1de9e3c87df9}{erase} (\hyperlink{classhryky_1_1iterator_1_1random_1_1_mutable}{iterator} itr)}\label{classhryky_1_1_string_ab45f3fadb1ffe1fc9fdd1de9e3c87df9}
+
+\begin{DoxyCompactList}\small\item\em removes one character at the position specified by iterator. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1_string_a1bfe86dd9a32315aeecdbd8f7f198be0}{\hyperlink{classhryky_1_1iterator_1_1random_1_1_mutable}{iterator} \hyperlink{classhryky_1_1_string_a1bfe86dd9a32315aeecdbd8f7f198be0}{erase} (\hyperlink{classhryky_1_1iterator_1_1random_1_1_mutable}{iterator} first, \hyperlink{classhryky_1_1iterator_1_1random_1_1_mutable}{iterator} last)}\label{classhryky_1_1_string_a1bfe86dd9a32315aeecdbd8f7f198be0}
+
+\begin{DoxyCompactList}\small\item\em removes characters between two iterators. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1_string_a710ee15ff97ece02e764e0be568522bc}{allocator\-\_\-type \hyperlink{classhryky_1_1_string_a710ee15ff97ece02e764e0be568522bc}{get\-\_\-allocator} () const }\label{classhryky_1_1_string_a710ee15ff97ece02e764e0be568522bc}
+
+\begin{DoxyCompactList}\small\item\em retrieves the allocator of this instance. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1_string_a9895ebf2c4792fc2636caf5c6a9b31c3}{\hyperlink{classhryky_1_1_string}{this\-\_\-type} \& \hyperlink{classhryky_1_1_string_a9895ebf2c4792fc2636caf5c6a9b31c3}{insert} (size\-\_\-type pos, \hyperlink{classhryky_1_1_string}{this\-\_\-type} const \&str)}\label{classhryky_1_1_string_a9895ebf2c4792fc2636caf5c6a9b31c3}
+
+\begin{DoxyCompactList}\small\item\em inserts the other string. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1_string_af1ae40208e3a4d23ae2e1db91464aa28}{\hyperlink{classhryky_1_1_string}{this\-\_\-type} \& \hyperlink{classhryky_1_1_string_af1ae40208e3a4d23ae2e1db91464aa28}{insert} (size\-\_\-type dest\-\_\-pos, \hyperlink{classhryky_1_1_string}{this\-\_\-type} const \&str, size\-\_\-type src\-\_\-pos, size\-\_\-type src\-\_\-size)}\label{classhryky_1_1_string_af1ae40208e3a4d23ae2e1db91464aa28}
+
+\begin{DoxyCompactList}\small\item\em inserts the part of the other string. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1_string_ae46c7efdd4c00f15357feb208072a386}{\hyperlink{classhryky_1_1_string}{this\-\_\-type} \& \hyperlink{classhryky_1_1_string_ae46c7efdd4c00f15357feb208072a386}{insert} (size\-\_\-type pos, const\-\_\-pointer str, size\-\_\-type \hyperlink{classhryky_1_1_string_a9db0f71dce7b2de86a54ab5323759265}{size})}\label{classhryky_1_1_string_ae46c7efdd4c00f15357feb208072a386}
+
+\begin{DoxyCompactList}\small\item\em inserts an array of characters. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1_string_a11c90b922251a14dfd64beae2edb0906}{{\footnotesize template$<$typename Input\-Iterator $>$ }\\\hyperlink{classhryky_1_1_string}{this\-\_\-type} \& \hyperlink{classhryky_1_1_string_a11c90b922251a14dfd64beae2edb0906}{insert} (\hyperlink{classhryky_1_1iterator_1_1random_1_1_mutable}{iterator} dest\-\_\-itr, Input\-Iterator first, Input\-Iterator last)}\label{classhryky_1_1_string_a11c90b922251a14dfd64beae2edb0906}
+
+\begin{DoxyCompactList}\small\item\em inserts the elements between two iterators. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1_string_a62f0f7325194c1c86dfbd6af80605b90}{\hyperlink{classhryky_1_1_string}{this\-\_\-type} \& \hyperlink{classhryky_1_1_string_a62f0f7325194c1c86dfbd6af80605b90}{insert} (\hyperlink{classhryky_1_1iterator_1_1random_1_1_mutable}{iterator} itr, value\-\_\-type const value)}\label{classhryky_1_1_string_a62f0f7325194c1c86dfbd6af80605b90}
+
+\begin{DoxyCompactList}\small\item\em inserts a character. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1_string_a908a0c14b8c8af6123da3508f3e5d1ce}{size\-\_\-type \hyperlink{classhryky_1_1_string_a908a0c14b8c8af6123da3508f3e5d1ce}{length} () const }\label{classhryky_1_1_string_a908a0c14b8c8af6123da3508f3e5d1ce}
+
+\begin{DoxyCompactList}\small\item\em retrieves the length of this string. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1_string_aafb6d82457bc1b598e6fb60dee15d562}{size\-\_\-type \hyperlink{classhryky_1_1_string_aafb6d82457bc1b598e6fb60dee15d562}{max\-\_\-size} () const }\label{classhryky_1_1_string_aafb6d82457bc1b598e6fb60dee15d562}
+
+\begin{DoxyCompactList}\small\item\em retrieves the maximum number of allocatable elements. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1_string_aab264bc0bc8f1a6c43d44dfe5ccb2b4f}{bool \hyperlink{classhryky_1_1_string_aab264bc0bc8f1a6c43d44dfe5ccb2b4f}{operator!=} (\hyperlink{classhryky_1_1_string}{this\-\_\-type} const \&rhs) const }\label{classhryky_1_1_string_aab264bc0bc8f1a6c43d44dfe5ccb2b4f}
+
+\begin{DoxyCompactList}\small\item\em confirms whether each string has different value. \end{DoxyCompactList}\item 
+bool \hyperlink{classhryky_1_1_string_a5275fd7f49fe5ee0e36e06b9caf37295}{operator!=} (Char\-T const $\ast$const rhs) const 
+\item 
+\hypertarget{classhryky_1_1_string_a96d9ab83efd313311b3dc6f659b16027}{\hyperlink{classhryky_1_1_string}{this\-\_\-type} \& \hyperlink{classhryky_1_1_string_a96d9ab83efd313311b3dc6f659b16027}{operator+=} (\hyperlink{classhryky_1_1_string}{this\-\_\-type} const \&rhs)}\label{classhryky_1_1_string_a96d9ab83efd313311b3dc6f659b16027}
+
+\begin{DoxyCompactList}\small\item\em appends the elements of other string at the end of this string. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1_string_ad08fc0721b2e71f6e843a638569d8f93}{\hyperlink{classhryky_1_1_string}{this\-\_\-type} \& \hyperlink{classhryky_1_1_string_ad08fc0721b2e71f6e843a638569d8f93}{operator+=} (value\-\_\-type const rhs)}\label{classhryky_1_1_string_ad08fc0721b2e71f6e843a638569d8f93}
+
+\begin{DoxyCompactList}\small\item\em appends a character. \end{DoxyCompactList}\item 
+bool \hyperlink{classhryky_1_1_string_a512d05bfbcc25d0946344e5494e05342}{operator$<$} (\hyperlink{classhryky_1_1_string}{this\-\_\-type} const \&rhs) const 
+\item 
+bool \hyperlink{classhryky_1_1_string_a7e287629be7b7f2e7e5228ca388c5f13}{operator$<$} (Char\-T const $\ast$const rhs) const 
+\item 
+bool \hyperlink{classhryky_1_1_string_a8722fa391d4ee8b119092502840a4146}{operator$<$=} (\hyperlink{classhryky_1_1_string}{this\-\_\-type} const \&rhs) const 
+\item 
+bool \hyperlink{classhryky_1_1_string_ac358d7f8d06264f161ecd3d5c5a4b154}{operator$<$=} (Char\-T const $\ast$const rhs) const 
+\begin{DoxyCompactList}\small\item\em confirms whether this string is less than or equal to the null-\/terminated characters in dictionary order. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1_string_a65d2ec00521600df0d838c8b4b4ee61e}{\hyperlink{classhryky_1_1_string}{this\-\_\-type} \& \hyperlink{classhryky_1_1_string_a65d2ec00521600df0d838c8b4b4ee61e}{operator=} (const\-\_\-pointer const rhs)}\label{classhryky_1_1_string_a65d2ec00521600df0d838c8b4b4ee61e}
+
+\begin{DoxyCompactList}\small\item\em assigns a new string by null-\/terminated characters. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1_string_a29ae518048a170155f5addfd6c47b2ed}{{\footnotesize template$<$size\-\_\-t Size$>$ }\\\hyperlink{classhryky_1_1_string}{this\-\_\-type} \& \hyperlink{classhryky_1_1_string_a29ae518048a170155f5addfd6c47b2ed}{operator=} (value\-\_\-type const (\&rhs)\mbox{[}Size\mbox{]})}\label{classhryky_1_1_string_a29ae518048a170155f5addfd6c47b2ed}
+
+\begin{DoxyCompactList}\small\item\em assigns a new string by array of characters. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1_string_a4480f7768eb5a9afce82696513af50e9}{bool \hyperlink{classhryky_1_1_string_a4480f7768eb5a9afce82696513af50e9}{operator==} (\hyperlink{classhryky_1_1_string}{this\-\_\-type} const \&rhs) const }\label{classhryky_1_1_string_a4480f7768eb5a9afce82696513af50e9}
+
+\begin{DoxyCompactList}\small\item\em confirms whether both strings have same characters. \end{DoxyCompactList}\item 
+bool \hyperlink{classhryky_1_1_string_a48283b80979ce1e09ac69f915ac4209f}{operator==} (Char\-T const $\ast$const rhs) const 
+\item 
+bool \hyperlink{classhryky_1_1_string_af95769666d2ba09ca36310dc1e97de8e}{operator$>$} (\hyperlink{classhryky_1_1_string}{this\-\_\-type} const \&rhs) const 
+\item 
+bool \hyperlink{classhryky_1_1_string_a7f2c88da9ad92fa5fcc3cdaa4f26d4d7}{operator$>$} (Char\-T const $\ast$const rhs) const 
+\begin{DoxyCompactList}\small\item\em confirms whether this string is greater than the null-\/ terminated characters in dictionary order. \end{DoxyCompactList}\item 
+bool \hyperlink{classhryky_1_1_string_a60476053dfd6e120ff03cea4b4575af7}{operator$>$=} (\hyperlink{classhryky_1_1_string}{this\-\_\-type} const \&rhs) const 
+\item 
+bool \hyperlink{classhryky_1_1_string_af179712fb033e3cc1f0699d8ec4abed5}{operator$>$=} (Char\-T const $\ast$const rhs) const 
+\item 
+\hypertarget{classhryky_1_1_string_ae4170a6bb4266d9185c88560014ca7fe}{const\-\_\-reference \hyperlink{classhryky_1_1_string_ae4170a6bb4266d9185c88560014ca7fe}{operator\mbox{[}$\,$\mbox{]}} (size\-\_\-type const index) const }\label{classhryky_1_1_string_ae4170a6bb4266d9185c88560014ca7fe}
+
+\begin{DoxyCompactList}\small\item\em retrieves the immutable element specified by index. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1_string_a069059a9fefbffa776be63db1594561b}{reference \hyperlink{classhryky_1_1_string_a069059a9fefbffa776be63db1594561b}{operator\mbox{[}$\,$\mbox{]}} (size\-\_\-type const index)}\label{classhryky_1_1_string_a069059a9fefbffa776be63db1594561b}
+
+\begin{DoxyCompactList}\small\item\em retrieves the mutable element specified by index. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1_string_a0e5eea4617e8a71510a1e34958b0d189}{bool \hyperlink{classhryky_1_1_string_a0e5eea4617e8a71510a1e34958b0d189}{push\-\_\-back} (value\-\_\-type const value)}\label{classhryky_1_1_string_a0e5eea4617e8a71510a1e34958b0d189}
+
+\begin{DoxyCompactList}\small\item\em appends a character at the end of this instance. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1_string_a75e1d03284fd701283768e1b5230110c}{reverse\-\_\-iterator \hyperlink{classhryky_1_1_string_a75e1d03284fd701283768e1b5230110c}{rbegin} ()}\label{classhryky_1_1_string_a75e1d03284fd701283768e1b5230110c}
+
+\begin{DoxyCompactList}\small\item\em retrieves a backward iterator referring to the first mutable element. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1_string_abb559a42c1e0a454222fd4d9be47b5da}{const\-\_\-reverse\-\_\-iterator \hyperlink{classhryky_1_1_string_abb559a42c1e0a454222fd4d9be47b5da}{rbegin} () const }\label{classhryky_1_1_string_abb559a42c1e0a454222fd4d9be47b5da}
+
+\begin{DoxyCompactList}\small\item\em retrieves a backward iterator referring to the first immutable element. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1_string_a03adae56f3604b70e4cf17c8473c667a}{\hyperlink{namespacehryky_a343a9a4c36a586be5c2693156200eadc}{reduction\-\_\-type} \hyperlink{classhryky_1_1_string_a03adae56f3604b70e4cf17c8473c667a}{reduce} (\hyperlink{namespacehryky_1_1reduction_ac686c30a4c8d196bbd0f05629a6b921f}{reduction\-::name\-\_\-type} const \&name) const }\label{classhryky_1_1_string_a03adae56f3604b70e4cf17c8473c667a}
+
+\begin{DoxyCompactList}\small\item\em outputs the information formatted as string. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1_string_a644a4328ebf32a38022c10c7dc02bee5}{reverse\-\_\-iterator \hyperlink{classhryky_1_1_string_a644a4328ebf32a38022c10c7dc02bee5}{rend} ()}\label{classhryky_1_1_string_a644a4328ebf32a38022c10c7dc02bee5}
+
+\begin{DoxyCompactList}\small\item\em retrieves a backward iterator referring to the last mutable element. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1_string_a56ea9c056ff22effb3a3f882310be9f0}{const\-\_\-reverse\-\_\-iterator \hyperlink{classhryky_1_1_string_a56ea9c056ff22effb3a3f882310be9f0}{rend} () const }\label{classhryky_1_1_string_a56ea9c056ff22effb3a3f882310be9f0}
+
+\begin{DoxyCompactList}\small\item\em retrieves a backward iterator referring to the last immutable element. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1_string_a09705c9ae9b2a6eb030421830be1a6ad}{\hyperlink{classhryky_1_1_string}{this\-\_\-type} \& \hyperlink{classhryky_1_1_string_a09705c9ae9b2a6eb030421830be1a6ad}{replace} (size\-\_\-type dest\-\_\-pos, size\-\_\-type dest\-\_\-size, \hyperlink{classhryky_1_1_string}{this\-\_\-type} const \&src)}\label{classhryky_1_1_string_a09705c9ae9b2a6eb030421830be1a6ad}
+
+\begin{DoxyCompactList}\small\item\em replaces the part of the this instance by other string. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1_string_af3bde22af32eb64c88f9cf70ba00a7df}{\hyperlink{classhryky_1_1_string}{this\-\_\-type} \& \hyperlink{classhryky_1_1_string_af3bde22af32eb64c88f9cf70ba00a7df}{replace} (\hyperlink{classhryky_1_1iterator_1_1random_1_1_mutable}{iterator} dest\-\_\-first, \hyperlink{classhryky_1_1iterator_1_1random_1_1_mutable}{iterator} dest\-\_\-last, \hyperlink{classhryky_1_1_string}{this\-\_\-type} const \&src)}\label{classhryky_1_1_string_af3bde22af32eb64c88f9cf70ba00a7df}
+
+\begin{DoxyCompactList}\small\item\em replaces the range between two iterators of this instance by other string. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1_string_af4b644fb8a0862e04f5ff123b7578ee6}{\hyperlink{classhryky_1_1_string}{this\-\_\-type} \& \hyperlink{classhryky_1_1_string_af4b644fb8a0862e04f5ff123b7578ee6}{replace} (size\-\_\-type dest\-\_\-pos, size\-\_\-type dest\-\_\-size, \hyperlink{classhryky_1_1_string}{this\-\_\-type} const \&src, size\-\_\-type src\-\_\-pos, size\-\_\-type src\-\_\-size)}\label{classhryky_1_1_string_af4b644fb8a0862e04f5ff123b7578ee6}
+
+\begin{DoxyCompactList}\small\item\em replaces the part of the this instance by the substring of other instance. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1_string_af903fdf0a575a50bdedda445c31d376e}{\hyperlink{classhryky_1_1_string}{this\-\_\-type} \& \hyperlink{classhryky_1_1_string_af903fdf0a575a50bdedda445c31d376e}{replace} (size\-\_\-type dest\-\_\-pos, size\-\_\-type dest\-\_\-size, const\-\_\-pointer src, size\-\_\-type src\-\_\-size)}\label{classhryky_1_1_string_af903fdf0a575a50bdedda445c31d376e}
+
+\begin{DoxyCompactList}\small\item\em replaces the part of the this instance by the part of the array of characters. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1_string_a212bb5e5302c2675650dd4f55878ba25}{\hyperlink{classhryky_1_1_string}{this\-\_\-type} \& \hyperlink{classhryky_1_1_string_a212bb5e5302c2675650dd4f55878ba25}{replace} (\hyperlink{classhryky_1_1iterator_1_1random_1_1_mutable}{iterator} dest\-\_\-first, \hyperlink{classhryky_1_1iterator_1_1random_1_1_mutable}{iterator} dest\-\_\-last, const\-\_\-pointer src, size\-\_\-type src\-\_\-size)}\label{classhryky_1_1_string_a212bb5e5302c2675650dd4f55878ba25}
+
+\begin{DoxyCompactList}\small\item\em replaces the range between two iterators of this instance by the part of the array of characters. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1_string_a8f29b486917c6e7913120be286c74c4d}{{\footnotesize template$<$typename Input\-Iterator $>$ }\\\hyperlink{classhryky_1_1_string}{this\-\_\-type} \& \hyperlink{classhryky_1_1_string_a8f29b486917c6e7913120be286c74c4d}{replace} (\hyperlink{classhryky_1_1iterator_1_1random_1_1_mutable}{iterator} dest\-\_\-first, \hyperlink{classhryky_1_1iterator_1_1random_1_1_mutable}{iterator} dest\-\_\-last, Input\-Iterator src\-\_\-first, Input\-Iterator src\-\_\-last)}\label{classhryky_1_1_string_a8f29b486917c6e7913120be286c74c4d}
+
+\begin{DoxyCompactList}\small\item\em replaces the range between two iterators of this instance by the range of the other instance. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1_string_aae6ce7131e8bb4c2cf03689a6a183b8d}{bool \hyperlink{classhryky_1_1_string_aae6ce7131e8bb4c2cf03689a6a183b8d}{reserve} (size\-\_\-type const \hyperlink{classhryky_1_1_string_afe570a5245b8ae9fb91ab0aebecc5b5a}{capacity})}\label{classhryky_1_1_string_aae6ce7131e8bb4c2cf03689a6a183b8d}
+
+\begin{DoxyCompactList}\small\item\em expands the available region to allocate additional characters. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1_string_ae2a52a7868534d2a48fd01db2ea35c1a}{bool \hyperlink{classhryky_1_1_string_ae2a52a7868534d2a48fd01db2ea35c1a}{resize} (size\-\_\-type const \hyperlink{classhryky_1_1_string_a9db0f71dce7b2de86a54ab5323759265}{size})}\label{classhryky_1_1_string_ae2a52a7868534d2a48fd01db2ea35c1a}
+
+\begin{DoxyCompactList}\small\item\em expands or shrinks the length of string. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1_string_a9db0f71dce7b2de86a54ab5323759265}{size\-\_\-type \hyperlink{classhryky_1_1_string_a9db0f71dce7b2de86a54ab5323759265}{size} () const }\label{classhryky_1_1_string_a9db0f71dce7b2de86a54ab5323759265}
+
+\begin{DoxyCompactList}\small\item\em retrieves the number of elements. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1_string_ad60595ccc01ad3a9c1c32b9c7eb0a115}{\hyperlink{classhryky_1_1_string_ad60595ccc01ad3a9c1c32b9c7eb0a115}{String} ()}\label{classhryky_1_1_string_ad60595ccc01ad3a9c1c32b9c7eb0a115}
+
+\begin{DoxyCompactList}\small\item\em default constructor. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1_string_a5f2897c6c0c4c57fdb7f7d46fdc89817}{\hyperlink{classhryky_1_1_string_a5f2897c6c0c4c57fdb7f7d46fdc89817}{String} (\hyperlink{classhryky_1_1_string}{this\-\_\-type} const \&rhs)}\label{classhryky_1_1_string_a5f2897c6c0c4c57fdb7f7d46fdc89817}
+
+\begin{DoxyCompactList}\small\item\em copy constructor. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1_string_af752573e708f1a541385d376f4a6729e}{\hyperlink{classhryky_1_1_string_af752573e708f1a541385d376f4a6729e}{String} (\hyperlink{classhryky_1_1_string}{this\-\_\-type} \&\&rhs)}\label{classhryky_1_1_string_af752573e708f1a541385d376f4a6729e}
+
+\begin{DoxyCompactList}\small\item\em copy constructor by rvalue reference. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1_string_a152a6a4ba727611a34dbeae7538fc0eb}{\hyperlink{classhryky_1_1_string_a152a6a4ba727611a34dbeae7538fc0eb}{String} (allocator\-\_\-type const \&allocator)}\label{classhryky_1_1_string_a152a6a4ba727611a34dbeae7538fc0eb}
+
+\begin{DoxyCompactList}\small\item\em constructor with allocator. \end{DoxyCompactList}\item 
+\hyperlink{classhryky_1_1_string_a4b0a859218ad9a38373e75279d0509ed}{String} (const\-\_\-pointer str, size\-\_\-type str\-\_\-size, allocator\-\_\-type allocator=allocator\-\_\-type())
+\begin{DoxyCompactList}\small\item\em constructor with character array. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1_string_a6b69d30c7062d8f4fff138f6ad85150d}{\hyperlink{classhryky_1_1_string_a6b69d30c7062d8f4fff138f6ad85150d}{String} (const\-\_\-pointer str, allocator\-\_\-type allocator=allocator\-\_\-type())}\label{classhryky_1_1_string_a6b69d30c7062d8f4fff138f6ad85150d}
+
+\begin{DoxyCompactList}\small\item\em constructor with null terminated characters. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1_string_a5ff47f11c86f2cf71e7e2d1427c1474b}{void \hyperlink{classhryky_1_1_string_a5ff47f11c86f2cf71e7e2d1427c1474b}{swap} (\hyperlink{classhryky_1_1_string}{this\-\_\-type} \&src)}\label{classhryky_1_1_string_a5ff47f11c86f2cf71e7e2d1427c1474b}
+
+\begin{DoxyCompactList}\small\item\em exhanges all internal values. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1_string_a5632cb3b6a55de35a0d2c03ddbe8f75e}{{\footnotesize template$<$typename Stream\-T $>$ }\\Stream\-T \& \hyperlink{classhryky_1_1_string_a5632cb3b6a55de35a0d2c03ddbe8f75e}{write\-\_\-to} (Stream\-T \&stream) const }\label{classhryky_1_1_string_a5632cb3b6a55de35a0d2c03ddbe8f75e}
+
+\begin{DoxyCompactList}\small\item\em outputs the information of \hyperlink{classhryky_1_1reduction_1_1_base}{reduction\-::\-Base}. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1_string_aad9c7884c7afd2b4543b3b90d1c7e0b2}{\hyperlink{classhryky_1_1_string_aad9c7884c7afd2b4543b3b90d1c7e0b2}{$\sim$\-String} ()}\label{classhryky_1_1_string_aad9c7884c7afd2b4543b3b90d1c7e0b2}
+
+\begin{DoxyCompactList}\small\item\em destructor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classhryky_1_1_string_ab1308696e8665314373d9aec581a3095}{static value\-\_\-type \hyperlink{classhryky_1_1_string_ab1308696e8665314373d9aec581a3095}{terminator} ()}\label{classhryky_1_1_string_ab1308696e8665314373d9aec581a3095}
+
+\begin{DoxyCompactList}\small\item\em terminator. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classhryky_1_1_string_a445f0d882e66842a32e855881278cd64}{\hyperlink{classhryky_1_1_string_a445f0d882e66842a32e855881278cd64}{hryky\-\_\-assign\-\_\-op}}\label{classhryky_1_1_string_a445f0d882e66842a32e855881278cd64}
+
+\begin{DoxyCompactList}\small\item\em assignment operator. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classhryky_1_1_string_a63a5477108395a8682a8fd4a03addc43}{static size\-\_\-type const \hyperlink{classhryky_1_1_string_a63a5477108395a8682a8fd4a03addc43}{npos} = static\-\_\-cast$<$size\-\_\-type$>$(-\/1)}\label{classhryky_1_1_string_a63a5477108395a8682a8fd4a03addc43}
+
+\begin{DoxyCompactList}\small\item\em the index which specifies the end of string. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$typename Char\-T = char, typename Allocator\-T = hryky\-::allocator\-::\-Heap$<$\-Char\-T$>$$>$class hryky\-::\-String$<$ Char\-T, Allocator\-T $>$}
+
+substitutes for std\-::string. 
+
+\begin{DoxyAttention}{Attention}
+
+\begin{DoxyItemize}
+\item This class is under construction. 
+\end{DoxyItemize}
+\end{DoxyAttention}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classhryky_1_1_string_a4b0a859218ad9a38373e75279d0509ed}{\index{hryky\-::\-String@{hryky\-::\-String}!String@{String}}
+\index{String@{String}!hryky::String@{hryky\-::\-String}}
+\subsubsection[{String}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Char\-T , typename Allocator\-T $>$ {\bf hryky\-::\-String}$<$ Char\-T, Allocator\-T $>$\-::{\bf String} (
+\begin{DoxyParamCaption}
+\item[{const\-\_\-pointer}]{str, }
+\item[{size\-\_\-type}]{str\-\_\-size, }
+\item[{allocator\-\_\-type}]{allocator = {\ttfamily allocator\-\_\-type()}}
+\end{DoxyParamCaption}
+)}}\label{classhryky_1_1_string_a4b0a859218ad9a38373e75279d0509ed}
+
+
+constructor with character array. 
+
+constructor with an array of characters. 
+
+References \hyperlink{classhryky_1_1_string_aae6ce7131e8bb4c2cf03689a6a183b8d}{hryky\-::\-String$<$ Char\-T, Allocator\-T $>$\-::reserve()}, and \hyperlink{classhryky_1_1_string_ab1308696e8665314373d9aec581a3095}{hryky\-::\-String$<$ Char\-T, Allocator\-T $>$\-::terminator()}.
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classhryky_1_1_string_afe570a5245b8ae9fb91ab0aebecc5b5a}{\index{hryky\-::\-String@{hryky\-::\-String}!capacity@{capacity}}
+\index{capacity@{capacity}!hryky::String@{hryky\-::\-String}}
+\subsubsection[{capacity}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Char\-T , typename Allocator\-T $>$ {\bf hryky\-::\-String}$<$ Char\-T, Allocator\-T $>$\-::size\-\_\-type {\bf hryky\-::\-String}$<$ Char\-T, Allocator\-T $>$\-::{\bf capacity} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classhryky_1_1_string_afe570a5245b8ae9fb91ab0aebecc5b5a}
+retrieves the number of elements that is able to be held without additional memory allocation \hypertarget{classhryky_1_1_string_a5275fd7f49fe5ee0e36e06b9caf37295}{\index{hryky\-::\-String@{hryky\-::\-String}!operator!=@{operator!=}}
+\index{operator!=@{operator!=}!hryky::String@{hryky\-::\-String}}
+\subsubsection[{operator!=}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Char\-T , typename Allocator\-T $>$ bool {\bf hryky\-::\-String}$<$ Char\-T, Allocator\-T $>$\-::operator!= (
+\begin{DoxyParamCaption}
+\item[{Char\-T const $\ast$const}]{rhs}
+\end{DoxyParamCaption}
+) const}}\label{classhryky_1_1_string_a5275fd7f49fe5ee0e36e06b9caf37295}
+confirms whether this string has different characters from the null-\/terminated characters. \hypertarget{classhryky_1_1_string_a512d05bfbcc25d0946344e5494e05342}{\index{hryky\-::\-String@{hryky\-::\-String}!operator$<$@{operator$<$}}
+\index{operator$<$@{operator$<$}!hryky::String@{hryky\-::\-String}}
+\subsubsection[{operator$<$}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Char\-T , typename Allocator\-T $>$ bool {\bf hryky\-::\-String}$<$ Char\-T, Allocator\-T $>$\-::operator$<$ (
+\begin{DoxyParamCaption}
+\item[{{\bf this\-\_\-type} const \&}]{rhs}
+\end{DoxyParamCaption}
+) const}}\label{classhryky_1_1_string_a512d05bfbcc25d0946344e5494e05342}
+confirms whether this string is less than the other string in dictionary order. 
+
+References \hyperlink{classhryky_1_1_string_a9db0f71dce7b2de86a54ab5323759265}{hryky\-::\-String$<$ Char\-T, Allocator\-T $>$\-::size()}.
+
+\hypertarget{classhryky_1_1_string_a7e287629be7b7f2e7e5228ca388c5f13}{\index{hryky\-::\-String@{hryky\-::\-String}!operator$<$@{operator$<$}}
+\index{operator$<$@{operator$<$}!hryky::String@{hryky\-::\-String}}
+\subsubsection[{operator$<$}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Char\-T , typename Allocator\-T $>$ bool {\bf hryky\-::\-String}$<$ Char\-T, Allocator\-T $>$\-::operator$<$ (
+\begin{DoxyParamCaption}
+\item[{Char\-T const $\ast$const}]{rhs}
+\end{DoxyParamCaption}
+) const}}\label{classhryky_1_1_string_a7e287629be7b7f2e7e5228ca388c5f13}
+confirms whether this string is less than the null-\/terminated characters in dictionary order. \hypertarget{classhryky_1_1_string_a8722fa391d4ee8b119092502840a4146}{\index{hryky\-::\-String@{hryky\-::\-String}!operator$<$=@{operator$<$=}}
+\index{operator$<$=@{operator$<$=}!hryky::String@{hryky\-::\-String}}
+\subsubsection[{operator$<$=}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Char\-T , typename Allocator\-T $>$ bool {\bf hryky\-::\-String}$<$ Char\-T, Allocator\-T $>$\-::operator$<$= (
+\begin{DoxyParamCaption}
+\item[{{\bf this\-\_\-type} const \&}]{rhs}
+\end{DoxyParamCaption}
+) const}}\label{classhryky_1_1_string_a8722fa391d4ee8b119092502840a4146}
+confirms whether this string is less than or equal to the other string in dictionary order. 
+
+References \hyperlink{classhryky_1_1_string_a9db0f71dce7b2de86a54ab5323759265}{hryky\-::\-String$<$ Char\-T, Allocator\-T $>$\-::size()}.
+
+\hypertarget{classhryky_1_1_string_ac358d7f8d06264f161ecd3d5c5a4b154}{\index{hryky\-::\-String@{hryky\-::\-String}!operator$<$=@{operator$<$=}}
+\index{operator$<$=@{operator$<$=}!hryky::String@{hryky\-::\-String}}
+\subsubsection[{operator$<$=}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Char\-T , typename Allocator\-T $>$ bool {\bf hryky\-::\-String}$<$ Char\-T, Allocator\-T $>$\-::operator$<$= (
+\begin{DoxyParamCaption}
+\item[{Char\-T const $\ast$const}]{rhs}
+\end{DoxyParamCaption}
+) const}}\label{classhryky_1_1_string_ac358d7f8d06264f161ecd3d5c5a4b154}
+
+
+confirms whether this string is less than or equal to the null-\/terminated characters in dictionary order. 
+
+confirms whether this string is less than or equal to the null-\/ terminated characters in dictionary order. \hypertarget{classhryky_1_1_string_a48283b80979ce1e09ac69f915ac4209f}{\index{hryky\-::\-String@{hryky\-::\-String}!operator==@{operator==}}
+\index{operator==@{operator==}!hryky::String@{hryky\-::\-String}}
+\subsubsection[{operator==}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Char\-T , typename Allocator\-T $>$ bool {\bf hryky\-::\-String}$<$ Char\-T, Allocator\-T $>$\-::operator== (
+\begin{DoxyParamCaption}
+\item[{Char\-T const $\ast$const}]{rhs}
+\end{DoxyParamCaption}
+) const}}\label{classhryky_1_1_string_a48283b80979ce1e09ac69f915ac4209f}
+confirms whether this string has same characters as the null-\/terminated characters. \hypertarget{classhryky_1_1_string_af95769666d2ba09ca36310dc1e97de8e}{\index{hryky\-::\-String@{hryky\-::\-String}!operator$>$@{operator$>$}}
+\index{operator$>$@{operator$>$}!hryky::String@{hryky\-::\-String}}
+\subsubsection[{operator$>$}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Char\-T , typename Allocator\-T $>$ bool {\bf hryky\-::\-String}$<$ Char\-T, Allocator\-T $>$\-::operator$>$ (
+\begin{DoxyParamCaption}
+\item[{{\bf this\-\_\-type} const \&}]{rhs}
+\end{DoxyParamCaption}
+) const}}\label{classhryky_1_1_string_af95769666d2ba09ca36310dc1e97de8e}
+confirms whether this string is greater than the other string in dictionary order. \hypertarget{classhryky_1_1_string_a7f2c88da9ad92fa5fcc3cdaa4f26d4d7}{\index{hryky\-::\-String@{hryky\-::\-String}!operator$>$@{operator$>$}}
+\index{operator$>$@{operator$>$}!hryky::String@{hryky\-::\-String}}
+\subsubsection[{operator$>$}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Char\-T , typename Allocator\-T $>$ bool {\bf hryky\-::\-String}$<$ Char\-T, Allocator\-T $>$\-::operator$>$ (
+\begin{DoxyParamCaption}
+\item[{Char\-T const $\ast$const}]{rhs}
+\end{DoxyParamCaption}
+) const}}\label{classhryky_1_1_string_a7f2c88da9ad92fa5fcc3cdaa4f26d4d7}
+
+
+confirms whether this string is greater than the null-\/ terminated characters in dictionary order. 
+
+confirms whether this string is greater than the null-\/terminated characters in dictionary order. \hypertarget{classhryky_1_1_string_a60476053dfd6e120ff03cea4b4575af7}{\index{hryky\-::\-String@{hryky\-::\-String}!operator$>$=@{operator$>$=}}
+\index{operator$>$=@{operator$>$=}!hryky::String@{hryky\-::\-String}}
+\subsubsection[{operator$>$=}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Char\-T , typename Allocator\-T $>$ bool {\bf hryky\-::\-String}$<$ Char\-T, Allocator\-T $>$\-::operator$>$= (
+\begin{DoxyParamCaption}
+\item[{{\bf this\-\_\-type} const \&}]{rhs}
+\end{DoxyParamCaption}
+) const}}\label{classhryky_1_1_string_a60476053dfd6e120ff03cea4b4575af7}
+confirms whether this string is greater than or equal to the other string in dictionary order. \hypertarget{classhryky_1_1_string_af179712fb033e3cc1f0699d8ec4abed5}{\index{hryky\-::\-String@{hryky\-::\-String}!operator$>$=@{operator$>$=}}
+\index{operator$>$=@{operator$>$=}!hryky::String@{hryky\-::\-String}}
+\subsubsection[{operator$>$=}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Char\-T , typename Allocator\-T $>$ bool {\bf hryky\-::\-String}$<$ Char\-T, Allocator\-T $>$\-::operator$>$= (
+\begin{DoxyParamCaption}
+\item[{Char\-T const $\ast$const}]{rhs}
+\end{DoxyParamCaption}
+) const}}\label{classhryky_1_1_string_af179712fb033e3cc1f0699d8ec4abed5}
+confirms whether this string is greater than or equal to the null-\/terminated characters in dictionary order. 
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{string_8h}{string.\-h}\end{DoxyCompactItemize}

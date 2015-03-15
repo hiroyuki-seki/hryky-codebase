@@ -1,0 +1,134 @@
+\hypertarget{uri__regname__entity_8h_source}{\section{uri\-\_\-regname\-\_\-entity.\-h}
+}
+
+\begin{DoxyCode}
+00001 
+00007 \textcolor{preprocessor}{#ifndef URI\_REGNAME\_ENTITY\_H\_20130104084414030}
+00008 \textcolor{preprocessor}{}\textcolor{preprocessor}{#define URI\_REGNAME\_ENTITY\_H\_20130104084414030}
+00009 \textcolor{preprocessor}{}\textcolor{preprocessor}{#include "\hyperlink{memory__heap__base_8h}{hryky/memory/heap/memory_heap_base.h}"}
+00010 \textcolor{preprocessor}{#include "\hyperlink{vector_8h}{hryky/vector.h}"}
+00011 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00012 \textcolor{comment}{// macro definition}
+00013 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00014 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00015 \textcolor{comment}{// namespace}
+00016 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00017 \textcolor{keyword}{namespace }hryky
+00018 \{
+00019 \textcolor{keyword}{namespace }uri
+00020 \{
+00021 \textcolor{keyword}{namespace }regname
+00022 \{
+00024     \textcolor{keyword}{class }Entity;
+00025 
+00026 \} \textcolor{comment}{// namespace regname}
+00027 
+00028 \textcolor{keyword}{typedef} regname::Entity regname\_type;
+00029 
+00030 \} \textcolor{comment}{// namespace uri}
+00031 \} \textcolor{comment}{// namespace hryky}
+00032 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00033 \textcolor{comment}{// class declarations}
+00034 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+\hypertarget{uri__regname__entity_8h_source_l00038}{}\hyperlink{classhryky_1_1uri_1_1regname_1_1_entity}{00038} \textcolor{comment}{}\textcolor{keyword}{class }\hyperlink{classhryky_1_1uri_1_1regname_1_1_entity}{hryky::uri::regname::Entity}
+00039 \{
+00040 \textcolor{keyword}{public} :
+00041 
+\hypertarget{uri__regname__entity_8h_source_l00042}{}\hyperlink{classhryky_1_1uri_1_1regname_1_1_entity_ab3e7322abf5cdcaca367ea56179c1862}{00042}     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1uri_1_1regname_1_1_entity}{Entity} \hyperlink{classhryky_1_1uri_1_1regname_1_1_entity_ab3e7322abf5cdcaca367ea56179c1862}{this_type};
+00043     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1memory_1_1heap_1_1_base}{memory::heap_type} \hyperlink{classhryky_1_1memory_1_1heap_1_1_base}{heap_type};
+00044     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1_vector}{Vector<octet_type>} \hyperlink{classhryky_1_1_vector}{octets_type};
+00045 
+00047     \hyperlink{classhryky_1_1uri_1_1regname_1_1_entity_abe9ef7dbb741cbc34fd34fee402de8a8}{Entity}();
+00048 
+00050     \hyperlink{classhryky_1_1uri_1_1regname_1_1_entity_abe9ef7dbb741cbc34fd34fee402de8a8}{Entity}(\hyperlink{classhryky_1_1uri_1_1regname_1_1_entity}{this_type} \textcolor{keyword}{const} &);
+00051 
+00053     \hyperlink{classhryky_1_1uri_1_1regname_1_1_entity_abe9ef7dbb741cbc34fd34fee402de8a8}{Entity}(\hyperlink{classhryky_1_1uri_1_1regname_1_1_entity}{this_type} && rhs);
+00054 
+00056     \hyperlink{classhryky_1_1uri_1_1regname_1_1_entity_abe9ef7dbb741cbc34fd34fee402de8a8}{Entity}(\hyperlink{classhryky_1_1memory_1_1heap_1_1_base}{heap_type} \textcolor{keyword}{const} \hyperlink{namespacehryky_1_1memory_1_1global_a6fc6103f67c837aa0f39b359588409cd}{heap});
+00057 
+00059     \hyperlink{classhryky_1_1uri_1_1regname_1_1_entity_abe9ef7dbb741cbc34fd34fee402de8a8}{Entity}(\hyperlink{classhryky_1_1_vector}{octets_type} \textcolor{keyword}{const} & octets);
+00060 
+00062     \hyperlink{classhryky_1_1uri_1_1regname_1_1_entity_a012ba15450f020918b1d4a1b098c240f}{~Entity}();
+00063 
+\hypertarget{uri__regname__entity_8h_source_l00065}{}\hyperlink{classhryky_1_1uri_1_1regname_1_1_entity_a7f1c4983f7632aaa8354d0c22dc11a8a}{00065}     \hyperlink{classhryky_1_1uri_1_1regname_1_1_entity_a7f1c4983f7632aaa8354d0c22dc11a8a}{hryky_assign_op};
+00066 
+00068     \textcolor{keywordtype}{void} \hyperlink{classhryky_1_1uri_1_1regname_1_1_entity_a97f52fdc33b7a6c85a650c2668cc66e3}{clear}();
+00069 
+00071     \hyperlink{classhryky_1_1_intrusive_ptr}{reduction_type} \hyperlink{classhryky_1_1uri_1_1regname_1_1_entity_a143ce2095d2c5c89459f95c6c3bff26f}{reduce}(\hyperlink{classhryky_1_1reduction_1_1_string}{reduction::name_type} \textcolor{keyword}{const} & name) \textcolor{keyword}{const};
+00072 
+00074     \textcolor{keywordtype}{void} \hyperlink{classhryky_1_1uri_1_1regname_1_1_entity_a2fb8b135d5dc40b2daa2520c952b2e64}{swap}(\hyperlink{classhryky_1_1uri_1_1regname_1_1_entity}{this_type} & src);
+00075 
+00077     \textcolor{keywordtype}{bool} \hyperlink{classhryky_1_1uri_1_1regname_1_1_entity_a7c7aec8a7d5657d7998bb6915f6e3517}{append}(\hyperlink{namespacehryky_a488cba8b666be33ccca70e819684e3c8}{octet_type} \textcolor{keyword}{const} octet);
+00078 
+00080     \textcolor{keywordtype}{bool} \hyperlink{classhryky_1_1uri_1_1regname_1_1_entity_a7c7aec8a7d5657d7998bb6915f6e3517}{append}(\hyperlink{classhryky_1_1uri_1_1regname_1_1_entity}{this_type} \textcolor{keyword}{const} & src);
+00081 
+00082 \textcolor{keyword}{protected} :
+00083 
+00084 \textcolor{keyword}{private} :
+00085 
+00086     \hyperlink{classhryky_1_1_vector}{octets_type} octets\_;
+00087 
+00088 \};
+00089 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00090 \textcolor{comment}{// class specializations}
+00091 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00092 \textcolor{keyword}{namespace }hryky
+00093 \{
+00094 \textcolor{keyword}{namespace }uri
+00095 \{
+00096 \textcolor{keyword}{namespace }regname
+00097 \{
+00098 \} \textcolor{comment}{// namespace regname}
+00099 \} \textcolor{comment}{// namespace uri}
+00100 \} \textcolor{comment}{// namespace hryky}
+00101 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00102 \textcolor{comment}{// public member functions}
+00103 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00104 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00105 \textcolor{comment}{// protected member functions}
+00106 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00107 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00108 \textcolor{comment}{// private member functions}
+00109 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00110 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00111 \textcolor{comment}{// global function prototypes}
+00112 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00113 \textcolor{keyword}{namespace }hryky
+00114 \{
+00115 \textcolor{keyword}{namespace }uri
+00116 \{
+00117 \textcolor{keyword}{namespace }regname
+00118 \{
+00120     \hyperlink{namespacehryky_a343a9a4c36a586be5c2693156200eadc}{reduction_type} \hyperlink{namespacehryky_1_1uri_ab4530b241565d82fb0768bb29031858f}{reduce}(
+00121         \hyperlink{namespacehryky_1_1reduction_ac686c30a4c8d196bbd0f05629a6b921f}{reduction::name_type} \textcolor{keyword}{const} & name, Entity \textcolor{keyword}{const} & src);
+00122 
+00124     \textcolor{keywordtype}{void} \hyperlink{namespacehryky_1_1uri_a385681623309ce37d502b7efea1bf924}{swap}(
+00125         Entity & lhs, Entity & rhs);
+00126 
+00127 \} \textcolor{comment}{// namespace regname}
+00128 \} \textcolor{comment}{// namespace uri}
+00129 \} \textcolor{comment}{// namespace hryky}
+00130 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00131 \textcolor{comment}{// global function definitions}
+00132 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00133 \textcolor{preprocessor}{#endif // URI\_REGNAME\_ENTITY\_H\_20130104084414030}
+00134 \textcolor{preprocessor}{}\textcolor{comment}{// end of file}
+\end{DoxyCode}

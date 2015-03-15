@@ -1,0 +1,83 @@
+\hypertarget{classhryky_1_1iterator_1_1random_1_1_base}{\section{hryky\-:\-:iterator\-:\-:random\-:\-:Base$<$ Container\-T, Value\-T, Pointer\-T, Reference\-T $>$ Class Template Reference}
+\label{classhryky_1_1iterator_1_1random_1_1_base}\index{hryky\-::iterator\-::random\-::\-Base$<$ Container\-T, Value\-T, Pointer\-T, Reference\-T $>$@{hryky\-::iterator\-::random\-::\-Base$<$ Container\-T, Value\-T, Pointer\-T, Reference\-T $>$}}
+}
+
+
+base class for random access iterator.  
+
+
+
+
+{\ttfamily \#include $<$iterator\-\_\-random.\-h$>$}
+
+
+
+Inheritance diagram for hryky\-:\-:iterator\-:\-:random\-:\-:Base$<$ Container\-T, Value\-T, Pointer\-T, Reference\-T $>$\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classhryky_1_1iterator_1_1random_1_1_base__inherit__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classhryky_1_1iterator_1_1random_1_1_base_a81d186e541d1475dedaa204f1ae5d321}{\hyperlink{classhryky_1_1iterator_1_1random_1_1_base_a81d186e541d1475dedaa204f1ae5d321}{Base} ()}\label{classhryky_1_1iterator_1_1random_1_1_base_a81d186e541d1475dedaa204f1ae5d321}
+
+\begin{DoxyCompactList}\small\item\em default constructor \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1iterator_1_1random_1_1_base_a0845b57755dfd114fbd1d9c658b415fa}{\hyperlink{classhryky_1_1iterator_1_1random_1_1_base_a0845b57755dfd114fbd1d9c658b415fa}{Base} (container\-\_\-pointer const container, size\-\_\-type const pos)}\label{classhryky_1_1iterator_1_1random_1_1_base_a0845b57755dfd114fbd1d9c658b415fa}
+
+\begin{DoxyCompactList}\small\item\em constructor with the container and position \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1iterator_1_1random_1_1_base_a68224dc6ab2753f1d8123d854c46ef2f}{\hyperlink{classhryky_1_1iterator_1_1random_1_1_base_a68224dc6ab2753f1d8123d854c46ef2f}{Base} (\hyperlink{classhryky_1_1iterator_1_1random_1_1_base}{this\-\_\-type} const \&rhs)}\label{classhryky_1_1iterator_1_1random_1_1_base_a68224dc6ab2753f1d8123d854c46ef2f}
+
+\begin{DoxyCompactList}\small\item\em copy constructor \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1iterator_1_1random_1_1_base_a7b9bf1ad652b48849f90785bc8408a10}{bool \hyperlink{classhryky_1_1iterator_1_1random_1_1_base_a7b9bf1ad652b48849f90785bc8408a10}{operator!=} (\hyperlink{classhryky_1_1iterator_1_1random_1_1_base}{this\-\_\-type} const \&rhs) const }\label{classhryky_1_1iterator_1_1random_1_1_base_a7b9bf1ad652b48849f90785bc8408a10}
+
+\begin{DoxyCompactList}\small\item\em compares for inequality \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1iterator_1_1random_1_1_base_ac855b032c30109ee9e8c2fa3796c2990}{reference \hyperlink{classhryky_1_1iterator_1_1random_1_1_base_ac855b032c30109ee9e8c2fa3796c2990}{operator$\ast$} () const }\label{classhryky_1_1iterator_1_1random_1_1_base_ac855b032c30109ee9e8c2fa3796c2990}
+
+\begin{DoxyCompactList}\small\item\em dereferences \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1iterator_1_1random_1_1_base_a0c758ff331507eb57f757ac475bdf987}{difference\-\_\-type \hyperlink{classhryky_1_1iterator_1_1random_1_1_base_a0c758ff331507eb57f757ac475bdf987}{operator-\/} (\hyperlink{classhryky_1_1iterator_1_1random_1_1_base}{this\-\_\-type} const \&rhs) const }\label{classhryky_1_1iterator_1_1random_1_1_base_a0c758ff331507eb57f757ac475bdf987}
+
+\begin{DoxyCompactList}\small\item\em measures the distance between two iterators \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1iterator_1_1random_1_1_base_a4be097a80786abe9cda9e1ec876e68e3}{pointer \hyperlink{classhryky_1_1iterator_1_1random_1_1_base_a4be097a80786abe9cda9e1ec876e68e3}{operator-\/$>$} () const }\label{classhryky_1_1iterator_1_1random_1_1_base_a4be097a80786abe9cda9e1ec876e68e3}
+
+\begin{DoxyCompactList}\small\item\em dereferences by \char`\"{}-\/$>$\char`\"{} operator \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1iterator_1_1random_1_1_base_adf522aec140d767c5488ce54ec41549d}{bool \hyperlink{classhryky_1_1iterator_1_1random_1_1_base_adf522aec140d767c5488ce54ec41549d}{operator$<$} (\hyperlink{classhryky_1_1iterator_1_1random_1_1_base}{this\-\_\-type} const \&rhs) const }\label{classhryky_1_1iterator_1_1random_1_1_base_adf522aec140d767c5488ce54ec41549d}
+
+\begin{DoxyCompactList}\small\item\em compares for inequality \char`\"{}$<$\char`\"{} \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1iterator_1_1random_1_1_base_a7cc3555dda27b56d69da8fc058bb1488}{bool \hyperlink{classhryky_1_1iterator_1_1random_1_1_base_a7cc3555dda27b56d69da8fc058bb1488}{operator$<$=} (\hyperlink{classhryky_1_1iterator_1_1random_1_1_base}{this\-\_\-type} const \&rhs) const }\label{classhryky_1_1iterator_1_1random_1_1_base_a7cc3555dda27b56d69da8fc058bb1488}
+
+\begin{DoxyCompactList}\small\item\em compares for inequality \char`\"{}$<$=\char`\"{} \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1iterator_1_1random_1_1_base_afe603f85c127d1dd979117e8f6358081}{bool \hyperlink{classhryky_1_1iterator_1_1random_1_1_base_afe603f85c127d1dd979117e8f6358081}{operator==} (\hyperlink{classhryky_1_1iterator_1_1random_1_1_base}{this\-\_\-type} const \&rhs) const }\label{classhryky_1_1iterator_1_1random_1_1_base_afe603f85c127d1dd979117e8f6358081}
+
+\begin{DoxyCompactList}\small\item\em compares for equality \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1iterator_1_1random_1_1_base_a528de4c9b17108a17926d500b2d113c2}{bool \hyperlink{classhryky_1_1iterator_1_1random_1_1_base_a528de4c9b17108a17926d500b2d113c2}{operator$>$} (\hyperlink{classhryky_1_1iterator_1_1random_1_1_base}{this\-\_\-type} const \&rhs) const }\label{classhryky_1_1iterator_1_1random_1_1_base_a528de4c9b17108a17926d500b2d113c2}
+
+\begin{DoxyCompactList}\small\item\em compares for inequality \char`\"{}$>$\char`\"{} \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1iterator_1_1random_1_1_base_a6beeb3ec5cb1442f1ab8cd9dbe58a4f5}{bool \hyperlink{classhryky_1_1iterator_1_1random_1_1_base_a6beeb3ec5cb1442f1ab8cd9dbe58a4f5}{operator$>$=} (\hyperlink{classhryky_1_1iterator_1_1random_1_1_base}{this\-\_\-type} const \&rhs) const }\label{classhryky_1_1iterator_1_1random_1_1_base_a6beeb3ec5cb1442f1ab8cd9dbe58a4f5}
+
+\begin{DoxyCompactList}\small\item\em compares for inequality \char`\"{}$>$=\char`\"{} \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1iterator_1_1random_1_1_base_a6988b0fcaf2cd0113ff4ae48de9aafb9}{reference \hyperlink{classhryky_1_1iterator_1_1random_1_1_base_a6988b0fcaf2cd0113ff4ae48de9aafb9}{operator\mbox{[}$\,$\mbox{]}} (difference\-\_\-type index) const }\label{classhryky_1_1iterator_1_1random_1_1_base_a6988b0fcaf2cd0113ff4ae48de9aafb9}
+
+\begin{DoxyCompactList}\small\item\em dereferences with offset \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1iterator_1_1random_1_1_base_acc5694bc21edc91c97d8b55d80b6f110}{void \hyperlink{classhryky_1_1iterator_1_1random_1_1_base_acc5694bc21edc91c97d8b55d80b6f110}{swap} (\hyperlink{classhryky_1_1iterator_1_1random_1_1_base}{this\-\_\-type} \&src)}\label{classhryky_1_1iterator_1_1random_1_1_base_acc5694bc21edc91c97d8b55d80b6f110}
+
+\begin{DoxyCompactList}\small\item\em interchanges internal values. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classhryky_1_1iterator_1_1random_1_1_base_a3fc3be5c70c5f2e46d4494c3dbf40598}{\hyperlink{classhryky_1_1iterator_1_1random_1_1_base_a3fc3be5c70c5f2e46d4494c3dbf40598}{hryky\-\_\-assign\-\_\-op}}\label{classhryky_1_1iterator_1_1random_1_1_base_a3fc3be5c70c5f2e46d4494c3dbf40598}
+
+\begin{DoxyCompactList}\small\item\em assignment operator. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$typename Container\-T, typename Value\-T = typename Container\-T\-::value\-\_\-type, typename Pointer\-T = typename Container\-T\-::pointer, typename Reference\-T = typename Container\-T\-::reference$>$class hryky\-::iterator\-::random\-::\-Base$<$ Container\-T, Value\-T, Pointer\-T, Reference\-T $>$}
+
+base class for random access iterator. 
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{iterator__random_8h}{iterator\-\_\-random.\-h}\end{DoxyCompactItemize}

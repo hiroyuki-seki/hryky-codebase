@@ -1,0 +1,149 @@
+\hypertarget{type__info_8h_source}{\section{type\-\_\-info.\-h}
+}
+
+\begin{DoxyCode}
+00001 
+00007 \textcolor{preprocessor}{#ifndef TYPE\_INFO\_H\_20121216182814436}
+00008 \textcolor{preprocessor}{}\textcolor{preprocessor}{#define TYPE\_INFO\_H\_20121216182814436}
+00009 \textcolor{preprocessor}{}\textcolor{preprocessor}{#include "\hyperlink{type__common_8h}{hryky/type/type_common.h}"}
+00010 \textcolor{preprocessor}{#include "\hyperlink{type__id_8h}{hryky/type/type_id.h}"}
+00011 \textcolor{preprocessor}{#include "\hyperlink{type__name_8h}{hryky/type/type_name.h}"}
+00012 \textcolor{preprocessor}{#include "\hyperlink{literal__string_8h}{hryky/literal_string.h}"}
+00013 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00014 \textcolor{comment}{// macro definition}
+00015 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00016 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00017 \textcolor{comment}{// namespace}
+00018 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00019 \textcolor{keyword}{namespace }hryky
+00020 \{
+00021 \textcolor{keyword}{namespace }type
+00022 \{
+00024     \textcolor{keyword}{class }Info;
+00025 
+00026     \textcolor{keyword}{typedef} Info info\_type;
+00027 
+00028 \} \textcolor{comment}{// namespace type}
+00029 \} \textcolor{comment}{// namespace hryky}
+00030 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00031 \textcolor{comment}{// class declarations}
+00032 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+\hypertarget{type__info_8h_source_l00036}{}\hyperlink{classhryky_1_1type_1_1_info}{00036} \textcolor{comment}{}\textcolor{keyword}{class }\hyperlink{classhryky_1_1type_1_1_info}{hryky::type::Info}
+00037 \{
+00038 \textcolor{keyword}{public} :
+00039 
+\hypertarget{type__info_8h_source_l00040}{}\hyperlink{classhryky_1_1type_1_1_info_add4519e2ccc4c1ea0266694bc15135b7}{00040}     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1type_1_1_info}{Info} \hyperlink{classhryky_1_1type_1_1_info_add4519e2ccc4c1ea0266694bc15135b7}{this_type};
+00041 
+00043     \hyperlink{classhryky_1_1type_1_1_info_ae457ac9d30765e0a6513c9566c705a89}{Info}();
+00044 
+00046     \hyperlink{classhryky_1_1type_1_1_info_ae457ac9d30765e0a6513c9566c705a89}{Info}(\hyperlink{classhryky_1_1type_1_1_info}{this_type} \textcolor{keyword}{const} &);
+00047 
+00049     \hyperlink{classhryky_1_1type_1_1_info_ae457ac9d30765e0a6513c9566c705a89}{Info}(\hyperlink{classhryky_1_1type_1_1_info}{this_type} && rhs);
+00050 
+00052     \hyperlink{classhryky_1_1type_1_1_info_ae457ac9d30765e0a6513c9566c705a89}{Info}(id\_type \textcolor{keyword}{const} \textcolor{keywordtype}{id}, \hyperlink{classhryky_1_1_literal_string}{name_type} \textcolor{keyword}{const} & \hyperlink{classhryky_1_1type_1_1_info_a08e5ca8ce8eeafe8c5ee7a82fc5fb832}{name});
+00053 
+00055     \hyperlink{classhryky_1_1type_1_1_info_a9007fd6ed03eb73e6eea97d92bae3398}{~Info}();
+00056 
+\hypertarget{type__info_8h_source_l00058}{}\hyperlink{classhryky_1_1type_1_1_info_ada7b36c7c9db6e6844aaf4bd8bdc54ac}{00058}     \hyperlink{classhryky_1_1type_1_1_info_ada7b36c7c9db6e6844aaf4bd8bdc54ac}{hryky_assign_op};
+00059 
+00061     \textcolor{keywordtype}{bool} \hyperlink{classhryky_1_1type_1_1_info_a2530fd70779c8133c0d4f2c876b3bdee}{operator==}(\hyperlink{classhryky_1_1type_1_1_info}{this_type} \textcolor{keyword}{const} & rhs) \textcolor{keyword}{const};
+00062 
+00064     \textcolor{keywordtype}{bool} \hyperlink{classhryky_1_1type_1_1_info_aed053d9a14c7692e68ec593e940237da}{operator!=}(\hyperlink{classhryky_1_1type_1_1_info}{this_type} \textcolor{keyword}{const} & rhs) \textcolor{keyword}{const};
+00065 
+00067     \textcolor{keywordtype}{void} \hyperlink{classhryky_1_1type_1_1_info_a9c13cc8a9047c9028a4ef14cacc787ad}{clear}();
+00068 
+00070     \hyperlink{classhryky_1_1_intrusive_ptr}{reduction_type} \hyperlink{classhryky_1_1type_1_1_info_a04426ac3d558a06eb28f569fd18685de}{reduce}(\hyperlink{classhryky_1_1reduction_1_1_string}{reduction::name_type} \textcolor{keyword}{const} & \hyperlink{classhryky_1_1type_1_1_info_a08e5ca8ce8eeafe8c5ee7a82fc5fb832}{name}) \textcolor{keyword}{const};
+00071 
+00073     \textcolor{keywordtype}{void} \hyperlink{classhryky_1_1type_1_1_info_a556f2523eefa752022f6441bdc382837}{swap}(\hyperlink{classhryky_1_1type_1_1_info}{this_type} & src);
+00074 
+00076     \hyperlink{classhryky_1_1_literal_string}{name_type} \textcolor{keyword}{const} & \hyperlink{classhryky_1_1type_1_1_info_a08e5ca8ce8eeafe8c5ee7a82fc5fb832}{name}() \textcolor{keyword}{const};
+00077 
+00079     id\_type \hyperlink{classhryky_1_1type_1_1_info_a4672274a2da263baa10f7fd2e35f94e2}{id}() \textcolor{keyword}{const};
+00080 
+00081 \textcolor{keyword}{protected} :
+00082 
+00083 \textcolor{keyword}{private} :
+00084 
+00085     id\_type id\_;
+00086     \hyperlink{classhryky_1_1_literal_string}{name_type} name\_;
+00087 
+00088 \};
+00089 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00090 \textcolor{comment}{// class specializations}
+00091 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00092 \textcolor{keyword}{namespace }hryky
+00093 \{
+00094 \textcolor{keyword}{namespace }type
+00095 \{
+00096 \} \textcolor{comment}{// namespace type}
+00097 \} \textcolor{comment}{// namespace hryky}
+00098 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00099 \textcolor{comment}{// public member functions}
+00100 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00101 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00102 \textcolor{comment}{// protected member functions}
+00103 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00104 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00105 \textcolor{comment}{// private member functions}
+00106 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00107 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00108 \textcolor{comment}{// global function prototypes}
+00109 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00110 \textcolor{keyword}{namespace }hryky
+00111 \{
+00112 \textcolor{keyword}{namespace }type
+00113 \{
+00115     \hyperlink{namespacehryky_a343a9a4c36a586be5c2693156200eadc}{reduction_type} \hyperlink{namespacehryky_af41cb3af6766761da0ff21b84527a52c}{reduce}(
+00116         \hyperlink{namespacehryky_1_1reduction_ac686c30a4c8d196bbd0f05629a6b921f}{reduction::name_type} \textcolor{keyword}{const} & name, Info \textcolor{keyword}{const} & src);
+00117 
+00119     \textcolor{keywordtype}{void} \hyperlink{namespacehryky_a4282146df5ea2b68cb667896a2205909}{swap}(
+00120         Info & lhs, Info & rhs);
+00121 
+00123     \textcolor{keyword}{template} <\textcolor{keyword}{typename} ValueT>
+00124     Info \textcolor{keyword}{const} & info(ValueT \textcolor{keyword}{const} &);
+00125 
+00127     \textcolor{keyword}{template} <\textcolor{keyword}{typename} ValueT>
+00128     Info \textcolor{keyword}{const} & info();
+00129 
+00130 \} \textcolor{comment}{// namespace type}
+00131 \} \textcolor{comment}{// namespace hryky}
+00132 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00133 \textcolor{comment}{// global function definitions}
+00134 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00138 \textcolor{comment}{}\textcolor{keyword}{template} <\textcolor{keyword}{typename} ValueT>
+00139 \hyperlink{classhryky_1_1type_1_1_info}{hryky::type::Info} \textcolor{keyword}{const} & hryky::type::info(ValueT \textcolor{keyword}{const} &)
+00140 \{
+00141     \textcolor{keyword}{static} Info \textcolor{keyword}{const} info(
+00142         Id<ValueT>::value, Name<ValueT>::value);
+00143     
+00144     \textcolor{keywordflow}{return} info;
+00145 \}
+00149 \textcolor{keyword}{template} <\textcolor{keyword}{typename} ValueT>
+00150 \hyperlink{classhryky_1_1type_1_1_info}{hryky::type::Info} \textcolor{keyword}{const} & hryky::type::info()
+00151 \{
+00152     \textcolor{keyword}{static} Info \textcolor{keyword}{const} info(
+00153         Id<ValueT>::value, Name<ValueT>::value);
+00154     
+00155     \textcolor{keywordflow}{return} info;
+00156 \}
+00157 \textcolor{preprocessor}{#endif // TYPE\_INFO\_H\_20121216182814436}
+00158 \textcolor{preprocessor}{}\textcolor{comment}{// end of file}
+\end{DoxyCode}

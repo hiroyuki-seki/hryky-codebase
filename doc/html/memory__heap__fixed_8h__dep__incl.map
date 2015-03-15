@@ -1,0 +1,8 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$memory__heap_8h.html" title="the collection of hryky::memory::heap modules." alt="" coords="33,80,148,107"/>
+<area shape="rect" id="node13" href="$memory__heap__fixed_8cpp.html" title="memory allocation for fixed length units." alt="" coords="172,80,335,107"/>
+<area shape="rect" id="node5" href="$memory_8h.html" title="memory constrol modules." alt="" coords="51,155,131,181"/>
+<area shape="rect" id="node7" href="$hryky_8h.html" title="include the entire headers of hryky&#45;codebase." alt="" coords="5,229,69,256"/>
+<area shape="rect" id="node9" href="$memory_2src_2precompiled_8h_source.html" title="precompiled.h" alt="" coords="94,229,196,256"/>
+<area shape="rect" id="node11" href="$memory__common_8cpp.html" title="common definition for hryky::memory module." alt="" coords="70,304,220,331"/>
+</map>

@@ -1,0 +1,132 @@
+\hypertarget{ip__vf__entity_8h_source}{\section{ip\-\_\-vf\-\_\-entity.\-h}
+}
+
+\begin{DoxyCode}
+00001 
+00007 \textcolor{preprocessor}{#ifndef IP\_VF\_ENTITY\_H\_20130104101501093}
+00008 \textcolor{preprocessor}{}\textcolor{preprocessor}{#define IP\_VF\_ENTITY\_H\_20130104101501093}
+00009 \textcolor{preprocessor}{}\textcolor{preprocessor}{#include "\hyperlink{memory__heap__base_8h}{hryky/memory/heap/memory_heap_base.h}"}
+00010 \textcolor{preprocessor}{#include "\hyperlink{vector_8h}{hryky/vector.h}"}
+00011 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00012 \textcolor{comment}{// macro definition}
+00013 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00014 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00015 \textcolor{comment}{// namespace}
+00016 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00017 \textcolor{keyword}{namespace }hryky
+00018 \{
+00019 \textcolor{keyword}{namespace }ip
+00020 \{
+00021 \textcolor{keyword}{namespace }vf
+00022 \{
+00024     \textcolor{keyword}{class }Entity;
+00025 
+00026 \} \textcolor{comment}{// namespace vf}
+00027 
+00028 \textcolor{keyword}{typedef} vf::Entity vf\_type;
+00029 
+00030 \} \textcolor{comment}{// namespace ip}
+00031 \} \textcolor{comment}{// namespace hryky}
+00032 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00033 \textcolor{comment}{// class declarations}
+00034 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+\hypertarget{ip__vf__entity_8h_source_l00038}{}\hyperlink{classhryky_1_1ip_1_1vf_1_1_entity}{00038} \textcolor{comment}{}\textcolor{keyword}{class }\hyperlink{classhryky_1_1ip_1_1vf_1_1_entity}{hryky::ip::vf::Entity}
+00039 \{
+00040 \textcolor{keyword}{public} :
+00041 
+\hypertarget{ip__vf__entity_8h_source_l00042}{}\hyperlink{classhryky_1_1ip_1_1vf_1_1_entity_adf2e2de606d79343c1f1a1aa016d9abd}{00042}     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1ip_1_1vf_1_1_entity}{Entity} \hyperlink{classhryky_1_1ip_1_1vf_1_1_entity_adf2e2de606d79343c1f1a1aa016d9abd}{this_type};
+00043     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1memory_1_1heap_1_1_base}{memory::heap_type} \hyperlink{classhryky_1_1memory_1_1heap_1_1_base}{heap_type};
+00044     \textcolor{keyword}{typedef} uint32\_t major\_type;
+00045     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1_vector}{Vector<octet_type>} \hyperlink{classhryky_1_1_vector}{minor_type};
+00046 
+00048     \hyperlink{classhryky_1_1ip_1_1vf_1_1_entity_a61025534537475c910dc8d06ef7451f7}{Entity}();
+00049 
+00051     \hyperlink{classhryky_1_1ip_1_1vf_1_1_entity_a61025534537475c910dc8d06ef7451f7}{Entity}(\hyperlink{classhryky_1_1ip_1_1vf_1_1_entity}{this_type} \textcolor{keyword}{const} &);
+00052 
+00054     \hyperlink{classhryky_1_1ip_1_1vf_1_1_entity_a61025534537475c910dc8d06ef7451f7}{Entity}(\hyperlink{classhryky_1_1ip_1_1vf_1_1_entity}{this_type} && rhs);
+00055 
+00057     \hyperlink{classhryky_1_1ip_1_1vf_1_1_entity_a61025534537475c910dc8d06ef7451f7}{Entity}(\hyperlink{classhryky_1_1memory_1_1heap_1_1_base}{heap_type} \textcolor{keyword}{const} \hyperlink{namespacehryky_1_1memory_1_1global_a6fc6103f67c837aa0f39b359588409cd}{heap});
+00058 
+00060     \hyperlink{classhryky_1_1ip_1_1vf_1_1_entity_a61025534537475c910dc8d06ef7451f7}{Entity}(major\_type \textcolor{keyword}{const} major, \hyperlink{classhryky_1_1_vector}{minor_type} \textcolor{keyword}{const} & minor);
+00061 
+00063     \hyperlink{classhryky_1_1ip_1_1vf_1_1_entity_aa79cac1977059edd8db10758456ef9d9}{~Entity}();
+00064 
+\hypertarget{ip__vf__entity_8h_source_l00066}{}\hyperlink{classhryky_1_1ip_1_1vf_1_1_entity_ae7198a74c559dcd92db7d4556db5d3a8}{00066}     \hyperlink{classhryky_1_1ip_1_1vf_1_1_entity_ae7198a74c559dcd92db7d4556db5d3a8}{hryky_assign_op};
+00067 
+00069     \textcolor{keywordtype}{void} \hyperlink{classhryky_1_1ip_1_1vf_1_1_entity_a7a376ae80341a5e1978036c787791ac8}{clear}();
+00070 
+00072     \hyperlink{classhryky_1_1_intrusive_ptr}{reduction_type} \hyperlink{classhryky_1_1ip_1_1vf_1_1_entity_a0925baf1b795c13d7da75a5917f12205}{reduce}(\hyperlink{classhryky_1_1reduction_1_1_string}{reduction::name_type} \textcolor{keyword}{const} & name) \textcolor{keyword}{const};
+00073 
+00075     \textcolor{keywordtype}{void} \hyperlink{classhryky_1_1ip_1_1vf_1_1_entity_a54fb00eac1464d94bc1d4e94576747f4}{swap}(\hyperlink{classhryky_1_1ip_1_1vf_1_1_entity}{this_type} & src);
+00076 
+00077 \textcolor{keyword}{protected} :
+00078 
+00079 \textcolor{keyword}{private} :
+00080 
+00081     major\_type major\_;
+00082     \hyperlink{classhryky_1_1_vector}{minor_type} minor\_;
+00083 
+00084 \};
+00085 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00086 \textcolor{comment}{// class specializations}
+00087 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00088 \textcolor{keyword}{namespace }hryky
+00089 \{
+00090 \textcolor{keyword}{namespace }ip
+00091 \{
+00092 \textcolor{keyword}{namespace }vf
+00093 \{
+00094 \} \textcolor{comment}{// namespace vf}
+00095 \} \textcolor{comment}{// namespace ip}
+00096 \} \textcolor{comment}{// namespace hryky}
+00097 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00098 \textcolor{comment}{// public member functions}
+00099 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00100 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00101 \textcolor{comment}{// protected member functions}
+00102 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00103 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00104 \textcolor{comment}{// private member functions}
+00105 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00106 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00107 \textcolor{comment}{// global function prototypes}
+00108 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00109 \textcolor{keyword}{namespace }hryky
+00110 \{
+00111 \textcolor{keyword}{namespace }ip
+00112 \{
+00113 \textcolor{keyword}{namespace }vf
+00114 \{
+00116     \hyperlink{namespacehryky_a343a9a4c36a586be5c2693156200eadc}{reduction_type} \hyperlink{namespacehryky_af41cb3af6766761da0ff21b84527a52c}{reduce}(
+00117         \hyperlink{namespacehryky_1_1reduction_ac686c30a4c8d196bbd0f05629a6b921f}{reduction::name_type} \textcolor{keyword}{const} & name, Entity \textcolor{keyword}{const} & src);
+00118 
+00120     \textcolor{keywordtype}{void} \hyperlink{namespacehryky_a4282146df5ea2b68cb667896a2205909}{swap}(
+00121         Entity & lhs, Entity & rhs);
+00122 
+00123 \} \textcolor{comment}{// namespace vf}
+00124 \} \textcolor{comment}{// namespace ip}
+00125 \} \textcolor{comment}{// namespace hryky}
+00126 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00127 \textcolor{comment}{// global function definitions}
+00128 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00129 \textcolor{preprocessor}{#endif // IP\_VF\_ENTITY\_H\_20130104101501093}
+00130 \textcolor{preprocessor}{}\textcolor{comment}{// end of file}
+\end{DoxyCode}

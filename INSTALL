@@ -1,0 +1,31 @@
+Document for Installation. 
+(version : $Id: INSTALL 81 2012-07-01 07:50:14Z hryky.private@gmail.com $)
+
+1. Please download and install "CMake" version 2.8 or later.
+http://www.cmake.org/cmake/resources/software.html
+
+2. Please change current directory to where you want to output 
+configuration files to build this project. To keep the downloaded 
+source-tree clean , it will be better to change directory to different 
+path out of the downloaded directory.
+
+For example, 
+If the root directory of downloaded sources is at "C:\develop\projects\hryky-codebase\", you can change the current directory to the different path as follow.
+
+> cd "C:\develop\output\hryky-codebase\"
+
+
+*** following description assumes to use the directories above. ***
+
+3. Please execute "cmake" to build this project.
+> cmake --build "C:\develop\output\hryky-codebase" "C:\develop\projects\hryky-codebase" --config Release
+
+If you want to use a library of debug version, you could use option "--config Debug".
+
+4. Please execute "cmake" to install this project.
+> cmake --build "C:\develop\output\hryky-codebase" --target INSTALL
+
+  If the installation completed successfully,  header files and library is 
+in application directory of your platform. In Windows 7 64bit, the application 
+directory will be the path indicated by %ProgramW6432%.
+

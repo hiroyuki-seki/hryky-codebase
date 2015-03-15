@@ -1,0 +1,145 @@
+\hypertarget{http__header__cache__directive__base_8h_source}{\section{http\-\_\-header\-\_\-cache\-\_\-directive\-\_\-base.\-h}
+}
+
+\begin{DoxyCode}
+00001 
+00007 \textcolor{preprocessor}{#ifndef HTTP\_HEADER\_CACHE\_DIRECTIVE\_BASE\_H\_20130107210619546}
+00008 \textcolor{preprocessor}{}\textcolor{preprocessor}{#define HTTP\_HEADER\_CACHE\_DIRECTIVE\_BASE\_H\_20130107210619546}
+00009 \textcolor{preprocessor}{}\textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00010 \textcolor{comment}{// macro definition}
+00011 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00012 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00013 \textcolor{comment}{// namespace}
+00014 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00015 \textcolor{keyword}{namespace }hryky
+00016 \{
+00017 \textcolor{keyword}{namespace }http
+00018 \{
+00019 \textcolor{keyword}{namespace }header
+00020 \{
+00021 \textcolor{keyword}{namespace }cache
+00022 \{
+00023 \textcolor{keyword}{namespace }directive
+00024 \{
+00026     \textcolor{keyword}{class }Base;
+00027 
+00028 \textcolor{keyword}{namespace }dispatcher
+00029 \{
+00030     \textcolor{keyword}{class }Base;
+00031 \}
+00032 \textcolor{keyword}{typedef} dispatcher::Base dispatcher\_type;
+00033 
+00034 \} \textcolor{comment}{// namespace directive}
+00035 
+00036 \textcolor{keyword}{typedef} directive::Base directive\_type;
+00037 
+00038 \} \textcolor{comment}{// namespace cache}
+00039 \} \textcolor{comment}{// namespace header}
+00040 \} \textcolor{comment}{// namespace http}
+00041 \} \textcolor{comment}{// namespace hryky}
+00042 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00043 \textcolor{comment}{// class declarations}
+00044 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+\hypertarget{http__header__cache__directive__base_8h_source_l00048}{}\hyperlink{classhryky_1_1http_1_1header_1_1cache_1_1directive_1_1_base}{00048} \textcolor{comment}{}\textcolor{keyword}{class }\hyperlink{classhryky_1_1http_1_1header_1_1cache_1_1directive_1_1_base}{hryky::http::header::cache::directive::Base}
+00049 \{
+00050 \textcolor{keyword}{public} :
+00051 
+\hypertarget{http__header__cache__directive__base_8h_source_l00052}{}\hyperlink{classhryky_1_1http_1_1header_1_1cache_1_1directive_1_1_base_a9bbcc0e5a77bd95f0b2482502287720e}{00052}     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1http_1_1header_1_1cache_1_1directive_1_1_base}{Base} \hyperlink{classhryky_1_1http_1_1header_1_1cache_1_1directive_1_1_base_a9bbcc0e5a77bd95f0b2482502287720e}{this_type};
+00053 
+00055     \textcolor{keyword}{virtual} \hyperlink{classhryky_1_1http_1_1header_1_1cache_1_1directive_1_1_base_a722da881b6c70cfcbde9243abcfbf334}{~Base}();
+00056 
+00058     \hyperlink{classhryky_1_1_intrusive_ptr}{reduction_type} \hyperlink{classhryky_1_1http_1_1header_1_1cache_1_1directive_1_1_base_a2809ad5f75abd2266e6804e90094bc05}{reduce}(\hyperlink{classhryky_1_1reduction_1_1_string}{reduction::name_type} \textcolor{keyword}{const} & name) \textcolor{keyword}{const};
+00059 
+00061     \textcolor{keywordtype}{void} \hyperlink{classhryky_1_1http_1_1header_1_1cache_1_1directive_1_1_base_ab2b137d16fbe40d839ee136bd5304cab}{swap}(\hyperlink{classhryky_1_1http_1_1header_1_1cache_1_1directive_1_1_base}{this_type} & src);
+00062 
+00064     \textcolor{keywordtype}{bool} \hyperlink{classhryky_1_1http_1_1header_1_1cache_1_1directive_1_1_base_aef756d94ec270c120024d1f04176851d}{dispatch}(\hyperlink{classhryky_1_1http_1_1header_1_1cache_1_1directive_1_1dispatcher_1_1_base}{dispatcher_type} & dispatcher);
+00065 
+00066 \textcolor{keyword}{protected} :
+00067 
+00069     \hyperlink{classhryky_1_1http_1_1header_1_1cache_1_1directive_1_1_base_a5ffe0568374d8b9b4c4ec32953fd6453}{Base}();
+00070 
+00072     \hyperlink{classhryky_1_1http_1_1header_1_1cache_1_1directive_1_1_base_a5ffe0568374d8b9b4c4ec32953fd6453}{Base}(\hyperlink{classhryky_1_1http_1_1header_1_1cache_1_1directive_1_1_base}{this_type} \textcolor{keyword}{const} &);
+00073 
+00075     \hyperlink{classhryky_1_1http_1_1header_1_1cache_1_1directive_1_1_base_a5ffe0568374d8b9b4c4ec32953fd6453}{Base}(\hyperlink{classhryky_1_1http_1_1header_1_1cache_1_1directive_1_1_base}{this_type} && rhs);
+00076 
+\hypertarget{http__header__cache__directive__base_8h_source_l00078}{}\hyperlink{classhryky_1_1http_1_1header_1_1cache_1_1directive_1_1_base_a8f960712519a9311954268c3d5dc78f1}{00078}     \hyperlink{classhryky_1_1http_1_1header_1_1cache_1_1directive_1_1_base_a8f960712519a9311954268c3d5dc78f1}{hryky_assign_op};
+00079 
+00081     \textcolor{keywordtype}{void} \hyperlink{classhryky_1_1http_1_1header_1_1cache_1_1directive_1_1_base_a135bce05655e290c78fa83196199a576}{clear}();
+00082 
+00083 \textcolor{keyword}{private} :
+00084 
+00085     \textcolor{keyword}{virtual} \textcolor{keywordtype}{bool} dispatch\_impl(\hyperlink{classhryky_1_1http_1_1header_1_1cache_1_1directive_1_1dispatcher_1_1_base}{dispatcher_type} &) = 0;
+00086 
+00087 \};
+00088 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00089 \textcolor{comment}{// class specializations}
+00090 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00091 \textcolor{keyword}{namespace }hryky
+00092 \{
+00093 \textcolor{keyword}{namespace }http
+00094 \{
+00095 \textcolor{keyword}{namespace }header
+00096 \{
+00097 \textcolor{keyword}{namespace }cache
+00098 \{
+00099 \textcolor{keyword}{namespace }directive
+00100 \{
+00101 \} \textcolor{comment}{// namespace directive}
+00102 \} \textcolor{comment}{// namespace cache}
+00103 \} \textcolor{comment}{// namespace header}
+00104 \} \textcolor{comment}{// namespace http}
+00105 \} \textcolor{comment}{// namespace hryky}
+00106 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00107 \textcolor{comment}{// public member functions}
+00108 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00109 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00110 \textcolor{comment}{// protected member functions}
+00111 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00112 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00113 \textcolor{comment}{// private member functions}
+00114 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00115 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00116 \textcolor{comment}{// global function prototypes}
+00117 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00118 \textcolor{keyword}{namespace }hryky
+00119 \{
+00120 \textcolor{keyword}{namespace }http
+00121 \{
+00122 \textcolor{keyword}{namespace }header
+00123 \{
+00124 \textcolor{keyword}{namespace }cache
+00125 \{
+00126 \textcolor{keyword}{namespace }directive
+00127 \{
+00129     \hyperlink{classhryky_1_1_intrusive_ptr}{hryky::reduction_type} \hyperlink{namespacehryky_1_1http_a08fc36a78a8e2908140fcd102829a566}{reduce}(
+00130         \hyperlink{namespacehryky_1_1reduction_ac686c30a4c8d196bbd0f05629a6b921f}{reduction::name_type} \textcolor{keyword}{const} & name, Base \textcolor{keyword}{const} & src);
+00131 
+00132 \} \textcolor{comment}{// namespace directive}
+00133 \} \textcolor{comment}{// namespace cache}
+00134 \} \textcolor{comment}{// namespace header}
+00135 \} \textcolor{comment}{// namespace http}
+00136 \} \textcolor{comment}{// namespace hryky}
+00137 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00138 \textcolor{comment}{// global function definitions}
+00139 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00140 \textcolor{preprocessor}{#endif // HTTP\_HEADER\_CACHE\_DIRECTIVE\_BASE\_H\_20130107210619546}
+00141 \textcolor{preprocessor}{}\textcolor{comment}{// end of file}
+\end{DoxyCode}

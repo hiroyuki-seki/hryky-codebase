@@ -1,0 +1,140 @@
+\hypertarget{ascii__common_8h_source}{\section{ascii\-\_\-common.\-h}
+}
+
+\begin{DoxyCode}
+00001 
+00007 \textcolor{preprocessor}{#ifndef ASCII\_COMMON\_H\_20120922170458378}
+00008 \textcolor{preprocessor}{}\textcolor{preprocessor}{#define ASCII\_COMMON\_H\_20120922170458378}
+00009 \textcolor{preprocessor}{}\textcolor{preprocessor}{#include "\hyperlink{common_8h}{hryky/common.h}"}
+00010 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00011 \textcolor{comment}{// macro definition}
+00012 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+\hypertarget{ascii__common_8h_source_l00014}{}\hyperlink{ascii__common_8h_af55d335795d0ce4ac4d3ab957caa9c09}{00014} \textcolor{comment}{}\textcolor{preprocessor}{#define hryky\_case\_ascii\_upalpha \(\backslash\)}
+00015 \textcolor{preprocessor}{    'A': case 'B': case 'C': case 'D': case 'E': case 'F': case 'G': case 'H': 
+      \(\backslash\)}
+00016 \textcolor{preprocessor}{case 'I': case 'J': case 'K': case 'L': case 'M': case 'N': case 'O': case 'P':
+       \(\backslash\)}
+00017 \textcolor{preprocessor}{case 'Q': case 'R': case 'S': case 'T': case 'U': case 'V': case 'W': case 'X':
+       \(\backslash\)}
+00018 \textcolor{preprocessor}{case 'Y': case 'Z'}
+00019 \textcolor{preprocessor}{}
+\hypertarget{ascii__common_8h_source_l00021}{}\hyperlink{ascii__common_8h_a717df946132a61c99180b3081c67f061}{00021} \textcolor{preprocessor}{#define hryky\_case\_ascii\_loalpha \(\backslash\)}
+00022 \textcolor{preprocessor}{    'a': case 'b': case 'c': case 'd': case 'e': case 'f': case 'g': case 'h': 
+      \(\backslash\)}
+00023 \textcolor{preprocessor}{case 'i': case 'j': case 'k': case 'l': case 'm': case 'n': case 'o': case 'p':
+       \(\backslash\)}
+00024 \textcolor{preprocessor}{case 'q': case 'r': case 's': case 't': case 'u': case 'v': case 'w': case 'x':
+       \(\backslash\)}
+00025 \textcolor{preprocessor}{case 'y': case 'z'}
+00026 \textcolor{preprocessor}{}
+\hypertarget{ascii__common_8h_source_l00028}{}\hyperlink{ascii__common_8h_a47d4ffa4b332a1ab083be8c783dfc747}{00028} \textcolor{preprocessor}{#define hryky\_case\_ascii\_alpha \(\backslash\)}
+00029 \textcolor{preprocessor}{hryky\_case\_ascii\_upalpha: case hryky\_case\_ascii\_loalpha}
+00030 \textcolor{preprocessor}{}
+\hypertarget{ascii__common_8h_source_l00032}{}\hyperlink{ascii__common_8h_a421999a0fac019126ceb8ca958a0d968}{00032} \textcolor{preprocessor}{#define hryky\_case\_ascii\_printable \(\backslash\)}
+00033 \textcolor{preprocessor}{hryky\_case\_ascii\_alpha: case hryky\_case\_ascii\_digit: case '!': case '"': \(\backslash\)}
+00034 \textcolor{preprocessor}{case '#': case '$': case '%': case '&': case '\(\backslash\)'': case '(': case ')': \(\backslash\)}
+00035 \textcolor{preprocessor}{case '*': case '+': case ',': case '-': case '.': case '/': case ':': \(\backslash\)}
+00036 \textcolor{preprocessor}{case ';': case '<': case '=': case '>': case '?': case '@': case '[': \(\backslash\)}
+00037 \textcolor{preprocessor}{case '\(\backslash\)\(\backslash\)': case ']': case '^': case '\_': case '`': case '\{': case '|': \(\backslash\)}
+00038 \textcolor{preprocessor}{case '\}': case '~'}
+00039 \textcolor{preprocessor}{}
+\hypertarget{ascii__common_8h_source_l00041}{}\hyperlink{ascii__common_8h_af3b829211fb615ab5b9909c32198fa73}{00041} \textcolor{preprocessor}{#define hryky\_case\_ascii\_control \(\backslash\)}
+00042 \textcolor{preprocessor}{0x00: }\textcolor{comment}{/*NUL*/} case 0x01: \textcolor{comment}{/*SOH*/} case 0x02: \textcolor{comment}{/*STX*/}case 0x03: \textcolor{comment}{/*ETX*/} \(\backslash\)
+00043 case 0x04: \textcolor{comment}{/*EOT*/} case 0x05: \textcolor{comment}{/*ENQ*/} case 0x06: \textcolor{comment}{/*ACK*/} case 0x07: \textcolor{comment}{/*BEL*/} \(\backslash\)
+00044 case 0x08: \textcolor{comment}{/*BS*/} case 0x09: \textcolor{comment}{/*HT*/} case 0x0A: \textcolor{comment}{/*LF*/} case 0x0B: \textcolor{comment}{/*VT*/} \(\backslash\)
+00045 case 0x0C: \textcolor{comment}{/*FF*/} case 0x0D: \textcolor{comment}{/*CR*/} case 0x0E: \textcolor{comment}{/*SO*/} case 0x0F: \textcolor{comment}{/*SI*/} \(\backslash\)
+00046 case 0x10: \textcolor{comment}{/*DLE*/} case 0x11: \textcolor{comment}{/*DC1*/} case 0x12: \textcolor{comment}{/*DC2*/} case 0x13: \textcolor{comment}{/*DC3*/} \(\backslash\)
+00047 case 0x14: \textcolor{comment}{/*DC4*/} case 0x15: \textcolor{comment}{/*NAK*/} case 0x16: \textcolor{comment}{/*SYN*/} case 0x17: \textcolor{comment}{/*ETB*/} \(\backslash\)
+00048 case 0x18: \textcolor{comment}{/*CAN*/} case 0x19: \textcolor{comment}{/*EM*/} case 0x1A: \textcolor{comment}{/*SUB*/} case 0x1B: \textcolor{comment}{/*ESC*/} \(\backslash\)
+00049 case 0x1C: \textcolor{comment}{/*FS*/} case 0x1D: \textcolor{comment}{/*GS*/} case 0x1E: \textcolor{comment}{/*RS*/} case 0x1F: \textcolor{comment}{/*US*/} \(\backslash\)
+00050 case 0x7F \textcolor{comment}{/*DEL*/}
+00051 
+\hypertarget{ascii__common_8h_source_l00053}{}\hyperlink{ascii__common_8h_a1bfc5c1dc33636f04de66a0352dd40da}{00053} \textcolor{preprocessor}{#define hryky\_case\_ascii\_digit \(\backslash\)}
+00054 \textcolor{preprocessor}{    '0': case '1': case '2': case '3': case '4': case '5': case '6': case '7': 
+      \(\backslash\)}
+00055 \textcolor{preprocessor}{case '8': case '9'}
+00056 \textcolor{preprocessor}{}
+\hypertarget{ascii__common_8h_source_l00061}{}\hyperlink{ascii__common_8h_a0cc0876b6139ba610ca15e1319961510}{00061} \textcolor{preprocessor}{#define hryky\_case\_ascii\_uphexdig \(\backslash\)}
+00062 \textcolor{preprocessor}{    'A': case 'B': case 'C': case 'D': case 'E': case 'F'}
+00063 \textcolor{preprocessor}{}
+\hypertarget{ascii__common_8h_source_l00068}{}\hyperlink{ascii__common_8h_a0fb932e22325e0f21f3be2f369882583}{00068} \textcolor{preprocessor}{#define hryky\_case\_ascii\_lohexdig \(\backslash\)}
+00069 \textcolor{preprocessor}{    'a': case 'b': case 'c': case 'd': case 'e': case 'f'}
+00070 \textcolor{preprocessor}{}
+\hypertarget{ascii__common_8h_source_l00072}{}\hyperlink{ascii__common_8h_a06a569e9665ef789619ee5e5e34e9e0d}{00072} \textcolor{preprocessor}{#define hryky\_case\_ascii\_hexdig \(\backslash\)}
+00073 \textcolor{preprocessor}{hryky\_case\_ascii\_digit: case hryky\_case\_ascii\_uphexdig: \(\backslash\)}
+00074 \textcolor{preprocessor}{case hryky\_case\_ascii\_lohexdig}
+00075 \textcolor{preprocessor}{}
+00076 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00077 \textcolor{comment}{// namespace}
+00078 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+\hypertarget{ascii__common_8h_source_l00079}{}\hyperlink{namespacehryky}{00079} \textcolor{keyword}{namespace }hryky
+00080 \{
+00081 \textcolor{keyword}{namespace }ascii
+00082 \{
+00083     \hyperlink{namespacehryky_a488cba8b666be33ccca70e819684e3c8}{octet_type} \textcolor{keyword}{const} cr\_            = 0x0D;
+00084     \hyperlink{namespacehryky_a488cba8b666be33ccca70e819684e3c8}{octet_type} \textcolor{keyword}{const} lf\_            = 0x0A;
+00085     \hyperlink{namespacehryky_a488cba8b666be33ccca70e819684e3c8}{octet_type} \textcolor{keyword}{const} sp\_            = 0x20;
+00086     \hyperlink{namespacehryky_a488cba8b666be33ccca70e819684e3c8}{octet_type} \textcolor{keyword}{const} ht\_            = 0x09;
+00087     \hyperlink{namespacehryky_a488cba8b666be33ccca70e819684e3c8}{octet_type} \textcolor{keyword}{const} double\_quote\_  = 0x22;
+00088     
+00090     \textcolor{keywordtype}{bool} verify(\hyperlink{namespacehryky_a488cba8b666be33ccca70e819684e3c8}{octet_type} \textcolor{keyword}{const} octet);
+00091 
+00093     \textcolor{keywordtype}{bool} is\_control(\hyperlink{namespacehryky_a488cba8b666be33ccca70e819684e3c8}{octet_type} \textcolor{keyword}{const} octet);
+00094 
+00096     \textcolor{keywordtype}{bool} is\_digit(\hyperlink{namespacehryky_a488cba8b666be33ccca70e819684e3c8}{octet_type} \textcolor{keyword}{const} octet);
+00097 
+00099     \textcolor{keywordtype}{bool} is\_hexdig(\hyperlink{namespacehryky_a488cba8b666be33ccca70e819684e3c8}{octet_type} \textcolor{keyword}{const} octet);
+00100 
+00102     \textcolor{keywordtype}{bool} to\_digit(uint8\_t & dest, \hyperlink{namespacehryky_a488cba8b666be33ccca70e819684e3c8}{octet_type} \textcolor{keyword}{const} octet);
+00103 
+00105     uint8\_t to\_digit(\hyperlink{namespacehryky_a488cba8b666be33ccca70e819684e3c8}{octet_type} \textcolor{keyword}{const} octet);
+00106 
+00108     \textcolor{keywordtype}{bool} to\_hexdig(uint8\_t & dest, \hyperlink{namespacehryky_a488cba8b666be33ccca70e819684e3c8}{octet_type} \textcolor{keyword}{const} octet);
+00109 
+00111     uint8\_t to\_hexdig(\hyperlink{namespacehryky_a488cba8b666be33ccca70e819684e3c8}{octet_type} \textcolor{keyword}{const} octet);
+00112 
+00114     \textcolor{keywordtype}{bool} is\_alpha(\hyperlink{namespacehryky_a488cba8b666be33ccca70e819684e3c8}{octet_type} \textcolor{keyword}{const} octet);
+00115 
+00117     \textcolor{keywordtype}{bool} is\_upalpha(\hyperlink{namespacehryky_a488cba8b666be33ccca70e819684e3c8}{octet_type} \textcolor{keyword}{const} octet);
+00118 
+00120     \textcolor{keywordtype}{bool} is\_loalpha(\hyperlink{namespacehryky_a488cba8b666be33ccca70e819684e3c8}{octet_type} \textcolor{keyword}{const} octet);
+00121 
+00123     \hyperlink{namespacehryky_a488cba8b666be33ccca70e819684e3c8}{octet_type} to\_lower(\hyperlink{namespacehryky_a488cba8b666be33ccca70e819684e3c8}{octet_type} \textcolor{keyword}{const} octet);
+00124 
+00126     \hyperlink{namespacehryky_a488cba8b666be33ccca70e819684e3c8}{octet_type} to\_uppper(\hyperlink{namespacehryky_a488cba8b666be33ccca70e819684e3c8}{octet_type} \textcolor{keyword}{const} octet);
+00127 
+00128 \} \textcolor{comment}{// namespace ascii}
+00129 \} \textcolor{comment}{// namespace hryky}
+00130 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00131 \textcolor{comment}{// struct declaration}
+00132 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00133 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00134 \textcolor{comment}{// class declaration}
+00135 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00136 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00137 \textcolor{comment}{// global function prototypes}
+00138 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00139 \textcolor{keyword}{namespace }hryky
+00140 \{
+00141 \textcolor{keyword}{namespace }ascii
+00142 \{
+00143 \} \textcolor{comment}{// namespace ascii}
+00144 \} \textcolor{comment}{// namespace hryky}
+00145 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00146 \textcolor{comment}{// global function definitions}
+00147 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00148 \textcolor{preprocessor}{#endif // ASCII\_COMMON\_H\_20120922170458378}
+00149 \textcolor{preprocessor}{}\textcolor{comment}{// end of file}
+\end{DoxyCode}

@@ -1,0 +1,101 @@
+\hypertarget{uri__scheme__common_8h_source}{\section{uri\-\_\-scheme\-\_\-common.\-h}
+}
+
+\begin{DoxyCode}
+00001 
+00007 \textcolor{preprocessor}{#ifndef URI\_SCHEME\_COMMON\_H\_20120807232523642}
+00008 \textcolor{preprocessor}{}\textcolor{preprocessor}{#define URI\_SCHEME\_COMMON\_H\_20120807232523642}
+00009 \textcolor{preprocessor}{}\textcolor{preprocessor}{#include "\hyperlink{kind_8h}{hryky/kind.h}"}
+00010 \textcolor{preprocessor}{#include "\hyperlink{literal__string_8h}{hryky/literal_string.h}"}
+00011 \textcolor{preprocessor}{#include "\hyperlink{reduction__common_8h}{hryky/reduction/reduction_common.h}"}
+00012 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00013 \textcolor{comment}{// macro definition}
+00014 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+\hypertarget{uri__scheme__common_8h_source_l00016}{}\hyperlink{uri__scheme__common_8h_abdf0fd82f1a966acb12b3b8609b13518}{00016} \textcolor{comment}{}\textcolor{preprocessor}{#define hryky\_case\_uri\_scheme \(\backslash\)}
+00017 \textcolor{preprocessor}{hryky\_case\_ascii\_alpha: case hryky\_case\_ascii\_digit: case '-': case '+': case
+       '.'}
+00018 \textcolor{preprocessor}{}
+00019 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00020 \textcolor{comment}{// namespace}
+00021 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00022 \textcolor{keyword}{namespace }hryky
+00023 \{
+00024 \textcolor{keyword}{namespace }uri
+00025 \{
+00026 \textcolor{keyword}{namespace }scheme
+00027 \{
+00028     \textcolor{keyword}{struct }Kind
+00029     \{
+00030         \textcolor{keyword}{enum} Raw
+00031         \{
+00032             unknown\_,
+00033             http\_,
+00034             https\_,
+00035             ftp\_,
+00036             ldap\_,
+00037             mailto\_,
+00038             urn\_,
+00039             ws\_,
+00040             relative\_,
+00041             
+00042             num\_,
+00043         \};
+00044     \};
+00045     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1_kind}{hryky::Kind<Kind>} kind\_type;
+00046 
+00047     LiteralString \textcolor{keyword}{const} tokens\_[Kind::num\_] = \{
+00048         LiteralString(\textcolor{stringliteral}{"unknown"}),
+00049         LiteralString(\textcolor{stringliteral}{"http"}),
+00050         LiteralString(\textcolor{stringliteral}{"https"}),
+00051         LiteralString(\textcolor{stringliteral}{"fpt"}),
+00052         LiteralString(\textcolor{stringliteral}{"ldap"}),
+00053         LiteralString(\textcolor{stringliteral}{"mailto"}),
+00054         LiteralString(\textcolor{stringliteral}{"urn"}),
+00055         LiteralString(\textcolor{stringliteral}{"ws"}),
+00056         LiteralString(\textcolor{stringliteral}{"ralative"}),
+00057     \};
+00058 
+00059 \} \textcolor{comment}{// namespace scheme}
+00060 \} \textcolor{comment}{// namespace uri}
+00061 \} \textcolor{comment}{// namespace hryky}
+00062 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00063 \textcolor{comment}{// struct declaration}
+00064 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00065 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00066 \textcolor{comment}{// class declaration}
+00067 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00068 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00069 \textcolor{comment}{// global function prototypes}
+00070 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00071 \textcolor{keyword}{namespace }hryky
+00072 \{
+00073 \textcolor{keyword}{namespace }uri
+00074 \{
+00075 \textcolor{keyword}{namespace }scheme
+00076 \{
+00078     \textcolor{keywordtype}{bool} is\_char(\hyperlink{namespacehryky_a488cba8b666be33ccca70e819684e3c8}{octet_type} \textcolor{keyword}{const} octet);
+00079 
+00081     \hyperlink{namespacehryky_a343a9a4c36a586be5c2693156200eadc}{reduction_type} \hyperlink{namespacehryky_1_1uri_ab4530b241565d82fb0768bb29031858f}{reduce}(
+00082         \hyperlink{namespacehryky_1_1reduction_ac686c30a4c8d196bbd0f05629a6b921f}{reduction::name_type} \textcolor{keyword}{const} & name, kind\_type \textcolor{keyword}{const} & src);
+00083 
+00084 \} \textcolor{comment}{// namespace scheme}
+00085 \} \textcolor{comment}{// namespace uri}
+00086 \} \textcolor{comment}{// namespace hryky}
+00087 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00088 \textcolor{comment}{// global function definitions}
+00089 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00090 \textcolor{preprocessor}{#endif // URI\_SCHEME\_COMMON\_H\_20120807232523642}
+00091 \textcolor{preprocessor}{}\textcolor{comment}{// end of file}
+\end{DoxyCode}

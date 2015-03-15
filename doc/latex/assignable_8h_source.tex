@@ -1,0 +1,69 @@
+\hypertarget{assignable_8h_source}{\section{assignable.\-h}
+}
+
+\begin{DoxyCode}
+00001 
+00007 \textcolor{preprocessor}{#ifndef ASSIGNABLE\_H\_20111022075259995}
+00008 \textcolor{preprocessor}{}\textcolor{preprocessor}{#define ASSIGNABLE\_H\_20111022075259995}
+00009 \textcolor{preprocessor}{}\textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00010 \textcolor{comment}{// macro definition}
+00011 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00012 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00013 \textcolor{comment}{// namespace}
+00014 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00015 \textcolor{keyword}{namespace }hryky
+00016 \{
+00018     \textcolor{keyword}{template} < \textcolor{keyword}{class} DerivedT >
+00019     \textcolor{keyword}{class }Assignable;
+00020     
+00022     \textcolor{keyword}{template} < \textcolor{keyword}{typename} DerivedT >
+00023     \textcolor{keywordtype}{void} \hyperlink{namespacehryky_a4282146df5ea2b68cb667896a2205909}{swap}(Assignable<DerivedT> & lhs, Assignable<DerivedT> & rhs);
+00024     
+00025 \}
+00026 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00027 \textcolor{comment}{// class declaration}
+00028 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00032 \textcolor{comment}{}\textcolor{keyword}{template} < \textcolor{keyword}{class} DerivedT >
+\hypertarget{assignable_8h_source_l00033}{}\hyperlink{classhryky_1_1_assignable}{00033} \textcolor{keyword}{class }\hyperlink{classhryky_1_1_assignable}{hryky::Assignable}
+00034 \{
+00035 \textcolor{keyword}{public} :
+00036 
+\hypertarget{assignable_8h_source_l00038}{}\hyperlink{classhryky_1_1_assignable_abcdf8a532564410425753acee1350979}{00038}     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1_assignable}{hryky::Assignable<DerivedT>} \hyperlink{classhryky_1_1_assignable_abcdf8a532564410425753acee1350979}{this_type};
+00039 
+\hypertarget{assignable_8h_source_l00041}{}\hyperlink{classhryky_1_1_assignable_a6393258b39e0f8ecbc7acd813d947a1f}{00041}     DerivedT & \hyperlink{classhryky_1_1_assignable_a6393258b39e0f8ecbc7acd813d947a1f}{operator=}(DerivedT \textcolor{keyword}{const} & rhs) \{
+00042         \textcolor{keywordflow}{if} (\textcolor{keyword}{this} != &rhs) \{ \textcolor{keywordflow}{return} *\textcolor{keyword}{static\_cast<}DerivedT *\textcolor{keyword}{>}(\textcolor{keyword}{this}); \}
+00043 
+00044         DerivedT(rhs).swap(*static\_cast<DerivedT *>(\textcolor{keyword}{this}));
+00045         
+00046         \textcolor{keywordflow}{return} *\textcolor{keyword}{static\_cast<}DerivedT *\textcolor{keyword}{>}(\textcolor{keyword}{this});
+00047     \}
+00048 
+00049 \textcolor{keyword}{protected} :
+00050 
+00051 \textcolor{keyword}{private} :
+00052 
+00053 \};
+00054 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00055 \textcolor{comment}{// inline functions}
+00056 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00057 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00058 \textcolor{comment}{// global functions}
+00059 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00063 \textcolor{comment}{}\textcolor{keyword}{template} < \textcolor{keyword}{typename} DerivedT >
+\hypertarget{assignable_8h_source_l00064}{}\hyperlink{namespacehryky_ac0680d4816412ad35d571975809cccb2}{00064} \textcolor{keywordtype}{void} \hyperlink{namespacehryky_a4282146df5ea2b68cb667896a2205909}{hryky::swap}(\hyperlink{classhryky_1_1_assignable}{Assignable<DerivedT>} & lhs, \hyperlink{classhryky_1_1_assignable}{Assignable<DerivedT>} & rhs)
+00065 \{
+00066     lhs.swap(rhs);
+00067 \}
+00068 \textcolor{preprocessor}{#endif // ASSIGNABLE\_H\_20111022075259995}
+00069 \textcolor{preprocessor}{}\textcolor{comment}{// end of file}
+\end{DoxyCode}

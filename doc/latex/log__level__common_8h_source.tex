@@ -1,0 +1,88 @@
+\hypertarget{log__level__common_8h_source}{\section{log\-\_\-level\-\_\-common.\-h}
+}
+
+\begin{DoxyCode}
+00001 
+00007 \textcolor{preprocessor}{#ifndef LOG\_LEVEL\_COMMON\_H\_20130203003716692}
+00008 \textcolor{preprocessor}{}\textcolor{preprocessor}{#define LOG\_LEVEL\_COMMON\_H\_20130203003716692}
+00009 \textcolor{preprocessor}{}\textcolor{preprocessor}{#include "\hyperlink{kind_8h}{hryky/kind.h}"}
+00010 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00011 \textcolor{comment}{// macro definition}
+00012 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00013 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00014 \textcolor{comment}{// namespace}
+00015 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00016 \textcolor{keyword}{namespace }hryky
+00017 \{
+00018 \textcolor{keyword}{namespace }log
+00019 \{
+00020 \textcolor{keyword}{namespace }level
+00021 \{
+\hypertarget{log__level__common_8h_source_l00023}{}\hyperlink{structhryky_1_1log_1_1level_1_1_kind}{00023}     \textcolor{keyword}{struct }\hyperlink{structhryky_1_1log_1_1level_1_1_kind}{Kind}
+00024     \{
+\hypertarget{log__level__common_8h_source_l00025}{}\hyperlink{structhryky_1_1log_1_1level_1_1_kind_aa121006343f8971f566b5490b8001b21}{00025}         \textcolor{keyword}{enum} \hyperlink{structhryky_1_1log_1_1level_1_1_kind_aa121006343f8971f566b5490b8001b21}{Raw}
+00026         \{
+\hypertarget{log__level__common_8h_source_l00030}{}\hyperlink{structhryky_1_1log_1_1level_1_1_kind_aa121006343f8971f566b5490b8001b21ac0a8f52590796a1f311111dae15c6af8}{00030}             \hyperlink{structhryky_1_1log_1_1level_1_1_kind_aa121006343f8971f566b5490b8001b21ac0a8f52590796a1f311111dae15c6af8}{debug_},
+\hypertarget{log__level__common_8h_source_l00041}{}\hyperlink{structhryky_1_1log_1_1level_1_1_kind_aa121006343f8971f566b5490b8001b21a101e156d0dbeb1bc9a4930fa365a5816}{00041}             \hyperlink{structhryky_1_1log_1_1level_1_1_kind_aa121006343f8971f566b5490b8001b21a101e156d0dbeb1bc9a4930fa365a5816}{info_},
+\hypertarget{log__level__common_8h_source_l00052}{}\hyperlink{structhryky_1_1log_1_1level_1_1_kind_aa121006343f8971f566b5490b8001b21a0d27806ab638f3d364a201799beb0915}{00052}             \hyperlink{structhryky_1_1log_1_1level_1_1_kind_aa121006343f8971f566b5490b8001b21a0d27806ab638f3d364a201799beb0915}{notice_},
+\hypertarget{log__level__common_8h_source_l00063}{}\hyperlink{structhryky_1_1log_1_1level_1_1_kind_aa121006343f8971f566b5490b8001b21a93a6f12ecffb8aaca86c6a2c63db2001}{00063}             \hyperlink{structhryky_1_1log_1_1level_1_1_kind_aa121006343f8971f566b5490b8001b21a93a6f12ecffb8aaca86c6a2c63db2001}{warning_},
+\hypertarget{log__level__common_8h_source_l00075}{}\hyperlink{structhryky_1_1log_1_1level_1_1_kind_aa121006343f8971f566b5490b8001b21ae0769f08396c2cb3bf27ab8e8226f728}{00075}             \hyperlink{structhryky_1_1log_1_1level_1_1_kind_aa121006343f8971f566b5490b8001b21ae0769f08396c2cb3bf27ab8e8226f728}{err_},
+\hypertarget{log__level__common_8h_source_l00089}{}\hyperlink{structhryky_1_1log_1_1level_1_1_kind_aa121006343f8971f566b5490b8001b21a0c2b12dd607bc861ea48a54ffaecb235}{00089}             \hyperlink{structhryky_1_1log_1_1level_1_1_kind_aa121006343f8971f566b5490b8001b21a0c2b12dd607bc861ea48a54ffaecb235}{crit_},
+\hypertarget{log__level__common_8h_source_l00103}{}\hyperlink{structhryky_1_1log_1_1level_1_1_kind_aa121006343f8971f566b5490b8001b21a16a99a982de54fbc23410091030d2dd8}{00103}             \hyperlink{structhryky_1_1log_1_1level_1_1_kind_aa121006343f8971f566b5490b8001b21a16a99a982de54fbc23410091030d2dd8}{alert_},
+\hypertarget{log__level__common_8h_source_l00113}{}\hyperlink{structhryky_1_1log_1_1level_1_1_kind_aa121006343f8971f566b5490b8001b21a6b7056a2b5be42b04fd0e3ebb05db821}{00113}             \hyperlink{structhryky_1_1log_1_1level_1_1_kind_aa121006343f8971f566b5490b8001b21a6b7056a2b5be42b04fd0e3ebb05db821}{emerg_},
+00114     
+\hypertarget{log__level__common_8h_source_l00116}{}\hyperlink{structhryky_1_1log_1_1level_1_1_kind_aa121006343f8971f566b5490b8001b21a2611b687250467d875d995119e336755}{00116}             \hyperlink{structhryky_1_1log_1_1level_1_1_kind_aa121006343f8971f566b5490b8001b21a2611b687250467d875d995119e336755}{num_},
+00117         \};
+00118     \};
+00119     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1_kind}{hryky::Kind<Kind>} kind\_type;
+00120 
+00121     \hyperlink{classhryky_1_1_literal_string}{LiteralString} \textcolor{keyword}{const} names\_[\hyperlink{structhryky_1_1log_1_1level_1_1_kind_aa121006343f8971f566b5490b8001b21a2611b687250467d875d995119e336755}{Kind::num_}] = \{
+00122         \hyperlink{classhryky_1_1_literal_string}{LiteralString}(\textcolor{stringliteral}{"debug"}),
+00123         \hyperlink{classhryky_1_1_literal_string}{LiteralString}(\textcolor{stringliteral}{"info"}),
+00124         \hyperlink{classhryky_1_1_literal_string}{LiteralString}(\textcolor{stringliteral}{"notice"}),
+00125         \hyperlink{classhryky_1_1_literal_string}{LiteralString}(\textcolor{stringliteral}{"warning"}),
+00126         \hyperlink{classhryky_1_1_literal_string}{LiteralString}(\textcolor{stringliteral}{"err"}),
+00127         \hyperlink{classhryky_1_1_literal_string}{LiteralString}(\textcolor{stringliteral}{"crit"}),
+00128         \hyperlink{classhryky_1_1_literal_string}{LiteralString}(\textcolor{stringliteral}{"alert"}),
+00129         \hyperlink{classhryky_1_1_literal_string}{LiteralString}(\textcolor{stringliteral}{"emerg"}),
+00130     \};
+00131     
+00132 \} \textcolor{comment}{// namespace level}
+00133 \} \textcolor{comment}{// namespace log}
+00134 \} \textcolor{comment}{// namespace hryky}
+00135 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00136 \textcolor{comment}{// struct declaration}
+00137 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00138 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00139 \textcolor{comment}{// class declaration}
+00140 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00141 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00142 \textcolor{comment}{// global function prototypes}
+00143 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00144 \textcolor{keyword}{namespace }hryky
+00145 \{
+00146 \textcolor{keyword}{namespace }log
+00147 \{
+00148 \textcolor{keyword}{namespace }level
+00149 \{
+00150 \} \textcolor{comment}{// namespace level}
+00151 \} \textcolor{comment}{// namespace log}
+00152 \} \textcolor{comment}{// namespace hryky}
+00153 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00154 \textcolor{comment}{// global function definitions}
+00155 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00156 \textcolor{preprocessor}{#endif // LOG\_LEVEL\_COMMON\_H\_20130203003716692}
+00157 \textcolor{preprocessor}{}\textcolor{comment}{// end of file}
+\end{DoxyCode}

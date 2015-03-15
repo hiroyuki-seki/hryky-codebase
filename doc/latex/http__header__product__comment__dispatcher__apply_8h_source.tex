@@ -1,0 +1,222 @@
+\hypertarget{http__header__product__comment__dispatcher__apply_8h_source}{\section{http\-\_\-header\-\_\-product\-\_\-comment\-\_\-dispatcher\-\_\-apply.\-h}
+}
+
+\begin{DoxyCode}
+00001 
+00008 \textcolor{preprocessor}{#ifndef HTTP\_HEADER\_PRODUCT\_COMMENT\_DISPATCHER\_APPLY\_H\_20130113142642268}
+00009 \textcolor{preprocessor}{}\textcolor{preprocessor}{#define HTTP\_HEADER\_PRODUCT\_COMMENT\_DISPATCHER\_APPLY\_H\_20130113142642268}
+00010 \textcolor{preprocessor}{}\textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00011 \textcolor{comment}{// macro definition}
+00012 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00013 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00014 \textcolor{comment}{// namespace}
+00015 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00016 \textcolor{keyword}{namespace }hryky
+00017 \{
+00018 \textcolor{keyword}{namespace }http
+00019 \{
+00020 \textcolor{keyword}{namespace }header
+00021 \{
+00022 \textcolor{keyword}{namespace }product\_comment
+00023 \{
+00024 \textcolor{keyword}{namespace }dispatcher
+00025 \{
+00030     \textcolor{keyword}{template} <\textcolor{keyword}{typename} ReceiverT>
+00031     \textcolor{keyword}{class }Apply;
+00032 
+00033 \} \textcolor{comment}{// namespace dispatcher}
+00034 \} \textcolor{comment}{// namespace product\_comment}
+00035 \} \textcolor{comment}{// namespace header}
+00036 \} \textcolor{comment}{// namespace http}
+00037 \} \textcolor{comment}{// namespace hryky}
+00038 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00039 \textcolor{comment}{// class declarations}
+00040 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00045 \textcolor{comment}{}\textcolor{keyword}{template} <\textcolor{keyword}{typename} ReceiverT>
+\hypertarget{http__header__product__comment__dispatcher__apply_8h_source_l00046}{}\hyperlink{classhryky_1_1http_1_1header_1_1product__comment_1_1dispatcher_1_1_apply}{00046} \textcolor{keyword}{class }\hyperlink{classhryky_1_1http_1_1header_1_1product__comment_1_1dispatcher_1_1_apply}{hryky::http::header::product_comment::dispatcher::Apply}
+00047     : \textcolor{keyword}{public} \hyperlink{classhryky_1_1http_1_1header_1_1product__comment_1_1dispatcher_1_1_base}{hryky::http::header::product_comment::dispatcher::Base}
+00048 \{
+00049 \textcolor{keyword}{public} :
+00050 
+\hypertarget{http__header__product__comment__dispatcher__apply_8h_source_l00052}{}\hyperlink{classhryky_1_1http_1_1header_1_1product__comment_1_1dispatcher_1_1_apply_afd54b194ccb0eedbaf6dcc6663b8b34b}{00052}     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1http_1_1header_1_1product__comment_1_1dispatcher_1_1_base}{hryky::http::header::product_comment::dispatcher::Base} \hyperlink{classhryky_1_1http_1_1header_1_1product__comment_1_1dispatcher_1_1_apply_afd54b194ccb0eedbaf6dcc6663b8b34b}{base_type};
+00053 
+\hypertarget{http__header__product__comment__dispatcher__apply_8h_source_l00054}{}\hyperlink{classhryky_1_1http_1_1header_1_1product__comment_1_1dispatcher_1_1_apply_a9e25411615673baf2c551497375a509e}{00054}     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1http_1_1header_1_1product__comment_1_1dispatcher_1_1_apply}{Apply<ReceiverT>} \hyperlink{classhryky_1_1http_1_1header_1_1product__comment_1_1dispatcher_1_1_apply_a9e25411615673baf2c551497375a509e}{this_type};
+00055 
+00057     \hyperlink{classhryky_1_1http_1_1header_1_1product__comment_1_1dispatcher_1_1_apply}{Apply}(\hyperlink{classhryky_1_1http_1_1header_1_1product__comment_1_1dispatcher_1_1_apply}{this_type} \textcolor{keyword}{const} &);
+00058 
+00060     \hyperlink{classhryky_1_1http_1_1header_1_1product__comment_1_1dispatcher_1_1_apply}{Apply}(\hyperlink{classhryky_1_1http_1_1header_1_1product__comment_1_1dispatcher_1_1_apply}{this_type} && rhs);
+00061 
+00063     \hyperlink{classhryky_1_1http_1_1header_1_1product__comment_1_1dispatcher_1_1_apply}{Apply}(ReceiverT & receiver);
+00064 
+00066     \textcolor{keyword}{virtual} \hyperlink{classhryky_1_1http_1_1header_1_1product__comment_1_1dispatcher_1_1_apply_a8e837f84e9413c667bd00e2e04e2ae92}{~Apply}();
+00067 
+\hypertarget{http__header__product__comment__dispatcher__apply_8h_source_l00069}{}\hyperlink{classhryky_1_1http_1_1header_1_1product__comment_1_1dispatcher_1_1_apply_a1d743638e97d1bb195761fbb3598486d}{00069}     \hyperlink{classhryky_1_1http_1_1header_1_1product__comment_1_1dispatcher_1_1_apply_a1d743638e97d1bb195761fbb3598486d}{hryky_assign_op};
+00070 
+00072     \textcolor{keywordtype}{void} \hyperlink{classhryky_1_1http_1_1header_1_1product__comment_1_1dispatcher_1_1_apply_a368a67c843d5546f22a569e2ddf58275}{clear}();
+00073 
+00075     \hyperlink{classhryky_1_1_intrusive_ptr}{reduction_type} \hyperlink{classhryky_1_1http_1_1header_1_1product__comment_1_1dispatcher_1_1_apply_a4842920d454b2bd980997b797bc437f0}{reduce}(\hyperlink{classhryky_1_1reduction_1_1_string}{reduction::name_type} \textcolor{keyword}{const} & name) \textcolor{keyword}{const};
+00076 
+00078     \textcolor{keywordtype}{void} \hyperlink{classhryky_1_1http_1_1header_1_1product__comment_1_1dispatcher_1_1_apply_aa32d5970a36b3391346febd126bb0287}{swap}(\hyperlink{classhryky_1_1http_1_1header_1_1product__comment_1_1dispatcher_1_1_apply}{this_type} & src);
+00079 
+00080 \textcolor{keyword}{protected} :
+00081 
+00082 \textcolor{keyword}{private} :
+00083 
+00085     \textcolor{keyword}{virtual} \textcolor{keywordtype}{bool} operator()(\hyperlink{classhryky_1_1http_1_1header_1_1product_1_1_entity}{header::product_type} & src);
+00086 
+00088     \textcolor{keyword}{virtual} \textcolor{keywordtype}{bool} operator()(\hyperlink{classhryky_1_1http_1_1header_1_1comment_1_1_sequence}{header::comment::sequence_type} & src);
+00089 
+00091     \hyperlink{classhryky_1_1http_1_1header_1_1product__comment_1_1dispatcher_1_1_apply}{Apply}();
+00092 
+00093     ReceiverT & receiver\_;
+00094 
+00095 \};
+00096 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00097 \textcolor{comment}{// class specializations}
+00098 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00099 \textcolor{keyword}{namespace }hryky
+00100 \{
+00101 \textcolor{keyword}{namespace }http
+00102 \{
+00103 \textcolor{keyword}{namespace }header
+00104 \{
+00105 \textcolor{keyword}{namespace }product\_comment
+00106 \{
+00107 \textcolor{keyword}{namespace }dispatcher
+00108 \{
+00109 \} \textcolor{comment}{// namespace dispatcher}
+00110 \} \textcolor{comment}{// namespace product\_comment}
+00111 \} \textcolor{comment}{// namespace header}
+00112 \} \textcolor{comment}{// namespace http}
+00113 \} \textcolor{comment}{// namespace hryky}
+00114 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00115 \textcolor{comment}{// public member functions}
+00116 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00120 \textcolor{comment}{}\textcolor{keyword}{template} <\textcolor{keyword}{typename} ReceiverT>
+\hypertarget{http__header__product__comment__dispatcher__apply_8h_source_l00121}{}\hyperlink{classhryky_1_1http_1_1header_1_1product__comment_1_1dispatcher_1_1_apply_a63f31b38e049e0786bff03f3cdd83507}{00121} \hyperlink{classhryky_1_1http_1_1header_1_1product__comment_1_1dispatcher_1_1_apply}{hryky::http::header::product_comment::dispatcher::Apply<ReceiverT>::Apply}(
+00122     \hyperlink{classhryky_1_1http_1_1header_1_1product__comment_1_1dispatcher_1_1_apply}{this_type} \textcolor{keyword}{const} & rhs)
+00123     : \hyperlink{classhryky_1_1http_1_1header_1_1product__comment_1_1dispatcher_1_1_base}{base_type}(rhs)
+00124       , receiver\_(rhs.receiver\_)
+00125 \{
+00126 \}
+00130 \textcolor{keyword}{template} <\textcolor{keyword}{typename} ReceiverT>
+\hypertarget{http__header__product__comment__dispatcher__apply_8h_source_l00131}{}\hyperlink{classhryky_1_1http_1_1header_1_1product__comment_1_1dispatcher_1_1_apply_ac9a5b5cd50a8065bbee4fd049df21fb3}{00131} \hyperlink{classhryky_1_1http_1_1header_1_1product__comment_1_1dispatcher_1_1_apply}{hryky::http::header::product_comment::dispatcher::Apply<ReceiverT>::Apply}(
+00132     \hyperlink{classhryky_1_1http_1_1header_1_1product__comment_1_1dispatcher_1_1_apply}{this_type} && rhs)
+00133     : \hyperlink{classhryky_1_1http_1_1header_1_1product__comment_1_1dispatcher_1_1_base}{base_type}(std::move(rhs))
+00134       , receiver\_(std::move(rhs.receiver\_))
+00135 \{
+00136 \}
+00140 \textcolor{keyword}{template} <\textcolor{keyword}{typename} ReceiverT>
+\hypertarget{http__header__product__comment__dispatcher__apply_8h_source_l00141}{}\hyperlink{classhryky_1_1http_1_1header_1_1product__comment_1_1dispatcher_1_1_apply_a5def0bd5cb2dd0b70d5d1a5716bc8d9d}{00141} \hyperlink{classhryky_1_1http_1_1header_1_1product__comment_1_1dispatcher_1_1_apply}{hryky::http::header::product_comment::dispatcher::Apply<ReceiverT>::Apply}(
+00142     ReceiverT & receiver)
+00143     : \hyperlink{classhryky_1_1http_1_1header_1_1product__comment_1_1dispatcher_1_1_base}{base_type}()
+00144       , receiver\_(receiver)
+00145 \{
+00146 \}
+00150 \textcolor{keyword}{template} <\textcolor{keyword}{typename} ReceiverT>
+\hypertarget{http__header__product__comment__dispatcher__apply_8h_source_l00151}{}\hyperlink{classhryky_1_1http_1_1header_1_1product__comment_1_1dispatcher_1_1_apply_a8e837f84e9413c667bd00e2e04e2ae92}{00151} \hyperlink{classhryky_1_1http_1_1header_1_1product__comment_1_1dispatcher_1_1_apply}{hryky::http::header::product_comment::dispatcher::Apply<ReceiverT>::~Apply}()
+00152 \{
+00153 \}
+00157 \textcolor{keyword}{template} <\textcolor{keyword}{typename} ReceiverT>
+\hypertarget{http__header__product__comment__dispatcher__apply_8h_source_l00158}{}\hyperlink{classhryky_1_1http_1_1header_1_1product__comment_1_1dispatcher_1_1_apply_a368a67c843d5546f22a569e2ddf58275}{00158} \textcolor{keywordtype}{void} \hyperlink{namespacehryky_aa201297ea9530da954a7230be71cc19d}{hryky::http::header::product_comment::dispatcher::Apply<ReceiverT>::clear}(
+      )
+00159 \{
+00160     this->\hyperlink{namespacehryky_aa201297ea9530da954a7230be71cc19d}{base_type::clear}();
+00161 \}
+00165 \textcolor{keyword}{template} <\textcolor{keyword}{typename} ReceiverT>
+00166 \hyperlink{classhryky_1_1_intrusive_ptr}{hryky::reduction_type} 
+\hypertarget{http__header__product__comment__dispatcher__apply_8h_source_l00167}{}\hyperlink{classhryky_1_1http_1_1header_1_1product__comment_1_1dispatcher_1_1_apply_a4842920d454b2bd980997b797bc437f0}{00167} \hyperlink{namespacehryky_1_1http_a08fc36a78a8e2908140fcd102829a566}{hryky::http::header::product_comment::dispatcher::Apply<ReceiverT>::reduce}(
+00168     \hyperlink{classhryky_1_1reduction_1_1_string}{reduction::name_type} \textcolor{keyword}{const} & name)\textcolor{keyword}{ const}
+00169 \textcolor{keyword}{}\{
+00170     \textcolor{keywordflow}{return} \hyperlink{reduction__common_8h_afc72326c9900838c5db40438318794dd}{hryky_reduce}(name, this->receiver\_);
+00171 \}
+00175 \textcolor{keyword}{template} <\textcolor{keyword}{typename} ReceiverT>
+\hypertarget{http__header__product__comment__dispatcher__apply_8h_source_l00176}{}\hyperlink{classhryky_1_1http_1_1header_1_1product__comment_1_1dispatcher_1_1_apply_aa32d5970a36b3391346febd126bb0287}{00176} \textcolor{keywordtype}{void} \hyperlink{namespacehryky_1_1http_a38e62595ad532d18fbc65ceb61973aec}{hryky::http::header::product_comment::dispatcher::Apply<ReceiverT>::swap}(
+00177     \hyperlink{classhryky_1_1http_1_1header_1_1product__comment_1_1dispatcher_1_1_apply}{this_type} & src)
+00178 \{
+00179     this->\hyperlink{namespacehryky_1_1http_a38e62595ad532d18fbc65ceb61973aec}{base_type::swap}(src);
+00180     \hyperlink{namespacehryky_add9c1c1fdfda07cd47bcb7c16d3a823a}{hryky_swap}(this->receiver\_, src.receiver\_);
+00181 \}
+00182 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00183 \textcolor{comment}{// protected member functions}
+00184 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00185 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00186 \textcolor{comment}{// private member functions}
+00187 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00191 \textcolor{comment}{}\textcolor{keyword}{template} <\textcolor{keyword}{typename} ReceiverT>
+00192 \textcolor{keywordtype}{bool} 
+      \hyperlink{classhryky_1_1http_1_1header_1_1product__comment_1_1dispatcher_1_1_apply}{hryky::http::header::product_comment::dispatcher::Apply<ReceiverT>::operator()}(
+00193     \hyperlink{classhryky_1_1http_1_1header_1_1product_1_1_entity}{header::product_type} & src)
+00194 \{
+00195     \textcolor{keywordflow}{return} this->receiver\_.append(src);
+00196 \}
+00200 \textcolor{keyword}{template} <\textcolor{keyword}{typename} ReceiverT>
+00201 \textcolor{keywordtype}{bool} 
+      \hyperlink{classhryky_1_1http_1_1header_1_1product__comment_1_1dispatcher_1_1_apply}{hryky::http::header::product_comment::dispatcher::Apply<ReceiverT>::operator()}(
+00202     \hyperlink{classhryky_1_1http_1_1header_1_1comment_1_1_sequence}{header::comment::sequence_type} & src)
+00203 \{
+00204     \textcolor{keywordflow}{return} this->receiver\_.append(src);
+00205 \}
+00206 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00207 \textcolor{comment}{// global function prototypes}
+00208 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00209 \textcolor{keyword}{namespace }hryky
+00210 \{
+00211 \textcolor{keyword}{namespace }http
+00212 \{
+00213 \textcolor{keyword}{namespace }header
+00214 \{
+00215 \textcolor{keyword}{namespace }product\_comment
+00216 \{
+00217 \textcolor{keyword}{namespace }dispatcher
+00218 \{
+00220     \textcolor{keyword}{template} <\textcolor{keyword}{typename} ReceiverT>
+00221     \hyperlink{classhryky_1_1_intrusive_ptr}{reduction_type} \hyperlink{namespacehryky_1_1http_a08fc36a78a8e2908140fcd102829a566}{reduce}(
+00222         \hyperlink{classhryky_1_1reduction_1_1_string}{reduction::name_type} \textcolor{keyword}{const} & name, Apply<ReceiverT> \textcolor{keyword}{const} & src);
+00223 
+00225     \textcolor{keyword}{template} <\textcolor{keyword}{typename} ReceiverT>
+00226     \textcolor{keywordtype}{void} \hyperlink{namespacehryky_1_1http_a38e62595ad532d18fbc65ceb61973aec}{swap}(
+00227         Apply<ReceiverT> & lhs, Apply<ReceiverT> & rhs);
+00228 
+00229 \} \textcolor{comment}{// namespace dispatcher}
+00230 \} \textcolor{comment}{// namespace product\_comment}
+00231 \} \textcolor{comment}{// namespace header}
+00232 \} \textcolor{comment}{// namespace http}
+00233 \} \textcolor{comment}{// namespace hryky}
+00234 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00235 \textcolor{comment}{// global function definitions}
+00236 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00240 \textcolor{comment}{}\textcolor{keyword}{template} <\textcolor{keyword}{typename} ReceiverT>
+00241 \hyperlink{classhryky_1_1_intrusive_ptr}{hryky::reduction_type} \hyperlink{namespacehryky_1_1http_a08fc36a78a8e2908140fcd102829a566}{hryky::http::header::product_comment::dispatcher::reduce}(
+00242     \hyperlink{namespacehryky_1_1reduction_ac686c30a4c8d196bbd0f05629a6b921f}{reduction::name_type} \textcolor{keyword}{const} & name, Apply<ReceiverT> \textcolor{keyword}{const} & src)
+00243 \{
+00244     \textcolor{keywordflow}{return} src.reduce(name);
+00245 \}
+00249 \textcolor{keyword}{template} <\textcolor{keyword}{typename} ReceiverT>
+00250 \textcolor{keywordtype}{void} \hyperlink{namespacehryky_1_1http_a38e62595ad532d18fbc65ceb61973aec}{hryky::http::header::product_comment::dispatcher::swap}(
+00251     Apply<ReceiverT> & lhs, Apply<ReceiverT> & rhs)
+00252 \{
+00253     lhs.swap(rhs);
+00254 \}
+00255 \textcolor{preprocessor}{#endif // HTTP\_HEADER\_PRODUCT\_COMMENT\_DISPATCHER\_APPLY\_H\_20130113142642268}
+00256 \textcolor{preprocessor}{}\textcolor{comment}{// end of file}
+00257 
+\end{DoxyCode}

@@ -1,0 +1,203 @@
+\hypertarget{random__distribution__normal_8h_source}{\section{random\-\_\-distribution\-\_\-normal.\-h}
+}
+
+\begin{DoxyCode}
+00001 
+00007 \textcolor{preprocessor}{#ifndef RANDOM\_DISTRIBUTION\_NORMAL\_H\_20120308224056611}
+00008 \textcolor{preprocessor}{}\textcolor{preprocessor}{#define RANDOM\_DISTRIBUTION\_NORMAL\_H\_20120308224056611}
+00009 \textcolor{preprocessor}{}\textcolor{preprocessor}{#include "\hyperlink{random__common_8h}{hryky/random/random_common.h}"}
+00010 \textcolor{preprocessor}{#include "\hyperlink{max__of_8h}{hryky/gp/max_of.h}"}
+00011 \textcolor{preprocessor}{#include "\hyperlink{min__of_8h}{hryky/gp/min_of.h}"}
+00012 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00013 \textcolor{comment}{// macro definition}
+00014 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00015 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00016 \textcolor{comment}{// namespace}
+00017 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00018 \textcolor{keyword}{namespace }hryky
+00019 \{
+00020 \textcolor{keyword}{namespace }random
+00021 \{
+\hypertarget{random__distribution__normal_8h_source_l00023}{}\hyperlink{namespacehryky_1_1random_1_1distribution}{00023} \textcolor{keyword}{namespace }distribution
+00024 \{
+00026     \textcolor{keyword}{template} < \textcolor{keyword}{typename} ValueT >
+00027     \textcolor{keyword}{class }\hyperlink{classhryky_1_1random_1_1distribution_1_1_normal}{Normal};
+00028 
+00029 \}
+00030 \}
+00031 \}
+00032 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00033 \textcolor{comment}{// class declarations}
+00034 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00038 \textcolor{comment}{}\textcolor{keyword}{template} < \textcolor{keyword}{typename} ValueT >
+\hypertarget{random__distribution__normal_8h_source_l00039}{}\hyperlink{classhryky_1_1random_1_1distribution_1_1_normal}{00039} \textcolor{keyword}{class }\hyperlink{classhryky_1_1random_1_1distribution_1_1_normal}{hryky::random::distribution::Normal}
+00040 \{
+00041 \textcolor{keyword}{public} :
+00042 
+00043     \textcolor{keyword}{typedef} ValueT value\_type;
+00044 
+\hypertarget{random__distribution__normal_8h_source_l00046}{}\hyperlink{classhryky_1_1random_1_1distribution_1_1_normal_ac188537d4215bbeff9618ed53aceffd9}{00046}     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1random_1_1distribution_1_1_normal}{Normal<ValueT>} \hyperlink{classhryky_1_1random_1_1distribution_1_1_normal_ac188537d4215bbeff9618ed53aceffd9}{this_type};
+00047 
+\hypertarget{random__distribution__normal_8h_source_l00049}{}\hyperlink{classhryky_1_1random_1_1distribution_1_1_normal_a956f2d07ebcd0465fc6b377553ca3a3c}{00049}     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1random_1_1distribution_1_1_normal}{Normal} * \hyperlink{classhryky_1_1random_1_1distribution_1_1_normal_a956f2d07ebcd0465fc6b377553ca3a3c}{instance_type};
+00050 
+00052     \hyperlink{classhryky_1_1random_1_1distribution_1_1_normal}{Normal}(
+00053         generator\_type & generator,
+00054         value\_type \textcolor{keyword}{const} \hyperlink{classhryky_1_1random_1_1distribution_1_1_normal_a86f67e310d370107dcf2cd69f6d186e2}{mean},
+00055         value\_type \textcolor{keyword}{const} \hyperlink{classhryky_1_1random_1_1distribution_1_1_normal_a421514c36ee40e90a9de30917ca6af08}{deviation},
+00056         value\_type \textcolor{keyword}{const} \hyperlink{classhryky_1_1random_1_1distribution_1_1_normal_af92151f38ce442d84bd477fbaf1f71c1}{min},
+00057         value\_type \textcolor{keyword}{const} \hyperlink{classhryky_1_1random_1_1distribution_1_1_normal_a1b4b4d1c1b4b025b3a8f878365c4ece9}{max});
+00058 
+00060     \hyperlink{classhryky_1_1random_1_1distribution_1_1_normal}{Normal}(
+00061         generator\_type & generator, value\_type \hyperlink{classhryky_1_1random_1_1distribution_1_1_normal_a421514c36ee40e90a9de30917ca6af08}{deviation});
+00062 
+00064     value\_type \hyperlink{classhryky_1_1random_1_1distribution_1_1_normal_aabd419dba5f1af0d5b661619c49632da}{operator()}();
+00065 
+\hypertarget{random__distribution__normal_8h_source_l00067}{}\hyperlink{classhryky_1_1random_1_1distribution_1_1_normal_acc11e24dbfb6d8250aea4400e84e7d5a}{00067}     \hyperlink{classhryky_1_1random_1_1distribution_1_1_normal}{Normal< ValueT >} & \hyperlink{classhryky_1_1random_1_1distribution_1_1_normal_acc11e24dbfb6d8250aea4400e84e7d5a}{mean}(value\_type src) \{ this->mean\_ = src; \textcolor{keywordflow}{return} *\textcolor{keyword}{this}; 
+      \}
+00068 
+\hypertarget{random__distribution__normal_8h_source_l00070}{}\hyperlink{classhryky_1_1random_1_1distribution_1_1_normal_a133dc9d1669f90c4a9d55fca3b7be4b3}{00070}     \hyperlink{classhryky_1_1random_1_1distribution_1_1_normal}{Normal< ValueT >} & \hyperlink{classhryky_1_1random_1_1distribution_1_1_normal_a133dc9d1669f90c4a9d55fca3b7be4b3}{min}(value\_type src) \{ this->min\_ = src; \textcolor{keywordflow}{return} *\textcolor{keyword}{this}; \}
+00071 
+\hypertarget{random__distribution__normal_8h_source_l00073}{}\hyperlink{classhryky_1_1random_1_1distribution_1_1_normal_aef11b7363a00e38dee7a7a751af8666f}{00073}     \hyperlink{classhryky_1_1random_1_1distribution_1_1_normal}{Normal< ValueT >} & \hyperlink{classhryky_1_1random_1_1distribution_1_1_normal_aef11b7363a00e38dee7a7a751af8666f}{max}(value\_type src) \{ this->max\_ = src; \textcolor{keywordflow}{return} *\textcolor{keyword}{this}; \}
+00074 
+\hypertarget{random__distribution__normal_8h_source_l00076}{}\hyperlink{classhryky_1_1random_1_1distribution_1_1_normal_a421514c36ee40e90a9de30917ca6af08}{00076}     value\_type \hyperlink{classhryky_1_1random_1_1distribution_1_1_normal_a421514c36ee40e90a9de30917ca6af08}{deviation}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} this->deviation\_; \}
+00077 
+\hypertarget{random__distribution__normal_8h_source_l00079}{}\hyperlink{classhryky_1_1random_1_1distribution_1_1_normal_a86f67e310d370107dcf2cd69f6d186e2}{00079}     value\_type \hyperlink{classhryky_1_1random_1_1distribution_1_1_normal_a86f67e310d370107dcf2cd69f6d186e2}{mean}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} this->mean\_; \}
+00080 
+\hypertarget{random__distribution__normal_8h_source_l00082}{}\hyperlink{classhryky_1_1random_1_1distribution_1_1_normal_af92151f38ce442d84bd477fbaf1f71c1}{00082}     value\_type \hyperlink{classhryky_1_1random_1_1distribution_1_1_normal_af92151f38ce442d84bd477fbaf1f71c1}{min}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} this->min\_; \}
+00083 
+\hypertarget{random__distribution__normal_8h_source_l00085}{}\hyperlink{classhryky_1_1random_1_1distribution_1_1_normal_a1b4b4d1c1b4b025b3a8f878365c4ece9}{00085}     value\_type \hyperlink{classhryky_1_1random_1_1distribution_1_1_normal_a1b4b4d1c1b4b025b3a8f878365c4ece9}{max}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} this->max\_; \}
+00086 
+00087 \textcolor{keyword}{protected} :
+00088 
+00089 \textcolor{keyword}{private} :
+00090 
+00092     \textcolor{keyword}{typedef} std::normal\_distribution<> distribution\_type;
+00093 
+00095     \textcolor{keyword}{explicit} \hyperlink{classhryky_1_1random_1_1distribution_1_1_normal}{Normal}();
+00096 
+00098     \textcolor{keyword}{explicit} \hyperlink{classhryky_1_1random_1_1distribution_1_1_normal}{Normal}(\hyperlink{classhryky_1_1random_1_1distribution_1_1_normal}{Normal} \textcolor{keyword}{const} &);
+00099 
+00101     \hyperlink{classhryky_1_1random_1_1distribution_1_1_normal}{Normal} & operator=(\hyperlink{classhryky_1_1random_1_1distribution_1_1_normal}{Normal} \textcolor{keyword}{const} &rhs);
+00102 
+00103     generator\_type &        generator\_;
+00104     distribution\_type       distribution\_;
+00105     value\_type              deviation\_;
+00106     value\_type              mean\_;
+00107     value\_type              min\_;
+00108     value\_type              max\_;
+00109 
+00110 \};
+00111 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00112 \textcolor{comment}{// class specializations}
+00113 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00114 \textcolor{keyword}{namespace }hryky
+00115 \{
+00116 \textcolor{keyword}{namespace }random
+00117 \{
+00118 \textcolor{keyword}{namespace }distribution
+00119 \{
+00120 \}
+00121 \}
+00122 \}
+00123 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00124 \textcolor{comment}{// public member functions}
+00125 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00129 \textcolor{comment}{}\textcolor{keyword}{template} < \textcolor{keyword}{typename} ValueT >
+\hypertarget{random__distribution__normal_8h_source_l00130}{}\hyperlink{classhryky_1_1random_1_1distribution_1_1_normal_a5fc939a1ad84bf2f51904a0df2463dbe}{00130} \hyperlink{classhryky_1_1random_1_1distribution_1_1_normal}{hryky::random::distribution::Normal<ValueT>::Normal}(
+00131     generator\_type & generator,
+00132     value\_type \textcolor{keyword}{const} deviation,
+00133     value\_type \textcolor{keyword}{const} mean,
+00134     value\_type \textcolor{keyword}{const} min,
+00135     value\_type \textcolor{keyword}{const} max)
+00136     : generator\_(generator)
+00137       , distribution\_()
+00138       , deviation\_(deviation)
+00139       , mean\_(mean)
+00140       , min\_(min)
+00141       , max\_(max)
+00142 \{
+00143 \}
+00147 \textcolor{keyword}{template} < \textcolor{keyword}{typename} ValueT >
+\hypertarget{random__distribution__normal_8h_source_l00148}{}\hyperlink{classhryky_1_1random_1_1distribution_1_1_normal_a3c4d62bf2fe6b4411a20d68a6c8f3da9}{00148} \hyperlink{classhryky_1_1random_1_1distribution_1_1_normal}{hryky::random::distribution::Normal< ValueT >::Normal}(
+00149     generator\_type & generator, value\_type deviation)
+00150     : generator\_(generator)
+00151       , distribution\_()
+00152       , deviation\_(deviation)
+00153       , mean\_((\hyperlink{classhryky_1_1_max_of}{MaxOf}<ValueT>::value - \hyperlink{classhryky_1_1_min_of}{MinOf}<ValueT>::value) >> 1)
+00154       , min\_(\hyperlink{classhryky_1_1_min_of}{MinOf}<ValueT>::value)
+00155       , max\_(\hyperlink{classhryky_1_1_max_of}{MaxOf}<ValueT>::value)
+00156 \{
+00157     \textcolor{keywordflow}{return};
+00158 \}
+00162 \textcolor{keyword}{template} < \textcolor{keyword}{typename} ValueT >
+\hypertarget{random__distribution__normal_8h_source_l00163}{}\hyperlink{classhryky_1_1random_1_1distribution_1_1_normal_aabd419dba5f1af0d5b661619c49632da}{00163} ValueT \hyperlink{classhryky_1_1random_1_1distribution_1_1_normal}{hryky::random::distribution::Normal< ValueT >::operator()}()
+00164 \{
+00165     distribution\_type dist;
+00166 
+00167     \textcolor{keywordflow}{return} \textcolor{keyword}{static\_cast<}ValueT\textcolor{keyword}{>}(
+00168         std::min<int64\_t>(
+00169             this->max\_,
+00170             std::max<int64\_t>(
+00171                 this->min\_,
+00172                 \textcolor{keyword}{static\_cast<}int64\_t\textcolor{keyword}{>}(
+00173                     this->mean\_
+00174                     + (this->distribution\_(this->generator\_)
+00175                        * this->deviation\_)))));
+00176 \}
+00177 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00178 \textcolor{comment}{// protected member functions}
+00179 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00180 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00181 \textcolor{comment}{// private member functions}
+00182 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00183 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00184 \textcolor{comment}{// global function prototypes}
+00185 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00186 \textcolor{keyword}{namespace }hryky
+00187 \{
+00188 \textcolor{keyword}{namespace }random
+00189 \{
+00190 \textcolor{keyword}{namespace }distribution
+00191 \{
+00193     \textcolor{keyword}{template} < \textcolor{keyword}{typename} ValueT > 
+00194     \hyperlink{classhryky_1_1_intrusive_ptr}{reduction_type} \hyperlink{namespacehryky_1_1random_1_1distribution_a036b49db88fa8504b2a893ce60f9ad03}{reduce}(
+00195         \hyperlink{classhryky_1_1reduction_1_1_string}{reduction::name_type} \textcolor{keyword}{const} & name, \hyperlink{classhryky_1_1random_1_1distribution_1_1_normal}{Normal<ValueT>} \textcolor{keyword}{const} & param);
+00196 
+00197 \}
+00198 \}
+00199 \}
+00200 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00201 \textcolor{comment}{// global function definitions}
+00202 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00206 \textcolor{comment}{}\textcolor{keyword}{template} < \textcolor{keyword}{typename} ValueT >
+\hypertarget{random__distribution__normal_8h_source_l00207}{}\hyperlink{namespacehryky_1_1random_1_1distribution_a036b49db88fa8504b2a893ce60f9ad03}{00207} \hyperlink{classhryky_1_1_intrusive_ptr}{hryky::reduction_type} \hyperlink{namespacehryky_1_1random_1_1distribution_a036b49db88fa8504b2a893ce60f9ad03}{hryky::random::distribution::reduce}(
+00208     \hyperlink{classhryky_1_1reduction_1_1_string}{reduction::name_type} \textcolor{keyword}{const} & name, \hyperlink{classhryky_1_1random_1_1distribution_1_1_normal}{Normal<ValueT>} \textcolor{keyword}{const} & dist)
+00209 \{
+00210     \textcolor{keywordflow}{return} \hyperlink{namespacehryky_a343a9a4c36a586be5c2693156200eadc}{reduction_type}(
+00211         &(*\hyperlink{namespacehryky_1_1reduction_ac5eae270cf8047b294dc4ff3e5e11a79}{reduction::map}(name))
+00212         .append(\textcolor{stringliteral}{"deviation"},    dist.\hyperlink{classhryky_1_1random_1_1distribution_1_1_normal_a421514c36ee40e90a9de30917ca6af08}{deviation}())
+00213         .append(\textcolor{stringliteral}{"mean"},         dist.\hyperlink{classhryky_1_1random_1_1distribution_1_1_normal_acc11e24dbfb6d8250aea4400e84e7d5a}{mean}())
+00214         .append(\textcolor{stringliteral}{"min"},          dist.\hyperlink{classhryky_1_1random_1_1distribution_1_1_normal_a133dc9d1669f90c4a9d55fca3b7be4b3}{min}())
+00215         .append(\textcolor{stringliteral}{"max"},          dist.\hyperlink{classhryky_1_1random_1_1distribution_1_1_normal_aef11b7363a00e38dee7a7a751af8666f}{max}()));
+00216 \}
+00217 \textcolor{preprocessor}{#endif // RANDOM\_DISTRIBUTION\_NORMAL\_H\_20120308224056611}
+00218 \textcolor{preprocessor}{}\textcolor{comment}{// end of file}
+\end{DoxyCode}

@@ -1,0 +1,118 @@
+\hypertarget{reduction__bool_8h_source}{\section{reduction\-\_\-bool.\-h}
+}
+
+\begin{DoxyCode}
+00001 
+00007 \textcolor{preprocessor}{#ifndef REDUCTION\_BOOL\_H\_20120923173924402}
+00008 \textcolor{preprocessor}{}\textcolor{preprocessor}{#define REDUCTION\_BOOL\_H\_20120923173924402}
+00009 \textcolor{preprocessor}{}\textcolor{preprocessor}{#include "\hyperlink{reduction__base_8h}{hryky/reduction/reduction_base.h}"}
+00010 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00011 \textcolor{comment}{// macro definition}
+00012 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00013 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00014 \textcolor{comment}{// namespace}
+00015 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00016 \textcolor{keyword}{namespace }hryky
+00017 \{
+00018 \textcolor{keyword}{namespace }reduction
+00019 \{
+00021     \textcolor{keyword}{class }Bool;
+00022 
+00023 \} \textcolor{comment}{// namespace reduction}
+00024 \} \textcolor{comment}{// namespace hryky}
+00025 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00026 \textcolor{comment}{// class declarations}
+00027 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+\hypertarget{reduction__bool_8h_source_l00031}{}\hyperlink{classhryky_1_1reduction_1_1_bool}{00031} \textcolor{comment}{}\textcolor{keyword}{class }\hyperlink{classhryky_1_1reduction_1_1_bool}{hryky::reduction::Bool}
+00032     : \textcolor{keyword}{public} \hyperlink{classhryky_1_1reduction_1_1_base}{hryky::reduction::Base}
+00033 \{
+00034 \textcolor{keyword}{public} :
+00035 
+\hypertarget{reduction__bool_8h_source_l00037}{}\hyperlink{classhryky_1_1reduction_1_1_bool_a883cbc4678bb225f4a5c0ea6b58d932e}{00037}     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1reduction_1_1_base}{Base}    \hyperlink{classhryky_1_1reduction_1_1_bool_a883cbc4678bb225f4a5c0ea6b58d932e}{base_type};
+00038     \textcolor{keyword}{typedef} \textcolor{keywordtype}{bool}    value\_type;
+\hypertarget{reduction__bool_8h_source_l00039}{}\hyperlink{classhryky_1_1reduction_1_1_bool_aae7090b0a5295d9d875e74702674eaf1}{00039}     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1reduction_1_1_bool}{Bool}    \hyperlink{classhryky_1_1reduction_1_1_bool_aae7090b0a5295d9d875e74702674eaf1}{this_type};
+00040 
+00042     \hyperlink{classhryky_1_1reduction_1_1_bool_a332275830b09038643e3ce4b46c856fc}{Bool}();
+00043 
+00045     \hyperlink{classhryky_1_1reduction_1_1_bool_a332275830b09038643e3ce4b46c856fc}{Bool}(\hyperlink{classhryky_1_1reduction_1_1_string}{name_type} \textcolor{keyword}{const} & \hyperlink{classhryky_1_1reduction_1_1_base_a842569265d741905eb8a353d3935f1d1}{name}, value\_type \textcolor{keyword}{const} \hyperlink{classhryky_1_1reduction_1_1_bool_adc9dc3d2690f737eace344341033c6ce}{value});
+00046 
+00048     \hyperlink{classhryky_1_1reduction_1_1_bool_a332275830b09038643e3ce4b46c856fc}{Bool}(\hyperlink{classhryky_1_1reduction_1_1_base}{this_type} \textcolor{keyword}{const} &);
+00049 
+00051     \hyperlink{classhryky_1_1reduction_1_1_bool_a332275830b09038643e3ce4b46c856fc}{Bool}(\hyperlink{classhryky_1_1reduction_1_1_base}{this_type} && rhs);
+00052 
+00054     \textcolor{keyword}{virtual} \hyperlink{classhryky_1_1reduction_1_1_bool_af5e676d54857e65d034188674a9c3ae9}{~Bool}();
+00055 
+\hypertarget{reduction__bool_8h_source_l00057}{}\hyperlink{classhryky_1_1reduction_1_1_bool_a7d44a7c568c4c6c457c51aa9b8e42fa1}{00057}     \hyperlink{classhryky_1_1reduction_1_1_bool_a7d44a7c568c4c6c457c51aa9b8e42fa1}{hryky_assign_op};
+00058 
+00060     \textcolor{keywordtype}{void} \hyperlink{classhryky_1_1reduction_1_1_bool_ac5ecbeeaf7a08b030db1465f3d101f25}{clear}();
+00061 
+00063     \textcolor{keywordtype}{void} \hyperlink{classhryky_1_1reduction_1_1_bool_a9f6be2c70cd57b9b5b49f97876253731}{swap}(\hyperlink{classhryky_1_1reduction_1_1_base}{this_type} & src);
+00064 
+00066     value\_type \hyperlink{classhryky_1_1reduction_1_1_bool_adc9dc3d2690f737eace344341033c6ce}{value}() \textcolor{keyword}{const};
+00067 
+00068 \textcolor{keyword}{protected} :
+00069 
+00070 \textcolor{keyword}{private} :
+00071 
+00073     \textcolor{keyword}{virtual} \textcolor{keywordtype}{bool} dispatch\_impl(\hyperlink{classhryky_1_1reduction_1_1_dispatcher}{Dispatcher} & dispatcher) \textcolor{keyword}{const};
+00074 
+00075     value\_type value\_;
+00076 
+00077 \};
+00078 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00079 \textcolor{comment}{// class specializations}
+00080 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00081 \textcolor{keyword}{namespace }hryky
+00082 \{
+00083 \textcolor{keyword}{namespace }reduction
+00084 \{
+00085 \} \textcolor{comment}{// namespace reduction}
+00086 \} \textcolor{comment}{// namespace hryky}
+00087 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00088 \textcolor{comment}{// public member functions}
+00089 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00090 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00091 \textcolor{comment}{// protected member functions}
+00092 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00093 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00094 \textcolor{comment}{// private member functions}
+00095 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00096 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00097 \textcolor{comment}{// global function prototypes}
+00098 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00099 \textcolor{keyword}{namespace }hryky
+00100 \{
+00102     \hyperlink{namespacehryky_a343a9a4c36a586be5c2693156200eadc}{reduction_type} \hyperlink{namespacehryky_af41cb3af6766761da0ff21b84527a52c}{reduce}(
+00103         \hyperlink{namespacehryky_1_1reduction_ac686c30a4c8d196bbd0f05629a6b921f}{reduction::name_type} \textcolor{keyword}{const} & name, \textcolor{keywordtype}{bool} value);
+00104 
+00105 \textcolor{keyword}{namespace }reduction
+00106 \{
+00108     \textcolor{keywordtype}{void} \hyperlink{namespacehryky_1_1reduction_a493c83efdf5f9e9c49ba77e1b65325a1}{swap}(
+00109         Bool & lhs, Bool & rhs);
+00110 
+00111 \} \textcolor{comment}{// namespace reduction}
+00112 \} \textcolor{comment}{// namespace hryky}
+00113 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00114 \textcolor{comment}{// global function definitions}
+00115 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00116 \textcolor{preprocessor}{#endif // REDUCTION\_BOOL\_H\_20120923173924402}
+00117 \textcolor{preprocessor}{}\textcolor{comment}{// end of file}
+\end{DoxyCode}

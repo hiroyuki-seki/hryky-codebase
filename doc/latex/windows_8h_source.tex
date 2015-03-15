@@ -1,0 +1,100 @@
+\hypertarget{windows_8h_source}{\section{windows.\-h}
+}
+
+\begin{DoxyCode}
+00001 
+00007 \textcolor{preprocessor}{#ifndef WINDOWS\_H\_20120911112707143}
+00008 \textcolor{preprocessor}{}\textcolor{preprocessor}{#define WINDOWS\_H\_20120911112707143}
+00009 \textcolor{preprocessor}{}\textcolor{preprocessor}{#include "hryky/config.h"}
+00010 \textcolor{preprocessor}{#if HRYKY\_WIN32}
+00011 \textcolor{preprocessor}{}
+00012 \textcolor{preprocessor}{#pragma warning(push)}
+00013 \textcolor{preprocessor}{}\textcolor{preprocessor}{#pragma warning(disable:4127)}
+00014 \textcolor{preprocessor}{}\textcolor{preprocessor}{#pragma warning(disable:4244)}
+00015 \textcolor{preprocessor}{}\textcolor{preprocessor}{#pragma warning(disable:4267)}
+00016 \textcolor{preprocessor}{}\textcolor{preprocessor}{#pragma warning(disable:4514)}
+00017 \textcolor{preprocessor}{}\textcolor{preprocessor}{#pragma warning(disable:4548)}
+00018 \textcolor{preprocessor}{}\textcolor{preprocessor}{#pragma warning(disable:4571)}
+00019 \textcolor{preprocessor}{}\textcolor{preprocessor}{#pragma warning(disable:4625)}
+00020 \textcolor{preprocessor}{}\textcolor{preprocessor}{#pragma warning(disable:4626)}
+00021 \textcolor{preprocessor}{}\textcolor{preprocessor}{#pragma warning(disable:4640)}
+00022 \textcolor{preprocessor}{}\textcolor{preprocessor}{#pragma warning(disable:4668)}
+00023 \textcolor{preprocessor}{}\textcolor{preprocessor}{#pragma warning(disable:4820)}
+00024 \textcolor{preprocessor}{}\textcolor{preprocessor}{#pragma warning(disable:4820)}
+00025 \textcolor{preprocessor}{}
+00026 \textcolor{preprocessor}{#if !defined(WINVER)}
+00027 \textcolor{preprocessor}{}\textcolor{preprocessor}{#    define WINVER               0x0601 // \_WIN32\_WINNT\_WIN7}
+00028 \textcolor{preprocessor}{}\textcolor{preprocessor}{#endif}
+00029 \textcolor{preprocessor}{}\textcolor{preprocessor}{#if !defined(\_WIN32\_WINNT)}
+00030 \textcolor{preprocessor}{}\textcolor{preprocessor}{#    define \_WIN32\_WINNT         0x0601 // \_WIN32\_WINNT\_WIN7}
+00031 \textcolor{preprocessor}{}\textcolor{preprocessor}{#endif}
+00032 \textcolor{preprocessor}{}\textcolor{preprocessor}{#if !defined(NTDDI\_VERSION)}
+00033 \textcolor{preprocessor}{}\textcolor{preprocessor}{#    define NTDDI\_VERSION        0x06010000 // NTDDI\_WIN7}
+00034 \textcolor{preprocessor}{}\textcolor{preprocessor}{#endif}
+00035 \textcolor{preprocessor}{}
+00036 \textcolor{preprocessor}{#include <\hyperlink{windows_8h}{windows.h}>}
+00037 
+00038 \textcolor{preprocessor}{#if NTDDI\_VISTA <= NTDDI\_VERSION}
+00039 \textcolor{preprocessor}{}\textcolor{preprocessor}{#    include <Knownfolders.h>}
+00040 \textcolor{preprocessor}{#endif}
+00041 \textcolor{preprocessor}{}
+00042 \textcolor{preprocessor}{#if defined(NDEBUG)}
+00043 \textcolor{preprocessor}{}\textcolor{preprocessor}{#    include <stdlib.h>}
+00044 \textcolor{preprocessor}{#else}
+00045 \textcolor{preprocessor}{}\textcolor{preprocessor}{#    define \_CRTDBG\_MAP\_ALLOC}
+00046 \textcolor{preprocessor}{}\textcolor{preprocessor}{#    include <stdlib.h>}
+00047 \textcolor{preprocessor}{#    include <crtdbg.h>}
+00048 \textcolor{preprocessor}{#endif}
+00049 \textcolor{preprocessor}{}\textcolor{preprocessor}{#include <shlobj.h>}
+00050 
+00051 \textcolor{preprocessor}{#pragma warning(pop)}
+00052 \textcolor{preprocessor}{}
+00053 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00054 \textcolor{comment}{// macro definition}
+00055 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00056 \textcolor{preprocessor}{#if defined(interface)}
+00057 \textcolor{preprocessor}{}\textcolor{preprocessor}{#   undef interface}
+00058 \textcolor{preprocessor}{}\textcolor{preprocessor}{#endif}
+00059 \textcolor{preprocessor}{}\textcolor{preprocessor}{#if defined(max)}
+00060 \textcolor{preprocessor}{}\textcolor{preprocessor}{#   undef max}
+00061 \textcolor{preprocessor}{}\textcolor{preprocessor}{#endif}
+00062 \textcolor{preprocessor}{}\textcolor{preprocessor}{#if defined(min)}
+00063 \textcolor{preprocessor}{}\textcolor{preprocessor}{#   undef min}
+00064 \textcolor{preprocessor}{}\textcolor{preprocessor}{#endif}
+00065 \textcolor{preprocessor}{}\textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00066 \textcolor{comment}{// namespace}
+00067 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00068 \textcolor{keyword}{namespace }hryky
+00069 \{
+00070 \} \textcolor{comment}{// namespace hryky}
+00071 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00072 \textcolor{comment}{// struct declaration}
+00073 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00074 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00075 \textcolor{comment}{// class declaration}
+00076 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00077 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00078 \textcolor{comment}{// global function prototypes}
+00079 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00080 \textcolor{keyword}{namespace }hryky
+00081 \{
+00082 \} \textcolor{comment}{// namespace hryky}
+00083 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00084 \textcolor{comment}{// global function definitions}
+00085 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00086 \textcolor{preprocessor}{#endif // HRYKY\_WIN32}
+00087 \textcolor{preprocessor}{}\textcolor{preprocessor}{#endif // WINDOWS\_H\_20120911112707143}
+00088 \textcolor{preprocessor}{}\textcolor{comment}{// end of file}
+\end{DoxyCode}

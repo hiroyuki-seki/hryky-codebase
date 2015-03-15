@@ -1,0 +1,106 @@
+\hypertarget{http__header__cache__directive__common_8h_source}{\section{http\-\_\-header\-\_\-cache\-\_\-directive\-\_\-common.\-h}
+}
+
+\begin{DoxyCode}
+00001 
+00007 \textcolor{preprocessor}{#ifndef HTTP\_HEADER\_CACHE\_DIRECTIVE\_COMMON\_H\_20121123115311161}
+00008 \textcolor{preprocessor}{}\textcolor{preprocessor}{#define HTTP\_HEADER\_CACHE\_DIRECTIVE\_COMMON\_H\_20121123115311161}
+00009 \textcolor{preprocessor}{}\textcolor{preprocessor}{#include "\hyperlink{kind_8h}{hryky/kind.h}"}
+00010 \textcolor{preprocessor}{#include "\hyperlink{literal__string_8h}{hryky/literal_string.h}"}
+00011 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00012 \textcolor{comment}{// macro definition}
+00013 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00014 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00015 \textcolor{comment}{// namespace}
+00016 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00017 \textcolor{keyword}{namespace }hryky
+00018 \{
+00019 \textcolor{keyword}{namespace }http
+00020 \{
+00021 \textcolor{keyword}{namespace }header
+00022 \{
+00023 \textcolor{keyword}{namespace }cache
+00024 \{
+00025 \textcolor{keyword}{namespace }directive
+00026 \{
+00027     \textcolor{keyword}{struct }Kind \{
+00028         \textcolor{keyword}{enum} Raw \{
+00029             no\_cache\_,
+00030             no\_store\_,
+00031             max\_age\_,
+00032             max\_stale\_,
+00033             min\_fresh\_,
+00034             no\_transform\_,
+00035             only\_if\_cached\_,
+00036             public\_,
+00037             private\_,
+00038             must\_revalidate\_,
+00039             proxy\_revalidate\_,
+00040             s\_maxage\_,
+00041             num\_,
+00042             unknown\_ = num\_,
+00043         \};
+00044     \};
+00045     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1_kind}{hryky::Kind<Kind, Kind::unknown_>} kind\_type;
+00046 
+00047     LiteralString \textcolor{keyword}{const} tokens\_[Kind::num\_] = \{
+00048         LiteralString(\textcolor{stringliteral}{"no-cache"}),
+00049         LiteralString(\textcolor{stringliteral}{"no-store"}),
+00050         LiteralString(\textcolor{stringliteral}{"max-age"}),
+00051         LiteralString(\textcolor{stringliteral}{"max-stale"}),
+00052         LiteralString(\textcolor{stringliteral}{"min-fresh"}),
+00053         LiteralString(\textcolor{stringliteral}{"no-transform"}),
+00054         LiteralString(\textcolor{stringliteral}{"only-if-cached"}),
+00055         LiteralString(\textcolor{stringliteral}{"public"}),
+00056         LiteralString(\textcolor{stringliteral}{"private"}),
+00057         LiteralString(\textcolor{stringliteral}{"must-revalidate"}),
+00058         LiteralString(\textcolor{stringliteral}{"proxy-revalidate"}),
+00059         LiteralString(\textcolor{stringliteral}{"s-maxage"}),
+00060     \};
+00061 \} \textcolor{comment}{// namespace directive}
+00062 \} \textcolor{comment}{// namespace cache}
+00063 \} \textcolor{comment}{// namespace header}
+00064 \} \textcolor{comment}{// namespace http}
+00065 \} \textcolor{comment}{// namespace hryky}
+00066 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00067 \textcolor{comment}{// struct declaration}
+00068 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00069 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00070 \textcolor{comment}{// class declaration}
+00071 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00072 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00073 \textcolor{comment}{// global function prototypes}
+00074 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00075 \textcolor{keyword}{namespace }hryky
+00076 \{
+00077 \textcolor{keyword}{namespace }http
+00078 \{
+00079 \textcolor{keyword}{namespace }header
+00080 \{
+00081 \textcolor{keyword}{namespace }cache
+00082 \{
+00083 \textcolor{keyword}{namespace }directive
+00084 \{
+00085 \} \textcolor{comment}{// namespace directive}
+00086 \} \textcolor{comment}{// namespace cache}
+00087 \} \textcolor{comment}{// namespace header}
+00088 \} \textcolor{comment}{// namespace http}
+00089 \} \textcolor{comment}{// namespace hryky}
+00090 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00091 \textcolor{comment}{// global function definitions}
+00092 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00093 \textcolor{preprocessor}{#endif // HTTP\_HEADER\_CACHE\_DIRECTIVE\_COMMON\_H\_20121123115311161}
+00094 \textcolor{preprocessor}{}\textcolor{comment}{// end of file}
+\end{DoxyCode}

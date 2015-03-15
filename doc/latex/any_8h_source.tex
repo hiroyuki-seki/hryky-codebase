@@ -1,0 +1,471 @@
+\hypertarget{any_8h_source}{\section{any.\-h}
+}
+
+\begin{DoxyCode}
+00001 
+00007 \textcolor{preprocessor}{#ifndef ANY\_H\_20121211170650379}
+00008 \textcolor{preprocessor}{}\textcolor{preprocessor}{#define ANY\_H\_20121211170650379}
+00009 \textcolor{preprocessor}{}\textcolor{preprocessor}{#include "\hyperlink{allocator__heap_8h}{hryky/allocator/allocator_heap.h}"}
+00010 \textcolor{preprocessor}{#include "\hyperlink{allocator__common_8h}{hryky/allocator/allocator_common.h}"}
+00011 \textcolor{preprocessor}{#include "\hyperlink{enable__if_8h}{hryky/gp/enable_if.h}"}
+00012 \textcolor{preprocessor}{#include "\hyperlink{is__unsigned_8h}{hryky/gp/is_unsigned.h}"}
+00013 \textcolor{preprocessor}{#include "\hyperlink{is__signed_8h}{hryky/gp/is_signed.h}"}
+00014 \textcolor{preprocessor}{#include "\hyperlink{is__floating__point_8h}{hryky/gp/is_floating_point.h}"}
+00015 \textcolor{preprocessor}{#include "\hyperlink{is__enum_8h}{hryky/gp/is_enum.h}"}
+00016 \textcolor{preprocessor}{#include "\hyperlink{is__numeric_8h}{hryky/gp/is_numeric.h}"}
+00017 \textcolor{preprocessor}{#include "\hyperlink{kind_8h}{hryky/kind.h}"}
+00018 \textcolor{preprocessor}{#include "\hyperlink{reduction__map_8h}{hryky/reduction/reduction_map.h}"}
+00019 \textcolor{preprocessor}{#include "\hyperlink{type_8h}{hryky/type.h}"}
+00020 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00021 \textcolor{comment}{// macro definition}
+00022 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00023 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00024 \textcolor{comment}{// namespace}
+00025 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00026 \textcolor{keyword}{namespace }hryky
+00027 \{
+00029     \textcolor{keyword}{template} < \textcolor{keyword}{typename} AllocatorT >
+00030     \textcolor{keyword}{class }Any;
+00031 
+00032 \} \textcolor{comment}{// namespace hryky}
+00033 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00034 \textcolor{comment}{// class declarations}
+00035 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00039 \textcolor{comment}{}\textcolor{keyword}{template} < \textcolor{keyword}{typename} AllocatorT = allocator::Heap<\textcolor{keywordtype}{int}> >
+\hypertarget{any_8h_source_l00040}{}\hyperlink{classhryky_1_1_any}{00040} \textcolor{keyword}{class }\hyperlink{classhryky_1_1_any}{hryky::Any}
+00041 \{
+00042 \textcolor{keyword}{public} :
+00043 
+\hypertarget{any_8h_source_l00044}{}\hyperlink{classhryky_1_1_any_accb3d649460111ed6f04293f3e5865bc}{00044}     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1_any}{Any<AllocatorT>} \hyperlink{classhryky_1_1_any_accb3d649460111ed6f04293f3e5865bc}{this_type};
+00045     \textcolor{keyword}{typedef} AllocatorT allocator\_type;
+00046     \textcolor{keyword}{typedef} uint64\_t uint\_type;
+00047     \textcolor{keyword}{typedef} int64\_t sint\_type;
+00048     \textcolor{keyword}{typedef} \textcolor{keywordtype}{double} float\_type;
+00049 
+00051     \hyperlink{classhryky_1_1_any_a3d0d9135c798b3bfb4428fc04f168414}{Any}();
+00052 
+00054     \hyperlink{classhryky_1_1_any_a3d0d9135c798b3bfb4428fc04f168414}{Any}(\hyperlink{classhryky_1_1_any}{this_type} \textcolor{keyword}{const} &);
+00055 
+00057     \hyperlink{classhryky_1_1_any_a3d0d9135c798b3bfb4428fc04f168414}{Any}(\hyperlink{classhryky_1_1_any}{this_type} && rhs);
+00058 
+00060     \textcolor{keyword}{template} <\textcolor{keyword}{typename} ValueT>
+\hypertarget{any_8h_source_l00061}{}\hyperlink{classhryky_1_1_any_a29310c8ac9eb7914a68da33ac430ba9f}{00061}     \textcolor{keyword}{explicit} \hyperlink{classhryky_1_1_any_a3d0d9135c798b3bfb4428fc04f168414}{Any}(
+00062         ValueT \textcolor{keyword}{const} rhs,
+00063         \textcolor{keyword}{typename} \hyperlink{classhryky_1_1_enable_if}{EnableIf}<\hyperlink{classhryky_1_1_is_unsigned}{IsUnsigned<ValueT>} >::type * = \hyperlink{common_8h_a4cd4ac09cfcdbd6b30ee69afc156e210}{HRYKY_NULLPTR})
+00064         : allocator\_()
+00065           , uint\_(rhs)
+00066           , builtin\_kind\_(BuiltinKind::uint\_)
+00067     \{
+00068     \}
+00069 
+00071     \textcolor{keyword}{template} <\textcolor{keyword}{typename} ValueT>
+\hypertarget{any_8h_source_l00072}{}\hyperlink{classhryky_1_1_any_a4e101053b5c51d90939b458f7243a420}{00072}     \textcolor{keyword}{explicit} \hyperlink{classhryky_1_1_any_a3d0d9135c798b3bfb4428fc04f168414}{Any}(
+00073         ValueT \textcolor{keyword}{const} rhs,
+00074         \textcolor{keyword}{typename} \hyperlink{classhryky_1_1_enable_if}{EnableIf}<\hyperlink{classhryky_1_1_is_signed}{IsSigned<ValueT>} >::type * = \hyperlink{common_8h_a4cd4ac09cfcdbd6b30ee69afc156e210}{HRYKY_NULLPTR})
+00075         : allocator\_()
+00076           , sint\_(rhs)
+00077           , builtin\_kind\_(BuiltinKind::sint\_)
+00078     \{
+00079     \}
+00080 
+00082     \textcolor{keyword}{template} <\textcolor{keyword}{typename} ValueT>
+\hypertarget{any_8h_source_l00083}{}\hyperlink{classhryky_1_1_any_aeb3fe2ce3157fc1d59d5f681c41d4aed}{00083}     \textcolor{keyword}{explicit} \hyperlink{classhryky_1_1_any_a3d0d9135c798b3bfb4428fc04f168414}{Any}(
+00084         ValueT \textcolor{keyword}{const} rhs,
+00085         \textcolor{keyword}{typename} \hyperlink{classhryky_1_1_enable_if}{EnableIf}<\hyperlink{classhryky_1_1_is_floating_point}{IsFloatingPoint<ValueT>} >::type * = \hyperlink{common_8h_a4cd4ac09cfcdbd6b30ee69afc156e210}{HRYKY_NULLPTR})
+00086         : allocator\_()
+00087           , float\_(rhs)
+00088           , builtin\_kind\_(BuiltinKind::float\_)
+00089     \{
+00090     \}
+00091 
+00093     \textcolor{keyword}{template} <\textcolor{keyword}{typename} ValueT>
+\hypertarget{any_8h_source_l00094}{}\hyperlink{classhryky_1_1_any_abc9a34a6126cea0b2449159c5d121d46}{00094}     \textcolor{keyword}{explicit} \hyperlink{classhryky_1_1_any_a3d0d9135c798b3bfb4428fc04f168414}{Any}(
+00095         ValueT \textcolor{keyword}{const} rhs,
+00096         \textcolor{keyword}{typename} \hyperlink{classhryky_1_1_enable_if}{EnableIf}<\hyperlink{classhryky_1_1_is_enum}{IsEnum<ValueT>} >::type * = \hyperlink{common_8h_a4cd4ac09cfcdbd6b30ee69afc156e210}{HRYKY_NULLPTR})
+00097         : allocator\_()
+00098           , enum\_(rhs)
+00099           , builtin\_kind\_(BuiltinKind::sint\_)
+00100     \{
+00101     \}
+00102 
+00104     \textcolor{keyword}{template} < \textcolor{keyword}{typename} ValueT >
+00105     \textcolor{keyword}{explicit} \hyperlink{classhryky_1_1_any_a3d0d9135c798b3bfb4428fc04f168414}{Any}(
+00106         ValueT \textcolor{keyword}{const} & obj,
+00107         allocator\_type \textcolor{keyword}{const} & allocator);
+00108 
+00110     \hyperlink{classhryky_1_1_any_a703e5beebe52102b0db2cef37f92df3f}{~Any}();
+00111 
+\hypertarget{any_8h_source_l00113}{}\hyperlink{classhryky_1_1_any_a1c57a0eab6d8c5b21bc607eb2c2b0a76}{00113}     \hyperlink{classhryky_1_1_any_a1c57a0eab6d8c5b21bc607eb2c2b0a76}{hryky_assign_op};
+00114 
+00116     \textcolor{keyword}{template} < \textcolor{keyword}{typename} ValueT >
+00117     \hyperlink{classhryky_1_1_any}{this_type} & \hyperlink{classhryky_1_1_any_a84875d62c0f9f76ddcfb896b8ab6a275}{operator=}(ValueT \textcolor{keyword}{const} & rhs);
+00118 
+00120     \textcolor{keywordtype}{void} \hyperlink{classhryky_1_1_any_a307624acbd5252242b0665a0d5d5e62e}{clear}();
+00121 
+00123     \hyperlink{classhryky_1_1_intrusive_ptr}{reduction_type} \hyperlink{classhryky_1_1_any_a53cbd925fa67505daab6e79749559517}{reduce}(\hyperlink{classhryky_1_1reduction_1_1_string}{reduction::name_type} \textcolor{keyword}{const} & name) \textcolor{keyword}{const};
+00124 
+00126     \textcolor{keywordtype}{void} \hyperlink{classhryky_1_1_any_a1603aaa3243f8aaae407c6a5e4287bb6}{swap}(\hyperlink{classhryky_1_1_any}{this_type} & src);
+00127 
+00129     \textcolor{keyword}{template} <\textcolor{keyword}{typename} ValueT>
+\hypertarget{any_8h_source_l00130}{}\hyperlink{classhryky_1_1_any_ac0e23acd8cc393f4f9c4188229cb9c9e}{00130}     ValueT \hyperlink{classhryky_1_1_any_ac0e23acd8cc393f4f9c4188229cb9c9e}{cast}(
+00131         \textcolor{keyword}{typename} \hyperlink{classhryky_1_1_enable_if}{EnableIf}<\hyperlink{classhryky_1_1_is_numeric}{IsNumeric<ValueT>} >::type * = \hyperlink{common_8h_a4cd4ac09cfcdbd6b30ee69afc156e210}{HRYKY_NULLPTR})\textcolor{keyword}{ const}
+00132 \textcolor{keyword}{    }\{
+00133         \textcolor{keywordflow}{switch} (this->builtin\_kind\_) \{
+00134         \textcolor{keywordflow}{case} BuiltinKind::uint\_:
+00135             \textcolor{keywordflow}{return} \textcolor{keyword}{static\_cast<}ValueT\textcolor{keyword}{>}(this->uint\_);
+00136         \textcolor{keywordflow}{case} BuiltinKind::sint\_:
+00137             \textcolor{keywordflow}{return} \textcolor{keyword}{static\_cast<}ValueT\textcolor{keyword}{>}(this->sint\_);
+00138         \textcolor{keywordflow}{case} BuiltinKind::float\_:
+00139             \textcolor{keywordflow}{return} \textcolor{keyword}{static\_cast<}ValueT\textcolor{keyword}{>}(this->float\_);
+00140         \textcolor{keywordflow}{default}:
+00141             \hyperlink{log__writer__common_8h_ae5ad3dabb33f594695ef40753cb78aad}{hryky_log_err}(
+00142                 \textcolor{stringliteral}{"invlaid builtin kind for casting to a numeric value."});
+00143             \textcolor{keywordflow}{return} \textcolor{keyword}{static\_cast<}ValueT\textcolor{keyword}{>}(0u);
+00144         \}
+00145     \}
+00146 
+00148     \textcolor{keyword}{template} <\textcolor{keyword}{typename} ValueT>
+\hypertarget{any_8h_source_l00149}{}\hyperlink{classhryky_1_1_any_a37e3de98575a1b8c72a0fb7f5df978b7}{00149}     ValueT \hyperlink{classhryky_1_1_any_ac0e23acd8cc393f4f9c4188229cb9c9e}{cast}(
+00150         \textcolor{keyword}{typename} \hyperlink{classhryky_1_1_enable_if}{EnableIf}<\hyperlink{classhryky_1_1_is_enum}{IsEnum<ValueT>} >::type * = \hyperlink{common_8h_a4cd4ac09cfcdbd6b30ee69afc156e210}{HRYKY_NULLPTR})\textcolor{keyword}{ const}
+00151 \textcolor{keyword}{    }\{
+00152         \textcolor{keywordflow}{switch} (this->builtin\_kind\_) \{
+00153         \textcolor{keywordflow}{case} BuiltinKind::enum\_:
+00154             \textcolor{keywordflow}{return} \textcolor{keyword}{static\_cast<}ValueT\textcolor{keyword}{>}(this->enum\_);
+00155         \textcolor{keywordflow}{default}:
+00156             \hyperlink{log__writer__common_8h_ae5ad3dabb33f594695ef40753cb78aad}{hryky_log_err}(
+00157                 \textcolor{stringliteral}{"invlaid builtin kind for casting to an enum value."});
+00158             \textcolor{keywordflow}{return} \textcolor{keyword}{static\_cast<}ValueT\textcolor{keyword}{>}(0u);
+00159         \}
+00160     \}
+00161 
+00163     \textcolor{keyword}{template} < \textcolor{keyword}{typename} ValueT >
+00164     ValueT * \hyperlink{classhryky_1_1_any_ac0e23acd8cc393f4f9c4188229cb9c9e}{cast}(
+00165         \textcolor{keyword}{typename} \hyperlink{classhryky_1_1_disable_if}{DisableIf}<
+00166             \hyperlink{classhryky_1_1_or}{Or}<\hyperlink{classhryky_1_1_is_numeric}{IsNumeric<ValueT>},\hyperlink{classhryky_1_1_is_enum}{IsEnum<ValueT>} > >::type * = \hyperlink{common_8h_a4cd4ac09cfcdbd6b30ee69afc156e210}{HRYKY_NULLPTR});
+00167 
+00169     \textcolor{keyword}{template} < \textcolor{keyword}{typename} ValueT >
+00170     ValueT \textcolor{keyword}{const} * \hyperlink{classhryky_1_1_any_ac0e23acd8cc393f4f9c4188229cb9c9e}{cast}(
+00171         \textcolor{keyword}{typename} \hyperlink{classhryky_1_1_disable_if}{DisableIf}<
+00172             \hyperlink{classhryky_1_1_or}{Or}<\hyperlink{classhryky_1_1_is_numeric}{IsNumeric<ValueT>},\hyperlink{classhryky_1_1_is_enum}{IsEnum<ValueT>} > >::type * = \hyperlink{common_8h_a4cd4ac09cfcdbd6b30ee69afc156e210}{HRYKY_NULLPTR}) \textcolor{keyword}{
+      const};
+00173 
+00175     \hyperlink{classhryky_1_1type_1_1_info}{type::info_type} \textcolor{keyword}{const} & \hyperlink{classhryky_1_1_any_a17068d39ea56f8b086e4c97086082b30}{type_info}() \textcolor{keyword}{const};
+00176 
+00177 \textcolor{keyword}{protected} :
+00178 
+00179 \textcolor{keyword}{private} :
+00180 
+00181     \textcolor{keyword}{class }Holder \{
+00182     \textcolor{keyword}{public} :
+00183         Holder() \{\}
+00184         \textcolor{keyword}{virtual} Holder * clone(allocator\_type \textcolor{keyword}{const} & allocator) = 0;
+00185         \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \hyperlink{namespacehryky_a9bdf380c3703ef316b807edae92a930a}{release}(allocator\_type \textcolor{keyword}{const} & allocator) = 0;
+00186         \textcolor{keyword}{virtual} type::info\_type \textcolor{keyword}{const} & info() \textcolor{keyword}{const} = 0;
+00187         \textcolor{keyword}{virtual} \hyperlink{namespacehryky_a343a9a4c36a586be5c2693156200eadc}{reduction_type} \hyperlink{classhryky_1_1_any_a53cbd925fa67505daab6e79749559517}{reduce}(\hyperlink{namespacehryky_1_1reduction_ac686c30a4c8d196bbd0f05629a6b921f}{reduction::name_type} \textcolor{keyword}{const} & name) = 0;
+00188     \};
+00189 
+00190     \textcolor{keyword}{template} < \textcolor{keyword}{typename} ValueT >
+00191     \textcolor{keyword}{class }ConcreteHolder : \textcolor{keyword}{public} Holder \{
+00192     \textcolor{keyword}{public} :
+00193         \textcolor{keyword}{typedef} ValueT value\_type;
+00194         \textcolor{keyword}{typedef} ValueT \textcolor{keyword}{const} & const\_reference;
+00195         \textcolor{keyword}{typedef} ValueT & reference;
+00196         \textcolor{keyword}{typedef} ConcreteHolder<ValueT> \hyperlink{classhryky_1_1_any_accb3d649460111ed6f04293f3e5865bc}{this_type};
+00197         
+00198         ConcreteHolder(const\_reference ref)
+00199             : value\_(ref)
+00200         \{
+00201         \}
+00202         
+00203         ConcreteHolder(\hyperlink{classhryky_1_1_any_accb3d649460111ed6f04293f3e5865bc}{this_type} \textcolor{keyword}{const} & rhs)
+00204             : value\_(rhs.value\_)
+00205         \{
+00206         \}
+00207         
+00208         \textcolor{keyword}{virtual} Holder * clone(allocator\_type \textcolor{keyword}{const} & allocator)
+00209         \{
+00210             \textcolor{keywordflow}{return} \hyperlink{namespacehryky_a7e731db6d90571cf1aea6e113d43b6ad}{hryky::instantiate}(
+00211                 (\textcolor{keyword}{typename} allocator\_type::rebind<this\_type>::other)(
+00212                     allocator),
+00213                 \hyperlink{classhryky_1_1_any_accb3d649460111ed6f04293f3e5865bc}{this_type}(this->value\_));
+00214         \}
+00215         
+00216         \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \hyperlink{namespacehryky_a9bdf380c3703ef316b807edae92a930a}{release}(allocator\_type \textcolor{keyword}{const} & allocator)
+00217         \{
+00218             \textcolor{keyword}{typename} allocator\_type::rebind<this\_type>::other
+00219                 other\_allocator(allocator);
+00220             \hyperlink{namespacehryky_a9bdf380c3703ef316b807edae92a930a}{hryky::release}(other\_allocator, \textcolor{keyword}{this});
+00221         \}
+00222 
+00223         \textcolor{keyword}{virtual} type::info\_type \textcolor{keyword}{const} & info()\textcolor{keyword}{ const}
+00224 \textcolor{keyword}{        }\{
+00225             \textcolor{keywordflow}{return} type::info(this->value\_);
+00226         \}
+00227         
+00228         \textcolor{keyword}{virtual} \hyperlink{namespacehryky_a343a9a4c36a586be5c2693156200eadc}{reduction_type} \hyperlink{classhryky_1_1_any_a53cbd925fa67505daab6e79749559517}{reduce}(\hyperlink{namespacehryky_1_1reduction_ac686c30a4c8d196bbd0f05629a6b921f}{reduction::name_type} \textcolor{keyword}{const} & name)
+00229         \{
+00230             \textcolor{keywordflow}{return} \hyperlink{reduction__common_8h_afc72326c9900838c5db40438318794dd}{hryky_reduce}(name, this->value\_);
+00231         \}
+00232 
+00233         reference value() \{ \textcolor{keywordflow}{return} this->value\_; \}
+00234 
+00235         const\_reference value()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} this->value\_; \}
+00236         
+00237     \textcolor{keyword}{private} :
+00238         ValueT value\_;
+00239     \};
+00240 
+00241     \textcolor{keyword}{struct }BuiltinKind \{
+00242         \textcolor{keyword}{enum} Raw \{
+00243             empty\_,
+00244             uint\_,
+00245             sint\_,
+00246             float\_,
+00247             holder\_,
+00248             enum\_,
+00249             num\_,
+00250         \};
+00251     \};
+00252     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1_kind}{hryky::Kind<BuiltinKind>} builtin\_kind\_type;
+00253 
+00254     allocator\_type allocator\_;
+00255     \textcolor{keyword}{union }\{
+00256         uint\_type   uint\_;
+00257         sint\_type   sint\_;
+00258         float\_type  float\_;
+00259         sint\_type   enum\_;
+00260         Holder *    holder\_;
+00261         \textcolor{keywordtype}{void} *      value\_;
+00262     \};
+00263 
+00264     builtin\_kind\_type builtin\_kind\_;
+00265 
+00266 \};
+00267 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00268 \textcolor{comment}{// class specializations}
+00269 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00270 \textcolor{keyword}{namespace }hryky
+00271 \{
+00272 \} \textcolor{comment}{// namespace hryky}
+00273 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00274 \textcolor{comment}{// public member functions}
+00275 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00279 \textcolor{comment}{}\textcolor{keyword}{template} < \textcolor{keyword}{typename} AllocatorT >
+\hypertarget{any_8h_source_l00280}{}\hyperlink{classhryky_1_1_any_a3d0d9135c798b3bfb4428fc04f168414}{00280} \hyperlink{classhryky_1_1_any_a3d0d9135c798b3bfb4428fc04f168414}{hryky::Any<AllocatorT>::Any}()
+00281     : allocator\_()
+00282       , value\_()
+00283       , builtin\_kind\_()
+00284 \{
+00285 \}
+00289 \textcolor{keyword}{template} < \textcolor{keyword}{typename} AllocatorT >
+\hypertarget{any_8h_source_l00290}{}\hyperlink{classhryky_1_1_any_aa95b8ee5fd959cbcf14a63ba5fe40ab1}{00290} \hyperlink{classhryky_1_1_any}{hryky::Any<AllocatorT>::Any}(\hyperlink{classhryky_1_1_any}{this_type} \textcolor{keyword}{const} & rhs)
+00291     : allocator\_(rhs.allocator\_)
+00292       , value\_(rhs.value\_)
+00293       , builtin\_kind\_(rhs.builtin\_kind\_)
+00294 \{
+00295     \textcolor{keywordflow}{if} (BuiltinKind::holder\_ == rhs.builtin\_kind\_
+00296         && \hyperlink{common_8h_a4cd4ac09cfcdbd6b30ee69afc156e210}{HRYKY_NULLPTR} != rhs.holder\_) \{
+00297         this->holder\_ = rhs.holder\_->clone(this->allocator\_);
+00298     \}
+00299 \}
+00303 \textcolor{keyword}{template} < \textcolor{keyword}{typename} AllocatorT >
+\hypertarget{any_8h_source_l00304}{}\hyperlink{classhryky_1_1_any_a4ceb1ab2d59e3d07a6dd1186ecb2b2c5}{00304} \hyperlink{classhryky_1_1_any}{hryky::Any<AllocatorT>::Any}(\hyperlink{classhryky_1_1_any}{this_type} && rhs)
+00305     : allocator\_()
+00306       , value\_()
+00307       , builtin\_kind\_()
+00308 \{
+00309     this->\hyperlink{classhryky_1_1_any_a1603aaa3243f8aaae407c6a5e4287bb6}{swap}(rhs);
+00310 \}
+00314 \textcolor{keyword}{template} < \textcolor{keyword}{typename} AllocatorT >
+00315 \textcolor{keyword}{template} < \textcolor{keyword}{typename} ValueT >
+\hypertarget{any_8h_source_l00316}{}\hyperlink{classhryky_1_1_any_a1634e976c18ada5c81aec15178cc9c4f}{00316} \hyperlink{classhryky_1_1_any}{hryky::Any<AllocatorT>::Any}(
+00317     ValueT \textcolor{keyword}{const} & obj,
+00318     allocator\_type \textcolor{keyword}{const} & allocator)
+00319     : allocator\_(allocator)
+00320       , value\_()
+00321       , builtin\_kind\_(BuiltinKind::holder\_)
+00322 \{
+00323     this->holder\_ = \hyperlink{namespacehryky_a7e731db6d90571cf1aea6e113d43b6ad}{hryky::instantiate}(
+00324         (\textcolor{keyword}{typename} allocator\_type::rebind<ConcreteHolder<ValueT> >::other)(
+00325             allocator),
+00326         ConcreteHolder<ValueT>(obj));
+00327 \}
+00331 \textcolor{keyword}{template} < \textcolor{keyword}{typename} AllocatorT >
+\hypertarget{any_8h_source_l00332}{}\hyperlink{classhryky_1_1_any_a703e5beebe52102b0db2cef37f92df3f}{00332} \hyperlink{classhryky_1_1_any}{hryky::Any<AllocatorT>::~Any}()
+00333 \{
+00334     this->\hyperlink{namespacehryky_aa201297ea9530da954a7230be71cc19d}{clear}();
+00335 \}
+00339 \textcolor{keyword}{template} < \textcolor{keyword}{typename} AllocatorT >
+00340 \textcolor{keyword}{template} < \textcolor{keyword}{typename} ValueT >
+\hypertarget{any_8h_source_l00341}{}\hyperlink{classhryky_1_1_any_a84875d62c0f9f76ddcfb896b8ab6a275}{00341} \hyperlink{classhryky_1_1_any}{hryky::Any<AllocatorT>} & \hyperlink{classhryky_1_1_any}{hryky::Any<AllocatorT>::operator=}(ValueT \textcolor{keyword}{const} & rhs)
+00342 \{
+00343     \hyperlink{classhryky_1_1_any}{this_type}(rhs).\hyperlink{classhryky_1_1_any_a1603aaa3243f8aaae407c6a5e4287bb6}{swap}(*\textcolor{keyword}{this});
+00344 
+00345     \textcolor{keywordflow}{return} *\textcolor{keyword}{this};
+00346 \}
+00350 \textcolor{keyword}{template} < \textcolor{keyword}{typename} AllocatorT >
+\hypertarget{any_8h_source_l00351}{}\hyperlink{classhryky_1_1_any_a307624acbd5252242b0665a0d5d5e62e}{00351} \textcolor{keywordtype}{void} \hyperlink{namespacehryky_aa201297ea9530da954a7230be71cc19d}{hryky::Any<AllocatorT>::clear}()
+00352 \{
+00353     \textcolor{keywordflow}{if} (BuiltinKind::holder\_ == this->builtin\_kind\_
+00354         && \hyperlink{common_8h_a4cd4ac09cfcdbd6b30ee69afc156e210}{HRYKY_NULLPTR} != this->holder\_) \{
+00355         this->holder\_->release(this->allocator\_);
+00356     \}
+00357 
+00358     this->builtin\_kind\_.clear();
+00359     this->value\_ = \hyperlink{common_8h_a4cd4ac09cfcdbd6b30ee69afc156e210}{HRYKY_NULLPTR};
+00360 \}
+00364 \textcolor{keyword}{template} < \textcolor{keyword}{typename} AllocatorT >
+\hypertarget{any_8h_source_l00365}{}\hyperlink{classhryky_1_1_any_a53cbd925fa67505daab6e79749559517}{00365} \hyperlink{classhryky_1_1_intrusive_ptr}{hryky::reduction_type} \hyperlink{namespacehryky_af41cb3af6766761da0ff21b84527a52c}{hryky::Any<AllocatorT>::reduce}(
+00366     \hyperlink{classhryky_1_1reduction_1_1_string}{reduction::name_type} \textcolor{keyword}{const} & name)\textcolor{keyword}{ const}
+00367 \textcolor{keyword}{}\{
+00368     \hyperlink{classhryky_1_1_intrusive_ptr}{reduction::map_type} \hyperlink{namespacehryky_1_1reduction_ac5eae270cf8047b294dc4ff3e5e11a79}{map} = \hyperlink{namespacehryky_1_1reduction_ac5eae270cf8047b294dc4ff3e5e11a79}{reduction::map}(name);
+00369 
+00370     ((*map)
+00371      .append(\textcolor{stringliteral}{"builtin kind"}, static\_cast<uint32\_t>(this->builtin\_kind\_)));
+00372 
+00373     \textcolor{keywordflow}{switch} (this->builtin\_kind\_) \{
+00374     \textcolor{keywordflow}{case} BuiltinKind::empty\_:
+00375         \textcolor{keywordflow}{break};
+00376     \textcolor{keywordflow}{case} BuiltinKind::uint\_:
+00377         map->append(\textcolor{stringliteral}{"uint"}, this->uint\_); \textcolor{keywordflow}{break};
+00378     \textcolor{keywordflow}{case} BuiltinKind::sint\_:
+00379         map->append(\textcolor{stringliteral}{"sint"}, this->sint\_); \textcolor{keywordflow}{break};
+00380     \textcolor{keywordflow}{case} BuiltinKind::float\_:
+00381         map->append(\textcolor{stringliteral}{"float"}, this->float\_); \textcolor{keywordflow}{break};
+00382     \textcolor{keywordflow}{case} BuiltinKind::holder\_:
+00383         map->append(this->holder\_->reduce(\hyperlink{classhryky_1_1reduction_1_1_string}{reduction::name_type}(\textcolor{stringliteral}{"holder"}))); \textcolor{keywordflow}{
+      break};
+00384     \textcolor{keywordflow}{default}:
+00385         \hyperlink{log__writer__common_8h_ae5ad3dabb33f594695ef40753cb78aad}{hryky_log_err}(\textcolor{stringliteral}{"invlaid builtin kind"});
+00386         \textcolor{keywordflow}{break};
+00387     \}
+00388     
+00389     \textcolor{keywordflow}{return} \hyperlink{namespacehryky_1_1reduction_ac5eae270cf8047b294dc4ff3e5e11a79}{map};
+00390 \}
+00394 \textcolor{keyword}{template} < \textcolor{keyword}{typename} AllocatorT >
+\hypertarget{any_8h_source_l00395}{}\hyperlink{classhryky_1_1_any_a1603aaa3243f8aaae407c6a5e4287bb6}{00395} \textcolor{keywordtype}{void} \hyperlink{namespacehryky_a4282146df5ea2b68cb667896a2205909}{hryky::Any<AllocatorT>::swap}(\hyperlink{classhryky_1_1_any}{this_type} & src)
+00396 \{
+00397     \hyperlink{namespacehryky_add9c1c1fdfda07cd47bcb7c16d3a823a}{hryky_swap}(this->allocator\_, src.allocator\_);
+00398     \hyperlink{namespacehryky_add9c1c1fdfda07cd47bcb7c16d3a823a}{hryky_swap}(this->value\_, src.value\_);
+00399     \hyperlink{namespacehryky_add9c1c1fdfda07cd47bcb7c16d3a823a}{hryky_swap}(this->builtin\_kind\_, src.builtin\_kind\_);
+00400 \}
+00404 \textcolor{keyword}{template} < \textcolor{keyword}{typename} AllocatorT >
+00405 \textcolor{keyword}{template} < \textcolor{keyword}{typename} ValueT >
+\hypertarget{any_8h_source_l00406}{}\hyperlink{classhryky_1_1_any_a37f25821261f4c71fbe4f319837d327d}{00406} ValueT * \hyperlink{classhryky_1_1_any}{hryky::Any<AllocatorT>::cast}(
+00407     \textcolor{keyword}{typename} \hyperlink{classhryky_1_1_disable_if}{DisableIf}<
+00408         \hyperlink{classhryky_1_1_or}{Or}<\hyperlink{classhryky_1_1_is_numeric}{IsNumeric<ValueT>},\hyperlink{classhryky_1_1_is_enum}{IsEnum<ValueT>} > >::type *)
+00409 \{
+00410     \textcolor{keywordflow}{switch} (this->builtin\_kind\_) \{
+00411     \textcolor{keywordflow}{case} BuiltinKind::holder\_:
+00412         \{
+00413             \hyperlink{classhryky_1_1type_1_1_info}{type::info_type} \textcolor{keyword}{const} lhs\_info = this->holder\_->info();
+00414             \hyperlink{classhryky_1_1type_1_1_info}{type::info_type} \textcolor{keyword}{const} rhs\_info = type::info<ValueT>();
+00415             \textcolor{keywordflow}{if} (lhs\_info != rhs\_info) \{
+00416                 \hyperlink{log__writer__common_8h_ae5ad3dabb33f594695ef40753cb78aad}{hryky_log_err}(\textcolor{stringliteral}{"invalid kind for casting to arbitrary type."});
+00417                 \textcolor{keywordflow}{return} \hyperlink{common_8h_a4cd4ac09cfcdbd6b30ee69afc156e210}{HRYKY_NULLPTR};
+00418             \}
+00419             \textcolor{keywordflow}{return} &(\textcolor{keyword}{static\_cast<}ConcreteHolder<ValueT> *\textcolor{keyword}{>}(
+00420                 this->holder\_)->value());
+00421         \}
+00422     \textcolor{keywordflow}{default} :
+00423         \hyperlink{log__writer__common_8h_ae5ad3dabb33f594695ef40753cb78aad}{hryky_log_err}(\textcolor{stringliteral}{"invalid kind for casting to arbitrary type"});
+00424         \textcolor{keywordflow}{return} \hyperlink{common_8h_a4cd4ac09cfcdbd6b30ee69afc156e210}{HRYKY_NULLPTR};
+00425     \}
+00426 \}
+00430 \textcolor{keyword}{template} < \textcolor{keyword}{typename} AllocatorT >
+00431 \textcolor{keyword}{template} < \textcolor{keyword}{typename} ValueT >
+\hypertarget{any_8h_source_l00432}{}\hyperlink{classhryky_1_1_any_af8beccd8c9d59f2c45fc4c1037eb5d94}{00432} ValueT \textcolor{keyword}{const} * \hyperlink{classhryky_1_1_any}{hryky::Any<AllocatorT>::cast}(
+00433     \textcolor{keyword}{typename} \hyperlink{classhryky_1_1_disable_if}{DisableIf}<
+00434         \hyperlink{classhryky_1_1_or}{Or}<\hyperlink{classhryky_1_1_is_numeric}{IsNumeric<ValueT>},\hyperlink{classhryky_1_1_is_enum}{IsEnum<ValueT>} > >::type *)\textcolor{keyword}{ const}
+00435 \textcolor{keyword}{}\{
+00436     \textcolor{keywordflow}{switch} (this->builtin\_kind\_) \{
+00437     \textcolor{keywordflow}{case} BuiltinKind::holder\_:
+00438         \{
+00439             \hyperlink{classhryky_1_1type_1_1_info}{type::info_type} \textcolor{keyword}{const} lhs\_info = this->holder\_->info();
+00440             \hyperlink{classhryky_1_1type_1_1_info}{type::info_type} \textcolor{keyword}{const} rhs\_info = type::info<ValueT>();
+00441             \textcolor{keywordflow}{if} (lhs\_info != rhs\_info) \{
+00442                 \hyperlink{log__writer__common_8h_ae5ad3dabb33f594695ef40753cb78aad}{hryky_log_err}(\textcolor{stringliteral}{"invalid kind for casting to arbitrary type."});
+00443                 \textcolor{keywordflow}{return} \hyperlink{common_8h_a4cd4ac09cfcdbd6b30ee69afc156e210}{HRYKY_NULLPTR};
+00444             \}
+00445             \textcolor{keywordflow}{return} &(\textcolor{keyword}{static\_cast<}ConcreteHolder<ValueT> \textcolor{keyword}{const }*\textcolor{keyword}{>}(
+00446                 this->holder\_)->value());
+00447         \}
+00448     \textcolor{keywordflow}{default} :
+00449         \hyperlink{log__writer__common_8h_ae5ad3dabb33f594695ef40753cb78aad}{hryky_log_err}(\textcolor{stringliteral}{"invalid kind for casting to arbitrary type"});
+00450         \textcolor{keywordflow}{return} \hyperlink{common_8h_a4cd4ac09cfcdbd6b30ee69afc156e210}{HRYKY_NULLPTR};
+00451     \}
+00452 \}
+00456 \textcolor{keyword}{template} < \textcolor{keyword}{typename} AllocatorT >
+\hypertarget{any_8h_source_l00457}{}\hyperlink{classhryky_1_1_any_a17068d39ea56f8b086e4c97086082b30}{00457} \hyperlink{classhryky_1_1type_1_1_info}{hryky::type::info_type} \textcolor{keyword}{const} & \hyperlink{classhryky_1_1_any}{hryky::Any<AllocatorT>::type_info}()\textcolor{keyword}{ const}
+00458 \textcolor{keyword}{}\{
+00459     \textcolor{keywordflow}{switch} (this->builtin\_kind\_) \{
+00460     \textcolor{keywordflow}{case} BuiltinKind::uint\_:
+00461         \textcolor{keywordflow}{return} type::info(this->uint\_);
+00462     \textcolor{keywordflow}{case} BuiltinKind::sint\_:
+00463     \textcolor{keywordflow}{case} BuiltinKind::enum\_:
+00464         \textcolor{keywordflow}{return} type::info(this->sint\_);
+00465     \textcolor{keywordflow}{case} BuiltinKind::float\_:
+00466         \textcolor{keywordflow}{return} type::info(this->float\_);
+00467     \textcolor{keywordflow}{case} BuiltinKind::holder\_:
+00468         \textcolor{keywordflow}{return} this->holder\_->info();
+00469     \textcolor{keywordflow}{default}:
+00470         \hyperlink{log__writer__common_8h_ae5ad3dabb33f594695ef40753cb78aad}{hryky_log_err}(
+00471             \textcolor{stringliteral}{"invalid kind for retrieving the information of type."});
+00472         \textcolor{keywordflow}{return} type::info(\hyperlink{classhryky_1_1_null}{hryky::Null});
+00473     \}
+00474 \}
+00475 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00476 \textcolor{comment}{// protected member functions}
+00477 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00478 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00479 \textcolor{comment}{// private member functions}
+00480 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00481 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00482 \textcolor{comment}{// global function prototypes}
+00483 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00484 \textcolor{keyword}{namespace }hryky
+00485 \{
+00487     \textcolor{keyword}{template} < \textcolor{keyword}{typename} AllocatorT >
+00488     \hyperlink{classhryky_1_1_intrusive_ptr}{reduction_type} \hyperlink{namespacehryky_af41cb3af6766761da0ff21b84527a52c}{reduce}(
+00489         \hyperlink{classhryky_1_1reduction_1_1_string}{reduction::name_type} \textcolor{keyword}{const} & name, \hyperlink{classhryky_1_1_any}{Any<AllocatorT>} \textcolor{keyword}{const} & src);
+00490 
+00492     \textcolor{keyword}{template} < \textcolor{keyword}{typename} AllocatorT >
+00493     \textcolor{keywordtype}{void} \hyperlink{namespacehryky_a4282146df5ea2b68cb667896a2205909}{swap}(
+00494         \hyperlink{classhryky_1_1_any}{Any<AllocatorT>} & lhs, \hyperlink{classhryky_1_1_any}{Any<AllocatorT>} & rhs);
+00495 
+00496 \} \textcolor{comment}{// namespace hryky}
+00497 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00498 \textcolor{comment}{// global function definitions}
+00499 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00503 \textcolor{comment}{}\textcolor{keyword}{template} < \textcolor{keyword}{typename} AllocatorT >
+\hypertarget{any_8h_source_l00504}{}\hyperlink{namespacehryky_a694d24276778b9967b22a08675292f5f}{00504} \hyperlink{classhryky_1_1_intrusive_ptr}{hryky::reduction_type} \hyperlink{namespacehryky_af41cb3af6766761da0ff21b84527a52c}{hryky::reduce}(
+00505     \hyperlink{classhryky_1_1reduction_1_1_string}{reduction::name_type} \textcolor{keyword}{const} & name, \hyperlink{classhryky_1_1_any}{Any<AllocatorT>} \textcolor{keyword}{const} & src)
+00506 \{
+00507     \textcolor{keywordflow}{return} src.\hyperlink{classhryky_1_1_any_a53cbd925fa67505daab6e79749559517}{reduce}(name);
+00508 \}
+00512 \textcolor{keyword}{template} < \textcolor{keyword}{typename} AllocatorT >
+\hypertarget{any_8h_source_l00513}{}\hyperlink{namespacehryky_a68071169aba55a56c4fb370a89c8a387}{00513} \textcolor{keywordtype}{void} \hyperlink{namespacehryky_a4282146df5ea2b68cb667896a2205909}{hryky::swap}(\hyperlink{classhryky_1_1_any}{Any<AllocatorT>} & lhs, \hyperlink{classhryky_1_1_any}{Any<AllocatorT>} & rhs)
+00514 \{
+00515     lhs.\hyperlink{classhryky_1_1_any_a1603aaa3243f8aaae407c6a5e4287bb6}{swap}(rhs);
+00516 \}
+00517 \textcolor{preprocessor}{#endif // ANY\_H\_20121211170650379}
+00518 \textcolor{preprocessor}{}\textcolor{comment}{// end of file}
+\end{DoxyCode}

@@ -1,0 +1,244 @@
+\hypertarget{namespacehryky_1_1log_1_1format}{\section{hryky\-:\-:log\-:\-:format Namespace Reference}
+\label{namespacehryky_1_1log_1_1format}\index{hryky\-::log\-::format@{hryky\-::log\-::format}}
+}
+
+
+modules to format the output string.  
+
+
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classhryky_1_1log_1_1format_1_1_base}{Base}
+\begin{DoxyCompactList}\small\item\em the interface of logging format. \end{DoxyCompactList}\item 
+class \hyperlink{classhryky_1_1log_1_1format_1_1_map}{Map}
+\begin{DoxyCompactList}\small\item\em aggregates the multiple named values with each name. \end{DoxyCompactList}\item 
+class \hyperlink{classhryky_1_1log_1_1format_1_1_value}{Value}
+\begin{DoxyCompactList}\small\item\em holds the value to log. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{namespacehryky_1_1log_1_1format_aca5654dc79f5b065700e17790f2aa701}{typedef \hyperlink{classhryky_1_1_intrusive_ptr}{Intrusive\-Ptr}$<$ \hyperlink{classhryky_1_1log_1_1format_1_1_map}{Map} $>$ \hyperlink{namespacehryky_1_1log_1_1format_aca5654dc79f5b065700e17790f2aa701}{map\-\_\-type}}\label{namespacehryky_1_1log_1_1format_aca5654dc79f5b065700e17790f2aa701}
+
+\begin{DoxyCompactList}\small\item\em type to use \hyperlink{classhryky_1_1log_1_1format_1_1_map}{log\-::format\-::\-Map} \end{DoxyCompactList}\item 
+\hypertarget{namespacehryky_1_1log_1_1format_ab7408d1e2ed2d648dbf9bba69eb74288}{typedef \hyperlink{namespacehryky_1_1log_1_1format_afb3132c335cc06bc8d0004fab99eb5e4}{string\-\_\-type} \hyperlink{namespacehryky_1_1log_1_1format_ab7408d1e2ed2d648dbf9bba69eb74288}{name\-\_\-type}}\label{namespacehryky_1_1log_1_1format_ab7408d1e2ed2d648dbf9bba69eb74288}
+
+\begin{DoxyCompactList}\small\item\em name of each format element \end{DoxyCompactList}\item 
+\hypertarget{namespacehryky_1_1log_1_1format_afb3132c335cc06bc8d0004fab99eb5e4}{typedef std\-::string \hyperlink{namespacehryky_1_1log_1_1format_afb3132c335cc06bc8d0004fab99eb5e4}{string\-\_\-type}}\label{namespacehryky_1_1log_1_1format_afb3132c335cc06bc8d0004fab99eb5e4}
+
+\begin{DoxyCompactList}\small\item\em type of string \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{namespacehryky_1_1log_1_1format_a8c68e3857a07b98886447e4885fd7dec}{void \hyperlink{namespacehryky_1_1log_1_1format_a8c68e3857a07b98886447e4885fd7dec}{intrusive\-\_\-ptr\-\_\-add\-\_\-ref} (\hyperlink{classhryky_1_1log_1_1format_1_1_base}{Base} $\ast$ptr)}\label{namespacehryky_1_1log_1_1format_a8c68e3857a07b98886447e4885fd7dec}
+
+\begin{DoxyCompactList}\small\item\em increments the reference counter. \end{DoxyCompactList}\item 
+\hypertarget{namespacehryky_1_1log_1_1format_a6c8a33920b836a83719293661e02f060}{void \hyperlink{namespacehryky_1_1log_1_1format_a6c8a33920b836a83719293661e02f060}{intrusive\-\_\-ptr\-\_\-release} (\hyperlink{classhryky_1_1log_1_1format_1_1_base}{Base} $\ast$ptr)}\label{namespacehryky_1_1log_1_1format_a6c8a33920b836a83719293661e02f060}
+
+\begin{DoxyCompactList}\small\item\em decrements the reference counter. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Value\-T $>$ }\\\hyperlink{namespacehryky_1_1log_ad50448c3f934f1eacd5c1bcffe8111e1}{format\-\_\-type} \hyperlink{namespacehryky_1_1log_1_1format_ae8ca636c4b89fe300287aca4f870f2ef}{make\-\_\-format} (\hyperlink{namespacehryky_1_1log_1_1format_ab7408d1e2ed2d648dbf9bba69eb74288}{format\-::name\-\_\-type} const \&name, Value\-T const \&\hyperlink{namespacehryky_1_1log_1_1format_a5b9af9c1a7b018d54144acfb1b8cc960}{value})
+\begin{DoxyCompactList}\small\item\em creates the derived instance of \hyperlink{classhryky_1_1log_1_1format_1_1_base}{log\-::format\-::\-Base} corresponding to parameter. \end{DoxyCompactList}\item 
+\hyperlink{namespacehryky_1_1log_ad50448c3f934f1eacd5c1bcffe8111e1}{format\-\_\-type} \hyperlink{namespacehryky_1_1log_1_1format_af9b4a13bd0f7d9d1f4d7d78dc89b3f86}{make\-\_\-format} (\hyperlink{namespacehryky_1_1log_1_1format_ab7408d1e2ed2d648dbf9bba69eb74288}{name\-\_\-type} const \&name, char const $\ast$\&str)
+\begin{DoxyCompactList}\small\item\em outputs the null-\/terminated string with key. \end{DoxyCompactList}\item 
+{\footnotesize template$<$size\-\_\-t Size$>$ }\\\hyperlink{namespacehryky_1_1log_ad50448c3f934f1eacd5c1bcffe8111e1}{format\-\_\-type} \hyperlink{namespacehryky_1_1log_1_1format_a89c05d378c57d3cec50c5ec4f5caad83}{make\-\_\-format} (\hyperlink{namespacehryky_1_1log_1_1format_ab7408d1e2ed2d648dbf9bba69eb74288}{name\-\_\-type} const \&name, char const (\&str)\mbox{[}Size\mbox{]})
+\begin{DoxyCompactList}\small\item\em outputs the array of characters with the name. \end{DoxyCompactList}\item 
+\hyperlink{namespacehryky_1_1log_ad50448c3f934f1eacd5c1bcffe8111e1}{log\-::format\-\_\-type} \hyperlink{namespacehryky_1_1log_1_1format_a895dc702169c64d14d10a8bb605aa812}{make\-\_\-format} (\hyperlink{namespacehryky_1_1log_1_1format_ab7408d1e2ed2d648dbf9bba69eb74288}{name\-\_\-type} const \&name, uint8\-\_\-t const \&src)
+\begin{DoxyCompactList}\small\item\em outputs an uint8\-\_\-t as a value. \end{DoxyCompactList}\item 
+\hyperlink{namespacehryky_1_1log_1_1format_aca5654dc79f5b065700e17790f2aa701}{map\-\_\-type} \hyperlink{namespacehryky_1_1log_1_1format_ab2b4123702f3dd9467a1d4db34d8d36b}{map} (\hyperlink{namespacehryky_1_1log_1_1format_ab7408d1e2ed2d648dbf9bba69eb74288}{name\-\_\-type} const \&name)
+\begin{DoxyCompactList}\small\item\em creates an instance of \hyperlink{classhryky_1_1log_1_1format_1_1_map}{log\-::format\-::\-Map}. \end{DoxyCompactList}\item 
+\hyperlink{namespacehryky_1_1log_1_1format_aca5654dc79f5b065700e17790f2aa701}{map\-\_\-type} \hyperlink{namespacehryky_1_1log_1_1format_ab082eda860c437408b7dbf88cb47529b}{map} ()
+\begin{DoxyCompactList}\small\item\em creates an instance of \hyperlink{classhryky_1_1log_1_1format_1_1_map}{log\-::format\-::\-Map} without name. \end{DoxyCompactList}\item 
+\hypertarget{namespacehryky_1_1log_1_1format_ad214f866f3f6ebc919c87f9f03132f17}{std\-::ostream \& \hyperlink{namespacehryky_1_1log_1_1format_ad214f866f3f6ebc919c87f9f03132f17}{operator$<$$<$} (std\-::ostream \&lhs, \hyperlink{classhryky_1_1log_1_1format_1_1_base}{Base} const \&rhs)}\label{namespacehryky_1_1log_1_1format_ad214f866f3f6ebc919c87f9f03132f17}
+
+\begin{DoxyCompactList}\small\item\em print information. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Value\-T $>$ }\\\hyperlink{namespacehryky_1_1log_ad50448c3f934f1eacd5c1bcffe8111e1}{format\-\_\-type} \hyperlink{namespacehryky_1_1log_1_1format_a5b9af9c1a7b018d54144acfb1b8cc960}{value} (\hyperlink{namespacehryky_1_1log_1_1format_ab7408d1e2ed2d648dbf9bba69eb74288}{name\-\_\-type} const \&name, Value\-T const \&src)
+\begin{DoxyCompactList}\small\item\em instantiates \hyperlink{classhryky_1_1log_1_1format_1_1_value}{log\-::format\-::\-Value}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+modules to format the output string. 
+
+\subsection{Function Documentation}
+\hypertarget{namespacehryky_1_1log_1_1format_ae8ca636c4b89fe300287aca4f870f2ef}{\index{hryky\-::log\-::format@{hryky\-::log\-::format}!make\-\_\-format@{make\-\_\-format}}
+\index{make\-\_\-format@{make\-\_\-format}!hryky::log::format@{hryky\-::log\-::format}}
+\subsubsection[{make\-\_\-format}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Value\-T $>$ {\bf hryky\-::log\-::format\-\_\-type} {\bf hryky\-::log\-::format\-::make\-\_\-format} (
+\begin{DoxyParamCaption}
+\item[{format\-::name\-\_\-type const \&}]{name, }
+\item[{Value\-T const \&}]{value}
+\end{DoxyParamCaption}
+)}}\label{namespacehryky_1_1log_1_1format_ae8ca636c4b89fe300287aca4f870f2ef}
+
+
+creates the derived instance of \hyperlink{classhryky_1_1log_1_1format_1_1_base}{log\-::format\-::\-Base} corresponding to parameter. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & is the name of the information. \\
+\hline
+{\em value} & is the value held by the instance. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the instance. 
+\end{DoxyReturn}
+\begin{DoxyAttention}{Attention}
+
+\begin{DoxyItemize}
+\item You have to overload this function which is passed the value as the second argument.
+\end{DoxyItemize}
+\end{DoxyAttention}
+\begin{DoxySince}{Since}
+2011-\/12-\/30\-T09\-:51\-:54+0900 
+\end{DoxySince}
+
+\begin{DoxyParams}{Parameters}
+{\em name} & is the name of the param. \\
+\hline
+{\em value} & is the value to be outputed \\
+\hline
+\end{DoxyParams}
+
+
+Referenced by \hyperlink{classhryky_1_1log_1_1format_1_1_map_a61e7546016f71fcb47e9aaa2ac318264}{hryky\-::log\-::format\-::\-Map\-::append()}, and \hyperlink{namespacehryky_1_1log_1_1format_a5b9af9c1a7b018d54144acfb1b8cc960}{value()}.
+
+\hypertarget{namespacehryky_1_1log_1_1format_af9b4a13bd0f7d9d1f4d7d78dc89b3f86}{\index{hryky\-::log\-::format@{hryky\-::log\-::format}!make\-\_\-format@{make\-\_\-format}}
+\index{make\-\_\-format@{make\-\_\-format}!hryky::log::format@{hryky\-::log\-::format}}
+\subsubsection[{make\-\_\-format}]{\setlength{\rightskip}{0pt plus 5cm}{\bf hryky\-::log\-::format\-\_\-type} {\bf hryky\-::log\-::format\-::make\-\_\-format} (
+\begin{DoxyParamCaption}
+\item[{name\-\_\-type const \&}]{name, }
+\item[{char const $\ast$\&}]{str}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}\label{namespacehryky_1_1log_1_1format_af9b4a13bd0f7d9d1f4d7d78dc89b3f86}
+
+
+outputs the null-\/terminated string with key. 
+
+\begin{DoxySince}{Since}
+2012-\/05-\/03\-T19\-:01\-:24+0900 
+\end{DoxySince}
+
+\begin{DoxyParams}{Parameters}
+{\em name} & is the name of the param. \\
+\hline
+{\em str} & is the value to be outputed\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyItemize}
+\item This functions is overload of \hyperlink{namespacehryky_1_1log_1_1format_ae8ca636c4b89fe300287aca4f870f2ef}{make\-\_\-format()} for null-\/terminated string. 
+\end{DoxyItemize}\hypertarget{namespacehryky_1_1log_1_1format_a89c05d378c57d3cec50c5ec4f5caad83}{\index{hryky\-::log\-::format@{hryky\-::log\-::format}!make\-\_\-format@{make\-\_\-format}}
+\index{make\-\_\-format@{make\-\_\-format}!hryky::log::format@{hryky\-::log\-::format}}
+\subsubsection[{make\-\_\-format}]{\setlength{\rightskip}{0pt plus 5cm}template$<$size\-\_\-t Size$>$ {\bf hryky\-::log\-::format\-\_\-type} {\bf hryky\-::log\-::format\-::make\-\_\-format} (
+\begin{DoxyParamCaption}
+\item[{name\-\_\-type const \&}]{name, }
+\item[{char const (\&)}]{str\mbox{[}\-Size\mbox{]}}
+\end{DoxyParamCaption}
+)}}\label{namespacehryky_1_1log_1_1format_a89c05d378c57d3cec50c5ec4f5caad83}
+
+
+outputs the array of characters with the name. 
+
+\begin{DoxySince}{Since}
+2012-\/05-\/19\-T14\-:48\-:18+0900 
+\end{DoxySince}
+
+\begin{DoxyParams}{Parameters}
+{\em name} & is the name of the param. \\
+\hline
+{\em str} & is the value to be outputed\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyItemize}
+\item This functions is overload of \hyperlink{namespacehryky_1_1log_1_1format_ae8ca636c4b89fe300287aca4f870f2ef}{make\-\_\-format()} for the array of characters. 
+\end{DoxyItemize}\hypertarget{namespacehryky_1_1log_1_1format_a895dc702169c64d14d10a8bb605aa812}{\index{hryky\-::log\-::format@{hryky\-::log\-::format}!make\-\_\-format@{make\-\_\-format}}
+\index{make\-\_\-format@{make\-\_\-format}!hryky::log::format@{hryky\-::log\-::format}}
+\subsubsection[{make\-\_\-format}]{\setlength{\rightskip}{0pt plus 5cm}{\bf hryky\-::log\-::format\-\_\-type} {\bf hryky\-::log\-::format\-::make\-\_\-format} (
+\begin{DoxyParamCaption}
+\item[{name\-\_\-type const \&}]{name, }
+\item[{uint8\-\_\-t const \&}]{src}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}\label{namespacehryky_1_1log_1_1format_a895dc702169c64d14d10a8bb605aa812}
+
+
+outputs an uint8\-\_\-t as a value. 
+
+\begin{DoxySince}{Since}
+2012-\/08-\/27\-T23\-:40\-:42+0900 
+\end{DoxySince}
+\hypertarget{namespacehryky_1_1log_1_1format_ab2b4123702f3dd9467a1d4db34d8d36b}{\index{hryky\-::log\-::format@{hryky\-::log\-::format}!map@{map}}
+\index{map@{map}!hryky::log::format@{hryky\-::log\-::format}}
+\subsubsection[{map}]{\setlength{\rightskip}{0pt plus 5cm}{\bf map\-\_\-type} {\bf hryky\-::log\-::format\-::map} (
+\begin{DoxyParamCaption}
+\item[{name\-\_\-type const \&}]{name}
+\end{DoxyParamCaption}
+)}}\label{namespacehryky_1_1log_1_1format_ab2b4123702f3dd9467a1d4db34d8d36b}
+
+
+creates an instance of \hyperlink{classhryky_1_1log_1_1format_1_1_map}{log\-::format\-::\-Map}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & is the name of the instance. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the instance. 
+\end{DoxyReturn}
+\begin{Desc}
+\item[Examples\-: ]\par
+\hyperlink{test_log_8cpp-example}{test\-\_\-log.\-cpp}, \hyperlink{test_memory_heap_arbitrary_8cpp-example}{test\-\_\-memory\-\_\-heap\-\_\-arbitrary.\-cpp}, \hyperlink{test_memory_heap_fixed_8cpp-example}{test\-\_\-memory\-\_\-heap\-\_\-fixed.\-cpp}, \hyperlink{test_task_hello_8cpp-example}{test\-\_\-task\-\_\-hello.\-cpp}, and \hyperlink{test_task_quicksort_8cpp-example}{test\-\_\-task\-\_\-quicksort.\-cpp}.\end{Desc}
+
+
+Referenced by \hyperlink{group__task_gaef74f2d2dd44b8e13f615963ea1e1f0f}{hryky\-::task\-::worker\-::\-Batch$<$ Task\-T $>$\-::append()}, \hyperlink{group__task_ga54ecf037362d5f476c1cd9a984c1b720}{hryky\-::task\-::distributor\-::\-Batch$<$ Task\-T $>$\-::attach\-\_\-with()}, \hyperlink{namespacehryky_1_1opengl_a068d66e76fc06a43c45d3c8da7a75ce5}{hryky\-::opengl\-::check\-\_\-gl()}, \hyperlink{group__task_gaaa80eb88fb7d7223214dd039ae52ed16}{hryky\-::task\-::distributor\-::\-Batch$<$ Task\-T $>$\-::distribute()}, \hyperlink{classhryky_1_1_substring_a095d9b41e44fd8be92c16c7a9ab049bf}{hryky\-::\-Substring$<$ Origin\-T, Offset\-T, Value\-T $>$\-::find()}, \hyperlink{group__task_ga88c79bb070491e5aa6586baa2983f02e}{hryky\-::task\-::distributor\-::\-Impl$<$ Worker\-T $>$\-::log()}, \hyperlink{classhryky_1_1_foreach_a8fee59d609b275c0d6a745d715d9208e}{hryky\-::\-Foreach$<$ Container\-T, Iterator\-T $>$\-::log()}, \hyperlink{classhryky_1_1_substring_a158a8e84126cdc47b025ad84d3bb0b82}{hryky\-::\-Substring$<$ Origin\-T, Offset\-T, Value\-T $>$\-::log()}, \hyperlink{classhryky_1_1_string_a80b69805c3d9dbe4be3396baff7f025d}{hryky\-::\-String$<$ Char\-T, Allocator\-T $>$\-::log()}, \hyperlink{namespacehryky_1_1geometry_a402ab02b01ba65ee95bb321c4c699e7d}{hryky\-::geometry\-::make\-\_\-format()}, \hyperlink{namespacehryky_afd615217f648ff164bc40fb82166d959}{hryky\-::make\-\_\-format()}, \hyperlink{namespacehryky_1_1random_1_1distribution_a6588a1cc6ebd8bb7b5980ea896ed6e0f}{hryky\-::random\-::distribution\-::make\-\_\-format()}, \hyperlink{group__task_gab2bd43e74cc9a62234e04971b1208eb1}{hryky\-::task\-::worker\-::make\-\_\-format()}, \hyperlink{group__task_ga9ebf9038e6e40f583b3b26866e1f8131}{hryky\-::task\-::distributor\-::\-Batch$<$ Task\-T $>$\-::reset()}, \hyperlink{group__task_ga88b1f6b27be23acb9fd42203d7cd3933}{hryky\-::task\-::worker\-::\-Batch$<$ Task\-T $>$\-::reset()}, and \hyperlink{classhryky_1_1_substring_a55f9c969b225a603e1b4d4021ecb738b}{hryky\-::\-Substring$<$ Origin\-T, Offset\-T, Value\-T $>$\-::substr()}.
+
+\hypertarget{namespacehryky_1_1log_1_1format_ab082eda860c437408b7dbf88cb47529b}{\index{hryky\-::log\-::format@{hryky\-::log\-::format}!map@{map}}
+\index{map@{map}!hryky::log::format@{hryky\-::log\-::format}}
+\subsubsection[{map}]{\setlength{\rightskip}{0pt plus 5cm}{\bf map\-\_\-type} {\bf hryky\-::log\-::format\-::map} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{namespacehryky_1_1log_1_1format_ab082eda860c437408b7dbf88cb47529b}
+
+
+creates an instance of \hyperlink{classhryky_1_1log_1_1format_1_1_map}{log\-::format\-::\-Map} without name. 
+
+\begin{DoxyReturn}{Returns}
+the instance. 
+\end{DoxyReturn}
+\hypertarget{namespacehryky_1_1log_1_1format_a5b9af9c1a7b018d54144acfb1b8cc960}{\index{hryky\-::log\-::format@{hryky\-::log\-::format}!value@{value}}
+\index{value@{value}!hryky::log::format@{hryky\-::log\-::format}}
+\subsubsection[{value}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Value\-T $>$ {\bf hryky\-::log\-::format\-\_\-type} {\bf hryky\-::log\-::format\-::value} (
+\begin{DoxyParamCaption}
+\item[{name\-\_\-type const \&}]{name, }
+\item[{Value\-T const \&}]{src}
+\end{DoxyParamCaption}
+)}}\label{namespacehryky_1_1log_1_1format_a5b9af9c1a7b018d54144acfb1b8cc960}
+
+
+instantiates \hyperlink{classhryky_1_1log_1_1format_1_1_value}{log\-::format\-::\-Value}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & is the name of value. \\
+\hline
+{\em src} & is the value held by the instance. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the instance. 
+\end{DoxyReturn}
+\begin{DoxySince}{Since}
+2012-\/01-\/08\-T13\-:16\-:33+0900 
+\end{DoxySince}
+\begin{Desc}
+\item[Examples\-: ]\par
+\hyperlink{test_log_8cpp-example}{test\-\_\-log.\-cpp}, and \hyperlink{test_task_quicksort_8cpp-example}{test\-\_\-task\-\_\-quicksort.\-cpp}.\end{Desc}
+
+
+References \hyperlink{namespacehryky_1_1log_1_1format_ae8ca636c4b89fe300287aca4f870f2ef}{make\-\_\-format()}.
+
+
+
+Referenced by \hyperlink{namespacehryky_a84803d86a3bb217481dd0a180734fb8f}{hryky\-::align\-\_\-floor()}, \hyperlink{classhryky_1_1_fixed_vector_a1bf7588b15fe89dc8f04d843c4722e02}{hryky\-::\-Fixed\-Vector$<$ Value\-T, Capacity $>$\-::assign()}, \hyperlink{classhryky_1_1_fixed_vector_a8fb930253e5023e26863dbb41be7a955}{hryky\-::\-Fixed\-Vector$<$ Value\-T, Capacity $>$\-::insert()}, \hyperlink{classhryky_1_1_string_a62f0f7325194c1c86dfbd6af80605b90}{hryky\-::\-String$<$ Char\-T, Allocator\-T $>$\-::insert()}, \hyperlink{classhryky_1_1exclusion_1_1_atomic_a86b7e74f617451e268f58ca8e153c672}{hryky\-::exclusion\-::\-Atomic$<$ Value\-T, Lockable\-T $>$\-::operator value\-\_\-type()}, \hyperlink{group__exclusion__control_ga6c7259992061b671eb6659fb2ce28f9c}{hryky\-::exclusion\-::\-Atomic\-Writing$<$ Value\-T, Lockable\-T $>$\-::operator++()}, \hyperlink{classhryky_1_1exclusion_1_1_atomic_a5c6f6492d00d72e7a521197b81ffe4f4}{hryky\-::exclusion\-::\-Atomic$<$ Value\-T, Lockable\-T $>$\-::operator++()}, \hyperlink{group__exclusion__control_ga39cdbea957f1abd0251446989d3f82ec}{hryky\-::exclusion\-::\-Atomic\-Writing$<$ Value\-T, Lockable\-T $>$\-::operator-\/-\/()}, \hyperlink{classhryky_1_1exclusion_1_1_atomic_aa621bcf7758e9731800e6a5e9fcc99fe}{hryky\-::exclusion\-::\-Atomic$<$ Value\-T, Lockable\-T $>$\-::operator-\/-\/()}, \hyperlink{namespacehryky_1_1qsort__internal_a2a9908c1e249d16e6701c06e341f9e1d}{hryky\-::qsort\-\_\-internal\-::pivot\-\_\-position()}, \hyperlink{classhryky_1_1_string_a0e5eea4617e8a71510a1e34958b0d189}{hryky\-::\-String$<$ Char\-T, Allocator\-T $>$\-::push\-\_\-back()}, and \hyperlink{namespacehryky_a438e3ee8f5109856c4a1e4daa9980982}{hryky\-::qsort()}.
+

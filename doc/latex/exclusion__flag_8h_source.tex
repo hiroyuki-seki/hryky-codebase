@@ -1,0 +1,99 @@
+\hypertarget{exclusion__flag_8h_source}{\section{exclusion\-\_\-flag.\-h}
+}
+
+\begin{DoxyCode}
+00001 
+00009 \textcolor{preprocessor}{#ifndef EXCLUSION\_FLAG\_H\_20111129173852401}
+00010 \textcolor{preprocessor}{}\textcolor{preprocessor}{#define EXCLUSION\_FLAG\_H\_20111129173852401}
+00011 \textcolor{preprocessor}{}\textcolor{preprocessor}{#include "\hyperlink{exclusion__mutex_8h}{hryky/exclusion/exclusion_mutex.h}"}
+00012 \textcolor{preprocessor}{#include "\hyperlink{exclusion__cond_8h}{hryky/exclusion/exclusion_cond.h}"}
+00013 \textcolor{preprocessor}{#include "\hyperlink{exclusion__lock_8h}{hryky/exclusion/exclusion_lock.h}"}
+00014 \textcolor{preprocessor}{#include "\hyperlink{exclusion__waitable__lock_8h}{hryky/exclusion/exclusion_waitable_lock.h}"}
+00015 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00016 \textcolor{comment}{// macro definition}
+00017 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00018 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00019 \textcolor{comment}{// namespace}
+00020 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00021 \textcolor{keyword}{namespace }hryky
+00022 \{
+00023 \textcolor{keyword}{namespace }exclusion
+00024 \{
+00026     \textcolor{keyword}{class }Flag;
+00027 \}
+00028 \}
+00029 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00030 \textcolor{comment}{// class declaration}
+00031 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+\hypertarget{exclusion__flag_8h_source_l00035}{}\hyperlink{classhryky_1_1exclusion_1_1_flag}{00035} \textcolor{comment}{}\textcolor{keyword}{class }\hyperlink{classhryky_1_1exclusion_1_1_flag}{hryky::exclusion::Flag}
+00036 \{
+00037 \textcolor{keyword}{public} :
+00038 
+00039     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1exclusion_1_1_flag}{exclusion::Flag} \hyperlink{classhryky_1_1exclusion_1_1_flag}{this_type};
+00040 
+00042     \textcolor{keyword}{explicit} \hyperlink{classhryky_1_1exclusion_1_1_flag_a120d138be1d3f8d67ee976415f84de48}{Flag}();
+00043 
+00045     \hyperlink{classhryky_1_1exclusion_1_1_flag_a120d138be1d3f8d67ee976415f84de48}{Flag}(\textcolor{keywordtype}{bool} value);
+00046 
+00048     \hyperlink{classhryky_1_1exclusion_1_1_flag_ad48e064a56c9e63e98e029284816f31e}{~Flag}();
+00049 
+00056     \textcolor{keywordtype}{bool} \hyperlink{classhryky_1_1exclusion_1_1_flag_abe4af02d81a4ad094d20a125f2df6729}{enable}();
+00057 
+00064     \textcolor{keywordtype}{bool} \hyperlink{classhryky_1_1exclusion_1_1_flag_a4ae4fa875b550b52110cf8a4c7f17ba3}{disable}();
+00065 
+00071     \textcolor{keywordtype}{void} \hyperlink{classhryky_1_1exclusion_1_1_flag_a3df221c5f42cb3c98393d939f09703a9}{wait_true}();
+00072 
+00081     \textcolor{keywordtype}{bool} \hyperlink{classhryky_1_1exclusion_1_1_flag_a3df221c5f42cb3c98393d939f09703a9}{wait_true}(\hyperlink{namespacehryky_1_1exclusion_ad196e82d77cdc66488c1ad69363688b8}{duration_type} \textcolor{keyword}{const} & duration);
+00082 
+00088     \textcolor{keywordtype}{void} \hyperlink{classhryky_1_1exclusion_1_1_flag_a91a07b6bb4c9ed4a83773a7c12438af4}{wait_false}();
+00089 
+00098     \textcolor{keywordtype}{bool} \hyperlink{classhryky_1_1exclusion_1_1_flag_a91a07b6bb4c9ed4a83773a7c12438af4}{wait_false}(\hyperlink{namespacehryky_1_1exclusion_ad196e82d77cdc66488c1ad69363688b8}{duration_type} \textcolor{keyword}{const} & duration);
+00099 
+00100 \textcolor{keyword}{protected} :
+00101 
+00102 \textcolor{keyword}{private} :
+00103     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1exclusion_1_1_mutex}{Mutex}                       \hyperlink{classhryky_1_1exclusion_1_1_mutex}{lockable_type};
+00104     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1exclusion_1_1_cond}{Cond}                        \hyperlink{classhryky_1_1exclusion_1_1_cond}{cond_type};
+00105     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1exclusion_1_1_lock}{Lock<lockable_type>}         \hyperlink{classhryky_1_1exclusion_1_1_lock}{lock_type};
+00106     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1exclusion_1_1_waitable_lock}{WaitableLock<lockable_type>} \hyperlink{classhryky_1_1exclusion_1_1_waitable_lock}{waitable_lock_type};
+00107 
+00109     \textcolor{keyword}{explicit} \hyperlink{classhryky_1_1exclusion_1_1_flag_a120d138be1d3f8d67ee976415f84de48}{Flag}(\hyperlink{classhryky_1_1exclusion_1_1_flag}{Flag} \textcolor{keyword}{const} &);
+00110 
+00112     \hyperlink{classhryky_1_1exclusion_1_1_flag}{Flag} & operator=(\hyperlink{classhryky_1_1exclusion_1_1_flag}{Flag} \textcolor{keyword}{const} &rhs);
+00113 
+00115     \textcolor{keywordtype}{void} notify();
+00116 
+00118     \textcolor{keywordtype}{void} wait(\hyperlink{classhryky_1_1exclusion_1_1_waitable_lock}{waitable_lock_type} & lock);
+00119 
+00121     \textcolor{keywordtype}{bool} wait(\hyperlink{classhryky_1_1exclusion_1_1_waitable_lock}{waitable_lock_type} & lock, \hyperlink{namespacehryky_1_1exclusion_ad196e82d77cdc66488c1ad69363688b8}{duration_type} \textcolor{keyword}{const} & duration);
+00122 
+00123     \hyperlink{classhryky_1_1exclusion_1_1_mutex}{lockable_type}   lockable\_;
+00124     \hyperlink{classhryky_1_1exclusion_1_1_cond}{cond_type}       cond\_;
+00125 
+00126     \textcolor{keyword}{union}
+00127     \{
+00128         uint8\_t     flags\_;
+00129 
+00130         \textcolor{keyword}{struct}
+00131         \{
+00132             \textcolor{keywordtype}{bool}    value\_:1;
+00133             \textcolor{keywordtype}{bool}    waiting\_:1;
+00134         \} flag\_;
+00135     \};
+00136 
+00137 \};
+00138 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00139 \textcolor{comment}{// inline functions}
+00140 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00141 \textcolor{preprocessor}{#endif // EXCLUSION\_FLAG\_H\_20111129173852401}
+00142 \textcolor{preprocessor}{}
+00143 \textcolor{comment}{// end of file}
+\end{DoxyCode}

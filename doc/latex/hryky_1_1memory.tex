@@ -1,0 +1,117 @@
+\hypertarget{hryky_1_1memory_heap_Arbitrary}{}\section{hryky\-::memory\-::heap\-::\-Arbitrary}\label{hryky_1_1memory_heap_Arbitrary}
+\hyperlink{classhryky_1_1memory_1_1heap_1_1_arbitrary}{hryky\-::memory\-::heap\-::\-Arbitrary} allocates memory space from passed buffer. The size of the allocating region can be arbitrary. Besides, the address alignment can be specified.
+
+Following example is based on \hyperlink{test_memory_heap_arbitrary_8cpp-example}{test\-\_\-memory\-\_\-heap\-\_\-arbitrary.\-cpp}
+
+\hypertarget{hryky_1_1task_Initialization}{}\subsection{Initialization}\label{hryky_1_1task_Initialization}
+
+\begin{DoxyCodeInclude}
+    \textcolor{keyword}{typedef} memory::heap::Arbitrary<OffsetT> memory\_heap\_type;
+
+    memory\_heap\_type \hyperlink{namespacehryky_1_1memory_1_1global_a6fc6103f67c837aa0f39b359588409cd}{heap};
+
+    \textcolor{keywordflow}{if} (!heap.reset(buffer, buffer\_size, alignment)) \{
+        \hyperlink{log__writer__common_8h_a61bcce4d8e91e6fde78ce1be7d9ceac8}{hryky_log_crit}(
+            (*\hyperlink{namespacehryky_1_1reduction_ac5eae270cf8047b294dc4ff3e5e11a79}{reduction::map}(
+                \textcolor{stringliteral}{"failed to reset memory::heap::Arbitrary"}))
+            .append(\textcolor{stringliteral}{"buffer\_size"}, buffer\_size));
+        \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+    \}
+
+\end{DoxyCodeInclude}
+\hypertarget{hryky_1_1memory_allocation}{}\subsection{allocations of fixed size memory}\label{hryky_1_1memory_allocation}
+
+\begin{DoxyCodeInclude}
+                \textcolor{keywordtype}{void} * allocated = heap.allocate(size, alignment);
+
+                \textcolor{keywordflow}{if} (\hyperlink{common_8h_a4cd4ac09cfcdbd6b30ee69afc156e210}{HRYKY_NULLPTR} == allocated) \{
+                    (log.reduce().append(
+                        (*\hyperlink{namespacehryky_1_1reduction_ac5eae270cf8047b294dc4ff3e5e11a79}{reduction::map}(\textcolor{stringliteral}{"failed to allocate"}))
+                        .append(\textcolor{stringliteral}{"index"},       allocation\_id)
+                        .append(\textcolor{stringliteral}{"size"},         size)
+                        .append(\textcolor{stringliteral}{"alignment"},    static\_cast<uint32\_t>(alignment
+      ))
+                        .append(\textcolor{stringliteral}{"heap"},         heap)
+                        )
+                     );
+                    \textcolor{keywordflow}{break};
+                \}
+
+\end{DoxyCodeInclude}
+\hypertarget{hryky_1_1memory_deallocation}{}\subsection{deallocating the memory}\label{hryky_1_1memory_deallocation}
+
+\begin{DoxyCodeInclude}
+                \textcolor{keywordflow}{if} (!heap.deallocate((*itr).first)) \{
+                    \hyperlink{log__writer__common_8h_a61bcce4d8e91e6fde78ce1be7d9ceac8}{hryky_log_crit}(
+                        (*\hyperlink{namespacehryky_1_1reduction_ac5eae270cf8047b294dc4ff3e5e11a79}{reduction::map}(\textcolor{stringliteral}{"failed to deallocate"}))
+                        .append(\textcolor{stringliteral}{"index"}, allocation\_id)
+                        .append(\textcolor{stringliteral}{"address"}, (*itr).first)
+                        .append(\textcolor{stringliteral}{"size"}, (*itr).second)
+                        .append(\textcolor{stringliteral}{"heap"}, heap));
+                    \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+                \}
+
+\end{DoxyCodeInclude}
+\hypertarget{hryky_1_1memory_heap_Fixed}{}\section{hryky\-::memory\-::heap\-::\-Fixed}\label{hryky_1_1memory_heap_Fixed}
+\hyperlink{classhryky_1_1memory_1_1heap_1_1_fixed}{hryky\-::memory\-::heap\-::\-Fixed} allocates a memory block from passed buffer. The size of the allocating region is fixed length. The address alignment is \hyperlink{classhryky_1_1memory_1_1heap_1_1_fixed_a49ff1ac7fdf4d300ad8006669e670d4ca3b7bf349f23c89c7715a49a6007eed98}{hryky\-::memory\-::heap\-::\-Fixed\-::min\-\_\-alignment\-\_\-} bits.
+
+Following example is based on \hyperlink{test_memory_heap_fixed_8cpp-example}{test\-\_\-memory\-\_\-heap\-\_\-fixed.\-cpp}
+
+\hypertarget{hryky_1_1task_Initialization}{}\subsection{Initialization}\label{hryky_1_1task_Initialization}
+
+\begin{DoxyCodeInclude}
+    \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1memory_1_1heap_1_1_fixed}{hryky::memory::heap::Fixed} memory\_heap\_type;
+    memory\_heap\_type \hyperlink{namespacehryky_1_1memory_1_1global_a6fc6103f67c837aa0f39b359588409cd}{heap};
+
+    \textcolor{keywordflow}{if} (!heap.reset(buffer, buffer\_size, unit\_size)) \{
+        \hyperlink{log__writer__common_8h_a61bcce4d8e91e6fde78ce1be7d9ceac8}{hryky_log_crit}(
+            (*\hyperlink{namespacehryky_1_1reduction_ac5eae270cf8047b294dc4ff3e5e11a79}{reduction::map}(\textcolor{stringliteral}{"failed to reset memory::heap::Arbitrary"}))
+            .append(\textcolor{stringliteral}{"buffer\_size"}, buffer\_size)
+            );
+        \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+    \}
+
+\end{DoxyCodeInclude}
+\hypertarget{hryky_1_1memory_allocation}{}\subsection{allocations of fixed size memory}\label{hryky_1_1memory_allocation}
+
+\begin{DoxyCodeInclude}
+                \textcolor{keywordtype}{void} * allocated = heap.allocate();
+
+                \textcolor{keywordflow}{if} (\hyperlink{common_8h_a4cd4ac09cfcdbd6b30ee69afc156e210}{HRYKY_NULLPTR} == allocated) \{
+                    (log.reduce()
+                     .append(
+                         (*\hyperlink{namespacehryky_1_1reduction_ac5eae270cf8047b294dc4ff3e5e11a79}{reduction::map}(\textcolor{stringliteral}{"failed to allocate"}))
+                         .append(\textcolor{stringliteral}{"index"}, allocation\_id)
+                         .append(\textcolor{stringliteral}{"heap"}, heap)
+                         )
+                     );
+
+                    \textcolor{keywordflow}{if} (0 != heap.available\_size()) \{
+                        \hyperlink{log__writer__common_8h_a61bcce4d8e91e6fde78ce1be7d9ceac8}{hryky_log_crit}(
+                            (*\hyperlink{namespacehryky_1_1reduction_ac5eae270cf8047b294dc4ff3e5e11a79}{reduction::map}(\textcolor{stringliteral}{"unexpected allocation failure
+       occurred"}))
+                            .append(\textcolor{stringliteral}{"allocation\_id"}, allocation\_id)
+                            .append(\textcolor{stringliteral}{"units\_size"}, units\_size)
+                            );
+                        \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+                    \}
+                    
+                    \textcolor{keywordflow}{break};
+                \}
+
+\end{DoxyCodeInclude}
+\hypertarget{hryky_1_1memory_deallocation}{}\subsection{deallocating the memory}\label{hryky_1_1memory_deallocation}
+
+\begin{DoxyCodeInclude}
+                \textcolor{keywordflow}{if} (!heap.deallocate(*itr)) \{
+                    \hyperlink{log__writer__common_8h_a61bcce4d8e91e6fde78ce1be7d9ceac8}{hryky_log_crit}(
+                        (*\hyperlink{namespacehryky_1_1reduction_ac5eae270cf8047b294dc4ff3e5e11a79}{reduction::map}(\textcolor{stringliteral}{"failed to deallocate"}))
+                        .append(\textcolor{stringliteral}{"index"},    allocation\_id)
+                        .append(\textcolor{stringliteral}{"address"},  *itr)
+                        .append(\textcolor{stringliteral}{"heap"},     heap)
+                        );
+                    \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+                \}
+
+\end{DoxyCodeInclude}
+ 

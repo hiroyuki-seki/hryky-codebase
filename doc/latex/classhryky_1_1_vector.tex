@@ -1,0 +1,186 @@
+\hypertarget{classhryky_1_1_vector}{\section{hryky\-:\-:Vector$<$ Value\-T, Allocator\-T $>$ Class Template Reference}
+\label{classhryky_1_1_vector}\index{hryky\-::\-Vector$<$ Value\-T, Allocator\-T $>$@{hryky\-::\-Vector$<$ Value\-T, Allocator\-T $>$}}
+}
+
+
+substitutes for std\-::vector container.  
+
+
+
+
+{\ttfamily \#include $<$vector.\-h$>$}
+
+
+
+Inheritance diagram for hryky\-:\-:Vector$<$ Value\-T, Allocator\-T $>$\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classhryky_1_1_vector__inherit__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classhryky_1_1_vector_af06670e87dfdd1ae0afadafaeb6e504c}{{\footnotesize template$<$typename Input\-Iterator $>$ }\\bool \hyperlink{classhryky_1_1_vector_af06670e87dfdd1ae0afadafaeb6e504c}{assign} (Input\-Iterator \hyperlink{classhryky_1_1_vector_aa032aa9e48dce836e68434e6ad58f0f5}{begin}, Input\-Iterator \hyperlink{classhryky_1_1_vector_ae17851e0d811d052645dd6e5a507f365}{end})}\label{classhryky_1_1_vector_af06670e87dfdd1ae0afadafaeb6e504c}
+
+\begin{DoxyCompactList}\small\item\em assigns the multiple elements between \mbox{[}begin,end). \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1_vector_aebecb6f0b81899b791a9ab577344042a}{bool \hyperlink{classhryky_1_1_vector_aebecb6f0b81899b791a9ab577344042a}{assign} (size\-\_\-type \hyperlink{classhryky_1_1_vector_a4bf9016a68dd7bf4967bf202b884a4fa}{size}, const\-\_\-reference value)}\label{classhryky_1_1_vector_aebecb6f0b81899b791a9ab577344042a}
+
+\begin{DoxyCompactList}\small\item\em assigns the copies of an element. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1_vector_ae825547a4a63bd87f8e2f782d6932156}{reference \hyperlink{classhryky_1_1_vector_ae825547a4a63bd87f8e2f782d6932156}{at} (size\-\_\-type index)}\label{classhryky_1_1_vector_ae825547a4a63bd87f8e2f782d6932156}
+
+\begin{DoxyCompactList}\small\item\em retrieves the mutable element with offset. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1_vector_a225bbcff00762d23e1978c51f9d25d68}{const\-\_\-reference \hyperlink{classhryky_1_1_vector_a225bbcff00762d23e1978c51f9d25d68}{at} (size\-\_\-type index) const }\label{classhryky_1_1_vector_a225bbcff00762d23e1978c51f9d25d68}
+
+\begin{DoxyCompactList}\small\item\em retrieves the immutable element with offset. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1_vector_a203f7e037d3d9a132eef014c542f19ee}{reference \hyperlink{classhryky_1_1_vector_a203f7e037d3d9a132eef014c542f19ee}{back} ()}\label{classhryky_1_1_vector_a203f7e037d3d9a132eef014c542f19ee}
+
+\begin{DoxyCompactList}\small\item\em retrieves the mutable last element. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1_vector_ac68715f9ad0923f9489aa0272f21b170}{const\-\_\-reference \hyperlink{classhryky_1_1_vector_ac68715f9ad0923f9489aa0272f21b170}{back} () const }\label{classhryky_1_1_vector_ac68715f9ad0923f9489aa0272f21b170}
+
+\begin{DoxyCompactList}\small\item\em retrieves the immutable last element. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1_vector_aa032aa9e48dce836e68434e6ad58f0f5}{\hyperlink{classhryky_1_1iterator_1_1random_1_1_mutable}{iterator} \hyperlink{classhryky_1_1_vector_aa032aa9e48dce836e68434e6ad58f0f5}{begin} ()}\label{classhryky_1_1_vector_aa032aa9e48dce836e68434e6ad58f0f5}
+
+\begin{DoxyCompactList}\small\item\em retrieves a forward iterator referring to the first mutable element. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1_vector_a244f7b781e42a20b70c04611b19db164}{\hyperlink{classhryky_1_1iterator_1_1random_1_1_immutable}{const\-\_\-iterator} \hyperlink{classhryky_1_1_vector_a244f7b781e42a20b70c04611b19db164}{begin} () const }\label{classhryky_1_1_vector_a244f7b781e42a20b70c04611b19db164}
+
+\begin{DoxyCompactList}\small\item\em retrieves a forward iterator referring to the first immutable element. \end{DoxyCompactList}\item 
+size\-\_\-type \hyperlink{classhryky_1_1_vector_a0865b1eec33d6dfe008eb7c24afd5f97}{capacity} () const 
+\item 
+\hypertarget{classhryky_1_1_vector_a674ecb00d223d91ba58bb45540be9983}{bool \hyperlink{classhryky_1_1_vector_a674ecb00d223d91ba58bb45540be9983}{clear} ()}\label{classhryky_1_1_vector_a674ecb00d223d91ba58bb45540be9983}
+
+\begin{DoxyCompactList}\small\item\em makes the container empty. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1_vector_a0aec03015ecda2ed9e59f7a95ee2c81a}{bool \hyperlink{classhryky_1_1_vector_a0aec03015ecda2ed9e59f7a95ee2c81a}{empty} () const }\label{classhryky_1_1_vector_a0aec03015ecda2ed9e59f7a95ee2c81a}
+
+\begin{DoxyCompactList}\small\item\em confirms whether container has no element. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1_vector_ae17851e0d811d052645dd6e5a507f365}{\hyperlink{classhryky_1_1iterator_1_1random_1_1_mutable}{iterator} \hyperlink{classhryky_1_1_vector_ae17851e0d811d052645dd6e5a507f365}{end} ()}\label{classhryky_1_1_vector_ae17851e0d811d052645dd6e5a507f365}
+
+\begin{DoxyCompactList}\small\item\em retrieves a forward iterator referring to the last mutable element. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1_vector_acd3e720b6a359bb00873e0de3d6229d6}{\hyperlink{classhryky_1_1iterator_1_1random_1_1_immutable}{const\-\_\-iterator} \hyperlink{classhryky_1_1_vector_acd3e720b6a359bb00873e0de3d6229d6}{end} () const }\label{classhryky_1_1_vector_acd3e720b6a359bb00873e0de3d6229d6}
+
+\begin{DoxyCompactList}\small\item\em retrieves a forward iterator referring to the last immutable element. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1_vector_ad52743101f866882512ab84704f07ba1}{\hyperlink{classhryky_1_1iterator_1_1random_1_1_mutable}{iterator} \hyperlink{classhryky_1_1_vector_ad52743101f866882512ab84704f07ba1}{erase} (\hyperlink{classhryky_1_1iterator_1_1random_1_1_mutable}{iterator} \hyperlink{classhryky_1_1_vector_ad7e5eb625467631e061a979bd2060f78}{first}, \hyperlink{classhryky_1_1iterator_1_1random_1_1_mutable}{iterator} last)}\label{classhryky_1_1_vector_ad52743101f866882512ab84704f07ba1}
+
+\begin{DoxyCompactList}\small\item\em removes some elements between two iterators. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1_vector_ad7e5eb625467631e061a979bd2060f78}{reference \hyperlink{classhryky_1_1_vector_ad7e5eb625467631e061a979bd2060f78}{first} ()}\label{classhryky_1_1_vector_ad7e5eb625467631e061a979bd2060f78}
+
+\begin{DoxyCompactList}\small\item\em retrieves the mutable first element. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1_vector_a86c548a5cc9e116c60a304ff84640ec5}{const\-\_\-reference \hyperlink{classhryky_1_1_vector_a86c548a5cc9e116c60a304ff84640ec5}{first} () const }\label{classhryky_1_1_vector_a86c548a5cc9e116c60a304ff84640ec5}
+
+\begin{DoxyCompactList}\small\item\em retrieves the immutable first element. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1_vector_a435d9e9b71aaf09e9281e671742ba2e0}{allocator\-\_\-type \hyperlink{classhryky_1_1_vector_a435d9e9b71aaf09e9281e671742ba2e0}{get\-\_\-allocator} () const }\label{classhryky_1_1_vector_a435d9e9b71aaf09e9281e671742ba2e0}
+
+\begin{DoxyCompactList}\small\item\em retrieves the allocator of this instance. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1_vector_a5056ac0ef6663b935bea8271c33ff126}{\hyperlink{classhryky_1_1iterator_1_1random_1_1_mutable}{iterator} \hyperlink{classhryky_1_1_vector_a5056ac0ef6663b935bea8271c33ff126}{insert} (\hyperlink{classhryky_1_1iterator_1_1random_1_1_mutable}{iterator} position, const\-\_\-reference value)}\label{classhryky_1_1_vector_a5056ac0ef6663b935bea8271c33ff126}
+
+\begin{DoxyCompactList}\small\item\em inserts an element before the element at the indicated iterator. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1_vector_aea52cb653910c83ccb2951f1e5d51d7d}{{\footnotesize template$<$typename Input\-Iterator\-T $>$ }\\bool \hyperlink{classhryky_1_1_vector_aea52cb653910c83ccb2951f1e5d51d7d}{insert} (\hyperlink{classhryky_1_1iterator_1_1random_1_1_mutable}{iterator} position, Input\-Iterator\-T \hyperlink{classhryky_1_1_vector_ad7e5eb625467631e061a979bd2060f78}{first}, Input\-Iterator\-T last)}\label{classhryky_1_1_vector_aea52cb653910c83ccb2951f1e5d51d7d}
+
+\begin{DoxyCompactList}\small\item\em inserts the elements between two input iterator. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1_vector_a21d0f3baf14bced98efbf2c23790fd95}{size\-\_\-type \hyperlink{classhryky_1_1_vector_a21d0f3baf14bced98efbf2c23790fd95}{max\-\_\-size} () const }\label{classhryky_1_1_vector_a21d0f3baf14bced98efbf2c23790fd95}
+
+\begin{DoxyCompactList}\small\item\em retrieves the maximum number of allocatable elements. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1_vector_a6fb915248cdb9b8ae21edd5379dd6777}{reference \hyperlink{classhryky_1_1_vector_a6fb915248cdb9b8ae21edd5379dd6777}{operator\mbox{[}$\,$\mbox{]}} (size\-\_\-type index)}\label{classhryky_1_1_vector_a6fb915248cdb9b8ae21edd5379dd6777}
+
+\begin{DoxyCompactList}\small\item\em retrieves the mutable element with offset. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1_vector_ad9a57bc485b9b2f17432715c920006b2}{const\-\_\-reference \hyperlink{classhryky_1_1_vector_ad9a57bc485b9b2f17432715c920006b2}{operator\mbox{[}$\,$\mbox{]}} (size\-\_\-type index) const }\label{classhryky_1_1_vector_ad9a57bc485b9b2f17432715c920006b2}
+
+\begin{DoxyCompactList}\small\item\em retrieves the immutable element with offset. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1_vector_ab66b1fda88244ae10810c7e883d34d6f}{bool \hyperlink{classhryky_1_1_vector_ab66b1fda88244ae10810c7e883d34d6f}{pop\-\_\-back} ()}\label{classhryky_1_1_vector_ab66b1fda88244ae10810c7e883d34d6f}
+
+\begin{DoxyCompactList}\small\item\em removes the last element. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1_vector_ad977480678e6051db6d10a6abc3a54b7}{bool \hyperlink{classhryky_1_1_vector_ad977480678e6051db6d10a6abc3a54b7}{push\-\_\-back} (const\-\_\-reference src)}\label{classhryky_1_1_vector_ad977480678e6051db6d10a6abc3a54b7}
+
+\begin{DoxyCompactList}\small\item\em adds the element into the end of container. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1_vector_a666d26f9ebb3d4979031d1e23ea96697}{reverse\-\_\-iterator \hyperlink{classhryky_1_1_vector_a666d26f9ebb3d4979031d1e23ea96697}{rbegin} ()}\label{classhryky_1_1_vector_a666d26f9ebb3d4979031d1e23ea96697}
+
+\begin{DoxyCompactList}\small\item\em retrieves a backward iterator referring to the first mutable element. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1_vector_aa57c7fc8f218f0af46e526896a1ce4b1}{const\-\_\-reverse\-\_\-iterator \hyperlink{classhryky_1_1_vector_aa57c7fc8f218f0af46e526896a1ce4b1}{rbegin} () const }\label{classhryky_1_1_vector_aa57c7fc8f218f0af46e526896a1ce4b1}
+
+\begin{DoxyCompactList}\small\item\em retrieves a backward iterator referring to the first immutable element. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1_vector_adbdf08d14d8a77fba3573a8bc7b6bfd5}{reverse\-\_\-iterator \hyperlink{classhryky_1_1_vector_adbdf08d14d8a77fba3573a8bc7b6bfd5}{rend} ()}\label{classhryky_1_1_vector_adbdf08d14d8a77fba3573a8bc7b6bfd5}
+
+\begin{DoxyCompactList}\small\item\em retrieves a backward iterator referring to the last mutable element. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1_vector_a490a3a1b1aa1f3a31e02bd817f414398}{const\-\_\-reverse\-\_\-iterator \hyperlink{classhryky_1_1_vector_a490a3a1b1aa1f3a31e02bd817f414398}{rend} () const }\label{classhryky_1_1_vector_a490a3a1b1aa1f3a31e02bd817f414398}
+
+\begin{DoxyCompactList}\small\item\em retrieves a backward iterator referring to the last immutable element. \end{DoxyCompactList}\item 
+bool \hyperlink{classhryky_1_1_vector_a4d2a2874dcc88826b45782d4b1b73051}{reserve} (size\-\_\-type const \hyperlink{classhryky_1_1_vector_a0865b1eec33d6dfe008eb7c24afd5f97}{capacity})
+\begin{DoxyCompactList}\small\item\em allocates memory \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1_vector_a9148eb8972b43ed3a7e807d19be848a5}{bool \hyperlink{classhryky_1_1_vector_a9148eb8972b43ed3a7e807d19be848a5}{resize} (size\-\_\-type const \hyperlink{classhryky_1_1_vector_a4bf9016a68dd7bf4967bf202b884a4fa}{size})}\label{classhryky_1_1_vector_a9148eb8972b43ed3a7e807d19be848a5}
+
+\begin{DoxyCompactList}\small\item\em expands or shrinks the length of the container. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1_vector_a4bf9016a68dd7bf4967bf202b884a4fa}{size\-\_\-type \hyperlink{classhryky_1_1_vector_a4bf9016a68dd7bf4967bf202b884a4fa}{size} () const }\label{classhryky_1_1_vector_a4bf9016a68dd7bf4967bf202b884a4fa}
+
+\begin{DoxyCompactList}\small\item\em retrieves the number of elements. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1_vector_abcf365626457abf95d05b0a736e7a60a}{void \hyperlink{classhryky_1_1_vector_abcf365626457abf95d05b0a736e7a60a}{swap} (\hyperlink{classhryky_1_1_vector}{this\-\_\-type} \&src)}\label{classhryky_1_1_vector_abcf365626457abf95d05b0a736e7a60a}
+
+\begin{DoxyCompactList}\small\item\em interchanges all internal values. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1_vector_abe97d2779dcc79a8d599dbd8ff66451b}{\hyperlink{classhryky_1_1_vector_abe97d2779dcc79a8d599dbd8ff66451b}{Vector} ()}\label{classhryky_1_1_vector_abe97d2779dcc79a8d599dbd8ff66451b}
+
+\begin{DoxyCompactList}\small\item\em default constructor. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1_vector_add56505400891e26f0b370ed65bb1797}{\hyperlink{classhryky_1_1_vector_add56505400891e26f0b370ed65bb1797}{Vector} (\hyperlink{classhryky_1_1_vector}{this\-\_\-type} const \&rhs)}\label{classhryky_1_1_vector_add56505400891e26f0b370ed65bb1797}
+
+\begin{DoxyCompactList}\small\item\em copy constructor. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1_vector_ac10a64873fb488567b3a47d631129345}{\hyperlink{classhryky_1_1_vector_ac10a64873fb488567b3a47d631129345}{Vector} (\hyperlink{classhryky_1_1_vector}{this\-\_\-type} \&\&rhs)}\label{classhryky_1_1_vector_ac10a64873fb488567b3a47d631129345}
+
+\begin{DoxyCompactList}\small\item\em copy constructor by rvalue reference. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1_vector_a0ae18c032f267cdbadf0860df6000fdf}{\hyperlink{classhryky_1_1_vector_a0ae18c032f267cdbadf0860df6000fdf}{Vector} (allocator\-\_\-type const \&allocator)}\label{classhryky_1_1_vector_a0ae18c032f267cdbadf0860df6000fdf}
+
+\begin{DoxyCompactList}\small\item\em constructor with allocator. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1_vector_a1d48f3026e8efefba8f1b441d71e1dca}{\hyperlink{classhryky_1_1_vector_a1d48f3026e8efefba8f1b441d71e1dca}{$\sim$\-Vector} ()}\label{classhryky_1_1_vector_a1d48f3026e8efefba8f1b441d71e1dca}
+
+\begin{DoxyCompactList}\small\item\em destructor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classhryky_1_1_vector_adb9ccf33925c60de6918a8a581dbfa22}{\hyperlink{classhryky_1_1_vector_adb9ccf33925c60de6918a8a581dbfa22}{hryky\-\_\-assign\-\_\-op}}\label{classhryky_1_1_vector_adb9ccf33925c60de6918a8a581dbfa22}
+
+\begin{DoxyCompactList}\small\item\em assignment operator. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$typename Value\-T, typename Allocator\-T = hryky\-::allocator\-::\-Heap$<$\-Value\-T$>$$>$class hryky\-::\-Vector$<$ Value\-T, Allocator\-T $>$}
+
+substitutes for std\-::vector container. 
+
+\subsection{Member Function Documentation}
+\hypertarget{classhryky_1_1_vector_a0865b1eec33d6dfe008eb7c24afd5f97}{\index{hryky\-::\-Vector@{hryky\-::\-Vector}!capacity@{capacity}}
+\index{capacity@{capacity}!hryky::Vector@{hryky\-::\-Vector}}
+\subsubsection[{capacity}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Value\-T , typename Allocator\-T $>$ {\bf hryky\-::\-Vector}$<$ Value\-T, Allocator\-T $>$\-::size\-\_\-type {\bf hryky\-::\-Vector}$<$ Value\-T, Allocator\-T $>$\-::{\bf capacity} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classhryky_1_1_vector_a0865b1eec33d6dfe008eb7c24afd5f97}
+retrieves the number of elements that is able to be held without additional memory allocation 
+
+Referenced by \hyperlink{namespacehryky_a831f782cbe9d9e4dc64e4e185cf82e00}{hryky\-::reduce()}.
+
+\hypertarget{classhryky_1_1_vector_a4d2a2874dcc88826b45782d4b1b73051}{\index{hryky\-::\-Vector@{hryky\-::\-Vector}!reserve@{reserve}}
+\index{reserve@{reserve}!hryky::Vector@{hryky\-::\-Vector}}
+\subsubsection[{reserve}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Value\-T , typename Allocator\-T $>$ bool {\bf hryky\-::\-Vector}$<$ Value\-T, Allocator\-T $>$\-::{\bf reserve} (
+\begin{DoxyParamCaption}
+\item[{size\-\_\-type const}]{capacity}
+\end{DoxyParamCaption}
+)}}\label{classhryky_1_1_vector_a4d2a2874dcc88826b45782d4b1b73051}
+
+
+allocates memory 
+
+\begin{DoxyReturn}{Returns}
+success and failure 
+\end{DoxyReturn}
+
+
+References \hyperlink{common_8h_a4cd4ac09cfcdbd6b30ee69afc156e210}{H\-R\-Y\-K\-Y\-\_\-\-N\-U\-L\-L\-P\-T\-R}.
+
+
+
+Referenced by \hyperlink{classhryky_1_1display_1_1_screen_a1c77857a9711011c99c2ec453cce4581}{hryky\-::display\-::\-Screen\-::reset()}, \hyperlink{group__task_ga88b1f6b27be23acb9fd42203d7cd3933}{hryky\-::task\-::worker\-::\-Batch$<$ Task\-T $>$\-::reset()}, and \hyperlink{classhryky_1_1_vector_add56505400891e26f0b370ed65bb1797}{hryky\-::\-Vector$<$ Value\-T, Allocator\-T $>$\-::\-Vector()}.
+
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{vector_8h}{vector.\-h}\end{DoxyCompactItemize}

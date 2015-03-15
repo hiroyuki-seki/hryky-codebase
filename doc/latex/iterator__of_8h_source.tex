@@ -1,0 +1,82 @@
+\hypertarget{iterator__of_8h_source}{\section{iterator\-\_\-of.\-h}
+}
+
+\begin{DoxyCode}
+00001 
+00007 \textcolor{preprocessor}{#ifndef TYPE\_ITERATOR\_OF\_H\_20120909000702671}
+00008 \textcolor{preprocessor}{}\textcolor{preprocessor}{#define TYPE\_ITERATOR\_OF\_H\_20120909000702671}
+00009 \textcolor{preprocessor}{}\textcolor{preprocessor}{#include "\hyperlink{has__const__iterator_8h}{hryky/gp/has_const_iterator.h}"}
+00010 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00011 \textcolor{comment}{// macro definition}
+00012 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00013 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00014 \textcolor{comment}{// namespace}
+00015 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00016 \textcolor{keyword}{namespace }hryky
+00017 \{
+00019     \textcolor{keyword}{template} < \textcolor{keyword}{typename} ContainerT, \textcolor{keywordtype}{bool} has\_const\_iterator>
+00020     \textcolor{keyword}{class }IteratorOf;
+00021 
+00022 \} \textcolor{comment}{// namespace hryky}
+00023 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00024 \textcolor{comment}{// class declarations}
+00025 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00029 \textcolor{comment}{}\textcolor{keyword}{template} <
+00030     \textcolor{keyword}{typename} ContainerT,
+00031     \textcolor{keywordtype}{bool} has\_const\_iterator = HasConstIterator<ContainerT>::value >
+\hypertarget{iterator__of_8h_source_l00032}{}\hyperlink{classhryky_1_1_iterator_of}{00032} \textcolor{keyword}{class }\hyperlink{classhryky_1_1_iterator_of}{hryky::IteratorOf}
+00033 \{
+00034 \textcolor{keyword}{public} :
+00035     \textcolor{keyword}{typedef} \textcolor{keyword}{typename} ContainerT::iterator type;
+00036 \};
+00037 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00038 \textcolor{comment}{// class specializations}
+00039 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00040 \textcolor{keyword}{namespace }hryky
+00041 \{
+00045 \textcolor{keyword}{template} < \textcolor{keyword}{typename} ContainerT >
+\hypertarget{iterator__of_8h_source_l00046}{}\hyperlink{classhryky_1_1hryky_1_1_iterator_of_3_01_container_t_01const_00_01true_01_4}{00046} \textcolor{keyword}{class }\hyperlink{classhryky_1_1_iterator_of}{hryky::IteratorOf}<ContainerT const, true>
+00047 \{
+00048 \textcolor{keyword}{public} :
+00049     \textcolor{keyword}{typedef} \textcolor{keyword}{typename} ContainerT::const\_iterator type;
+00050 \};
+00051 \} \textcolor{comment}{// namespace hryky}
+00052 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00053 \textcolor{comment}{// public member functions}
+00054 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00055 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00056 \textcolor{comment}{// protected member functions}
+00057 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00058 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00059 \textcolor{comment}{// private member functions}
+00060 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00061 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00062 \textcolor{comment}{// global function prototypes}
+00063 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00064 \textcolor{keyword}{namespace }hryky
+00065 \{
+00066 \} \textcolor{comment}{// namespace hryky}
+00067 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00068 \textcolor{comment}{// global function definitions}
+00069 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00070 \textcolor{preprocessor}{#endif // TYPE\_ITERATOR\_OF\_H\_20120909000702671}
+00071 \textcolor{preprocessor}{}\textcolor{comment}{// end of file}
+\end{DoxyCode}

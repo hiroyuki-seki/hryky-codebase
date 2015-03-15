@@ -1,0 +1,136 @@
+\hypertarget{memory__heap__fixed_8h_source}{\section{memory\-\_\-heap\-\_\-fixed.\-h}
+}
+
+\begin{DoxyCode}
+00001 
+00007 \textcolor{preprocessor}{#ifndef MEMORY\_HEAP\_FIXED\_H\_20111107003330689}
+00008 \textcolor{preprocessor}{}\textcolor{preprocessor}{#define MEMORY\_HEAP\_FIXED\_H\_20111107003330689}
+00009 \textcolor{preprocessor}{}\textcolor{preprocessor}{#include "\hyperlink{reduction__common_8h}{hryky/reduction/reduction_common.h}"}
+00010 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00011 \textcolor{comment}{// macro definition}
+00012 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00013 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00014 \textcolor{comment}{// namespace}
+00015 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00016 \textcolor{keyword}{namespace }hryky
+00017 \{
+00018 \textcolor{keyword}{namespace }memory
+00019 \{
+00020 \textcolor{keyword}{namespace }\hyperlink{namespacehryky_1_1memory_1_1global_a6fc6103f67c837aa0f39b359588409cd}{heap}
+00021 \{
+00023     \textcolor{keyword}{class }Fixed;
+00024 \}
+00025 \}
+00026 \}
+00027 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00028 \textcolor{comment}{// class declaration}
+00029 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+\hypertarget{memory__heap__fixed_8h_source_l00033}{}\hyperlink{classhryky_1_1memory_1_1heap_1_1_fixed}{00033} \textcolor{comment}{}\textcolor{keyword}{class }\hyperlink{classhryky_1_1memory_1_1heap_1_1_fixed}{hryky::memory::heap::Fixed}
+00034 \{
+00035 \textcolor{keyword}{public} :
+00036 
+00037     
+\hypertarget{memory__heap__fixed_8h_source_l00038}{}\hyperlink{classhryky_1_1memory_1_1heap_1_1_fixed_aa25fb42c495f84747ede7cd1ccf1116b}{00038}     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1memory_1_1heap_1_1_fixed}{Fixed}       \hyperlink{classhryky_1_1memory_1_1heap_1_1_fixed_aa25fb42c495f84747ede7cd1ccf1116b}{this_type};  
+\hypertarget{memory__heap__fixed_8h_source_l00039}{}\hyperlink{classhryky_1_1memory_1_1heap_1_1_fixed_a5031234bccd24fe2b2ea6ff6ae5cdcdd}{00039}     \textcolor{keyword}{typedef} uint64\_t    \hyperlink{classhryky_1_1memory_1_1heap_1_1_fixed_a5031234bccd24fe2b2ea6ff6ae5cdcdd}{index_type}; 
+00040 
+00041     \textcolor{keyword}{enum}
+00042     \{
+\hypertarget{memory__heap__fixed_8h_source_l00044}{}\hyperlink{classhryky_1_1memory_1_1heap_1_1_fixed_a49ff1ac7fdf4d300ad8006669e670d4ca3b7bf349f23c89c7715a49a6007eed98}{00044}         \hyperlink{classhryky_1_1memory_1_1heap_1_1_fixed_a49ff1ac7fdf4d300ad8006669e670d4ca3b7bf349f23c89c7715a49a6007eed98}{min_alignment_} = 3,
+\hypertarget{memory__heap__fixed_8h_source_l00046}{}\hyperlink{classhryky_1_1memory_1_1heap_1_1_fixed_a49ff1ac7fdf4d300ad8006669e670d4ca2f4cc5163f2c1c7f6561e777a1eb2a6a}{00046}         \hyperlink{classhryky_1_1memory_1_1heap_1_1_fixed_a49ff1ac7fdf4d300ad8006669e670d4ca2f4cc5163f2c1c7f6561e777a1eb2a6a}{min_unit_size_} = (1 << \hyperlink{classhryky_1_1memory_1_1heap_1_1_fixed_a49ff1ac7fdf4d300ad8006669e670d4ca3b7bf349f23c89c7715a49a6007eed98}{min_alignment_}),
+00047     \};
+00048 
+\hypertarget{memory__heap__fixed_8h_source_l00050}{}\hyperlink{structhryky_1_1memory_1_1heap_1_1_fixed_1_1_address}{00050}     \textcolor{keyword}{struct }\hyperlink{structhryky_1_1memory_1_1heap_1_1_fixed_1_1_address}{Address} : \hyperlink{classhryky_1_1_noncopyable}{Noncopyable}
+00051     \{
+00052         \hyperlink{structhryky_1_1memory_1_1heap_1_1_fixed_1_1_address}{Address}(\hyperlink{classhryky_1_1memory_1_1heap_1_1_fixed}{Fixed} & \hyperlink{namespacehryky_1_1memory_1_1global_a6fc6103f67c837aa0f39b359588409cd}{heap}, \textcolor{keywordtype}{void} \textcolor{keyword}{const} * address)
+00053             : heap\_(heap), address\_(address) \{\}
+00054 
+00055         hryky\_accessor\_read(\hyperlink{classhryky_1_1memory_1_1heap_1_1_fixed}{Fixed} \textcolor{keyword}{const} &, heap);
+00056         hryky\_accessor\_read(\textcolor{keywordtype}{void} \textcolor{keyword}{const} *, address);
+00057     \};
+00058 
+00060     \textcolor{keyword}{explicit} \hyperlink{classhryky_1_1memory_1_1heap_1_1_fixed_ab063172ff9026356d34cac6dc39a207a}{Fixed}();
+00061 
+00063     \hyperlink{classhryky_1_1memory_1_1heap_1_1_fixed_abe57aea352000043830af34cf978c804}{~Fixed}();
+00064 
+00077     \textcolor{keywordtype}{bool} \hyperlink{classhryky_1_1memory_1_1heap_1_1_fixed_a8ca3a34f0e32b9aa3175b0a76da9c72c}{reset}(\textcolor{keywordtype}{void} * buffer, \textcolor{keywordtype}{size\_t} \hyperlink{classhryky_1_1memory_1_1heap_1_1_fixed_adb07b62b615fd87ae28633a824635465}{buffer_size}, \textcolor{keywordtype}{size\_t} unit\_size);
+00078 
+00087     \textcolor{keywordtype}{void} * \hyperlink{classhryky_1_1memory_1_1heap_1_1_fixed_a21b5ff89f04031b010eb1fdbb00ca86a}{allocate}();
+00088 
+00094     \textcolor{keywordtype}{bool} \hyperlink{classhryky_1_1memory_1_1heap_1_1_fixed_a878f3a61bf397f27c40ec6638b88bd49}{deallocate}(\textcolor{keywordtype}{void} * src);
+00095 
+00107     \textcolor{keyword}{static} \textcolor{keywordtype}{size\_t} \hyperlink{classhryky_1_1memory_1_1heap_1_1_fixed_adb07b62b615fd87ae28633a824635465}{buffer_size}(\textcolor{keywordtype}{size\_t} unit\_size, \hyperlink{classhryky_1_1memory_1_1heap_1_1_fixed_a5031234bccd24fe2b2ea6ff6ae5cdcdd}{index_type} num);
+00108 
+00115     \textcolor{keywordtype}{bool} \hyperlink{classhryky_1_1memory_1_1heap_1_1_fixed_ae411a2003a15fe4db249a988df97f9d5}{verify}() \textcolor{keyword}{const};
+00116 
+00124     \textcolor{keywordtype}{bool} \hyperlink{classhryky_1_1memory_1_1heap_1_1_fixed_ae411a2003a15fe4db249a988df97f9d5}{verify}(\textcolor{keywordtype}{void} \textcolor{keyword}{const} * src) \textcolor{keyword}{const};
+00125 
+00131     \hyperlink{classhryky_1_1_intrusive_ptr}{reduction_type} \hyperlink{classhryky_1_1memory_1_1heap_1_1_fixed_ae7e05d5e6c2e2f83e1d593f4eab28bd7}{reduce}(\hyperlink{classhryky_1_1reduction_1_1_string}{reduction::name_type} \textcolor{keyword}{const} & name) \textcolor{keyword}{const};
+00132 
+00139     \hyperlink{classhryky_1_1_intrusive_ptr}{reduction_type} \hyperlink{classhryky_1_1memory_1_1heap_1_1_fixed_ae7e05d5e6c2e2f83e1d593f4eab28bd7}{reduce}(\hyperlink{classhryky_1_1reduction_1_1_string}{reduction::name_type} \textcolor{keyword}{const} & name, \textcolor{keywordtype}{void} \textcolor{keyword}{const} * 
+      address) \textcolor{keyword}{const};
+00140 
+\hypertarget{memory__heap__fixed_8h_source_l00144}{}\hyperlink{classhryky_1_1memory_1_1heap_1_1_fixed_afa7069f796ddd28d963aa6ee4b03bb6d}{00144}     \hyperlink{classhryky_1_1memory_1_1heap_1_1_fixed_a5031234bccd24fe2b2ea6ff6ae5cdcdd}{index_type} \hyperlink{classhryky_1_1memory_1_1heap_1_1_fixed_afa7069f796ddd28d963aa6ee4b03bb6d}{allocated_size}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} this->allocated\_size\_; \}
+00145 
+\hypertarget{memory__heap__fixed_8h_source_l00149}{}\hyperlink{classhryky_1_1memory_1_1heap_1_1_fixed_a4473e3ff52c5a696edb13f4df7f8e643}{00149}     \hyperlink{classhryky_1_1memory_1_1heap_1_1_fixed_a5031234bccd24fe2b2ea6ff6ae5cdcdd}{index_type} \hyperlink{classhryky_1_1memory_1_1heap_1_1_fixed_a4473e3ff52c5a696edb13f4df7f8e643}{available_size}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} this->\hyperlink{classhryky_1_1memory_1_1heap_1_1_fixed_ab54fe4316023e4528a2cf9b1b959af6c}{capacity}() - this->
+      \hyperlink{classhryky_1_1memory_1_1heap_1_1_fixed_afa7069f796ddd28d963aa6ee4b03bb6d}{allocated_size}(); \}
+00150 
+\hypertarget{memory__heap__fixed_8h_source_l00154}{}\hyperlink{classhryky_1_1memory_1_1heap_1_1_fixed_ab54fe4316023e4528a2cf9b1b959af6c}{00154}     \hyperlink{classhryky_1_1memory_1_1heap_1_1_fixed_a5031234bccd24fe2b2ea6ff6ae5cdcdd}{index_type} \hyperlink{classhryky_1_1memory_1_1heap_1_1_fixed_ab54fe4316023e4528a2cf9b1b959af6c}{capacity}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} this->capacity\_; \}
+00155 
+00156 \textcolor{keyword}{protected} :
+00157 
+00158 \textcolor{keyword}{private} :
+00159 
+00164     \textcolor{keyword}{struct }FreeNode
+00165     \{
+00166         \hyperlink{classhryky_1_1memory_1_1heap_1_1_fixed_a5031234bccd24fe2b2ea6ff6ae5cdcdd}{index_type} next\_;
+00167     \};
+00168 
+00170     \textcolor{keyword}{explicit} \hyperlink{classhryky_1_1memory_1_1heap_1_1_fixed_ab063172ff9026356d34cac6dc39a207a}{Fixed}(\textcolor{keyword}{const} \hyperlink{classhryky_1_1memory_1_1heap_1_1_fixed_ab063172ff9026356d34cac6dc39a207a}{Fixed} &);
+00171 
+00173     \textcolor{keyword}{static} \textcolor{keywordtype}{size\_t} aligned\_unit\_size(\textcolor{keywordtype}{size\_t} unit\_size);
+00174 
+00176     \hyperlink{classhryky_1_1memory_1_1heap_1_1_fixed_ab063172ff9026356d34cac6dc39a207a}{Fixed} & operator=(\textcolor{keyword}{const} \hyperlink{classhryky_1_1memory_1_1heap_1_1_fixed_ab063172ff9026356d34cac6dc39a207a}{Fixed} &rhs);
+00177 
+00179     Fixed::FreeNode * to\_free\_node(\hyperlink{classhryky_1_1memory_1_1heap_1_1_fixed_a5031234bccd24fe2b2ea6ff6ae5cdcdd}{index_type} \textcolor{keyword}{const} index);
+00180 
+00182     Fixed::FreeNode \textcolor{keyword}{const} * to\_free\_node(\hyperlink{classhryky_1_1memory_1_1heap_1_1_fixed_a5031234bccd24fe2b2ea6ff6ae5cdcdd}{index_type} \textcolor{keyword}{const} index) \textcolor{keyword}{const};
+00183 
+00185     \hyperlink{classhryky_1_1memory_1_1heap_1_1_fixed_a5031234bccd24fe2b2ea6ff6ae5cdcdd}{Fixed::index_type} to\_index(\textcolor{keywordtype}{void} \textcolor{keyword}{const} * address) \textcolor{keyword}{const};
+00186 
+00187     
+00188     \textcolor{keywordtype}{void} *          head\_;              
+00189     \hyperlink{classhryky_1_1memory_1_1heap_1_1_fixed_a5031234bccd24fe2b2ea6ff6ae5cdcdd}{index_type}      free\_nodes\_begin\_;  
+00190     \hyperlink{classhryky_1_1memory_1_1heap_1_1_fixed_a5031234bccd24fe2b2ea6ff6ae5cdcdd}{index_type}      capacity\_;
+00191     \hyperlink{classhryky_1_1memory_1_1heap_1_1_fixed_a5031234bccd24fe2b2ea6ff6ae5cdcdd}{index_type}      allocated\_size\_;
+00192     \textcolor{keywordtype}{size\_t}          unit\_size\_;
+00193     
+00194 \};
+00195 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00196 \textcolor{comment}{// inline functions}
+00197 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00198 \textcolor{keyword}{namespace }hryky
+00199 \{
+00200 \textcolor{keyword}{namespace }memory
+00201 \{
+00202 \textcolor{keyword}{namespace }\hyperlink{namespacehryky_1_1memory_1_1global_a6fc6103f67c837aa0f39b359588409cd}{heap}
+00203 \{
+00205     \hyperlink{classhryky_1_1_intrusive_ptr}{reduction_type} \hyperlink{classhryky_1_1memory_1_1heap_1_1_fixed_ae7e05d5e6c2e2f83e1d593f4eab28bd7}{reduce}(
+00206         \hyperlink{classhryky_1_1reduction_1_1_string}{reduction::name_type} \textcolor{keyword}{const} & name, \hyperlink{classhryky_1_1memory_1_1heap_1_1_fixed_ab063172ff9026356d34cac6dc39a207a}{Fixed} \textcolor{keyword}{const} & src);
+00207 
+00209     \hyperlink{classhryky_1_1_intrusive_ptr}{reduction_type} \hyperlink{classhryky_1_1memory_1_1heap_1_1_fixed_ae7e05d5e6c2e2f83e1d593f4eab28bd7}{reduce}(
+00210         \hyperlink{classhryky_1_1reduction_1_1_string}{reduction::name_type} \textcolor{keyword}{const} & name, Fixed::Address \textcolor{keyword}{const} & src);
+00211 
+00212 \}
+00213 \}
+00214 \}
+00215 \textcolor{preprocessor}{#endif // MEMORY\_HEAP\_FIXED\_H\_20111107003330689}
+00216 \textcolor{preprocessor}{}\textcolor{comment}{// end of file}
+\end{DoxyCode}

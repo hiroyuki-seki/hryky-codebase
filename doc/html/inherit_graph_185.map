@@ -1,0 +1,4 @@
+<map id="G" name="G">
+<area shape="rect" id="node1" href="$classhryky_1_1_placementnewable.html" title="enable class to use placement&#45;new." alt="" coords="5,5,176,32"/>
+<area shape="rect" id="node3" href="$classhryky_1_1_placementnewonly.html" title="allows class to use only placement new/delete." alt="" coords="224,5,395,32"/>
+</map>

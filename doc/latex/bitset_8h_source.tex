@@ -1,0 +1,446 @@
+\hypertarget{bitset_8h_source}{\section{bitset.\-h}
+}
+
+\begin{DoxyCode}
+00001 
+00007 \textcolor{preprocessor}{#ifndef BITSET\_H\_20130119105715123}
+00008 \textcolor{preprocessor}{}\textcolor{preprocessor}{#define BITSET\_H\_20130119105715123}
+00009 \textcolor{preprocessor}{}\textcolor{preprocessor}{#include "\hyperlink{array_8h}{hryky/array.h}"}
+00010 \textcolor{preprocessor}{#include "\hyperlink{integer_8h}{hryky/integer.h}"}
+00011 \textcolor{preprocessor}{#include "\hyperlink{iterator_8h}{hryky/iterator.h}"}
+00012 \textcolor{preprocessor}{#include "\hyperlink{foreach_8h}{hryky/foreach.h}"}
+00013 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00014 \textcolor{comment}{// macro definition}
+00015 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00016 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00017 \textcolor{comment}{// namespace}
+00018 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00019 \textcolor{keyword}{namespace }hryky
+00020 \{
+00022     \textcolor{keyword}{template} <\textcolor{keywordtype}{size\_t} BitsSize>
+00023     \textcolor{keyword}{class }Bitset;
+00024 
+00025 \} \textcolor{comment}{// namespace hryky}
+00026 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00027 \textcolor{comment}{// class declarations}
+00028 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00032 \textcolor{comment}{}\textcolor{keyword}{template} <\textcolor{keywordtype}{size\_t} BitsSize>
+\hypertarget{bitset_8h_source_l00033}{}\hyperlink{classhryky_1_1_bitset}{00033} \textcolor{keyword}{class }\hyperlink{classhryky_1_1_bitset}{hryky::Bitset}
+00034 \{
+00035 \textcolor{keyword}{public} :
+00036 
+\hypertarget{bitset_8h_source_l00037}{}\hyperlink{classhryky_1_1_bitset_a967bec88789e12e2ca96e7a73907822c}{00037}     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1_bitset}{Bitset<BitsSize>} \hyperlink{classhryky_1_1_bitset_a967bec88789e12e2ca96e7a73907822c}{this_type};
+00038     \textcolor{keyword}{typedef} \textcolor{keywordtype}{size\_t} size\_type;
+00039     \textcolor{keyword}{typedef} \textcolor{keywordtype}{bool} value\_type;
+00040 
+00041     \textcolor{keyword}{template} <\textcolor{keyword}{typename} ContainerT, \textcolor{keyword}{typename} ReferenceT>
+00042     \textcolor{keyword}{class }Pointer
+00043     \{
+00044     \textcolor{keyword}{public} :
+00045         \textcolor{keyword}{typedef} Pointer<ContainerT, ReferenceT> \hyperlink{classhryky_1_1_bitset_a967bec88789e12e2ca96e7a73907822c}{this_type};
+00046         \textcolor{keyword}{typedef} ContainerT bits\_type;
+00047         \textcolor{keyword}{typedef} bits\_type * bits\_pointer;
+00048 
+00049         Pointer(bits\_pointer bits, size\_type \textcolor{keyword}{const} pos)
+00050             : bits\_(bits), pos\_(pos)
+00051         \{\}
+00052 
+00053         Pointer(\hyperlink{classhryky_1_1_bitset}{this_type} \textcolor{keyword}{const} & rhs)
+00054             : bits\_(rhs.bits\_)
+00055               , pos\_(rhs.pos\_)
+00056         \{\}
+00057 
+00059         \hyperlink{classhryky_1_1_bitset_add97c3079f3c0f0ee7b39c40a4c8d498}{hryky_assign_op};
+00060 
+00061         \textcolor{keywordtype}{void} \hyperlink{classhryky_1_1_bitset_a85e9dae700136067e615b385ea8f4e14}{swap}(\hyperlink{classhryky_1_1_bitset}{this_type} & src)
+00062         \{
+00063             \hyperlink{namespacehryky_add9c1c1fdfda07cd47bcb7c16d3a823a}{hryky_swap}(this->bits\_, src.bits\_);
+00064             \hyperlink{namespacehryky_add9c1c1fdfda07cd47bcb7c16d3a823a}{hryky_swap}(this->pos\_, src.pos\_);
+00065         \}
+00066 
+00067         \textcolor{comment}{// dereferences}
+00068         ReferenceT operator*()
+00069         \{
+00070             \textcolor{keywordflow}{return} Reference(this->bits\_, this->pos\_);
+00071         \}
+00072 
+00073     \textcolor{keyword}{private} :
+00074         \textcolor{keyword}{friend} \textcolor{keyword}{class }ConstPointer;
+00075 
+00076         bits\_type * bits\_;
+00077         size\_type pos\_;
+00078     \};
+00079 
+00080     \textcolor{keyword}{class }Reference
+00081     \{
+00082     \textcolor{keyword}{public} :
+00083         \textcolor{keyword}{typedef} Reference \hyperlink{classhryky_1_1_bitset_a967bec88789e12e2ca96e7a73907822c}{this_type};
+00084         \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1_bitset}{Bitset<BitsSize>} bits\_type;
+00085         \textcolor{keyword}{typedef} bits\_type * bits\_pointer;
+00086         
+00087         Reference(bits\_pointer \textcolor{keyword}{const} bits, size\_type \textcolor{keyword}{const} pos)
+00088             : bits\_(bits), pos\_(pos)
+00089         \{\}
+00090 
+00091         Reference(\hyperlink{classhryky_1_1_bitset_a967bec88789e12e2ca96e7a73907822c}{this_type} \textcolor{keyword}{const} & rhs)
+00092             : bits\_(rhs.bits\_)
+00093               , pos\_(rhs.pos\_)
+00094         \{\}
+00095 
+00097         \hyperlink{classhryky_1_1_bitset_add97c3079f3c0f0ee7b39c40a4c8d498}{hryky_assign_op};
+00098 
+00099         \textcolor{keywordtype}{void} \hyperlink{classhryky_1_1_bitset_a85e9dae700136067e615b385ea8f4e14}{swap}(\hyperlink{classhryky_1_1_bitset_a967bec88789e12e2ca96e7a73907822c}{this_type} & src)
+00100         \{
+00101             \hyperlink{namespacehryky_add9c1c1fdfda07cd47bcb7c16d3a823a}{hryky_swap}(this->bits\_, src.bits\_);
+00102             \hyperlink{namespacehryky_add9c1c1fdfda07cd47bcb7c16d3a823a}{hryky_swap}(this->pos\_, src.pos\_);
+00103         \}
+00104 
+00106         operator value\_type()\textcolor{keyword}{ const}
+00107 \textcolor{keyword}{        }\{
+00108             \textcolor{keywordflow}{return} this->bits\_->get(this->pos\_);
+00109         \}
+00110 
+00112         \hyperlink{classhryky_1_1_bitset_a967bec88789e12e2ca96e7a73907822c}{this_type} & operator=(value\_type \textcolor{keyword}{const} bit)
+00113         \{
+00114             this->bits\_->set(this->pos\_, bit);
+00115             \textcolor{keywordflow}{return} *\textcolor{keyword}{this};
+00116         \}
+00117 
+00118     \textcolor{keyword}{private} :
+00119         \textcolor{keyword}{friend} \textcolor{keyword}{class }ConstReference;
+00120         
+00121         bits\_type * bits\_;
+00122         \hyperlink{namespacehryky_1_1display_a88ee3bfa154cce4c6715af0c3f53d062}{size_type} pos\_;
+00123     \};
+00124 
+00125     \textcolor{keyword}{class }ConstReference
+00126     \{
+00127     \textcolor{keyword}{public} :
+00128         \textcolor{keyword}{typedef} ConstReference \hyperlink{classhryky_1_1_bitset_a967bec88789e12e2ca96e7a73907822c}{this_type};
+00129         \textcolor{keyword}{typedef} Bitset<BitsSize> \textcolor{keyword}{const} bits\_type;
+00130         \textcolor{keyword}{typedef} bits\_type * bits\_pointer;
+00131         
+00132         ConstReference(bits\_pointer \textcolor{keyword}{const} bits, size\_type \textcolor{keyword}{const} pos)
+00133             : bits\_(bits), pos\_(pos)
+00134         \{\}
+00135 
+00136         ConstReference(\hyperlink{classhryky_1_1_bitset_a967bec88789e12e2ca96e7a73907822c}{this_type} \textcolor{keyword}{const} & rhs)
+00137             : bits\_(rhs.bits\_)
+00138               , pos\_(rhs.pos\_)
+00139         \{\}
+00140 
+00142         \hyperlink{classhryky_1_1_bitset_add97c3079f3c0f0ee7b39c40a4c8d498}{hryky_assign_op};
+00143 
+00145         ConstReference(Reference \textcolor{keyword}{const} & ref)
+00146             : bits\_(ref.bits\_)
+00147               , pos\_(ref.pos\_)
+00148         \{\}
+00149 
+00151         \hyperlink{classhryky_1_1_bitset_a967bec88789e12e2ca96e7a73907822c}{this_type} & operator=(Reference \textcolor{keyword}{const} & ref)
+00152         \{
+00153             \hyperlink{classhryky_1_1_bitset_a967bec88789e12e2ca96e7a73907822c}{this_type}(ref).swap(*\textcolor{keyword}{this});
+00154 
+00155             \textcolor{keywordflow}{return} *\textcolor{keyword}{this};
+00156         \}
+00157 
+00158         \textcolor{keywordtype}{void} \hyperlink{classhryky_1_1_bitset_a85e9dae700136067e615b385ea8f4e14}{swap}(\hyperlink{classhryky_1_1_bitset_a967bec88789e12e2ca96e7a73907822c}{this_type} & src)
+00159         \{
+00160             \hyperlink{namespacehryky_add9c1c1fdfda07cd47bcb7c16d3a823a}{hryky_swap}(this->bits\_, src.bits\_);
+00161             \hyperlink{namespacehryky_add9c1c1fdfda07cd47bcb7c16d3a823a}{hryky_swap}(this->pos\_, src.pos\_);
+00162         \}
+00163 
+00165         operator value\_type()\textcolor{keyword}{ const}
+00166 \textcolor{keyword}{        }\{
+00167             \textcolor{keywordflow}{return} this->bits\_->get(this->pos\_);
+00168         \}
+00169 
+00170     \textcolor{keyword}{private} :
+00171         bits\_type * bits\_;
+00172         \hyperlink{namespacehryky_1_1display_a88ee3bfa154cce4c6715af0c3f53d062}{size_type} pos\_;
+00173     \};
+00174 
+00175     \textcolor{keyword}{typedef} Pointer<this\_type, Reference>               pointer;
+00176     \textcolor{keyword}{typedef} Pointer<this\_type const, ConstReference>    const\_pointer;
+00177     \textcolor{keyword}{typedef} Reference                                   reference;
+00178     \textcolor{keyword}{typedef} ConstReference                              const\_reference;
+00179     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1iterator_1_1random_1_1_mutable}{hryky::iterator::random::Mutable}<
+00180         \hyperlink{classhryky_1_1_bitset_a967bec88789e12e2ca96e7a73907822c}{this_type}, pointer, reference>
+00181             iterator;
+00182     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1iterator_1_1random_1_1_immutable}{hryky::iterator::random::Immutable}<
+00183         \hyperlink{classhryky_1_1_bitset_a967bec88789e12e2ca96e7a73907822c}{this_type}, pointer, reference, const\_pointer, const\_reference>
+00184             const\_iterator;
+00185     \textcolor{keyword}{typedef} std::reverse\_iterator<iterator>             reverse\_iterator;
+00186     \textcolor{keyword}{typedef} std::reverse\_iterator<const\_iterator>       const\_reverse\_iterator;
+00187 
+00189     \hyperlink{classhryky_1_1_bitset_a28b1c686a006ded6ee81b0d3ea38d608}{Bitset}();
+00190 
+00192     \hyperlink{classhryky_1_1_bitset_a28b1c686a006ded6ee81b0d3ea38d608}{Bitset}(\hyperlink{classhryky_1_1_bitset_a967bec88789e12e2ca96e7a73907822c}{this_type} \textcolor{keyword}{const} &);
+00193 
+00195     \hyperlink{classhryky_1_1_bitset_a28b1c686a006ded6ee81b0d3ea38d608}{Bitset}(\hyperlink{classhryky_1_1_bitset_a967bec88789e12e2ca96e7a73907822c}{this_type} && rhs);
+00196 
+00198     \hyperlink{classhryky_1_1_bitset_ae6c8e0fd6959e423f6307cb71b74b595}{~Bitset}();
+00199 
+\hypertarget{bitset_8h_source_l00202}{}\hyperlink{classhryky_1_1_bitset_add97c3079f3c0f0ee7b39c40a4c8d498}{00202}     \hyperlink{classhryky_1_1_bitset_add97c3079f3c0f0ee7b39c40a4c8d498}{hryky_assign_op};
+00203 
+00205     \textcolor{keywordtype}{void} \hyperlink{classhryky_1_1_bitset_ae23f0938de9aeb3cae80fbc5ad4ffbe4}{clear}();
+00206 
+00208     \hyperlink{classhryky_1_1_intrusive_ptr}{reduction_type} \hyperlink{classhryky_1_1_bitset_a1fe0a2bac8a887580781ef3d073dc120}{reduce}(\hyperlink{classhryky_1_1reduction_1_1_string}{reduction::name_type} \textcolor{keyword}{const} & name) \textcolor{keyword}{const};
+00209 
+00211     \textcolor{keywordtype}{void} \hyperlink{classhryky_1_1_bitset_a85e9dae700136067e615b385ea8f4e14}{swap}(\hyperlink{classhryky_1_1_bitset}{this_type} & src);
+00212 
+00214     reference \hyperlink{classhryky_1_1_bitset_ae2c7a2634a3554fbbab8b16d60670d0d}{operator[]}(size\_type \textcolor{keyword}{const} index);
+00215 
+00217     const\_reference \hyperlink{classhryky_1_1_bitset_ae2c7a2634a3554fbbab8b16d60670d0d}{operator[]}(size\_type \textcolor{keyword}{const} index) \textcolor{keyword}{const};
+00218 
+00220     value\_type \textcolor{keyword}{get}(size\_type \textcolor{keyword}{const} pos) \textcolor{keyword}{const};
+00221 
+00223     \textcolor{keywordtype}{void} \textcolor{keyword}{set}(size\_type \textcolor{keyword}{const} pos, value\_type \textcolor{keyword}{const} src);
+00224 
+00226     \textcolor{keywordtype}{void} \hyperlink{classhryky_1_1_bitset_a1db71e8b84836648e8e4261c20a9a1bc}{enable}(size\_type \textcolor{keyword}{const} pos);
+00227 
+00229     \textcolor{keywordtype}{void} \hyperlink{classhryky_1_1_bitset_ae4da085a5c1780906a9df5252b86624b}{disable}(size\_type \textcolor{keyword}{const} pos);
+00230 
+00232     size\_type \hyperlink{classhryky_1_1_bitset_a0d41c36d998c4e7bbd1c3d12b9ea199c}{size}() \textcolor{keyword}{const};
+00233 
+00235     \hyperlink{classhryky_1_1iterator_1_1random_1_1_mutable}{iterator} \hyperlink{classhryky_1_1_bitset_aabb589198362742daad95e914b590187}{begin}();
+00236 
+00238     \hyperlink{classhryky_1_1iterator_1_1random_1_1_immutable}{const_iterator} \hyperlink{classhryky_1_1_bitset_aabb589198362742daad95e914b590187}{begin}() \textcolor{keyword}{const};
+00239 
+00241     \hyperlink{classhryky_1_1iterator_1_1random_1_1_mutable}{iterator} \hyperlink{classhryky_1_1_bitset_a1b66eeafa0a16b7bd4b7914421b59c60}{end}();
+00242 
+00244     \hyperlink{classhryky_1_1iterator_1_1random_1_1_immutable}{const_iterator} \hyperlink{classhryky_1_1_bitset_a1b66eeafa0a16b7bd4b7914421b59c60}{end}() \textcolor{keyword}{const};
+00245 
+00247     size\_type \hyperlink{classhryky_1_1_bitset_a20d189bc95da6a2aef278b8ab953d667}{count}() \textcolor{keyword}{const};
+00248 
+00249 \textcolor{keyword}{protected} :
+00250 
+00251 \textcolor{keyword}{private} :
+00252 
+00253     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1_unsigned_enough_exponent}{UnsignedEnoughBytes<sizeof(void *)>::type} \hyperlink{classhryky_1_1_unsigned_enough_exponent}{array_value_type};
+00254 
+00255     \textcolor{keyword}{static} \textcolor{keywordtype}{size\_t} \textcolor{keyword}{const} exponent\_ =
+00256         \hyperlink{classhryky_1_1_unsigned_bits_enough}{UnsignedBitsEnough<sizeof(array_value_type)>::value} + 3 - 1;
+00257 
+00258     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1_array}{Array}<
+00259         \hyperlink{classhryky_1_1_unsigned_enough_exponent}{array_value_type}, (BitsSize >> this\_type::exponent\_) + 1>
+00260             array\_type;
+00261 
+00262     array\_type  buffer\_;
+00263     size\_type   count\_;
+00264 
+00265 \};
+00266 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00267 \textcolor{comment}{// class specializations}
+00268 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00269 \textcolor{keyword}{namespace }hryky
+00270 \{
+00271 \} \textcolor{comment}{// namespace hryky}
+00272 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00273 \textcolor{comment}{// public member functions}
+00274 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00278 \textcolor{comment}{}\textcolor{keyword}{template} <\textcolor{keywordtype}{size\_t} BitsSize>
+\hypertarget{bitset_8h_source_l00279}{}\hyperlink{classhryky_1_1_bitset_a28b1c686a006ded6ee81b0d3ea38d608}{00279} \hyperlink{classhryky_1_1_bitset_a28b1c686a006ded6ee81b0d3ea38d608}{hryky::Bitset<BitsSize>::Bitset}()
+00280     : buffer\_()
+00281       , count\_()
+00282 \{
+00283 \}
+00287 \textcolor{keyword}{template} <\textcolor{keywordtype}{size\_t} BitsSize>
+\hypertarget{bitset_8h_source_l00288}{}\hyperlink{classhryky_1_1_bitset_ad183b186df75c98112608fe40d70a986}{00288} \hyperlink{classhryky_1_1_bitset}{hryky::Bitset<BitsSize>::Bitset}(\hyperlink{classhryky_1_1_bitset}{this_type} \textcolor{keyword}{const} & rhs)
+00289     : buffer\_(rhs.buffer\_)
+00290       , count\_(rhs.count\_)
+00291 \{
+00292 \}
+00296 \textcolor{keyword}{template} <\textcolor{keywordtype}{size\_t} BitsSize>
+\hypertarget{bitset_8h_source_l00297}{}\hyperlink{classhryky_1_1_bitset_ab29dc9adcba6fdf264f66a229ca7feed}{00297} \hyperlink{classhryky_1_1_bitset}{hryky::Bitset<BitsSize>::Bitset}(\hyperlink{classhryky_1_1_bitset}{this_type} && rhs)
+00298     : buffer\_(std::move(rhs.buffer\_))
+00299       , count\_(std::move(rhs.count\_))
+00300 \{
+00301 \}
+00305 \textcolor{keyword}{template} <\textcolor{keywordtype}{size\_t} BitsSize>
+\hypertarget{bitset_8h_source_l00306}{}\hyperlink{classhryky_1_1_bitset_ae6c8e0fd6959e423f6307cb71b74b595}{00306} \hyperlink{classhryky_1_1_bitset}{hryky::Bitset<BitsSize>::~Bitset}()
+00307 \{
+00308 \}
+00312 \textcolor{keyword}{template} <\textcolor{keywordtype}{size\_t} BitsSize>
+\hypertarget{bitset_8h_source_l00313}{}\hyperlink{classhryky_1_1_bitset_ae23f0938de9aeb3cae80fbc5ad4ffbe4}{00313} \textcolor{keywordtype}{void} \hyperlink{namespacehryky_aa201297ea9530da954a7230be71cc19d}{hryky::Bitset<BitsSize>::clear}()
+00314 \{
+00315     this->count\_ = \hyperlink{namespacehryky_1_1display_a88ee3bfa154cce4c6715af0c3f53d062}{size_type}();
+00316     this->buffer\_.clear();
+00317 \}
+00321 \textcolor{keyword}{template} <\textcolor{keywordtype}{size\_t} BitsSize>
+\hypertarget{bitset_8h_source_l00322}{}\hyperlink{classhryky_1_1_bitset_a1fe0a2bac8a887580781ef3d073dc120}{00322} \hyperlink{classhryky_1_1_intrusive_ptr}{hryky::reduction_type} \hyperlink{namespacehryky_af41cb3af6766761da0ff21b84527a52c}{hryky::Bitset<BitsSize>::reduce}(
+00323     \hyperlink{classhryky_1_1reduction_1_1_string}{reduction::name_type} \textcolor{keyword}{const} & name)\textcolor{keyword}{ const}
+00324 \textcolor{keyword}{}\{
+00325     \textcolor{keywordflow}{return} \hyperlink{reduction__common_8h_afc72326c9900838c5db40438318794dd}{hryky_reduce}(name, this->buffer\_);
+00326 \}
+00330 \textcolor{keyword}{template} <\textcolor{keywordtype}{size\_t} BitsSize>
+\hypertarget{bitset_8h_source_l00331}{}\hyperlink{classhryky_1_1_bitset_a85e9dae700136067e615b385ea8f4e14}{00331} \textcolor{keywordtype}{void} \hyperlink{namespacehryky_a4282146df5ea2b68cb667896a2205909}{hryky::Bitset<BitsSize>::swap}(\hyperlink{classhryky_1_1_bitset}{this_type} & src)
+00332 \{
+00333     hryky\_swap\_member(buffer);
+00334     hryky\_swap\_member(count);
+00335 \}
+00339 \textcolor{keyword}{template} <\textcolor{keywordtype}{size\_t} BitsSize>
+00340 \textcolor{keyword}{typename} hryky::Bitset<BitsSize>::reference
+\hypertarget{bitset_8h_source_l00341}{}\hyperlink{classhryky_1_1_bitset_ae2c7a2634a3554fbbab8b16d60670d0d}{00341} \hyperlink{classhryky_1_1_bitset}{hryky::Bitset<BitsSize>::operator[]}(
+00342     size\_type \textcolor{keyword}{const} index)
+00343 \{
+00344     \textcolor{keywordflow}{return} reference(\textcolor{keyword}{this}, index);
+00345 \}
+00349 \textcolor{keyword}{template} <\textcolor{keywordtype}{size\_t} BitsSize>
+00350 \textcolor{keyword}{typename} hryky::Bitset<BitsSize>::const\_reference 
+\hypertarget{bitset_8h_source_l00351}{}\hyperlink{classhryky_1_1_bitset_aef5ad56f7ce6cb0bcbb7906979cc1890}{00351} \hyperlink{classhryky_1_1_bitset}{hryky::Bitset<BitsSize>::operator[]}(
+00352     size\_type \textcolor{keyword}{const} index)\textcolor{keyword}{ const}
+00353 \textcolor{keyword}{}\{
+00354     \textcolor{keywordflow}{return} const\_reference(\textcolor{keyword}{this}, index);
+00355 \}
+00359 \textcolor{keyword}{template} <\textcolor{keywordtype}{size\_t} BitsSize>
+00360 \textcolor{keyword}{typename} hryky::Bitset<BitsSize>::value\_type 
+\hypertarget{bitset_8h_source_l00361}{}\hyperlink{classhryky_1_1_bitset_a35f36e917d8fe462a07d9a2b43d357a7}{00361} \hyperlink{namespacehryky_1_1log_1_1writer_a67d38d407be7aaf3cc9ed3ac8e3b2835}{hryky::Bitset<BitsSize>::get}(size\_type \textcolor{keyword}{const} pos)\textcolor{keyword}{ const}
+00362 \textcolor{keyword}{}\{
+00363     \textcolor{keywordtype}{size\_t} \textcolor{keyword}{const} shift =
+00364         (3 + \hyperlink{classhryky_1_1_unsigned_bits_enough}{UnsignedBitsEnough<sizeof(array_value_type)>::value} - 1);
+00365     
+00371     \textcolor{keywordflow}{return} 1u ==
+00372         (0x1u &
+00373          (this->buffer\_[pos >> this\_type::exponent\_] >>
+00374           (pos & (1 << this\_type::exponent\_) - 1)));
+00375 \}
+00379 \textcolor{keyword}{template} <\textcolor{keywordtype}{size\_t} BitsSize>
+\hypertarget{bitset_8h_source_l00380}{}\hyperlink{classhryky_1_1_bitset_ac46ed5d5d5c98106ac330796a146d2a1}{00380} \textcolor{keywordtype}{void} \hyperlink{classhryky_1_1_bitset}{hryky::Bitset<BitsSize>::set}(
+00381     size\_type \textcolor{keyword}{const} pos, value\_type \textcolor{keyword}{const} src)
+00382 \{
+00383     size\_type \textcolor{keyword}{const} bit\_pos = pos & ((1 << this\_type::exponent\_) - 1);
+00384     size\_type \textcolor{keyword}{const} index = pos >> this\_type::exponent\_;
+00385     \hyperlink{classhryky_1_1_unsigned_enough_exponent}{array_value_type} \textcolor{keyword}{const} one = \textcolor{keyword}{static\_cast<}\hyperlink{classhryky_1_1_unsigned_enough_exponent}{array_value_type}\textcolor{keyword}{>}(1u);
+00386 
+00387     this->count\_ += (
+00388         ((0x1 & (this->buffer\_[index] >> bit\_pos)) ^ (src ? 1 : 0)) *
+00389         (src ? 1 : -1));
+00390 
+00391 \textcolor{preprocessor}{#if 0}
+00392 \textcolor{preprocessor}{}
+00398     \hyperlink{classhryky_1_1_unsigned_enough_exponent}{array_value_type} \textcolor{keyword}{const} clear\_mask = ~(one << bit\_pos);
+00399     \hyperlink{classhryky_1_1_unsigned_enough_exponent}{array_value_type} \textcolor{keyword}{const} \hyperlink{namespacehryky_1_1scale_ac2fe4df99c737fa954907b456a705f75}{add} =
+00400         ((src ? one : \textcolor{keyword}{static\_cast<}\hyperlink{classhryky_1_1_unsigned_enough_exponent}{array_value_type}\textcolor{keyword}{>}(0u)) << bit\_pos);
+00401     this->buffer\_[index] &= clear\_mask;
+00402     this->buffer\_[index] |= \hyperlink{namespacehryky_1_1scale_ac2fe4df99c737fa954907b456a705f75}{add};
+00403 \textcolor{preprocessor}{#else}
+00404 \textcolor{preprocessor}{}    this->buffer\_[index] =
+00405         (src ?
+00406          this->buffer\_[index] | (one << bit\_pos) :
+00407          this->buffer\_[index] & ~(one << bit\_pos));
+00408 \textcolor{preprocessor}{#endif}
+00409 \textcolor{preprocessor}{}\}
+00413 \textcolor{keyword}{template} <\textcolor{keywordtype}{size\_t} BitsSize>
+\hypertarget{bitset_8h_source_l00414}{}\hyperlink{classhryky_1_1_bitset_a1db71e8b84836648e8e4261c20a9a1bc}{00414} \textcolor{keywordtype}{void} \hyperlink{classhryky_1_1_bitset}{hryky::Bitset<BitsSize>::enable}(size\_type \textcolor{keyword}{const} pos)
+00415 \{
+00416     size\_type \textcolor{keyword}{const} bit\_pos = pos & ((1 << this\_type::exponent\_) - 1);
+00417     size\_type \textcolor{keyword}{const} index = pos >> this\_type::exponent\_;
+00418     \hyperlink{classhryky_1_1_unsigned_enough_exponent}{array_value_type} \textcolor{keyword}{const} one = \textcolor{keyword}{static\_cast<}\hyperlink{classhryky_1_1_unsigned_enough_exponent}{array_value_type}\textcolor{keyword}{>}(1u);
+00419 
+00420     this->count += ((0x1 & (this->buffer\_[index] >> bit\_pos)) ^ (src ? 1 : 0));
+00421 
+00422     this->buffer\_[index] &= ~(one << bit\_pos);
+00423 \}
+00427 \textcolor{keyword}{template} <\textcolor{keywordtype}{size\_t} BitsSize>
+\hypertarget{bitset_8h_source_l00428}{}\hyperlink{classhryky_1_1_bitset_ae4da085a5c1780906a9df5252b86624b}{00428} \textcolor{keywordtype}{void} \hyperlink{classhryky_1_1_bitset}{hryky::Bitset<BitsSize>::disable}(size\_type \textcolor{keyword}{const} pos)
+00429 \{
+00430     size\_type \textcolor{keyword}{const} bit\_pos = pos & ((1 << this\_type::exponent\_) - 1);
+00431     size\_type \textcolor{keyword}{const} index = pos >> this\_type::exponent\_;
+00432     \hyperlink{classhryky_1_1_unsigned_enough_exponent}{array_value_type} \textcolor{keyword}{const} one = \textcolor{keyword}{static\_cast<}\hyperlink{classhryky_1_1_unsigned_enough_exponent}{array_value_type}\textcolor{keyword}{>}(1u);
+00433 
+00434     this->count -= ((0x1 & (this->buffer\_[index] >> bit\_pos)) ^ (src ? 1 : 0));
+00435 
+00436     this->buffer\_[index] |= (one << bit\_pos);
+00437 \}
+00441 \textcolor{keyword}{template} <\textcolor{keywordtype}{size\_t} BitsSize>
+00442 \textcolor{keyword}{typename} hryky::Bitset<BitsSize>::size\_type
+\hypertarget{bitset_8h_source_l00443}{}\hyperlink{classhryky_1_1_bitset_a0d41c36d998c4e7bbd1c3d12b9ea199c}{00443} \hyperlink{classhryky_1_1_bitset}{hryky::Bitset<BitsSize>::size}()\textcolor{keyword}{ const}
+00444 \textcolor{keyword}{}\{
+00445     \textcolor{keywordflow}{return} BitsSize;
+00446 \}
+00450 \textcolor{keyword}{template} <\textcolor{keywordtype}{size\_t} BitsSize>
+00451 \textcolor{keyword}{typename} \hyperlink{classhryky_1_1iterator_1_1random_1_1_mutable}{hryky::Bitset<BitsSize>::iterator} 
+\hypertarget{bitset_8h_source_l00452}{}\hyperlink{classhryky_1_1_bitset_aabb589198362742daad95e914b590187}{00452} \hyperlink{classhryky_1_1_bitset}{hryky::Bitset<BitsSize>::begin}()
+00453 \{
+00454     \textcolor{keywordflow}{return} \hyperlink{classhryky_1_1iterator_1_1random_1_1_mutable}{iterator}(\textcolor{keyword}{this}, 0);
+00455 \}
+00459 \textcolor{keyword}{template} <\textcolor{keywordtype}{size\_t} BitsSize>
+00460 \textcolor{keyword}{typename} \hyperlink{classhryky_1_1iterator_1_1random_1_1_immutable}{hryky::Bitset<BitsSize>::const_iterator} 
+\hypertarget{bitset_8h_source_l00461}{}\hyperlink{classhryky_1_1_bitset_ac4b8961a631215c83c16077e97239dc9}{00461} \hyperlink{classhryky_1_1_bitset}{hryky::Bitset<BitsSize>::begin}()\textcolor{keyword}{ const}
+00462 \textcolor{keyword}{}\{
+00463     \textcolor{keywordflow}{return} \hyperlink{classhryky_1_1iterator_1_1random_1_1_immutable}{const_iterator}(\textcolor{keyword}{this}, 0);
+00464 \}
+00468 \textcolor{keyword}{template} <\textcolor{keywordtype}{size\_t} BitsSize>
+00469 \textcolor{keyword}{typename} \hyperlink{classhryky_1_1iterator_1_1random_1_1_mutable}{hryky::Bitset<BitsSize>::iterator} 
+\hypertarget{bitset_8h_source_l00470}{}\hyperlink{classhryky_1_1_bitset_a1b66eeafa0a16b7bd4b7914421b59c60}{00470} \hyperlink{classhryky_1_1_bitset}{hryky::Bitset<BitsSize>::end}()
+00471 \{
+00472     \textcolor{keywordflow}{return} \hyperlink{classhryky_1_1iterator_1_1random_1_1_mutable}{iterator}(\textcolor{keyword}{this}, BitsSize);
+00473 \}
+00477 \textcolor{keyword}{template} <\textcolor{keywordtype}{size\_t} BitsSize>
+00478 \textcolor{keyword}{typename} \hyperlink{classhryky_1_1iterator_1_1random_1_1_immutable}{hryky::Bitset<BitsSize>::const_iterator} 
+\hypertarget{bitset_8h_source_l00479}{}\hyperlink{classhryky_1_1_bitset_ab0cc44b3036eccc8f56c4322f14fc50e}{00479} \hyperlink{classhryky_1_1_bitset}{hryky::Bitset<BitsSize>::end}()\textcolor{keyword}{ const}
+00480 \textcolor{keyword}{}\{
+00481     \textcolor{keywordflow}{return} \hyperlink{classhryky_1_1iterator_1_1random_1_1_immutable}{const_iterator}(\textcolor{keyword}{this}, BitsSize);
+00482 \}
+00486 \textcolor{keyword}{template} <\textcolor{keywordtype}{size\_t} BitsSize>
+00487 \textcolor{keyword}{typename} hryky::Bitset<BitsSize>::size\_type 
+\hypertarget{bitset_8h_source_l00488}{}\hyperlink{classhryky_1_1_bitset_a20d189bc95da6a2aef278b8ab953d667}{00488} \hyperlink{classhryky_1_1_bitset}{hryky::Bitset<BitsSize>::count}()\textcolor{keyword}{ const}
+00489 \textcolor{keyword}{}\{
+00490     \textcolor{keywordflow}{return} this->count\_;
+00491 \}
+00492 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00493 \textcolor{comment}{// protected member functions}
+00494 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00495 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00496 \textcolor{comment}{// private member functions}
+00497 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00498 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00499 \textcolor{comment}{// global function prototypes}
+00500 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00501 \textcolor{keyword}{namespace }hryky
+00502 \{
+00504     \textcolor{keyword}{template} <\textcolor{keywordtype}{size\_t} BitsSize>
+00505     \hyperlink{classhryky_1_1_intrusive_ptr}{reduction_type} \hyperlink{namespacehryky_af41cb3af6766761da0ff21b84527a52c}{reduce}(
+00506         \hyperlink{classhryky_1_1reduction_1_1_string}{reduction::name_type} \textcolor{keyword}{const} & name, \hyperlink{classhryky_1_1_bitset}{Bitset<BitsSize>} \textcolor{keyword}{const} & src);
+00507 
+00509     \textcolor{keyword}{template} <\textcolor{keywordtype}{size\_t} BitsSize>
+00510     \textcolor{keywordtype}{void} \hyperlink{namespacehryky_a4282146df5ea2b68cb667896a2205909}{swap}(
+00511         \hyperlink{classhryky_1_1_bitset}{Bitset<BitsSize>} & lhs, \hyperlink{classhryky_1_1_bitset}{Bitset<BitsSize>} & rhs);
+00512 
+00513 \} \textcolor{comment}{// namespace hryky}
+00514 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00515 \textcolor{comment}{// global function definitions}
+00516 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00520 \textcolor{comment}{}\textcolor{keyword}{template} <\textcolor{keywordtype}{size\_t} BitsSize>
+\hypertarget{bitset_8h_source_l00521}{}\hyperlink{namespacehryky_af7b750a06d6c5b780d3473e3fa1e7bf9}{00521} \hyperlink{classhryky_1_1_intrusive_ptr}{hryky::reduction_type} \hyperlink{namespacehryky_af41cb3af6766761da0ff21b84527a52c}{hryky::reduce}(
+00522     \hyperlink{classhryky_1_1reduction_1_1_string}{reduction::name_type} \textcolor{keyword}{const} & name, \hyperlink{classhryky_1_1_bitset}{Bitset<BitsSize>} \textcolor{keyword}{const} & src)
+00523 \{
+00524     \textcolor{keywordflow}{return} src.\hyperlink{classhryky_1_1_bitset_a1fe0a2bac8a887580781ef3d073dc120}{reduce}(name);
+00525 \}
+00529 \textcolor{keyword}{template} <\textcolor{keywordtype}{size\_t} BitsSize>
+\hypertarget{bitset_8h_source_l00530}{}\hyperlink{namespacehryky_a73dbc149899a54cca88e0c14c00bb173}{00530} \textcolor{keywordtype}{void} \hyperlink{namespacehryky_a4282146df5ea2b68cb667896a2205909}{hryky::swap}(\hyperlink{classhryky_1_1_bitset}{Bitset<BitsSize>} & lhs, \hyperlink{classhryky_1_1_bitset}{Bitset<BitsSize>} & rhs)
+00531 \{
+00532     lhs.\hyperlink{classhryky_1_1_bitset_a85e9dae700136067e615b385ea8f4e14}{swap}(rhs);
+00533 \}
+00534 \textcolor{preprocessor}{#endif // BITSET\_H\_20130119105715123}
+00535 \textcolor{preprocessor}{}\textcolor{comment}{// end of file}
+00536 
+\end{DoxyCode}

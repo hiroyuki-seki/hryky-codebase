@@ -1,0 +1,116 @@
+\hypertarget{log__writer__common_8h}{\section{log\-\_\-writer\-\_\-common.\-h File Reference}
+\label{log__writer__common_8h}\index{log\-\_\-writer\-\_\-common.\-h@{log\-\_\-writer\-\_\-common.\-h}}
+}
+
+
+functions for log writer.  
+
+
+{\ttfamily \#include \char`\"{}hryky/clock.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}hryky/common.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}hryky/debug/debug\-\_\-source.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}hryky/log/log\-\_\-common.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}hryky/log/log\-\_\-writer\-\_\-base.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}hryky/log/log\-\_\-level\-\_\-entity.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}hryky/literal\-\_\-string.\-h\char`\"{}}\\*
+This graph shows which files directly or indirectly include this file\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{log__writer__common_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structhryky_1_1log_1_1_auto_elapsed}{hryky\-::log\-::\-Auto\-Elapsed}
+\begin{DoxyCompactList}\small\item\em logs an elapsed time out at the end of the scope. \end{DoxyCompactList}\item 
+struct \hyperlink{structhryky_1_1log_1_1writer_1_1_push}{hryky\-::log\-::writer\-::\-Push}
+\begin{DoxyCompactList}\small\item\em assigns a new log writer, and restores the previous log writer at the end of the scope. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \hyperlink{namespacehryky}{hryky}
+\begin{DoxyCompactList}\small\item\em the root of all namespaces in hryky-\/codebase. \end{DoxyCompactList}\item 
+namespace \hyperlink{namespacehryky_1_1log}{hryky\-::log}
+\begin{DoxyCompactList}\small\item\em modules for logging progress. \end{DoxyCompactList}\item 
+namespace \hyperlink{namespacehryky_1_1log_1_1writer}{hryky\-::log\-::writer}
+\begin{DoxyCompactList}\small\item\em modules for the instance which outputs logs. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Defines}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{log__writer__common_8h_afae8fb8916745daf220c3d3da57ce825}{hryky\-\_\-log}(level, message)~\hyperlink{namespacehryky_1_1log_a5c7e76e7e42521f83c90fc8813f1f3ea}{hryky\-::log\-::write}(hryky\-\_\-source\-\_\-position, (level), (message))
+\item 
+\hypertarget{log__writer__common_8h_a8cb8f66bf45015fc1b64ed8d52bf8d59}{\#define \hyperlink{log__writer__common_8h_a8cb8f66bf45015fc1b64ed8d52bf8d59}{hryky\-\_\-log\-\_\-alert}(message)~\hyperlink{log__writer__common_8h_afae8fb8916745daf220c3d3da57ce825}{hryky\-\_\-log}(\hyperlink{structhryky_1_1log_1_1level_1_1_kind_aa121006343f8971f566b5490b8001b21a16a99a982de54fbc23410091030d2dd8}{hryky\-::log\-::level\-::\-Kind\-::alert\-\_\-}, (message))}\label{log__writer__common_8h_a8cb8f66bf45015fc1b64ed8d52bf8d59}
+
+\begin{DoxyCompactList}\small\item\em writes log message as \hyperlink{structhryky_1_1log_1_1level_1_1_kind_aa121006343f8971f566b5490b8001b21a16a99a982de54fbc23410091030d2dd8}{hryky\-::log\-::level\-::\-Kind\-::alert\-\_\-} level. \end{DoxyCompactList}\item 
+\hypertarget{log__writer__common_8h_a61bcce4d8e91e6fde78ce1be7d9ceac8}{\#define \hyperlink{log__writer__common_8h_a61bcce4d8e91e6fde78ce1be7d9ceac8}{hryky\-\_\-log\-\_\-crit}(message)~\hyperlink{log__writer__common_8h_afae8fb8916745daf220c3d3da57ce825}{hryky\-\_\-log}(\hyperlink{structhryky_1_1log_1_1level_1_1_kind_aa121006343f8971f566b5490b8001b21a0c2b12dd607bc861ea48a54ffaecb235}{hryky\-::log\-::level\-::\-Kind\-::crit\-\_\-}, (message))}\label{log__writer__common_8h_a61bcce4d8e91e6fde78ce1be7d9ceac8}
+
+\begin{DoxyCompactList}\small\item\em writes log message as \hyperlink{structhryky_1_1log_1_1level_1_1_kind_aa121006343f8971f566b5490b8001b21a0c2b12dd607bc861ea48a54ffaecb235}{hryky\-::log\-::level\-::\-Kind\-::crit\-\_\-} level. \end{DoxyCompactList}\item 
+\#define \hyperlink{log__writer__common_8h_ad94e7301fdfeec6ecd1cb63b4c81325a}{hryky\-\_\-log\-\_\-debug}(message)~\hyperlink{log__writer__common_8h_afae8fb8916745daf220c3d3da57ce825}{hryky\-\_\-log}(\hyperlink{structhryky_1_1log_1_1level_1_1_kind_aa121006343f8971f566b5490b8001b21ac0a8f52590796a1f311111dae15c6af8}{hryky\-::log\-::level\-::\-Kind\-::debug\-\_\-}, (message))
+\begin{DoxyCompactList}\small\item\em writes log message as \hyperlink{structhryky_1_1log_1_1level_1_1_kind_aa121006343f8971f566b5490b8001b21ac0a8f52590796a1f311111dae15c6af8}{hryky\-::log\-::level\-::\-Kind\-::debug\-\_\-} level. \end{DoxyCompactList}\item 
+\hypertarget{log__writer__common_8h_a8d142be5e91677a27be199c3f4115ba6}{\#define \hyperlink{log__writer__common_8h_a8d142be5e91677a27be199c3f4115ba6}{hryky\-\_\-log\-\_\-emerg}(message)~\hyperlink{log__writer__common_8h_afae8fb8916745daf220c3d3da57ce825}{hryky\-\_\-log}(\hyperlink{structhryky_1_1log_1_1level_1_1_kind_aa121006343f8971f566b5490b8001b21a6b7056a2b5be42b04fd0e3ebb05db821}{hryky\-::log\-::level\-::\-Kind\-::emerg\-\_\-}, (message))}\label{log__writer__common_8h_a8d142be5e91677a27be199c3f4115ba6}
+
+\begin{DoxyCompactList}\small\item\em writes log message as \hyperlink{structhryky_1_1log_1_1level_1_1_kind_aa121006343f8971f566b5490b8001b21a6b7056a2b5be42b04fd0e3ebb05db821}{hryky\-::log\-::level\-::\-Kind\-::emerg\-\_\-} level. \end{DoxyCompactList}\item 
+\hypertarget{log__writer__common_8h_ae5ad3dabb33f594695ef40753cb78aad}{\#define \hyperlink{log__writer__common_8h_ae5ad3dabb33f594695ef40753cb78aad}{hryky\-\_\-log\-\_\-err}(message)~\hyperlink{log__writer__common_8h_afae8fb8916745daf220c3d3da57ce825}{hryky\-\_\-log}(\hyperlink{structhryky_1_1log_1_1level_1_1_kind_aa121006343f8971f566b5490b8001b21ae0769f08396c2cb3bf27ab8e8226f728}{hryky\-::log\-::level\-::\-Kind\-::err\-\_\-}, (message))}\label{log__writer__common_8h_ae5ad3dabb33f594695ef40753cb78aad}
+
+\begin{DoxyCompactList}\small\item\em writes log message as \hyperlink{structhryky_1_1log_1_1level_1_1_kind_aa121006343f8971f566b5490b8001b21ae0769f08396c2cb3bf27ab8e8226f728}{hryky\-::log\-::level\-::\-Kind\-::err\-\_\-} level. \end{DoxyCompactList}\item 
+\hypertarget{log__writer__common_8h_a7a87a8f432de12bbdfa8d6ee1a998fe2}{\#define \hyperlink{log__writer__common_8h_a7a87a8f432de12bbdfa8d6ee1a998fe2}{hryky\-\_\-log\-\_\-info}(message)~\hyperlink{log__writer__common_8h_afae8fb8916745daf220c3d3da57ce825}{hryky\-\_\-log}(\hyperlink{structhryky_1_1log_1_1level_1_1_kind_aa121006343f8971f566b5490b8001b21a101e156d0dbeb1bc9a4930fa365a5816}{hryky\-::log\-::level\-::\-Kind\-::info\-\_\-}, (message))}\label{log__writer__common_8h_a7a87a8f432de12bbdfa8d6ee1a998fe2}
+
+\begin{DoxyCompactList}\small\item\em writes log message as \hyperlink{structhryky_1_1log_1_1level_1_1_kind_aa121006343f8971f566b5490b8001b21a101e156d0dbeb1bc9a4930fa365a5816}{hryky\-::log\-::level\-::\-Kind\-::info\-\_\-} level. \end{DoxyCompactList}\item 
+\hypertarget{log__writer__common_8h_ab209c7143422edf2ce0c5baa844629d7}{\#define \hyperlink{log__writer__common_8h_ab209c7143422edf2ce0c5baa844629d7}{hryky\-\_\-log\-\_\-notice}(message)~\hyperlink{log__writer__common_8h_afae8fb8916745daf220c3d3da57ce825}{hryky\-\_\-log}(\hyperlink{structhryky_1_1log_1_1level_1_1_kind_aa121006343f8971f566b5490b8001b21a0d27806ab638f3d364a201799beb0915}{hryky\-::log\-::level\-::\-Kind\-::notice\-\_\-}, (message))}\label{log__writer__common_8h_ab209c7143422edf2ce0c5baa844629d7}
+
+\begin{DoxyCompactList}\small\item\em writes log message as \hyperlink{structhryky_1_1log_1_1level_1_1_kind_aa121006343f8971f566b5490b8001b21a0d27806ab638f3d364a201799beb0915}{hryky\-::log\-::level\-::\-Kind\-::notice\-\_\-} level. \end{DoxyCompactList}\item 
+\hypertarget{log__writer__common_8h_a1a150b0b31f517e34b4f6604348f3cbf}{\#define \hyperlink{log__writer__common_8h_a1a150b0b31f517e34b4f6604348f3cbf}{hryky\-\_\-log\-\_\-warning}(message)~\hyperlink{log__writer__common_8h_afae8fb8916745daf220c3d3da57ce825}{hryky\-\_\-log}(\hyperlink{structhryky_1_1log_1_1level_1_1_kind_aa121006343f8971f566b5490b8001b21a93a6f12ecffb8aaca86c6a2c63db2001}{hryky\-::log\-::level\-::\-Kind\-::warning\-\_\-}, (message))}\label{log__writer__common_8h_a1a150b0b31f517e34b4f6604348f3cbf}
+
+\begin{DoxyCompactList}\small\item\em writes log message as \hyperlink{structhryky_1_1log_1_1level_1_1_kind_aa121006343f8971f566b5490b8001b21a93a6f12ecffb8aaca86c6a2c63db2001}{hryky\-::log\-::level\-::\-Kind\-::warning\-\_\-} level. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+writer\-\_\-type \& \hyperlink{namespacehryky_1_1log_1_1writer_a67d38d407be7aaf3cc9ed3ac8e3b2835}{hryky\-::log\-::writer\-::get} ()
+\begin{DoxyCompactList}\small\item\em retrieves the current log writer invoked from entire context \end{DoxyCompactList}\item 
+\hypertarget{namespacehryky_1_1log_a5c7e76e7e42521f83c90fc8813f1f3ea}{{\footnotesize template$<$typename Message\-T $>$ }\\void \hyperlink{namespacehryky_1_1log_a5c7e76e7e42521f83c90fc8813f1f3ea}{hryky\-::log\-::write} (debug\-::\-Source const \&source, level\-::kind\-\_\-type const level, Message\-T const \&message)}\label{namespacehryky_1_1log_a5c7e76e7e42521f83c90fc8813f1f3ea}
+
+\begin{DoxyCompactList}\small\item\em writes a arbitrary message out to the writer. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+functions for log writer. \begin{DoxyAuthor}{Author}
+H\-R\-Y\-K\-Y 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+
+\end{DoxyVersion}
+\begin{DoxyParagraph}{Id\-:}
+\hyperlink{log__writer__common_8h}{log\-\_\-writer\-\_\-common.\-h} 150 2013-\/02-\/10 10\-:08\-:03\-Z \href{mailto:hryky.private@gmail.com}{\tt hryky.\-private@gmail.\-com} 
+\end{DoxyParagraph}
+
+
+\subsection{Define Documentation}
+\hypertarget{log__writer__common_8h_afae8fb8916745daf220c3d3da57ce825}{\index{log\-\_\-writer\-\_\-common.\-h@{log\-\_\-writer\-\_\-common.\-h}!hryky\-\_\-log@{hryky\-\_\-log}}
+\index{hryky\-\_\-log@{hryky\-\_\-log}!log_writer_common.h@{log\-\_\-writer\-\_\-common.\-h}}
+\subsubsection[{hryky\-\_\-log}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf hryky\-\_\-log}(
+\begin{DoxyParamCaption}
+\item[{}]{level, }
+\item[{}]{message}
+\end{DoxyParamCaption}
+)~{\bf hryky\-::log\-::write}(hryky\-\_\-source\-\_\-position, (level), (message))}}\label{log__writer__common_8h_afae8fb8916745daf220c3d3da57ce825}
+writes a log message with the arbitrary log-\/level. \hypertarget{log__writer__common_8h_ad94e7301fdfeec6ecd1cb63b4c81325a}{\index{log\-\_\-writer\-\_\-common.\-h@{log\-\_\-writer\-\_\-common.\-h}!hryky\-\_\-log\-\_\-debug@{hryky\-\_\-log\-\_\-debug}}
+\index{hryky\-\_\-log\-\_\-debug@{hryky\-\_\-log\-\_\-debug}!log_writer_common.h@{log\-\_\-writer\-\_\-common.\-h}}
+\subsubsection[{hryky\-\_\-log\-\_\-debug}]{\setlength{\rightskip}{0pt plus 5cm}\#define {\bf hryky\-\_\-log\-\_\-debug}(
+\begin{DoxyParamCaption}
+\item[{}]{message}
+\end{DoxyParamCaption}
+)~{\bf hryky\-\_\-log}({\bf hryky\-::log\-::level\-::\-Kind\-::debug\-\_\-}, (message))}}\label{log__writer__common_8h_ad94e7301fdfeec6ecd1cb63b4c81325a}
+
+
+writes log message as \hyperlink{structhryky_1_1log_1_1level_1_1_kind_aa121006343f8971f566b5490b8001b21ac0a8f52590796a1f311111dae15c6af8}{hryky\-::log\-::level\-::\-Kind\-::debug\-\_\-} level. 
+
+hryky\-\_\-log\-\_\-debug is compiled at only debug build. \begin{Desc}
+\item[Examples\-: ]\par
+\hyperlink{test_log_8cpp-example}{test\-\_\-log.\-cpp}, \hyperlink{test_main_8cpp-example}{test\-\_\-main.\-cpp}, and \hyperlink{test_task_hello_8cpp-example}{test\-\_\-task\-\_\-hello.\-cpp}.\end{Desc}
+
+
+Referenced by \hyperlink{classhryky_1_1http_1_1header_1_1connection_1_1_entity_ad5e987a73e76f97a2d85be61f744dae9}{hryky\-::http\-::header\-::connection\-::\-Entity\-::append()}, \hyperlink{namespacehryky_a438e3ee8f5109856c4a1e4daa9980982}{hryky\-::qsort()}, and \hyperlink{classhryky_1_1parser_1_1_base_a28bfa66d197bcf4babb3806bcf3abafa}{hryky\-::parser\-::\-Base$<$ Generated\-T $>$\-::trace()}.
+

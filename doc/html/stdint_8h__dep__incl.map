@@ -1,0 +1,51 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$common_8h.html" title="common definition." alt="" coords="1304,304,1387,331"/>
+<area shape="rect" id="node24" href="$indent_8h.html" title="indents as string." alt="" coords="2518,379,2586,405"/>
+<area shape="rect" id="node62" href="$has__const__iterator_8h.html" title="confirms whether a container has const_iterator." alt="" coords="1666,80,1806,107"/>
+<area shape="rect" id="node71" href="$reduction__char_8h.html" title="primitive type of reduction for char." alt="" coords="1938,304,2056,331"/>
+<area shape="rect" id="node73" href="$reduction__int_8h.html" title="primitive type of reduction as signed integer." alt="" coords="2127,304,2234,331"/>
+<area shape="rect" id="node76" href="$is__as__string_8h.html" title="confirms whether a class can be used as string." alt="" coords="1481,155,1583,181"/>
+<area shape="rect" id="node79" href="$is__signed_8h.html" title="confirms whether a type is signed type." alt="" coords="1870,80,1958,107"/>
+<area shape="rect" id="node86" href="$is__unsigned_8h.html" title="confirms whether a type is unsigned." alt="" coords="2046,80,2148,107"/>
+<area shape="rect" id="node93" href="$hamming__weight_8h.html" title="counts the number of non&#45;zero values." alt="" coords="2771,80,2902,107"/>
+<area shape="rect" id="node98" href="$signed__enough_8h.html" title="retrieves the type of signed integer which has the capacity of the specified size." alt="" coords="2714,155,2834,181"/>
+<area shape="rect" id="node102" href="$unsigned__bits__enough_8h.html" title="retrieves the bit width in which a unsigned value of specified size can be stored." alt="" coords="2483,80,2646,107"/>
+<area shape="rect" id="node108" href="$unsigned__enough_8h.html" title="retrieves the type of integer which has the capacity of the specified size." alt="" coords="2332,155,2466,181"/>
+<area shape="rect" id="node114" href="$date__common_8h.html" title="common definitions for hryky::date module." alt="" coords="2926,80,3040,107"/>
+<area shape="rect" id="node118" href="$http__header__content__length__entity_8h.html" title="retains the information for &#39;Content&#45;Length&#39; field of HTTP Header." alt="" coords="3064,80,3296,107"/>
+<area shape="rect" id="node120" href="$ip__v4__common_8h.html" title="common definitions for hryky::ip::v4." alt="" coords="3321,80,3439,107"/>
+<area shape="rect" id="node122" href="$pixel__format_8h.html" title="represents pixel format." alt="" coords="3464,80,3566,107"/>
+<area shape="rect" id="node126" href="$type__common_8h.html" title="common definitions for hryky::type." alt="" coords="3591,80,3706,107"/>
+<area shape="rect" id="node5" href="$ascii__common_8h.html" title="common definitions for hryky::ascii." alt="" coords="27,379,144,405"/>
+<area shape="rect" id="node7" href="$allocator__heap_8h.html" title="allocator using memory::heap::Base." alt="" coords="1383,379,1500,405"/>
+<area shape="rect" id="node11" href="$string_8h.html" title="substitutes for std::string." alt="" coords="448,453,512,480"/>
+<area shape="rect" id="node13" href="$log__writer__file_8h.html" title="output log message." alt="" coords="474,528,584,555"/>
+<area shape="rect" id="node15" href="$atomic__accessor_8h.html" title="synchronizes the access to an object." alt="" coords="116,453,247,480"/>
+<area shape="rect" id="node17" href="$atomic__writer_8h.html" title="synchronizes a xrdwriting access to an object." alt="" coords="220,379,330,405"/>
+<area shape="rect" id="node20" href="$clear_8h.html" title="clears an arbitrary instance." alt="" coords="2110,379,2171,405"/>
+<area shape="rect" id="node30" href="$iterator__random_8h.html" title="random access iterator." alt="" coords="406,379,528,405"/>
+<area shape="rect" id="node33" href="$kind_8h.html" title="template for the class that represents the kind." alt="" coords="1525,379,1582,405"/>
+<area shape="rect" id="node36" href="$http__header__parser_8h.html" title="parses a text string of HTTP Message." alt="" coords="1378,453,1522,480"/>
+<area shape="rect" id="node38" href="$main_8h.html" title="utilizes entry&#45;point." alt="" coords="2195,379,2256,405"/>
+<area shape="rect" id="node41" href="$hryky_8h.html" title="include the entire headers of hryky&#45;codebase." alt="" coords="604,379,668,405"/>
+<area shape="rect" id="node43" href="$common_8cpp.html" title="common definitions." alt="" coords="693,379,790,405"/>
+<area shape="rect" id="node45" href="$file__descriptor__entity_8h.html" title="retains a file descriptor." alt="" coords="815,379,967,405"/>
+<area shape="rect" id="node47" href="$filesystem__common_8cpp.html" title="common definitions for hryky::filesystem." alt="" coords="991,379,1154,405"/>
+<area shape="rect" id="node49" href="$http__body__entity_8h.html" title="retains a message&#45;body of HTTP Message." alt="" coords="1178,379,1307,405"/>
+<area shape="rect" id="node52" href="$log__writer__common_8h.html" title="functions for log writer." alt="" coords="1889,379,2034,405"/>
+<area shape="rect" id="node54" href="$memory__heap__arbitrary_8h.html" title="&#39;not&#39; thread&#45;safe memory allocation for usage in one thread." alt="" coords="1922,453,2091,480"/>
+<area shape="rect" id="node57" href="$log__level__entity_8cpp.html" title="the level of logging depending on the severity and purpose." alt="" coords="1606,379,1740,405"/>
+<area shape="rect" id="node60" href="$writer__base_8h.html" title="base class to write data polymorphically." alt="" coords="1766,379,1864,405"/>
+<area shape="rect" id="node9" href="$any_8h.html" title="arbitrary typed value without polymorphism." alt="" coords="2162,453,2216,480"/>
+<area shape="rect" id="node22" href="$bitfield_8h.html" title="initializes and clears bitfields." alt="" coords="2296,453,2366,480"/>
+<area shape="rect" id="node26" href="$indent_8cpp.html" title="indents a line of log." alt="" coords="2575,453,2658,480"/>
+<area shape="rect" id="node28" href="$reduction__stream_8h_source.html" title="reduction_stream.h" alt="" coords="2418,453,2551,480"/>
+<area shape="rect" id="node64" href="$iterator__of_8h_source.html" title="iterator_of.h" alt="" coords="1608,155,1699,181"/>
+<area shape="rect" id="node66" href="$gp_8h.html" title="utilities for generic programming." alt="" coords="1764,229,1810,256"/>
+<area shape="rect" id="node82" href="$is__integer_8h.html" title="confirms wheter the type is integer." alt="" coords="1825,155,1914,181"/>
+<area shape="rect" id="node91" href="$reduction__uint_8h.html" title="primitive type of reduction as unsigned integer." alt="" coords="2040,155,2155,181"/>
+<area shape="rect" id="node95" href="$hamming__weight_8cpp.html" title="counts the number of non&#45;zero values." alt="" coords="2908,155,3052,181"/>
+<area shape="rect" id="node100" href="$integer_8h.html" title="utility for builtin integer types." alt="" coords="2584,229,2656,256"/>
+<area shape="rect" id="node104" href="$signed__bits__enough_8h.html" title="retrieves the bit width in which a signed value of specified size can be stored." alt="" coords="2490,155,2638,181"/>
+<area shape="rect" id="node116" href="$date__entity_8h.html" title="retains a month and a day." alt="" coords="3077,155,3174,181"/>
+</map>

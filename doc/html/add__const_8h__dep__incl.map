@@ -1,0 +1,51 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$add__const__pointer_8h.html" title="retrieves the traits as const pointer from any type." alt="" coords="2329,80,2468,107"/>
+<area shape="rect" id="node23" href="$gp_8h.html" title="utilities for generic programming." alt="" coords="3123,155,3169,181"/>
+<area shape="rect" id="node36" href="$iterator__random_8h.html" title="random access iterator." alt="" coords="2823,304,2945,331"/>
+<area shape="rect" id="node112" href="$add__const__reference_8h.html" title="retrieves the traits as const reference from any type." alt="" coords="2151,80,2304,107"/>
+<area shape="rect" id="node119" href="$task__distributor__batch_8h.html" title="manages workers which executes multiple tasks." alt="" coords="2734,80,2895,107"/>
+<area shape="rect" id="node123" href="$task__worker__batch_8h.html" title="executes tasks in common use." alt="" coords="2966,80,3108,107"/>
+<area shape="rect" id="node5" href="$array_8h.html" title="substitutes for std::array." alt="" coords="2727,379,2789,405"/>
+<area shape="rect" id="node53" href="$vector_8h.html" title="substitutes for std::vector container." alt="" coords="1905,379,1972,405"/>
+<area shape="rect" id="node7" href="$bitset_8h.html" title="bitset of fixed size on compile time." alt="" coords="2953,453,3017,480"/>
+<area shape="rect" id="node9" href="$fixed__vector_8h.html" title="vector of fixed size on compile time." alt="" coords="3043,453,3144,480"/>
+<area shape="rect" id="node11" href="$geometry__coord__cartesian_8h.html" title="retains the information of a coordinate specified by Cartesian coordinate system." alt="" coords="3168,453,3355,480"/>
+<area shape="rect" id="node19" href="$ip__v4__entity_8h.html" title="retains the information of IPv4 Address." alt="" coords="2827,453,2928,480"/>
+<area shape="rect" id="node21" href="$ip__v6__entity_8h.html" title="retains the information of IPv6 Address." alt="" coords="2701,453,2803,480"/>
+<area shape="rect" id="node13" href="$display__screen_8h.html" title="retains the information of each display screen." alt="" coords="2604,528,2724,555"/>
+<area shape="rect" id="node15" href="$display__driver_8h.html" title="retains the information of each display driver." alt="" coords="2341,603,2451,629"/>
+<area shape="rect" id="node17" href="$display__environment_8h.html" title="collects the available display environments." alt="" coords="2141,677,2291,704"/>
+<area shape="rect" id="node25" href="$adapter_8h.html" title="provides the interface in behalf of the valueementation." alt="" coords="2863,229,2939,256"/>
+<area shape="rect" id="node27" href="$allocator__base_8h.html" title="interface of allocator." alt="" coords="2964,229,3081,256"/>
+<area shape="rect" id="node29" href="$atomic__accessor_8h.html" title="synchronizes the access to an object." alt="" coords="2970,304,3101,331"/>
+<area shape="rect" id="node31" href="$color__rgba_8h.html" title="represents a color format which comprises RGBA." alt="" coords="3313,229,3407,256"/>
+<area shape="rect" id="node33" href="$common_8h.html" title="common definition." alt="" coords="3105,229,3188,256"/>
+<area shape="rect" id="node44" href="$log__writer__base_8h.html" title="output log message [interface]." alt="" coords="3700,453,3823,480"/>
+<area shape="rect" id="node51" href="$substring_8h.html" title="represents the part of string." alt="" coords="3482,379,3568,405"/>
+<area shape="rect" id="node84" href="$main_8h.html" title="utilizes entry&#45;point." alt="" coords="3177,304,3239,331"/>
+<area shape="rect" id="node90" href="$offset__ptr_8h.html" title="refers the value by the offset from the origin." alt="" coords="3801,304,3887,331"/>
+<area shape="rect" id="node93" href="$range_8h.html" title="mediates the characteristic which has begin() and end()." alt="" coords="3713,229,3777,256"/>
+<area shape="rect" id="node95" href="$scale__is__lower_8h.html" title="confirms whether LHS is on the lower scale than RHS." alt="" coords="3605,304,3723,331"/>
+<area shape="rect" id="node97" href="$scale__is__lower__equal_8h.html" title="confirms whether LHS is on the scale lower than or equal to the one of RHS." alt="" coords="3533,229,3688,256"/>
+<area shape="rect" id="node100" href="$sequence_8h.html" title="retains multiple arbitrary values." alt="" coords="3854,229,3943,256"/>
+<area shape="rect" id="node102" href="$shared__ptr_8h.html" title="smart pointer which has a reference count." alt="" coords="2215,304,2309,331"/>
+<area shape="rect" id="node107" href="$reduction__char_8h.html" title="primitive type of reduction for char." alt="" coords="2538,229,2656,256"/>
+<area shape="rect" id="node109" href="$reduction__int_8h.html" title="primitive type of reduction as signed integer." alt="" coords="2681,229,2788,256"/>
+<area shape="rect" id="node48" href="$string_8h.html" title="substitutes for std::string." alt="" coords="3173,379,3237,405"/>
+<area shape="rect" id="node39" href="$iterator_8h.html" title="collection of the header files for hryky::iterator module." alt="" coords="2949,379,3021,405"/>
+<area shape="rect" id="node42" href="$literal__string_8h.html" title="retains a literal string." alt="" coords="3046,379,3148,405"/>
+<area shape="rect" id="node46" href="$scoped__array_8h.html" title="array with the size." alt="" coords="2814,379,2924,405"/>
+<area shape="rect" id="node58" href="$http__header__accept__charset__entity_8h.html" title="retains the information for &#39;Accept&#45;Charset&#39; field of HTTP Header." alt="" coords="1223,453,1459,480"/>
+<area shape="rect" id="node60" href="$http__header__accept__encoding__entity_8h.html" title="retains the information for &#39;Accept&#45;Encoding&#39; field of HTTP Header." alt="" coords="1484,453,1729,480"/>
+<area shape="rect" id="node62" href="$http__header__accept__language__entity_8h.html" title="retains the information for &#39;Accept&#45;Language&#39; field of HTTP Header." alt="" coords="1753,453,1999,480"/>
+<area shape="rect" id="node64" href="$http__header__accept__params__entity_8h.html" title="retains the information for &#39;accept&#45;params&#39; of HTTP Header." alt="" coords="943,528,1179,555"/>
+<area shape="rect" id="node66" href="$http__header__comment__sequence_8h.html" title="retains the array of http::header::comment::Base components." alt="" coords="2401,453,2625,480"/>
+<area shape="rect" id="node68" href="$http__header__user__agent__entity_8h.html" title="retains the information about HTTP &#39;User&#45;Agent&#39; field." alt="" coords="2247,528,2457,555"/>
+<area shape="rect" id="node70" href="$http__header__comment__string_8h.html" title="retains the octets as constituent of comment hierarchy." alt="" coords="2175,453,2376,480"/>
+<area shape="rect" id="node72" href="$http__header__common_8h.html" title="common definitions of http::header module." alt="" coords="1041,453,1199,480"/>
+<area shape="rect" id="node75" href="$http__header__field__extension__common_8h.html" title="common definitions for http::header::field::extension." alt="" coords="5,453,256,480"/>
+<area shape="rect" id="node77" href="$http__header__language__entity_8h.html" title="retains the information for &#39;language&#45;tag&#39; of HTTP Header." alt="" coords="281,453,479,480"/>
+<area shape="rect" id="node79" href="$http__header__media__type__entity_8h.html" title="retains the information for &#39;media&#45;range&#39; of HTTP Header." alt="" coords="503,453,717,480"/>
+<area shape="rect" id="node81" href="$http__header__parameter__common_8h.html" title="common definition for http::header::parameter module." alt="" coords="742,453,964,480"/>
+<area shape="rect" id="node121" href="$task_8h.html" title="task modules." alt="" coords="3195,155,3253,181"/>
+</map>

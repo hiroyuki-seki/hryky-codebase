@@ -1,0 +1,1123 @@
+/**
+  @brief prototype file of KM-yacc parser for C++
+  @version $Id$
+ */
+$semval($) dest_token
+$semval($,%t) dest_token.%t
+$semval(%n) (*(token_itr + (%n-%l)))
+$semval(%n,%t) (*(token_itr + (%n-%l))).%t
+
+//------------------------------------------------------------------------------
+// %{ ... %} block in *.y 
+//------------------------------------------------------------------------------
+$include;
+
+//------------------------------------------------------------------------------
+// declarations
+//------------------------------------------------------------------------------
+$header
+
+#ifndef KMYACC_CPP_PARSER_$(-p)
+#define KMYACC_CPP_PARSER_$(-p)
+
+#endif // KMYACC_CPP_PARSER_$(-p)
+$endheader
+
+//-------------------------------------------------------------------------------
+// disables warnings
+//-------------------------------------------------------------------------------
+#if defined(_MSC_VER)
+#   pragma warning(push)
+#   pragma warning(disable:4619)
+#   pragma warning(disable:4820)
+#endif
+//-------------------------------------------------------------------------------
+// defines macros.
+//-------------------------------------------------------------------------------
+$if -t
+#ifndef KMYACC_$(-p)_DEBUG
+#   define KMYACC_$(-p)_DEBUG 1
+#endif // !KMYACC_$(-p)_DEBUG
+$endif
+
+#ifndef KMYACC_$(-p)_MAXDEPTH
+#   define KMYACC_$(-p)_MAXDEPTH 512
+#endif // !KMYACC_$(-p)_MAXDEPTH
+
+#ifndef KMYACC_$(-p)_TOKEN
+#   define KMYACC_$(-p)_TOKEN int
+#endif // !KMYACC_$(-p)_TOKEN
+
+#ifndef KMYACC_$(-p)_PROBEONCE
+#   define KMYACC_$(-p)_PROBEONCE 0
+#endif // !KMYACC_$(-p)_PROBEONCE
+
+$if -a
+#   define KMYACC_ABORT {\
+	this->last_result_ = Result::abort;\
+	return;\
+}
+$endif
+$ifnot -a
+#   define KMYACC_ABORT \
+	return this->return_result(Result::abort);
+$endif
+
+#if KMYACC_$(-p)_DEBUG
+
+#   ifndef EOF
+#       include <stdio.h>
+#   endif
+
+	/* Traditional Debug Mode */
+#   define KMYACC_$(-p)_TRACE_NEWSTATE(st, tok) \
+	if (this->is_trace_) {\
+		this->trace(Error::Level::debug, \
+					"%%%% State %d, Lookahead %s.", \
+					st, tok < 0 ? "--none--" : this_type::terminals_[tok]); \
+	}
+#   define KMYACC_$(-p)_TRACE_READ(tok) \
+	if (this->is_trace_) {\
+		this->trace(Error::Level::debug, "%%%% Reading %s.", \
+					this_type::terminals_[tok]); \
+	}
+#   define KMYACC_$(-p)_TRACE_SHIFT(tok) \
+	if (this->is_trace_) {\
+		this->trace(Error::Level::debug, "%%%% Shift %s.", \
+					this_type::terminals_[tok]); \
+	}
+#   define KMYACC_$(-p)_TRACE_ACCEPT() \
+	if (this->is_trace_) {\
+		this->trace(Error::Level::debug, "%%%% Accepted."); \
+	}
+#   define KMYACC_$(-p)_TRACE_REDUCE(n) \
+	if (this->is_trace_) {\
+		this->trace(Error::Level::debug, \
+					"%%%% Reduce by (%d) %s.", \
+					n, this_type::productions_[n]); \
+	}
+#   define KMYACC_$(-p)_TRACE_POP(st) \
+	if (this->is_trace_) {\
+		this->trace(Error::Level::debug, \
+					"%%%% Recovering, uncovers state %d.", st);\
+	}
+#   define KMYACC_$(-p)_TRACE_DISCARD(tok) \
+	if (this->is_trace_) {\
+		this->trace(Error::Level::debug, "%%%% Discard %s.", \
+					this_type::terminals_[tok]);\
+	}
+
+#else
+#   define KMYACC_$(-p)_TRACE_NEWSTATE(st, tok)
+#   define KMYACC_$(-p)_TRACE_READ(tok)
+#   define KMYACC_$(-p)_TRACE_SHIFT(tok)
+#   define KMYACC_$(-p)_TRACE_ACCEPT()
+#   define KMYACC_$(-p)_TRACE_REDUCE(n)
+#   define KMYACC_$(-p)_TRACE_POP(st)
+#   define KMYACC_$(-p)_TRACE_DISCARD(tok)
+#endif /* KMYACC_$(-p)_DEBUG */
+
+template <typename DerivedT, typename TokenT, size_t StackCapacity>
+class Parser;
+
+template <typename DerivedT, typename BaseT>
+struct DerivedParserIs;
+
+//------------------------------------------------------------------------------
+// class definitions 
+//------------------------------------------------------------------------------
+/**
+  parses by kmyacc.
+ */
+template <
+	typename DerivedT = void,
+	typename TokenT = KMYACC_$(-p)_TOKEN,
+	size_t StackCapacity = KMYACC_$(-p)_MAXDEPTH>
+class Parser
+{
+private :
+#ifdef KMYACC_$(-p)_PRIVATE
+	KMYACC_$(-p)_PRIVATE
+#endif // KMYACC_$(-p)_PRIVATE
+	
+public :
+	
+	/**
+	  Identifier for each token.
+	 */
+	struct TokenId
+	{
+		enum Raw
+		{
+$tokenval
+			%s = %n,
+$endtokenval
+			invalid = -1,
+			// from kmyacc system.
+			bad = $(YYBADCH),
+			num = $(YYMAXLEX),
+			terminals_num = $(YYTERMS),
+			non_terminals_num = $(YYNONTERMS),
+			interrupt = $(YYINTERRTOK),
+		};
+	};
+	/**
+	  retains the information during syntax analysis.
+	 */
+	class Error
+	{
+	public :
+		typedef Error this_type;
+		/**
+		  severities of the error occured during Parser::parse().
+		 */
+		struct Level
+		{
+			enum Raw
+			{
+				debug,
+				error,
+			};
+		};
+		typedef typename Level::Raw level_type;
+		
+		Error(level_type const level, char const * const cstr);
+	
+		/**
+		  retrieves the level of this error.
+		 */
+		level_type level() const
+		{
+			return this->level_;
+		}
+	
+		/**
+		  retrieves the information about this error.
+		 */
+		char const * cstr() const
+		{
+			return this->cstr_;
+		}
+		
+	private :
+		Error(this_type const &);
+		this_type & operator=(this_type const &);
+		
+		char const * const cstr_;
+		level_type const level_;
+	};
+	typedef Error error_type;
+
+	typedef Parser<DerivedT, TokenT, StackCapacity> this_type;
+	typedef int token_id_type;
+	typedef TokenT token_type;
+
+	typedef typename DerivedParserIs<DerivedT, this_type>::type
+		derived_type;
+
+	/**
+	  results of parsing.
+	 */
+	struct Result
+	{
+		enum Raw
+		{
+			invaild,
+			abort, ///< some error is occurred.
+			accept, ///< parsing completed.
+			pause, ///< the next token is required.
+
+			num,
+		};
+	};
+	typedef typename Result::Raw result_type;
+
+	/// default constructor.
+	Parser();
+
+	/// copy constructor.
+	Parser(this_type const & rhs);
+
+	/// assignment operator.
+	Parser & operator=(this_type const & rhs);
+
+	/// interchanges the each internal resources of two instances.
+	void swap(this_type & src);
+
+	/**
+	  parses a token initialized by its token_id.
+	  @param token_id is the identifier of token.
+	  @return the result of this parsing.
+
+	  The derived class can change the implementation of parse_by_id()
+	  by redefining parse_by_id() in the derived class.
+	 */
+	result_type parse(token_id_type const token_id)
+	{
+		return this->derived()->parse_by_id(token_id);
+	}
+
+	/**
+	  parses a token.
+	  @param token is the element resulted by Lexical Analysis.
+	  @param token_id is the identifier of token.
+	  @return the result of this parsing.
+
+	  The derived class can change the implementation of parse_token().
+	  by redefining parse_token() in the derived class.
+	 */
+	result_type parse(
+		token_type const & token, token_id_type const token_id)
+	{
+		return this->derived()->parse_token(token, token_id);
+	}
+
+	/**
+	  parses a container of token_ids.
+	  @param container specifies the range to be parsed.
+	  @return the number of the parsed token_ids.
+	
+	  @a container must have begin(), end() and size_type.
+
+	  The derived class can change the implementation of parse_container().
+	  by redefining parse_container() in the derived class.
+	 */
+	template <typename ContainerT>
+	typename ContainerT::size_type parse(ContainerT const & container)
+	{
+		return this->derived()->parse_container(container);
+	}
+	
+	/**
+	  parses a range between two iterators.
+	  @param begin is the beginning of the range.
+	  @param end is the end of the range.
+	  @return the number of the parsed token_ids.
+
+	  The derived class can change the implementation of parse_range().
+	  by redefining parse_range() in the derived class.
+	 */
+	template <typename InputIterator>
+	typename ::std::iterator_traits<InputIterator>::difference_type
+	parse(InputIterator begin, InputIterator end)
+	{
+		return this->derived()->parse_range(begin, end);
+	}
+	
+	/**
+	  parses an array of token_ids.
+	  @param array is the built-in array
+	  @return the number of the parsed token_ids.
+	  The elements of @a array must be referred as token_id.
+
+	  The derived class can change the implementation of parse_array().
+	  by redefining parse_array() in the derived class.
+	 */
+	template <typename ArrayValueT, size_t ArraySize>
+	size_t parse(ArrayValueT const (&array)[ArraySize])
+	{
+		return this->derived()->parse_array(array);
+	}
+
+	/**
+	  clears the internal state in order to restart a new context.
+	 */
+	void clear();
+
+	/**
+	  enable/disable to trace the process.
+	 */
+	void is_trace(bool const src);
+	
+	/// confirms whether the syntax analysis has completed.
+	bool accepted() const;
+
+	/// retrieves the last result of parsing.
+	result_type last_result() const;
+
+	/// completes this analysis by passing terminater.
+	result_type complete();
+
+protected :
+
+	/**
+	  parses a token initialized by its token_id.
+	  @param token_id is the identifier of token.
+	  @return the result of this parsing.
+
+	  The default implementation.
+	 */
+	result_type parse_by_id(token_id_type const token_id);
+
+	/**
+	  parses a token.
+	  @param token is the element resulted by Lexical Analysis.
+	  @param token_id is the identifier of token.
+	  @return the result of this parsing.
+
+	  The default implementation.
+	 */
+	result_type parse_token(
+		token_type const & token, token_id_type const token_id);
+
+	/**
+	  parses a container of token_ids.
+	  @param container specifies the range to be parsed.
+	  @return the number of the parsed token_ids.
+	
+	  @a container must have begin(), end() and size_type.
+
+	  The default implementation.
+	 */
+	template <typename ContainerT>
+	typename ContainerT::size_type parse_container(
+		ContainerT const & container);
+	
+	/**
+	  parses a range between two iterators.
+	  @param begin is the beginning of the range.
+	  @param end is the end of the range.
+	  @return the number of the parsed token_ids.
+
+	  The default implementation.
+	 */
+	template <typename InputIterator>
+	typename ::std::iterator_traits<InputIterator>::difference_type
+		parse_range(InputIterator begin, InputIterator end);
+	
+	/**
+	  parses an array of token_ids.
+	  @param array is the built-in array
+	  @return the number of the parsed token_ids.
+	  The elements of @a array must be referred as token_id.
+
+	  The default implementation.
+	 */
+	template <typename ArrayValueT, size_t ArraySize>
+	size_t parse_array(ArrayValueT const (&array)[ArraySize]);
+
+private :
+
+	template <typename ValueT, size_t Capacity >
+	class Array
+	{
+	public :
+		typedef ValueT          value_type;
+		typedef ValueT *        iterator;
+		typedef ValueT const *  const_iterator;
+		typedef ValueT &        reference;
+		typedef size_t          size_type;
+		
+		Array()
+		{
+		}
+
+		iterator begin()
+		{
+			return &this->raw_[0];
+		}
+		
+		const_iterator begin() const
+		{
+			return &this->raw_[0];
+		}
+		
+		const_iterator end() const
+		{
+			return this->begin() + Capacity;
+		}
+		
+		size_type size() const
+		{
+			return Capacity;
+		}
+
+	private :
+		ValueT raw_[Capacity];
+	};
+	
+	typedef short   state_type;
+	typedef int     error_flag_type;
+	typedef int     action_type;
+	
+	typedef Array<token_type, StackCapacity> tokens_type;
+
+	typedef Array<short, StackCapacity> states_type;
+
+	static token_id_type const terminater_ = '\0'; 
+
+$if -a
+	typedef void (this_type::*action_func_type)(
+		token_type &, typename tokens_type::iterator const);
+$reduce
+	void act%n(
+		token_type & dest_token,
+		typename tokens_type::iterator const token_itr);
+$endreduce
+	void actnull(
+		token_type & dest_token,
+		typename tokens_type::iterator const token_itr);
+$endif
+	
+	bool found_in_action(
+		int & n, state_type const st, token_id_type const ch) const;
+	bool found_in_goto(
+		int & n, state_type const st, token_id_type const ch) const;
+
+	bool recovering() const;
+
+	/// retrieves the pointer to the mutable derived class.
+	derived_type * derived();
+
+	/// retrieves the pointer to the immutable derived class.
+	derived_type const * derived() const ;
+
+	/// outputs a string with variable arguments.
+	void trace(
+		typename Error::level_type const error_level,
+		char const * const format, ...);
+	
+	/// outputs the information about an error.
+	void trace(error_type const & error);
+
+	/// returns the result of parsing.
+	result_type return_result(result_type const & result);
+
+	static state_type const             states_num_ = $(YYSTATES);
+	static action_type const            shift_reduce_action_ = $(YYNLSTATES);
+	static action_type const            unexpected_action_ = $(YYUNEXPECTED);
+	static action_type const            default_action_ = $(YYDEFAULT);
+	static state_type const             two_table_state_ = $(YY2TBLSTATE);
+	static unsigned int const           glast_ = $(YYGLAST);
+	static unsigned int const           last_ = $(YYLAST);
+	static error_flag_type const        no_error_ = 0;
+	
+	static $TYPEOF(yytranslate) const   translates_[];
+	static short const                  actions_[];
+	static $TYPEOF(yycheck) const       checks_[];
+	static short const                  bases_[];
+	static short const                  default_actions_[];
+	static state_type const             goto_states_[];
+	static $TYPEOF(yygcheck) const      gchecks_[];
+	static short const                  gbases_[];
+	static short const                  gdefaults_[];
+	static $TYPEOF(yylhs) const         lhses_[];
+	static $TYPEOF(yylen) const         lens_[];
+
+$if -a
+	static action_func_type const acttbl_[];
+$endif
+
+#if KMYACC_$(-p)_DEBUG
+	static char const * const terminals_[];
+	static char const * const productions_[];
+#endif // KMYACC_$(-p)_DEBUG
+
+	typename tokens_type::iterator  token_itr_;
+	typename states_type::iterator  state_itr_;
+	tokens_type                     tokens_;
+	states_type                     states_;
+	int                             state_;
+	error_flag_type                 error_flag_;
+	action_type                     action_;
+	result_type                     last_result_;
+#if KMYACC_$(-p)_DEBUG
+	bool                            is_trace_;
+#endif /* KMYACC_$(-p)_DEBUG */
+};
+/**
+  retrieves the derived type.
+  If DerivedT is void, the Parser of itself is used as the derived type.
+ */
+template <typename DerivedT, typename BaseT>
+struct DerivedParserIs
+{
+	typedef DerivedT type;
+};
+//-------------------------------------------------------------------------------
+// specializes classes
+//-------------------------------------------------------------------------------
+/**
+  parses by itself.
+ */
+template <typename BaseT>
+struct DerivedParserIs<void, BaseT>
+{
+	typedef BaseT type;
+};
+//------------------------------------------------------------------------------
+// public member functions of Parser.
+//------------------------------------------------------------------------------
+/**
+  default constructor.
+ */
+template < typename DerivedT, typename TokenT, size_t StackCapacity >
+Parser<DerivedT, TokenT, StackCapacity>::Parser()
+	: token_itr_()
+	  , state_itr_()
+	  , tokens_()
+	  , states_()
+	  , state_()
+	  , error_flag_()
+	  , action_()
+	  , last_result_()
+#if KMYACC_$(-p)_DEBUG
+	  , is_trace_()
+#endif // KMYACC_$(-p)_DEBUG
+{
+	this->clear();
+}
+/**
+  copy constructor.
+ */
+template < typename DerivedT, typename TokenT, size_t StackCapacity >
+Parser<DerivedT, TokenT, StackCapacity>::Parser(this_type const & rhs)
+	: token_itr_(rhs.token_itr_)
+	  , state_itr_(rhs.state_itr_)
+	  , tokens_(rhs.tokens_)
+	  , states_(rhs.states_)
+	  , state_(rhs.state_)
+	  , error_flag_(rhs.error_flag_)
+	  , action_(rhs.action_)
+	  , last_result_(rhs.last_result_)
+#if KMYACC_$(-p)_DEBUG
+	  , is_trace_(rhs.is_trace_)
+#endif // KMYACC_$(-p)_DEBUG
+{
+}
+/**
+  assignment operator.
+ */
+template < typename DerivedT, typename TokenT, size_t StackCapacity >
+Parser<DerivedT, TokenT, StackCapacity> &
+Parser<DerivedT, TokenT, StackCapacity>::operator=(this_type const & rhs)
+{
+	if (this == &rhs) {
+		return *this;
+	}
+
+	this_type(rhs).swap(*this);
+
+	return *this;
+}
+/**
+  interchanges the each internal resources of two instances.
+ */
+template < typename DerivedT, typename TokenT, size_t StackCapacity >
+void Parser<DerivedT, TokenT, StackCapacity>::swap(this_type & src)
+{
+	::std::swap(this->token_itr_, src.token_itr_);
+	::std::swap(this->state_itr_, src.state_itr_);
+	::std::swap(this->tokens_, src.tokens_);
+	::std::swap(this->states_, src.states_);
+	::std::swap(this->state_, src.state_);
+	::std::swap(this->error_flag_, src.error_flag_);
+	::std::swap(this->action_, src.action_);
+	::std::swap(this->last_result_, src.last_result_);
+#if KMYACC_$(-p)_DEBUG
+	::std::swap(this->is_trace_, src.is_trace_);
+#endif // KMYACC_$(-p)_DEBUG
+}
+/**
+  resets the internal states to the beginning.
+ */
+template < typename DerivedT, typename TokenT, size_t StackCapacity >
+void Parser<DerivedT, TokenT, StackCapacity>::clear()
+{
+	this->last_result_ = result_type();
+	this->action_ = this_type::default_action_;
+	this->error_flag_ = no_error_;
+	this->state_ = 0;
+	this->token_itr_ = this->tokens_.begin();
+	this->state_itr_ = this->states_.begin();
+
+	*(this->state_itr_++) = 0;
+}
+/**
+  parses a token initialized by its token_id.
+ */
+template < typename DerivedT, typename TokenT, size_t StackCapacity >
+typename Parser<DerivedT, TokenT, StackCapacity>::result_type 
+Parser<DerivedT, TokenT, StackCapacity>::parse_by_id(
+	token_id_type const token_id)
+{
+	return this->derived()->parse_token(token_type(token_id), token_id);
+}
+/**
+  parses a token.
+ */
+template < typename DerivedT, typename TokenT, size_t StackCapacity >
+typename Parser<DerivedT, TokenT, StackCapacity>::result_type
+Parser<DerivedT, TokenT, StackCapacity>::parse_token(
+	token_type const & token,
+	token_id_type const token_id)
+{
+	this->last_result_ = result_type();
+	
+	token_id_type current_token_id = token_id;
+	token_id_type translated_token_id = this_type::translates_[token_id];
+	KMYACC_$(-p)_TRACE_READ(translated_token_id);
+	
+	for (;;) {
+		KMYACC_$(-p)_TRACE_NEWSTATE(this->state_, translated_token_id);
+
+		if (this_type::bases_[this->state_] == 0) {
+			this->action_ = this_type::default_actions_[this->state_];
+		}
+		else {
+			if (current_token_id < 0) {
+				return this->return_result(Result::pause);
+			}
+
+			if (this->found_in_action(
+				this->action_,
+				static_cast<state_type>(this->state_),
+				translated_token_id)
+				&& (this->action_ = this_type::actions_[this->action_])
+				!= this_type::default_action_) {
+				/*
+				 * >= shift_reduce_action_: shift and reduce
+				 * > 0: shift
+				 * = 0: accept
+				 * < 0: reduce
+				 * = -unexpected_action_: error
+				 */
+				if (this->action_ > 0) {
+					/* shift */
+					KMYACC_$(-p)_TRACE_SHIFT(translated_token_id);
+					if (this->state_itr_ >= this->states_.end()) {
+						this->trace(Error::Level::error, "parser stack overflow");
+						return this->return_result(Result::abort);
+					}
+					this->state_ = this->action_;
+					*(this->state_itr_++) = static_cast<state_type>(this->action_);
+					*(this->token_itr_++) = token;
+					current_token_id = TokenId::invalid;
+					translated_token_id = TokenId::invalid;
+
+					if (this->error_flag_ > 0) {
+						this->error_flag_--;
+					}
+					if (this->action_ < this_type::shift_reduce_action_) {
+						continue;
+					}
+
+					/* this->action_ >= shift_reduce_action_ means shift-and-reduce */
+					this->action_ -= this_type::shift_reduce_action_;
+				} else {
+					this->action_ = -this->action_;
+				}
+			} else {
+				this->action_ = this_type::default_actions_[this->state_];
+			}
+		}
+
+		for (;;) {
+			/* reduce/error */
+			if (this->action_ == 0) {
+				/* accept */
+				KMYACC_$(-p)_TRACE_ACCEPT();
+				return this->return_result(Result::accept);
+			}
+			else if (this->action_ != this_type::unexpected_action_) {
+				/* reduce */
+				int const yyl = this_type::lens_[this->action_];
+				token_type dest_token = *(this->token_itr_ - yyl);
+				KMYACC_$(-p)_TRACE_REDUCE(this->action_);
+$if -a
+				(this->*this_type::acttbl_[this->action_])(
+					dest_token, this->token_itr_ - 1);
+				if (Result::abort == this->last_result_) {
+					return Result::abort;
+				}
+$endif
+$ifnot -a
+				tokens_type::iterator const token_itr = this->token_itr_ - 1;
+				switch(this->action_) {
+$reduce
+				case %n: {
+					%b
+				}
+				break;
+$endreduce
+				}
+$endif
+
+				/* Goto - shift nonterminal */
+				this->token_itr_ -= yyl;
+				this->state_itr_ -= yyl;
+				this->action_ = this_type::lhses_[this->action_];
+				int yyp;
+				if (this->found_in_goto(yyp, *(this->state_itr_ - 1), this->action_)) {
+					this->state_ = this_type::goto_states_[yyp+1];
+				}
+				else {
+					this->state_ = this_type::gdefaults_[this->action_];
+				}
+
+				if (this->state_itr_ >= this->states_.end()) {
+					this->trace(Error::Level::error, "parser stack overflow");
+					return this->return_result(Result::abort);
+				}
+				*(this->state_itr_++) = static_cast<state_type>(this->state_);
+				*(this->token_itr_++) = dest_token;
+
+			}
+			else {
+				/* error */
+				switch (this->error_flag_) {
+				case 0:
+					this->trace(Error::Level::error, "syntax error");
+				case 1:
+				case 2:
+					this->error_flag_ = 3;
+					/* Pop until error-expecting state uncovered */
+					while (!this->found_in_action(
+						this->action_,
+						static_cast<state_type>(this->state_),
+						TokenId::interrupt)) {
+						if (this->state_itr_ < this->states_.begin() + 2) {
+							return this->return_result(Result::abort);
+						}
+						--this->state_itr_;
+						this->state_ = *(this->state_itr_ - 1);
+						--this->token_itr_;
+						KMYACC_$(-p)_TRACE_POP(this->state_);
+					}
+					this->action_ = this_type::actions_[this->action_];
+					KMYACC_$(-p)_TRACE_SHIFT(TokenId::interrupt);
+					this->state_ = this->action_;
+					*(this->state_itr_++) = static_cast<state_type>(this->action_);
+					++this->token_itr_;
+					break;
+
+				case 3:
+					KMYACC_$(-p)_TRACE_DISCARD(translated_token_id);
+					if (current_token_id == 0) {
+						return this->return_result(Result::abort);
+					}
+					current_token_id = TokenId::invalid;
+					translated_token_id = TokenId::invalid;
+					break;
+				}
+			}
+
+			if (this->state_ < this_type::shift_reduce_action_) {
+				break;
+			}
+			/* >= shift_reduce_action_ means shift-and-reduce */
+			this->action_ = this->state_ - this_type::shift_reduce_action_;
+		}
+	}
+}
+/**
+  parses a container of token_ids.
+ */
+template < typename DerivedT, typename TokenT, size_t StackCapacity >
+template <typename ContainerT>
+typename ContainerT::size_type
+Parser<DerivedT, TokenT, StackCapacity>::parse_container(
+	ContainerT const & container)
+{
+	return static_cast<typename ContainerT::size_type>(
+		this->derived()->parse_range(container.begin(), container.end()));
+}
+/**
+  parses an array of token_ids.
+ */
+template < typename DerivedT, typename TokenT, size_t StackCapacity >
+template <typename ArrayValueT, size_t ArraySize>
+size_t Parser<DerivedT, TokenT, StackCapacity>::parse_array(
+	ArrayValueT const (&array)[ArraySize])
+{
+	return static_cast<size_t>(
+		this->derived()->parse_range(&array[0], &array[0] + ArraySize));
+}
+/**
+  parses a range between two iterators.
+ */
+template < typename DerivedT, typename TokenT, size_t StackCapacity >
+template <typename InputIterator>
+typename ::std::iterator_traits<InputIterator>::difference_type
+Parser<DerivedT, TokenT, StackCapacity>::parse_range(
+	InputIterator begin, InputIterator end)
+{
+	InputIterator itr = begin;
+	for (; end != itr; ++itr) {
+		result_type const result = this->derived()->parse_by_id(*itr);
+		switch (result) {
+		case Result::pause:
+			continue;
+			
+		case Result::accept:
+			return itr - begin;
+			
+		case Result::abort:
+			this->trace(
+				Error::Level::error,
+				"failed to parse a token %d at position %d",
+				*itr, itr - begin);
+			return itr - begin;
+			
+		default:
+			this->trace(
+				Error::Level::error,
+				"invalid state of result %d at position %d",
+				result, itr - begin);
+			return itr - begin;
+		}
+	}
+	return itr - begin;
+}
+/**
+  enable/disable to trace the process.
+ */
+template < typename DerivedT, typename TokenT, size_t StackCapacity >
+void Parser<DerivedT, TokenT, StackCapacity>::is_trace(bool const src)
+{
+#if KMYACC_$(-p)_DEBUG
+	this->is_trace_ = src;
+#endif
+}
+/**
+  confirms whether the syntax analysis has completed.
+ */
+template < typename DerivedT, typename TokenT, size_t StackCapacity >
+bool Parser<DerivedT, TokenT, StackCapacity>::accepted() const
+{
+	return Result::accept == this->last_result_;
+}
+/**
+  retrieves the last result of parsing.
+ */
+template < typename DerivedT, typename TokenT, size_t StackCapacity >
+typename Parser<DerivedT, TokenT, StackCapacity>::result_type
+Parser<DerivedT, TokenT, StackCapacity>::last_result() const
+{
+	return this->last_result_;
+}
+/**
+  completes this analysis by passing the terminater.
+ */
+template < typename DerivedT, typename TokenT, size_t StackCapacity >
+typename Parser<DerivedT, TokenT, StackCapacity>::result_type
+Parser<DerivedT, TokenT, StackCapacity>::complete()
+{
+	return this->parse(this_type::terminater_);
+}
+//------------------------------------------------------------------------------
+// static variables of Parser.
+//------------------------------------------------------------------------------
+$if -a
+template < typename DerivedT, typename TokenT, size_t StackCapacity >
+typename Parser<DerivedT, TokenT, StackCapacity>::action_func_type
+const Parser<DerivedT, TokenT, StackCapacity>::acttbl_[] = {
+$reduce
+	&act%n,
+$noact
+	&actnull,
+$endreduce
+};
+$endif
+#if KMYACC_$(-p)_DEBUG
+template < typename DerivedT, typename TokenT, size_t StackCapacity >
+char const * const Parser<DerivedT, TokenT, StackCapacity>::terminals_[] = {
+	$listvar terminals
+	, "???"
+};
+template < typename DerivedT, typename TokenT, size_t StackCapacity >
+char const * const Parser<DerivedT, TokenT, StackCapacity>::productions_[] = {
+	$production-strings;
+};
+#endif // KMYACC_$(-p)_DEBUG
+
+template < typename DerivedT, typename TokenT, size_t StackCapacity >
+$TYPEOF(yytranslate) const Parser<DerivedT, TokenT, StackCapacity>::translates_[] = {
+$listvar yytranslate
+};
+
+template < typename DerivedT, typename TokenT, size_t StackCapacity >
+short const Parser<DerivedT, TokenT, StackCapacity>::actions_[] = {
+$listvar yyaction
+};
+
+template < typename DerivedT, typename TokenT, size_t StackCapacity >
+$TYPEOF(yycheck) const Parser<DerivedT, TokenT, StackCapacity>::checks_[] = {
+$listvar yycheck
+};
+
+template < typename DerivedT, typename TokenT, size_t StackCapacity >
+short const Parser<DerivedT, TokenT, StackCapacity>::bases_[] = {
+$listvar yybase
+};
+
+template < typename DerivedT, typename TokenT, size_t StackCapacity >
+short const Parser<DerivedT, TokenT, StackCapacity>::default_actions_[] = {
+$listvar yydefault
+};
+
+template < typename DerivedT, typename TokenT, size_t StackCapacity >
+typename Parser<DerivedT, TokenT, StackCapacity>::state_type
+const Parser<DerivedT, TokenT, StackCapacity>::goto_states_[] = {
+states_num_,
+$listvar yygoto
+};
+
+template < typename DerivedT, typename TokenT, size_t StackCapacity >
+$TYPEOF(yygcheck) const Parser<DerivedT, TokenT, StackCapacity>::gchecks_[] = {
+	-1, 
+$listvar yygcheck
+};
+
+template < typename DerivedT, typename TokenT, size_t StackCapacity >
+short const Parser<DerivedT, TokenT, StackCapacity>::gbases_[] = {
+$listvar yygbase
+};
+
+template < typename DerivedT, typename TokenT, size_t StackCapacity >
+typename Parser<DerivedT, TokenT, StackCapacity>::state_type
+const Parser<DerivedT, TokenT, StackCapacity>::gdefaults_[] = {
+$listvar yygdefault
+};
+
+template < typename DerivedT, typename TokenT, size_t StackCapacity >
+$TYPEOF(yylhs) const Parser<DerivedT, TokenT, StackCapacity>::lhses_[] = {
+$listvar yylhs
+};
+
+template < typename DerivedT, typename TokenT, size_t StackCapacity >
+$TYPEOF(yylen) const Parser<DerivedT, TokenT, StackCapacity>::lens_[] = {
+$listvar yylen
+};
+//------------------------------------------------------------------------------
+// private member functions
+//------------------------------------------------------------------------------
+$if -a
+$reduce
+template < typename DerivedT, typename TokenT, size_t StackCapacity >
+void Parser<DerivedT, TokenT, StackCapacity>::act%n(
+	token_type & dest_token, typename tokens_type::iterator const token_itr)
+{
+%b
+}
+$endreduce
+template < typename DerivedT, typename TokenT, size_t StackCapacity >
+void Parser<DerivedT, TokenT, StackCapacity>::actnull(
+	token_type & dest_token, typename tokens_type::iterator const token_itr) {}
+$endif
+/*
+ * Seek (st,ch) in action table, return true if found.
+ * param n position in action
+ * param st current state
+ * param ch input token
+ */
+template < typename DerivedT, typename TokenT, size_t StackCapacity >
+bool Parser<DerivedT, TokenT, StackCapacity>::found_in_action(
+	int & n, state_type const st, token_id_type const ch) const 
+{
+#if KMYACC_$(-p)_PROBEONCE
+	return ((unsigned)(n = this_type::bases_[st] + (ch)) < this_type::last_
+			&& this_type::checks_[n] == (ch));
+#else
+	return (
+		((unsigned)(n = this_type::bases_[st] + (ch)) < this_type::last_
+		 && this_type::checks_[n] == (ch))
+		|| ((st) < this_type::two_table_state_ \
+			&& (unsigned)(n = this_type::bases_[(st) + this_type::shift_reduce_action_]
+						  + (ch)) < this_type::last_
+			&& this_type::checks_[n] == (ch))
+		);
+#endif // KMYACC_$(-p)_PROBEONCE
+}
+
+template < typename DerivedT, typename TokenT, size_t StackCapacity >
+bool Parser<DerivedT, TokenT, StackCapacity>::found_in_goto(
+	int & n, state_type const st, token_id_type const ch) const
+{
+	return ((unsigned)(n = this_type::gbases_[ch] + (st)) < this_type::glast_
+			&& this_type::gchecks_[n+1] == (ch));
+}
+
+template < typename DerivedT, typename TokenT, size_t StackCapacity >
+bool Parser<DerivedT, TokenT, StackCapacity>::recovering() const
+{
+	return this->error_flag_ != 0;
+}
+/**
+  retrieves the pointer to the mutable derived class.
+ */
+template < typename DerivedT, typename TokenT, size_t StackCapacity >
+typename Parser<DerivedT, TokenT, StackCapacity>::derived_type *
+Parser<DerivedT, TokenT, StackCapacity>::derived()
+{
+	return static_cast<derived_type *>(this);
+}
+/**
+  retrieves the pointer to the immutable derived class.
+ */
+template < typename DerivedT, typename TokenT, size_t StackCapacity >
+typename Parser<DerivedT, TokenT, StackCapacity>::derived_type const *
+Parser<DerivedT, TokenT, StackCapacity>::derived() const
+{
+	return static_cast<derived_type const *>(this);
+}
+/**
+  outputs a string with variable arguments.
+ */
+template < typename DerivedT, typename TokenT, size_t StackCapacity >
+void Parser<DerivedT, TokenT, StackCapacity>::trace(
+	typename Error::level_type const error_level,
+	char const * const format, ...)
+{
+	char buffer[512] = {0,};
+	va_list args;
+	va_start(args, format);
+#if defined(_WIN32)
+	vsnprintf_s(buffer, sizeof(buffer), format, args);
+#else
+	vsnprintf(buffer, sizeof(buffer), format, args);
+#endif
+	va_end(args);
+
+	this->derived()->trace(Error(error_level, buffer));
+}
+/**
+  outputs the information about an error.
+ */
+template < typename DerivedT, typename TokenT, size_t StackCapacity >
+void Parser<DerivedT, TokenT, StackCapacity>::trace(
+	error_type const & error)
+{
+	// nothing is done.
+}
+/**
+  returns the result of parsing.
+ */
+template < typename DerivedT, typename TokenT, size_t StackCapacity >
+typename Parser<DerivedT, TokenT, StackCapacity>::result_type 
+Parser<DerivedT, TokenT, StackCapacity>::return_result(
+	result_type const & result)
+{
+	this->last_result_ = result;
+	return result;
+}
+//------------------------------------------------------------------------------
+// public member functions of Error.
+//------------------------------------------------------------------------------
+template < typename DerivedT, typename TokenT, size_t StackCapacity >
+Parser<DerivedT, TokenT, StackCapacity>::Error::Error(
+	level_type const level, char const * const cstr)
+	: cstr_(cstr)
+	  , level_(level)
+{
+}
+
+/* code after %% in *.y */
+$tailcode;
+
+//-------------------------------------------------------------------------------
+// restores the warnings
+//-------------------------------------------------------------------------------
+#if defined(_MSC_VER)
+#   pragma warning(pop)
+#endif

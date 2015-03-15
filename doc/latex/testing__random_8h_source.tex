@@ -1,0 +1,112 @@
+\hypertarget{testing__random_8h_source}{\section{testing\-\_\-random.\-h}
+}
+
+\begin{DoxyCode}
+00001 
+00007 \textcolor{preprocessor}{#ifndef TESTING\_RANDOM\_H\_20120501112547142}
+00008 \textcolor{preprocessor}{}\textcolor{preprocessor}{#define TESTING\_RANDOM\_H\_20120501112547142}
+00009 \textcolor{preprocessor}{}\textcolor{preprocessor}{#include "\hyperlink{random_8h}{hryky/random.h}"}
+00010 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00011 \textcolor{comment}{// macro definition}
+00012 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00013 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00014 \textcolor{comment}{// namespace}
+00015 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00016 \textcolor{keyword}{namespace }hryky
+00017 \{
+00018 \textcolor{keyword}{namespace }testing
+00019 \{
+00021     \textcolor{keyword}{class }Random;
+00022 
+00023 \} \textcolor{comment}{// namespace testing}
+00024 \} \textcolor{comment}{// namespace hryky}
+00025 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00026 \textcolor{comment}{// class declarations}
+00027 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+\hypertarget{testing__random_8h_source_l00031}{}\hyperlink{classhryky_1_1testing_1_1_random}{00031} \textcolor{comment}{}\textcolor{keyword}{class }\hyperlink{classhryky_1_1testing_1_1_random}{hryky::testing::Random}
+00032 \{
+00033 \textcolor{keyword}{public} :
+00034 
+\hypertarget{testing__random_8h_source_l00035}{}\hyperlink{classhryky_1_1testing_1_1_random_a9ba232c45fe9f72a7de3f8074841a600}{00035}     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1testing_1_1_random}{Random}                  \hyperlink{classhryky_1_1testing_1_1_random_a9ba232c45fe9f72a7de3f8074841a600}{this_type};
+00036     \textcolor{keyword}{typedef} random::generator\_type  generator\_type;
+00037     \textcolor{keyword}{typedef} random::seed\_type       seed\_type;
+00038 
+00040     \hyperlink{classhryky_1_1testing_1_1_random_aca50cb32f01d8a1adadd5b7aa958ed46}{Random}();
+00041 
+00043     \hyperlink{classhryky_1_1testing_1_1_random_a2fca1ef5553e2c2151de6668c54ded5d}{~Random}();
+00044 
+00046     generator\_type & \hyperlink{classhryky_1_1testing_1_1_random_ad27c26b20876bd0275fe320b93c61515}{generator}();
+00047 
+00049     \hyperlink{classhryky_1_1testing_1_1_random}{Random} & \hyperlink{classhryky_1_1testing_1_1_random_a958cec1b0034ea77629b6e5e9c8ecddc}{seed}(seed\_type src);
+00050 
+00052     Random::seed\_type \hyperlink{classhryky_1_1testing_1_1_random_a958cec1b0034ea77629b6e5e9c8ecddc}{seed}() \textcolor{keyword}{const};
+00053 
+00054 \textcolor{keyword}{protected} :
+00055 
+00056 \textcolor{keyword}{private} :
+00057 
+00059     \textcolor{keyword}{explicit} \hyperlink{classhryky_1_1testing_1_1_random_aca50cb32f01d8a1adadd5b7aa958ed46}{Random}(\hyperlink{classhryky_1_1testing_1_1_random}{this_type} \textcolor{keyword}{const} &);
+00060 
+00061     \hyperlink{classhryky_1_1testing_1_1_random}{this_type} & operator=(\hyperlink{classhryky_1_1testing_1_1_random}{this_type} \textcolor{keyword}{const} &);
+00062 
+00063     generator\_type  generator\_;
+00064     seed\_type       seed\_;
+00065 
+00066 \};
+00067 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00068 \textcolor{comment}{// class specializations}
+00069 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00070 \textcolor{keyword}{namespace }hryky
+00071 \{
+00072 \textcolor{keyword}{namespace }testing
+00073 \{
+00074 \textcolor{keyword}{namespace}
+00075 \{
+00076 \} \textcolor{comment}{// namespace "anonymous"}
+00077 \} \textcolor{comment}{// namespace testing}
+00078 \} \textcolor{comment}{// namespace hryky}
+00079 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00080 \textcolor{comment}{// public member functions}
+00081 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00082 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00083 \textcolor{comment}{// protected member functions}
+00084 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00085 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00086 \textcolor{comment}{// private member functions}
+00087 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00088 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00089 \textcolor{comment}{// global function prototypes}
+00090 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00091 \textcolor{keyword}{namespace }hryky
+00092 \{
+00093 \textcolor{keyword}{namespace }testing
+00094 \{
+00096     \hyperlink{namespacehryky_a343a9a4c36a586be5c2693156200eadc}{reduction_type} \hyperlink{namespacehryky_1_1testing_ac0d0832965a175843f534a3833e525e9}{reduce}(
+00097         \hyperlink{namespacehryky_1_1reduction_ac686c30a4c8d196bbd0f05629a6b921f}{reduction::name_type} \textcolor{keyword}{const} & name, Random \textcolor{keyword}{const} & random);
+00098 
+00099 \} \textcolor{comment}{// namespace testing}
+00100 \} \textcolor{comment}{// namespace hryky}
+00101 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00102 \textcolor{comment}{// global function definitions}
+00103 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00104 \textcolor{preprocessor}{#endif // TESTING\_RANDOM\_H\_20120501112547142}
+00105 \textcolor{preprocessor}{}\textcolor{comment}{// end of file}
+\end{DoxyCode}

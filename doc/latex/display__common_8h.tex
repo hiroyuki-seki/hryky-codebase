@@ -1,0 +1,74 @@
+\hypertarget{display__common_8h}{\section{display\-\_\-common.\-h File Reference}
+\label{display__common_8h}\index{display\-\_\-common.\-h@{display\-\_\-common.\-h}}
+}
+
+
+common definitions of display module.  
+
+
+{\ttfamily \#include $<$cstdint$>$}\\*
+{\ttfamily \#include \char`\"{}hryky/string.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}hryky/geometry/geometry\-\_\-coord\-\_\-cartesian.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}hryky/pixel/pixel\-\_\-format.\-h\char`\"{}}\\*
+This graph shows which files directly or indirectly include this file\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{display__common_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \hyperlink{namespacehryky}{hryky}
+\begin{DoxyCompactList}\small\item\em the root of all namespaces in hryky-\/codebase. \end{DoxyCompactList}\item 
+namespace \hyperlink{namespacehryky_1_1display}{hryky\-::display}
+\begin{DoxyCompactList}\small\item\em modules for modulation of the configuration of display device. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{namespacehryky_1_1display_a438d20137cf00d71a4a72dfb7233ec90}{typedef size\-\_\-t \hyperlink{namespacehryky_1_1display_a438d20137cf00d71a4a72dfb7233ec90}{hryky\-::display\-::driver\-\_\-id\-\_\-type}}\label{namespacehryky_1_1display_a438d20137cf00d71a4a72dfb7233ec90}
+
+\begin{DoxyCompactList}\small\item\em distinguishes video drivers. \end{DoxyCompactList}\item 
+\hypertarget{namespacehryky_1_1display_a393bfca9f51ab987a1e795c8502c4db4}{typedef String \hyperlink{namespacehryky_1_1display_a393bfca9f51ab987a1e795c8502c4db4}{hryky\-::display\-::driver\-\_\-name\-\_\-type}}\label{namespacehryky_1_1display_a393bfca9f51ab987a1e795c8502c4db4}
+
+\begin{DoxyCompactList}\small\item\em represents the kind of video drivers. \end{DoxyCompactList}\item 
+\hypertarget{namespacehryky_1_1display_a8b77ffd7407c2f861e6c4872a2444330}{typedef pixel\-::\-Format \hyperlink{namespacehryky_1_1display_a8b77ffd7407c2f861e6c4872a2444330}{hryky\-::display\-::format\-\_\-type}}\label{namespacehryky_1_1display_a8b77ffd7407c2f861e6c4872a2444330}
+
+\begin{DoxyCompactList}\small\item\em represents the pixel format of display. \end{DoxyCompactList}\item 
+\hypertarget{namespacehryky_1_1display_a4f58c27b579f6370a813f2ac7f07c8f4}{typedef size\-\_\-t \hyperlink{namespacehryky_1_1display_a4f58c27b579f6370a813f2ac7f07c8f4}{hryky\-::display\-::mode\-\_\-id\-\_\-type}}\label{namespacehryky_1_1display_a4f58c27b579f6370a813f2ac7f07c8f4}
+
+\begin{DoxyCompactList}\small\item\em distinguishes video mode. \end{DoxyCompactList}\item 
+\hypertarget{namespacehryky_1_1display_ac8bdbe1db3aaf491d26848562e9fa29c}{typedef uint16\-\_\-t \hyperlink{namespacehryky_1_1display_ac8bdbe1db3aaf491d26848562e9fa29c}{hryky\-::display\-::refresh\-\_\-rate\-\_\-type}}\label{namespacehryky_1_1display_ac8bdbe1db3aaf491d26848562e9fa29c}
+
+\begin{DoxyCompactList}\small\item\em represents the refresh rate of display \end{DoxyCompactList}\item 
+\hypertarget{namespacehryky_1_1display_a09f7398edae025e4ee4e505b5cdf954c}{typedef size\-\_\-t \hyperlink{namespacehryky_1_1display_a09f7398edae025e4ee4e505b5cdf954c}{hryky\-::display\-::screen\-\_\-id\-\_\-type}}\label{namespacehryky_1_1display_a09f7398edae025e4ee4e505b5cdf954c}
+
+\begin{DoxyCompactList}\small\item\em distinguishes video screen. \end{DoxyCompactList}\item 
+\hypertarget{namespacehryky_1_1display_a88ee3bfa154cce4c6715af0c3f53d062}{typedef \\*
+geometry\-::coord\-::\-Cartesian2\-D\\*
+$<$ size\-\_\-t $>$ \hyperlink{namespacehryky_1_1display_a88ee3bfa154cce4c6715af0c3f53d062}{hryky\-::display\-::size\-\_\-type}}\label{namespacehryky_1_1display_a88ee3bfa154cce4c6715af0c3f53d062}
+
+\begin{DoxyCompactList}\small\item\em represents the size of the region of display. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{namespacehryky_1_1display_a411ce13cd5bc260cff5bd2c5deecbece}{driver\-\_\-id\-\_\-type const \hyperlink{namespacehryky_1_1display_a411ce13cd5bc260cff5bd2c5deecbece}{hryky\-::display\-::g\-\_\-invalid\-\_\-driver\-\_\-id} = static\-\_\-cast$<$driver\-\_\-id\-\_\-type$>$(-\/1)}\label{namespacehryky_1_1display_a411ce13cd5bc260cff5bd2c5deecbece}
+
+\begin{DoxyCompactList}\small\item\em represents invalid driver. \end{DoxyCompactList}\item 
+\hypertarget{namespacehryky_1_1display_af36e96781cbbf566b325a49fa7de7e28}{screen\-\_\-id\-\_\-type const \hyperlink{namespacehryky_1_1display_af36e96781cbbf566b325a49fa7de7e28}{hryky\-::display\-::g\-\_\-invalid\-\_\-screen\-\_\-id} = static\-\_\-cast$<$screen\-\_\-id\-\_\-type$>$(-\/1)}\label{namespacehryky_1_1display_af36e96781cbbf566b325a49fa7de7e28}
+
+\begin{DoxyCompactList}\small\item\em represents invalid display. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+common definitions of display module. \begin{DoxyAuthor}{Author}
+H\-R\-Y\-K\-Y 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+
+\end{DoxyVersion}
+\begin{DoxyParagraph}{Id\-:}
+\hyperlink{display__common_8h}{display\-\_\-common.\-h} 140 2013-\/01-\/23 14\-:52\-:44\-Z \href{mailto:hryky.private@gmail.com}{\tt hryky.\-private@gmail.\-com} 
+\end{DoxyParagraph}

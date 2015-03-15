@@ -1,0 +1,95 @@
+\hypertarget{testing__registry_8h_source}{\section{testing\-\_\-registry.\-h}
+}
+
+\begin{DoxyCode}
+00001 
+00007 \textcolor{preprocessor}{#ifndef TESTING\_REGISTRY\_H\_20111217183516441}
+00008 \textcolor{preprocessor}{}\textcolor{preprocessor}{#define TESTING\_REGISTRY\_H\_20111217183516441}
+00009 \textcolor{preprocessor}{}\textcolor{preprocessor}{#include <map>}
+00010 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00011 \textcolor{comment}{// macro definition}
+00012 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00013 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00014 \textcolor{comment}{// namespace}
+00015 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00016 \textcolor{keyword}{namespace }hryky
+00017 \{
+00018 \textcolor{keyword}{namespace }testing
+00019 \{
+00021     \textcolor{keyword}{class }Registry;
+00022 
+00024     \textcolor{keywordtype}{int} \hyperlink{namespacehryky_1_1testing_a3f6a3cf63bf23525fe1e462fd3b83474}{main_impl}(\textcolor{keywordtype}{int}, \textcolor{keywordtype}{char} \textcolor{keyword}{const} * \textcolor{keyword}{const}[]);
+00025 
+00026 \textcolor{keyword}{namespace }unit
+00027 \{
+00028     \textcolor{keyword}{class }Base;
+00029 \}
+00030 \}
+00031 \}
+00032 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00033 \textcolor{comment}{// class declaration}
+00034 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+\hypertarget{testing__registry_8h_source_l00038}{}\hyperlink{classhryky_1_1testing_1_1_registry}{00038} \textcolor{comment}{}\textcolor{keyword}{class }\hyperlink{classhryky_1_1testing_1_1_registry}{hryky::testing::Registry}
+00039 \{
+00040 \textcolor{keyword}{public} :
+00041 
+00042     
+\hypertarget{testing__registry_8h_source_l00043}{}\hyperlink{classhryky_1_1testing_1_1_registry_ab12764189072e5208e8919e31ab49aac}{00043}     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1testing_1_1_registry}{hryky::testing::Registry}                \hyperlink{classhryky_1_1testing_1_1_registry_ab12764189072e5208e8919e31ab49aac}{this_type};
+00044     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1testing_1_1unit_1_1_base}{unit::Base} *                            \hyperlink{classhryky_1_1testing_1_1unit_1_1_base}{unit_type};
+00045 
+\hypertarget{testing__registry_8h_source_l00047}{}\hyperlink{classhryky_1_1testing_1_1_registry_1_1_enregister}{00047}     \textcolor{keyword}{class }\hyperlink{classhryky_1_1testing_1_1_registry_1_1_enregister}{Enregister}
+00048     \{
+00049         \textcolor{keyword}{friend} \textcolor{keyword}{class }\hyperlink{classhryky_1_1testing_1_1unit_1_1_base}{unit::Base};
+00050         \hyperlink{classhryky_1_1testing_1_1_registry_1_1_enregister}{Enregister}(
+00051             \hyperlink{classhryky_1_1testing_1_1_registry}{Registry} & registry, \textcolor{keywordtype}{char} \textcolor{keyword}{const} * name, \hyperlink{classhryky_1_1testing_1_1unit_1_1_base}{unit_type} unit) \{
+00052             registry.enregister(name, unit);
+00053         \}
+00054     \};
+00055 
+00057     \textcolor{keyword}{static} \hyperlink{classhryky_1_1testing_1_1_registry}{Registry} & \hyperlink{classhryky_1_1testing_1_1_registry_adf6d2875f479e3b523a0ceab5434319f}{instance}();
+00058 
+00060     \hyperlink{classhryky_1_1testing_1_1unit_1_1_base}{unit_type} \hyperlink{classhryky_1_1testing_1_1_registry_aeed75a668cad923da49123e78153cac6}{operator[]}(\textcolor{keywordtype}{char} \textcolor{keyword}{const} * name) \textcolor{keyword}{const};
+00061 
+00062 \textcolor{keyword}{protected} :
+00063 
+00064 \textcolor{keyword}{private} :
+00065 
+00066     \textcolor{keyword}{typedef} std::map<std::string, unit\_type >   table\_type;
+00067 
+00069     \textcolor{keyword}{explicit} \hyperlink{classhryky_1_1testing_1_1_registry}{Registry}(\hyperlink{classhryky_1_1testing_1_1_registry}{Registry} \textcolor{keyword}{const} &);
+00070 
+00072     \hyperlink{classhryky_1_1testing_1_1_registry}{Registry} & operator=(\hyperlink{classhryky_1_1testing_1_1_registry}{Registry} \textcolor{keyword}{const} &rhs);
+00073 
+00075     \textcolor{keyword}{explicit} \hyperlink{classhryky_1_1testing_1_1_registry}{Registry}();
+00076 
+00078     ~\hyperlink{classhryky_1_1testing_1_1_registry}{Registry}();
+00079 
+00081     \textcolor{keywordtype}{void} enregister(\textcolor{keywordtype}{char} \textcolor{keyword}{const} * name, \hyperlink{classhryky_1_1testing_1_1unit_1_1_base}{unit_type} unit);
+00082 
+00083     table\_type table\_;
+00084 
+00085 \};
+00086 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00087 \textcolor{comment}{// public member functions}
+00088 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00089 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00090 \textcolor{comment}{// protected member functions}
+00091 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00092 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00093 \textcolor{comment}{// private member functions}
+00094 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00095 \textcolor{preprocessor}{#endif // TESTING\_REGISTRY\_H\_20111217183516441}
+00096 \textcolor{preprocessor}{}\textcolor{comment}{// end of file}
+\end{DoxyCode}

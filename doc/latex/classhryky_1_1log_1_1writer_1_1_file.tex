@@ -1,0 +1,127 @@
+\hypertarget{classhryky_1_1log_1_1writer_1_1_file}{\section{hryky\-:\-:log\-:\-:writer\-:\-:File Class Reference}
+\label{classhryky_1_1log_1_1writer_1_1_file}\index{hryky\-::log\-::writer\-::\-File@{hryky\-::log\-::writer\-::\-File}}
+}
+
+
+output log message.  
+
+
+
+
+{\ttfamily \#include $<$log\-\_\-writer\-\_\-file.\-h$>$}
+
+
+
+Inheritance diagram for hryky\-:\-:log\-:\-:writer\-:\-:File\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=196pt]{classhryky_1_1log_1_1writer_1_1_file__inherit__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classhryky_1_1log_1_1writer_1_1_file_a4d4dc0a88e1304beca1797e14119f280}{typedef \hyperlink{classhryky_1_1log_1_1writer_1_1_base}{Base} \hyperlink{classhryky_1_1log_1_1writer_1_1_file_a4d4dc0a88e1304beca1797e14119f280}{base\-\_\-type}}\label{classhryky_1_1log_1_1writer_1_1_file_a4d4dc0a88e1304beca1797e14119f280}
+
+\begin{DoxyCompactList}\small\item\em base class of inheritance \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1log_1_1writer_1_1_file_a4cdd15a07ea08f9bc174e5eec74fc035}{typedef \hyperlink{classhryky_1_1log_1_1writer_1_1_file}{File} \hyperlink{classhryky_1_1log_1_1writer_1_1_file_a4cdd15a07ea08f9bc174e5eec74fc035}{this\-\_\-type}}\label{classhryky_1_1log_1_1writer_1_1_file_a4cdd15a07ea08f9bc174e5eec74fc035}
+
+\begin{DoxyCompactList}\small\item\em self \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classhryky_1_1log_1_1writer_1_1_base_a8ce37ac3efe4c77e4020bdbaebda85b3}{bool \hyperlink{classhryky_1_1log_1_1writer_1_1_base_a8ce37ac3efe4c77e4020bdbaebda85b3}{available} (\hyperlink{classhryky_1_1log_1_1level_1_1_entity}{level\-\_\-type} const \&level) const }\label{classhryky_1_1log_1_1writer_1_1_base_a8ce37ac3efe4c77e4020bdbaebda85b3}
+
+\begin{DoxyCompactList}\small\item\em confirms whether the log level is in the available range. \end{DoxyCompactList}\item 
+\hyperlink{classhryky_1_1log_1_1writer_1_1_file_a728ce2c2cc1b10c6e2250b384772b563}{File} ()
+\begin{DoxyCompactList}\small\item\em default constructor \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1log_1_1writer_1_1_base_a96f6db3720375594d5e439e37934e1ee}{void \hyperlink{classhryky_1_1log_1_1writer_1_1_base_a96f6db3720375594d5e439e37934e1ee}{flush} ()}\label{classhryky_1_1log_1_1writer_1_1_base_a96f6db3720375594d5e439e37934e1ee}
+
+\begin{DoxyCompactList}\small\item\em write out bufferred messages. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1log_1_1writer_1_1_base_a735851176de76433ee681fd20e70a236}{\hyperlink{classhryky_1_1log_1_1writer_1_1_base}{Base} \& \hyperlink{classhryky_1_1log_1_1writer_1_1_base_a735851176de76433ee681fd20e70a236}{lower} (\hyperlink{classhryky_1_1log_1_1level_1_1_entity}{level\-\_\-type} const \&level)}\label{classhryky_1_1log_1_1writer_1_1_base_a735851176de76433ee681fd20e70a236}
+
+\begin{DoxyCompactList}\small\item\em assigns the level than which the output of log is ignored more than. \end{DoxyCompactList}\item 
+bool \hyperlink{classhryky_1_1log_1_1writer_1_1_base_a58d85035f2869f184b039b1c3760bb15}{operator()} (\hyperlink{namespacehryky_a343a9a4c36a586be5c2693156200eadc}{reduction\-\_\-type} const \&src)
+\begin{DoxyCompactList}\small\item\em outputs a log message. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1log_1_1writer_1_1_base_a5d2f205ab84e7dcf4ab4cca10389949b}{bool \hyperlink{classhryky_1_1log_1_1writer_1_1_base_a5d2f205ab84e7dcf4ab4cca10389949b}{operator()} (\hyperlink{classhryky_1_1reduction_1_1_base}{reduction\-::\-Base} const \&src)}\label{classhryky_1_1log_1_1writer_1_1_base_a5d2f205ab84e7dcf4ab4cca10389949b}
+
+\begin{DoxyCompactList}\small\item\em traverses the decomposed structure. \end{DoxyCompactList}\item 
+bool \hyperlink{classhryky_1_1log_1_1writer_1_1_base_af3dfcf1de847d720eb7dba2ca9476b4e}{operator()} (char const $\ast$const str, size\-\_\-t const size)
+\begin{DoxyCompactList}\small\item\em outputs a string. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1log_1_1writer_1_1_file_ad22e4f5ee9fe7ca7e653e7a8578b8e0f}{void \hyperlink{classhryky_1_1log_1_1writer_1_1_file_ad22e4f5ee9fe7ca7e653e7a8578b8e0f}{path} (\hyperlink{classhryky_1_1_string}{path\-\_\-type} const \&src)}\label{classhryky_1_1log_1_1writer_1_1_file_ad22e4f5ee9fe7ca7e653e7a8578b8e0f}
+
+\begin{DoxyCompactList}\small\item\em assign a new path. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1log_1_1writer_1_1_base_a802841d14501e525139b9b27c1e9c6f2}{\hyperlink{classhryky_1_1log_1_1writer_1_1_base}{Base} \& \hyperlink{classhryky_1_1log_1_1writer_1_1_base_a802841d14501e525139b9b27c1e9c6f2}{upper} (\hyperlink{classhryky_1_1log_1_1level_1_1_entity}{level\-\_\-type} const \&level)}\label{classhryky_1_1log_1_1writer_1_1_base_a802841d14501e525139b9b27c1e9c6f2}
+
+\begin{DoxyCompactList}\small\item\em assigns the level than which the output of log is ignored less than. \end{DoxyCompactList}\item 
+\hyperlink{classhryky_1_1log_1_1writer_1_1_file_a2e7014017ff69abf8511d255f0f48327}{$\sim$\-File} ()
+\begin{DoxyCompactList}\small\item\em destrunctor \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+output log message. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classhryky_1_1log_1_1writer_1_1_file_a728ce2c2cc1b10c6e2250b384772b563}{\index{hryky\-::log\-::writer\-::\-File@{hryky\-::log\-::writer\-::\-File}!File@{File}}
+\index{File@{File}!hryky::log::writer::File@{hryky\-::log\-::writer\-::\-File}}
+\subsubsection[{File}]{\setlength{\rightskip}{0pt plus 5cm}{\bf hryky\-::log\-::writer\-::\-File\-::\-File} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}explicit\mbox{]}}}}\label{classhryky_1_1log_1_1writer_1_1_file_a728ce2c2cc1b10c6e2250b384772b563}
+
+
+default constructor 
+
+constructor. \hypertarget{classhryky_1_1log_1_1writer_1_1_file_a2e7014017ff69abf8511d255f0f48327}{\index{hryky\-::log\-::writer\-::\-File@{hryky\-::log\-::writer\-::\-File}!$\sim$\-File@{$\sim$\-File}}
+\index{$\sim$\-File@{$\sim$\-File}!hryky::log::writer::File@{hryky\-::log\-::writer\-::\-File}}
+\subsubsection[{$\sim$\-File}]{\setlength{\rightskip}{0pt plus 5cm}{\bf hryky\-::log\-::writer\-::\-File\-::$\sim$\-File} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classhryky_1_1log_1_1writer_1_1_file_a2e7014017ff69abf8511d255f0f48327}
+
+
+destrunctor 
+
+destrunctor. 
+
+\subsection{Member Function Documentation}
+\hypertarget{classhryky_1_1log_1_1writer_1_1_base_a58d85035f2869f184b039b1c3760bb15}{\index{hryky\-::log\-::writer\-::\-File@{hryky\-::log\-::writer\-::\-File}!operator()@{operator()}}
+\index{operator()@{operator()}!hryky::log::writer::File@{hryky\-::log\-::writer\-::\-File}}
+\subsubsection[{operator()}]{\setlength{\rightskip}{0pt plus 5cm}bool hryky\-::log\-::writer\-::\-Base\-::operator() (
+\begin{DoxyParamCaption}
+\item[{{\bf reduction\-\_\-type} const \&}]{src}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inherited\mbox{]}}}}\label{classhryky_1_1log_1_1writer_1_1_base_a58d85035f2869f184b039b1c3760bb15}
+
+
+outputs a log message. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em src} & is appended message \\
+\hline
+\end{DoxyParams}
+\hypertarget{classhryky_1_1log_1_1writer_1_1_base_af3dfcf1de847d720eb7dba2ca9476b4e}{\index{hryky\-::log\-::writer\-::\-File@{hryky\-::log\-::writer\-::\-File}!operator()@{operator()}}
+\index{operator()@{operator()}!hryky::log::writer::File@{hryky\-::log\-::writer\-::\-File}}
+\subsubsection[{operator()}]{\setlength{\rightskip}{0pt plus 5cm}bool Base\-::operator() (
+\begin{DoxyParamCaption}
+\item[{char const $\ast$const}]{str, }
+\item[{size\-\_\-t const}]{size}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inherited\mbox{]}}}}\label{classhryky_1_1log_1_1writer_1_1_base_af3dfcf1de847d720eb7dba2ca9476b4e}
+
+
+outputs a string. 
+
+writes out a string.
+
+The derived classes have to implement this function as write\-\_\-impl(char const $\ast$ const, size\-\_\-t const); 
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{log__writer__file_8h}{log\-\_\-writer\-\_\-file.\-h}\item 
+\hyperlink{log__writer__file_8cpp}{log\-\_\-writer\-\_\-file.\-cpp}\end{DoxyCompactItemize}

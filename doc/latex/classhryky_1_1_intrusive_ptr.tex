@@ -1,0 +1,121 @@
+\hypertarget{classhryky_1_1_intrusive_ptr}{\section{hryky\-:\-:Intrusive\-Ptr$<$ Value\-T $>$ Class Template Reference}
+\label{classhryky_1_1_intrusive_ptr}\index{hryky\-::\-Intrusive\-Ptr$<$ Value\-T $>$@{hryky\-::\-Intrusive\-Ptr$<$ Value\-T $>$}}
+}
+
+
+basic functionality of intrusive pointer.  
+
+
+
+
+{\ttfamily \#include $<$intrusive\-\_\-ptr.\-h$>$}
+
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classhryky_1_1_intrusive_ptr_a0fb00a7eafa8939e21653f677d1b2989}{typedef \hyperlink{classhryky_1_1_intrusive_ptr}{Intrusive\-Ptr} \hyperlink{classhryky_1_1_intrusive_ptr_a0fb00a7eafa8939e21653f677d1b2989}{this\-\_\-type}}\label{classhryky_1_1_intrusive_ptr_a0fb00a7eafa8939e21653f677d1b2989}
+
+\begin{DoxyCompactList}\small\item\em self. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classhryky_1_1_intrusive_ptr_a876dbe10311099aba912f8cfa3fd635b}{pointer \hyperlink{classhryky_1_1_intrusive_ptr_a876dbe10311099aba912f8cfa3fd635b}{get} () const }\label{classhryky_1_1_intrusive_ptr_a876dbe10311099aba912f8cfa3fd635b}
+
+\begin{DoxyCompactList}\small\item\em retrieves the raw pointer of this instance. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1_intrusive_ptr_a8294a613bfbc752216fd26fe77d4aaf9}{\hyperlink{classhryky_1_1_intrusive_ptr_a8294a613bfbc752216fd26fe77d4aaf9}{Intrusive\-Ptr} ()}\label{classhryky_1_1_intrusive_ptr_a8294a613bfbc752216fd26fe77d4aaf9}
+
+\begin{DoxyCompactList}\small\item\em default constructor. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1_intrusive_ptr_a4e4600e5ff84aa875f1479c4a364583f}{\hyperlink{classhryky_1_1_intrusive_ptr_a4e4600e5ff84aa875f1479c4a364583f}{Intrusive\-Ptr} (pointer ptr)}\label{classhryky_1_1_intrusive_ptr_a4e4600e5ff84aa875f1479c4a364583f}
+
+\begin{DoxyCompactList}\small\item\em constructor with a held pointer. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1_intrusive_ptr_a55a0a47960f5a8f033c2794e25b91548}{\hyperlink{classhryky_1_1_intrusive_ptr_a55a0a47960f5a8f033c2794e25b91548}{Intrusive\-Ptr} (pointer ptr, bool add\-\_\-ref)}\label{classhryky_1_1_intrusive_ptr_a55a0a47960f5a8f033c2794e25b91548}
+
+\begin{DoxyCompactList}\small\item\em constructor with a held pointer and specifies whether the reference of the instance is incremented. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1_intrusive_ptr_ae2f947d01984f4e16ec59ce529be4a8e}{{\footnotesize template$<$typename Derived\-T $>$ }\\\hyperlink{classhryky_1_1_intrusive_ptr_ae2f947d01984f4e16ec59ce529be4a8e}{Intrusive\-Ptr} (Derived\-T $\ast$ptr, bool add\-\_\-ref)}\label{classhryky_1_1_intrusive_ptr_ae2f947d01984f4e16ec59ce529be4a8e}
+
+\begin{DoxyCompactList}\small\item\em constructor with a held derived pointer and specifies whether the reference of the instance is incremented. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1_intrusive_ptr_a99d5812ce929ad04b2269533283c9cae}{{\footnotesize template$<$typename Derived\-T $>$ }\\\hyperlink{classhryky_1_1_intrusive_ptr_a99d5812ce929ad04b2269533283c9cae}{Intrusive\-Ptr} (\hyperlink{classhryky_1_1_intrusive_ptr}{Intrusive\-Ptr}$<$ Derived\-T $>$ const \&src)}\label{classhryky_1_1_intrusive_ptr_a99d5812ce929ad04b2269533283c9cae}
+
+\begin{DoxyCompactList}\small\item\em constructor with other derived pointer. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1_intrusive_ptr_a942bdb1ed6d59e80271c0979b44e543b}{\hyperlink{classhryky_1_1_intrusive_ptr_a942bdb1ed6d59e80271c0979b44e543b}{Intrusive\-Ptr} (\hyperlink{classhryky_1_1_intrusive_ptr_a0fb00a7eafa8939e21653f677d1b2989}{this\-\_\-type} const \&rhs)}\label{classhryky_1_1_intrusive_ptr_a942bdb1ed6d59e80271c0979b44e543b}
+
+\begin{DoxyCompactList}\small\item\em copy constructor. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1_intrusive_ptr_a8e1f34b5c5ffd6b3f64126f3cef4e908}{\hyperlink{classhryky_1_1_intrusive_ptr_a8e1f34b5c5ffd6b3f64126f3cef4e908}{Intrusive\-Ptr} (\hyperlink{classhryky_1_1_intrusive_ptr_a0fb00a7eafa8939e21653f677d1b2989}{this\-\_\-type} \&\&rhs)}\label{classhryky_1_1_intrusive_ptr_a8e1f34b5c5ffd6b3f64126f3cef4e908}
+
+\begin{DoxyCompactList}\small\item\em copy constructor by rvalue reference. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1_intrusive_ptr_a8c2429282077ad6eeeaff6f225921190}{bool \hyperlink{classhryky_1_1_intrusive_ptr_a8c2429282077ad6eeeaff6f225921190}{operator!=} (\hyperlink{classhryky_1_1_intrusive_ptr_a0fb00a7eafa8939e21653f677d1b2989}{this\-\_\-type} const \&rhs) const }\label{classhryky_1_1_intrusive_ptr_a8c2429282077ad6eeeaff6f225921190}
+
+\begin{DoxyCompactList}\small\item\em confirms that this pointer and other pointer are not equal. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1_intrusive_ptr_a4850219e0e09bbb1a03a85db369469f8}{bool \hyperlink{classhryky_1_1_intrusive_ptr_a4850219e0e09bbb1a03a85db369469f8}{operator!=} (pointer const rhs) const }\label{classhryky_1_1_intrusive_ptr_a4850219e0e09bbb1a03a85db369469f8}
+
+\begin{DoxyCompactList}\small\item\em confirms that this pointer and other raw pointer are not equal. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1_intrusive_ptr_a1079b1e2ed0dfe513d609ad05f64c1f2}{reference \hyperlink{classhryky_1_1_intrusive_ptr_a1079b1e2ed0dfe513d609ad05f64c1f2}{operator$\ast$} () const }\label{classhryky_1_1_intrusive_ptr_a1079b1e2ed0dfe513d609ad05f64c1f2}
+
+\begin{DoxyCompactList}\small\item\em dereferences the pointer. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1_intrusive_ptr_aa9e65b5fa7be40a26c4e3e386fc0510b}{\hyperlink{classhryky_1_1_intrusive_ptr_a0fb00a7eafa8939e21653f677d1b2989}{this\-\_\-type} \hyperlink{classhryky_1_1_intrusive_ptr_aa9e65b5fa7be40a26c4e3e386fc0510b}{operator+} (difference\-\_\-type const offset) const }\label{classhryky_1_1_intrusive_ptr_aa9e65b5fa7be40a26c4e3e386fc0510b}
+
+\begin{DoxyCompactList}\small\item\em retrieves a forward pointer. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1_intrusive_ptr_a5f0638f45388d17bb3d045494b16f09f}{\hyperlink{classhryky_1_1_intrusive_ptr_a0fb00a7eafa8939e21653f677d1b2989}{this\-\_\-type} \& \hyperlink{classhryky_1_1_intrusive_ptr_a5f0638f45388d17bb3d045494b16f09f}{operator++} ()}\label{classhryky_1_1_intrusive_ptr_a5f0638f45388d17bb3d045494b16f09f}
+
+\begin{DoxyCompactList}\small\item\em pre-\/increments the pointer. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1_intrusive_ptr_ae82ea1918d3643fbcc2d8ad40368233d}{\hyperlink{classhryky_1_1_intrusive_ptr_a0fb00a7eafa8939e21653f677d1b2989}{this\-\_\-type} \hyperlink{classhryky_1_1_intrusive_ptr_ae82ea1918d3643fbcc2d8ad40368233d}{operator++} (int)}\label{classhryky_1_1_intrusive_ptr_ae82ea1918d3643fbcc2d8ad40368233d}
+
+\begin{DoxyCompactList}\small\item\em post-\/increments the pointer. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1_intrusive_ptr_ac4f08eb767652220bbf2a379cf988bf0}{\hyperlink{classhryky_1_1_intrusive_ptr_a0fb00a7eafa8939e21653f677d1b2989}{this\-\_\-type} \hyperlink{classhryky_1_1_intrusive_ptr_ac4f08eb767652220bbf2a379cf988bf0}{operator-\/} (difference\-\_\-type const offset) const }\label{classhryky_1_1_intrusive_ptr_ac4f08eb767652220bbf2a379cf988bf0}
+
+\begin{DoxyCompactList}\small\item\em retrieves a backward pointer. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1_intrusive_ptr_a3952428634c9139f288f8bc08fcdcb6c}{difference\-\_\-type \hyperlink{classhryky_1_1_intrusive_ptr_a3952428634c9139f288f8bc08fcdcb6c}{operator-\/} (\hyperlink{classhryky_1_1_intrusive_ptr_a0fb00a7eafa8939e21653f677d1b2989}{this\-\_\-type} const \&rhs) const }\label{classhryky_1_1_intrusive_ptr_a3952428634c9139f288f8bc08fcdcb6c}
+
+\begin{DoxyCompactList}\small\item\em retrieves the distance between the two pointers. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1_intrusive_ptr_a3b15bb043f8480d4aa98d757ec5f66fa}{difference\-\_\-type \hyperlink{classhryky_1_1_intrusive_ptr_a3b15bb043f8480d4aa98d757ec5f66fa}{operator-\/} (pointer const rhs) const }\label{classhryky_1_1_intrusive_ptr_a3b15bb043f8480d4aa98d757ec5f66fa}
+
+\begin{DoxyCompactList}\small\item\em retrieves the distance between this pointer and a raw pointer. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1_intrusive_ptr_a87fa7ed8e3b31f421c164aaf3091efaf}{\hyperlink{classhryky_1_1_intrusive_ptr_a0fb00a7eafa8939e21653f677d1b2989}{this\-\_\-type} \& \hyperlink{classhryky_1_1_intrusive_ptr_a87fa7ed8e3b31f421c164aaf3091efaf}{operator-\/-\/} ()}\label{classhryky_1_1_intrusive_ptr_a87fa7ed8e3b31f421c164aaf3091efaf}
+
+\begin{DoxyCompactList}\small\item\em pre-\/decrements the pointer. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1_intrusive_ptr_a9e99a7d62e21d24050d46d2213d38538}{\hyperlink{classhryky_1_1_intrusive_ptr_a0fb00a7eafa8939e21653f677d1b2989}{this\-\_\-type} \hyperlink{classhryky_1_1_intrusive_ptr_a9e99a7d62e21d24050d46d2213d38538}{operator-\/-\/} (int)}\label{classhryky_1_1_intrusive_ptr_a9e99a7d62e21d24050d46d2213d38538}
+
+\begin{DoxyCompactList}\small\item\em post-\/increments the pointer. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1_intrusive_ptr_a1be03a526ff80fbca45eed3933199434}{pointer \hyperlink{classhryky_1_1_intrusive_ptr_a1be03a526ff80fbca45eed3933199434}{operator-\/$>$} () const }\label{classhryky_1_1_intrusive_ptr_a1be03a526ff80fbca45eed3933199434}
+
+\begin{DoxyCompactList}\small\item\em dereferences the pointer. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1_intrusive_ptr_ae0aa24c2d96b9db5d254280844c21272}{bool \hyperlink{classhryky_1_1_intrusive_ptr_ae0aa24c2d96b9db5d254280844c21272}{operator$<$} (\hyperlink{classhryky_1_1_intrusive_ptr_a0fb00a7eafa8939e21653f677d1b2989}{this\-\_\-type} const \&rhs) const }\label{classhryky_1_1_intrusive_ptr_ae0aa24c2d96b9db5d254280844c21272}
+
+\begin{DoxyCompactList}\small\item\em confirms that this pointer is less than other pointer. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1_intrusive_ptr_aa304734f29507d58aae31e346e13d0ae}{bool \hyperlink{classhryky_1_1_intrusive_ptr_aa304734f29507d58aae31e346e13d0ae}{operator$<$} (pointer const rhs) const }\label{classhryky_1_1_intrusive_ptr_aa304734f29507d58aae31e346e13d0ae}
+
+\begin{DoxyCompactList}\small\item\em confirms that this pointer is less than other raw pointer. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1_intrusive_ptr_aa738864278a9e6b6ab452cd010a23b86}{{\footnotesize template$<$typename Derived\-T $>$ }\\\hyperlink{classhryky_1_1_intrusive_ptr_a0fb00a7eafa8939e21653f677d1b2989}{this\-\_\-type} \& \hyperlink{classhryky_1_1_intrusive_ptr_aa738864278a9e6b6ab452cd010a23b86}{operator=} (\hyperlink{classhryky_1_1_intrusive_ptr}{Intrusive\-Ptr}$<$ Derived\-T $>$ const \&rhs)}\label{classhryky_1_1_intrusive_ptr_aa738864278a9e6b6ab452cd010a23b86}
+
+\begin{DoxyCompactList}\small\item\em assignment operator with other derived pointer. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1_intrusive_ptr_a9dde6dfd712df0d745d88494ab14354a}{{\footnotesize template$<$typename Derived\-T $>$ }\\bool \hyperlink{classhryky_1_1_intrusive_ptr_a9dde6dfd712df0d745d88494ab14354a}{operator==} (\hyperlink{classhryky_1_1_intrusive_ptr}{Intrusive\-Ptr}$<$ Derived\-T $>$ const \&rhs) const }\label{classhryky_1_1_intrusive_ptr_a9dde6dfd712df0d745d88494ab14354a}
+
+\begin{DoxyCompactList}\small\item\em confirms that this pointer and other pointer are equal. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1_intrusive_ptr_a8bc19fcb51130f7acfc810eddd01b1e7}{bool \hyperlink{classhryky_1_1_intrusive_ptr_a8bc19fcb51130f7acfc810eddd01b1e7}{operator==} (pointer const rhs) const }\label{classhryky_1_1_intrusive_ptr_a8bc19fcb51130f7acfc810eddd01b1e7}
+
+\begin{DoxyCompactList}\small\item\em confirms that this pointer and other raw pointer are equal. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1_intrusive_ptr_ab60b6a55a688776b82510c08c614709c}{void \hyperlink{classhryky_1_1_intrusive_ptr_ab60b6a55a688776b82510c08c614709c}{swap} (\hyperlink{classhryky_1_1_intrusive_ptr_a0fb00a7eafa8939e21653f677d1b2989}{this\-\_\-type} \&src)}\label{classhryky_1_1_intrusive_ptr_ab60b6a55a688776b82510c08c614709c}
+
+\begin{DoxyCompactList}\small\item\em interchanges the entities between two values. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1_intrusive_ptr_a3a97da2eb0bb0cab67e92e83b6a25ebc}{\hyperlink{classhryky_1_1_intrusive_ptr_a3a97da2eb0bb0cab67e92e83b6a25ebc}{$\sim$\-Intrusive\-Ptr} ()}\label{classhryky_1_1_intrusive_ptr_a3a97da2eb0bb0cab67e92e83b6a25ebc}
+
+\begin{DoxyCompactList}\small\item\em destructor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classhryky_1_1_intrusive_ptr_ad39318445053f6b4e15bdc2580881622}{\hyperlink{classhryky_1_1_intrusive_ptr_ad39318445053f6b4e15bdc2580881622}{hryky\-\_\-assign\-\_\-op}}\label{classhryky_1_1_intrusive_ptr_ad39318445053f6b4e15bdc2580881622}
+
+\begin{DoxyCompactList}\small\item\em assignment operator. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$typename Value\-T$>$class hryky\-::\-Intrusive\-Ptr$<$ Value\-T $>$}
+
+basic functionality of intrusive pointer. \begin{Desc}
+\item[Examples\-: ]\par
+\hyperlink{test_log_8cpp-example}{test\-\_\-log.\-cpp}.\end{Desc}
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{intrusive__ptr_8h}{intrusive\-\_\-ptr.\-h}\end{DoxyCompactItemize}

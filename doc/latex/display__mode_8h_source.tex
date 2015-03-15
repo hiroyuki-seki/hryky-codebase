@@ -1,0 +1,155 @@
+\hypertarget{display__mode_8h_source}{\section{display\-\_\-mode.\-h}
+}
+
+\begin{DoxyCode}
+00001 
+00007 \textcolor{preprocessor}{#ifndef DISPLAY\_MODE\_H\_20120128130453211}
+00008 \textcolor{preprocessor}{}\textcolor{preprocessor}{#define DISPLAY\_MODE\_H\_20120128130453211}
+00009 \textcolor{preprocessor}{}\textcolor{preprocessor}{#include "hryky/config.h"}
+00010 \textcolor{preprocessor}{#include "\hyperlink{display__config_8h}{hryky/display/display_config.h}"}
+00011 \textcolor{preprocessor}{#include "\hyperlink{display__common_8h}{hryky/display/display_common.h}"}
+00012 \textcolor{preprocessor}{#include "\hyperlink{pixel__format_8h}{hryky/pixel/pixel_format.h}"}
+00013 \textcolor{preprocessor}{#include "\hyperlink{reduction__map_8h}{hryky/reduction/reduction_map.h}"}
+00014 \textcolor{preprocessor}{#include "\hyperlink{sdl_8h}{hryky/sdl.h}"}
+00015 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00016 \textcolor{comment}{// macro definition}
+00017 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00018 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00019 \textcolor{comment}{// namespace}
+00020 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00021 \textcolor{keyword}{namespace }hryky
+00022 \{
+00023 \textcolor{keyword}{namespace }display
+00024 \{
+00026     \textcolor{keyword}{class }Mode;
+00027 
+00028 \}
+00029 \}
+00030 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00031 \textcolor{comment}{// class declaration}
+00032 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+\hypertarget{display__mode_8h_source_l00036}{}\hyperlink{classhryky_1_1display_1_1_mode}{00036} \textcolor{comment}{}\textcolor{keyword}{class }\hyperlink{classhryky_1_1display_1_1_mode}{hryky::display::Mode}
+00037 \{
+00038 \textcolor{keyword}{public} :
+00039 
+00040     
+\hypertarget{display__mode_8h_source_l00041}{}\hyperlink{classhryky_1_1display_1_1_mode_a0c68f6c39098781552942da1586968bc}{00041}     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1display_1_1_mode}{hryky::display::Mode}                    \hyperlink{classhryky_1_1display_1_1_mode_a0c68f6c39098781552942da1586968bc}{this_type};
+00042 
+\hypertarget{display__mode_8h_source_l00044}{}\hyperlink{structhryky_1_1display_1_1_mode_1_1_reset_parameter}{00044}     \textcolor{keyword}{struct }\hyperlink{structhryky_1_1display_1_1_mode_1_1_reset_parameter}{ResetParameter} : \hyperlink{classhryky_1_1_noncopyable}{Noncopyable}
+00045     \{
+00046 \textcolor{preprocessor}{#if HRYKY\_USE\_SDL}
+00047 \textcolor{preprocessor}{}        \hyperlink{structhryky_1_1display_1_1_mode_1_1_reset_parameter}{ResetParameter}(
+00048             ::SDL\_DisplayMode & raw\_mode)
+00049             : format\_(format\_type::SDLFormat(raw\_mode.format))
+00050               , size\_(
+00051                   static\_cast<size\_t>(raw\_mode.w),
+00052                   static\_cast<size\_t>(raw\_mode.h))
+00053               , refresh\_rate\_(static\_cast<refresh\_rate\_type>(
+00054                   raw\_mode.refresh\_rate))
+00055         \{\}
+00056 \textcolor{preprocessor}{#endif // HRYKY\_USE\_SDL}
+00057 \textcolor{preprocessor}{}        
+00058         \hyperlink{structhryky_1_1display_1_1_mode_1_1_reset_parameter}{ResetParameter}(
+00059             \hyperlink{classhryky_1_1pixel_1_1_format}{format_type} \textcolor{keyword}{const} & \hyperlink{classhryky_1_1display_1_1_mode_a17b84e905579d33e25f8946eb67ca2a9}{format},
+00060             \hyperlink{classhryky_1_1geometry_1_1coord_1_1_cartesian2_d}{size_type} \textcolor{keyword}{const} & \hyperlink{classhryky_1_1display_1_1_mode_aebf3abe6a97f73877f40dfb3ebb7053f}{size},
+00061             \hyperlink{namespacehryky_1_1display_ac8bdbe1db3aaf491d26848562e9fa29c}{refresh_rate_type} \hyperlink{classhryky_1_1display_1_1_mode_a630c4afc7a681e0b50b278987a8f80b4}{refresh_rate})
+00062             : format\_(format)
+00063               , size\_(size)
+00064               , refresh\_rate\_(refresh\_rate)
+00065         \{\}
+00066 
+00067     \textcolor{keyword}{private} :
+00068         hryky\_accessor\_read(\hyperlink{classhryky_1_1pixel_1_1_format}{format_type},        format);
+00069         hryky\_accessor\_read(\hyperlink{classhryky_1_1geometry_1_1coord_1_1_cartesian2_d}{size_type},          size);
+00070         hryky\_accessor\_read(\hyperlink{namespacehryky_1_1display_ac8bdbe1db3aaf491d26848562e9fa29c}{refresh_rate_type},  refresh\_rate);
+00071     \};
+00072 
+00074     \textcolor{keyword}{explicit} \hyperlink{classhryky_1_1display_1_1_mode_a0ea5d1bb08e8ea3e8c3b0f29d8c3d038}{Mode}();
+00075 
+00077     \hyperlink{classhryky_1_1display_1_1_mode_a7d4d028e408e4f498865ba7c749f9d7b}{~Mode}();
+00078 
+00080     \hyperlink{classhryky_1_1display_1_1_mode_a0ea5d1bb08e8ea3e8c3b0f29d8c3d038}{Mode}(\hyperlink{classhryky_1_1display_1_1_mode}{Mode} \textcolor{keyword}{const} &);
+00081 
+00083     \hyperlink{classhryky_1_1display_1_1_mode_a0ea5d1bb08e8ea3e8c3b0f29d8c3d038}{Mode}(\hyperlink{classhryky_1_1display_1_1_mode}{this_type} && rhs);
+00084 
+00086     \hyperlink{classhryky_1_1display_1_1_mode}{Mode} & \hyperlink{classhryky_1_1display_1_1_mode_a427b74e20d3cf666b4b83cbfde3ad390}{operator=}(\hyperlink{classhryky_1_1display_1_1_mode}{Mode} \textcolor{keyword}{const} & rhs);
+00087 
+00089     \textcolor{keywordtype}{void} \hyperlink{classhryky_1_1display_1_1_mode_a7645a712ff9359ad2eaa5db9824dfa98}{clear}();
+00090 
+00092     \textcolor{keywordtype}{bool} \hyperlink{classhryky_1_1display_1_1_mode_a6826c1efd764c64520bf954f480444d4}{reset}(\hyperlink{structhryky_1_1display_1_1_mode_1_1_reset_parameter}{ResetParameter} \textcolor{keyword}{const} & param);
+00093 
+\hypertarget{display__mode_8h_source_l00095}{}\hyperlink{classhryky_1_1display_1_1_mode_aebf3abe6a97f73877f40dfb3ebb7053f}{00095}     \hyperlink{classhryky_1_1geometry_1_1coord_1_1_cartesian2_d}{size_type} \textcolor{keyword}{const} & \hyperlink{classhryky_1_1display_1_1_mode_aebf3abe6a97f73877f40dfb3ebb7053f}{size}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} this->size\_; \}
+00096 
+\hypertarget{display__mode_8h_source_l00098}{}\hyperlink{classhryky_1_1display_1_1_mode_a630c4afc7a681e0b50b278987a8f80b4}{00098}     \hyperlink{namespacehryky_1_1display_ac8bdbe1db3aaf491d26848562e9fa29c}{refresh_rate_type} \hyperlink{classhryky_1_1display_1_1_mode_a630c4afc7a681e0b50b278987a8f80b4}{refresh_rate}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} this->refresh\_rate\_; \}
+00099 
+\hypertarget{display__mode_8h_source_l00101}{}\hyperlink{classhryky_1_1display_1_1_mode_a17b84e905579d33e25f8946eb67ca2a9}{00101}     \hyperlink{classhryky_1_1pixel_1_1_format}{format_type} \textcolor{keyword}{const} & \hyperlink{classhryky_1_1display_1_1_mode_a17b84e905579d33e25f8946eb67ca2a9}{format}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} this->format\_; \}
+00102 
+00104     \hyperlink{classhryky_1_1_intrusive_ptr}{reduction::map_type} \hyperlink{classhryky_1_1display_1_1_mode_a9f90ae973ea63461f679c8bf374800f2}{reduce}(\hyperlink{classhryky_1_1_intrusive_ptr}{reduction::map_type} \hyperlink{namespacehryky_1_1reduction_ac5eae270cf8047b294dc4ff3e5e11a79}{map}) \textcolor{keyword}{const};
+00105 
+00107     \textcolor{keywordtype}{void} \hyperlink{classhryky_1_1display_1_1_mode_a11210bd14d8f1f4c64ff4ba93c51cc48}{swap}(\hyperlink{classhryky_1_1display_1_1_mode_a0c68f6c39098781552942da1586968bc}{this_type} & src);
+00108 
+00110     \textcolor{keyword}{template} < \textcolor{keyword}{typename} FunctorT >
+00111     \textcolor{keywordtype}{bool} \hyperlink{classhryky_1_1display_1_1_mode_a3b1659edc90d32f841bcd30be0d925f2}{traverse}(\hyperlink{classhryky_1_1_string}{driver_name_type} \textcolor{keyword}{const} & driver\_name, FunctorT & functor) \textcolor{keyword}{
+      const};
+00112 
+00113 \textcolor{keyword}{protected} :
+00114 
+00115 \textcolor{keyword}{private} :
+00116 
+00117     \hyperlink{classhryky_1_1pixel_1_1_format}{format_type}         format\_;
+00118     \hyperlink{classhryky_1_1geometry_1_1coord_1_1_cartesian2_d}{size_type}           size\_;
+00119     \hyperlink{namespacehryky_1_1display_ac8bdbe1db3aaf491d26848562e9fa29c}{refresh_rate_type}   refresh\_rate\_;
+00120 
+00121 \};
+00122 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00123 \textcolor{comment}{// public member functions}
+00124 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00128 \textcolor{comment}{}\textcolor{keyword}{template} < \textcolor{keyword}{typename} FunctorT >
+\hypertarget{display__mode_8h_source_l00129}{}\hyperlink{classhryky_1_1display_1_1_mode_a3b1659edc90d32f841bcd30be0d925f2}{00129} \textcolor{keywordtype}{bool} \hyperlink{classhryky_1_1display_1_1_mode_a3b1659edc90d32f841bcd30be0d925f2}{hryky::display::Mode::traverse}(
+00130     \hyperlink{classhryky_1_1_string}{driver_name_type} \textcolor{keyword}{const} & driver\_name, FunctorT & functor)\textcolor{keyword}{ const}
+00131 \textcolor{keyword}{}\{
+00132     \textcolor{keywordflow}{return} functor(
+00133         \hyperlink{classhryky_1_1display_1_1_config}{Config}(
+00134             driver\_name,
+00135             this->format\_,
+00136             this->size\_,
+00137             this->refresh\_rate\_)
+00138         );
+00139 \}
+00140 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00141 \textcolor{comment}{// protected member functions}
+00142 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00143 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00144 \textcolor{comment}{// private member functions}
+00145 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00146 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00147 \textcolor{comment}{// global function prototype}
+00148 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00149 \textcolor{keyword}{namespace }hryky
+00150 \{
+00151 \textcolor{keyword}{namespace }display
+00152 \{
+00154     \hyperlink{classhryky_1_1_intrusive_ptr}{reduction_type} \hyperlink{namespacehryky_1_1display_a705ac3a5de0998e1e0d3fa595044ec55}{reduce}(
+00155         \hyperlink{classhryky_1_1reduction_1_1_string}{reduction::name_type} \textcolor{keyword}{const} & name, \hyperlink{classhryky_1_1display_1_1_mode}{Mode} \textcolor{keyword}{const} & mode);
+00156 
+00158     \textcolor{keywordtype}{void} \hyperlink{namespacehryky_1_1display_ad28f0d5e406742090973e6c81321a00f}{swap}(\hyperlink{classhryky_1_1display_1_1_mode}{Mode} & lhs, \hyperlink{classhryky_1_1display_1_1_mode}{Mode} & rhs);
+00159 
+00160 \}
+00161 \}
+00162 \textcolor{preprocessor}{#endif // DISPLAY\_MODE\_H\_20120128130453211}
+00163 \textcolor{preprocessor}{}\textcolor{comment}{// end of file}
+\end{DoxyCode}

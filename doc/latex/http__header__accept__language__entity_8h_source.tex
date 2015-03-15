@@ -1,0 +1,149 @@
+\hypertarget{http__header__accept__language__entity_8h_source}{\section{http\-\_\-header\-\_\-accept\-\_\-language\-\_\-entity.\-h}
+}
+
+\begin{DoxyCode}
+00001 
+00007 \textcolor{preprocessor}{#ifndef HTTP\_HEADER\_ACCEPT\_LANGUAGE\_ENTITY\_H\_20130113085104035}
+00008 \textcolor{preprocessor}{}\textcolor{preprocessor}{#define HTTP\_HEADER\_ACCEPT\_LANGUAGE\_ENTITY\_H\_20130113085104035}
+00009 \textcolor{preprocessor}{}\textcolor{preprocessor}{#include "\hyperlink{http__header__accept__language__content__entity_8h}{hryky/http/http_header_accept_language_content_entity.h}"}
+00010 \textcolor{preprocessor}{#include "\hyperlink{vector_8h}{hryky/vector.h}"}
+00011 \textcolor{preprocessor}{#include "\hyperlink{memory__heap__base_8h}{hryky/memory/heap/memory_heap_base.h}"}
+00012 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00013 \textcolor{comment}{// macro definition}
+00014 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00015 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00016 \textcolor{comment}{// namespace}
+00017 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00018 \textcolor{keyword}{namespace }hryky
+00019 \{
+00020 \textcolor{keyword}{namespace }http
+00021 \{
+00022 \textcolor{keyword}{namespace }header
+00023 \{
+00024 \textcolor{keyword}{namespace }accept
+00025 \{
+00026 \textcolor{keyword}{namespace }language
+00027 \{
+00029     \textcolor{keyword}{class }Entity;
+00030 
+00031 \} \textcolor{comment}{// namespace language}
+00032 
+00033 \textcolor{keyword}{typedef} language::Entity language\_type;
+00034 
+00035 \} \textcolor{comment}{// namespace accept}
+00036 \} \textcolor{comment}{// namespace header}
+00037 \} \textcolor{comment}{// namespace http}
+00038 \} \textcolor{comment}{// namespace hryky}
+00039 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00040 \textcolor{comment}{// class declarations}
+00041 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+\hypertarget{http__header__accept__language__entity_8h_source_l00045}{}\hyperlink{classhryky_1_1http_1_1header_1_1accept_1_1language_1_1_entity}{00045} \textcolor{comment}{}\textcolor{keyword}{class }\hyperlink{classhryky_1_1http_1_1header_1_1accept_1_1language_1_1_entity}{hryky::http::header::accept::language::Entity}
+00046 \{
+00047 \textcolor{keyword}{public} :
+00048 
+\hypertarget{http__header__accept__language__entity_8h_source_l00049}{}\hyperlink{classhryky_1_1http_1_1header_1_1accept_1_1language_1_1_entity_a545f9cf0cf53449ef3b6b5a6a1b47e6e}{00049}     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1http_1_1header_1_1accept_1_1language_1_1_entity}{Entity} \hyperlink{classhryky_1_1http_1_1header_1_1accept_1_1language_1_1_entity_a545f9cf0cf53449ef3b6b5a6a1b47e6e}{this_type};
+00050 
+00052     \hyperlink{classhryky_1_1http_1_1header_1_1accept_1_1language_1_1_entity_a4cd0d3f900991ed24c0df7df4df8fcab}{Entity}();
+00053 
+00055     \hyperlink{classhryky_1_1http_1_1header_1_1accept_1_1language_1_1_entity_a4cd0d3f900991ed24c0df7df4df8fcab}{Entity}(\hyperlink{classhryky_1_1http_1_1header_1_1accept_1_1language_1_1_entity}{this_type} \textcolor{keyword}{const} &);
+00056 
+00058     \hyperlink{classhryky_1_1http_1_1header_1_1accept_1_1language_1_1_entity_a4cd0d3f900991ed24c0df7df4df8fcab}{Entity}(\hyperlink{classhryky_1_1http_1_1header_1_1accept_1_1language_1_1_entity}{this_type} && rhs);
+00059 
+00061     \hyperlink{classhryky_1_1http_1_1header_1_1accept_1_1language_1_1_entity_a4cd0d3f900991ed24c0df7df4df8fcab}{Entity}(\hyperlink{classhryky_1_1memory_1_1heap_1_1_base}{memory::heap_type} \textcolor{keyword}{const} \hyperlink{namespacehryky_1_1memory_1_1global_a6fc6103f67c837aa0f39b359588409cd}{heap});
+00062 
+00064     \hyperlink{classhryky_1_1http_1_1header_1_1accept_1_1language_1_1_entity_a4e1c28428b5694961a2333e30cffa9d8}{~Entity}();
+00065 
+\hypertarget{http__header__accept__language__entity_8h_source_l00067}{}\hyperlink{classhryky_1_1http_1_1header_1_1accept_1_1language_1_1_entity_a3ec0e37ef8a614c500a949b66aa62388}{00067}     \hyperlink{classhryky_1_1http_1_1header_1_1accept_1_1language_1_1_entity_a3ec0e37ef8a614c500a949b66aa62388}{hryky_assign_op};
+00068 
+00070     \textcolor{keywordtype}{void} \hyperlink{classhryky_1_1http_1_1header_1_1accept_1_1language_1_1_entity_a51e966012920a931e89015a9a6e23d5d}{clear}();
+00071 
+00073     \hyperlink{classhryky_1_1_intrusive_ptr}{reduction_type} \hyperlink{classhryky_1_1http_1_1header_1_1accept_1_1language_1_1_entity_a4a0539f2fa3e8c969ca15d8e90c36362}{reduce}(\hyperlink{classhryky_1_1reduction_1_1_string}{reduction::name_type} \textcolor{keyword}{const} & name) \textcolor{keyword}{const};
+00074 
+00076     \textcolor{keywordtype}{void} \hyperlink{classhryky_1_1http_1_1header_1_1accept_1_1language_1_1_entity_a9405b3a2384fffd51aec568ed31d21bc}{swap}(\hyperlink{classhryky_1_1http_1_1header_1_1accept_1_1language_1_1_entity}{this_type} & src);
+00077 
+00079     \textcolor{keywordtype}{bool} \hyperlink{classhryky_1_1http_1_1header_1_1accept_1_1language_1_1_entity_a8f4d30c10851e14205468389791fe55d}{append}(\hyperlink{classhryky_1_1http_1_1header_1_1accept_1_1language_1_1content_1_1_entity}{content_type} \textcolor{keyword}{const} & src);
+00080 
+00081 \textcolor{keyword}{protected} :
+00082 
+00083 \textcolor{keyword}{private} :
+00084 
+00085     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1_vector}{Vector<content_type>} \hyperlink{classhryky_1_1_vector}{contents_type};
+00086 
+00087     \hyperlink{classhryky_1_1_vector}{contents_type} contents\_;
+00088 
+00089 \};
+00090 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00091 \textcolor{comment}{// class specializations}
+00092 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00093 \textcolor{keyword}{namespace }hryky
+00094 \{
+00095 \textcolor{keyword}{namespace }http
+00096 \{
+00097 \textcolor{keyword}{namespace }header
+00098 \{
+00099 \textcolor{keyword}{namespace }accept
+00100 \{
+00101 \textcolor{keyword}{namespace }language
+00102 \{
+00103 \} \textcolor{comment}{// namespace language}
+00104 \} \textcolor{comment}{// namespace accept}
+00105 \} \textcolor{comment}{// namespace header}
+00106 \} \textcolor{comment}{// namespace http}
+00107 \} \textcolor{comment}{// namespace hryky}
+00108 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00109 \textcolor{comment}{// public member functions}
+00110 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00111 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00112 \textcolor{comment}{// protected member functions}
+00113 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00114 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00115 \textcolor{comment}{// private member functions}
+00116 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00117 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00118 \textcolor{comment}{// global function prototypes}
+00119 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00120 \textcolor{keyword}{namespace }hryky
+00121 \{
+00122 \textcolor{keyword}{namespace }http
+00123 \{
+00124 \textcolor{keyword}{namespace }header
+00125 \{
+00126 \textcolor{keyword}{namespace }accept
+00127 \{
+00128 \textcolor{keyword}{namespace }language
+00129 \{
+00131     \hyperlink{namespacehryky_a343a9a4c36a586be5c2693156200eadc}{reduction_type} \hyperlink{namespacehryky_1_1http_a08fc36a78a8e2908140fcd102829a566}{reduce}(
+00132         \hyperlink{namespacehryky_1_1reduction_ac686c30a4c8d196bbd0f05629a6b921f}{reduction::name_type} \textcolor{keyword}{const} & name, Entity \textcolor{keyword}{const} & src);
+00133 
+00135     \textcolor{keywordtype}{void} \hyperlink{namespacehryky_1_1http_a38e62595ad532d18fbc65ceb61973aec}{swap}(
+00136         Entity & lhs, Entity & rhs);
+00137 
+00138 \} \textcolor{comment}{// namespace language}
+00139 \} \textcolor{comment}{// namespace accept}
+00140 \} \textcolor{comment}{// namespace header}
+00141 \} \textcolor{comment}{// namespace http}
+00142 \} \textcolor{comment}{// namespace hryky}
+00143 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00144 \textcolor{comment}{// global function definitions}
+00145 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00146 \textcolor{preprocessor}{#endif // HTTP\_HEADER\_ACCEPT\_LANGUAGE\_ENTITY\_H\_20130113085104035}
+00147 \textcolor{preprocessor}{}\textcolor{comment}{// end of file}
+\end{DoxyCode}

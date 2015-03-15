@@ -1,0 +1,375 @@
+\hypertarget{task__worker__batch_8h_source}{\section{task\-\_\-worker\-\_\-batch.\-h}
+}
+
+\begin{DoxyCode}
+00001 
+00009 \textcolor{preprocessor}{#ifndef TASK\_WORKER\_BATCH\_H\_20111122003830693}
+00010 \textcolor{preprocessor}{}\textcolor{preprocessor}{#define TASK\_WORKER\_BATCH\_H\_20111122003830693}
+00011 \textcolor{preprocessor}{}\textcolor{preprocessor}{#include "\hyperlink{exclusion__lock_8h}{hryky/exclusion/exclusion_lock.h}"}
+00012 \textcolor{preprocessor}{#include "\hyperlink{exclusion__mutex_8h}{hryky/exclusion/exclusion_mutex.h}"}
+00013 \textcolor{preprocessor}{#include "\hyperlink{memory__global__common_8h}{hryky/memory/global/memory_global_common.h}"}
+00014 \textcolor{preprocessor}{#include "\hyperlink{memory__heap__base_8h}{hryky/memory/heap/memory_heap_base.h}"}
+00015 \textcolor{preprocessor}{#include "\hyperlink{profiler__cumulate_8h}{hryky/profiler/profiler_cumulate.h}"}
+00016 \textcolor{preprocessor}{#include "\hyperlink{task__common_8h}{hryky/task/task_common.h}"}
+00017 \textcolor{preprocessor}{#include "\hyperlink{task__worker__base_8h}{hryky/task/task_worker_base.h}"}
+00018 \textcolor{preprocessor}{#include "\hyperlink{add__const_8h}{hryky/gp/add_const.h}"}
+00019 \textcolor{preprocessor}{#include "\hyperlink{add__reference_8h}{hryky/gp/add_reference.h}"}
+00020 \textcolor{preprocessor}{#include "\hyperlink{foreach_8h}{hryky/foreach.h}"}
+00021 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00022 \textcolor{comment}{// macro definition}
+00023 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00024 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00025 \textcolor{comment}{// namespace}
+00026 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00027 \textcolor{keyword}{namespace }hryky
+00028 \{
+00029 \textcolor{keyword}{namespace }task
+00030 \{
+00031 \textcolor{keyword}{namespace }distributor
+00032 \{
+00033     \textcolor{keyword}{template} < \textcolor{keyword}{typename} TaskT >
+00034     \textcolor{keyword}{class }Batch;
+00035 \}
+00036 \textcolor{keyword}{namespace }worker
+00037 \{
+00039     \textcolor{keyword}{template} < \textcolor{keyword}{typename} TaskT >
+00040     \textcolor{keyword}{class }Batch;
+00041 \}
+00042 \}
+00043 \}
+00044 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00045 \textcolor{comment}{// class declaration}
+00046 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00050 \textcolor{comment}{}\textcolor{keyword}{template} < \textcolor{keyword}{typename} TaskT >
+\hypertarget{task__worker__batch_8h_source_l00051}{}\hyperlink{classhryky_1_1task_1_1worker_1_1_batch}{00051} \textcolor{keyword}{class }\hyperlink{classhryky_1_1task_1_1worker_1_1_batch}{hryky::task::worker::Batch}
+00052     : \textcolor{keyword}{public} \hyperlink{classhryky_1_1task_1_1worker_1_1_base}{hryky::task::worker::Base}
+00053 \{
+00054 \textcolor{keyword}{public} :
+00055 
+\hypertarget{task__worker__batch_8h_source_l00056}{}\hyperlink{classhryky_1_1task_1_1worker_1_1_batch_a1cb435cd780b689c3cf049b0700b2e52}{00056}     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1task_1_1worker_1_1_base}{Base}                        \hyperlink{classhryky_1_1task_1_1worker_1_1_batch_a1cb435cd780b689c3cf049b0700b2e52}{base_type};
+\hypertarget{task__worker__batch_8h_source_l00057}{}\hyperlink{classhryky_1_1task_1_1worker_1_1_batch_af2da1b6dcdcb3e24abf07af8c8a009e5}{00057}     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1task_1_1worker_1_1_batch}{Batch<TaskT>}                \hyperlink{classhryky_1_1task_1_1worker_1_1_batch_af2da1b6dcdcb3e24abf07af8c8a009e5}{this_type};
+00058     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1task_1_1distributor_1_1_batch}{distributor::Batch<TaskT>} * \hyperlink{classhryky_1_1task_1_1distributor_1_1_batch}{distributor_type};
+00059     \textcolor{keyword}{typedef} TaskT                       task\_type;
+00060     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1memory_1_1heap_1_1_base}{memory::heap_type}           \hyperlink{classhryky_1_1memory_1_1heap_1_1_base}{heap_type};
+00061     
+00062     \textcolor{keyword}{typedef} \textcolor{keyword}{typename} \hyperlink{classhryky_1_1_add_reference}{AddReference<typename AddConst<task_type>::type}>::type
+00063         task\_const\_reference;
+00064 
+00066     \textcolor{keyword}{explicit} \hyperlink{group__task_ga1e0c51798108868eef5a4f126640b4d7}{Batch}();
+00067 
+00069     \textcolor{keyword}{virtual} \hyperlink{group__task_ga11956032bccdfa3a83ec3615f9c03d0f}{~Batch}();
+00070 
+\hypertarget{task__worker__batch_8h_source_l00072}{}\hyperlink{structhryky_1_1task_1_1worker_1_1_batch_1_1_reset_parameter}{00072}     \textcolor{keyword}{struct }\hyperlink{structhryky_1_1task_1_1worker_1_1_base_1_1_reset_parameter}{ResetParameter} : \textcolor{keyword}{public} \hyperlink{structhryky_1_1task_1_1worker_1_1_base_1_1_reset_parameter}{base_type::ResetParameter}
+00073     \{
+\hypertarget{task__worker__batch_8h_source_l00074}{}\hyperlink{structhryky_1_1task_1_1worker_1_1_batch_1_1_reset_parameter_aba781622a5ae139c6e772051c66548ae}{00074}         \textcolor{keyword}{typedef} \hyperlink{structhryky_1_1task_1_1worker_1_1_base_1_1_reset_parameter}{ResetParameter}              \hyperlink{structhryky_1_1task_1_1worker_1_1_batch_1_1_reset_parameter_aba781622a5ae139c6e772051c66548ae}{this_type};
+00075         \textcolor{keyword}{typedef} \hyperlink{structhryky_1_1task_1_1worker_1_1_base_1_1_reset_parameter}{base_type::ResetParameter}   \hyperlink{structhryky_1_1task_1_1worker_1_1_base_1_1_reset_parameter}{base_type};
+00076 
+\hypertarget{task__worker__batch_8h_source_l00081}{}\hyperlink{structhryky_1_1task_1_1worker_1_1_batch_1_1_reset_parameter_a7b681afced1b2cdb9077ee0b95f5f7bb}{00081}         \hyperlink{structhryky_1_1task_1_1worker_1_1_batch_1_1_reset_parameter_a7b681afced1b2cdb9077ee0b95f5f7bb}{ResetParameter}(Sequence & sequence)
+00082             : \hyperlink{structhryky_1_1task_1_1worker_1_1_base_1_1_reset_parameter}{base_type}(sequence)
+00083               , heap\_()
+00084               , distributor\_(\hyperlink{common_8h_a4cd4ac09cfcdbd6b30ee69afc156e210}{HRYKY_NULLPTR})
+00085               , batch\_size\_(1)
+00086         \{\}
+00087 
+00089         \hyperlink{structhryky_1_1task_1_1worker_1_1_batch_1_1_reset_parameter_a14f41998c0d27a87e193f5e376a6c452}{hryky_accessor_row_func}(\hyperlink{classhryky_1_1task_1_1worker_1_1_base_1_1_observer}{observer_type}, observer);
+00090 
+\hypertarget{task__worker__batch_8h_source_l00092}{}\hyperlink{structhryky_1_1task_1_1worker_1_1_batch_1_1_reset_parameter_aa448f6efc9247a5912c75cbd8e46097a}{00092}         \hyperlink{classhryky_1_1task_1_1distributor_1_1_batch}{distributor_type} \hyperlink{structhryky_1_1task_1_1worker_1_1_batch_1_1_reset_parameter_aa448f6efc9247a5912c75cbd8e46097a}{distributor}()\textcolor{keyword}{ const}
+00093 \textcolor{keyword}{        }\{ \textcolor{keywordflow}{return} this->distributor\_; \}
+00094 
+\hypertarget{task__worker__batch_8h_source_l00096}{}\hyperlink{structhryky_1_1task_1_1worker_1_1_batch_1_1_reset_parameter_a9837d724a7788277630623c38979b2fe}{00096}         \hyperlink{classhryky_1_1_noncopyable}{this_type} & \hyperlink{structhryky_1_1task_1_1worker_1_1_batch_1_1_reset_parameter_aa448f6efc9247a5912c75cbd8e46097a}{distributor}(\hyperlink{classhryky_1_1task_1_1distributor_1_1_batch}{distributor_type} src)
+00097         \{ this->distributor\_ = src; \textcolor{keywordflow}{return} *\textcolor{keyword}{this}; \}
+00098 
+00099     \textcolor{keyword}{private} :
+00100         hryky\_accessor\_row(\hyperlink{classhryky_1_1memory_1_1heap_1_1_base}{heap_type},   \hyperlink{namespacehryky_1_1memory_1_1global_a6fc6103f67c837aa0f39b359588409cd}{heap});
+00101         \hyperlink{classhryky_1_1task_1_1distributor_1_1_batch}{distributor_type}                distributor\_;
+00102         hryky\_accessor\_row(\textcolor{keywordtype}{size\_t},      batch\_size);
+00103     \};
+00104 
+00109     \textcolor{keywordtype}{bool} \hyperlink{group__task_ga88b1f6b27be23acb9fd42203d7cd3933}{reset}(ResetParameter \textcolor{keyword}{const} & param);
+00110 
+00115     \textcolor{keywordtype}{bool} \hyperlink{group__task_gaef74f2d2dd44b8e13f615963ea1e1f0f}{append}(task\_const\_reference task);
+00116 
+00124     \textcolor{keyword}{template} < \textcolor{keyword}{typename} InputIterator >
+00125     \textcolor{keywordtype}{bool} \hyperlink{group__task_gaef74f2d2dd44b8e13f615963ea1e1f0f}{append}(InputIterator begin, InputIterator end);
+00126 
+\hypertarget{task__worker__batch_8h_source_l00131}{}\hyperlink{classhryky_1_1task_1_1worker_1_1_batch_ae524443d01bdfe8db31bd6f01a983388}{00131}     \hyperlink{classhryky_1_1task_1_1distributor_1_1_batch}{distributor_type} \hyperlink{classhryky_1_1task_1_1worker_1_1_batch_ae524443d01bdfe8db31bd6f01a983388}{distributor}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} this->distributor\_; \}
+00132 
+00133     \textcolor{comment}{// for statistics}
+00134     \textcolor{keywordtype}{size\_t}              appendants\_size\_total()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} this->
+      appendants\_size\_total\_; \}
+00135     \textcolor{keywordtype}{size\_t}              appendants\_size\_watermark()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} this->
+      appendants\_size\_watermark\_; \}
+00136     clock::nanoseconds  pre\_task\_total()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} this->pre\_task\_total\_; 
+      \}
+00137     clock::nanoseconds  in\_task\_total()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} this->in\_task\_total\_; \}
+00138     clock::nanoseconds  post\_task\_total()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} this->post\_task\_total\_
+      ; \}
+00139     clock::nanoseconds  append\_total()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} this->append\_total\_; \}
+00140 
+00141 \textcolor{keyword}{protected} :
+00142 
+00143     \textcolor{keyword}{typedef} Vector<task\_type>   tasks\_type;
+00144     \textcolor{keyword}{typedef} Vector<task\_type>   tasks\_buffer\_type;
+00145 
+00147     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \hyperlink{group__task_ga1f7366c2252fb0c7a7c8dc6f92a31e88}{run_impl}();
+00148 
+00149 \textcolor{keyword}{private} :
+00150 
+00151     \textcolor{keyword}{typedef} exclusion::Mutex                lockable\_type;
+00152     \textcolor{keyword}{typedef} exclusion::Lock<lockable\_type>  lock\_type;
+00153 
+00155     \textcolor{keyword}{explicit} \hyperlink{group__task_ga1e0c51798108868eef5a4f126640b4d7}{Batch}(\hyperlink{group__task_ga1e0c51798108868eef5a4f126640b4d7}{Batch} \textcolor{keyword}{const} &);
+00156 
+00158     \hyperlink{group__task_ga1e0c51798108868eef5a4f126640b4d7}{Batch} & operator=(\hyperlink{group__task_ga1e0c51798108868eef5a4f126640b4d7}{Batch} \textcolor{keyword}{const} &rhs);
+00159 
+00161     \textcolor{keywordtype}{void} clear();
+00162 
+00163     distributor\_type        distributor\_;
+00164     tasks\_type              tasks\_;
+00165     tasks\_buffer\_type       tasks\_buffer\_;
+00166     lockable\_type           buffer\_lockable\_;
+00167     \textcolor{keywordtype}{size\_t}                  batch\_size\_;
+00168 
+00170     \textcolor{keywordtype}{size\_t}                  appendants\_size\_total\_;
+00171     \textcolor{keywordtype}{size\_t}                  appendants\_size\_watermark\_;
+00172     clock::nanoseconds      pre\_task\_total\_;
+00173     clock::nanoseconds      in\_task\_total\_;
+00174     clock::nanoseconds      post\_task\_total\_;
+00175     clock::nanoseconds      append\_total\_;
+00176 \};
+00177 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00178 \textcolor{comment}{// public member functions}
+00179 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00183 \textcolor{comment}{}\textcolor{keyword}{template} < \textcolor{keyword}{typename} TaskT >
+\hypertarget{task__worker__batch_8h_source_l00184}{}\hyperlink{group__task_ga1e0c51798108868eef5a4f126640b4d7}{00184} \hyperlink{group__task_ga1e0c51798108868eef5a4f126640b4d7}{hryky::task::worker::Batch<TaskT>::Batch}()
+00185     : \hyperlink{classhryky_1_1task_1_1worker_1_1_base}{base_type}()
+00186       , distributor\_(\hyperlink{common_8h_a4cd4ac09cfcdbd6b30ee69afc156e210}{HRYKY_NULLPTR})
+00187       , tasks\_()
+00188       , tasks\_buffer\_()
+00189       , buffer\_lockable\_()
+00190       , batch\_size\_(0)
+00191       , appendants\_size\_total\_(0)
+00192       , appendants\_size\_watermark\_(0)
+00193       , pre\_task\_total\_()
+00194       , in\_task\_total\_()
+00195       , post\_task\_total\_()
+00196       , append\_total\_()
+00197 \{
+00198 \}
+00202 \textcolor{keyword}{template} < \textcolor{keyword}{typename} TaskT >
+\hypertarget{task__worker__batch_8h_source_l00203}{}\hyperlink{group__task_ga11956032bccdfa3a83ec3615f9c03d0f}{00203} \hyperlink{classhryky_1_1task_1_1worker_1_1_batch}{hryky::task::worker::Batch<TaskT>::~Batch}()
+00204 \{
+00205     this->\hyperlink{namespacehryky_aa201297ea9530da954a7230be71cc19d}{clear}();
+00206 \}
+00210 \textcolor{keyword}{template} < \textcolor{keyword}{typename} TaskT >
+\hypertarget{task__worker__batch_8h_source_l00211}{}\hyperlink{group__task_ga88b1f6b27be23acb9fd42203d7cd3933}{00211} \textcolor{keywordtype}{bool} \hyperlink{classhryky_1_1task_1_1worker_1_1_batch}{hryky::task::worker::Batch<TaskT>::reset}(\hyperlink{structhryky_1_1task_1_1worker_1_1_base_1_1_reset_parameter}{ResetParameter} \textcolor{keyword}{const} & param)
+00212 \{
+00213     \hyperlink{classhryky_1_1memory_1_1heap_1_1_base}{heap_type} \textcolor{keyword}{const} \hyperlink{namespacehryky_1_1memory_1_1global_a6fc6103f67c837aa0f39b359588409cd}{heap} = param.heap();
+00214 
+00215     \textcolor{keywordflow}{if} (\hyperlink{common_8h_a4cd4ac09cfcdbd6b30ee69afc156e210}{HRYKY_NULLPTR} == heap) \{
+00216         \hyperlink{log__writer__common_8h_ae5ad3dabb33f594695ef40753cb78aad}{hryky_log_err}(\textcolor{stringliteral}{"argument 'heap' is null"});
+00217         \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+00218     \}
+00219     
+00220     \textcolor{keywordflow}{if} (!this->base\_type::reset(param)) \{ \textcolor{keywordflow}{return} \textcolor{keyword}{false}; \}
+00221 
+00222     \textcolor{keywordtype}{size\_t} \textcolor{keyword}{const} batch\_size = param.batch\_size();
+00223 
+00224     \textcolor{keywordflow}{if} (0 == batch\_size) \{
+00225         \hyperlink{log__writer__common_8h_ae5ad3dabb33f594695ef40753cb78aad}{hryky_log_err}(
+00226             (*\hyperlink{namespacehryky_1_1reduction_ac5eae270cf8047b294dc4ff3e5e11a79}{reduction::map}(\textcolor{stringliteral}{"invalid argument"}))
+00227             .append(\textcolor{stringliteral}{"batch\_size"}, batch\_size));
+00228         \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+00229     \}
+00230 
+00231     \hyperlink{classhryky_1_1_vector}{tasks_type} tasks(heap);
+00232     \textcolor{keywordflow}{if} (!tasks.\hyperlink{classhryky_1_1_vector_a4d2a2874dcc88826b45782d4b1b73051}{reserve}(batch\_size)) \{
+00233         \hyperlink{log__writer__common_8h_ae5ad3dabb33f594695ef40753cb78aad}{hryky_log_err}(
+00234             \hyperlink{namespacehryky_1_1reduction_ac5eae270cf8047b294dc4ff3e5e11a79}{reduction::map}(\textcolor{stringliteral}{"failed to allocate the buffer for tasks."})
+00235             ->append(\textcolor{stringliteral}{"batch\_size"}, batch\_size));
+00236         \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+00237     \}
+00238 
+00239     this->\hyperlink{namespacehryky_aa201297ea9530da954a7230be71cc19d}{clear}();
+00240 
+00241     this->distributor\_ = param.distributor();
+00242     \hyperlink{namespacehryky_add9c1c1fdfda07cd47bcb7c16d3a823a}{hryky_swap}(this->tasks\_, tasks);
+00243     this->tasks\_buffer\_ = \hyperlink{classhryky_1_1_vector}{tasks_buffer_type}(heap);
+00244     this->batch\_size\_ = batch\_size;
+00245 
+00246     \textcolor{keywordflow}{return} \textcolor{keyword}{true};
+00247 \}
+00251 \textcolor{keyword}{template} < \textcolor{keyword}{typename} TaskT >
+\hypertarget{task__worker__batch_8h_source_l00252}{}\hyperlink{group__task_gaef74f2d2dd44b8e13f615963ea1e1f0f}{00252} \textcolor{keywordtype}{bool} \hyperlink{classhryky_1_1task_1_1worker_1_1_batch}{hryky::task::worker::Batch<TaskT>::append}(
+00253     task\_const\_reference task)
+00254 \{
+00255     \hyperlink{classhryky_1_1profiler_1_1_cumulate}{profiler::Cumulate<clock::nanoseconds>} \textcolor{keyword}{const} profile(this->append\_total\_);
+00256 
+00257     \hyperlink{classhryky_1_1exclusion_1_1_lock}{lock_type} \textcolor{keyword}{const} lock(this->buffer\_lockable\_);
+00258 
+00259     \textcolor{keywordflow}{if} (!this->tasks\_buffer\_.push\_back(task)) \{
+00260         \hyperlink{log__writer__common_8h_ae5ad3dabb33f594695ef40753cb78aad}{hryky_log_err}(
+00261             \hyperlink{namespacehryky_1_1reduction_ac5eae270cf8047b294dc4ff3e5e11a79}{reduction::map}(\textcolor{stringliteral}{"failed to append a task"})
+00262             ->append(\textcolor{stringliteral}{"tasks\_buffer"}, this->tasks\_buffer\_));
+00263         \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+00264     \}
+00265 
+00266     ++this->appendants\_size\_total\_;
+00267 
+00268     this->appendants\_size\_watermark\_ = std::max<size\_t>(
+00269         this->appendants\_size\_watermark\_, this->tasks\_buffer\_.size());
+00270 
+00271     \textcolor{keywordflow}{return} \textcolor{keyword}{true};
+00272 \}
+00276 \textcolor{keyword}{template} < \textcolor{keyword}{typename} TaskT >
+00277 \textcolor{keyword}{template} < \textcolor{keyword}{typename} InputIterator >
+\hypertarget{task__worker__batch_8h_source_l00278}{}\hyperlink{group__task_gabb7f26f7fde9cb631988f9cf906d499f}{00278} \textcolor{keywordtype}{bool} \hyperlink{classhryky_1_1task_1_1worker_1_1_batch}{hryky::task::worker::Batch<TaskT>::append}(
+00279     InputIterator begin, InputIterator end)
+00280 \{
+00281     \hyperlink{classhryky_1_1profiler_1_1_cumulate}{profiler::Cumulate<clock::nanoseconds>} \textcolor{keyword}{const} profile(this->append\_total\_);
+00282 
+00283     \hyperlink{classhryky_1_1exclusion_1_1_lock}{lock_type} \textcolor{keyword}{const} lock(this->buffer\_lockable\_);
+00284 
+00285     \textcolor{keywordflow}{if} (!this->tasks\_buffer\_.insert(
+00286         this->tasks\_buffer\_.end(), begin, end)) \{
+00287         \hyperlink{log__writer__common_8h_ae5ad3dabb33f594695ef40753cb78aad}{hryky_log_err}(
+00288             \hyperlink{namespacehryky_1_1reduction_ac5eae270cf8047b294dc4ff3e5e11a79}{reduction::map}(\textcolor{stringliteral}{"failed to insert multiple tasks"})
+00289             ->append(\textcolor{stringliteral}{"tasks\_buffer"}, this->tasks\_buffer\_)
+00290             ->append(\textcolor{stringliteral}{"size"}, end - begin)
+00291             );
+00292         \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+00293     \}
+00294 
+00295     this->appendants\_size\_total\_ += end - begin;
+00296 
+00297     this->appendants\_size\_watermark\_ = std::max<size\_t>(
+00298         this->appendants\_size\_watermark\_, this->tasks\_buffer\_.size());
+00299 
+00300     \textcolor{keywordflow}{return} \textcolor{keyword}{true};
+00301 \}
+00302 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00303 \textcolor{comment}{// protected member functions}
+00304 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00308 \textcolor{comment}{}\textcolor{keyword}{template} < \textcolor{keyword}{typename} TaskT >
+\hypertarget{task__worker__batch_8h_source_l00309}{}\hyperlink{group__task_ga1f7366c2252fb0c7a7c8dc6f92a31e88}{00309} \textcolor{keywordtype}{void} \hyperlink{classhryky_1_1task_1_1worker_1_1_batch}{hryky::task::worker::Batch<TaskT>::run_impl}()
+00310 \{
+00311     \{
+00312         \hyperlink{classhryky_1_1profiler_1_1_cumulate}{profiler::Cumulate<clock::nanoseconds>} \textcolor{keyword}{const} profile(this->
+      pre\_task\_total\_);
+00313 
+00314         \textcolor{comment}{// locks while tasks\_buffer is accessed.}
+00315         \hyperlink{classhryky_1_1exclusion_1_1_lock}{lock_type} \textcolor{keyword}{const} lock(this->buffer\_lockable\_);
+00316 
+00317         \textcolor{keywordflow}{if} (this->tasks\_buffer\_.empty()) \{
+00318             \textcolor{keywordflow}{return};
+00319         \}
+00320 
+00321         \textcolor{keywordtype}{size\_t} \textcolor{keyword}{const} batch\_size = std::min<size\_t>(
+00322             this->batch\_size\_, this->tasks\_buffer\_.size());
+00323 
+00324         \textcolor{comment}{// brings tasks out from buffer}
+00325         this->tasks\_.assign(
+00326             this->tasks\_buffer\_.begin(),
+00327             this->tasks\_buffer\_.begin() + batch\_size);
+00328 
+00329         this->tasks\_buffer\_.erase(
+00330             this->tasks\_buffer\_.begin(),
+00331             this->tasks\_buffer\_.begin() + batch\_size);
+00332     \}
+00333 
+00334     \{
+00335         \hyperlink{classhryky_1_1profiler_1_1_cumulate}{profiler::Cumulate<clock::nanoseconds>} \textcolor{keyword}{const} profile(this->
+      in\_task\_total\_);
+00336         \hyperlink{classhryky_1_1_foreach}{Foreach<tasks_type>} \textcolor{keywordflow}{foreach}(this->tasks\_);
+00337         \textcolor{keywordflow}{for} (; \textcolor{keywordflow}{foreach}.valid(); ++\textcolor{keywordflow}{foreach}) \{
+00338             \hyperlink{group__generic__programming_ga74adf3223a4335c89d64f985d0bcc29e}{hryky::dereference}(*\textcolor{keywordflow}{foreach})(*this);
+00339         \}
+00340         this->tasks\_.resize(0);
+00341     \}
+00342 
+00343     \{
+00344         \hyperlink{classhryky_1_1profiler_1_1_cumulate}{profiler::Cumulate<clock::nanoseconds>} \textcolor{keyword}{const} profile(this->
+      post\_task\_total\_);
+00345 
+00346         \textcolor{keywordflow}{if} (!this->tasks\_buffer\_.empty()) \{
+00347             \textcolor{comment}{// attaches self again to execute rest tasks}
+00348             this->attach();
+00349         \}
+00350     \}
+00351 \}
+00352 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00353 \textcolor{comment}{// private member functions}
+00354 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00358 \textcolor{comment}{}\textcolor{keyword}{template} <\textcolor{keyword}{typename} TaskT>
+00359 \textcolor{keywordtype}{void} \hyperlink{namespacehryky_aa201297ea9530da954a7230be71cc19d}{hryky::task::worker::Batch<TaskT>::clear}()
+00360 \{
+00361     this->tasks\_.resize(0);
+00362     this->tasks\_buffer\_.resize(0);
+00363     this->distributor\_ = \hyperlink{common_8h_a4cd4ac09cfcdbd6b30ee69afc156e210}{HRYKY_NULLPTR};
+00364     this->batch\_size\_ = 0;
+00365 \}
+00366 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00367 \textcolor{comment}{// inline functions}
+00368 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00369 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00370 \textcolor{comment}{// function prototypes}
+00371 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00372 \textcolor{keyword}{namespace }hryky
+00373 \{
+00374 \textcolor{keyword}{namespace }task
+00375 \{
+00376 \textcolor{keyword}{namespace }worker
+00377 \{
+00379     \textcolor{keyword}{template} < \textcolor{keyword}{typename} TaskT >
+00380     \hyperlink{classhryky_1_1_intrusive_ptr}{reduction_type} \hyperlink{namespacehryky_1_1task_1_1worker_a69f40c48f750e5d2a8b867f295119dac}{reduce}(
+00381         \hyperlink{classhryky_1_1reduction_1_1_string}{reduction::name_type} \textcolor{keyword}{const} & name, Batch<TaskT> \textcolor{keyword}{const} & batch);
+00382 
+00383 \}
+00384 \}
+00385 \}
+00386 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00387 \textcolor{comment}{// global functions}
+00388 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00392 \textcolor{comment}{}\textcolor{keyword}{template} < \textcolor{keyword}{typename} TaskT >
+\hypertarget{task__worker__batch_8h_source_l00393}{}\hyperlink{group__task_ga7bfbcc99f638cedafbdc6174770c4da1}{00393} \hyperlink{classhryky_1_1_intrusive_ptr}{hryky::reduction_type} \hyperlink{namespacehryky_1_1task_1_1worker_a69f40c48f750e5d2a8b867f295119dac}{hryky::task::worker::reduce}(
+00394     \hyperlink{classhryky_1_1reduction_1_1_string}{reduction::name_type} \textcolor{keyword}{const} & name, \hyperlink{classhryky_1_1task_1_1worker_1_1_batch}{Batch<TaskT>} \textcolor{keyword}{const} & batch)
+00395 \{
+00396     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1task_1_1worker_1_1_batch}{Batch<TaskT>} batch\_type;
+00397     
+00398     \hyperlink{classhryky_1_1_intrusive_ptr}{reduction::map_type} \hyperlink{namespacehryky_1_1reduction_ac5eae270cf8047b294dc4ff3e5e11a79}{map} = \hyperlink{namespacehryky_1_1reduction_ac5eae270cf8047b294dc4ff3e5e11a79}{reduction::map}(name);
+00399 
+00400     ((*map)
+00401      .append(\textcolor{stringliteral}{"base"},                        static\_cast<batch\_type::base\_type
+       const &>(batch))
+00402      .append(\textcolor{stringliteral}{"appendants\_size\_total"},       batch.appendants\_size\_total())
+00403      .append(\textcolor{stringliteral}{"appendants\_size\_watermark"},   batch.appendants\_size\_watermark())
+00404      .append(\textcolor{stringliteral}{"pre\_task\_total"},              batch.pre\_task\_total().count())
+00405      .append(\textcolor{stringliteral}{"in\_task\_total"},               batch.in\_task\_total().count())
+00406      .append(\textcolor{stringliteral}{"post\_task\_total"},             batch.post\_task\_total().count())
+00407      .append(\textcolor{stringliteral}{"append\_total"},                batch.append\_total().count())
+00408      );
+00409     
+00410     \textcolor{keywordflow}{return} \hyperlink{namespacehryky_1_1reduction_ac5eae270cf8047b294dc4ff3e5e11a79}{map};
+00411 \}
+00412 \textcolor{preprocessor}{#endif // TASK\_WORKER\_BATCH\_H\_20111122003830693}
+00413 \textcolor{preprocessor}{}
+00414 \textcolor{comment}{// end of file}
+\end{DoxyCode}

@@ -1,0 +1,223 @@
+\hypertarget{http__header__parser_8h_source}{\section{http\-\_\-header\-\_\-parser.\-h}
+}
+
+\begin{DoxyCode}
+00001 
+00007 \textcolor{preprocessor}{#ifndef HTTP\_HEADER\_PARSER\_H\_20130117231425635}
+00008 \textcolor{preprocessor}{}\textcolor{preprocessor}{#define HTTP\_HEADER\_PARSER\_H\_20130117231425635}
+00009 \textcolor{preprocessor}{}\textcolor{preprocessor}{#include "\hyperlink{common_8h}{hryky/common.h}"}
+00010 \textcolor{preprocessor}{#include "\hyperlink{date_8h}{hryky/date.h}"}
+00011 \textcolor{preprocessor}{#include "\hyperlink{http__entity_8h}{hryky/http/http_entity.h}"}
+00012 \textcolor{preprocessor}{#include "\hyperlink{http__header__entity_8h}{hryky/http/http_header_entity.h}"}
+00013 \textcolor{preprocessor}{#include "\hyperlink{http__method__common_8h}{hryky/http/http_method_common.h}"}
+00014 \textcolor{preprocessor}{#include "\hyperlink{http__request__entity_8h}{hryky/http/http_request_entity.h}"}
+00015 \textcolor{preprocessor}{#include "\hyperlink{http__version__entity_8h}{hryky/http/http_version_entity.h}"}
+00016 \textcolor{preprocessor}{#include "\hyperlink{ip_8h}{hryky/ip.h}"}
+00017 \textcolor{preprocessor}{#include "\hyperlink{kind_8h}{hryky/kind.h}"}
+00018 \textcolor{preprocessor}{#include "\hyperlink{parser_8h}{hryky/parser.h}"}
+00019 \textcolor{preprocessor}{#include "\hyperlink{shared__ptr_8h}{hryky/shared_ptr.h}"}
+00020 \textcolor{preprocessor}{#include "\hyperlink{chrono_8h}{hryky/chrono.h}"}
+00021 \textcolor{preprocessor}{#include "\hyperlink{uri_8h}{hryky/uri.h}"}
+00022 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00023 \textcolor{comment}{// macro definition}
+00024 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00025 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00026 \textcolor{comment}{// namespace}
+00027 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00028 \textcolor{keyword}{namespace }hryky
+00029 \{
+00030 \textcolor{keyword}{namespace }http
+00031 \{
+00032 \textcolor{keyword}{namespace }header
+00033 \{
+00035     \textcolor{keyword}{class }Parser;
+00036 
+00037     \textcolor{keyword}{typedef} Parser parser\_type;
+00038 
+00039 \textcolor{keyword}{namespace }kmyacc
+00040 \{
+00041 \textcolor{preprocessor}{#include "hryky/http/http\_header.y.h"}
+00042 \}
+00043 
+00044 \} \textcolor{comment}{// namespace header}
+00045 \} \textcolor{comment}{// namespace http}
+00046 \} \textcolor{comment}{// namespace hryky}
+00047 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00048 \textcolor{comment}{// class declarations}
+00049 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+\hypertarget{http__header__parser_8h_source_l00053}{}\hyperlink{classhryky_1_1http_1_1header_1_1_parser}{00053} \textcolor{comment}{}\textcolor{keyword}{class }\hyperlink{classhryky_1_1http_1_1header_1_1_parser}{hryky::http::header::Parser}
+00054     : \textcolor{keyword}{public} \hyperlink{classhryky_1_1parser_1_1_base}{hryky::parser::Base}<
+00055         hryky::http::header::kmyacc::Parser<
+00056             hryky::http::header::Parser> >
+00057 \{
+00058 \textcolor{keyword}{public} :
+00059 
+\hypertarget{http__header__parser_8h_source_l00060}{}\hyperlink{classhryky_1_1http_1_1header_1_1_parser_aed496466ed39c1bcf709a3be673f3478}{00060}     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1http_1_1header_1_1_parser}{Parser} \hyperlink{classhryky_1_1http_1_1header_1_1_parser_aed496466ed39c1bcf709a3be673f3478}{this_type};
+00061     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1parser_1_1_base}{hryky::parser::Base<kmyacc::Parser<this_type>} > \hyperlink{classhryky_1_1parser_1_1_base}{base_type};
+00062 
+00064     \hyperlink{classhryky_1_1http_1_1header_1_1_parser_a3e9805064f5a4c2d6877ad0c492a6d4b}{Parser}();
+00065 
+00067     \hyperlink{classhryky_1_1http_1_1header_1_1_parser_a3e9805064f5a4c2d6877ad0c492a6d4b}{Parser}(\hyperlink{classhryky_1_1http_1_1header_1_1_parser}{this_type} \textcolor{keyword}{const} &);
+00068 
+00070     \hyperlink{classhryky_1_1http_1_1header_1_1_parser_a3e9805064f5a4c2d6877ad0c492a6d4b}{Parser}(\hyperlink{classhryky_1_1http_1_1header_1_1_parser}{this_type} && rhs);
+00071 
+00073     \hyperlink{classhryky_1_1http_1_1header_1_1_parser_a3e9805064f5a4c2d6877ad0c492a6d4b}{Parser}(\hyperlink{classhryky_1_1memory_1_1heap_1_1_base}{memory::heap_type} \textcolor{keyword}{const} \hyperlink{classhryky_1_1parser_1_1_base_ade0723cedb648d9850423cc04fe4bdcf}{heap});
+00074     
+00076     \hyperlink{classhryky_1_1http_1_1header_1_1_parser_a2885089027a621a0ec401856af5375c2}{~Parser}();
+00077 
+\hypertarget{http__header__parser_8h_source_l00079}{}\hyperlink{classhryky_1_1http_1_1header_1_1_parser_ae6fc258cad5ece524092a5df9210ae8d}{00079}     \hyperlink{classhryky_1_1http_1_1header_1_1_parser_ae6fc258cad5ece524092a5df9210ae8d}{hryky_assign_op};
+00080 
+00082     \textcolor{keywordtype}{void} \hyperlink{classhryky_1_1http_1_1header_1_1_parser_a274efb7f946d3718efbfbc154750c278}{clear}();
+00083 
+00085     \hyperlink{classhryky_1_1_intrusive_ptr}{reduction_type} \hyperlink{classhryky_1_1http_1_1header_1_1_parser_a4ac02c5b2de84a6e8130148dc6064bb8}{reduce}(\hyperlink{classhryky_1_1reduction_1_1_string}{reduction::name_type} \textcolor{keyword}{const} & name) \textcolor{keyword}{const};
+00086 
+00088     \textcolor{keywordtype}{void} \hyperlink{classhryky_1_1http_1_1header_1_1_parser_a827667b5e98feeb979ec0b2e3b04f54f}{swap}(\hyperlink{classhryky_1_1http_1_1header_1_1_parser}{this_type} & src);
+00089 
+00091     \textcolor{keyword}{template} <\textcolor{keyword}{typename} ValueT>
+00092     \hyperlink{classhryky_1_1_vector}{token_type} \hyperlink{classhryky_1_1http_1_1header_1_1_parser_a0593e9a0e2cd945d715cfbaf0a3f2fdb}{create_shared_ptr_token}();
+00093 
+00095     \textcolor{keyword}{template} <\textcolor{keyword}{typename} ValueT>
+00096     \hyperlink{classhryky_1_1_vector}{token_type} \hyperlink{classhryky_1_1http_1_1header_1_1_parser_a0593e9a0e2cd945d715cfbaf0a3f2fdb}{create_shared_ptr_token}(ValueT * \textcolor{keyword}{const} ptr);
+00097 
+00099     \textcolor{keyword}{template} <\textcolor{keyword}{typename} ValueT>
+00100     \hyperlink{classhryky_1_1_vector}{token_type} \hyperlink{classhryky_1_1http_1_1header_1_1_parser_a0593e9a0e2cd945d715cfbaf0a3f2fdb}{create_shared_ptr_token}(ValueT \textcolor{keyword}{const} & ref);
+00101 
+00103     \textcolor{keyword}{template} <\textcolor{keyword}{typename} ValueT>
+00104     \hyperlink{classhryky_1_1_vector}{token_type} \hyperlink{classhryky_1_1http_1_1header_1_1_parser_a1c184592556a67601aa3d6195a746dfb}{create_field_token}(ValueT \textcolor{keyword}{const} & src);
+00105 
+00107     \textcolor{keyword}{template} <\textcolor{keyword}{typename} ValueT>
+00108     \hyperlink{classhryky_1_1_vector}{token_type} \hyperlink{classhryky_1_1http_1_1header_1_1_parser_ab563791ae22360bf7490fceb952d7601}{create_cache_directive_token}(ValueT \textcolor{keyword}{const} & src);
+00109 
+00111     \textcolor{keyword}{template} <\textcolor{keyword}{template} <\textcolor{keyword}{class}> \textcolor{keyword}{class }AdapterT, \textcolor{keyword}{typename} ValueT>
+00112     \hyperlink{classhryky_1_1_vector}{token_type} \hyperlink{classhryky_1_1http_1_1header_1_1_parser_a131ffc5be65b0aafa64241c87de5facd}{create_adapter_token}(ValueT \textcolor{keyword}{const} & src);
+00113 
+00115     \textcolor{keywordtype}{void} \hyperlink{classhryky_1_1http_1_1header_1_1_parser_a141af3e67b7df44941b5cf2536ecce6b}{entity}(\hyperlink{classhryky_1_1http_1_1header_1_1_entity}{header_type} * \textcolor{keyword}{const} src);
+00116     
+00118     \hyperlink{classhryky_1_1http_1_1header_1_1_entity}{header_type} * \hyperlink{classhryky_1_1http_1_1header_1_1_parser_a141af3e67b7df44941b5cf2536ecce6b}{entity}();
+00119     
+00121     result\_type \hyperlink{classhryky_1_1http_1_1header_1_1_parser_ac5cb77a42333648c7e8229fdece7b052}{parse_token}(
+00122         \hyperlink{classhryky_1_1_vector}{token_type} \textcolor{keyword}{const} & token, token\_id\_type \textcolor{keyword}{const} token\_id);
+00123 
+00124 \textcolor{keyword}{protected} :
+00125 
+00126 \textcolor{keyword}{private} :
+00127 
+00128     \hyperlink{classhryky_1_1http_1_1header_1_1_entity}{header_type} * entity\_;
+00129     uint32\_t last\_four\_octets\_;
+00130 
+00131 \};
+00132 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00133 \textcolor{comment}{// class specializations}
+00134 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00135 \textcolor{keyword}{namespace }hryky
+00136 \{
+00137 \textcolor{keyword}{namespace }http
+00138 \{
+00139 \textcolor{keyword}{namespace }header
+00140 \{
+00141 \} \textcolor{comment}{// namespace header}
+00142 \} \textcolor{comment}{// namespace http}
+00143 \} \textcolor{comment}{// namespace hryky}
+00144 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00145 \textcolor{comment}{// public member functions}
+00146 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00150 \textcolor{comment}{}\textcolor{keyword}{template} <\textcolor{keyword}{typename} ValueT>
+00151 hryky::http::header::Parser::token\_type
+\hypertarget{http__header__parser_8h_source_l00152}{}\hyperlink{classhryky_1_1http_1_1header_1_1_parser_a0593e9a0e2cd945d715cfbaf0a3f2fdb}{00152} \hyperlink{classhryky_1_1http_1_1header_1_1_parser_a0593e9a0e2cd945d715cfbaf0a3f2fdb}{hryky::http::header::Parser::create_shared_ptr_token}()
+00153 \{
+00154     \textcolor{keywordflow}{return} \hyperlink{classhryky_1_1_vector}{token_type}(
+00155         \hyperlink{classhryky_1_1_shared_ptr}{SharedPtr<ValueT>::instantiate}(this->\hyperlink{classhryky_1_1parser_1_1_base_ade0723cedb648d9850423cc04fe4bdcf}{heap}()),
+00156         this->\hyperlink{classhryky_1_1parser_1_1_base_ade0723cedb648d9850423cc04fe4bdcf}{heap}());
+00157 \}
+00161 \textcolor{keyword}{template} <\textcolor{keyword}{typename} ValueT>
+00162 hryky::http::header::Parser::token\_type
+\hypertarget{http__header__parser_8h_source_l00163}{}\hyperlink{classhryky_1_1http_1_1header_1_1_parser_ab787930a2806672fdec7f55975e9e57f}{00163} \hyperlink{classhryky_1_1http_1_1header_1_1_parser_a0593e9a0e2cd945d715cfbaf0a3f2fdb}{hryky::http::header::Parser::create_shared_ptr_token}(
+00164     ValueT * \textcolor{keyword}{const} ptr)
+00165 \{
+00166     \textcolor{keywordflow}{return} \hyperlink{classhryky_1_1_vector}{token_type}(
+00167         \hyperlink{classhryky_1_1_shared_ptr}{SharedPtr<ValueT>}(ptr, this->\hyperlink{namespacehryky_1_1memory_1_1global_a6fc6103f67c837aa0f39b359588409cd}{heap}()),
+00168         this->\hyperlink{namespacehryky_1_1memory_1_1global_a6fc6103f67c837aa0f39b359588409cd}{heap}());
+00169 \}
+00173 \textcolor{keyword}{template} <\textcolor{keyword}{typename} ValueT>
+00174 hryky::http::header::Parser::token\_type
+\hypertarget{http__header__parser_8h_source_l00175}{}\hyperlink{classhryky_1_1http_1_1header_1_1_parser_a0d76245a0fba088b5d7f7baa7039f86b}{00175} \hyperlink{classhryky_1_1http_1_1header_1_1_parser_a0593e9a0e2cd945d715cfbaf0a3f2fdb}{hryky::http::header::Parser::create_shared_ptr_token}(
+00176     ValueT \textcolor{keyword}{const} & ref)
+00177 \{
+00178     \textcolor{keywordflow}{return} \hyperlink{classhryky_1_1_vector}{token_type}(
+00179         \hyperlink{classhryky_1_1_shared_ptr}{SharedPtr<ValueT>::instantiate}(
+00180             \hyperlink{classhryky_1_1allocator_1_1_heap}{allocator::Heap<ValueT>}(this->\hyperlink{namespacehryky_1_1memory_1_1global_a6fc6103f67c837aa0f39b359588409cd}{heap}()), ref),
+00181         this->\hyperlink{namespacehryky_1_1memory_1_1global_a6fc6103f67c837aa0f39b359588409cd}{heap}());
+00182 \}
+00186 \textcolor{keyword}{template} <\textcolor{keyword}{typename} ValueT>
+00187 hryky::http::header::Parser::token\_type
+\hypertarget{http__header__parser_8h_source_l00188}{}\hyperlink{classhryky_1_1http_1_1header_1_1_parser_a1c184592556a67601aa3d6195a746dfb}{00188} \hyperlink{classhryky_1_1http_1_1header_1_1_parser_a1c184592556a67601aa3d6195a746dfb}{hryky::http::header::Parser::create_field_token}(
+00189     ValueT \textcolor{keyword}{const} & src)
+00190 \{
+00191     \textcolor{keywordflow}{return} this->create\_adapter\_token<header::field::Adapter>(src);
+00192 \}
+00196 \textcolor{keyword}{template} <\textcolor{keyword}{typename} ValueT>
+00197 hryky::http::header::Parser::token\_type 
+\hypertarget{http__header__parser_8h_source_l00198}{}\hyperlink{classhryky_1_1http_1_1header_1_1_parser_ab563791ae22360bf7490fceb952d7601}{00198} \hyperlink{classhryky_1_1http_1_1header_1_1_parser_ab563791ae22360bf7490fceb952d7601}{hryky::http::header::Parser::create_cache_directive_token}(ValueT \textcolor{keyword}{const} & src)
+00199 \{
+00200     \textcolor{keywordflow}{return} this->create\_adapter\_token<header::cache::directive::Adapter>(src);
+00201 \}
+00205 \textcolor{keyword}{template} <\textcolor{keyword}{template} <\textcolor{keyword}{typename}> \textcolor{keyword}{class }AdapterT, \textcolor{keyword}{typename} ValueT>
+00206 hryky::http::header::Parser::token\_type
+\hypertarget{http__header__parser_8h_source_l00207}{}\hyperlink{classhryky_1_1http_1_1header_1_1_parser_a131ffc5be65b0aafa64241c87de5facd}{00207} \hyperlink{classhryky_1_1http_1_1header_1_1_parser_a131ffc5be65b0aafa64241c87de5facd}{hryky::http::header::Parser::create_adapter_token}(
+00208     ValueT \textcolor{keyword}{const} & src)
+00209 \{
+00210     \textcolor{keywordflow}{return} \hyperlink{classhryky_1_1_vector}{token_type}(
+00211         \hyperlink{classhryky_1_1_shared_ptr}{SharedPtr}<\textcolor{keyword}{typename} AdapterT<ValueT>::base\_type::base\_type>(
+00212             \hyperlink{classhryky_1_1_shared_ptr}{SharedPtr}<AdapterT<ValueT> >::\hyperlink{namespacehryky_a7e731db6d90571cf1aea6e113d43b6ad}{instantiate}(
+00213                 \hyperlink{classhryky_1_1allocator_1_1_heap}{allocator::Heap}<AdapterT<ValueT> >(this->\hyperlink{namespacehryky_1_1memory_1_1global_a6fc6103f67c837aa0f39b359588409cd}{heap}()),
+00214                 src)),
+00215         this->\hyperlink{namespacehryky_1_1memory_1_1global_a6fc6103f67c837aa0f39b359588409cd}{heap}());
+00216 \}
+00217 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00218 \textcolor{comment}{// protected member functions}
+00219 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00220 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00221 \textcolor{comment}{// private member functions}
+00222 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00223 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00224 \textcolor{comment}{// global function prototypes}
+00225 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00226 \textcolor{keyword}{namespace }hryky
+00227 \{
+00228 \textcolor{keyword}{namespace }http
+00229 \{
+00230 \textcolor{keyword}{namespace }header
+00231 \{
+00233     \hyperlink{classhryky_1_1_intrusive_ptr}{reduction_type} \hyperlink{namespacehryky_1_1http_a08fc36a78a8e2908140fcd102829a566}{reduce}(
+00234         \hyperlink{classhryky_1_1reduction_1_1_string}{reduction::name_type} \textcolor{keyword}{const} & name, \hyperlink{classhryky_1_1http_1_1header_1_1_parser}{Parser} \textcolor{keyword}{const} & src);
+00235 
+00237     \textcolor{keywordtype}{void} \hyperlink{namespacehryky_1_1http_a38e62595ad532d18fbc65ceb61973aec}{swap}(
+00238         \hyperlink{classhryky_1_1http_1_1header_1_1_parser}{Parser} & lhs, \hyperlink{classhryky_1_1http_1_1header_1_1_parser}{Parser} & rhs);
+00239 
+00240 \} \textcolor{comment}{// namespace header}
+00241 \} \textcolor{comment}{// namespace http}
+00242 \} \textcolor{comment}{// namespace hryky}
+00243 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00244 \textcolor{comment}{// global function definitions}
+00245 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00246 \textcolor{preprocessor}{#endif // HTTP\_HEADER\_PARSER\_H\_20130117231425635}
+00247 \textcolor{preprocessor}{}\textcolor{comment}{// end of file}
+\end{DoxyCode}

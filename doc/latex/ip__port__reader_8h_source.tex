@@ -1,0 +1,122 @@
+\hypertarget{ip__port__reader_8h_source}{\section{ip\-\_\-port\-\_\-reader.\-h}
+}
+
+\begin{DoxyCode}
+00001 
+00008 \textcolor{preprocessor}{#ifndef IP\_PORT\_READER\_H\_20120818195407495}
+00009 \textcolor{preprocessor}{}\textcolor{preprocessor}{#define IP\_PORT\_READER\_H\_20120818195407495}
+00010 \textcolor{preprocessor}{}\textcolor{preprocessor}{#include "\hyperlink{log__format__common_8h}{hryky/log/log_format_common.h}"}
+00011 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00012 \textcolor{comment}{// macro definition}
+00013 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00014 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00015 \textcolor{comment}{// namespace}
+00016 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00017 \textcolor{keyword}{namespace }hryky
+00018 \{
+00019 \textcolor{keyword}{namespace }ip
+00020 \{
+00021 \textcolor{keyword}{namespace }port
+00022 \{
+00024     \textcolor{keyword}{class }Reader;
+00025 
+00026 \} \textcolor{comment}{// namespace port}
+00027 \} \textcolor{comment}{// namespace ip}
+00028 \} \textcolor{comment}{// namespace hryky}
+00029 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00030 \textcolor{comment}{// class declarations}
+00031 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+\hypertarget{ip__port__reader_8h_source_l00036}{}\hyperlink{classhryky_1_1ip_1_1port_1_1_reader}{00036} \textcolor{comment}{}\textcolor{keyword}{class }\hyperlink{classhryky_1_1ip_1_1port_1_1_reader}{hryky::ip::port::Reader}
+00037 \{
+00038 \textcolor{keyword}{public} :
+00039 
+\hypertarget{ip__port__reader_8h_source_l00040}{}\hyperlink{classhryky_1_1ip_1_1port_1_1_reader_a5ed0fa6cde14d55890bca881ddacbd24}{00040}     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1ip_1_1port_1_1_reader}{Reader} \hyperlink{classhryky_1_1ip_1_1port_1_1_reader_a5ed0fa6cde14d55890bca881ddacbd24}{this_type};
+00041 
+00043     \hyperlink{classhryky_1_1ip_1_1port_1_1_reader_a3272cfc0652cfa5e63bfea0eabbe858b}{Reader}();
+00044 
+00046     \hyperlink{classhryky_1_1ip_1_1port_1_1_reader_a3272cfc0652cfa5e63bfea0eabbe858b}{Reader}(\hyperlink{classhryky_1_1ip_1_1port_1_1_reader}{this_type} \textcolor{keyword}{const} & rhs);
+00047 
+00049     \hyperlink{classhryky_1_1ip_1_1port_1_1_reader_a932db1b4fa85ba0114b5a0e7b0d01eb1}{~Reader}();
+00050 
+00052     \hyperlink{classhryky_1_1ip_1_1port_1_1_reader}{Reader} & \hyperlink{classhryky_1_1ip_1_1port_1_1_reader_a303bdb500ccf0732dd587474ba006f46}{operator=}(\hyperlink{classhryky_1_1ip_1_1port_1_1_reader}{this_type} \textcolor{keyword}{const} & rhs);
+00053 
+00055     \textcolor{keywordtype}{void} \hyperlink{classhryky_1_1ip_1_1port_1_1_reader_aa0ff8e7089ab6e494191371f743ba010}{clear}();
+00056 
+00058     uint16\_t \hyperlink{classhryky_1_1ip_1_1port_1_1_reader_a43feefa57670a3764096b009fa5552e4}{result}() \textcolor{keyword}{const};
+00059 
+00061     \textcolor{keywordtype}{bool} \hyperlink{classhryky_1_1ip_1_1port_1_1_reader_a8419dffbea2a25f10e01ba4f51feccef}{complete}();
+00062 
+00064     \textcolor{keywordtype}{bool} \hyperlink{classhryky_1_1ip_1_1port_1_1_reader_a64bb586041f1e0d5a16715ed69b9f355}{operator()}(\hyperlink{namespacehryky_a488cba8b666be33ccca70e819684e3c8}{octet_type} \textcolor{keyword}{const} octet);
+00065 
+00067     \hyperlink{classhryky_1_1_intrusive_ptr}{log::format_type} \hyperlink{classhryky_1_1ip_1_1port_1_1_reader_a698fbd7e25df3dfd69bfdb806f3b8777}{log}(\hyperlink{namespacehryky_1_1log_1_1format_ab7408d1e2ed2d648dbf9bba69eb74288}{log::format::name_type} \textcolor{keyword}{const} & name) \textcolor{keyword}{const};
+00068 
+00069 \textcolor{keyword}{protected} :
+00070 
+00072     \textcolor{keywordtype}{void} \hyperlink{classhryky_1_1ip_1_1port_1_1_reader_abc4e0ea972e2ae38ca85a89a3542e998}{swap}(\hyperlink{classhryky_1_1ip_1_1port_1_1_reader}{this_type} & src);
+00073 
+00074 \textcolor{keyword}{private} :
+00075 
+00076     uint16\_t    port\_;
+00077     \textcolor{keywordtype}{bool}        read\_;
+00078 
+00079 \};
+00080 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00081 \textcolor{comment}{// class specializations}
+00082 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00083 \textcolor{keyword}{namespace }hryky
+00084 \{
+00085 \textcolor{keyword}{namespace }ip
+00086 \{
+00087 \textcolor{keyword}{namespace }port
+00088 \{
+00089 \} \textcolor{comment}{// namespace port}
+00090 \} \textcolor{comment}{// namespace ip}
+00091 \} \textcolor{comment}{// namespace hryky}
+00092 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00093 \textcolor{comment}{// public member functions}
+00094 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00095 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00096 \textcolor{comment}{// protected member functions}
+00097 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00098 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00099 \textcolor{comment}{// private member functions}
+00100 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00101 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00102 \textcolor{comment}{// global function prototypes}
+00103 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00104 \textcolor{keyword}{namespace }hryky
+00105 \{
+00106 \textcolor{keyword}{namespace }ip
+00107 \{
+00108 \textcolor{keyword}{namespace }port
+00109 \{
+00111     \hyperlink{namespacehryky_1_1log_ad50448c3f934f1eacd5c1bcffe8111e1}{log::format_type} \hyperlink{namespacehryky_afd615217f648ff164bc40fb82166d959}{make_format}(
+00112         \hyperlink{namespacehryky_1_1log_1_1format_ab7408d1e2ed2d648dbf9bba69eb74288}{log::format::name_type} \textcolor{keyword}{const} & name, Reader \textcolor{keyword}{const} & src);
+00113 
+00114 \} \textcolor{comment}{// namespace port}
+00115 \} \textcolor{comment}{// namespace ip}
+00116 \} \textcolor{comment}{// namespace hryky}
+00117 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00118 \textcolor{comment}{// global function definitions}
+00119 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00120 \textcolor{preprocessor}{#endif // IP\_PORT\_READER\_H\_20120818195407495}
+00121 \textcolor{preprocessor}{}\textcolor{comment}{// end of file}
+\end{DoxyCode}

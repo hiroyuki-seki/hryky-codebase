@@ -1,0 +1,86 @@
+\hypertarget{type__add__const_8h_source}{\section{type\-\_\-add\-\_\-const.\-h}
+}
+
+\begin{DoxyCode}
+00001 
+00010 \textcolor{preprocessor}{#ifndef TYPE\_ADD\_CONST\_H\_20120226152038305}
+00011 \textcolor{preprocessor}{}\textcolor{preprocessor}{#define TYPE\_ADD\_CONST\_H\_20120226152038305}
+00012 \textcolor{preprocessor}{}\textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00013 \textcolor{comment}{// macro definition}
+00014 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00015 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00016 \textcolor{comment}{// namespace}
+00017 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00018 \textcolor{keyword}{namespace }hryky
+00019 \{
+00021     \textcolor{keyword}{template} < \textcolor{keyword}{typename} ValueT >
+00022     \textcolor{keyword}{class }AddConst;
+00023 
+00024 \}
+00025 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00026 \textcolor{comment}{// class declarations}
+00027 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00033 \textcolor{comment}{}\textcolor{keyword}{template} < \textcolor{keyword}{typename} ValueT >
+\hypertarget{type__add__const_8h_source_l00034}{}\hyperlink{classhryky_1_1_add_const}{00034} \textcolor{keyword}{class }\hyperlink{classhryky_1_1_add_const}{hryky::AddConst}
+00035 \{
+00036 \textcolor{keyword}{public} :
+\hypertarget{type__add__const_8h_source_l00038}{}\hyperlink{classhryky_1_1_add_const_adb29046fcfdac9d716cb5cb3c28d42ac}{00038}     \textcolor{keyword}{typedef} ValueT \textcolor{keyword}{const}    \hyperlink{classhryky_1_1_add_const_adb29046fcfdac9d716cb5cb3c28d42ac}{type};
+00039 \};
+00040 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00041 \textcolor{comment}{// class specializations}
+00042 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00043 \textcolor{keyword}{namespace }hryky
+00044 \{
+00053 \textcolor{keyword}{template} < \textcolor{keyword}{typename} ValueT >
+00054 \textcolor{keyword}{class }\hyperlink{classhryky_1_1_add_const}{AddConst}<ValueT const>
+00055 \{
+00056 \textcolor{keyword}{public} :
+00057     \textcolor{keyword}{typedef} ValueT \textcolor{keyword}{const}    \hyperlink{classhryky_1_1_add_const_adb29046fcfdac9d716cb5cb3c28d42ac}{type};
+00058 \};
+00067 \textcolor{keyword}{template} < \textcolor{keyword}{typename} ValueT >
+00068 \textcolor{keyword}{class }AddConst<ValueT &>
+00069 \{
+00070 \textcolor{keyword}{public} :
+00071     \textcolor{keyword}{typedef} ValueT &        type;
+00072 \};
+00073 \} \textcolor{comment}{// namespace hryky}
+00074 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00075 \textcolor{comment}{// public member functions}
+00076 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00077 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00078 \textcolor{comment}{// protected member functions}
+00079 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00080 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00081 \textcolor{comment}{// private member functions}
+00082 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00083 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00084 \textcolor{comment}{// global function prototypes}
+00085 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00086 \textcolor{keyword}{namespace }hryky
+00087 \{
+00088 \} 
+00089 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00090 \textcolor{comment}{// global function definitions}
+00091 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00092 \textcolor{preprocessor}{#endif // TYPE\_ADD\_CONST\_H\_20120226152038305}
+00093 \textcolor{preprocessor}{}
+00094 \textcolor{comment}{// end of file}
+\end{DoxyCode}

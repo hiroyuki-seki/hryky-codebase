@@ -1,0 +1,176 @@
+\hypertarget{http__header__field__dispatcher__base_8h_source}{\section{http\-\_\-header\-\_\-field\-\_\-dispatcher\-\_\-base.\-h}
+}
+
+\begin{DoxyCode}
+00001 
+00007 \textcolor{preprocessor}{#ifndef HTTP\_HEADER\_FIELD\_DISPATCHER\_BASE\_H\_20130106150940298}
+00008 \textcolor{preprocessor}{}\textcolor{preprocessor}{#define HTTP\_HEADER\_FIELD\_DISPATCHER\_BASE\_H\_20130106150940298}
+00009 \textcolor{preprocessor}{}\textcolor{preprocessor}{#include "\hyperlink{http__header__accept__charset__entity_8h}{hryky/http/http_header_accept_charset_entity.h}"}
+00010 \textcolor{preprocessor}{#include "\hyperlink{http__header__accept__encoding__entity_8h}{hryky/http/http_header_accept_encoding_entity.h}"}
+00011 \textcolor{preprocessor}{#include "\hyperlink{http__header__accept__entity_8h}{hryky/http/http_header_accept_entity.h}"}
+00012 \textcolor{preprocessor}{#include "\hyperlink{http__header__accept__language__entity_8h}{hryky/http/http_header_accept_language_entity.h}"}
+00013 \textcolor{preprocessor}{#include "\hyperlink{http__header__cache__control__entity_8h}{hryky/http/http_header_cache_control_entity.h}"}
+00014 \textcolor{preprocessor}{#include "\hyperlink{http__header__connection__entity_8h}{hryky/http/http_header_connection_entity.h}"}
+00015 \textcolor{preprocessor}{#include "\hyperlink{http__header__content__length__entity_8h}{hryky/http/http_header_content_length_entity.h}"}
+00016 \textcolor{preprocessor}{#include "hryky/http/http\_header\_date\_entity.h"}
+00017 \textcolor{preprocessor}{#include "\hyperlink{http__header__expires__entity_8h}{hryky/http/http_header_expires_entity.h}"}
+00018 \textcolor{preprocessor}{#include "\hyperlink{http__header__field__extension__entity_8h}{hryky/http/http_header_field_extension_entity.h}"}
+00019 \textcolor{preprocessor}{#include "\hyperlink{http__header__host__entity_8h}{hryky/http/http_header_host_entity.h}"}
+00020 \textcolor{preprocessor}{#include "\hyperlink{http__header__location__entity_8h}{hryky/http/http_header_location_entity.h}"}
+00021 \textcolor{preprocessor}{#include "\hyperlink{http__header__server__entity_8h}{hryky/http/http_header_server_entity.h}"}
+00022 \textcolor{preprocessor}{#include "\hyperlink{http__header__user__agent__entity_8h}{hryky/http/http_header_user_agent_entity.h}"}
+00023 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00024 \textcolor{comment}{// macro definition}
+00025 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00026 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00027 \textcolor{comment}{// namespace}
+00028 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00029 \textcolor{keyword}{namespace }hryky
+00030 \{
+00031 \textcolor{keyword}{namespace }http
+00032 \{
+00033 \textcolor{keyword}{namespace }header
+00034 \{
+00035 \textcolor{keyword}{namespace }field
+00036 \{
+00037 \textcolor{keyword}{namespace }dispatcher
+00038 \{
+00040     \textcolor{keyword}{class }Base;
+00041 
+00042 \} \textcolor{comment}{// namespace dispatcher}
+00043 
+00044 \textcolor{keyword}{typedef} dispatcher::Base dispatcher\_type;
+00045 
+00046 \} \textcolor{comment}{// namespace field}
+00047 \} \textcolor{comment}{// namespace header}
+00048 \} \textcolor{comment}{// namespace http}
+00049 \} \textcolor{comment}{// namespace hryky}
+00050 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00051 \textcolor{comment}{// class declarations}
+00052 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+\hypertarget{http__header__field__dispatcher__base_8h_source_l00056}{}\hyperlink{classhryky_1_1http_1_1header_1_1field_1_1dispatcher_1_1_base}{00056} \textcolor{comment}{}\textcolor{keyword}{class }\hyperlink{classhryky_1_1http_1_1header_1_1field_1_1dispatcher_1_1_base}{hryky::http::header::field::dispatcher::Base}
+00057 \{
+00058 \textcolor{keyword}{public} :
+00059 
+\hypertarget{http__header__field__dispatcher__base_8h_source_l00060}{}\hyperlink{classhryky_1_1http_1_1header_1_1field_1_1dispatcher_1_1_base_ad3afdc056a3d7e53ca6eb6074d84583b}{00060}     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1http_1_1header_1_1field_1_1dispatcher_1_1_base}{Base} \hyperlink{classhryky_1_1http_1_1header_1_1field_1_1dispatcher_1_1_base_ad3afdc056a3d7e53ca6eb6074d84583b}{this_type};
+00061 
+\hypertarget{http__header__field__dispatcher__base_8h_source_l00063}{}\hyperlink{classhryky_1_1http_1_1header_1_1field_1_1dispatcher_1_1_base_af42a7955735a7082192707cf0a9f2a78}{00063}     \textcolor{keyword}{virtual} \textcolor{keywordtype}{bool} \hyperlink{classhryky_1_1http_1_1header_1_1field_1_1dispatcher_1_1_base_af42a7955735a7082192707cf0a9f2a78}{operator()}(\hyperlink{classhryky_1_1http_1_1header_1_1accept_1_1_entity}{accept_type} &) \{ \textcolor{keywordflow}{return} \textcolor{keyword}{true}; \}
+00064 
+\hypertarget{http__header__field__dispatcher__base_8h_source_l00066}{}\hyperlink{classhryky_1_1http_1_1header_1_1field_1_1dispatcher_1_1_base_a44b48a140d2cb987324ef47fe748b685}{00066}     \textcolor{keyword}{virtual} \textcolor{keywordtype}{bool} \hyperlink{classhryky_1_1http_1_1header_1_1field_1_1dispatcher_1_1_base_a44b48a140d2cb987324ef47fe748b685}{operator()}(\hyperlink{classhryky_1_1http_1_1header_1_1accept_1_1charset_1_1_entity}{accept::charset_type} &) \{ \textcolor{keywordflow}{return} \textcolor{keyword}{true}; \}
+00067 
+\hypertarget{http__header__field__dispatcher__base_8h_source_l00069}{}\hyperlink{classhryky_1_1http_1_1header_1_1field_1_1dispatcher_1_1_base_a6a6faba6d9037e54e8b4fd3ec0479d19}{00069}     \textcolor{keyword}{virtual} \textcolor{keywordtype}{bool} \hyperlink{classhryky_1_1http_1_1header_1_1field_1_1dispatcher_1_1_base_a6a6faba6d9037e54e8b4fd3ec0479d19}{operator()}(\hyperlink{classhryky_1_1http_1_1header_1_1accept_1_1encoding_1_1_entity}{accept::encoding_type} &) \{ \textcolor{keywordflow}{return} \textcolor{keyword}{true}; \}
+00070 
+\hypertarget{http__header__field__dispatcher__base_8h_source_l00072}{}\hyperlink{classhryky_1_1http_1_1header_1_1field_1_1dispatcher_1_1_base_a1db25d2b00289f327be181227d06ff8c}{00072}     \textcolor{keyword}{virtual} \textcolor{keywordtype}{bool} \hyperlink{classhryky_1_1http_1_1header_1_1field_1_1dispatcher_1_1_base_a1db25d2b00289f327be181227d06ff8c}{operator()}(\hyperlink{classhryky_1_1http_1_1header_1_1accept_1_1language_1_1_entity}{accept::language_type} &) \{ \textcolor{keywordflow}{return} \textcolor{keyword}{true}; \}
+00073 
+\hypertarget{http__header__field__dispatcher__base_8h_source_l00075}{}\hyperlink{classhryky_1_1http_1_1header_1_1field_1_1dispatcher_1_1_base_a17c0984ac4a419a1347447510e0fa62a}{00075}     \textcolor{keyword}{virtual} \textcolor{keywordtype}{bool} \hyperlink{classhryky_1_1http_1_1header_1_1field_1_1dispatcher_1_1_base_a17c0984ac4a419a1347447510e0fa62a}{operator()}(\hyperlink{classhryky_1_1http_1_1header_1_1connection_1_1_entity}{connection_type} &) \{ \textcolor{keywordflow}{return} \textcolor{keyword}{true}; \}
+00076 
+\hypertarget{http__header__field__dispatcher__base_8h_source_l00078}{}\hyperlink{classhryky_1_1http_1_1header_1_1field_1_1dispatcher_1_1_base_a73472554f86ca72be9d193ea07668c57}{00078}     \textcolor{keyword}{virtual} \textcolor{keywordtype}{bool} \hyperlink{classhryky_1_1http_1_1header_1_1field_1_1dispatcher_1_1_base_a73472554f86ca72be9d193ea07668c57}{operator()}(\hyperlink{classhryky_1_1http_1_1header_1_1content_1_1length_1_1_entity}{content::length_type} &) \{ \textcolor{keywordflow}{return} \textcolor{keyword}{true}; \}
+00079 
+\hypertarget{http__header__field__dispatcher__base_8h_source_l00081}{}\hyperlink{classhryky_1_1http_1_1header_1_1field_1_1dispatcher_1_1_base_aedbc1fdfb74840e70aefd7ece330a79f}{00081}     \textcolor{keyword}{virtual} \textcolor{keywordtype}{bool} \hyperlink{classhryky_1_1http_1_1header_1_1field_1_1dispatcher_1_1_base_aedbc1fdfb74840e70aefd7ece330a79f}{operator()}(\hyperlink{classhryky_1_1http_1_1header_1_1content_1_1type_1_1_entity}{content::type_type} &) \{ \textcolor{keywordflow}{return} \textcolor{keyword}{true}; \}
+00082 
+\hypertarget{http__header__field__dispatcher__base_8h_source_l00084}{}\hyperlink{classhryky_1_1http_1_1header_1_1field_1_1dispatcher_1_1_base_aa693391a5785885eddff21dd86f5758c}{00084}     \textcolor{keyword}{virtual} \textcolor{keywordtype}{bool} \hyperlink{classhryky_1_1http_1_1header_1_1field_1_1dispatcher_1_1_base_aa693391a5785885eddff21dd86f5758c}{operator()}(\hyperlink{classhryky_1_1http_1_1header_1_1cache_1_1control_1_1_entity}{cache::control_type} &) \{ \textcolor{keywordflow}{return} \textcolor{keyword}{true}; \}
+00085 
+\hypertarget{http__header__field__dispatcher__base_8h_source_l00087}{}\hyperlink{classhryky_1_1http_1_1header_1_1field_1_1dispatcher_1_1_base_aa12475bee97dbc00b3f0ff3555eb53ac}{00087}     \textcolor{keyword}{virtual} \textcolor{keywordtype}{bool} \hyperlink{classhryky_1_1http_1_1header_1_1field_1_1dispatcher_1_1_base_aa12475bee97dbc00b3f0ff3555eb53ac}{operator()}(\hyperlink{classhryky_1_1http_1_1header_1_1date_1_1_entity}{date_type} &) \{ \textcolor{keywordflow}{return} \textcolor{keyword}{true}; \}
+00088 
+\hypertarget{http__header__field__dispatcher__base_8h_source_l00090}{}\hyperlink{classhryky_1_1http_1_1header_1_1field_1_1dispatcher_1_1_base_abce7fb623ccfefb7be7b42839eb9012a}{00090}     \textcolor{keyword}{virtual} \textcolor{keywordtype}{bool} \hyperlink{classhryky_1_1http_1_1header_1_1field_1_1dispatcher_1_1_base_abce7fb623ccfefb7be7b42839eb9012a}{operator()}(\hyperlink{classhryky_1_1http_1_1header_1_1expires_1_1_entity}{expires_type} &) \{ \textcolor{keywordflow}{return} \textcolor{keyword}{true}; \}
+00091 
+\hypertarget{http__header__field__dispatcher__base_8h_source_l00093}{}\hyperlink{classhryky_1_1http_1_1header_1_1field_1_1dispatcher_1_1_base_ab11355c0a21334840ce0a05c0edce46e}{00093}     \textcolor{keyword}{virtual} \textcolor{keywordtype}{bool} \hyperlink{classhryky_1_1http_1_1header_1_1field_1_1dispatcher_1_1_base_ab11355c0a21334840ce0a05c0edce46e}{operator()}(\hyperlink{classhryky_1_1http_1_1header_1_1field_1_1extension_1_1_entity}{field::extension_type} &) \{ \textcolor{keywordflow}{return} \textcolor{keyword}{true}; \}
+00094 
+\hypertarget{http__header__field__dispatcher__base_8h_source_l00096}{}\hyperlink{classhryky_1_1http_1_1header_1_1field_1_1dispatcher_1_1_base_a7fd5d3fb47514d19e61b29eef79791ad}{00096}     \textcolor{keyword}{virtual} \textcolor{keywordtype}{bool} \hyperlink{classhryky_1_1http_1_1header_1_1field_1_1dispatcher_1_1_base_a7fd5d3fb47514d19e61b29eef79791ad}{operator()}(\hyperlink{classhryky_1_1http_1_1header_1_1host_1_1_entity}{host_type} &) \{ \textcolor{keywordflow}{return} \textcolor{keyword}{true}; \}
+00097 
+\hypertarget{http__header__field__dispatcher__base_8h_source_l00099}{}\hyperlink{classhryky_1_1http_1_1header_1_1field_1_1dispatcher_1_1_base_abe7271f24a31e7ba3b6f90f2f66e7991}{00099}     \textcolor{keyword}{virtual} \textcolor{keywordtype}{bool} \hyperlink{classhryky_1_1http_1_1header_1_1field_1_1dispatcher_1_1_base_abe7271f24a31e7ba3b6f90f2f66e7991}{operator()}(\hyperlink{classhryky_1_1http_1_1header_1_1location_1_1_entity}{location_type} &) \{ \textcolor{keywordflow}{return} \textcolor{keyword}{true}; \}
+00100 
+\hypertarget{http__header__field__dispatcher__base_8h_source_l00102}{}\hyperlink{classhryky_1_1http_1_1header_1_1field_1_1dispatcher_1_1_base_a55683ecc9aa0d2e6dac3f293cf517b3e}{00102}     \textcolor{keyword}{virtual} \textcolor{keywordtype}{bool} \hyperlink{classhryky_1_1http_1_1header_1_1field_1_1dispatcher_1_1_base_a55683ecc9aa0d2e6dac3f293cf517b3e}{operator()}(\hyperlink{classhryky_1_1http_1_1header_1_1user__agent_1_1_entity}{user_agent_type} &) \{ \textcolor{keywordflow}{return} \textcolor{keyword}{true}; \}
+00103 
+\hypertarget{http__header__field__dispatcher__base_8h_source_l00105}{}\hyperlink{classhryky_1_1http_1_1header_1_1field_1_1dispatcher_1_1_base_ae556f2fbbb106a208b489fe94d5062c1}{00105}     \textcolor{keyword}{virtual} \textcolor{keywordtype}{bool} \hyperlink{classhryky_1_1http_1_1header_1_1field_1_1dispatcher_1_1_base_ae556f2fbbb106a208b489fe94d5062c1}{operator()}(\hyperlink{classhryky_1_1http_1_1header_1_1server_1_1_entity}{server_type} &) \{ \textcolor{keywordflow}{return} \textcolor{keyword}{true}; \}
+00106 
+00107 \textcolor{keyword}{protected} :
+00108 
+00110     \hyperlink{classhryky_1_1http_1_1header_1_1field_1_1dispatcher_1_1_base_a5ffe0568374d8b9b4c4ec32953fd6453}{Base}();
+00111 
+00113     \hyperlink{classhryky_1_1http_1_1header_1_1field_1_1dispatcher_1_1_base_a5ffe0568374d8b9b4c4ec32953fd6453}{Base}(\hyperlink{classhryky_1_1http_1_1header_1_1field_1_1dispatcher_1_1_base_ad3afdc056a3d7e53ca6eb6074d84583b}{this_type} \textcolor{keyword}{const} &);
+00114 
+00116     \hyperlink{classhryky_1_1http_1_1header_1_1field_1_1dispatcher_1_1_base_a5ffe0568374d8b9b4c4ec32953fd6453}{Base}(\hyperlink{classhryky_1_1http_1_1header_1_1field_1_1dispatcher_1_1_base_ad3afdc056a3d7e53ca6eb6074d84583b}{this_type} && rhs);
+00117 
+00119     \hyperlink{classhryky_1_1http_1_1header_1_1field_1_1dispatcher_1_1_base_a722da881b6c70cfcbde9243abcfbf334}{~Base}();
+00120 
+\hypertarget{http__header__field__dispatcher__base_8h_source_l00122}{}\hyperlink{classhryky_1_1http_1_1header_1_1field_1_1dispatcher_1_1_base_a40c34ada6910c5e49c0b263fe59593e6}{00122}     \hyperlink{classhryky_1_1http_1_1header_1_1field_1_1dispatcher_1_1_base_a40c34ada6910c5e49c0b263fe59593e6}{hryky_assign_op};
+00123 
+00125     \textcolor{keywordtype}{void} \hyperlink{classhryky_1_1http_1_1header_1_1field_1_1dispatcher_1_1_base_a135bce05655e290c78fa83196199a576}{clear}();
+00126 
+00128     \hyperlink{classhryky_1_1_intrusive_ptr}{reduction_type} \hyperlink{classhryky_1_1http_1_1header_1_1field_1_1dispatcher_1_1_base_a2809ad5f75abd2266e6804e90094bc05}{reduce}(\hyperlink{classhryky_1_1reduction_1_1_string}{reduction::name_type} \textcolor{keyword}{const} & name) \textcolor{keyword}{const};
+00129 
+00131     \textcolor{keywordtype}{void} \hyperlink{classhryky_1_1http_1_1header_1_1field_1_1dispatcher_1_1_base_ab2b137d16fbe40d839ee136bd5304cab}{swap}(\hyperlink{classhryky_1_1http_1_1header_1_1field_1_1dispatcher_1_1_base}{this_type} & src);
+00132 
+00133 \textcolor{keyword}{private} :
+00134 
+00135 \};
+00136 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00137 \textcolor{comment}{// class specializations}
+00138 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00139 \textcolor{keyword}{namespace }hryky
+00140 \{
+00141 \textcolor{keyword}{namespace }http
+00142 \{
+00143 \textcolor{keyword}{namespace }header
+00144 \{
+00145 \textcolor{keyword}{namespace }field
+00146 \{
+00147 \textcolor{keyword}{namespace }dispatcher
+00148 \{
+00149 \} \textcolor{comment}{// namespace dispatcher}
+00150 \} \textcolor{comment}{// namespace field}
+00151 \} \textcolor{comment}{// namespace header}
+00152 \} \textcolor{comment}{// namespace http}
+00153 \} \textcolor{comment}{// namespace hryky}
+00154 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00155 \textcolor{comment}{// public member functions}
+00156 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00157 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00158 \textcolor{comment}{// protected member functions}
+00159 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00160 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00161 \textcolor{comment}{// private member functions}
+00162 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00163 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00164 \textcolor{comment}{// global function prototypes}
+00165 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00166 \textcolor{keyword}{namespace }hryky
+00167 \{
+00168 \textcolor{keyword}{namespace }http
+00169 \{
+00170 \textcolor{keyword}{namespace }header
+00171 \{
+00172 \textcolor{keyword}{namespace }field
+00173 \{
+00174 \textcolor{keyword}{namespace }dispatcher
+00175 \{
+00176 \} \textcolor{comment}{// namespace dispatcher}
+00177 \} \textcolor{comment}{// namespace field}
+00178 \} \textcolor{comment}{// namespace header}
+00179 \} \textcolor{comment}{// namespace http}
+00180 \} \textcolor{comment}{// namespace hryky}
+00181 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00182 \textcolor{comment}{// global function definitions}
+00183 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00184 \textcolor{preprocessor}{#endif // HTTP\_HEADER\_FIELD\_DISPATCHER\_BASE\_H\_20130106150940298}
+00185 \textcolor{preprocessor}{}\textcolor{comment}{// end of file}
+\end{DoxyCode}

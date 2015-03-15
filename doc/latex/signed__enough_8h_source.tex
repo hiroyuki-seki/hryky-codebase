@@ -1,0 +1,118 @@
+\hypertarget{signed__enough_8h_source}{\section{signed\-\_\-enough.\-h}
+}
+
+\begin{DoxyCode}
+00001 
+00008 \textcolor{preprocessor}{#ifndef SIGNED\_ENOUGH\_H\_20130119160307335}
+00009 \textcolor{preprocessor}{}\textcolor{preprocessor}{#define SIGNED\_ENOUGH\_H\_20130119160307335}
+00010 \textcolor{preprocessor}{}\textcolor{preprocessor}{#include "\hyperlink{stdint_8h}{hryky/stdint.h}"}
+00011 \textcolor{preprocessor}{#include "\hyperlink{unsigned__bits__enough_8h}{hryky/integer/unsigned_bits_enough.h}"}
+00012 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00013 \textcolor{comment}{// macro definition}
+00014 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00015 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00016 \textcolor{comment}{// namespace}
+00017 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00018 \textcolor{keyword}{namespace }hryky
+00019 \{
+00024     \textcolor{keyword}{template} <\textcolor{keywordtype}{size\_t} BytesSize>
+00025     \textcolor{keyword}{class }SignedEnoughBytes;
+00026 
+00031     \textcolor{keyword}{template} <\textcolor{keywordtype}{size\_t} Exponent>
+00032     \textcolor{keyword}{class }SignedEnoughExponent;
+00033     
+00034 
+00035 \} \textcolor{comment}{// namespace hryky}
+00036 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00037 \textcolor{comment}{// class declarations}
+00038 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00043 \textcolor{comment}{}\textcolor{keyword}{template} <\textcolor{keywordtype}{size\_t} BytesSize>
+\hypertarget{signed__enough_8h_source_l00044}{}\hyperlink{classhryky_1_1_signed_enough_bytes}{00044} \textcolor{keyword}{class }\hyperlink{classhryky_1_1_signed_enough_bytes}{hryky::SignedEnoughBytes}
+00045 \{
+00046 \textcolor{keyword}{public} :
+00047     \textcolor{keyword}{typedef} \textcolor{keyword}{typename} \hyperlink{classhryky_1_1_signed_enough_exponent}{SignedEnoughExponent}<
+00048         \hyperlink{classhryky_1_1_unsigned_bits_enough}{UnsignedBitsEnough}<((BytesSize - 1) << 1)>::value - 1>\hyperlink{classhryky_1_1_signed_enough_exponent}{::type} \hyperlink{classhryky_1_1_signed_enough_exponent}{type};
+00049 
+00050 \};
+00055 \textcolor{keyword}{template} <\textcolor{keywordtype}{size\_t} Exponent>
+\hypertarget{signed__enough_8h_source_l00056}{}\hyperlink{classhryky_1_1_signed_enough_exponent}{00056} \textcolor{keyword}{class }\hyperlink{classhryky_1_1_signed_enough_exponent}{hryky::SignedEnoughExponent}
+00057 \{
+00058 \textcolor{keyword}{public} :
+00059 
+00060 \};
+00061 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00062 \textcolor{comment}{// class specializations}
+00063 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00064 \textcolor{keyword}{namespace }hryky
+00065 \{
+00069 \textcolor{keyword}{template} <>
+\hypertarget{signed__enough_8h_source_l00070}{}\hyperlink{classhryky_1_1hryky_1_1_signed_enough_bytes_3_010u_01_4}{00070} \textcolor{keyword}{class }\hyperlink{classhryky_1_1_signed_enough_bytes}{hryky::SignedEnoughBytes}<0u>
+00071 \{
+00072 \textcolor{keyword}{public} :
+00073     \textcolor{keyword}{typedef} int8\_t type;
+00074 \};
+00078 \textcolor{keyword}{template} <>
+\hypertarget{signed__enough_8h_source_l00079}{}\hyperlink{classhryky_1_1hryky_1_1_signed_enough_exponent_3_010_01_4}{00079} \textcolor{keyword}{class }\hyperlink{classhryky_1_1_signed_enough_exponent}{hryky::SignedEnoughExponent}<0>
+00080 \{
+00081 \textcolor{keyword}{public} :
+00082     \textcolor{keyword}{typedef} int8\_t type;
+00083 \};
+00087 \textcolor{keyword}{template} <>
+\hypertarget{signed__enough_8h_source_l00088}{}\hyperlink{classhryky_1_1hryky_1_1_signed_enough_exponent_3_011_01_4}{00088} \textcolor{keyword}{class }\hyperlink{classhryky_1_1_signed_enough_exponent}{hryky::SignedEnoughExponent}<1>
+00089 \{
+00090 \textcolor{keyword}{public} :
+00091     \textcolor{keyword}{typedef} int16\_t type;
+00092 
+00093 \};
+00097 \textcolor{keyword}{template} <>
+\hypertarget{signed__enough_8h_source_l00098}{}\hyperlink{classhryky_1_1hryky_1_1_signed_enough_exponent_3_012_01_4}{00098} \textcolor{keyword}{class }\hyperlink{classhryky_1_1_signed_enough_exponent}{hryky::SignedEnoughExponent}<2>
+00099 \{
+00100 \textcolor{keyword}{public} :
+00101     \textcolor{keyword}{typedef} int32\_t type;
+00102 \};
+00106 \textcolor{keyword}{template} <>
+\hypertarget{signed__enough_8h_source_l00107}{}\hyperlink{classhryky_1_1hryky_1_1_signed_enough_exponent_3_013_01_4}{00107} \textcolor{keyword}{class }\hyperlink{classhryky_1_1_signed_enough_exponent}{hryky::SignedEnoughExponent}<3>
+00108 \{
+00109 \textcolor{keyword}{public} :
+00110     \textcolor{keyword}{typedef} int64\_t type;
+00111 \};
+00112 \} \textcolor{comment}{// namespace hryky}
+00113 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00114 \textcolor{comment}{// public member functions}
+00115 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00116 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00117 \textcolor{comment}{// protected member functions}
+00118 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00119 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00120 \textcolor{comment}{// private member functions}
+00121 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00122 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00123 \textcolor{comment}{// global function prototypes}
+00124 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00125 \textcolor{keyword}{namespace }hryky
+00126 \{
+00127 \} \textcolor{comment}{// namespace hryky}
+00128 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00129 \textcolor{comment}{// global function definitions}
+00130 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00131 \textcolor{preprocessor}{#endif // SIGNED\_ENOUGH\_H\_20130119160307335}
+00132 \textcolor{preprocessor}{}\textcolor{comment}{// end of file}
+\end{DoxyCode}

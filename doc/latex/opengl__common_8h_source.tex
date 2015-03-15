@@ -1,0 +1,157 @@
+\hypertarget{opengl__common_8h_source}{\section{opengl\-\_\-common.\-h}
+}
+
+\begin{DoxyCode}
+00001 
+00007 \textcolor{preprocessor}{#ifndef OPENGL\_COMMON\_H\_20120220132905228}
+00008 \textcolor{preprocessor}{}\textcolor{preprocessor}{#define OPENGL\_COMMON\_H\_20120220132905228}
+00009 \textcolor{preprocessor}{}\textcolor{preprocessor}{#include "\hyperlink{gl_8h}{hryky/gl.h}"}
+00010 \textcolor{preprocessor}{#include "\hyperlink{log__writer__common_8h}{hryky/log/log_writer_common.h}"}
+00011 \textcolor{preprocessor}{#include "\hyperlink{sequence_8h}{hryky/sequence.h}"}
+00012 \textcolor{preprocessor}{#include "\hyperlink{color__rgba_8h}{hryky/color/color_rgba.h}"}
+00013 \textcolor{preprocessor}{#include "\hyperlink{debug__common_8h}{hryky/debug/debug_common.h}"}
+00014 \textcolor{preprocessor}{#include "\hyperlink{reduction__map_8h}{hryky/reduction/reduction_map.h}"}
+00015 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00016 \textcolor{comment}{// macro definition}
+00017 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00018 \textcolor{comment}{//--------------------------------}
+00019 \textcolor{comment}{// call OpenGL function}
+00020 \textcolor{comment}{//--------------------------------}
+00021 \textcolor{preprocessor}{#define HRYKY\_CALL\_GL0(func) \(\backslash\)}
+00022 \textcolor{preprocessor}{    (\(\backslash\)}
+00023 \textcolor{preprocessor}{     func(),\(\backslash\)}
+00024 \textcolor{preprocessor}{     hryky::opengl::check\_gl(\(\backslash\)}
+00025 \textcolor{preprocessor}{        #func, hryky::sequence0(), hryky\_source\_position)\(\backslash\)}
+00026 \textcolor{preprocessor}{     )}
+00027 \textcolor{preprocessor}{}
+00028 \textcolor{preprocessor}{#define HRYKY\_CALL\_GL1(func, a0) \(\backslash\)}
+00029 \textcolor{preprocessor}{    (\(\backslash\)}
+00030 \textcolor{preprocessor}{     func(a0),\(\backslash\)}
+00031 \textcolor{preprocessor}{     hryky::opengl::check\_gl(\(\backslash\)}
+00032 \textcolor{preprocessor}{        #func, hryky::sequence1(a0), hryky\_source\_position)\(\backslash\)}
+00033 \textcolor{preprocessor}{     )}
+00034 \textcolor{preprocessor}{}
+00035 \textcolor{preprocessor}{#define HRYKY\_CALL\_GL2(func, a0, a1) \(\backslash\)}
+00036 \textcolor{preprocessor}{    (\(\backslash\)}
+00037 \textcolor{preprocessor}{     func(a0, a1),\(\backslash\)}
+00038 \textcolor{preprocessor}{     hryky::opengl::check\_gl(\(\backslash\)}
+00039 \textcolor{preprocessor}{        #func, hryky::sequence2(a0, a1), hryky\_source\_position)\(\backslash\)}
+00040 \textcolor{preprocessor}{     )}
+00041 \textcolor{preprocessor}{}
+00042 \textcolor{preprocessor}{#define HRYKY\_CALL\_GL3(func, a0, a1, a2) \(\backslash\)}
+00043 \textcolor{preprocessor}{    (\(\backslash\)}
+00044 \textcolor{preprocessor}{     func(a0, a1, a2),\(\backslash\)}
+00045 \textcolor{preprocessor}{     hryky::opengl::check\_gl(\(\backslash\)}
+00046 \textcolor{preprocessor}{        #func, hryky::sequence3(a0, a1, a2), hryky\_source\_position)\(\backslash\)}
+00047 \textcolor{preprocessor}{     )}
+00048 \textcolor{preprocessor}{}
+00049 \textcolor{preprocessor}{#define HRYKY\_CALL\_GL4(func, a0, a1, a2, a3) \(\backslash\)}
+00050 \textcolor{preprocessor}{    (\(\backslash\)}
+00051 \textcolor{preprocessor}{     func(a0, a1, a2, a3),\(\backslash\)}
+00052 \textcolor{preprocessor}{     hryky::opengl::check\_gl(\(\backslash\)}
+00053 \textcolor{preprocessor}{        #func, hryky::sequence4(a0, a1, a2, a3), hryky\_source\_position)\(\backslash\)}
+00054 \textcolor{preprocessor}{     )}
+00055 \textcolor{preprocessor}{}
+00056 \textcolor{preprocessor}{#define HRYKY\_CALL\_GL5(func, a0, a1, a2, a3, a4) \(\backslash\)}
+00057 \textcolor{preprocessor}{    (\(\backslash\)}
+00058 \textcolor{preprocessor}{     func(a0, a1, a2, a3, a4),\(\backslash\)}
+00059 \textcolor{preprocessor}{     hryky::opengl::check\_gl(\(\backslash\)}
+00060 \textcolor{preprocessor}{        #func, hryky::sequence5(a0, a1, a2, a3, a4), hryky\_source\_position)\(\backslash\)}
+00061 \textcolor{preprocessor}{     )}
+00062 \textcolor{preprocessor}{}
+00063 \textcolor{preprocessor}{#define HRYKY\_CALL\_GL6(func, a0, a1, a2, a3, a4, a5) \(\backslash\)}
+00064 \textcolor{preprocessor}{    (\(\backslash\)}
+00065 \textcolor{preprocessor}{     func(a0, a1, a2, a3, a4, a5),\(\backslash\)}
+00066 \textcolor{preprocessor}{     hryky::opengl::check\_gl(\(\backslash\)}
+00067 \textcolor{preprocessor}{        #func, hryky::sequence6(a0, a1, a2, a3, a4, a5), hryky\_source\_position)
+      \(\backslash\)}
+00068 \textcolor{preprocessor}{     )}
+00069 \textcolor{preprocessor}{}
+00070 \textcolor{preprocessor}{#define HRYKY\_CALL\_GL7(func, a0, a1, a2, a3, a4, a5, a6) \(\backslash\)}
+00071 \textcolor{preprocessor}{    (\(\backslash\)}
+00072 \textcolor{preprocessor}{     func(a0, a1, a2, a3, a4, a5, a6),\(\backslash\)}
+00073 \textcolor{preprocessor}{     hryky::opengl::check\_gl(\(\backslash\)}
+00074 \textcolor{preprocessor}{        #func, hryky::sequence7(a0, a1, a2, a3, a4, a5, a6),
+       hryky\_source\_position)\(\backslash\)}
+00075 \textcolor{preprocessor}{     )}
+00076 \textcolor{preprocessor}{}
+00077 \textcolor{preprocessor}{#define HRYKY\_CALL\_GL8(func, a0, a1, a2, a3, a4, a5, a6, a7) \(\backslash\)}
+00078 \textcolor{preprocessor}{    (\(\backslash\)}
+00079 \textcolor{preprocessor}{     func(a0, a1, a2, a3, a4, a5, a6, a7),\(\backslash\)}
+00080 \textcolor{preprocessor}{     hryky::opengl::check\_gl(\(\backslash\)}
+00081 \textcolor{preprocessor}{        #func, hryky::sequence8(a0, a1, a2, a3, a4, a5, a6, a7),
+       hryky\_source\_position)\(\backslash\)}
+00082 \textcolor{preprocessor}{     )}
+00083 \textcolor{preprocessor}{}
+00084 \textcolor{preprocessor}{#define HRYKY\_CALL\_GL9(func, a0, a1, a2, a3, a4, a5, a6, a7, a8) \(\backslash\)}
+00085 \textcolor{preprocessor}{    (\(\backslash\)}
+00086 \textcolor{preprocessor}{     func(a0, a1, a2, a3, a4, a5, a6, a7, a8),\(\backslash\)}
+00087 \textcolor{preprocessor}{     hryky::opengl::check\_gl(\(\backslash\)}
+00088 \textcolor{preprocessor}{        #func, hryky::sequence9(a0, a1, a2, a3, a4, a5, a6, a7, a8),
+       hryky\_source\_position)\(\backslash\)}
+00089 \textcolor{preprocessor}{     )}
+00090 \textcolor{preprocessor}{}\textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00091 \textcolor{comment}{// namespace}
+00092 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00093 \textcolor{keyword}{namespace }hryky
+00094 \{
+\hypertarget{opengl__common_8h_source_l00095}{}\hyperlink{namespacehryky_1_1opengl}{00095} \textcolor{keyword}{namespace }opengl
+00096 \{
+\hypertarget{opengl__common_8h_source_l00097}{}\hyperlink{namespacehryky_1_1opengl_acab4d3df4193bd85d7261be485efca10}{00097}     \textcolor{keyword}{typedef} \hyperlink{classhryky_1_1color_1_1_rgba}{color::Rgba<float>}      \hyperlink{namespacehryky_1_1opengl_acab4d3df4193bd85d7261be485efca10}{clear_color_type};   
+\hypertarget{opengl__common_8h_source_l00098}{}\hyperlink{namespacehryky_1_1opengl_a5d4a0c96ecaa596a64f1efed8a51c089}{00098}     \textcolor{keyword}{typedef} \textcolor{keywordtype}{double}                  \hyperlink{namespacehryky_1_1opengl_a5d4a0c96ecaa596a64f1efed8a51c089}{clear_depth_type};   
+\hypertarget{opengl__common_8h_source_l00099}{}\hyperlink{namespacehryky_1_1opengl_a7340c1159eebfb6a57358d75a1b0629a}{00099}     \textcolor{keyword}{typedef} int32\_t                 \hyperlink{namespacehryky_1_1opengl_a7340c1159eebfb6a57358d75a1b0629a}{clear_stencil_type}; 
+00100     
+00102     \textcolor{keyword}{template} < \textcolor{keyword}{typename} FirstT, \textcolor{keyword}{typename} RestT >
+00103     \textcolor{keywordtype}{bool} \hyperlink{namespacehryky_1_1opengl_a068d66e76fc06a43c45d3c8da7a75ce5}{check_gl}(
+00104         \textcolor{keywordtype}{char} \textcolor{keyword}{const} * func,
+00105         \hyperlink{classhryky_1_1_sequence}{Sequence<FirstT, RestT>} \textcolor{keyword}{const} & sequence,
+00106         \hyperlink{classhryky_1_1debug_1_1_source}{debug::Source} \textcolor{keyword}{const} & source);
+00107 
+00108 \}
+00109 \}
+00110 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00111 \textcolor{comment}{// struct declaration}
+00112 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00113 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00114 \textcolor{comment}{// class declaration}
+00115 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00116 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00117 \textcolor{comment}{// function definition}
+00118 \textcolor{comment}{//
+      ------------------------------------------------------------------------------}
+00122 \textcolor{comment}{}\textcolor{keyword}{template} < \textcolor{keyword}{typename} FirstT, \textcolor{keyword}{typename} RestT >
+\hypertarget{opengl__common_8h_source_l00123}{}\hyperlink{namespacehryky_1_1opengl_a068d66e76fc06a43c45d3c8da7a75ce5}{00123} \textcolor{keywordtype}{bool} \hyperlink{namespacehryky_1_1opengl_a068d66e76fc06a43c45d3c8da7a75ce5}{hryky::opengl::check_gl}(
+00124     \textcolor{keywordtype}{char} \textcolor{keyword}{const} * func,
+00125     \hyperlink{classhryky_1_1_sequence}{Sequence<FirstT, RestT>} \textcolor{keyword}{const} & sequence,
+00126     \hyperlink{classhryky_1_1debug_1_1_source}{debug::Source} \textcolor{keyword}{const} & source)
+00127 \{
+00128     \textcolor{keywordtype}{bool} success = \textcolor{keyword}{true};
+00129     
+00130     GLenum error = GL\_NO\_ERROR;
+00131     \textcolor{keywordflow}{while} (GL\_NO\_ERROR != (error = glGetError())) \{
+00132         std::ostringstream out;
+00133         out << std::showbase << std::hex;
+00134         out << func << \textcolor{stringliteral}{"("};
+00135         sequence.\hyperlink{classhryky_1_1_sequence_a8443de2eb918764c345a86b40dd888db}{print}(out, \textcolor{stringliteral}{", "});
+00136         out << \textcolor{stringliteral}{")"};
+00137         \hyperlink{log__writer__common_8h_ae5ad3dabb33f594695ef40753cb78aad}{hryky_log_err}(
+00138             (*\hyperlink{namespacehryky_1_1reduction_ac5eae270cf8047b294dc4ff3e5e11a79}{reduction::map}(\textcolor{stringliteral}{"OpenGL Error"}))
+00139             .append(\textcolor{stringliteral}{"error id"},     error)
+00140             .append(\textcolor{stringliteral}{"call"},         out.str().c\_str()));
+00141         success = \textcolor{keyword}{false};
+00142     \}
+00143 
+00144     \textcolor{keywordflow}{return} success;
+00145 \}
+00146 \textcolor{preprocessor}{#endif // OPENGL\_COMMON\_H\_20120220132905228}
+00147 \textcolor{preprocessor}{}\textcolor{comment}{// end of file}
+\end{DoxyCode}

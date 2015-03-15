@@ -1,0 +1,201 @@
+\hypertarget{classhryky_1_1atomic_1_1_accessor}{\section{hryky\-:\-:atomic\-:\-:Accessor$<$ Value\-T, Lockable\-T $>$ Class Template Reference}
+\label{classhryky_1_1atomic_1_1_accessor}\index{hryky\-::atomic\-::\-Accessor$<$ Value\-T, Lockable\-T $>$@{hryky\-::atomic\-::\-Accessor$<$ Value\-T, Lockable\-T $>$}}
+}
+
+
+synchronizes a access to an object.  
+
+
+
+
+{\ttfamily \#include $<$atomic\-\_\-accessor.\-h$>$}
+
+
+
+Inheritance diagram for hryky\-:\-:atomic\-:\-:Accessor$<$ Value\-T, Lockable\-T $>$\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=300pt]{classhryky_1_1atomic_1_1_accessor__inherit__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classhryky_1_1atomic_1_1_accessor_a4957c9dc8163f5fb426f5eb8de5fcd12}{typedef \hyperlink{classhryky_1_1atomic_1_1_accessor}{Accessor}$<$ Value\-T, \\*
+Lockable\-T $>$ \hyperlink{classhryky_1_1atomic_1_1_accessor_a4957c9dc8163f5fb426f5eb8de5fcd12}{this\-\_\-type}}\label{classhryky_1_1atomic_1_1_accessor_a4957c9dc8163f5fb426f5eb8de5fcd12}
+
+\begin{DoxyCompactList}\small\item\em self \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classhryky_1_1atomic_1_1_accessor_ac90e3749014fa65dd80d8bcb9689b2aa}{\hyperlink{classhryky_1_1atomic_1_1_accessor_ac90e3749014fa65dd80d8bcb9689b2aa}{Accessor} ()}\label{classhryky_1_1atomic_1_1_accessor_ac90e3749014fa65dd80d8bcb9689b2aa}
+
+\begin{DoxyCompactList}\small\item\em default constructor. \end{DoxyCompactList}\item 
+\hyperlink{classhryky_1_1atomic_1_1_accessor_a2a792c96c311ba6f9225c64e0d8f17ee}{Accessor} (typename \hyperlink{classhryky_1_1_as_parameter}{As\-Parameter}$<$ value\-\_\-type $>$\-::type value)
+\begin{DoxyCompactList}\small\item\em constructor with the initial value. \end{DoxyCompactList}\item 
+\hyperlink{classhryky_1_1atomic_1_1_accessor_a6cd3ef60e539175db99a01f33a77bded}{Accessor} (\hyperlink{classhryky_1_1atomic_1_1_accessor_a4957c9dc8163f5fb426f5eb8de5fcd12}{this\-\_\-type} const \&rhs)
+\begin{DoxyCompactList}\small\item\em copy constructor. \end{DoxyCompactList}\item 
+\hypertarget{group__atomic__operation_ga3af8cf4027ed397ac63bd9cacb21b914}{\hyperlink{group__atomic__operation_ga3af8cf4027ed397ac63bd9cacb21b914}{Accessor} (\hyperlink{classhryky_1_1atomic_1_1_accessor_a4957c9dc8163f5fb426f5eb8de5fcd12}{this\-\_\-type} \&\&rhs)}\label{group__atomic__operation_ga3af8cf4027ed397ac63bd9cacb21b914}
+
+\begin{DoxyCompactList}\small\item\em copy constructor by rvalue reference. \end{DoxyCompactList}\item 
+value\-\_\-type \hyperlink{group__atomic__operation_ga39b7ebbb7b13b8b1a0b05a4e04f4176f}{compare\-\_\-and\-\_\-swap} (typename \hyperlink{classhryky_1_1_as_parameter}{As\-Parameter}$<$ value\-\_\-type $>$\-::type old\-\_\-value, typename \hyperlink{classhryky_1_1_as_parameter}{As\-Parameter}$<$ value\-\_\-type $>$\-::type new\-\_\-value)
+\begin{DoxyCompactList}\small\item\em assigns a new value if the internal value is same with a given value. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Functor\-T $>$ }\\Value\-T \hyperlink{group__atomic__operation_gae595f32af60a397c190c0d02fd5da565}{exclude} (Functor\-T \&functor)
+\begin{DoxyCompactList}\small\item\em executes an arbitrary functor under the exclusive control. \end{DoxyCompactList}\item 
+\hyperlink{classhryky_1_1atomic_1_1_accessor_a9d4f987caab0e8bf6bda4c31d957af15}{operator value\-\_\-type} () const 
+\begin{DoxyCompactList}\small\item\em reads the value. \end{DoxyCompactList}\item 
+\hypertarget{group__atomic__operation_ga0d1ed1c369001d0f8bb4cdcacc0ea38b}{\hyperlink{group__atomic__operation_ga0d1ed1c369001d0f8bb4cdcacc0ea38b}{operator Value\-T} () const }\label{group__atomic__operation_ga0d1ed1c369001d0f8bb4cdcacc0ea38b}
+
+\begin{DoxyCompactList}\small\item\em casts to the type of the value. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1atomic_1_1_accessor_acb3ce30384f937b624d9c6bf682ff11b}{\hyperlink{classhryky_1_1atomic_1_1_accessor_a4957c9dc8163f5fb426f5eb8de5fcd12}{this\-\_\-type} \& \hyperlink{classhryky_1_1atomic_1_1_accessor_acb3ce30384f937b624d9c6bf682ff11b}{operator\%=} (typename \hyperlink{classhryky_1_1_as_parameter}{As\-Parameter}$<$ Value\-T $>$\-::type rhs)}\label{classhryky_1_1atomic_1_1_accessor_acb3ce30384f937b624d9c6bf682ff11b}
+
+\begin{DoxyCompactList}\small\item\em assigns the remainder divided by the value to this instance. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1atomic_1_1_accessor_ac89441dac89a2df766761fdce1f5965b}{\hyperlink{classhryky_1_1atomic_1_1_accessor_a4957c9dc8163f5fb426f5eb8de5fcd12}{this\-\_\-type} \& \hyperlink{classhryky_1_1atomic_1_1_accessor_ac89441dac89a2df766761fdce1f5965b}{operator$\ast$=} (typename \hyperlink{classhryky_1_1_as_parameter}{As\-Parameter}$<$ Value\-T $>$\-::type rhs)}\label{classhryky_1_1atomic_1_1_accessor_ac89441dac89a2df766761fdce1f5965b}
+
+\begin{DoxyCompactList}\small\item\em multiplies the value to the this instance. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1atomic_1_1_accessor_a296692d35327be0e0bb002aa5c01d5d4}{\hyperlink{classhryky_1_1atomic_1_1_accessor_a4957c9dc8163f5fb426f5eb8de5fcd12}{this\-\_\-type} \& \hyperlink{classhryky_1_1atomic_1_1_accessor_a296692d35327be0e0bb002aa5c01d5d4}{operator++} ()}\label{classhryky_1_1atomic_1_1_accessor_a296692d35327be0e0bb002aa5c01d5d4}
+
+\begin{DoxyCompactList}\small\item\em pre-\/increments the value. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1atomic_1_1_accessor_a1fdc5c93dd8e8744697632a4ccd92b29}{value\-\_\-type \hyperlink{classhryky_1_1atomic_1_1_accessor_a1fdc5c93dd8e8744697632a4ccd92b29}{operator++} (int)}\label{classhryky_1_1atomic_1_1_accessor_a1fdc5c93dd8e8744697632a4ccd92b29}
+
+\begin{DoxyCompactList}\small\item\em post-\/increments the value. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1atomic_1_1_accessor_a4b216ebcbce3550f95dfc6b14179ada0}{\hyperlink{classhryky_1_1atomic_1_1_accessor_a4957c9dc8163f5fb426f5eb8de5fcd12}{this\-\_\-type} \& \hyperlink{classhryky_1_1atomic_1_1_accessor_a4b216ebcbce3550f95dfc6b14179ada0}{operator+=} (typename \hyperlink{classhryky_1_1_as_parameter}{As\-Parameter}$<$ Value\-T $>$\-::type rhs)}\label{classhryky_1_1atomic_1_1_accessor_a4b216ebcbce3550f95dfc6b14179ada0}
+
+\begin{DoxyCompactList}\small\item\em appends the value to the this instance. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1atomic_1_1_accessor_a7152a88c74e6e380c901a16f5e16d1b1}{\hyperlink{classhryky_1_1atomic_1_1_accessor_a4957c9dc8163f5fb426f5eb8de5fcd12}{this\-\_\-type} \& \hyperlink{classhryky_1_1atomic_1_1_accessor_a7152a88c74e6e380c901a16f5e16d1b1}{operator-\/-\/} ()}\label{classhryky_1_1atomic_1_1_accessor_a7152a88c74e6e380c901a16f5e16d1b1}
+
+\begin{DoxyCompactList}\small\item\em pre-\/decrements the value. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1atomic_1_1_accessor_aace3ec6d3c7a1a5ef95fa0c3780b1f26}{value\-\_\-type \hyperlink{classhryky_1_1atomic_1_1_accessor_aace3ec6d3c7a1a5ef95fa0c3780b1f26}{operator-\/-\/} (int)}\label{classhryky_1_1atomic_1_1_accessor_aace3ec6d3c7a1a5ef95fa0c3780b1f26}
+
+\begin{DoxyCompactList}\small\item\em post-\/decrements the value. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1atomic_1_1_accessor_a277dbb78fb920fae22335e5b89cd4e4f}{\hyperlink{classhryky_1_1atomic_1_1_accessor_a4957c9dc8163f5fb426f5eb8de5fcd12}{this\-\_\-type} \& \hyperlink{classhryky_1_1atomic_1_1_accessor_a277dbb78fb920fae22335e5b89cd4e4f}{operator-\/=} (typename \hyperlink{classhryky_1_1_as_parameter}{As\-Parameter}$<$ Value\-T $>$\-::type rhs)}\label{classhryky_1_1atomic_1_1_accessor_a277dbb78fb920fae22335e5b89cd4e4f}
+
+\begin{DoxyCompactList}\small\item\em subtracts the value from the this instance. \end{DoxyCompactList}\item 
+\hypertarget{classhryky_1_1atomic_1_1_accessor_a7bf3c085303cd2fb95a53fbed4c11ce8}{\hyperlink{classhryky_1_1atomic_1_1_accessor_a4957c9dc8163f5fb426f5eb8de5fcd12}{this\-\_\-type} \& \hyperlink{classhryky_1_1atomic_1_1_accessor_a7bf3c085303cd2fb95a53fbed4c11ce8}{operator/=} (typename \hyperlink{classhryky_1_1_as_parameter}{As\-Parameter}$<$ Value\-T $>$\-::type rhs)}\label{classhryky_1_1atomic_1_1_accessor_a7bf3c085303cd2fb95a53fbed4c11ce8}
+
+\begin{DoxyCompactList}\small\item\em divides the this instance by the value. \end{DoxyCompactList}\item 
+\hyperlink{classhryky_1_1atomic_1_1_accessor_a4957c9dc8163f5fb426f5eb8de5fcd12}{this\-\_\-type} \& \hyperlink{classhryky_1_1atomic_1_1_accessor_ae9dabc77d288bb8a7040059748b1e93b}{operator=} (\hyperlink{classhryky_1_1atomic_1_1_accessor_a4957c9dc8163f5fb426f5eb8de5fcd12}{this\-\_\-type} const \&rhs)
+\begin{DoxyCompactList}\small\item\em assigns a new instance. \end{DoxyCompactList}\item 
+\hyperlink{classhryky_1_1atomic_1_1_accessor_a4957c9dc8163f5fb426f5eb8de5fcd12}{this\-\_\-type} \& \hyperlink{classhryky_1_1atomic_1_1_accessor_a1e67e78d5ff0f5792b491ca7bfc720ce}{operator=} (typename \hyperlink{classhryky_1_1_as_parameter}{As\-Parameter}$<$ value\-\_\-type $>$\-::type rhs)
+\begin{DoxyCompactList}\small\item\em assigns a new value. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$typename Value\-T, typename Lockable\-T = exclusion\-::\-Mutex$>$class hryky\-::atomic\-::\-Accessor$<$ Value\-T, Lockable\-T $>$}
+
+synchronizes a access to an object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Value\-T} & is the type of the object accessed through this class. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classhryky_1_1atomic_1_1_accessor_a2a792c96c311ba6f9225c64e0d8f17ee}{\index{hryky\-::atomic\-::\-Accessor@{hryky\-::atomic\-::\-Accessor}!Accessor@{Accessor}}
+\index{Accessor@{Accessor}!hryky::atomic::Accessor@{hryky\-::atomic\-::\-Accessor}}
+\subsubsection[{Accessor}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Value\-T , typename Lockable\-T  = exclusion\-::\-Mutex$>$ {\bf hryky\-::atomic\-::\-Accessor}$<$ Value\-T, Lockable\-T $>$\-::{\bf Accessor} (
+\begin{DoxyParamCaption}
+\item[{typename {\bf As\-Parameter}$<$ value\-\_\-type $>$\-::type}]{value}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}\label{classhryky_1_1atomic_1_1_accessor_a2a792c96c311ba6f9225c64e0d8f17ee}
+
+
+constructor with the initial value. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & is the left-\/hand side of the assignment. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classhryky_1_1atomic_1_1_accessor_a6cd3ef60e539175db99a01f33a77bded}{\index{hryky\-::atomic\-::\-Accessor@{hryky\-::atomic\-::\-Accessor}!Accessor@{Accessor}}
+\index{Accessor@{Accessor}!hryky::atomic::Accessor@{hryky\-::atomic\-::\-Accessor}}
+\subsubsection[{Accessor}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Value\-T , typename Lockable\-T  = exclusion\-::\-Mutex$>$ {\bf hryky\-::atomic\-::\-Accessor}$<$ Value\-T, Lockable\-T $>$\-::{\bf Accessor} (
+\begin{DoxyParamCaption}
+\item[{{\bf this\-\_\-type} const \&}]{rhs}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}\label{classhryky_1_1atomic_1_1_accessor_a6cd3ef60e539175db99a01f33a77bded}
+
+
+copy constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em rhs} & is the left-\/hand side of the assignment.\\
+\hline
+\end{DoxyParams}
+The elements in the value of right-\/hand side are consistent. 
+
+\subsection{Member Function Documentation}
+\hypertarget{classhryky_1_1atomic_1_1_accessor_a9d4f987caab0e8bf6bda4c31d957af15}{\index{hryky\-::atomic\-::\-Accessor@{hryky\-::atomic\-::\-Accessor}!operator value\-\_\-type@{operator value\-\_\-type}}
+\index{operator value\-\_\-type@{operator value\-\_\-type}!hryky::atomic::Accessor@{hryky\-::atomic\-::\-Accessor}}
+\subsubsection[{operator value\-\_\-type}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Value\-T , typename Lockable\-T  = exclusion\-::\-Mutex$>$ {\bf hryky\-::atomic\-::\-Accessor}$<$ Value\-T, Lockable\-T $>$\-::operator value\-\_\-type (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}\label{classhryky_1_1atomic_1_1_accessor_a9d4f987caab0e8bf6bda4c31d957af15}
+
+
+reads the value. 
+
+\begin{DoxyReturn}{Returns}
+the copied value. 
+\end{DoxyReturn}
+\hypertarget{classhryky_1_1atomic_1_1_accessor_ae9dabc77d288bb8a7040059748b1e93b}{\index{hryky\-::atomic\-::\-Accessor@{hryky\-::atomic\-::\-Accessor}!operator=@{operator=}}
+\index{operator=@{operator=}!hryky::atomic::Accessor@{hryky\-::atomic\-::\-Accessor}}
+\subsubsection[{operator=}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Value\-T , typename Lockable\-T  = exclusion\-::\-Mutex$>$ {\bf this\-\_\-type}\& {\bf hryky\-::atomic\-::\-Accessor}$<$ Value\-T, Lockable\-T $>$\-::operator= (
+\begin{DoxyParamCaption}
+\item[{{\bf this\-\_\-type} const \&}]{rhs}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}\label{classhryky_1_1atomic_1_1_accessor_ae9dabc77d288bb8a7040059748b1e93b}
+
+
+assigns a new instance. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em rhs} & is the left-\/hand side of the assignment. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the reference of this instance.
+\end{DoxyReturn}
+The elements in the value of right-\/hand side are consistent. 
+
+References \hyperlink{group__atomic__operation_gab5e4c7b8fa6d6c4e791f7f8f651de97f}{hryky\-::atomic\-::\-Writer$<$ Value\-T, Lockable\-T $>$\-::operator=()}.
+
+\hypertarget{classhryky_1_1atomic_1_1_accessor_a1e67e78d5ff0f5792b491ca7bfc720ce}{\index{hryky\-::atomic\-::\-Accessor@{hryky\-::atomic\-::\-Accessor}!operator=@{operator=}}
+\index{operator=@{operator=}!hryky::atomic::Accessor@{hryky\-::atomic\-::\-Accessor}}
+\subsubsection[{operator=}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Value\-T , typename Lockable\-T  = exclusion\-::\-Mutex$>$ {\bf this\-\_\-type}\& {\bf hryky\-::atomic\-::\-Accessor}$<$ Value\-T, Lockable\-T $>$\-::operator= (
+\begin{DoxyParamCaption}
+\item[{typename {\bf As\-Parameter}$<$ value\-\_\-type $>$\-::type}]{rhs}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}\label{classhryky_1_1atomic_1_1_accessor_a1e67e78d5ff0f5792b491ca7bfc720ce}
+
+
+assigns a new value. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em rhs} & is the left-\/hand side of the assignment. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the reference of this instance. 
+\end{DoxyReturn}
+
+
+Reimplemented from \hyperlink{group__atomic__operation_gabe02d1a1584c488c8b71e49ff212235e}{hryky\-::atomic\-::\-Writer$<$ Value\-T, Lockable\-T $>$}.
+
+
+
+References \hyperlink{group__atomic__operation_gab5e4c7b8fa6d6c4e791f7f8f651de97f}{hryky\-::atomic\-::\-Writer$<$ Value\-T, Lockable\-T $>$\-::operator=()}.
+
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{atomic__accessor_8h}{atomic\-\_\-accessor.\-h}\end{DoxyCompactItemize}
