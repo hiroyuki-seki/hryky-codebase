@@ -246,9 +246,9 @@ hryky::path::win32::Entity::absolute() const
 		absolute += g_platform_delimiter;
 	}
 	else if (0 != this->drive_) {
-		absolute_ += "\\\\?\\";
-		absolute_ += this->drive_;
-		absolute_ += ":\\";
+		absolute += "\\\\?\\";
+		absolute += this->drive_;
+		absolute += ":\\";
 	}
 
 	{
@@ -304,7 +304,9 @@ bool hryky::path::win32::Entity::mkdir() const
 	if (!win32::mkdir(encoded)) {
 		hryky_log_err(
 			"failed to create directory: "
-			<< (json::writer() << "path" << *this));
+			<< (json::writer()
+				<< "path" << *this
+				<< "encoded" << encoded));
 		return false;
 	}
 

@@ -28,6 +28,7 @@
 #       pragma hryky_pragma_disable_warning_changed_behavior
 #       pragma hryky_pragma_disable_warning_codepage
 #       pragma hryky_pragma_disable_warning_trancated_name
+#       pragma hryky_pragma_disable_warning_deprecated_api
 #       if HRYKY_USE_BOOST_ASIO
 #           include <boost/asio.hpp>
 #       endif

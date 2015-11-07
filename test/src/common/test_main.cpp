@@ -113,7 +113,7 @@ int hryky::test::main_impl(int const argc, char const * const argv[])
 				if (!application.mkdir()) {
 					hryky_log_emerg(
 						"failed to create a new directory to store the log:"
-						<< application);
+						<< (json::writer() << "application" << application));
 					return 1;
 				}
 			}

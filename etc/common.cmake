@@ -1815,8 +1815,10 @@ function(hryky_init_common_variables)
 			# prints the hierarchy of include files.
 			# set(${flags_var} "${${flags_var}} /showIncludes")
 		endforeach()
-		# ingnores warning for using unsafe functions (e.g. sprintf)
+		# ingnores the warning for using unsafe functions (e.g. sprintf)
 		add_definitions(-D_SCL_SECURE_NO_WARNINGS)
+		# ignores the warning to disable deprecated API warnings.
+		add_definitions(-D_WINSOCK_DEPRECATED_NO_WARNINGS)
 	endif()
 
 	# configuration for OS version
