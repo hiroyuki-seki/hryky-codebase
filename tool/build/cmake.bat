@@ -79,7 +79,9 @@ REM @if errorlevel 1 @goto error
 
 "%CMAKE%" -E make_directory %CMAKE_BIN_DIR%
 
-@set CMAKE_CONFIG_FLAGS=-G "%CMAKEGENERATOR%"
+@set CMAKE_CONFIGURE_FLAGS=^
+    -G "%CMAKEGENERATOR%" ^
+    -DHRYKY_CMAKE_VERBOSITY:STRING=1
 
 @echo change directory to %CMAKE_BIN_DIR% for out-of-source build.
 @pushd %CMAKE_BIN_DIR:/=\%
@@ -175,7 +177,7 @@ goto :success
 @echo // configuration
 @echo //------------------------------------------------------------------------------
 "%CMAKE%" ^
-	%CMAKE_CONFIG_FLAGS% ^
+	%CMAKE_CONFIGURE_FLAGS% ^
 	%CMAKE_SRC_DIR%
 @if errorlevel 1 @(
 	@echo %~f0 : error : configuration process failed.

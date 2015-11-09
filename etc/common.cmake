@@ -1538,6 +1538,12 @@ function(hryky_init_common_variables)
 	endif()
 	set(HRYKY_INIT_COMMON_VARIABLES true)
 
+	set(HRYKY_CMAKE_VERBOSITY 
+		0
+		CACHE 
+		STRING 
+		"The level of verbosity to output message")
+
 	hryky_debug("hryky_init_common_variables is called.")
 
 	get_property(
@@ -1839,6 +1845,7 @@ function(hryky_init_common_variables)
 	hryky_export_var(HRYKY_LIBRARY_PROJECTS)
 	hryky_export_var(HRYKY_MODULES)
 	hryky_export_var(HRYKY_MINIMUM_MODULES)
+	hryky_export_var(HRYKY_CMAKE_VERBOSITY)
 
 	if (MSVC)
 		hryky_export_var(HRYKY_WINVER)
@@ -2107,6 +2114,9 @@ endfunction()
 # prints the message
 #------------------------------------------------------------------------------
 function(hryky_print level)
+	if (level LESS HRYKY_CMAKE_VERBOSITY)
+		return()
+	endif()
 	hryky_get_callstack(callstack)
 	set(prefix)
 	list(LENGTH callstack length)
