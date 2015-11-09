@@ -7,6 +7,7 @@
 #include "precompiled.h"
 #include "hryky/testing.h"
 #include "hryky/opengl.h"
+#include "hryky/stream.h"
 //------------------------------------------------------------------------------
 // macro
 //------------------------------------------------------------------------------
@@ -99,10 +100,25 @@ bool Test::run_impl()
 		return false;
 	}
 
-	opengl::vshader_type const vshader = opengl_module.vshader();
+	opengl::vshader_type vshader = opengl_module.vshader();
 	if (hryky_is_null(vshader)) {
 		hryky_log_alert("failed to create a Vertex Shader object.");
 		return false;
+	}
+
+	{
+		LiteralString<> const source(
+			"void main()\n"
+			"{\n"
+			"}\n"
+			);
+		if (!vshader.compile(source)) {
+			hryky_log_alert(
+				"failed to compile shader"
+				<< (json::writer()
+					<< hryky_stream_denote(source)));
+			return false;
+		}
 	}
 
 	opengl::fshader_type const fshader = opengl_module.fshader();

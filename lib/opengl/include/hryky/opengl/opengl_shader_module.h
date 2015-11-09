@@ -91,6 +91,13 @@ public :
 	/// confirms whether this instance is invalid.
 	bool is_null() const;
 
+	/// assigns a source to be compiled.
+	template <typename StringT>
+	bool source(raw::shader_type const shader, StringT str) const;
+
+	/// compiles a shader.
+	bool compile(raw::shader_type const shader) const;
+
 protected :
 
 private :
@@ -98,12 +105,19 @@ private :
 	/// recreates the internal resources.
 	bool reset(Version const & version);
 
+	/// assigns characters as a source to be compiled.
+	bool source(
+		raw::shader_type const shader,
+		char const * const str,
+		size_t const str_size) const;
+
 	Issuer                      issuer_;
 	PFNGLGETSHADERIVPROC        glGetShaderiv_;
 	PFNGLCOMPILESHADERPROC      glCompileShader_;
 	PFNGLGETSHADERINFOLOGPROC   glGetShaderInfoLog_;
 	PFNGLGETSHADERSOURCEPROC    glGetShaderSource_;
 	PFNGLSHADERSOURCEPROC       glShaderSource_;
+	PFNGLISSHADERPROC           glIsShader_;
 
 	bool initialized_;
 
@@ -138,8 +152,19 @@ hryky::opengl::shader::Module::write_to(
 	hryky_write_member(glGetShaderInfoLog);
 	hryky_write_member(glGetShaderSource);
 	hryky_write_member(glShaderSource);
+	hryky_write_member(glIsShader);
 
 	return out;
+}
+/**
+  @brief assigns a source to be compiled.
+ */
+template <typename StringT>
+bool hryky::opengl::shader::Module::source(
+	raw::shader_type const shader, StringT str) const
+{
+	return this->source(
+		shader, hryky::data(str), hryky::size(str));
 }
 //------------------------------------------------------------------------------
 // defines protected member functions

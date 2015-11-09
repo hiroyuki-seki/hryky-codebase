@@ -58,6 +58,10 @@ public :
 	/// confirms the shader object is not acquired.
 	bool is_null() const;
 
+	/// compiles a string as a shader source.
+	template <typename StringT>
+	bool compile(StringT str);
+
 protected :
 
 	/// constructs with the shader module.
@@ -128,6 +132,29 @@ bool
 hryky::opengl::shader::entity::Base<hryky_template_arg>::is_null() const
 {
 	return opengl::raw::g_invalid_shader == this->raw_;
+}
+/**
+  @brief compiles a string as a shader source.
+ */
+template <hryky_template_param>
+template <typename StringT>
+bool hryky::opengl::shader::entity::Base<hryky_template_arg>::compile(
+	StringT str)
+{
+	if (!this->module_->source(this->raw_, str)) {
+		hryky_log_err("failed to assign a source to shader.");
+		return false;
+	}
+
+	if (!this->module_->compile(this->raw_)) {
+		hryky_log_err(
+			"failed to compile a source "
+			<< (json::writer()
+				<< hryky_stream_denote(str)));
+		return false;
+	}
+	
+	return true;
 }
 //------------------------------------------------------------------------------
 // defines protected member functions
