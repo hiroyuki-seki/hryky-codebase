@@ -47,6 +47,9 @@
 @REM //  diag[nostic]
 @set MSBUILD_VERBOSITY=m
 
+@set CMAKE_VERBOSITY=^
+    -DHRYKY_CMAKE_VERBOSITY:STRING=1
+
 @set CMAKE_BUILD_FLAGS=^
     --build "%CMAKE_BIN_DIR%" ^
     --config %CMAKE_CONFIG%
@@ -81,7 +84,7 @@ REM @if errorlevel 1 @goto error
 
 @set CMAKE_CONFIGURE_FLAGS=^
     -G "%CMAKEGENERATOR%" ^
-    -DHRYKY_CMAKE_VERBOSITY:STRING=1
+    "%CMAKE_VERBOSITY%"
 
 @echo change directory to %CMAKE_BIN_DIR% for out-of-source build.
 @pushd %CMAKE_BIN_DIR:/=\%
