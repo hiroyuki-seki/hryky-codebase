@@ -11,6 +11,8 @@
 #include "hryky/stream/stream_denote.h"
 #include "hryky/with_stream_out.h"
 #include "hryky/with_swap.h"
+#include "hryky/with_data.h"
+#include "hryky/with_size.h"
 #include "hryky/std/std_iterator.h"
 #include "hryky/strstr.h"
 #include "hryky/is_null.h"
@@ -52,9 +54,16 @@ namespace hryky
   @brief retains a literal string and its length.
  */
 template <hryky_template_param>
-class hryky::LiteralString :
-	public WithStreamOut<LiteralString<hryky_template_arg> >,
-	public WithSwap<LiteralString<hryky_template_arg> >
+class hryky::LiteralString
+	: public WithStreamOut<LiteralString<hryky_template_arg> >
+	, public WithSwap<LiteralString<hryky_template_arg> >
+	, public WithData<
+		LiteralString<hryky_template_arg>,
+		CharT const *,
+		CharT const *>
+	, public WithSize<
+		LiteralString<hryky_template_arg>,
+		::std::size_t>
 {
 public :
 	typedef LiteralString<hryky_template_arg>               this_type;
