@@ -22,6 +22,16 @@ namespace hryky
 	template <hryky_template_param>
 	class WithStreamOut;
 
+namespace stream
+{
+namespace map
+{
+	template <typename>
+	class Scope;
+	
+} // namespace map
+} // namespace stream
+
 } // namespace hryky
 //------------------------------------------------------------------------------
 // declares classes
