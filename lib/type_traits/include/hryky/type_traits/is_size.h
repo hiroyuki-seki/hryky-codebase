@@ -46,7 +46,7 @@ namespace hryky
   allows size_t
  */
 template <>
-class hryky::IsSize<size_t>
+class IsSize<size_t>
 {
 public :
 	typedef true_type type;
@@ -55,17 +55,17 @@ public :
   allows intptr_t
  */
 template <>
-class hryky::IsSize<intptr_t>
+class IsSize<intptr_t>
 {
 public :
 	typedef true_type type;
 };
-#if !HRYKY_PLATFORM_WINDOWS
+#if !HRYKY_PLATFORM_WINDOWS && (40801 > hryky_gcc_version)
 /**
   allows uintptr_t
  */
 template <>
-class hryky::IsSize<uintptr_t>
+class IsSize<uintptr_t>
 {
 public :
 	typedef true_type type;

@@ -45,7 +45,7 @@ namespace hryky
   The type is boolean.
  */
 template <>
-class hryky::IsBoolean<bool>
+class IsBoolean<bool>
 {
 public :
 	typedef true_type type;

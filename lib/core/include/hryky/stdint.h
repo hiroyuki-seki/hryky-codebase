@@ -33,8 +33,10 @@ namespace hryky
 	/// alias for 8bit data.
 	typedef uint8_t                 octet_type;
 
+#if (40801 > hryky_gcc_version)
 	typedef char16_t                char16_t;
 	typedef char32_t                char32_t;
+#endif
 
 	typedef size_t                  size_t;
 	typedef intptr_t                intrptr_t;

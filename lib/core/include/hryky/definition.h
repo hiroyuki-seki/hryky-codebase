@@ -19,6 +19,13 @@
 #   define hryky_cpp11  (0)
 #endif
 
+#if defined(__GNUC__)
+#   define hryky_gcc_version \
+	    ((__GNUC__ * 10000) + (__GNUC_MINOR__ * 100) + (__GNUC_PATCHLEVEL__))
+#else
+#   define hryky_gcc_version (0)
+#endif
+
 #if HRYKY_SUPPORT_DELETED_FUNCTION
 #   define hryky_deleted_function =delete
 #else
@@ -56,12 +63,13 @@
 	__attribute__((aligned(bytes))) exp
 #endif
 
+#define hryky_member(name) name##_
 
 #define hryky_copy_member(name) \
-	name##_(rhs.##name##_)
+	hryky_member(name)(rhs.hryky_member(name))
 
 #define hryky_move_member(name) \
-	name##_(::std::move(rhs.##name##_))
+	hryky_member(name)(::std::move(rhs.hryky_member(name)))
 
 #define hryky_delete_default_constructor(name) \
 	name() hryky_deleted_function
@@ -105,7 +113,7 @@
 #define hryky_getter(_type, basename) \
 	_type basename() const\
 	{\
-		return this->basename##_;\
+		return this->hryky_member(basename);\
 	}
 /**
   @internal
@@ -116,7 +124,7 @@
 #define hryky_setter(_type, basename) \
 	void basename(AsParameter<_type>::type src)\
 	{\
-		this->basename##_ = src;\
+		this->hryky_member(basename) = src;\
 	}
 /**
   @internal
@@ -130,7 +138,7 @@
 #define hryky_setter_row(member_type, basename) \
 	this_type & basename(AsParameter< member_type >::type src) \
 	{\
-		this->basename##_ = src;\
+		this->hryky_member(basename) = src;\
 		return *this;\
 	}\
 
@@ -166,7 +174,7 @@
 	public :\
 		hryky_accessor_func(type, basename);\
 	protected :\
-		type basename##_;\
+		type hryky_member(basename);\
 
 /**
   @brief    inserts the definition to read and write the member variable.
@@ -180,7 +188,7 @@
 	public :\
 		hryky_accessor_row_func(type, basename);\
 	protected :\
-		type basename##_;\
+		type hryky_member(basename);\
 
 /**
   @brief    inserts the definition to read the member variable.
@@ -191,7 +199,7 @@
 	public :\
 		hryky_getter(type, basename);\
 	protected :\
-		type basename##_;\
+		type hryky_member(basename);\
 
 /**
   @brief    inserts the definition to write the member variable.
@@ -202,7 +210,7 @@
 	public :\
 		hryky_setter(type, basename);\
 	protected :\
-		type basename##_;\
+		type hryky_member(basename);\
 
 /**
   @brief    inserts the definition to write the member variable.
@@ -216,7 +224,7 @@
 	public :\
 		hryky_setter_row(type, basename);\
 	protected :\
-		type basename##_;\
+		type hryky_member(basename);\
 
 //------------------------------------------------------------------------------
 // declares types
