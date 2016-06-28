@@ -6,7 +6,9 @@
  */
 #ifndef DEFINITION_H_20130317183829443
 #define DEFINITION_H_20130317183829443
-#include "hryky/config.h"
+#if HRYKY_USE_CONFIG_H
+#   include "hryky/config.h"
+#endif
 #include "hryky/std/std_utility.h"
 //------------------------------------------------------------------------------
 // defines macros

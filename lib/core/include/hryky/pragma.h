@@ -6,7 +6,9 @@
  */
 #ifndef PRAGMA_H_20140322160522337
 #define PRAGMA_H_20140322160522337
-#include "hryky/config.h"
+#if HRYKY_USE_CONFIG_H
+#   include "hryky/config.h"
+#endif
 
 #if HRYKY_PLATFORM_WINDOWS
 #   define hryky_pragma_push_warning                    warning(push)

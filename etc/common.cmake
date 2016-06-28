@@ -1738,6 +1738,9 @@ function(hryky_init_common_variables)
 	if (WIN32)
 		list(APPEND HRYKY_MINIMUM_MODULES win32)
 	endif()
+
+	add_definitions(
+		-DHRYKY_USE_CONFIG_H=1)
 	
 	if (WIN32)
 		add_definitions(
