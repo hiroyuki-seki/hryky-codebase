@@ -50,7 +50,7 @@ namespace hryky
  */
 template <
 	typename ContainerT,
-	typename IteratorT = IteratorOf<ContainerT>::type >
+	typename IteratorT = typename hryky::IteratorOf<ContainerT>::type >
 class hryky::Foreach :
 	public WithStreamOut<Foreach<hryky_template_arg> >,
 	public WithSwap<Foreach<hryky_template_arg> >
