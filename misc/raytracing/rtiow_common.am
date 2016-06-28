@@ -1,0 +1,6 @@
+AUTOMAKE_OPTIONS = foreign
+CXXFLAGS = \
+    -I../../../lib/core/include \
+    -I../../../lib/type_traits/include \
+    -I../../../lib/tmp/include \
+    -std=c++11
