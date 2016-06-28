@@ -3,3 +3,18 @@
 
 *.lib
 XTAGS
+*.Po
+*.m4
+*.cache
+config.log
+config.status
+configure
+depcomp
+Makefile.in
+missing
+install-sh
+misc/raytracing/*/Makefile
+misc/raytracing/*/COPYING
+misc/raytracing/*/INSTALL
+misc/raytracing/*/*.exe
+misc/raytracing/*/*.ppm
