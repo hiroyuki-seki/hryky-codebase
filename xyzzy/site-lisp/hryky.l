@@ -167,8 +167,8 @@ THE SOFTWARE.
 ;; msys
 ;;--------------------------------------
 (defun msys
-  ()
-  (interactive)
+  (buffer)
+  (interactive "sbuffer : ")
   (execute-subprocess
    (format 
 	nil
@@ -176,7 +176,7 @@ THE SOFTWARE.
 	(editor::concat (si:getenv "DEVROOT") "/hryky-codebase/tool/misc/msys.bat")
 	)
    ""
-   "*msys*"
+   (format nil "*~A*" buffer)
    )
   )
 
