@@ -3,4 +3,5 @@ CXXFLAGS = \
     -I../../../lib/core/include \
     -I../../../lib/type_traits/include \
     -I../../../lib/tmp/include \
+    -I../../../lib/feature/include \
     -std=c++11

@@ -9,6 +9,7 @@
 #include "hryky/definition.h"
 #include "hryky/clear.h"
 #include "hryky/swap.h"
+#include "hryky/foreach.h"
 //------------------------------------------------------------------------------
 // defines macros
 //------------------------------------------------------------------------------
@@ -22,7 +23,7 @@
 namespace rtiow
 {
 	/// contains three elements.
-	template <typename ValueT>
+	template <hryky_template_param>
 	class Vec3;
 
 } // namespace rtiow
@@ -32,7 +33,7 @@ namespace rtiow
 /**
   @brief contains three elements.
  */
-template <hryky_template_param>
+template <typename ValueT = float>
 class rtiow::Vec3
 {
 public :
@@ -42,6 +43,10 @@ public :
 
 	/// default constructor.
 	Vec3();
+
+	/// instantiates with an element.
+	template <typename A1T>
+	Vec3(A1T a1);
 
 	/// instantiates with three elements.
 	template <typename A1T, typename A2T, typename A3T>
@@ -79,6 +84,26 @@ public :
 	/// unary operator '-'.
 	this_type operator-() const;
 
+	/// operator '+='.
+	this_type & operator+=(this_type const & rhs);
+
+	/// operator '-='.
+	this_type & operator-=(this_type const & rhs);
+
+	/// operator '*='.
+	this_type & operator*=(this_type const & rhs);
+
+	/// operator '*=' with a scalar value.
+	template <typename RhsT>
+	this_type & operator*=(RhsT rhs);
+
+	/// operator '/='.
+	this_type & operator/=(this_type const & rhs);
+
+	/// operator '/=' with a scalar value.
+	template <typename RhsT>
+	this_type & operator/=(RhsT rhs);
+
 	/// releases the internal resources.
 	void clear();
 
@@ -97,6 +122,12 @@ public :
 
 	/// retrieves the z element.
 	ValueT z() const;
+
+	/// retrieves the length of this vector.
+	ValueT length() const;
+
+	/// the square of length.
+	ValueT slength() const;
 
 protected :
 
@@ -130,27 +161,37 @@ rtiow::Vec3<hryky_template_arg>::Vec3()
 template <hryky_template_param>
 template <typename A1T, typename A2T, typename A3T>
 rtiow::Vec3<hryky_template_arg>::Vec3(A1T x, A2T y, A3T z)
-	: values_()
 {
 	this->values_[0] = x;
 	this->values_[1] = y;
 	this->values_[2] = z;
 }
 /**
+  @brief instantiates with an element.
+ */
+template <hryky_template_param>
+template <typename A1T>
+rtiow::Vec3<hryky_template_arg>::Vec3(A1T a1)
+{
+	this->values_[0] = a1;
+	this->values_[1] = a1;
+	this->values_[2] = a1;
+}
+/**
   @brief copy constructor.
  */
 template <hryky_template_param>
 rtiow::Vec3<hryky_template_arg>::Vec3(this_type const & rhs)
-	: hryky_copy_member(values)
 {
+	::std::copy(&rhs.values_[0], &rhs.values_[3], &this->values_[0]);
 }
 /**
   @brief move constructor.
  */
 template <hryky_template_param>
 rtiow::Vec3<hryky_template_arg>::Vec3(this_type && rhs)
-	: hryky_move_member(values)
 {
+	::std::copy(&rhs.values_[0], &rhs.values_[3], &this->values_[0]);
 }
 /**
   @brief destructor.
@@ -210,6 +251,81 @@ rtiow::Vec3<hryky_template_arg>::operator-() const
 		-this->values_[0]);
 }
 /**
+  @brief operator '+='.
+ */
+template <hryky_template_param>
+rtiow::Vec3<hryky_template_arg> & 
+rtiow::Vec3<hryky_template_arg>::operator+=(
+	this_type const & rhs)
+{
+	this->values_[0] += rhs.values_[0];
+	this->values_[1] += rhs.values_[1];
+	this->values_[2] += rhs.values_[2];
+	return *this;
+}
+/**
+  @brief operator '-='.
+ */
+template <hryky_template_param>
+rtiow::Vec3<hryky_template_arg> & 
+rtiow::Vec3<hryky_template_arg>::operator-=(
+	this_type const & rhs)
+{
+	this->values_[0] -= rhs.values_[0];
+	this->values_[1] -= rhs.values_[1];
+	this->values_[2] -= rhs.values_[2];
+	return *this;
+}
+/**
+  @brief operator '*='.
+ */
+template <hryky_template_param>
+rtiow::Vec3<hryky_template_arg> & 
+rtiow::Vec3<hryky_template_arg>::operator*=(
+	this_type const & rhs)
+{
+	this->values_[0] *= rhs.values_[0];
+	this->values_[1] *= rhs.values_[1];
+	this->values_[2] *= rhs.values_[2];
+	return *this;
+}
+/**
+  @brief operator '*=' with a scalar value.
+ */
+template <hryky_template_param>
+template <typename RhsT>
+rtiow::Vec3<hryky_template_arg> &
+rtiow::Vec3<hryky_template_arg>::operator*=(RhsT rhs)
+{
+	this->values_[0] *= rhs;
+	this->values_[1] *= rhs;
+	this->values_[2] *= rhs;
+	return *this;
+}
+/**
+  @brief operator '/='.
+ */
+template <hryky_template_param>
+rtiow::Vec3<hryky_template_arg> & 
+rtiow::Vec3<hryky_template_arg>::operator/=(
+	this_type const & rhs)
+{
+	this->values_[0] /= rhs.values_[0];
+	this->values_[1] /= rhs.values_[1];
+	this->values_[2] /= rhs.values_[2];
+	return *this;
+}
+/**
+  @brief operator '/=' with a scalar value.
+ */
+template <hryky_template_param>
+template <typename RhsT>
+rtiow::Vec3<hryky_template_arg> &
+rtiow::Vec3<hryky_template_arg>::operator/=(RhsT rhs)
+{
+	return this->operator*=(1 / rhs);
+}
+/**
   @brief releases the internal resources.
  */
 template <hryky_template_param>
@@ -230,7 +346,8 @@ void rtiow::Vec3<hryky_template_arg>::swap(this_type & src)
  */
 template <hryky_template_param>
 template <typename StreamT>
-StreamT & rtiow::Vec3<hryky_template_arg>::write_to(StreamT & out) const
+StreamT &
+rtiow::Vec3<hryky_template_arg>::write_to(StreamT & out) const
 {
 	return out;
 }
@@ -257,6 +374,26 @@ template <hryky_template_param>
 ValueT rtiow::Vec3<hryky_template_arg>::z() const
 {
 	return this->values_[2];
+}
+/**
+  @brief retrieves the length of this vector.
+ */
+template <hryky_template_param>
+ValueT
+rtiow::Vec3<hryky_template_arg>::length() const
+{
+	return sqrt(this->slength());
+}
+/**
+  @brief the square of length.
+ */
+template <hryky_template_param>
+ValueT rtiow::Vec3<hryky_template_arg>::slength() const
+{
+	return (
+		(*this)[0] * (*this)[0]
+		+ (*this)[1] * (*this)[1]
+		+ (*this)[2] * (*this)[2]);
 }
 //------------------------------------------------------------------------------
 // defines protected member functions
