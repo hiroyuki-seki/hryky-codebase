@@ -70,6 +70,7 @@ THE SOFTWARE.
 		  svn-update
 		  svn-commit
 		  svn-add
+		  set-current-directory
 		  )
 		)
 
@@ -239,6 +240,18 @@ THE SOFTWARE.
   (execute-subprocess
    (format nil "svn add ~A" directory)
    "" "*svn-add*")
+  )
+
+;;--------------------------------------
+;; configures the current directory.
+;;--------------------------------------
+(setf 
+ (get 'set-current-directory 'ed::minibuffer-history-variable) 
+ 'editor::*minibuffer-directory-name-history*)
+(defun set-current-directory (directory)
+  (interactive "Ddirectory : " :history0 'set-current-directory)
+  (editor::set-default-directory directory)
+  (message "~A" directory)
   )
 
 (in-package "hryky")
