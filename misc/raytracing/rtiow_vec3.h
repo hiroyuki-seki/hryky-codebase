@@ -6,6 +6,7 @@
  */
 #ifndef VEC3_H_20160628180738421
 #define VEC3_H_20160628180738421
+#include <cmath>
 #include "hryky/definition.h"
 #include "hryky/clear.h"
 #include "hryky/swap.h"
@@ -136,6 +137,12 @@ public :
 
 	/// the square of length.
 	ValueT slength() const;
+
+	/// binary operator '+'.
+	this_type operator+(this_type const & rhs) const;
+
+	/// binary operator '-'.
+	this_type operator-(this_type const & rhs) const;
 
 protected :
 
@@ -403,7 +410,7 @@ template <hryky_template_param>
 ValueT
 hryky::rtiow::Vec3<hryky_template_arg>::length() const
 {
-	return sqrt(this->slength());
+	return ::std::sqrt(this->slength());
 }
 /**
   @brief the square of length.
@@ -415,6 +422,32 @@ ValueT hryky::rtiow::Vec3<hryky_template_arg>::slength() const
 		(*this)[0] * (*this)[0]
 		+ (*this)[1] * (*this)[1]
 		+ (*this)[2] * (*this)[2]);
+}
+/**
+  @brief binary operator '+'.
+ */
+template <hryky_template_param>
+hryky::rtiow::Vec3<hryky_template_arg> 
+hryky::rtiow::Vec3<hryky_template_arg>::operator+(
+	this_type const & rhs) const
+{
+	return this_type(
+		(*this)[0] + rhs[0],
+		(*this)[1] + rhs[1],
+		(*this)[2] + rhs[2]);
+}
+/**
+  @brief binary operator '-'.
+ */
+template <hryky_template_param>
+hryky::rtiow::Vec3<hryky_template_arg> 
+hryky::rtiow::Vec3<hryky_template_arg>::operator-(
+	this_type const & rhs) const
+{
+	return this_type(
+		(*this)[0] - rhs[0],
+		(*this)[1] - rhs[1],
+		(*this)[2] - rhs[2]);
 }
 //------------------------------------------------------------------------------
 // defines protected member functions
@@ -445,6 +478,11 @@ namespace rtiow
 	Vec3<hryky_template_arg> operator/(
 		Vec3<hryky_template_arg> const & lhs,
 		typename Vec3<hryky_template_arg>::const_reference rhs);
+
+	/// normalizes a vector.
+	template <hryky_template_param>
+	Vec3<hryky_template_arg> normalize(
+		Vec3<hryky_template_arg> const & src);
 
 } // namespace rtiow
 } // namespace hryky
@@ -485,9 +523,19 @@ hryky::rtiow::operator/(
 	typename Vec3<hryky_template_arg>::const_reference rhs)
 {
 	return Vec3<hryky_template_arg>(
-		rhs[0] / rhs,
-		rhs[1] / rhs,
-		rhs[2] / rhs);
+		lhs[0] / rhs,
+		lhs[1] / rhs,
+		lhs[2] / rhs);
+}
+/**
+  @brief normalizes a vector.
+ */
+template <hryky_template_param>
+hryky::rtiow::Vec3<hryky_template_arg>
+hryky::rtiow::normalize(
+	Vec3<hryky_template_arg> const & src)
+{
+	return src / src.length();
 }
 //------------------------------------------------------------------------------
 // revokes the temporary macros
