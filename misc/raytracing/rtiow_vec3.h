@@ -141,8 +141,16 @@ public :
 	/// binary operator '+'.
 	this_type operator+(this_type const & rhs) const;
 
+	/// binary operator '+' with an arbitrary scalar.
+	template <typename RhsT>
+	this_type operator+(RhsT rhs) const;
+
 	/// binary operator '-'.
 	this_type operator-(this_type const & rhs) const;
+
+	/// binary operator '-' with an arbitrary scalar.
+	template <typename RhsT>
+	this_type operator-(RhsT rhs) const;
 
 protected :
 
@@ -437,6 +445,20 @@ hryky::rtiow::Vec3<hryky_template_arg>::operator+(
 		(*this)[2] + rhs[2]);
 }
 /**
+  @brief binary operator '+' with an arbitrary scalar.
+ */
+template <hryky_template_param>
+template <typename RhsT>
+hryky::rtiow::Vec3<hryky_template_arg> 
+hryky::rtiow::Vec3<hryky_template_arg>::operator+(
+	RhsT rhs) const
+{
+	return this_type(
+		(*this)[0] + rhs,
+		(*this)[1] + rhs,
+		(*this)[2] + rhs);
+}
+/**
   @brief binary operator '-'.
  */
 template <hryky_template_param>
@@ -448,6 +470,20 @@ hryky::rtiow::Vec3<hryky_template_arg>::operator-(
 		(*this)[0] - rhs[0],
 		(*this)[1] - rhs[1],
 		(*this)[2] - rhs[2]);
+}
+/**
+  @brief binary operator '-' with an arbitrary scalar.
+ */
+template <hryky_template_param>
+template <typename RhsT>
+hryky::rtiow::Vec3<hryky_template_arg> 
+hryky::rtiow::Vec3<hryky_template_arg>::operator-(
+	RhsT rhs) const
+{
+	return this_type(
+		(*this)[0] - rhs,
+		(*this)[1] - rhs,
+		(*this)[2] - rhs);
 }
 //------------------------------------------------------------------------------
 // defines protected member functions
