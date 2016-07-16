@@ -66,6 +66,7 @@ namespace global
 	/**
 	  creates an array of instances as scoped array.
 	  The memory is allocated from the default mempool.
+	  @todo remove this.
 	 */
 	template <typename ValueT>
 	typename Array<ValueT>::type array(size_t const size);
@@ -117,6 +118,7 @@ hryky::mempool::global::instantiate(Arg1T && arg1, Arg2T && arg2)
 }
 /**
   @brief creates an array of instances by unique ptr.
+  @todo remove this.
  */
 template <typename ValueT>
 typename hryky::mempool::Array<ValueT>::type

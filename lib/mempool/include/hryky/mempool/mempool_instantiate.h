@@ -105,6 +105,7 @@ namespace mempool
 	/**
 	  creates an array of instances as scoped array.
 	  The memory is allocated from the specific mempool.
+	  @todo remove this.
 	 */
 	template <typename ValueT>
 	typename Array<ValueT>::type array(
@@ -210,6 +211,7 @@ hryky::mempool::instantiate(
 }
 /**
   @brief creates an array of instances by the specific mempool.
+  @todo remove this.
  */
 template <typename ValueT>
 typename hryky::mempool::Array<ValueT>::type
