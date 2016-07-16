@@ -484,6 +484,12 @@ namespace rtiow
 	Vec3<hryky_template_arg> normalize(
 		Vec3<hryky_template_arg> const & src);
 
+	/// calculates dot product.
+	template <hryky_template_param>
+	ValueT dot(
+		Vec3<hryky_template_arg> const & lhs,
+		Vec3<hryky_template_arg> const & rhs);
+
 } // namespace rtiow
 } // namespace hryky
 //------------------------------------------------------------------------------
@@ -536,6 +542,19 @@ hryky::rtiow::normalize(
 	Vec3<hryky_template_arg> const & src)
 {
 	return src / src.length();
+}
+/**
+  @brief calculates dot product.
+ */
+template <hryky_template_param>
+ValueT hryky::rtiow::dot(
+	Vec3<hryky_template_arg> const & lhs,
+	Vec3<hryky_template_arg> const & rhs)
+{
+	return (
+		lhs[0] * rhs[0]
+		+ lhs[1] * rhs[1]
+		+ lhs[2] * rhs[2]);
 }
 //------------------------------------------------------------------------------
 // revokes the temporary macros

@@ -12,6 +12,9 @@ namespace
 	/// retrieves the color at the position where a ray intersects the screen.
 	fvec3 color(ray_type const & ray);
 
+	/// confirms whether a ray intersects a sphere.
+	bool hit_sphere(fvec3 const & center, float const radius, ray_type const & ray);
+
 } // namespace
 
 int main (int argc, char * argv[])
@@ -31,12 +34,12 @@ int main (int argc, char * argv[])
 	
 	uint32_t y = 0u;
 	for (; height != y; ++y) {
+		auto const ratio_y
+			= static_cast<float>(height - (y + 1u)) / height;
 		uint32_t x = 0u;
+		for (; width != x; ++x) {
 		auto const ratio_x
 			= static_cast<float>(x) / width;
-		for (; width != x; ++x) {
-			auto const ratio_y
-				= static_cast<float>(height - (y + 1u)) / height;
 			auto const fcolor = color(ray_type(
 				origin,
 				lower_left
@@ -56,12 +59,29 @@ namespace
  */
 fvec3 color(ray_type const & ray)
 {
+	if (hit_sphere(fvec3(0.0f, 0.0f, -1.0f), 0.5f, ray)) {
+		return fvec3(1.0f, 0.0f, 0.0f);
+	}
+	
 	auto const unit = normalize(ray.direction());
 	auto const ratio = 0.5f * (unit[1] + 1.0f);
 	auto const white = fvec3(1.0f);
 	auto const blue = fvec3(0.5f, 0.7f, 1.0f);
 	
 	return (1.0f - ratio) * white + ratio * blue;
+}
+/**
+  @brief confirms whether a ray intersects a sphere.
+ */
+bool hit_sphere(fvec3 const & center, float const radius, ray_type const & ray)
+{
+	auto const oc = ray.origin() - center;
+	auto const a = dot(ray.direction(), ray.direction());
+	auto const b = 2.0f * dot(ray.direction(), oc);
+	auto const c = dot(oc, oc) - radius * radius;
+	auto const discriminant = b * b - 4.0f * a * c;
+
+	return 0.0f < discriminant;
 }
 } // namespace
 

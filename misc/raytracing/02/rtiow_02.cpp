@@ -32,11 +32,11 @@ int main (int argc, char * argv[])
 	uint32_t y = 0u;
 	for (; height != y; ++y) {
 		uint32_t x = 0u;
-		auto const ratio_x
-			= static_cast<float>(x) / width;
+		auto const ratio_y
+			= static_cast<float>(height - (y + 1u)) / height;
 		for (; width != x; ++x) {
-			auto const ratio_y
-				= static_cast<float>(height - (y + 1u)) / height;
+			auto const ratio_x
+				= static_cast<float>(x) / width;
 			auto const fcolor = color(ray_type(
 				origin,
 				lower_left

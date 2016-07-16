@@ -17,11 +17,14 @@ int main (int argc, char * argv[])
 	
 	uint32_t y = 0u;
 	for (; height != y; ++y) {
+		auto const ratio_y
+			= static_cast<float>(height - (y + 1u)) / height;
 		uint32_t x = 0u;
 		for (; width != x; ++x) {
+			auto const ratio_x = static_cast<float>(x) / width;
 			auto const fcolor = fvec3(
-				static_cast<float>(x) / width,
-				static_cast<float>(height - (y + 1u)) / height,
+				ratio_x,
+				ratio_y,
 				0.2f);
 			auto const icolor = ivec3(255.99f * fcolor);
 			(::std::cout << icolor << std::endl);
