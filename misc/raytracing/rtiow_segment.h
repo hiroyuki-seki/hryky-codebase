@@ -1,12 +1,11 @@
 /**
-  @file     rtiow_ray.h
-  @brief    retains a half line.
+  @file     rtiow_segment.h
+  @brief    retains a segment.
   @author   HRYKY
   @version  $Id: hryky-template.l 381 2015-03-14 00:09:09Z hryky.private@gmail.com $
  */
-#ifndef RTIOW_RAY_H_20160703132553226
-#define RTIOW_RAY_H_20160703132553226
-#include "./rtiow_vec3.h"
+#ifndef RTIOW_SEGMENT_H_20160717151849304
+#define RTIOW_SEGMENT_H_20160717151849304
 //------------------------------------------------------------------------------
 // defines macros
 //------------------------------------------------------------------------------
@@ -21,9 +20,9 @@ namespace hryky
 {
 namespace rtiow
 {
-	/// retains a half line.
+	/// retains a segment.
 	template <hryky_template_param>
-	class Ray;
+	class Segment;
 
 } // namespace rtiow
 } // namespace hryky
@@ -31,32 +30,30 @@ namespace rtiow
 // declares classes
 //------------------------------------------------------------------------------
 /**
-  @brief retains a half line.
+  @brief retains a segment.
  */
-template <
-	typename VectorT = hryky::rtiow::Vec3<>
->
-class hryky::rtiow::Ray
+template <typename VectorT = hryky::rtiow::Vec3<> >
+class hryky::rtiow::Segment
 {
 public :
 
-	typedef Ray<hryky_template_arg> this_type;
+	typedef Segment<hryky_template_arg> this_type;
 	typedef VectorT vector_type;
 
 	/// default constructor.
-	Ray();
+	Segment();
 
-	/// instantiates with an origin and a direction.
-	Ray(vector_type const & origin, vector_type const & direction);
+	/// constructor.
+	Segment(VectorT const & origin, VectorT const & direction);
 
 	/// copy constructor.
-	Ray(this_type const &);
+	Segment(this_type const &);
 
 	/// move constructor.
-	Ray(this_type &&);
+	Segment(this_type &&);
 
 	/// destructor.
-	~Ray();
+	~Segment();
 
 	/// assignment operator.
 	hryky_assign_op;
@@ -74,26 +71,26 @@ public :
 	template <typename StreamT>
 	StreamT & write_to(StreamT & out) const;
 
-	/// retrieves the origin of this ray.
-	vector_type const & origin() const;
+	/// retrieves the origin of this directional segment.
+	VectorT const & origin() const;
 
-	/// retrieves the direction of this ray.
-	vector_type const & direction() const;
-
-	/// creates a position.
-	template <typename RateT>
-	vector_type point(RateT const & rate) const;
+	/// retrieves the direction of this directional segment.
+	VectorT const & direction() const;
 
 	/// confirms whether an rate is valid.
 	template <typename RateT>
 	bool verify(RateT const & rate) const;
 
+	/// retrieves the point on the line.
+	template <typename RateT>
+	vector_type point(RateT rate) const;
+
 protected :
 
 private :
 
-	vector_type origin_;
-	vector_type direction_;
+	VectorT origin_;
+	VectorT direction_;
 
 };
 //------------------------------------------------------------------------------
@@ -112,17 +109,15 @@ namespace rtiow
   @brief default constructor.
  */
 template <hryky_template_param>
-hryky::rtiow::Ray<hryky_template_arg>::Ray()
-	: origin_()
-	  , direction_()
+hryky::rtiow::Segment<hryky_template_arg>::Segment()
 {
 }
 /**
-  @brief instantiates with an origin and a direction.
+  @brief constructor.
  */
 template <hryky_template_param>
-hryky::rtiow::Ray<hryky_template_arg>::Ray(
-	vector_type const & origin, vector_type const & direction)
+hryky::rtiow::Segment<hryky_template_arg>::Segment(
+	VectorT const & origin, VectorT const & direction)
 	: origin_(origin)
 	  , direction_(direction)
 {
@@ -131,7 +126,7 @@ hryky::rtiow::Ray<hryky_template_arg>::Ray(
   @brief copy constructor.
  */
 template <hryky_template_param>
-hryky::rtiow::Ray<hryky_template_arg>::Ray(this_type const & rhs)
+hryky::rtiow::Segment<hryky_template_arg>::Segment(this_type const & rhs)
 	: hryky_copy_member(origin)
 	  , hryky_copy_member(direction)
 {
@@ -140,7 +135,7 @@ hryky::rtiow::Ray<hryky_template_arg>::Ray(this_type const & rhs)
   @brief move constructor.
  */
 template <hryky_template_param>
-hryky::rtiow::Ray<hryky_template_arg>::Ray(this_type && rhs)
+hryky::rtiow::Segment<hryky_template_arg>::Segment(this_type && rhs)
 	: hryky_move_member(origin)
 	  , hryky_move_member(direction)
 {
@@ -149,23 +144,23 @@ hryky::rtiow::Ray<hryky_template_arg>::Ray(this_type && rhs)
   @brief destructor.
  */
 template <hryky_template_param>
-hryky::rtiow::Ray<hryky_template_arg>::~Ray()
+hryky::rtiow::Segment<hryky_template_arg>::~Segment()
 {
 }
 /**
   @brief releases the internal resources.
  */
 template <hryky_template_param>
-void hryky::rtiow::Ray<hryky_template_arg>::clear()
+void hryky::rtiow::Segment<hryky_template_arg>::clear()
 {
-	hryky::clear(this->direction_);
-	hryky::clear(this->origin_);
+	hryky::clear(direction);
+	hryky::clear(origin);
 }
 /**
   @brief interchanges the each internal resources of two instances.
  */
 template <hryky_template_param>
-void hryky::rtiow::Ray<hryky_template_arg>::swap(this_type & src)
+void hryky::rtiow::Segment<hryky_template_arg>::swap(this_type & src)
 {
 	hryky_swap_member(origin);
 	hryky_swap_member(direction);
@@ -175,48 +170,48 @@ void hryky::rtiow::Ray<hryky_template_arg>::swap(this_type & src)
  */
 template <hryky_template_param>
 template <typename StreamT>
-StreamT & hryky::rtiow::Ray<hryky_template_arg>::write_to(StreamT & out) const
+StreamT & hryky::rtiow::Segment<hryky_template_arg>::write_to(
+	StreamT & out) const
 {
-	// stream::map::Scope<StreamT> const map(out);
 	return out;
 }
 /**
-  @brief retrieves the origin of this ray.
+  @brief retrieves the origin of this directional segment.
  */
 template <hryky_template_param>
-typename hryky::rtiow::Ray<hryky_template_arg>::vector_type const &
-hryky::rtiow::Ray<hryky_template_arg>::origin() const
+typename hryky::rtiow::Segment<hryky_template_arg>::vector_type const &
+hryky::rtiow::Segment<hryky_template_arg>::origin() const
 {
 	return this->origin_;
 }
 /**
-  @brief retrieves the direction of this ray.
+  @brief retrieves the direction of this directional segment.
  */
 template <hryky_template_param>
-typename hryky::rtiow::Ray<hryky_template_arg>::vector_type const &
-hryky::rtiow::Ray<hryky_template_arg>::direction() const
+typename hryky::rtiow::Segment<hryky_template_arg>::vector_type const &
+hryky::rtiow::Segment<hryky_template_arg>::direction() const
 {
 	return this->direction_;
 }
 /**
-  @brief creates a position.
+  @brief retrieves the point on the line.
  */
 template <hryky_template_param>
 template <typename RateT>
-typename hryky::rtiow::Ray<hryky_template_arg>::vector_type
-hryky::rtiow::Ray<hryky_template_arg>::point(
-	RateT const & rate) const
+typename hryky::rtiow::Segment<hryky_template_arg>::vector_type 
+hryky::rtiow::Segment<hryky_template_arg>::point(RateT rate) const
 {
-	return this->origin_ + rate * this->direction_;
+	return this->origin() + rate * this->direction();
 }
 /**
   @brief confirms whether an rate is valid.
  */
 template <hryky_template_param>
 template <typename RateT>
-bool hryky::rtiow::Ray<hryky_template_arg>::verify(RateT const & rate) const
+bool hryky::rtiow::Segment<hryky_template_arg>::verify(
+	RateT const & rate) const
 {
-	return 0.0f < rate;
+	return 0.0f < rate && 1.0f > rate;
 }
 //------------------------------------------------------------------------------
 // defines protected member functions
@@ -241,5 +236,5 @@ namespace rtiow
 //------------------------------------------------------------------------------
 #undef hryky_template_param
 #undef hryky_template_arg
-#endif // RTIOW_RAY_H_20160703132553226
+#endif // RTIOW_SEGMENT_H_20160717151849304
 // end of file

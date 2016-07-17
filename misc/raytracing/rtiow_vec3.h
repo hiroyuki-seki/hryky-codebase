@@ -76,6 +76,9 @@ public :
 	/// move assignment operator.
 	hryky_move_assign_op;
 
+	/// binary operator '=='.
+	bool operator==(this_type const & rhs) const;
+
 	/// retrieves an element.
 	template <typename IndexT>
 	ValueT operator[](IndexT index) const;
@@ -235,6 +238,18 @@ hryky::rtiow::Vec3<hryky_template_arg>::Vec3(this_type && rhs)
 template <hryky_template_param>
 hryky::rtiow::Vec3<hryky_template_arg>::~Vec3()
 {
+}
+/**
+  @brief binary operator '=='.
+ */
+template <hryky_template_param>
+bool hryky::rtiow::Vec3<hryky_template_arg>::operator==(
+	this_type const & rhs) const
+{
+	return (
+		(*this)[0] == rhs[0]
+		&& (*this)[1] == rhs[1]
+		&& (*this)[2] == rhs[2]);
 }
 /**
   @brief retrieves an element.

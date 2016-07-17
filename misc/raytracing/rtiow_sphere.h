@@ -1,19 +1,20 @@
 /**
-  @file     rtiow_ray.h
-  @brief    retains a half line.
+  @file     rtiow_sphere.h
+  @brief    retains the information for a sphere.
   @author   HRYKY
   @version  $Id: hryky-template.l 381 2015-03-14 00:09:09Z hryky.private@gmail.com $
  */
-#ifndef RTIOW_RAY_H_20160703132553226
-#define RTIOW_RAY_H_20160703132553226
+#ifndef RTIOW_SPHERE_H_20160717111035132
+#define RTIOW_SPHERE_H_20160717111035132
 #include "./rtiow_vec3.h"
+#include "./rtiow_hit.h"
 //------------------------------------------------------------------------------
 // defines macros
 //------------------------------------------------------------------------------
 #define hryky_template_param \
-	typename VectorT
+	typename CenterT, typename RadiusT
 #define hryky_template_arg \
-	VectorT
+	CenterT, RadiusT
 //------------------------------------------------------------------------------
 // declares types
 //------------------------------------------------------------------------------
@@ -21,9 +22,9 @@ namespace hryky
 {
 namespace rtiow
 {
-	/// retains a half line.
+	/// retains the information for a sphere.
 	template <hryky_template_param>
-	class Ray;
+	class Sphere;
 
 } // namespace rtiow
 } // namespace hryky
@@ -31,32 +32,34 @@ namespace rtiow
 // declares classes
 //------------------------------------------------------------------------------
 /**
-  @brief retains a half line.
+  @brief retains the information for a sphere.
  */
 template <
-	typename VectorT = hryky::rtiow::Vec3<>
+	typename CenterT = hryky::rtiow::Vec3<>,
+	typename RadiusT = typename CenterT::value_type
 >
-class hryky::rtiow::Ray
+class hryky::rtiow::Sphere
 {
 public :
 
-	typedef Ray<hryky_template_arg> this_type;
-	typedef VectorT vector_type;
+	typedef Sphere<hryky_template_arg> this_type;
+	typedef CenterT center_type;
+	typedef RadiusT radius_type;
 
 	/// default constructor.
-	Ray();
+	Sphere();
 
-	/// instantiates with an origin and a direction.
-	Ray(vector_type const & origin, vector_type const & direction);
+	/// instantiates with a center and a radius.
+	Sphere(center_type const & center, radius_type const & radius);
 
 	/// copy constructor.
-	Ray(this_type const &);
+	Sphere(this_type const &);
 
 	/// move constructor.
-	Ray(this_type &&);
+	Sphere(this_type &&);
 
 	/// destructor.
-	~Ray();
+	~Sphere();
 
 	/// assignment operator.
 	hryky_assign_op;
@@ -74,26 +77,22 @@ public :
 	template <typename StreamT>
 	StreamT & write_to(StreamT & out) const;
 
-	/// retrieves the origin of this ray.
-	vector_type const & origin() const;
+	/// retrieves the center of this sphere.
+	center_type const & center() const;
 
-	/// retrieves the direction of this ray.
-	vector_type const & direction() const;
+	/// retrieves the radius of this sphere.
+	radius_type const & radius() const;
 
-	/// creates a position.
-	template <typename RateT>
-	vector_type point(RateT const & rate) const;
-
-	/// confirms whether an rate is valid.
-	template <typename RateT>
-	bool verify(RateT const & rate) const;
+	/// checks if a ray intersects with this sphere.
+	template <typename RayT>
+	Hit<> hit(RayT const & ray) const;
 
 protected :
 
 private :
 
-	vector_type origin_;
-	vector_type direction_;
+	center_type center_;
+	radius_type radius_;
 
 };
 //------------------------------------------------------------------------------
@@ -112,111 +111,122 @@ namespace rtiow
   @brief default constructor.
  */
 template <hryky_template_param>
-hryky::rtiow::Ray<hryky_template_arg>::Ray()
-	: origin_()
-	  , direction_()
+hryky::rtiow::Sphere<hryky_template_arg>::Sphere()
+	: center_()
+	  , radius_()
 {
 }
 /**
-  @brief instantiates with an origin and a direction.
+  @brief instantiates with a center and a radius.
  */
 template <hryky_template_param>
-hryky::rtiow::Ray<hryky_template_arg>::Ray(
-	vector_type const & origin, vector_type const & direction)
-	: origin_(origin)
-	  , direction_(direction)
+hryky::rtiow::Sphere<hryky_template_arg>::Sphere(
+	center_type const & center, radius_type const & radius)
+	: center_(center)
+	  , radius_(radius)
 {
 }
 /**
   @brief copy constructor.
  */
 template <hryky_template_param>
-hryky::rtiow::Ray<hryky_template_arg>::Ray(this_type const & rhs)
-	: hryky_copy_member(origin)
-	  , hryky_copy_member(direction)
+hryky::rtiow::Sphere<hryky_template_arg>::Sphere(this_type const & rhs)
+	: hryky_copy_member(center)
+	  , hryky_copy_member(radius)
 {
 }
 /**
   @brief move constructor.
  */
 template <hryky_template_param>
-hryky::rtiow::Ray<hryky_template_arg>::Ray(this_type && rhs)
-	: hryky_move_member(origin)
-	  , hryky_move_member(direction)
+hryky::rtiow::Sphere<hryky_template_arg>::Sphere(this_type && rhs)
+	: hryky_move_member(center)
+	  , hryky_move_member(radius)
 {
 }
 /**
   @brief destructor.
  */
 template <hryky_template_param>
-hryky::rtiow::Ray<hryky_template_arg>::~Ray()
+hryky::rtiow::Sphere<hryky_template_arg>::~Sphere()
 {
 }
 /**
   @brief releases the internal resources.
  */
 template <hryky_template_param>
-void hryky::rtiow::Ray<hryky_template_arg>::clear()
+void hryky::rtiow::Sphere<hryky_template_arg>::clear()
 {
-	hryky::clear(this->direction_);
-	hryky::clear(this->origin_);
+	hryky::clear(this->radius_);
+	hryky::clear(this->center_);
 }
 /**
   @brief interchanges the each internal resources of two instances.
  */
 template <hryky_template_param>
-void hryky::rtiow::Ray<hryky_template_arg>::swap(this_type & src)
+void hryky::rtiow::Sphere<hryky_template_arg>::swap(this_type & src)
 {
-	hryky_swap_member(origin);
-	hryky_swap_member(direction);
+	hryky_swap_member(center);
+	hryky_swap_member(radius);
 }
 /**
   @brief outputs the information through stream.
  */
 template <hryky_template_param>
 template <typename StreamT>
-StreamT & hryky::rtiow::Ray<hryky_template_arg>::write_to(StreamT & out) const
+StreamT & hryky::rtiow::Sphere<hryky_template_arg>::write_to(
+	StreamT & out) const
 {
-	// stream::map::Scope<StreamT> const map(out);
 	return out;
 }
 /**
-  @brief retrieves the origin of this ray.
+  @brief retrieves the center of this sphere.
  */
 template <hryky_template_param>
-typename hryky::rtiow::Ray<hryky_template_arg>::vector_type const &
-hryky::rtiow::Ray<hryky_template_arg>::origin() const
+typename hryky::rtiow::Sphere<hryky_template_arg>::center_type const & 
+hryky::rtiow::Sphere<hryky_template_arg>::center() const
 {
-	return this->origin_;
+	return this->center_;
 }
 /**
-  @brief retrieves the direction of this ray.
+  @brief retrieves the radius of this sphere.
  */
 template <hryky_template_param>
-typename hryky::rtiow::Ray<hryky_template_arg>::vector_type const &
-hryky::rtiow::Ray<hryky_template_arg>::direction() const
+typename hryky::rtiow::Sphere<hryky_template_arg>::radius_type const & 
+hryky::rtiow::Sphere<hryky_template_arg>::radius() const
 {
-	return this->direction_;
+	return this->radius_;
 }
 /**
-  @brief creates a position.
+  @brief checks if a ray intersects with this sphere.
  */
 template <hryky_template_param>
-template <typename RateT>
-typename hryky::rtiow::Ray<hryky_template_arg>::vector_type
-hryky::rtiow::Ray<hryky_template_arg>::point(
-	RateT const & rate) const
+template <typename RayT>
+hryky::rtiow::Hit<>
+hryky::rtiow::Sphere<hryky_template_arg>::hit(RayT const & ray) const
 {
-	return this->origin_ + rate * this->direction_;
-}
-/**
-  @brief confirms whether an rate is valid.
- */
-template <hryky_template_param>
-template <typename RateT>
-bool hryky::rtiow::Ray<hryky_template_arg>::verify(RateT const & rate) const
-{
-	return 0.0f < rate;
+	auto const oc = ray.origin() - this->center();
+	auto const a = dot(ray.direction(), ray.direction());
+	auto const b = dot(oc, ray.direction());
+	auto const c = dot(oc, oc) - this->radius() * this->radius();
+	auto const discriminant = b * b - a * c;
+	if (decltype(discriminant)() >= discriminant) {
+		return Hit<>();
+	}
+
+	auto const closer = (-b - ::std::sqrt(discriminant)) / a;
+	if (ray.verify(closer)) {
+		auto const point = ray.point(closer);
+		return Hit<>(point, (point - this->center()) / this->radius(), closer);
+	}
+
+	auto const further = (-b + ::std::sqrt(discriminant)) / a;
+	if (ray.verify(closer)) {
+		auto const point = ray.point(further);
+		return Hit<>(point, (point - this->center()) / this->radius(), further);
+	}
+
+	return Hit<>();
 }
 //------------------------------------------------------------------------------
 // defines protected member functions
@@ -241,5 +251,5 @@ namespace rtiow
 //------------------------------------------------------------------------------
 #undef hryky_template_param
 #undef hryky_template_arg
-#endif // RTIOW_RAY_H_20160703132553226
+#endif // RTIOW_SPHERE_H_20160717111035132
 // end of file

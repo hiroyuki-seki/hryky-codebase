@@ -1,19 +1,21 @@
 /**
-  @file     rtiow_ray.h
-  @brief    retains a half line.
+  @file     rtiow_less.h
+  @brief    verifies an inspected value is less than the ratained value.
   @author   HRYKY
   @version  $Id: hryky-template.l 381 2015-03-14 00:09:09Z hryky.private@gmail.com $
  */
-#ifndef RTIOW_RAY_H_20160703132553226
-#define RTIOW_RAY_H_20160703132553226
-#include "./rtiow_vec3.h"
+#ifndef RTIOW_LESS_H_20160717114423155
+#define RTIOW_LESS_H_20160717114423155
+#include "hryky/definition.h"
+#include "hryky/clear.h"
+#include "hryky/swap.h"
 //------------------------------------------------------------------------------
 // defines macros
 //------------------------------------------------------------------------------
 #define hryky_template_param \
-	typename VectorT
+	typename ValueT
 #define hryky_template_arg \
-	VectorT
+	ValueT
 //------------------------------------------------------------------------------
 // declares types
 //------------------------------------------------------------------------------
@@ -21,9 +23,9 @@ namespace hryky
 {
 namespace rtiow
 {
-	/// retains a half line.
+	/// verifies an inspected value is less than the ratained value.
 	template <hryky_template_param>
-	class Ray;
+	class Less;
 
 } // namespace rtiow
 } // namespace hryky
@@ -31,32 +33,29 @@ namespace rtiow
 // declares classes
 //------------------------------------------------------------------------------
 /**
-  @brief retains a half line.
+  @brief verifies an inspected value is less than the ratained value.
  */
-template <
-	typename VectorT = hryky::rtiow::Vec3<>
->
-class hryky::rtiow::Ray
+template <typename ValueT = float>
+class hryky::rtiow::Less
 {
 public :
 
-	typedef Ray<hryky_template_arg> this_type;
-	typedef VectorT vector_type;
+	typedef Less<hryky_template_arg> this_type;
 
 	/// default constructor.
-	Ray();
+	Less();
 
-	/// instantiates with an origin and a direction.
-	Ray(vector_type const & origin, vector_type const & direction);
+	/// instantiates with a value.
+	Less(ValueT const & value);
 
 	/// copy constructor.
-	Ray(this_type const &);
+	Less(this_type const &);
 
 	/// move constructor.
-	Ray(this_type &&);
+	Less(this_type &&);
 
 	/// destructor.
-	~Ray();
+	~Less();
 
 	/// assignment operator.
 	hryky_assign_op;
@@ -74,26 +73,15 @@ public :
 	template <typename StreamT>
 	StreamT & write_to(StreamT & out) const;
 
-	/// retrieves the origin of this ray.
-	vector_type const & origin() const;
-
-	/// retrieves the direction of this ray.
-	vector_type const & direction() const;
-
-	/// creates a position.
-	template <typename RateT>
-	vector_type point(RateT const & rate) const;
-
-	/// confirms whether an rate is valid.
-	template <typename RateT>
-	bool verify(RateT const & rate) const;
+	/// confirms whether a value is in the range.
+	template <typename SrcT>
+	bool verify(SrcT src) const;
 
 protected :
 
 private :
 
-	vector_type origin_;
-	vector_type direction_;
+	ValueT value_;
 
 };
 //------------------------------------------------------------------------------
@@ -112,111 +100,75 @@ namespace rtiow
   @brief default constructor.
  */
 template <hryky_template_param>
-hryky::rtiow::Ray<hryky_template_arg>::Ray()
-	: origin_()
-	  , direction_()
+hryky::rtiow::Less<hryky_template_arg>::Less()
+	: value_()
 {
 }
 /**
-  @brief instantiates with an origin and a direction.
+  @brief instantiates with a value.
  */
 template <hryky_template_param>
-hryky::rtiow::Ray<hryky_template_arg>::Ray(
-	vector_type const & origin, vector_type const & direction)
-	: origin_(origin)
-	  , direction_(direction)
+hryky::rtiow::Less<hryky_template_arg>::Less(ValueT const & value)
+	: value_(value)
 {
 }
 /**
   @brief copy constructor.
  */
 template <hryky_template_param>
-hryky::rtiow::Ray<hryky_template_arg>::Ray(this_type const & rhs)
-	: hryky_copy_member(origin)
-	  , hryky_copy_member(direction)
+hryky::rtiow::Less<hryky_template_arg>::Less(this_type const & rhs)
+	: hryky_copy_member(value)
 {
 }
 /**
   @brief move constructor.
  */
 template <hryky_template_param>
-hryky::rtiow::Ray<hryky_template_arg>::Ray(this_type && rhs)
-	: hryky_move_member(origin)
-	  , hryky_move_member(direction)
+hryky::rtiow::Less<hryky_template_arg>::Less(this_type && rhs)
+	: hryky_move_member(value)
 {
 }
 /**
   @brief destructor.
  */
 template <hryky_template_param>
-hryky::rtiow::Ray<hryky_template_arg>::~Ray()
+hryky::rtiow::Less<hryky_template_arg>::~Less()
 {
 }
 /**
   @brief releases the internal resources.
  */
 template <hryky_template_param>
-void hryky::rtiow::Ray<hryky_template_arg>::clear()
+void hryky::rtiow::Less<hryky_template_arg>::clear()
 {
-	hryky::clear(this->direction_);
-	hryky::clear(this->origin_);
+	hryky::clear(this->value_);
 }
 /**
   @brief interchanges the each internal resources of two instances.
  */
 template <hryky_template_param>
-void hryky::rtiow::Ray<hryky_template_arg>::swap(this_type & src)
+void hryky::rtiow::Less<hryky_template_arg>::swap(this_type & src)
 {
-	hryky_swap_member(origin);
-	hryky_swap_member(direction);
+	hryky_swap_member(value);
 }
 /**
   @brief outputs the information through stream.
  */
 template <hryky_template_param>
 template <typename StreamT>
-StreamT & hryky::rtiow::Ray<hryky_template_arg>::write_to(StreamT & out) const
+StreamT & hryky::rtiow::Less<hryky_template_arg>::write_to(
+	StreamT & out) const
 {
-	// stream::map::Scope<StreamT> const map(out);
 	return out;
 }
 /**
-  @brief retrieves the origin of this ray.
+  @brief confirms whether a value is in the range.
  */
 template <hryky_template_param>
-typename hryky::rtiow::Ray<hryky_template_arg>::vector_type const &
-hryky::rtiow::Ray<hryky_template_arg>::origin() const
+template <typename SrcT>
+bool hryky::rtiow::Less<hryky_template_arg>::verify(SrcT src) const
 {
-	return this->origin_;
-}
-/**
-  @brief retrieves the direction of this ray.
- */
-template <hryky_template_param>
-typename hryky::rtiow::Ray<hryky_template_arg>::vector_type const &
-hryky::rtiow::Ray<hryky_template_arg>::direction() const
-{
-	return this->direction_;
-}
-/**
-  @brief creates a position.
- */
-template <hryky_template_param>
-template <typename RateT>
-typename hryky::rtiow::Ray<hryky_template_arg>::vector_type
-hryky::rtiow::Ray<hryky_template_arg>::point(
-	RateT const & rate) const
-{
-	return this->origin_ + rate * this->direction_;
-}
-/**
-  @brief confirms whether an rate is valid.
- */
-template <hryky_template_param>
-template <typename RateT>
-bool hryky::rtiow::Ray<hryky_template_arg>::verify(RateT const & rate) const
-{
-	return 0.0f < rate;
+	return this->value_ > src;
 }
 //------------------------------------------------------------------------------
 // defines protected member functions
@@ -241,5 +193,5 @@ namespace rtiow
 //------------------------------------------------------------------------------
 #undef hryky_template_param
 #undef hryky_template_arg
-#endif // RTIOW_RAY_H_20160703132553226
+#endif // RTIOW_LESS_H_20160717114423155
 // end of file

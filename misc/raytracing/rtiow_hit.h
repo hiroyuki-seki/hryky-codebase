@@ -1,19 +1,21 @@
 /**
-  @file     rtiow_ray.h
-  @brief    retains a half line.
+  @file     rtiow_hit.h
+  @brief    records the information where a ray hits.
   @author   HRYKY
   @version  $Id: hryky-template.l 381 2015-03-14 00:09:09Z hryky.private@gmail.com $
  */
-#ifndef RTIOW_RAY_H_20160703132553226
-#define RTIOW_RAY_H_20160703132553226
+#ifndef RTIOW_HIT_H_20160717103855110
+#define RTIOW_HIT_H_20160717103855110
 #include "./rtiow_vec3.h"
+#include "./rtiow_ray.h"
+#include "hryky/with_is_null.h"
 //------------------------------------------------------------------------------
 // defines macros
 //------------------------------------------------------------------------------
 #define hryky_template_param \
-	typename VectorT
+	typename PosT, typename NormalT, typename RateT
 #define hryky_template_arg \
-	VectorT
+	PosT, NormalT, RateT
 //------------------------------------------------------------------------------
 // declares types
 //------------------------------------------------------------------------------
@@ -21,9 +23,9 @@ namespace hryky
 {
 namespace rtiow
 {
-	/// retains a half line.
+	/// records the information where a ray hits.
 	template <hryky_template_param>
-	class Ray;
+	class Hit;
 
 } // namespace rtiow
 } // namespace hryky
@@ -31,32 +33,40 @@ namespace rtiow
 // declares classes
 //------------------------------------------------------------------------------
 /**
-  @brief retains a half line.
+  @brief records the information where a ray hits.
  */
 template <
-	typename VectorT = hryky::rtiow::Vec3<>
+	typename PosT = hryky::rtiow::Vec3<>,
+	typename NormalT = PosT,
+	typename RateT = float
 >
-class hryky::rtiow::Ray
+class hryky::rtiow::Hit
+	: public hryky::WithIsNull<Hit<hryky_template_arg> >
 {
 public :
 
-	typedef Ray<hryky_template_arg> this_type;
-	typedef VectorT vector_type;
+	typedef Hit<hryky_template_arg> this_type;
+	typedef PosT pos_type;
+	typedef NormalT normal_type;
+	typedef RateT rate_type;
 
 	/// default constructor.
-	Ray();
+	Hit();
 
-	/// instantiates with an origin and a direction.
-	Ray(vector_type const & origin, vector_type const & direction);
+	/// instantiates with parameters.
+	Hit(
+		pos_type const & pos,
+		normal_type const & normal,
+		rate_type const & rate);
 
 	/// copy constructor.
-	Ray(this_type const &);
+	Hit(this_type const &);
 
 	/// move constructor.
-	Ray(this_type &&);
+	Hit(this_type &&);
 
 	/// destructor.
-	~Ray();
+	~Hit();
 
 	/// assignment operator.
 	hryky_assign_op;
@@ -74,26 +84,25 @@ public :
 	template <typename StreamT>
 	StreamT & write_to(StreamT & out) const;
 
-	/// retrieves the origin of this ray.
-	vector_type const & origin() const;
+	/// retrieves the position where the ray intersected.
+	pos_type const & pos() const;
 
-	/// retrieves the direction of this ray.
-	vector_type const & direction() const;
+	/// retrieves the normal where the ray intersected.
+	normal_type const & normal() const;
 
-	/// creates a position.
-	template <typename RateT>
-	vector_type point(RateT const & rate) const;
+	/// retrieves the rate of direction.
+	RateT rate() const;
 
-	/// confirms whether an rate is valid.
-	template <typename RateT>
-	bool verify(RateT const & rate) const;
+	/// confirms whether resources are invalid.
+	bool is_null() const;
 
 protected :
 
 private :
 
-	vector_type origin_;
-	vector_type direction_;
+	pos_type pos_;
+	normal_type normal_;
+	rate_type rate_;
 
 };
 //------------------------------------------------------------------------------
@@ -112,111 +121,115 @@ namespace rtiow
   @brief default constructor.
  */
 template <hryky_template_param>
-hryky::rtiow::Ray<hryky_template_arg>::Ray()
-	: origin_()
-	  , direction_()
+hryky::rtiow::Hit<hryky_template_arg>::Hit()
+	: pos_()
+	  , normal_()
+	  , rate_()
 {
 }
 /**
-  @brief instantiates with an origin and a direction.
+  @brief instantiates with parameters.
  */
 template <hryky_template_param>
-hryky::rtiow::Ray<hryky_template_arg>::Ray(
-	vector_type const & origin, vector_type const & direction)
-	: origin_(origin)
-	  , direction_(direction)
+hryky::rtiow::Hit<hryky_template_arg>::Hit(
+	pos_type const & pos,
+	normal_type const & normal,
+	rate_type const & rate)
+	: pos_(pos)
+	  , normal_(normal)
+	  , rate_(rate)
 {
 }
 /**
   @brief copy constructor.
  */
 template <hryky_template_param>
-hryky::rtiow::Ray<hryky_template_arg>::Ray(this_type const & rhs)
-	: hryky_copy_member(origin)
-	  , hryky_copy_member(direction)
+hryky::rtiow::Hit<hryky_template_arg>::Hit(this_type const & rhs)
+	: hryky_copy_member(pos)
+	  , hryky_copy_member(normal)
+	  , hryky_copy_member(rate)
 {
 }
 /**
   @brief move constructor.
  */
 template <hryky_template_param>
-hryky::rtiow::Ray<hryky_template_arg>::Ray(this_type && rhs)
-	: hryky_move_member(origin)
-	  , hryky_move_member(direction)
+hryky::rtiow::Hit<hryky_template_arg>::Hit(this_type && rhs)
+	: hryky_move_member(pos)
+	  , hryky_move_member(normal)
+	  , hryky_move_member(rate)
 {
 }
 /**
   @brief destructor.
  */
 template <hryky_template_param>
-hryky::rtiow::Ray<hryky_template_arg>::~Ray()
+hryky::rtiow::Hit<hryky_template_arg>::~Hit()
 {
 }
 /**
   @brief releases the internal resources.
  */
 template <hryky_template_param>
-void hryky::rtiow::Ray<hryky_template_arg>::clear()
+void hryky::rtiow::Hit<hryky_template_arg>::clear()
 {
-	hryky::clear(this->direction_);
-	hryky::clear(this->origin_);
+	hryky::clear(rate);
+	hryky::clear(normal);
+	hryky::clear(pos);
 }
 /**
   @brief interchanges the each internal resources of two instances.
  */
 template <hryky_template_param>
-void hryky::rtiow::Ray<hryky_template_arg>::swap(this_type & src)
+void hryky::rtiow::Hit<hryky_template_arg>::swap(this_type & src)
 {
-	hryky_swap_member(origin);
-	hryky_swap_member(direction);
+	hryky_swap_member(pos);
+	hryky_swap_member(normal);
+	hryky_swap_member(rate);
 }
 /**
   @brief outputs the information through stream.
  */
 template <hryky_template_param>
 template <typename StreamT>
-StreamT & hryky::rtiow::Ray<hryky_template_arg>::write_to(StreamT & out) const
+StreamT & hryky::rtiow::Hit<hryky_template_arg>::write_to(StreamT & out) const
 {
-	// stream::map::Scope<StreamT> const map(out);
 	return out;
 }
 /**
-  @brief retrieves the origin of this ray.
+  @brief retrieves the position where the ray intersected.
  */
 template <hryky_template_param>
-typename hryky::rtiow::Ray<hryky_template_arg>::vector_type const &
-hryky::rtiow::Ray<hryky_template_arg>::origin() const
+typename hryky::rtiow::Hit<hryky_template_arg>::pos_type const & 
+hryky::rtiow::Hit<hryky_template_arg>::pos() const
 {
-	return this->origin_;
+	return this->pos_;
 }
 /**
-  @brief retrieves the direction of this ray.
+  @brief retrieves the normal where the ray intersected.
  */
 template <hryky_template_param>
-typename hryky::rtiow::Ray<hryky_template_arg>::vector_type const &
-hryky::rtiow::Ray<hryky_template_arg>::direction() const
+typename hryky::rtiow::Hit<hryky_template_arg>::normal_type const & 
+hryky::rtiow::Hit<hryky_template_arg>::normal() const
 {
-	return this->direction_;
+	return this->normal_;
 }
 /**
-  @brief creates a position.
+  @brief retrieves the rate of direction.
  */
 template <hryky_template_param>
-template <typename RateT>
-typename hryky::rtiow::Ray<hryky_template_arg>::vector_type
-hryky::rtiow::Ray<hryky_template_arg>::point(
-	RateT const & rate) const
+typename hryky::rtiow::Hit<hryky_template_arg>::rate_type
+hryky::rtiow::Hit<hryky_template_arg>::rate() const
 {
-	return this->origin_ + rate * this->direction_;
+	return this->rate_;
 }
 /**
-  @brief confirms whether an rate is valid.
+  @brief confirms whether resources are invalid.
  */
 template <hryky_template_param>
-template <typename RateT>
-bool hryky::rtiow::Ray<hryky_template_arg>::verify(RateT const & rate) const
+bool hryky::rtiow::Hit<hryky_template_arg>::is_null() const
 {
-	return 0.0f < rate;
+	return normal_type() == this->normal_;
 }
 //------------------------------------------------------------------------------
 // defines protected member functions
@@ -241,5 +254,5 @@ namespace rtiow
 //------------------------------------------------------------------------------
 #undef hryky_template_param
 #undef hryky_template_arg
-#endif // RTIOW_RAY_H_20160703132553226
+#endif // RTIOW_HIT_H_20160717103855110
 // end of file
