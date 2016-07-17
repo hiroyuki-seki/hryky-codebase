@@ -115,6 +115,9 @@ public :
 	/// retrieves the rest elements of tuple.
 	rest_type const & rest() const;
 
+	/// retrieves the rest elements of tuple as mutable.
+	rest_type & rest();
+
 	/// retrieves the size of tuple.
 	size_type size() const;
 
@@ -292,6 +295,15 @@ typename hryky::Tuple<hryky_template_arg>::rest_type const &
 hryky::Tuple<hryky_template_arg>::rest() const
 {
 	return *static_cast<rest_type const *>(this);
+}
+/**
+  @brief retrieves the rest elements of tuple as mutable.
+ */
+template <hryky_template_param>
+typename hryky::Tuple<hryky_template_arg>::rest_type & 
+hryky::Tuple<hryky_template_arg>::rest()
+{
+	return *static_cast<rest_type *>(this);
 }
 /**
   @brief retrieves the size of tuple.
