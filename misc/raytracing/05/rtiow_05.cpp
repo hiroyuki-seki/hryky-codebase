@@ -20,8 +20,6 @@ namespace
 	fvec3 color(ray_type const & ray, HitableT const & hitable);
 
 	/// confirms whether a ray intersects a sphere.
-	float hit_sphere(fvec3 const & center, float const radius, ray_type const & ray);
-
 } // namespace
 
 int main (int argc, char * argv[])
@@ -85,23 +83,6 @@ fvec3 color(ray_type const & ray, HitableT const & hitable)
 	auto const blue = fvec3(0.5f, 0.7f, 1.0f);
 	
 	return (1.0f - ratio) * white + ratio * blue;
-}
-/**
-  @brief confirms whether a ray intersects a sphere.
- */
-float hit_sphere(fvec3 const & center, float const radius, ray_type const & ray)
-{
-	auto const oc = ray.origin() - center;
-	auto const a = dot(ray.direction(), ray.direction());
-	auto const b = 2.0f * dot(ray.direction(), oc);
-	auto const c = dot(oc, oc) - radius * radius;
-	auto const discriminant = b * b - 4.0f * a * c;
-
-	if (0.0f > discriminant) {
-		return -1.0f;
-	}
-
-	return (-b - ::std::sqrt(discriminant)) / (2.0f * a);
 }
 } // namespace
 
