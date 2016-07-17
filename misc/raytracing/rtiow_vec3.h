@@ -374,7 +374,7 @@ template <typename RhsT>
 hryky::rtiow::Vec3<hryky_template_arg> &
 hryky::rtiow::Vec3<hryky_template_arg>::operator/=(RhsT rhs)
 {
-	return this->operator*=(1 / rhs);
+	return this->operator*=(value_type(1) / rhs);
 }
 /**
   @brief releases the internal resources.
