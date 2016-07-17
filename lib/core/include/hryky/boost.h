@@ -6,7 +6,9 @@
  */
 #ifndef BOOST_H_20140125132407225
 #define BOOST_H_20140125132407225
-#include "hryky/config.h"
+#if HRYKY_USE_CONFIG_H
+#   include "hryky/config.h"
+#endif
 #include "hryky/pragma.h"
 #if HRYKY_USE_BOOST
 #   pragma hryky_pragma_push_warning
