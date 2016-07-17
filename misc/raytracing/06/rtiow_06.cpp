@@ -1,4 +1,5 @@
 #include <iostream>
+#include <random>
 
 #include "../rtiow_vec3.h"
 #include "../rtiow_ray.h"
@@ -7,6 +8,7 @@
 #include "../rtiow_has_verify.h"
 #include "../rtiow_sphere.h"
 #include "../rtiow_tuple.h"
+#include "../rtiow_camera.h"
 
 namespace
 {
@@ -14,6 +16,7 @@ namespace
 	typedef hryky::rtiow::Vec3<int32_t> ivec3;
 	typedef hryky::rtiow::Ray<> ray_type;
 	typedef hryky::rtiow::Sphere<> sphere_type;
+	typedef hryky::rtiow::Camera<> camera_type;
 
 	/// retrieves the color at the position where a ray intersects the screen.
 	template <typename HitableT>
@@ -25,35 +28,38 @@ int main (int argc, char * argv[])
 {
 	uint32_t const width = 200u;
 	uint32_t const height = 100u;
+	uint32_t const samples = 100u;
 	
 	(::std::cout
 	 << "P3" << ::std::endl
 	 << width << " " << height << ::std::endl
 	 << 255 << ::std::endl);
 
-	fvec3 const origin(0.0f);
-	fvec3 const lower_left(-2.0f, -1.0f, -1.0f);
-	fvec3 const horizontal(4.0f, 0.0f, 0.0f);
-	fvec3 const vertical(0.0f, 2.0f, 0.0f);
+	camera_type const camera;
 
 	auto const world = hryky::rtiow::tuple(hryky::make_tuple(
 		sphere_type(fvec3(0.0f, 0.0f, -1.0f), 0.5f),
 		sphere_type(fvec3(0.0f, -100.5f, -1.0f), 100.0f)));
 
+	::std::random_device rd;
+	::std::mt19937 gen(rd());
+	::std::uniform_real_distribution<float> dist(0.0f, 1.0f);
+
 	uint32_t y = 0u;
 	for (; height != y; ++y) {
-		auto const ratio_y
-			= static_cast<float>(height - (y + 1u)) / height;
 		uint32_t x = 0u;
 		for (; width != x; ++x) {
-			auto const ratio_x
-				= static_cast<float>(x) / width;
-			ray_type const ray(
-				origin,
-				lower_left
-				+ ratio_x * horizontal
-				+ ratio_y * vertical);
-			auto const fcolor = color(ray, world);
+			fvec3 fcolor;
+			uint32_t sample = 0u;
+			for (; samples != sample; ++sample) {
+				auto const ratio_x
+					= (static_cast<float>(x) + dist(gen)) / width;
+				auto const ratio_y
+					= (static_cast<float>(height - (y + 1u)) + dist(gen)) / height;
+				ray_type const ray = camera.ray(ratio_x, ratio_y);
+				fcolor += color(ray, world);
+			}
+			fcolor /= samples;
 			auto const icolor = ivec3(255.99f * fcolor);
 			(::std::cout << icolor << std::endl);
 		}
