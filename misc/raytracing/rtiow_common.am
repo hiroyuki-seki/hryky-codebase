@@ -4,4 +4,5 @@ CXXFLAGS = \
     -I../../../lib/type_traits/include \
     -I../../../lib/tmp/include \
     -I../../../lib/feature/include \
+    -I../../../lib/tuple/include \
     -std=c++11
