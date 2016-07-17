@@ -21,6 +21,15 @@
 //------------------------------------------------------------------------------
 namespace hryky
 {
+namespace stream
+{
+namespace array
+{
+	template <typename StreamT>
+	class Scope;
+	
+} // namespace array
+} // namespace stream
 } // namespace hryky
 //------------------------------------------------------------------------------
 // declares classes
