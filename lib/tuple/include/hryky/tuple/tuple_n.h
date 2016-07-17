@@ -69,7 +69,7 @@ namespace hryky
   @brief tuple which has one value.
  */
 template < typename Arg1T >
-class hryky::Tuple1 :
+class Tuple1 :
 	public hryky::Tuple< Arg1T >
 {
 public :
@@ -103,7 +103,7 @@ private :
   @brief tuple which has two values.
  */
 template < typename Arg1T, typename Arg2T >
-class hryky::Tuple2 :
+class Tuple2 :
 	public hryky::Tuple< Arg1T, Tuple<Arg2T> >
 {
 private :
@@ -150,7 +150,7 @@ private :
   @brief tuple which has three values.
  */
 template < typename Arg1T, typename Arg2T, typename Arg3T >
-class hryky::Tuple3 :
+class Tuple3 :
 	public hryky::Tuple<Arg1T, Tuple<Arg2T, Tuple<Arg3T> > >
 {
 private :
@@ -207,7 +207,7 @@ private :
   @brief tuple which has four values.
  */
 template < typename Arg1T, typename Arg2T, typename Arg3T, typename Arg4T >
-class hryky::Tuple4 :
+class Tuple4 :
 	public hryky::Tuple<
 		Arg1T, Tuple<Arg2T, Tuple<Arg3T, Tuple<Arg4T> > >
 	>
@@ -274,7 +274,7 @@ template <
 	typename Arg1T, typename Arg2T, typename Arg3T, typename Arg4T,
 	typename Arg5T
 >
-class hryky::Tuple5 :
+class Tuple5 :
 	public hryky::Tuple<
 		Arg1T, Tuple<Arg2T, Tuple<Arg3T, Tuple<Arg4T, Tuple<
 			Arg5T> > >
@@ -348,7 +348,7 @@ template <
 	typename Arg1T, typename Arg2T, typename Arg3T, typename Arg4T,
 	typename Arg5T, typename Arg6T
 >
-class hryky::Tuple6 :
+class Tuple6 :
 	public hryky::Tuple<
 		Arg1T, Tuple<Arg2T, Tuple<Arg3T, Tuple<Arg4T, Tuple<
 			Arg5T, Tuple<Arg6T> > > >
@@ -369,7 +369,7 @@ public :
 
 	typedef Tuple6<Arg1T, Arg2T, Arg3T, Arg4T, Arg5T, Arg6T>
 		this_type;
-	typedef rest1 base_tpye;
+	typedef rest1 base_type;
 
 	/// constructor with parameters
 	Tuple6(
@@ -428,7 +428,7 @@ template <
 	typename Arg1T, typename Arg2T, typename Arg3T, typename Arg4T,
 	typename Arg5T, typename Arg6T, typename Arg7T
 >
-class hryky::Tuple7 :
+class Tuple7 :
 	public hryky::Tuple<
 		Arg1T, Tuple<Arg2T, Tuple<Arg3T, Tuple<Arg4T, Tuple<
 			Arg5T, Tuple<Arg6T, Tuple<Arg7T> > > > > > >
@@ -448,7 +448,7 @@ public :
 
 	typedef Tuple7<Arg1T, Arg2T, Arg3T, Arg4T, Arg5T, Arg6T, Arg7T>
 		this_type;
-	typedef rest1 base_tpye;
+	typedef rest1 base_type;
 
 	/// constructor with parameters
 	Tuple7(
@@ -511,7 +511,7 @@ template <
 	typename Arg1T, typename Arg2T, typename Arg3T, typename Arg4T,
 	typename Arg5T, typename Arg6T, typename Arg7T, typename Arg8T
 >
-class hryky::Tuple8 :
+class Tuple8 :
 	public hryky::Tuple<
 		Arg1T, Tuple<Arg2T, Tuple<Arg3T, Tuple<Arg4T, Tuple<
 			Arg5T, Tuple<Arg6T, Tuple<Arg7T, Tuple<
@@ -535,7 +535,7 @@ public :
 	typedef Tuple8<
 		Arg1T, Arg2T, Arg3T, Arg4T, Arg5T, Arg6T, Arg7T, Arg8T>
 			this_type;
-	typedef rest1 base_tpye;
+	typedef rest1 base_type;
 
 	/// constructor with parameters
 	Tuple8(

@@ -334,7 +334,7 @@ typename hryky::TupleAt<
 hryky::Tuple<FirstT>::at() const
 {
 	return static_cast<
-		TupleAt<this_type, Index>::type const *>(this)->first();
+		typename TupleAt<this_type, Index>::type const *>(this)->first();
 }
 /**
   @brief retrieves the mutable reference to the value by index.
@@ -346,7 +346,7 @@ typename hryky::TupleAt<
 hryky::Tuple<FirstT>::at()
 {
 	return static_cast<
-		TupleAt<this_type, Index>::type *>(this)->first();
+		typename TupleAt<this_type, Index>::type *>(this)->first();
 }
 //------------------------------------------------------------------------------
 // defines public member functions of Tuple<>

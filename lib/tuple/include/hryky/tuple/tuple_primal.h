@@ -6,13 +6,13 @@
  */
 #ifndef TUPLE_PRIMAL_H_20131015232011639
 #define TUPLE_PRIMAL_H_20131015232011639
-#include "hryky/stream/ostream_string.h"
 #include "hryky/clear.h"
 #include "hryky/tuple/tuple_at.h"
 #include "hryky/type_traits/as_parameter.h"
 #include "hryky/with_stream_out.h"
 #include "hryky/with_swap.h"
 #include "hryky/tmp/tmp_list.h"
+#include "hryky/tmp/null.h"
 //------------------------------------------------------------------------------
 // defines macros
 //------------------------------------------------------------------------------
@@ -252,7 +252,7 @@ typename hryky::TupleAt<
 hryky::Tuple<hryky_template_arg>::at() const
 {
 	return static_cast<
-		TupleAt<this_type, Index>::type const *>(this)->first();
+		typename TupleAt<this_type, Index>::type const *>(this)->first();
 }
 /**
   @brief retrieves the mutable reference to the value by index.
@@ -264,7 +264,7 @@ typename hryky::TupleAt<
 hryky::Tuple<hryky_template_arg>::at()
 {
 	return static_cast<
-		TupleAt<this_type, Index>::type *>(this)->first();
+		typename TupleAt<this_type, Index>::type *>(this)->first();
 }
 /**
   @brief retrieves the first element of tuple.

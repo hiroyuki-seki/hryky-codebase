@@ -80,7 +80,7 @@ public :
 	template <typename FunctorT>
 	static RetT by(FunctorT & functor, ArgsT const & args)
 	{
-		return functor(args.at<0>());
+		return functor(args.template at<0>());
 	}
 };
 /**
@@ -93,7 +93,7 @@ public :
 	template <typename FunctorT>
 	static RetT by(FunctorT & functor, ArgsT const & args)
 	{
-		return functor(args.at<0>(), args.at<1>());
+		return functor(args.template at<0>(), args.template at<1>());
 	}
 };
 /**
@@ -106,13 +106,19 @@ public :
 	template <typename FunctorT>
 	static RetT by(FunctorT & functor, ArgsT const & args)
 	{
-		return functor(args.at<0>(), args.at<1>(), args.at<2>());
+		return functor(
+			args.template at<0>(),
+			args.template at<1>(),
+			args.template at<2>());
 	}
 	
 	template <typename FunctorT>
 	static RetT by(FunctorT const & functor, ArgsT const & args)
 	{
-		return functor(args.at<0>(), args.at<1>(), args.at<2>());
+		return functor(
+			args.template at<0>(),
+			args.template at<1>(),
+			args.template at<2>());
 	}
 };
 } // namespace tuple
