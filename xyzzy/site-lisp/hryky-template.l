@@ -1192,9 +1192,7 @@ THE SOFTWARE.
 	  namespace 
 	  classname 
 	  desc 
-	  (if (hryky-common::is-empty typenames) 
-		  "" 
-		*default-template-specifier*)
+	  typenames
 	  baseclass 
 	  :is-singleton is-singleton
 	  )
@@ -2056,7 +2054,7 @@ THE SOFTWARE.
   (typenames)
   (if (hryky-common::is-empty typenames)
 	  ""
-	(format nil "template <~A>\n" typenames)
+	(format nil "template <~A>\n" *default-template-param*)
 	)
   )
   
