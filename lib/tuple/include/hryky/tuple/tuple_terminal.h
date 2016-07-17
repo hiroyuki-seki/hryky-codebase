@@ -39,9 +39,10 @@ class Tuple<FirstT, hryky::Null > :
 {
 public :
 
-	typedef Tuple<FirstT>    this_type;
-	typedef size_t                          size_type;
-	typedef FirstT                          first_type;
+	typedef Tuple<FirstT>   this_type;
+	typedef size_t          size_type;
+	typedef FirstT          first_type;
+	typedef hryky::Null     rest_type;
 	
 	typedef typename AsParameter<first_type>::type first_param_type;
 
@@ -95,6 +96,9 @@ public :
 	/// retrieves the mutable reference to the first element of tuple.
 	first_type & first();
 
+	/// return null.
+	rest_type rest() const;
+
 	/// retrieves the size of tuple.
 	size_type size() const;
 
@@ -126,6 +130,8 @@ public :
 
 	typedef hryky::Tuple<>  this_type;
 	typedef size_t          size_type;
+	typedef hryky::Null     first_type;
+	typedef hryky::Null     rest_type;
 
 	static size_type const size_ = 0;
 
@@ -184,6 +190,12 @@ public :
 	{
 		return out;
 	}
+
+	/// retrieves the null as the first element.
+	first_type first() const;
+
+	/// retrieves the null as the rest elements.
+	rest_type rest() const;
 
 protected :
 
@@ -316,6 +328,15 @@ hryky::Tuple<FirstT>::first()
 	return this->first_;
 }
 /**
+  @brief retrieves the rest element of tuple.
+ */
+template <typename FirstT>
+typename hryky::Tuple<FirstT>::rest_type
+hryky::Tuple<FirstT>::rest() const
+{
+	return rest_type();
+}
+/**
   @brief retrieves the size of tuple.
  */
 template <typename FirstT>
@@ -351,6 +372,24 @@ hryky::Tuple<FirstT>::at()
 //------------------------------------------------------------------------------
 // defines public member functions of Tuple<>
 //------------------------------------------------------------------------------
+/**
+  @brief retrieves the null as the first element.
+ */
+inline
+hryky::Tuple<hryky::Null, hryky::Null>::first_type 
+hryky::Tuple<hryky::Null, hryky::Null>::first() const
+{
+	return first_type();
+}
+/**
+  @brief retrieves the null as the rest elements.
+ */
+inline
+hryky::Tuple<hryky::Null, hryky::Null>::rest_type 
+hryky::Tuple<hryky::Null, hryky::Null>::rest() const
+{
+	return rest_type();
+}
 //------------------------------------------------------------------------------
 // defines protected member functions
 //------------------------------------------------------------------------------
