@@ -180,7 +180,7 @@ hryky::Tuple<hryky_template_arg>::Tuple(TupleT const & rhs)
  */
 template <hryky_template_param>
 hryky::Tuple<hryky_template_arg>::Tuple(this_type && rhs)
-	: rest_type(::std::move(rhs))
+	: rest_type(::std::move(rhs.rest()))
 	  , hryky_move_member(first)
 {
 }
