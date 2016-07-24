@@ -45,6 +45,9 @@ public :
 	/// default constructor.
 	Metal();
 
+	/// instantiates with parameters.
+	Metal(albedo_type const & albedo);
+
 	/// copy constructor.
 	Metal(this_type const &);
 
@@ -103,6 +106,14 @@ namespace rtiow
 template <hryky_template_param>
 hryky::rtiow::Metal<hryky_template_arg>::Metal()
 	: albedo_()
+{
+}
+/**
+  @brief instantiates with parameters.
+ */
+template <hryky_template_param>
+hryky::rtiow::Metal<hryky_template_arg>::Metal(albedo_type const & albedo)
+	: albedo_(albedo)
 {
 }
 /**

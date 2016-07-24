@@ -18,11 +18,12 @@ namespace
 	typedef hryky::rtiow::Vec3<> fvec3;
 	typedef hryky::rtiow::Vec3<int32_t> ivec3;
 	typedef hryky::rtiow::Ray<> ray_type;
-	typedef hryky::rtiow::Sphere<> sphere_type;
 	typedef hryky::rtiow::Camera<> camera_type;
 	typedef hryky::rtiow::Randomizer<> randomizer_type;
 	typedef hryky::rtiow::Lambertian<> lambertian_type;
 	typedef hryky::rtiow::Metal<> metal_type;
+	typedef hryky::rtiow::Sphere<lambertian_type> lambert_sphere_type;
+	typedef hryky::rtiow::Sphere<metal_type> metal_sphere_type;
 
 	/// retrieves the color at the position where a ray intersects the screen.
 	template <typename HitableT, typename RandomizerT>
@@ -48,14 +49,22 @@ int main (int argc, char * argv[])
 	camera_type const camera;
 
 	auto const world = hryky::rtiow::tuple(hryky::make_tuple(
-		sphere_type(
+		lambert_sphere_type(
 			fvec3(0.0f, 0.0f, -1.0f),
 			0.5f,
 			lambertian_type(fvec3(0.8f, 0.3f, 0.3f))),
-		sphere_type(
+		lambert_sphere_type(
 			fvec3(0.0f, -100.5f, -1.0f),
 			100.0f,
-			lambertian_type(fvec3(0.8f, 0.8f, 0.3f)))
+			lambertian_type(fvec3(0.8f, 0.8f, 0.3f))),
+		metal_sphere_type(
+			fvec3(1.0f, 0.0f, -1.0f),
+			0.5f,
+			metal_type(fvec3(0.8f, 0.6f, 0.2f))),
+		metal_sphere_type(
+			fvec3(-1.0f, 0.0f, -1.0f),
+			0.5f,
+			metal_type(fvec3(0.8f, 0.8f, 0.8f)))
 		));
 
 	::std::random_device rd;
