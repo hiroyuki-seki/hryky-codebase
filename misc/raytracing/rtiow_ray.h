@@ -216,7 +216,7 @@ template <hryky_template_param>
 template <typename RateT>
 bool hryky::rtiow::Ray<hryky_template_arg>::verify(RateT const & rate) const
 {
-	return 0.0f < rate;
+	return 0.0001f < rate;
 }
 //------------------------------------------------------------------------------
 // defines protected member functions
