@@ -590,6 +590,10 @@ namespace rtiow
 	Vec3<hryky_template_arg> sqrt(
 		Vec3<hryky_template_arg> const & src);
 
+	/// calculates the reflected vector.
+	template <typename InT, typename NormalT>
+	InT reflect(InT const & in, NormalT const & normal);
+
 } // namespace rtiow
 } // namespace hryky
 //------------------------------------------------------------------------------
@@ -668,6 +672,14 @@ hryky::rtiow::sqrt(
 		::std::sqrt(src[0]),
 		::std::sqrt(src[1]),
 		::std::sqrt(src[2]));
+}
+/**
+  @brief calculates the reflected vector.
+ */
+template <typename InT, typename NormalT>
+InT hryky::rtiow::reflect(InT const & in, NormalT const & normal)
+{
+	return in - 2.0f * dot(in, normal) * normal;
 }
 //------------------------------------------------------------------------------
 // revokes the temporary macros

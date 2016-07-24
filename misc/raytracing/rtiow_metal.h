@@ -12,9 +12,9 @@
 // defines macros
 //------------------------------------------------------------------------------
 #define hryky_template_param \
-	typename AlbedoT
+	typename AlbedoT, typename FuzzT
 #define hryky_template_arg \
-	AlbedoT
+	AlbedoT, FuzzT
 //------------------------------------------------------------------------------
 // declares types
 //------------------------------------------------------------------------------
@@ -34,19 +34,26 @@ namespace rtiow
 /**
   @brief retains parameters of a material as a metal.
  */
-template <typename AlbedoT = hryky::rtiow::Vec3<> >
+template <
+	typename AlbedoT = hryky::rtiow::Vec3<>,
+	typename FuzzT = float
+>
 class hryky::rtiow::Metal
 {
 public :
 
 	typedef Metal<hryky_template_arg> this_type;
 	typedef AlbedoT albedo_type;
+	typedef FuzzT fuzz_type;
 
 	/// default constructor.
 	Metal();
 
 	/// instantiates with parameters.
 	Metal(albedo_type const & albedo);
+
+	/// instantiates with parameters.
+	Metal(albedo_type const & albedo, fuzz_type const fuzz);
 
 	/// copy constructor.
 	Metal(this_type const &);
@@ -86,6 +93,7 @@ protected :
 private :
 
 	albedo_type albedo_;
+	fuzz_type fuzz_;
 
 };
 //------------------------------------------------------------------------------
@@ -106,6 +114,7 @@ namespace rtiow
 template <hryky_template_param>
 hryky::rtiow::Metal<hryky_template_arg>::Metal()
 	: albedo_()
+	  , fuzz_()
 {
 }
 /**
@@ -114,6 +123,17 @@ hryky::rtiow::Metal<hryky_template_arg>::Metal()
 template <hryky_template_param>
 hryky::rtiow::Metal<hryky_template_arg>::Metal(albedo_type const & albedo)
 	: albedo_(albedo)
+	  , fuzz_()
+{
+}
+/**
+  @brief instantiates with parameters.
+ */
+template <hryky_template_param>
+hryky::rtiow::Metal<hryky_template_arg>::Metal(
+	albedo_type const & albedo, fuzz_type const fuzz)
+	: albedo_(albedo)
+	  , fuzz_(fuzz)
 {
 }
 /**
@@ -122,6 +142,7 @@ hryky::rtiow::Metal<hryky_template_arg>::Metal(albedo_type const & albedo)
 template <hryky_template_param>
 hryky::rtiow::Metal<hryky_template_arg>::Metal(this_type const & rhs)
 	: hryky_copy_member(albedo)
+	  , hryky_copy_member(fuzz)
 {
 }
 /**
@@ -130,6 +151,7 @@ hryky::rtiow::Metal<hryky_template_arg>::Metal(this_type const & rhs)
 template <hryky_template_param>
 hryky::rtiow::Metal<hryky_template_arg>::Metal(this_type && rhs)
 	: hryky_move_member(albedo)
+	  , hryky_move_member(fuzz)
 {
 }
 /**
@@ -145,6 +167,7 @@ hryky::rtiow::Metal<hryky_template_arg>::~Metal()
 template <hryky_template_param>
 void hryky::rtiow::Metal<hryky_template_arg>::clear()
 {
+	hryky::clear(this->fuzz_);
 	hryky::clear(this->albedo_);
 }
 /**
@@ -154,6 +177,7 @@ template <hryky_template_param>
 void hryky::rtiow::Metal<hryky_template_arg>::swap(this_type & src)
 {
 	hryky_swap_member(albedo);
+	hryky_swap_member(fuzz);
 }
 /**
   @brief outputs the information through stream.
@@ -177,7 +201,8 @@ hryky::rtiow::Metal<hryky_template_arg>::scatter(
 	VectorT const & normal,
 	RandomizerT & randomizer) const
 {
-	auto const reflected = in - 2.0f * dot(in, normal) * normal;
+	auto const reflected
+		= reflect(in, normal) + this->fuzz_ * randomizer.in_sphere();
 
 	return Scatter<>(ray(pos, reflected), this->albedo_);
 }

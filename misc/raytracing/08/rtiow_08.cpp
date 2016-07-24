@@ -60,11 +60,11 @@ int main (int argc, char * argv[])
 		metal_sphere_type(
 			fvec3(1.0f, 0.0f, -1.0f),
 			0.5f,
-			metal_type(fvec3(0.8f, 0.6f, 0.2f))),
+			metal_type(fvec3(0.8f, 0.6f, 0.2f), 1.0f)),
 		metal_sphere_type(
 			fvec3(-1.0f, 0.0f, -1.0f),
 			0.5f,
-			metal_type(fvec3(0.8f, 0.8f, 0.8f)))
+			metal_type(fvec3(0.8f, 0.8f, 0.8f), 0.3f))
 		));
 
 	::std::random_device rd;
