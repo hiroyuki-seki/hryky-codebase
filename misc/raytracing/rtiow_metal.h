@@ -1,19 +1,20 @@
 /**
-  @file     rtiow_ray.h
-  @brief    retains a half line.
+  @file     rtiow_metal.h
+  @brief    retains parameters of a material as a metal.
   @author   HRYKY
   @version  $Id: hryky-template.l 381 2015-03-14 00:09:09Z hryky.private@gmail.com $
  */
-#ifndef RTIOW_RAY_H_20160703132553226
-#define RTIOW_RAY_H_20160703132553226
+#ifndef RTIOW_METAL_H_20160724170253377
+#define RTIOW_METAL_H_20160724170253377
 #include "./rtiow_vec3.h"
+#include "./rtiow_scatter.h"
 //------------------------------------------------------------------------------
 // defines macros
 //------------------------------------------------------------------------------
 #define hryky_template_param \
-	typename VectorT
+	typename AlbedoT
 #define hryky_template_arg \
-	VectorT
+	AlbedoT
 //------------------------------------------------------------------------------
 // declares types
 //------------------------------------------------------------------------------
@@ -21,9 +22,9 @@ namespace hryky
 {
 namespace rtiow
 {
-	/// retains a half line.
+	/// retains parameters of a material as a metal.
 	template <hryky_template_param>
-	class Ray;
+	class Metal;
 
 } // namespace rtiow
 } // namespace hryky
@@ -31,32 +32,27 @@ namespace rtiow
 // declares classes
 //------------------------------------------------------------------------------
 /**
-  @brief retains a half line.
+  @brief retains parameters of a material as a metal.
  */
-template <
-	typename VectorT = hryky::rtiow::Vec3<>
->
-class hryky::rtiow::Ray
+template <typename AlbedoT = hryky::rtiow::Vec3<> >
+class hryky::rtiow::Metal
 {
 public :
 
-	typedef Ray<hryky_template_arg> this_type;
-	typedef VectorT vector_type;
+	typedef Metal<hryky_template_arg> this_type;
+	typedef AlbedoT albedo_type;
 
 	/// default constructor.
-	Ray();
-
-	/// instantiates with an origin and a direction.
-	Ray(vector_type const & origin, vector_type const & direction);
+	Metal();
 
 	/// copy constructor.
-	Ray(this_type const &);
+	Metal(this_type const &);
 
 	/// move constructor.
-	Ray(this_type &&);
+	Metal(this_type &&);
 
 	/// destructor.
-	~Ray();
+	~Metal();
 
 	/// assignment operator.
 	hryky_assign_op;
@@ -74,26 +70,19 @@ public :
 	template <typename StreamT>
 	StreamT & write_to(StreamT & out) const;
 
-	/// retrieves the origin of this ray.
-	vector_type const & origin() const;
-
-	/// retrieves the direction of this ray.
-	vector_type const & direction() const;
-
-	/// creates a position.
-	template <typename RateT>
-	vector_type point(RateT const & rate) const;
-
-	/// confirms whether an rate is valid.
-	template <typename RateT>
-	bool verify(RateT const & rate) const;
+	/// calculates the scattered ray.
+	template <typename VectorT, typename RandomizerT>
+	Scatter<> scatter(
+		VectorT const & in,
+		VectorT const & pos,
+		VectorT const & normal,
+		RandomizerT & randomizer) const;
 
 protected :
 
 private :
 
-	vector_type origin_;
-	vector_type direction_;
+	albedo_type albedo_;
 
 };
 //------------------------------------------------------------------------------
@@ -112,111 +101,74 @@ namespace rtiow
   @brief default constructor.
  */
 template <hryky_template_param>
-hryky::rtiow::Ray<hryky_template_arg>::Ray()
-	: origin_()
-	  , direction_()
-{
-}
-/**
-  @brief instantiates with an origin and a direction.
- */
-template <hryky_template_param>
-hryky::rtiow::Ray<hryky_template_arg>::Ray(
-	vector_type const & origin, vector_type const & direction)
-	: origin_(origin)
-	  , direction_(direction)
+hryky::rtiow::Metal<hryky_template_arg>::Metal()
+	: albedo_()
 {
 }
 /**
   @brief copy constructor.
  */
 template <hryky_template_param>
-hryky::rtiow::Ray<hryky_template_arg>::Ray(this_type const & rhs)
-	: hryky_copy_member(origin)
-	  , hryky_copy_member(direction)
+hryky::rtiow::Metal<hryky_template_arg>::Metal(this_type const & rhs)
+	: hryky_copy_member(albedo)
 {
 }
 /**
   @brief move constructor.
  */
 template <hryky_template_param>
-hryky::rtiow::Ray<hryky_template_arg>::Ray(this_type && rhs)
-	: hryky_move_member(origin)
-	  , hryky_move_member(direction)
+hryky::rtiow::Metal<hryky_template_arg>::Metal(this_type && rhs)
+	: hryky_move_member(albedo)
 {
 }
 /**
   @brief destructor.
  */
 template <hryky_template_param>
-hryky::rtiow::Ray<hryky_template_arg>::~Ray()
+hryky::rtiow::Metal<hryky_template_arg>::~Metal()
 {
 }
 /**
   @brief releases the internal resources.
  */
 template <hryky_template_param>
-void hryky::rtiow::Ray<hryky_template_arg>::clear()
+void hryky::rtiow::Metal<hryky_template_arg>::clear()
 {
-	hryky::clear(this->direction_);
-	hryky::clear(this->origin_);
+	hryky::clear(this->albedo_);
 }
 /**
   @brief interchanges the each internal resources of two instances.
  */
 template <hryky_template_param>
-void hryky::rtiow::Ray<hryky_template_arg>::swap(this_type & src)
+void hryky::rtiow::Metal<hryky_template_arg>::swap(this_type & src)
 {
-	hryky_swap_member(origin);
-	hryky_swap_member(direction);
+	hryky_swap_member(albedo);
 }
 /**
   @brief outputs the information through stream.
  */
 template <hryky_template_param>
 template <typename StreamT>
-StreamT & hryky::rtiow::Ray<hryky_template_arg>::write_to(StreamT & out) const
+StreamT & hryky::rtiow::Metal<hryky_template_arg>::write_to(StreamT & out) const
 {
 	stream::map::Scope<StreamT> const map(out);
 	return out;
 }
 /**
-  @brief retrieves the origin of this ray.
+  @brief calculates the scattered ray.
  */
 template <hryky_template_param>
-typename hryky::rtiow::Ray<hryky_template_arg>::vector_type const &
-hryky::rtiow::Ray<hryky_template_arg>::origin() const
+template <typename VectorT, typename RandomizerT>
+hryky::rtiow::Scatter<>
+hryky::rtiow::Metal<hryky_template_arg>::scatter(
+	VectorT const & in,
+	VectorT const & pos,
+	VectorT const & normal,
+	RandomizerT & randomizer) const
 {
-	return this->origin_;
-}
-/**
-  @brief retrieves the direction of this ray.
- */
-template <hryky_template_param>
-typename hryky::rtiow::Ray<hryky_template_arg>::vector_type const &
-hryky::rtiow::Ray<hryky_template_arg>::direction() const
-{
-	return this->direction_;
-}
-/**
-  @brief creates a position.
- */
-template <hryky_template_param>
-template <typename RateT>
-typename hryky::rtiow::Ray<hryky_template_arg>::vector_type
-hryky::rtiow::Ray<hryky_template_arg>::point(
-	RateT const & rate) const
-{
-	return this->origin_ + rate * this->direction_;
-}
-/**
-  @brief confirms whether an rate is valid.
- */
-template <hryky_template_param>
-template <typename RateT>
-bool hryky::rtiow::Ray<hryky_template_arg>::verify(RateT const & rate) const
-{
-	return 0.0f < rate;
+	auto const reflected = in - 2.0f * dot(in, normal) * normal;
+
+	return Scatter<>(ray(pos, reflected), this->albedo_);
 }
 //------------------------------------------------------------------------------
 // defines protected member functions
@@ -231,29 +183,15 @@ namespace hryky
 {
 namespace rtiow
 {
-	/// creates a ray.
-	template <hryky_template_param>
-	Ray<hryky_template_arg> ray(
-		VectorT const & origin, VectorT const & direction);
-
 } // namespace rtiow
 } // namespace hryky
 //------------------------------------------------------------------------------
 // defines global functions
 //------------------------------------------------------------------------------
-/**
-  @brief creates a ray.
- */
-template <hryky_template_param>
-hryky::rtiow::Ray<hryky_template_arg> hryky::rtiow::ray(
-	VectorT const & origin, VectorT const & direction)
-{
-	return Ray<hryky_template_arg>(origin, direction);
-}
 //------------------------------------------------------------------------------
 // revokes the temporary macros
 //------------------------------------------------------------------------------
 #undef hryky_template_param
 #undef hryky_template_arg
-#endif // RTIOW_RAY_H_20160703132553226
+#endif // RTIOW_METAL_H_20160724170253377
 // end of file

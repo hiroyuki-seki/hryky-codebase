@@ -28,6 +28,15 @@ namespace rtiow
 	class Greater;
 
 } // namespace rtiow
+namespace stream
+{
+namespace map
+{
+	template <typename StreamT>
+	class Scope;
+	
+} // namespace map
+} // namespace stream
 } // namespace hryky
 //------------------------------------------------------------------------------
 // declares classes
@@ -159,6 +168,7 @@ template <typename StreamT>
 StreamT & hryky::rtiow::Greater<hryky_template_arg>::write_to(
 	StreamT & out) const
 {
+	stream::map::Scope<StreamT> const map(out);
 	return out;
 }
 /**

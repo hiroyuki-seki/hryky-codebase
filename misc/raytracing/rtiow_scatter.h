@@ -1,21 +1,20 @@
 /**
-  @file     rtiow_hit.h
-  @brief    records the information where a ray hits.
+  @file     rtiow_scatter.h
+  @brief    retains the information for scattering.
   @author   HRYKY
   @version  $Id: hryky-template.l 381 2015-03-14 00:09:09Z hryky.private@gmail.com $
  */
-#ifndef RTIOW_HIT_H_20160717103855110
-#define RTIOW_HIT_H_20160717103855110
-#include "./rtiow_vec3.h"
-#include "./rtiow_scatter.h"
+#ifndef RTIOW_SCATTER_H_20160724145548288
+#define RTIOW_SCATTER_H_20160724145548288
+#include "./rtiow_ray.h"
 #include "hryky/with_is_null.h"
 //------------------------------------------------------------------------------
 // defines macros
 //------------------------------------------------------------------------------
 #define hryky_template_param \
-	typename ScatterT, typename PosT, typename NormalT, typename RateT
+	typename RayT, typename AttenuationT
 #define hryky_template_arg \
-	ScatterT, PosT, NormalT, RateT
+	RayT, AttenuationT
 //------------------------------------------------------------------------------
 // declares types
 //------------------------------------------------------------------------------
@@ -23,9 +22,9 @@ namespace hryky
 {
 namespace rtiow
 {
-	/// records the information where a ray hits.
+	/// retains the information for scattering.
 	template <hryky_template_param>
-	class Hit;
+	class Scatter;
 
 } // namespace rtiow
 } // namespace hryky
@@ -33,43 +32,35 @@ namespace rtiow
 // declares classes
 //------------------------------------------------------------------------------
 /**
-  @brief records the information where a ray hits.
+  @brief retains the information for scattering.
  */
 template <
-	typename ScatterT = hryky::rtiow::Scatter<>,
-	typename PosT = hryky::rtiow::Vec3<>,
-	typename NormalT = PosT,
-	typename RateT = float
+	typename RayT = hryky::rtiow::Ray<>,
+	typename AttenuationT = typename RayT::vector_type
 >
-class hryky::rtiow::Hit
-	: public hryky::WithIsNull<Hit<hryky_template_arg> >
+class hryky::rtiow::Scatter
+	: public hryky::WithIsNull<Scatter<hryky_template_arg> >
 {
 public :
 
-	typedef Hit<hryky_template_arg> this_type;
-	typedef ScatterT scatter_type;
-	typedef PosT pos_type;
-	typedef NormalT normal_type;
-	typedef RateT rate_type;
+	typedef Scatter<hryky_template_arg> this_type;
+	typedef RayT ray_type;
+	typedef AttenuationT attenuation_type;
 
 	/// default constructor.
-	Hit();
+	Scatter();
 
 	/// instantiates with parameters.
-	Hit(
-		scatter_type const & scatter,
-		pos_type const & pos,
-		normal_type const & normal,
-		rate_type const & rate);
+	Scatter(ray_type const & ray, attenuation_type const & attenuation);
 
 	/// copy constructor.
-	Hit(this_type const &);
+	Scatter(this_type const &);
 
 	/// move constructor.
-	Hit(this_type &&);
+	Scatter(this_type &&);
 
 	/// destructor.
-	~Hit();
+	~Scatter();
 
 	/// assignment operator.
 	hryky_assign_op;
@@ -87,29 +78,21 @@ public :
 	template <typename StreamT>
 	StreamT & write_to(StreamT & out) const;
 
-	/// retrieves the scattered ray.
-	scatter_type const & scatter() const;
-
-	/// retrieves the position where the ray intersected.
-	pos_type const & pos() const;
-
-	/// retrieves the normal where the ray intersected.
-	normal_type const & normal() const;
-
-	/// retrieves the rate of direction.
-	RateT rate() const;
-
-	/// confirms whether resources are invalid.
+	/// confirms whether the whole of ray is absorbed.
 	bool is_null() const;
+
+	/// retrieves the attenuation.
+	attenuation_type const & attenuation() const;
+
+	/// retrieves the scattered ray.
+	ray_type const & ray() const;
 
 protected :
 
 private :
 
-	scatter_type scatter_;
-	pos_type pos_;
-	normal_type normal_;
-	rate_type rate_;
+	ray_type ray_;
+	attenuation_type attenuation_;
 
 };
 //------------------------------------------------------------------------------
@@ -128,132 +111,101 @@ namespace rtiow
   @brief default constructor.
  */
 template <hryky_template_param>
-hryky::rtiow::Hit<hryky_template_arg>::Hit()
-	: scatter_()
-	  , pos_()
-	  , normal_()
-	  , rate_()
+hryky::rtiow::Scatter<hryky_template_arg>::Scatter()
+	: ray_()
+	  , attenuation_()
 {
 }
 /**
   @brief instantiates with parameters.
  */
 template <hryky_template_param>
-hryky::rtiow::Hit<hryky_template_arg>::Hit(
-	scatter_type const & scatter,
-	pos_type const & pos,
-	normal_type const & normal,
-	rate_type const & rate)
-	: scatter_(scatter)
-	  , pos_(pos)
-	  , normal_(normal)
-	  , rate_(rate)
+hryky::rtiow::Scatter<hryky_template_arg>::Scatter(
+	ray_type const & ray,
+	attenuation_type const & attenuation)
+	: ray_(ray)
+	  , attenuation_(attenuation)
 {
 }
 /**
   @brief copy constructor.
  */
 template <hryky_template_param>
-hryky::rtiow::Hit<hryky_template_arg>::Hit(this_type const & rhs)
-	: hryky_copy_member(scatter)
-	  , hryky_copy_member(pos)
-	  , hryky_copy_member(normal)
-	  , hryky_copy_member(rate)
+hryky::rtiow::Scatter<hryky_template_arg>::Scatter(this_type const & rhs)
+	: hryky_copy_member(ray)
+	  , hryky_copy_member(attenuation)
 {
 }
 /**
   @brief move constructor.
  */
 template <hryky_template_param>
-hryky::rtiow::Hit<hryky_template_arg>::Hit(this_type && rhs)
-	: hryky_move_member(scatter)
-	  , hryky_move_member(pos)
-	  , hryky_move_member(normal)
-	  , hryky_move_member(rate)
+hryky::rtiow::Scatter<hryky_template_arg>::Scatter(this_type && rhs)
+	: hryky_move_member(ray)
+	  , hryky_move_member(attenuation)
 {
 }
 /**
   @brief destructor.
  */
 template <hryky_template_param>
-hryky::rtiow::Hit<hryky_template_arg>::~Hit()
+hryky::rtiow::Scatter<hryky_template_arg>::~Scatter()
 {
 }
 /**
   @brief releases the internal resources.
  */
 template <hryky_template_param>
-void hryky::rtiow::Hit<hryky_template_arg>::clear()
+void hryky::rtiow::Scatter<hryky_template_arg>::clear()
 {
-	hryky::clear(this->rate_);
-	hryky::clear(this->normal_);
-	hryky::clear(this->pos_);
-	hryky::clear(this->scatter_);
+	hryky::clear(this->attenuation_);
+	hryky::clear(this->ray_);
 }
 /**
   @brief interchanges the each internal resources of two instances.
  */
 template <hryky_template_param>
-void hryky::rtiow::Hit<hryky_template_arg>::swap(this_type & src)
+void hryky::rtiow::Scatter<hryky_template_arg>::swap(this_type & src)
 {
-	hryky_swap_member(scatter);
-	hryky_swap_member(pos);
-	hryky_swap_member(normal);
-	hryky_swap_member(rate);
+	hryky_swap_member(ray);
+	hryky_swap_member(attenuation);
 }
 /**
   @brief outputs the information through stream.
  */
 template <hryky_template_param>
 template <typename StreamT>
-StreamT & hryky::rtiow::Hit<hryky_template_arg>::write_to(StreamT & out) const
+StreamT & hryky::rtiow::Scatter<hryky_template_arg>::write_to(
+	StreamT & out) const
 {
 	stream::map::Scope<StreamT> const map(out);
 	return out;
 }
 /**
+  @brief confirms whether the whole of ray is absorbed.
+ */
+template <hryky_template_param>
+bool hryky::rtiow::Scatter<hryky_template_arg>::is_null() const
+{
+	return attenuation_type() == this->attenuation_;
+}
+/**
+  @brief retrieves the attenuation.
+ */
+template <hryky_template_param>
+typename hryky::rtiow::Scatter<hryky_template_arg>::attenuation_type const & 
+hryky::rtiow::Scatter<hryky_template_arg>::attenuation() const
+{
+	return this->attenuation_;
+}
+/**
   @brief retrieves the scattered ray.
  */
 template <hryky_template_param>
-typename hryky::rtiow::Hit<hryky_template_arg>::scatter_type const & 
-hryky::rtiow::Hit<hryky_template_arg>::scatter() const
+typename hryky::rtiow::Scatter<hryky_template_arg>::ray_type const & 
+hryky::rtiow::Scatter<hryky_template_arg>::ray() const
 {
-	return this->scatter_;
-}
-/**
-  @brief retrieves the position where the ray intersected.
- */
-template <hryky_template_param>
-typename hryky::rtiow::Hit<hryky_template_arg>::pos_type const & 
-hryky::rtiow::Hit<hryky_template_arg>::pos() const
-{
-	return this->pos_;
-}
-/**
-  @brief retrieves the normal where the ray intersected.
- */
-template <hryky_template_param>
-typename hryky::rtiow::Hit<hryky_template_arg>::normal_type const & 
-hryky::rtiow::Hit<hryky_template_arg>::normal() const
-{
-	return this->normal_;
-}
-/**
-  @brief retrieves the rate of direction.
- */
-template <hryky_template_param>
-typename hryky::rtiow::Hit<hryky_template_arg>::rate_type
-hryky::rtiow::Hit<hryky_template_arg>::rate() const
-{
-	return this->rate_;
-}
-/**
-  @brief confirms whether resources are invalid.
- */
-template <hryky_template_param>
-bool hryky::rtiow::Hit<hryky_template_arg>::is_null() const
-{
-	return normal_type() == this->normal_;
+	return this->ray_;
 }
 //------------------------------------------------------------------------------
 // defines protected member functions
@@ -268,15 +220,30 @@ namespace hryky
 {
 namespace rtiow
 {
+	/// creates a scatter.
+	template <hryky_template_param>
+	Scatter<hryky_template_arg> scatter(
+		RayT const & ray, AttenuationT const & attenuation);
+
 } // namespace rtiow
 } // namespace hryky
 //------------------------------------------------------------------------------
 // defines global functions
 //------------------------------------------------------------------------------
+/**
+  @brief creates a scatter.
+ */
+template <hryky_template_param>
+hryky::rtiow::Scatter<hryky_template_arg>
+hryky::rtiow::scatter(
+	RayT const & ray, AttenuationT const & attenuation)
+{
+	return Scatter<hryky_template_arg>(ray, attenuation);
+}
 //------------------------------------------------------------------------------
 // revokes the temporary macros
 //------------------------------------------------------------------------------
 #undef hryky_template_param
 #undef hryky_template_arg
-#endif // RTIOW_HIT_H_20160717103855110
+#endif // RTIOW_SCATTER_H_20160724145548288
 // end of file

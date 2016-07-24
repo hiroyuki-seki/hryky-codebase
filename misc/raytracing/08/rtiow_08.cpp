@@ -9,6 +9,9 @@
 #include "../rtiow_sphere.h"
 #include "../rtiow_tuple.h"
 #include "../rtiow_camera.h"
+#include "../rtiow_randomizer.h"
+#include "../rtiow_lambertian.h"
+#include "../rtiow_metal.h"
 
 namespace
 {
@@ -17,17 +20,17 @@ namespace
 	typedef hryky::rtiow::Ray<> ray_type;
 	typedef hryky::rtiow::Sphere<> sphere_type;
 	typedef hryky::rtiow::Camera<> camera_type;
+	typedef hryky::rtiow::Randomizer<> randomizer_type;
+	typedef hryky::rtiow::Lambertian<> lambertian_type;
+	typedef hryky::rtiow::Metal<> metal_type;
 
 	/// retrieves the color at the position where a ray intersects the screen.
 	template <typename HitableT, typename RandomizerT>
 	fvec3 color(
 		ray_type const & ray,
 		HitableT const & hitable,
-		RandomizerT randomizer);
-
-	/// generates a point in a unit sphere.
-	template <typename RandomizerT>
-	fvec3 in_sphere(RandomizerT randomizer);
+		RandomizerT & randomizer,
+		uint32_t const depth);
 
 } // namespace
 
@@ -45,12 +48,19 @@ int main (int argc, char * argv[])
 	camera_type const camera;
 
 	auto const world = hryky::rtiow::tuple(hryky::make_tuple(
-		sphere_type(fvec3(0.0f, 0.0f, -1.0f), 0.5f),
-		sphere_type(fvec3(0.0f, -100.5f, -1.0f), 100.0f)));
+		sphere_type(
+			fvec3(0.0f, 0.0f, -1.0f),
+			0.5f,
+			lambertian_type(fvec3(0.8f, 0.3f, 0.3f))),
+		sphere_type(
+			fvec3(0.0f, -100.5f, -1.0f),
+			100.0f,
+			lambertian_type(fvec3(0.8f, 0.8f, 0.3f)))
+		));
 
 	::std::random_device rd;
-	::std::mt19937 gen(rd());
-	::std::uniform_real_distribution<float> dist(0.0f, 1.0f);
+
+	randomizer_type randomizer(rd());
 
 	uint32_t y = 0u;
 	for (; height != y; ++y) {
@@ -60,13 +70,14 @@ int main (int argc, char * argv[])
 			uint32_t sample = 0u;
 			for (; samples != sample; ++sample) {
 				auto const ratio_x
-					= (static_cast<float>(x) + dist(gen)) / width;
+					= (static_cast<float>(x) + randomizer()) / width;
 				auto const ratio_y
-					= (static_cast<float>(height - (y + 1u)) + dist(gen)) / height;
+					= (static_cast<float>(height - (y + 1u)) + randomizer()) / height;
 				ray_type const ray = camera.ray(ratio_x, ratio_y);
-				fcolor += color(ray, world, [&gen, &dist]() { return dist(gen); });
+				fcolor += color(ray, world, randomizer, 50u);
 			}
 			fcolor /= samples;
+			fcolor = sqrt(fcolor);
 			auto const icolor = ivec3(255.99f * fcolor);
 			(::std::cout << icolor << std::endl);
 		}
@@ -83,16 +94,20 @@ template <typename HitableT, typename RandomizerT>
 fvec3 color(
 	ray_type const & ray,
 	HitableT const & hitable,
-	RandomizerT randomizer)
+	RandomizerT & randomizer,
+	uint32_t const depth)
 {
 	{
-		auto const hit = hitable.hit(ray);
+		auto const hit = hitable.hit(ray, randomizer);
 		if (!hryky_is_null(hit)) {
-			auto const target = hit.pos() + hit.normal() + in_sphere(randomizer);
-			return 0.5f * color(
-				ray_type(hit.pos(), target - hit.pos()),
+			if (0 == depth || hryky_is_null(hit.scatter())) {
+				return fvec3();
+			}
+			return hit.scatter().attenuation() * color(
+				hit.scatter().ray(),
 				hitable,
-				randomizer);
+				randomizer,
+				depth - 1u);
 		}
 	}
 	
@@ -102,18 +117,6 @@ fvec3 color(
 	auto const blue = fvec3(0.5f, 0.7f, 1.0f);
 	
 	return (1.0f - ratio) * white + ratio * blue;
-}
-/**
-  @brief generates a point on a unit sphere.
- */
-template <typename RandomizerT>
-fvec3 in_sphere(RandomizerT randomizer)
-{
-	fvec3 p;
-	do {
-		p = 2.0f * fvec3(randomizer(), randomizer(), randomizer()) - 1.0f;
-	} while (p.slength() >= 1.0f);
-	return p;
 }
 } // namespace
 

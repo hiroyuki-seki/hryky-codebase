@@ -4,8 +4,8 @@
 *.lib
 XTAGS
 *.Po
-*.m4
-*.cache
+misc/raytracing/**/autom4te.cache
+misc/raytracing/**/aclocal.m4
 misc/raytracing/**/config.log
 misc/raytracing/**/config.status
 misc/raytracing/**/configure

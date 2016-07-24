@@ -10,6 +10,7 @@
 #include "hryky/is_null.h"
 #include "./rtiow_hit.h"
 #include "./rtiow_segment.h"
+#include "./rtiow_randomizer.h"
 //------------------------------------------------------------------------------
 // defines macros
 //------------------------------------------------------------------------------
@@ -75,31 +76,50 @@ public :
 	StreamT & write_to(StreamT & out) const;
 
 	/// checks if a ray intersects with any hitable objects in tuple.
+	template <typename RayT, typename RandomizerT>
+	Hit<> hit(RayT const & ray, RandomizerT & randomizer) const;
+
 	template <typename RayT>
-	Hit<> hit(RayT const & ray) const;
+	Hit<> hit(RayT const & ray) const
+	{
+		Randomizer<> randomizer;
+		return this->hit(ray, randomizer);
+	}
 
 protected :
 
 private :
 
 	/// checks if a ray intersects with any hitable objects in tuple.
-	template <typename RayT, typename FirstT, typename RestT>
+	template <
+		typename RayT,
+		typename RandomizerT,
+		typename FirstT,
+		typename RestT
+	>
 	static Hit<> hit(
 		RayT const & ray,
+		RandomizerT & randomizer,
 		FirstT const & first,
 		RestT const & rest);
 
 	/// checks if a ray intersects with the last hitable object in tuple.
-	template <typename RayT, typename FirstT>
+	template <
+		typename RayT,
+		typename RandomizerT,
+		typename FirstT
+	>
 	static Hit<> hit(
 		RayT const & ray,
+		RandomizerT & randomizer,
 		FirstT const & first,
 		Null const &);
 
 	/// checks intersection against the empty tuple.
-	template <typename RayT>
+	template <typename RayT, typename RandomizerT>
 	static Hit<> hit(
 		RayT const & ray,
+		RandomizerT & randomizer,
 		Null const &,
 		Null const &);
 
@@ -180,18 +200,20 @@ template <hryky_template_param>
 template <typename StreamT>
 StreamT & hryky::rtiow::Tuple<hryky_template_arg>::write_to(StreamT & out) const
 {
+	stream::map::Scope<StreamT> const map(out);
 	return out;
 }
 /**
   @brief checks if a ray intersects with any hitable objects in tuple.
  */
 template <hryky_template_param>
-template <typename RayT>
+template <typename RayT, typename RandomizerT>
 hryky::rtiow::Hit<>
 hryky::rtiow::Tuple<hryky_template_arg>::hit(
-	RayT const & ray) const
+	RayT const & ray, RandomizerT & randomizer) const
 {
-	return this_type::hit(ray, this->tuple_.first(), this->tuple_.rest());
+	return this_type::hit(
+		ray, randomizer, this->tuple_.first(), this->tuple_.rest());
 }
 //------------------------------------------------------------------------------
 // defines protected member functions
@@ -203,21 +225,23 @@ hryky::rtiow::Tuple<hryky_template_arg>::hit(
   @brief checks if a ray intersects with any hitable objects in tuple.
  */
 template <hryky_template_param>
-template <typename RayT, typename FirstT, typename RestT>
+template <typename RayT, typename RandomizerT, typename FirstT, typename RestT>
 hryky::rtiow::Hit<>
 hryky::rtiow::Tuple<hryky_template_arg>::hit(
 	RayT const & ray,
+	RandomizerT & randomizer,
 	FirstT const & first,
 	RestT const & rest)
 {
-	auto const hit = first.hit(ray);
+	auto const hit = first.hit(ray, randomizer);
 	if (hryky_is_null(hit)) {
-		return this_type::hit(ray, rest.first(), rest.rest());
+		return this_type::hit(ray, randomizer, rest.first(), rest.rest());
 	}
 
 	auto const next = this_type::hit(
 		Segment<typename RayT::vector_type>(
 			ray.origin(), hit.pos() - ray.origin()),
+		randomizer,
 		rest.first(),
 		rest.rest());
 	
@@ -227,19 +251,27 @@ hryky::rtiow::Tuple<hryky_template_arg>::hit(
   @brief checks if a ray intersects with the last hitable object in tuple.
  */
 template <hryky_template_param>
-template <typename RayT, typename FirstT>
-hryky::rtiow::Hit<> hryky::rtiow::Tuple<hryky_template_arg>::hit(
-	RayT const & ray, FirstT const & first, hryky::Null const &)
+template <typename RayT, typename RandomizerT, typename FirstT>
+hryky::rtiow::Hit<>
+hryky::rtiow::Tuple<hryky_template_arg>::hit(
+	RayT const & ray,
+	RandomizerT & randomizer,
+	FirstT const & first,
+	hryky::Null const &)
 {
-	return first.hit(ray);
+	return first.hit(ray, randomizer);
 }
 /**
   @brief checks intersection against the empty tuple.
  */
 template <hryky_template_param>
-template <typename RayT>
-hryky::rtiow::Hit<> hryky::rtiow::Tuple<hryky_template_arg>::hit(
-	RayT const &, hryky::Null const &, hryky::Null const &)
+template <typename RayT, typename RandomizerT>
+hryky::rtiow::Hit<>
+hryky::rtiow::Tuple<hryky_template_arg>::hit(
+	RayT const &,
+	RandomizerT &,
+	hryky::Null const &,
+	hryky::Null const &)
 {
 	return Hit<>();
 }

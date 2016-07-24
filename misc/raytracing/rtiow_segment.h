@@ -6,6 +6,7 @@
  */
 #ifndef RTIOW_SEGMENT_H_20160717151849304
 #define RTIOW_SEGMENT_H_20160717151849304
+#include "./rtiow_vec3.h"
 //------------------------------------------------------------------------------
 // defines macros
 //------------------------------------------------------------------------------
@@ -173,6 +174,7 @@ template <typename StreamT>
 StreamT & hryky::rtiow::Segment<hryky_template_arg>::write_to(
 	StreamT & out) const
 {
+	stream::map::Scope<StreamT> const map(out);
 	return out;
 }
 /**

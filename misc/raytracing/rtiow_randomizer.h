@@ -1,11 +1,12 @@
 /**
-  @file     rtiow_ray.h
-  @brief    retains a half line.
+  @file     rtiow_randomizer.h
+  @brief    collects functors to generate random values.
   @author   HRYKY
   @version  $Id: hryky-template.l 381 2015-03-14 00:09:09Z hryky.private@gmail.com $
  */
-#ifndef RTIOW_RAY_H_20160703132553226
-#define RTIOW_RAY_H_20160703132553226
+#ifndef RTIOW_RANDOMIZER_H_20160724153805318
+#define RTIOW_RANDOMIZER_H_20160724153805318
+#include <random>
 #include "./rtiow_vec3.h"
 //------------------------------------------------------------------------------
 // defines macros
@@ -21,9 +22,9 @@ namespace hryky
 {
 namespace rtiow
 {
-	/// retains a half line.
+	/// collects functors to generate random values.
 	template <hryky_template_param>
-	class Ray;
+	class Randomizer;
 
 } // namespace rtiow
 } // namespace hryky
@@ -31,35 +32,32 @@ namespace rtiow
 // declares classes
 //------------------------------------------------------------------------------
 /**
-  @brief retains a half line.
+  @brief collects functors to generate random values.
  */
-template <
-	typename VectorT = hryky::rtiow::Vec3<>
->
-class hryky::rtiow::Ray
+template <typename VectorT = hryky::rtiow::Vec3<> >
+class hryky::rtiow::Randomizer
 {
 public :
 
-	typedef Ray<hryky_template_arg> this_type;
+	typedef Randomizer<hryky_template_arg> this_type;
 	typedef VectorT vector_type;
+	typedef typename vector_type::value_type value_type;
 
 	/// default constructor.
-	Ray();
+	Randomizer();
 
-	/// instantiates with an origin and a direction.
-	Ray(vector_type const & origin, vector_type const & direction);
-
-	/// copy constructor.
-	Ray(this_type const &);
+	/// instantiates with the seed.
+	template <typename SeedT>
+	Randomizer(SeedT seed);
 
 	/// move constructor.
-	Ray(this_type &&);
+	Randomizer(this_type &&);
 
 	/// destructor.
-	~Ray();
+	~Randomizer();
 
-	/// assignment operator.
-	hryky_assign_op;
+	/// generates a value.
+	value_type operator()();
 
 	/// move assignment operator.
 	hryky_move_assign_op;
@@ -74,27 +72,17 @@ public :
 	template <typename StreamT>
 	StreamT & write_to(StreamT & out) const;
 
-	/// retrieves the origin of this ray.
-	vector_type const & origin() const;
-
-	/// retrieves the direction of this ray.
-	vector_type const & direction() const;
-
-	/// creates a position.
-	template <typename RateT>
-	vector_type point(RateT const & rate) const;
-
-	/// confirms whether an rate is valid.
-	template <typename RateT>
-	bool verify(RateT const & rate) const;
+	/// generates a point in a unit sphere.
+	VectorT in_sphere();
 
 protected :
 
 private :
+	hryky_delete_copy_constructor(Randomizer);
+	hryky_delete_copy_assign_op(this_type);
 
-	vector_type origin_;
-	vector_type direction_;
-
+	::std::mt19937 gen_;
+	::std::uniform_real_distribution<float> dist_;
 };
 //------------------------------------------------------------------------------
 // specializes classes
@@ -112,111 +100,87 @@ namespace rtiow
   @brief default constructor.
  */
 template <hryky_template_param>
-hryky::rtiow::Ray<hryky_template_arg>::Ray()
-	: origin_()
-	  , direction_()
+hryky::rtiow::Randomizer<hryky_template_arg>::Randomizer()
+	: gen_()
+	  , dist_(0.0f, 1.0f)
 {
 }
 /**
-  @brief instantiates with an origin and a direction.
+  @brief instantiates with the seed.
  */
 template <hryky_template_param>
-hryky::rtiow::Ray<hryky_template_arg>::Ray(
-	vector_type const & origin, vector_type const & direction)
-	: origin_(origin)
-	  , direction_(direction)
-{
-}
-/**
-  @brief copy constructor.
- */
-template <hryky_template_param>
-hryky::rtiow::Ray<hryky_template_arg>::Ray(this_type const & rhs)
-	: hryky_copy_member(origin)
-	  , hryky_copy_member(direction)
+template <typename SeedT>
+hryky::rtiow::Randomizer<hryky_template_arg>::Randomizer(SeedT seed)
+	: gen_(seed)
+	  , dist_(0.0f, 1.0f)
 {
 }
 /**
   @brief move constructor.
  */
 template <hryky_template_param>
-hryky::rtiow::Ray<hryky_template_arg>::Ray(this_type && rhs)
-	: hryky_move_member(origin)
-	  , hryky_move_member(direction)
+hryky::rtiow::Randomizer<hryky_template_arg>::Randomizer(this_type && rhs)
+	: hryky_move_member(gen)
+	  , hryky_move_member(dist)
 {
 }
 /**
   @brief destructor.
  */
 template <hryky_template_param>
-hryky::rtiow::Ray<hryky_template_arg>::~Ray()
+hryky::rtiow::Randomizer<hryky_template_arg>::~Randomizer()
 {
+}
+/**
+  @brief generates a value.
+ */
+template <hryky_template_param>
+typename hryky::rtiow::Randomizer<hryky_template_arg>::value_type 
+hryky::rtiow::Randomizer<hryky_template_arg>::operator()()
+{
+	return value_type(this->dist_(this->gen_));
 }
 /**
   @brief releases the internal resources.
  */
 template <hryky_template_param>
-void hryky::rtiow::Ray<hryky_template_arg>::clear()
+void hryky::rtiow::Randomizer<hryky_template_arg>::clear()
 {
-	hryky::clear(this->direction_);
-	hryky::clear(this->origin_);
+	hryky::clear(this->dist_);
+	hryky::clear(this->gen_);
 }
 /**
   @brief interchanges the each internal resources of two instances.
  */
 template <hryky_template_param>
-void hryky::rtiow::Ray<hryky_template_arg>::swap(this_type & src)
+void hryky::rtiow::Randomizer<hryky_template_arg>::swap(this_type & src)
 {
-	hryky_swap_member(origin);
-	hryky_swap_member(direction);
+	hryky_swap_member(gen);
+	hryky_swap_member(dist);
 }
 /**
   @brief outputs the information through stream.
  */
 template <hryky_template_param>
 template <typename StreamT>
-StreamT & hryky::rtiow::Ray<hryky_template_arg>::write_to(StreamT & out) const
+StreamT & hryky::rtiow::Randomizer<hryky_template_arg>::write_to(
+	StreamT & out) const
 {
 	stream::map::Scope<StreamT> const map(out);
 	return out;
 }
 /**
-  @brief retrieves the origin of this ray.
+  @brief generates a point in a unit sphere.
  */
 template <hryky_template_param>
-typename hryky::rtiow::Ray<hryky_template_arg>::vector_type const &
-hryky::rtiow::Ray<hryky_template_arg>::origin() const
+VectorT
+hryky::rtiow::Randomizer<hryky_template_arg>::in_sphere()
 {
-	return this->origin_;
-}
-/**
-  @brief retrieves the direction of this ray.
- */
-template <hryky_template_param>
-typename hryky::rtiow::Ray<hryky_template_arg>::vector_type const &
-hryky::rtiow::Ray<hryky_template_arg>::direction() const
-{
-	return this->direction_;
-}
-/**
-  @brief creates a position.
- */
-template <hryky_template_param>
-template <typename RateT>
-typename hryky::rtiow::Ray<hryky_template_arg>::vector_type
-hryky::rtiow::Ray<hryky_template_arg>::point(
-	RateT const & rate) const
-{
-	return this->origin_ + rate * this->direction_;
-}
-/**
-  @brief confirms whether an rate is valid.
- */
-template <hryky_template_param>
-template <typename RateT>
-bool hryky::rtiow::Ray<hryky_template_arg>::verify(RateT const & rate) const
-{
-	return 0.0f < rate;
+	VectorT p;
+	do {
+		p = 2.0f * VectorT((*this)(), (*this)(), (*this)()) - 1.0f;
+	} while (1.0f <= p.slength());
+	return p;
 }
 //------------------------------------------------------------------------------
 // defines protected member functions
@@ -231,29 +195,15 @@ namespace hryky
 {
 namespace rtiow
 {
-	/// creates a ray.
-	template <hryky_template_param>
-	Ray<hryky_template_arg> ray(
-		VectorT const & origin, VectorT const & direction);
-
 } // namespace rtiow
 } // namespace hryky
 //------------------------------------------------------------------------------
 // defines global functions
 //------------------------------------------------------------------------------
-/**
-  @brief creates a ray.
- */
-template <hryky_template_param>
-hryky::rtiow::Ray<hryky_template_arg> hryky::rtiow::ray(
-	VectorT const & origin, VectorT const & direction)
-{
-	return Ray<hryky_template_arg>(origin, direction);
-}
 //------------------------------------------------------------------------------
 // revokes the temporary macros
 //------------------------------------------------------------------------------
 #undef hryky_template_param
 #undef hryky_template_arg
-#endif // RTIOW_RAY_H_20160703132553226
+#endif // RTIOW_RANDOMIZER_H_20160724153805318
 // end of file

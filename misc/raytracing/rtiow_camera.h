@@ -165,6 +165,7 @@ template <typename StreamT>
 StreamT & hryky::rtiow::Camera<hryky_template_arg>::write_to(
 	StreamT & out) const
 {
+	stream::map::Scope<StreamT> const map(out);
 	return out;
 }
 /**

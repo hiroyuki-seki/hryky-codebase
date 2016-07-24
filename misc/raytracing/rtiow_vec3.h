@@ -31,6 +31,15 @@ namespace rtiow
 	class Vec3;
 
 } // namespace rtiow
+namespace stream
+{
+namespace map
+{
+	template <typename StreamT>
+	class Scope;
+	
+} // namespace map
+} // namespace stream
 } // namespace hryky
 //------------------------------------------------------------------------------
 // declares classes
@@ -154,6 +163,13 @@ public :
 	/// binary operator '-' with an arbitrary scalar.
 	template <typename RhsT>
 	this_type operator-(RhsT rhs) const;
+
+	/// binary operator '*'.
+	this_type operator*(this_type const & rhs) const;
+
+	/// binary operator '*' with an arbitrary scalar.
+	template <typename RhsT>
+	this_type operator*(RhsT rhs) const;
 
 protected :
 
@@ -400,6 +416,7 @@ template <typename StreamT>
 StreamT &
 hryky::rtiow::Vec3<hryky_template_arg>::write_to(StreamT & out) const
 {
+	stream::map::Scope<StreamT> const map(out);
 	return out;
 }
 /**
@@ -500,6 +517,33 @@ hryky::rtiow::Vec3<hryky_template_arg>::operator-(
 		(*this)[1] - rhs,
 		(*this)[2] - rhs);
 }
+/**
+  @brief binary operator '*'.
+ */
+template <hryky_template_param>
+hryky::rtiow::Vec3<hryky_template_arg> 
+hryky::rtiow::Vec3<hryky_template_arg>::operator*(
+	this_type const & rhs) const
+{
+	return this_type(
+		(*this)[0] * rhs[0],
+		(*this)[1] * rhs[1],
+		(*this)[2] * rhs[2]);
+}
+/**
+  @brief binary operator '*' with an arbitrary scalar.
+ */
+template <hryky_template_param>
+template <typename RhsT>
+hryky::rtiow::Vec3<hryky_template_arg> 
+hryky::rtiow::Vec3<hryky_template_arg>::operator*(
+	RhsT rhs) const
+{
+	return this_type(
+		(*this)[0] * rhs,
+		(*this)[1] * rhs,
+		(*this)[2] * rhs);
+}
 //------------------------------------------------------------------------------
 // defines protected member functions
 //------------------------------------------------------------------------------
@@ -540,6 +584,11 @@ namespace rtiow
 	ValueT dot(
 		Vec3<hryky_template_arg> const & lhs,
 		Vec3<hryky_template_arg> const & rhs);
+
+	/// calculates square root of each element.
+	template <hryky_template_param>
+	Vec3<hryky_template_arg> sqrt(
+		Vec3<hryky_template_arg> const & src);
 
 } // namespace rtiow
 } // namespace hryky
@@ -606,6 +655,19 @@ ValueT hryky::rtiow::dot(
 		lhs[0] * rhs[0]
 		+ lhs[1] * rhs[1]
 		+ lhs[2] * rhs[2]);
+}
+/**
+  @brief calculates square root of each element.
+ */
+template <hryky_template_param>
+hryky::rtiow::Vec3<hryky_template_arg> 
+hryky::rtiow::sqrt(
+	Vec3<hryky_template_arg> const & src)
+{
+	return Vec3<hryky_template_arg>(
+		::std::sqrt(src[0]),
+		::std::sqrt(src[1]),
+		::std::sqrt(src[2]));
 }
 //------------------------------------------------------------------------------
 // revokes the temporary macros
