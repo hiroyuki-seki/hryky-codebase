@@ -1,20 +1,20 @@
 /**
-  @file     rtiow_scatter.h
-  @brief    retains the information for scattering.
+  @file     rtiow_dielectric.h
+  @brief    retains information of a dielectric material.
   @author   HRYKY
   @version  $Id: hryky-template.l 381 2015-03-14 00:09:09Z hryky.private@gmail.com $
  */
-#ifndef RTIOW_SCATTER_H_20160724145548288
-#define RTIOW_SCATTER_H_20160724145548288
-#include "./rtiow_ray.h"
-#include "hryky/with_is_null.h"
+#ifndef RTIOW_DIELECTRIC_H_20160731131811220
+#define RTIOW_DIELECTRIC_H_20160731131811220
+#include "./rtiow_vec3.h"
+#include "./rtiow_scatter.h"
 //------------------------------------------------------------------------------
 // defines macros
 //------------------------------------------------------------------------------
 #define hryky_template_param \
-	typename RayT, typename AttenuationT
+	typename AlbedoT, typename RefractionT
 #define hryky_template_arg \
-	RayT, AttenuationT
+	AlbedoT, RefractionT
 //------------------------------------------------------------------------------
 // declares types
 //------------------------------------------------------------------------------
@@ -22,9 +22,9 @@ namespace hryky
 {
 namespace rtiow
 {
-	/// retains the information for scattering.
+	/// retains information of a dielectric material.
 	template <hryky_template_param>
-	class Scatter;
+	class Dielectric;
 
 } // namespace rtiow
 } // namespace hryky
@@ -32,35 +32,39 @@ namespace rtiow
 // declares classes
 //------------------------------------------------------------------------------
 /**
-  @brief retains the information for scattering.
+  @brief retains information of a dielectric material.
  */
 template <
-	typename RayT = hryky::rtiow::Ray<>,
-	typename AttenuationT = typename RayT::vector_type
+	typename AlbedoT = hryky::rtiow::Vec3<>,
+	typename RefractionT = float
 >
-class hryky::rtiow::Scatter
-	: public hryky::WithIsNull<Scatter<hryky_template_arg> >
+class hryky::rtiow::Dielectric
 {
 public :
 
-	typedef Scatter<hryky_template_arg> this_type;
-	typedef RayT ray_type;
-	typedef AttenuationT attenuation_type;
+	typedef Dielectric<hryky_template_arg> this_type;
+	typedef AlbedoT albedo_type;
+	typedef RefractionT refraction_type;
 
 	/// default constructor.
-	Scatter();
+	Dielectric();
 
 	/// instantiates with parameters.
-	Scatter(ray_type const & ray, attenuation_type const & attenuation);
+	Dielectric(
+		albedo_type const & albedo,
+		refraction_type const refraction);
+
+	/// instantiates with parameters.
+	Dielectric(refraction_type const refraction);
 
 	/// copy constructor.
-	Scatter(this_type const &);
+	Dielectric(this_type const &);
 
 	/// move constructor.
-	Scatter(this_type &&);
+	Dielectric(this_type &&);
 
 	/// destructor.
-	~Scatter();
+	~Dielectric();
 
 	/// assignment operator.
 	hryky_assign_op;
@@ -78,21 +82,20 @@ public :
 	template <typename StreamT>
 	StreamT & write_to(StreamT & out) const;
 
-	/// confirms whether the whole of ray is absorbed.
-	bool is_null() const;
-
-	/// retrieves the attenuation.
-	attenuation_type const & attenuation() const;
-
-	/// retrieves the scattered ray.
-	ray_type const & ray() const;
+	/// calculates the scattered ray.
+	template <typename VectorT, typename RandomizerT>
+	Scatter<> scatter(
+		VectorT const & in,
+		VectorT const & pos,
+		VectorT const & normal,
+		RandomizerT & randomizer) const;
 
 protected :
 
 private :
 
-	ray_type ray_;
-	attenuation_type attenuation_;
+	albedo_type albedo_;
+	refraction_type refraction_;
 
 };
 //------------------------------------------------------------------------------
@@ -111,101 +114,131 @@ namespace rtiow
   @brief default constructor.
  */
 template <hryky_template_param>
-hryky::rtiow::Scatter<hryky_template_arg>::Scatter()
-	: ray_()
-	  , attenuation_()
+hryky::rtiow::Dielectric<hryky_template_arg>::Dielectric()
+	: albedo_(1.0f, 1.0f, 1.0f)
+	  , refraction_(1.0f)
 {
 }
 /**
   @brief instantiates with parameters.
  */
 template <hryky_template_param>
-hryky::rtiow::Scatter<hryky_template_arg>::Scatter(
-	ray_type const & ray,
-	attenuation_type const & attenuation)
-	: ray_(ray)
-	  , attenuation_(attenuation)
+hryky::rtiow::Dielectric<hryky_template_arg>::Dielectric(
+	refraction_type const refraction)
+	: albedo_(1.0f, 1.0f, 1.0f)
+	  , refraction_(1.0f)
+{
+}
+/**
+  @brief instantiates with parameters.
+ */
+template <hryky_template_param>
+hryky::rtiow::Dielectric<hryky_template_arg>::Dielectric(
+	albedo_type const & albedo, refraction_type const refraction)
+	: albedo_(albedo)
+	  , refraction_(refraction)
 {
 }
 /**
   @brief copy constructor.
  */
 template <hryky_template_param>
-hryky::rtiow::Scatter<hryky_template_arg>::Scatter(this_type const & rhs)
-	: hryky_copy_member(ray)
-	  , hryky_copy_member(attenuation)
+hryky::rtiow::Dielectric<hryky_template_arg>::Dielectric(this_type const & rhs)
+	: hryky_copy_member(albedo)
+	  , hryky_copy_member(refraction)
 {
 }
 /**
   @brief move constructor.
  */
 template <hryky_template_param>
-hryky::rtiow::Scatter<hryky_template_arg>::Scatter(this_type && rhs)
-	: hryky_move_member(ray)
-	  , hryky_move_member(attenuation)
+hryky::rtiow::Dielectric<hryky_template_arg>::Dielectric(this_type && rhs)
+	: hryky_move_member(albedo)
+	  , hryky_move_member(refraction)
 {
 }
 /**
   @brief destructor.
  */
 template <hryky_template_param>
-hryky::rtiow::Scatter<hryky_template_arg>::~Scatter()
+hryky::rtiow::Dielectric<hryky_template_arg>::~Dielectric()
 {
 }
 /**
   @brief releases the internal resources.
  */
 template <hryky_template_param>
-void hryky::rtiow::Scatter<hryky_template_arg>::clear()
+void hryky::rtiow::Dielectric<hryky_template_arg>::clear()
 {
-	hryky::clear(this->attenuation_);
-	hryky::clear(this->ray_);
+	hryky::clear(this->albedo_);
+	hryky::clear(this->refraction_);
 }
 /**
   @brief interchanges the each internal resources of two instances.
  */
 template <hryky_template_param>
-void hryky::rtiow::Scatter<hryky_template_arg>::swap(this_type & src)
+void hryky::rtiow::Dielectric<hryky_template_arg>::swap(this_type & src)
 {
-	hryky_swap_member(ray);
-	hryky_swap_member(attenuation);
+	hryky_swap_member(albedo);
+	hryky_swap_member(refraction);
 }
 /**
   @brief outputs the information through stream.
  */
 template <hryky_template_param>
 template <typename StreamT>
-StreamT & hryky::rtiow::Scatter<hryky_template_arg>::write_to(
+StreamT & hryky::rtiow::Dielectric<hryky_template_arg>::write_to(
 	StreamT & out) const
 {
 	stream::map::Scope<StreamT> const map(out);
 	return out;
 }
 /**
-  @brief confirms whether the whole of ray is absorbed.
+  @brief calculates the scattered ray.
  */
 template <hryky_template_param>
-bool hryky::rtiow::Scatter<hryky_template_arg>::is_null() const
+template <typename VectorT, typename RandomizerT>
+hryky::rtiow::Scatter<>
+hryky::rtiow::Dielectric<hryky_template_arg>::scatter(
+	VectorT const & in,
+	VectorT const & pos,
+	VectorT const & normal,
+	RandomizerT & randomizer) const
 {
-	return attenuation_type() == this->attenuation_;
-}
-/**
-  @brief retrieves the attenuation.
- */
-template <hryky_template_param>
-typename hryky::rtiow::Scatter<hryky_template_arg>::attenuation_type const & 
-hryky::rtiow::Scatter<hryky_template_arg>::attenuation() const
-{
-	return this->attenuation_;
-}
-/**
-  @brief retrieves the scattered ray.
- */
-template <hryky_template_param>
-typename hryky::rtiow::Scatter<hryky_template_arg>::ray_type const & 
-hryky::rtiow::Scatter<hryky_template_arg>::ray() const
-{
-	return this->ray_;
+	auto schlick = [](float const cos, float const refraction) {
+		auto const r0 = (1.0f - refraction) / (1.0f + refraction);
+		auto const sq_r0 = r0 * r0;
+		return sq_r0 + (1.0f - sq_r0) * ::std::pow(1.0f - cos, 5);
+	};
+	
+	VectorT outward_normal = normal;
+	refraction_type refraction = this->refraction_;
+	float cos;
+	if (0.0f < dot(in, normal)) {
+		outward_normal = -outward_normal;
+		cos = refraction * dot(in, normal) / in.length();
+	}
+	else {
+		refraction = 1.0f / refraction;
+		cos = -dot(in, normal) / in.length();
+	}
+
+	VectorT refracted;
+	if (!refract(refracted, in, outward_normal, refraction)
+		|| randomizer() < schlick(cos, this->refraction_)) {
+		return Scatter<>(ray(pos, reflect(in, normal)), this->albedo_);
+	}
+
+#if RTIOW_DEBUG
+	(::std::cout << "# refracted:"
+	 << "{dir:[" << refracted << "]"
+	 << ",pos:[" << pos << "]"
+	 << ",refraction:" << refraction
+	 << ",in:[" << in << "]"
+	 << "}" << ::std::endl);
+#endif
+	
+	return Scatter<>(ray(pos, refracted), this->albedo_);
 }
 //------------------------------------------------------------------------------
 // defines protected member functions
@@ -220,49 +253,15 @@ namespace hryky
 {
 namespace rtiow
 {
-	/// creates a scatter.
-	template <hryky_template_param>
-	Scatter<hryky_template_arg> scatter(
-		RayT const & ray, AttenuationT const & attenuation);
-
-	/// prints values to a stream.
-	template <typename StreamT, hryky_template_param>
-	StreamT & operator<<(
-		StreamT & lhs, Scatter<hryky_template_arg> const & rhs);
-
 } // namespace rtiow
 } // namespace hryky
 //------------------------------------------------------------------------------
 // defines global functions
 //------------------------------------------------------------------------------
-/**
-  @brief creates a scatter.
- */
-template <hryky_template_param>
-hryky::rtiow::Scatter<hryky_template_arg>
-hryky::rtiow::scatter(
-	RayT const & ray, AttenuationT const & attenuation)
-{
-	return Scatter<hryky_template_arg>(ray, attenuation);
-}
-/**
-  @brief prints values to a stream.
- */
-template <typename StreamT, hryky_template_param>
-StreamT &
-hryky::rtiow::operator<<(
-	StreamT & lhs, Scatter<hryky_template_arg> const & rhs)
-{
-	return (
-		lhs
-		<< "{ray:" << rhs.ray()
-		<< ",attenuation:" << rhs.attenuation()
-		<< "}");
-}
 //------------------------------------------------------------------------------
 // revokes the temporary macros
 //------------------------------------------------------------------------------
 #undef hryky_template_param
 #undef hryky_template_arg
-#endif // RTIOW_SCATTER_H_20160724145548288
+#endif // RTIOW_DIELECTRIC_H_20160731131811220
 // end of file

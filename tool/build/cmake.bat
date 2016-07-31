@@ -45,7 +45,7 @@
 @REM //  n[ormal]
 @REM //  d[etailed]
 @REM //  diag[nostic]
-@set MSBUILD_VERBOSITY=m
+@set MSBUILD_VERBOSITY=n
 
 @set CMAKE_VERBOSITY=^
     -DHRYKY_CMAKE_VERBOSITY:STRING=1

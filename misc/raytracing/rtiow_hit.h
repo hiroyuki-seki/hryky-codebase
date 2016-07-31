@@ -268,11 +268,32 @@ namespace hryky
 {
 namespace rtiow
 {
+	/// prints values to a stream.
+	template <typename StreamT, hryky_template_param>
+	StreamT & operator<<(
+		StreamT & lhs, Hit<hryky_template_arg> const & rhs);
+
 } // namespace rtiow
 } // namespace hryky
 //------------------------------------------------------------------------------
 // defines global functions
 //------------------------------------------------------------------------------
+/**
+  @brief prints values to a stream.
+ */
+template <typename StreamT, hryky_template_param>
+StreamT &
+hryky::rtiow::operator<<(
+	StreamT & lhs, Hit<hryky_template_arg> const & rhs)
+{
+	return (
+		lhs 
+		<< "{pos:[" << rhs.pos() << "]"
+		<< ",normal:[" << rhs.normal() << "]"
+		<< ",rate:" << rhs.rate()
+		<< ",scatter:" << rhs.scatter()
+		<< "}");
+}
 //------------------------------------------------------------------------------
 // revokes the temporary macros
 //------------------------------------------------------------------------------

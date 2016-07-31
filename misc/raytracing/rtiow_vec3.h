@@ -64,7 +64,7 @@ public :
 	Vec3(Vec3<OtherT> const & rhs);
 
 	/// instantiates with an element.
-	Vec3(const_reference a1);
+	explicit Vec3(const_reference a1);
 
 	/// instantiates with three elements.
 	template <typename A1T, typename A2T, typename A3T>
@@ -314,8 +314,8 @@ hryky::rtiow::Vec3<hryky_template_arg>::operator-() const
 {
 	return this_type(
 		-this->values_[0],
-		-this->values_[0],
-		-this->values_[0]);
+		-this->values_[1],
+		-this->values_[2]);
 }
 /**
   @brief operator '+='.
@@ -594,6 +594,14 @@ namespace rtiow
 	template <typename InT, typename NormalT>
 	InT reflect(InT const & in, NormalT const & normal);
 
+	/// calculates the refracted vector.
+	template <typename OutT, typename InT, typename NormalT, typename RatioT>
+	bool refract(
+		OutT & out,
+		InT const & in,
+		NormalT const & normal,
+		RatioT const ratio);
+
 } // namespace rtiow
 } // namespace hryky
 //------------------------------------------------------------------------------
@@ -680,6 +688,38 @@ template <typename InT, typename NormalT>
 InT hryky::rtiow::reflect(InT const & in, NormalT const & normal)
 {
 	return in - 2.0f * dot(in, normal) * normal;
+}
+/**
+  @brief calculates the refracted vector.
+ */
+template <typename OutT, typename InT, typename NormalT, typename RatioT>
+bool hryky::rtiow::refract(
+	OutT & out,
+	InT const & in,
+	NormalT const & normal,
+	RatioT const ratio)
+{
+	auto const normalized_in = normalize(in);
+	auto const cos_in = dot(normalized_in, normal);
+	auto const sq_sin_out = ratio * ratio * (1.0f - cos_in * cos_in);
+	
+	if (1.0f <= sq_sin_out) {
+#if RTIOW_DEBUG
+		(::std::cout << "# total internal reflection:"
+		 << "{cosIn:" << cos_in
+		 << ",ratio:" << ratio
+		 << "}" << ::std::endl);
+#endif
+		return false;
+	}
+
+	auto const sq_cos_out = 1.0f - sq_sin_out;
+	auto const cos_out = ::std::sqrt(sq_cos_out);
+
+	out = (
+		ratio * (normalized_in - normal * cos_in) - normal * cos_out);
+
+	return true;
 }
 //------------------------------------------------------------------------------
 // revokes the temporary macros

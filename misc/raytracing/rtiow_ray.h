@@ -216,7 +216,7 @@ template <hryky_template_param>
 template <typename RateT>
 bool hryky::rtiow::Ray<hryky_template_arg>::verify(RateT const & rate) const
 {
-	return 0.0001f < rate;
+	return 0.001f < rate;
 }
 //------------------------------------------------------------------------------
 // defines protected member functions
@@ -236,6 +236,11 @@ namespace rtiow
 	Ray<hryky_template_arg> ray(
 		VectorT const & origin, VectorT const & direction);
 
+	/// prints values to a stream.
+	template <typename StreamT, hryky_template_param>
+	StreamT & operator<<(
+		StreamT & lhs, Ray<hryky_template_arg> const & rhs);
+
 } // namespace rtiow
 } // namespace hryky
 //------------------------------------------------------------------------------
@@ -249,6 +254,19 @@ hryky::rtiow::Ray<hryky_template_arg> hryky::rtiow::ray(
 	VectorT const & origin, VectorT const & direction)
 {
 	return Ray<hryky_template_arg>(origin, direction);
+}
+/**
+  @brief prints values to a stream.
+ */
+template <typename StreamT, hryky_template_param>
+StreamT & hryky::rtiow::operator<<(
+	StreamT & lhs, Ray<hryky_template_arg> const & rhs)
+{
+	return (
+		lhs
+		<< "{origin:[" << rhs.origin() << "]"
+		<< ",direction:[" << rhs.direction() << "]"
+		<< "}");
 }
 //------------------------------------------------------------------------------
 // revokes the temporary macros
