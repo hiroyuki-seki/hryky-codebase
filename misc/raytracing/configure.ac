@@ -11,5 +11,7 @@ AC_CONFIG_SUBDIRS([
   06
   07
   08
+  09
+  10
   ])
 AC_OUTPUT

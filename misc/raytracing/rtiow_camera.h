@@ -26,6 +26,9 @@ namespace rtiow
 	template <hryky_template_param>
 	class Camera;
 
+	template <typename ValueT>
+	class Degree;
+
 } // namespace rtiow
 } // namespace hryky
 //------------------------------------------------------------------------------
@@ -44,6 +47,10 @@ public :
 
 	/// default constructor.
 	Camera();
+
+	/// creates an instance from a vertical FOV and an aspect ratio.
+	template <typename DegreeT, typename AspectT>
+	Camera(Degree<DegreeT> const & vfov, AspectT aspect);
 
 	/// copy constructor.
 	Camera(this_type const &);
@@ -105,6 +112,22 @@ hryky::rtiow::Camera<hryky_template_arg>::Camera()
 	  , horizontal_(4.0f, 0.0f, 0.0f)
 	  , vertical_(0.0f, 2.0f, 0.0f)
 {
+}
+/**
+  @brief creates an instance from a vertical FOV and an aspect ratio.
+ */
+template <hryky_template_param>
+template <typename DegreeT, typename AspectT>
+hryky::rtiow::Camera<hryky_template_arg>::Camera(
+	Degree<DegreeT> const & vfov, AspectT aspect)
+	: origin_(0.0f)
+{
+	auto const vfov_radian = radian(vfov);
+	auto const half_height = ::std::tan(vfov_radian.get() / 2.0f);
+	auto const half_width = aspect * half_height;
+	this->lower_left_ = vector_type(-half_width, -half_height, -1.0f);
+	this->horizontal_ = vector_type(2.0f * half_width, 0.0f, 0.0f);
+	this->vertical_ = vector_type(0.0f, 2.0f * half_height, 0.0f);
 }
 /**
   @brief copy constructor.
