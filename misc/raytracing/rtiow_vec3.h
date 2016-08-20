@@ -585,6 +585,12 @@ namespace rtiow
 		Vec3<hryky_template_arg> const & lhs,
 		Vec3<hryky_template_arg> const & rhs);
 
+	/// calculates cross product.
+	template <hryky_template_param>
+	Vec3<hryky_template_arg> cross(
+		Vec3<hryky_template_arg> const & lhs,
+		Vec3<hryky_template_arg> const & rhs);
+
 	/// calculates square root of each element.
 	template <hryky_template_param>
 	Vec3<hryky_template_arg> sqrt(
@@ -667,6 +673,20 @@ ValueT hryky::rtiow::dot(
 		lhs[0] * rhs[0]
 		+ lhs[1] * rhs[1]
 		+ lhs[2] * rhs[2]);
+}
+/**
+  @brief calculates cross product.
+ */
+template <hryky_template_param>
+hryky::rtiow::Vec3<hryky_template_arg> 
+hryky::rtiow::cross(
+	Vec3<hryky_template_arg> const & lhs,
+	Vec3<hryky_template_arg> const & rhs)
+{
+	return Vec3<hryky_template_arg>(
+		lhs[1] * rhs[2] - lhs[2] * rhs[1],
+		lhs[2] * rhs[0] - lhs[0] * rhs[2],
+		lhs[0] * rhs[1] - lhs[1] * rhs[0]);
 }
 /**
   @brief calculates square root of each element.

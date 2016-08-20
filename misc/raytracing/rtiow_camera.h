@@ -52,6 +52,15 @@ public :
 	template <typename DegreeT, typename AspectT>
 	Camera(Degree<DegreeT> const & vfov, AspectT aspect);
 
+	/// creates an instance from parameters.
+	template <typename DegreeT, typename AspectT>
+	Camera(
+		vector_type const & from,
+		vector_type const & at,
+		vector_type const & up,
+		Degree<DegreeT> const & vfov,
+		AspectT aspect);
+
 	/// copy constructor.
 	Camera(this_type const &);
 
@@ -125,9 +134,35 @@ hryky::rtiow::Camera<hryky_template_arg>::Camera(
 	auto const vfov_radian = radian(vfov);
 	auto const half_height = ::std::tan(vfov_radian.get() / 2.0f);
 	auto const half_width = aspect * half_height;
+	
 	this->lower_left_ = vector_type(-half_width, -half_height, -1.0f);
 	this->horizontal_ = vector_type(2.0f * half_width, 0.0f, 0.0f);
 	this->vertical_ = vector_type(0.0f, 2.0f * half_height, 0.0f);
+}
+/**
+  @brief creates an instance from parameters.
+ */
+template <hryky_template_param>
+template <typename DegreeT, typename AspectT>
+hryky::rtiow::Camera<hryky_template_arg>::Camera(
+	vector_type const & from,
+	vector_type const & at,
+	vector_type const & up,
+	Degree<DegreeT> const & vfov,
+	AspectT aspect)
+	: origin_(from)
+{
+	auto const vfov_radian = radian(vfov);
+	auto const half_height = ::std::tan(vfov_radian.get() / 2.0f);
+	auto const half_width = aspect * half_height;
+	auto const minus_w = normalize(from - at);
+	auto const u = normalize(cross(up, minus_w));
+	auto const v = cross(minus_w, u);
+	
+	this->lower_left_
+		= this->origin_ - half_width * u - half_height * v - minus_w;
+	this->horizontal_ = 2.0f * half_width * u;
+	this->vertical_ = 2.0f * half_height * v;
 }
 /**
   @brief copy constructor.
