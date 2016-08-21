@@ -167,7 +167,7 @@ hryky::rtiow::Radian<hryky_template_arg>
 hryky::rtiow::radian(Degree<hryky_template_arg> const & degree)
 {
 	Radian<hryky_template_arg> const ret = {
-		degree.get() * ValueT(3.141592) / ValueT(180) };
+		degree.get() * CalcPi<float, 23>::value / ValueT(180) };
 	return ret;
 }
 //------------------------------------------------------------------------------
