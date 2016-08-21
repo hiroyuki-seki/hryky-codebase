@@ -8,6 +8,7 @@
 #define PI_H_20131119152041306
 #include "hryky/factorial.h"
 #include "hryky/std/std_cmath.h"
+#include "hryky/stdint.h"
 //------------------------------------------------------------------------------
 // defines macros
 //------------------------------------------------------------------------------
@@ -79,8 +80,9 @@ template <size_t Index>
 class hryky::CalcPiDividend
 {
 public :
-	static size_t const value =
-		(Index / 2 * 2) * CalcPiDividend<Index - 2>::value;
+	static uint64_t const value =
+		static_cast<uint64_t>(Index / 2 * 2)
+			* CalcPiDividend<Index - 2>::value;
 };
 /**
   @brief The divisor of series of the approximation of PI.
@@ -89,8 +91,9 @@ template <size_t Index, size_t Num, bool End>
 class hryky::CalcPiDivisor
 {
 public :
-	static size_t const value =
-		(2 * Index + 1) * CalcPiDivisor<Index - 1, Num>::value;
+	static uint64_t const value =
+		static_cast<uint64_t>(2 * Index + 1)
+			* CalcPiDivisor<Index - 1, Num>::value;
 };
 //------------------------------------------------------------------------------
 // specializes classes
@@ -158,13 +161,13 @@ template <>
 class CalcPiDividend<0>
 {
 public :
-	static size_t const value = 1;
+	static uint64_t const value = 1;
 };
 template <>
 class CalcPiDividend<1>
 {
 public :
-	static size_t const value = 1;
+	static uint64_t const value = 1;
 };
 /**
   @brief terminates the recursion of CalcPiDivisor
@@ -173,7 +176,7 @@ template <size_t Index, size_t Num>
 class CalcPiDivisor<Index, Num, true>
 {
 public :
-	static size_t const value = 1;
+	static uint64_t const value = 1;
 };
 /**
   @brief terminates the recursion of CalcPi.
