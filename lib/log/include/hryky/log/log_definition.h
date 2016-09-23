@@ -68,9 +68,9 @@
 { \
 	hryky::mempool::Adapter<hryky::mempool::Standard> \
 		_standard_mempool;\
-	hryky::ostream::String<hryky::String<> > os(&_standard_mempool);\
-	os << message; \
-	hryky::log::write(hryky_source_position, (level), os); \
+	hryky::ostream::String<hryky::String<> > hryky_log_os(&_standard_mempool);\
+	hryky_log_os << message; \
+	hryky::log::write(hryky_source_position, (level), hryky_log_os); \
 }
 //------------------------------------------------------------------------------
 // declares types

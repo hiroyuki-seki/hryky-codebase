@@ -71,10 +71,10 @@
 #if HRYKY_USE_EXCEPTION
 #   define hryky_throw(exception, what, no_exception) \
 { \
-	hryky::ostream::String<hryky::String<> > os;\
-	os << hryky_source_position << what;\
+	hryky::ostream::String<hryky::String<> > hryky_throw_os;\
+	hryky_throw_os << hryky_source_position << what;\
 	hryky_debug_break(); \
-	throw exception(os.str().c_str());\
+	throw exception(hryky_throw_os.str().c_str());\
 }
 #else // HRYKY_USE_EXCEPTION
 #   define hryky_throw(exception, what, no_exception) \
