@@ -64,6 +64,15 @@ public :
 	/// constructs with a scalar.
 	explicit Cartesian(scalar_param_type scalar);
 
+	/// assignment operator.
+	hryky_assign_op;
+
+	/// move assignment operator.
+	hryky_move_assign_op;
+
+	/// interchanges the each internal resources of two instances.
+	void swap(this_type & src);
+
 protected :
 
 private :
@@ -103,6 +112,14 @@ template <hryky_template_param>
 hryky::coord::Cartesian<hryky_template_arg>::Cartesian(scalar_param_type scalar)
 	: base_type(scalar)
 {
+}
+/**
+  @brief interchanges the each internal resources of two instances.
+ */
+template <hryky_template_param>
+void hryky::coord::Cartesian<hryky_template_arg>::swap(this_type & src)
+{
+	this->base_type::swap(src);
 }
 //------------------------------------------------------------------------------
 // defines protected member functions

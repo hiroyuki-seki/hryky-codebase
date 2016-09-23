@@ -85,6 +85,12 @@ public :
 	/// destructor
 	~Mempool();
 
+	/// assignment operator.
+	hryky_assign_op;
+
+	/// move assignment operator.
+	hryky_move_assign_op;
+
 	/// allocates memory by the memory pool.
 	pointer allocate(size_type count, void const * = hryky_nullptr);
 

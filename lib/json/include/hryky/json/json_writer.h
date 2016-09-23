@@ -269,6 +269,12 @@ private :
 		{
 		}
 
+		/// assignment operator.
+		hryky_assign_op;
+
+		/// move assignment operator.
+		hryky_move_assign_op;
+
 		void swap(Hierarchy & src)
 		{
 			hryky_swap_member(elements);

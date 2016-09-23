@@ -76,6 +76,12 @@ public :
 	/// move constructor.
 	SharedPtr(this_type && rhs);
 
+	/// assignment operator.
+	hryky_assign_op;
+
+	/// move assignment operator.
+	hryky_move_assign_op;
+
 	/// constructor with same type or derived type.
 	template <
 		typename RhsValueT, typename RhsLockableT, typename RhsAllocatorT>

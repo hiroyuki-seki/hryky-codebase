@@ -69,6 +69,12 @@ public :
 		scalar_param_type z,
 		scalar_param_type w);
 
+	/// assignment operator.
+	hryky_assign_op;
+
+	/// move assignment operator.
+	hryky_move_assign_op;
+
 	/// decomposes the instance to primitive objects.
 	template <typename StreamT>
 	StreamT & write_to(StreamT & out) const;
@@ -79,6 +85,9 @@ public :
 		scalar_param_type y,
 		scalar_param_type z,
 		scalar_param_type w);
+
+	/// interchanges the each internal resources of two instances.
+	void swap(this_type & src);
 
 protected :
 
@@ -169,6 +178,14 @@ void hryky::coord::Cartesian4<hryky_template_arg>::assign(
 	this->y(y);
 	this->z(z);
 	this->w(w);
+}
+/**
+  @brief interchanges the each internal resources of two instances.
+ */
+template <hryky_template_param>
+void hryky::coord::Cartesian4<hryky_template_arg>::swap(this_type & src)
+{
+	this->base_type::swap(src);
 }
 //------------------------------------------------------------------------------
 // defines protected member functions
