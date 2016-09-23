@@ -10,39 +10,73 @@
 @setlocal ENABLEDELAYEDEXPANSION ENABLEEXTENSIONS
 
 @set TOOLROOT=%DEVROOT%/hryky-codebase/tool
+@set DEFINE_VARS=%TOOLROOT%/build/define_variables.bat
 
-@call %TOOLROOT%/build/define_variables.bat
+@if not exist "%DEFINE_VARS%" @(
+	@echo The batch to define variables for development is not found.
+	@goto :error
+)
 
-@if "x64" == "%TARGET_ARCHITECTURE%" (
+@call "%DEFINE_VARS%"
+
+@if "x64" == "%TARGET_ARCHITECTURE%" @(
 	@set BJAM_ADDRESS_MODEL=64
 ) else (
 	@set BJAM_ADDRESS_MODEL=32
 )
 
-@set BOOST_ROOT=%DEVROOT%\boost_1_55_0
+@set BOOST_ROOT=%DEVROOT%\boost_1_61_0
 @set INTERMEDIATE=%DEVROOT%\intermediate\boost\%TARGET_ARCHITECTURE%
 @set OUTPUT=%DEVROOT%\output\boost\%TARGET_ARCHITECTURE%
 @set BJAM=b2.exe
-@set BJAM_WITH=--with-chrono --with-date_time --with-filesystem --with-math --with-program_options --with-random --with-regex --with-serialization --with-system --with-thread
-@set BJAM_FLAGS=--build-dir="%INTERMEDIATE%" %BJAM_WITH% toolset=msvc-12.0 address-model=%BJAM_ADDRESS_MODEL% link=static threading=multi runtime-link=static
-@set BJAM_CLEAN_FIRST=
+@set BJAM_WITH=^
+	--with-chrono ^
+	--with-date_time ^
+	--with-filesystem ^
+	--with-math ^
+	--with-program_options ^
+	--with-random ^
+	--with-regex ^
+	--with-serialization ^
+	--with-system ^
+	--with-thread
+@set BJAM_FLAGS=^
+	--build-dir="%INTERMEDIATE%" ^
+	%BJAM_WITH% ^
+	toolset=msvc-14.0 ^
+	address-model=%BJAM_ADDRESS_MODEL% ^
+	link=static ^
+	threading=multi ^
+	runtime-link=static ^
+	-j 8
 
-set DEVENVCONFIG=Debug
-set DEVENVPLATFORM=%TARGET_ARCHITECTURE%
+@set BJAM_CLEAN_FIRST=yes
+
+@set DEVENVCONFIG=Debug
+@set DEVENVPLATFORM=%TARGET_ARCHITECTURE%
+
+@if not exist "%VSVARS%" @(
+	echo The batch to setup the environment of VisualStudio is not found.
+	@goto error
+)
+@call "%VSVARS%"
 
 @pushd "%BOOST_ROOT%"
 
-call bootstrap.bat
+@call bootstrap.bat
 
-@if "yes" == "%BJAM_CLEAN_FIRST" (
-%BJAM% --stagedir="%OUTPUT%" %BJAM_FLAGS% --clean stage
+@if "yes" == "%BJAM_CLEAN_FIRST%" @(
+@echo clean first.
+@rmdir /s "%INTERMEDIATE%"
+@rmdir /s "%OUTPUT%"
+@%BJAM% --stagedir="%OUTPUT%" %BJAM_FLAGS% --clean stage
 @if errorlevel 1 @goto error
 )
 
-%BJAM% --stagedir="%OUTPUT%" %BJAM_FLAGS% stage
+@%BJAM% --stagedir="%OUTPUT%" %BJAM_FLAGS% stage
 @if errorlevel 1 @goto error
 
-%BJAM% --prefix="%TARGET_PROGRAM_FILES%\Boost" %BJAM_FLAGS% install
+@%BJAM% --prefix="%TARGET_PROGRAM_FILES%\Boost" %BJAM_FLAGS% install
 @if errorlevel 1 @goto error
 
 @popd
