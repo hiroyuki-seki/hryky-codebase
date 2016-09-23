@@ -77,6 +77,7 @@ protected :
 
 private :
 	hryky_delete_copy_constructor(Handle);
+	hryky_delete_copy_assign_op(Handle);
 
 	raw_type raw_;
 
