@@ -525,7 +525,7 @@ function(hryky_use_boost)
 		hryky_print_var(Boost_THREADAPI)
 		hryky_print_var(Boost_REALPATH)
 	
-		set(HRYKY_BOOST_VERSIONS 1.55.0 1.54.0 1.53.0 1.52.0
+		set(HRYKY_BOOST_VERSIONS 1.61.0 1.55.0 1.54.0 1.53.0 1.52.0
 			CACHE STRING "The candidates of the version of Boost")
 
 		foreach(version ${HRYKY_BOOST_VERSIONS})
@@ -572,9 +572,9 @@ function(hryky_use_boost)
 	endif()
 	
 	hryky_append_directory_property(
-		COMPILE_DEFINITIONS_DEBUG BOOST_ENABLE_ASSERT_HANDLER)
+		COMPILE_DEFINITIONS $<$<CONFIG:Debug>:BOOST_ENABLE_ASSERT_HANDLER>)
 	hryky_append_directory_property(
-		COMPILE_DEFINITIONS_RELEASE BOOST_DISABLE_ASSERTS)
+		COMPILE_DEFINITIONS $<$<CONFIG:Release>:BOOST_DISABLE_ASSERTS>)
 	if (MSVC10)
 		add_definitions(-DBOOST_NO_RVALUE_REFERENCES)
 	endif()
@@ -1538,11 +1538,9 @@ function(hryky_init_common_variables)
 	endif()
 	set(HRYKY_INIT_COMMON_VARIABLES true)
 
-	set(HRYKY_CMAKE_VERBOSITY 
-		0
-		CACHE 
-		STRING 
-		"The level of verbosity to output message")
+	if (NOT HRYKY_CMAKE_VERBOSITY)
+		set(HRYKY_CMAKE_VERBOSITY 0)
+	endif()
 
 	hryky_debug("hryky_init_common_variables is called.")
 
@@ -1755,8 +1753,18 @@ function(hryky_init_common_variables)
 	
 	if (MSVC)
 		add_definitions(
-			-Wall -WX 
-			-wd4514 -wd4820 -wd4061 -wd4710 -wd4350 -wd4503)
+			-Wall
+			-WX
+			-wd4514
+			-wd4820
+			-wd4061
+			-wd4710
+			-wd4350
+			-wd4503
+			-wd4623
+			-wd4626
+			-wd5027
+			)
 	endif()
 
 	# initializes c/c++ compiler flags
@@ -1822,7 +1830,7 @@ function(hryky_init_common_variables)
 			# enables the parallel compilation.
 			set(${flags_var} "${${flags_var}} /MP")
 			# prints the hierarchy of include files.
-			# set(${flags_var} "${${flags_var}} /showIncludes")
+			#set(${flags_var} "${${flags_var}} /showIncludes")
 		endforeach()
 		# ingnores the warning for using unsafe functions (e.g. sprintf)
 		add_definitions(-D_SCL_SECURE_NO_WARNINGS)
