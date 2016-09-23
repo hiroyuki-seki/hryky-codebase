@@ -57,6 +57,12 @@
 #   define hryky_pragma_disable_warning_unreferenced_local_function \
 	warning(disable:4505)
 #   define hryky_pragma_disable_warning_deprecated_api warning(disable:4996)
+#   define hryky_pragma_disable_warning_deleted_move_constructor \
+	warning(disable:5026)
+#   define hryky_pragma_disable_warning_deleted_move_assign_op \
+	warning(disable:5027)
+#   define hryky_pragma_disable_warning_no_effect_before_comma \
+	warning(disable:4548)
 
 #else
 #   define hryky_pragma_push_warning
@@ -92,6 +98,9 @@
 #   define hryky_pragma_disable_warning_aligned_padded
 #   define hryky_pragma_disable_warning_unreferenced_local_function
 #   define hryky_pragma_disable_warning_deprecated_api
+#   define hryky_pragma_disable_warning_deleted_move_constructor
+#   define hryky_pragma_disable_warning_deleted_move_assign_op
+#   define hryky_pragma_disable_warning_no_effect_before_comma
 #endif
 //------------------------------------------------------------------------------
 // defines macros

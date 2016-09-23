@@ -15,6 +15,7 @@
 #   pragma hryky_pragma_disable_warning_sign_conversion
 #   pragma hryky_pragma_disable_warning_undef
 #   pragma hryky_pragma_disable_warning_unused_variable
+#   pragma hryky_pragma_disable_warning_deleted_move_constructor
 #   include "v8/v8.h"
 #pragma hryky_pragma_pop_warning
 //------------------------------------------------------------------------------

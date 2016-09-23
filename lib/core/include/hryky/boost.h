@@ -31,6 +31,9 @@
 #       pragma hryky_pragma_disable_warning_codepage
 #       pragma hryky_pragma_disable_warning_trancated_name
 #       pragma hryky_pragma_disable_warning_deprecated_api
+#       pragma hryky_pragma_disable_warning_deleted_move_constructor
+#       pragma hryky_pragma_disable_warning_deleted_move_assign_op
+#       pragma hryky_pragma_disable_warning_virtual_destructor
 #       if HRYKY_USE_BOOST_ASIO
 #           include <boost/asio.hpp>
 #       endif

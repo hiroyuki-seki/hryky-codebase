@@ -8,6 +8,7 @@
 #define STD_MAP_H_20140323003942694
 #include "hryky/pragma.h"
 #pragma hryky_pragma_push_warning
+#   pragma hryky_pragma_disable_warning_no_effect_before_comma
 #   include <map>
 #pragma hryky_pragma_pop_warning
 //------------------------------------------------------------------------------

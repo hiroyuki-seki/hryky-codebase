@@ -9,6 +9,7 @@
 #include "hryky/pragma.h"
 #pragma hryky_pragma_push_warning
 #   pragma hryky_pragma_disable_warning_padded
+#   pragma hryky_pragma_disable_warning_virtual_destructor
 #   include <functional>
 #pragma hryky_pragma_pop_warning
 //------------------------------------------------------------------------------
