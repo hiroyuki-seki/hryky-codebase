@@ -26,12 +26,14 @@
 @set WGET=%ProgramFiles(x86)%\GnuWin32\bin\wget.exe
 @set FIND=%ProgramFiles(x86)%\GnuWin32\bin\find.exe
 @set XARGS=%ProgramFiles(x86)%\GnuWin32\bin\xargs.exe
+@set MAKE=%ProgramFiles(x86)%\GnuWin32\bin\make.exe
 @set RUBY=C:\bin\ruby\bin\ruby.exe
 
-@set CMAKE=%ProgramFiles(x86)%\CMake 2.8\bin\cmake.exe
-@set CMAKEGENERATOR=Visual Studio 12 Win64
-@set CTEST=%ProgramFiles(x86)%\CMake 2.8\bin\ctest.exe
-@set CPACK=%ProgramFiles(x86)%\CMake 2.8\bin\cpack.exe
+@set CMAKE_ROOT=%ProgramW6432%\cmake-3.6.2-win64-x64
+@set CMAKE=%CMAKE_ROOT%\bin\cmake.exe
+@set CTEST=%CMAKE_ROOT%\bin\ctest.exe
+@set CPACK=%CMAKE_ROOT%\bin\cpack.exe
+@set CMAKEGENERATOR=Visual Studio 14 Win64
 
 @set CYGWIN=C:\cygwin\Cygwin.bat
 
@@ -51,7 +53,7 @@
 @set PATH=%PATH%;%GRAPHVIZDIR%;%SVNDIR%
 @set PATH=%PATH%;%ANDROID_SDK_ROOT%\platform-tools
 
-@set VSINSTALLDIR=%ProgramFiles(x86)%\Microsoft Visual Studio 12.0
-@set DEVENV=%ProgramFiles(x86)%\Microsoft Visual Studio 12.0\Common7\IDE\VCExpress.exe
+@set VSINSTALLDIR=%ProgramFiles(x86)%\Microsoft Visual Studio 14.0
+@set DEVENV=%VSINSTALLDIR%\Common7\IDE\devenv.exe
 @set VSVARS=%VSINSTALLDIR%\VC\vcvarsall.bat
 
