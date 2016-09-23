@@ -44,8 +44,8 @@ namespace hryky
 /**
   ValueT is array.
  */
-template <typename ValueT>
-class IsArray<ValueT[]>
+template <typename ValueT, size_t Size>
+class IsArray<ValueT[Size]>
 {
 public :
 	typedef true_type type;

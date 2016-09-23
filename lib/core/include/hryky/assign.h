@@ -8,6 +8,7 @@
 #define ASSIGN_H_20131209115714164
 #include "hryky/range.h"
 #include "hryky/std/std_type_traits.h"
+#include "hryky/type_traits/is_array.h"
 #include "hryky/type_traits/array_of.h"
 #include "hryky/type_traits/enable_if.h"
 //------------------------------------------------------------------------------
@@ -30,20 +31,30 @@ namespace hryky
 //------------------------------------------------------------------------------
 namespace hryky
 {
-	/// applies the assignment operator.
+	/// assigns array.
 	template <typename ValueT>
-	ValueT & assign(ValueT & dest, ValueT const & src);
+	ValueT & assign(
+		ValueT & dest,
+		ValueT const & src,
+		typename EnableIf<IsArray<ValueT> >::type * = hryky_nullptr);
+
+	/// assigns non-array.
+	template <typename ValueT>
+	ValueT & assign(
+		ValueT & dest,
+		ValueT const & src,
+		typename DisableIf<IsArray<ValueT> >::type * = hryky_nullptr);
 
 	/// assigns to built-in array of POD elements.
 	template <typename ValueT, size_t Size>
-	typename ArrayOf<ValueT, Size>::reference assign(
+	typename ArrayOf<ValueT, Size>::reference assign_array(
 		ValueT (&dest)[Size],
 		ValueT const (&src)[Size],
 		typename EnableIf< ::std::is_pod<ValueT> >::type * = hryky_nullptr);
 
 	/// assigns to built-in array of non-POD elements.
 	template <typename ValueT, size_t Size>
-	typename ArrayOf<ValueT, Size>::reference assign(
+	typename ArrayOf<ValueT, Size>::reference assign_array(
 		ValueT (&dest)[Size],
 		ValueT const (&src)[Size],
 		typename DisableIf< ::std::is_pod<ValueT> >::type * = hryky_nullptr);
@@ -53,10 +64,26 @@ namespace hryky
 // defines global functions
 //------------------------------------------------------------------------------
 /**
-  @brief applies the assignment operator.
+  @brief assigns array.
  */
 template <typename ValueT>
-ValueT & hryky::assign(ValueT & dest, ValueT const & src)
+ValueT &
+hryky::assign(
+	ValueT & dest,
+	ValueT const & src,
+	typename EnableIf<IsArray<ValueT> >::type *)
+{
+	return assign_array(dest, src);
+}
+/**
+  @brief assigns non-array.
+ */
+template <typename ValueT>
+ValueT &
+hryky::assign(
+	ValueT & dest,
+	ValueT const & src,
+	typename DisableIf<IsArray<ValueT> >::type *)
 {
 	return dest = src;
 }
@@ -65,7 +92,7 @@ ValueT & hryky::assign(ValueT & dest, ValueT const & src)
  */
 template <typename ValueT, size_t Size>
 typename hryky::ArrayOf<ValueT, Size>::reference
-hryky::assign(
+hryky::assign_array(
 	ValueT (&dest)[Size],
 	ValueT const (&src)[Size],
 	typename EnableIf< ::std::is_pod<ValueT> >::type *)
@@ -78,7 +105,7 @@ hryky::assign(
  */
 template <typename ValueT, size_t Size>
 typename hryky::ArrayOf<ValueT, Size>::reference
-hryky::assign(
+hryky::assign_array(
 	ValueT (&dest)[Size],
 	ValueT const (&src)[Size],
 	typename DisableIf< ::std::is_pod<ValueT> >::type *)
