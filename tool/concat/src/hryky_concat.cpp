@@ -120,7 +120,7 @@ int main(int argc, char * argv[])
 				std::fprintf(
 					stderr,
 					"ERROR : "
-					"failed to read the %d byte from input %s.\n",
+					"failed to read the %zx byte from input %s.\n",
 					size,
 					in_name);
 				return 1;
