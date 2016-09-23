@@ -27,6 +27,10 @@ set(HRYKY_TEST_BIGOBJ 0)
 hryky_append_definitions(
 	src/test_bitset.cpp HRYKY_TEST_BIGOBJ=${HRYKY_TEST_BIGOBJ})
 
+if(MSVC)
+	add_definitions(-Zm138)
+endif()
+
 if(MSVC AND HRYKY_TEST_BIGOBJ)
 	set(ADDITIONAL_FLAGS /bigobj)
 	hryky_append_compile_flags(src/test_bitset.cpp ADDITIONAL_FLAGS)
