@@ -6,6 +6,7 @@
  */
 #ifndef ALLOCATOR_BASE_H_20111105154314321
 #define ALLOCATOR_BASE_H_20111105154314321
+#include "hryky/definition.h"
 #include "hryky/std/std_new.h"
 #include "hryky/type_traits/add_const_pointer.h"
 #include "hryky/type_traits/add_const_reference.h"
@@ -72,6 +73,12 @@ public :
 	template <typename OtherT>
 	Base(Base<OtherT> const & rhs);
 
+	/// assignment operator.
+	hryky_assign_op;
+
+	/// move assignment operator.
+	hryky_move_assign_op;
+
 	/// confirms the equality.
 	bool operator==(this_type const & rhs) const;
 
@@ -107,6 +114,9 @@ public :
 
 	/// retrieves the number of objects which can be allocated by this allocator.
 	size_type max_size() const;
+
+	/// interchanges the each internal resources of two instances.
+	void swap(this_type & src);
 
 };
 //------------------------------------------------------------------------------
@@ -256,6 +266,13 @@ hryky::allocator::Base<hryky_template_arg>::max_size() const
 {
 	return ::std::numeric_limits<size_type>::(max)()
 		/ sizeof(value_type);
+}
+/**
+  @brief interchanges the each internal resources of two instances.
+ */
+template <hryky_template_param>
+void hryky::allocator::Base<hryky_template_arg>::swap(this_type & src)
+{
 }
 //------------------------------------------------------------------------------
 // declares global functions
