@@ -36,12 +36,13 @@ namespace
 		Test();
 
 	private:
-		Test(this_type const &);
-		this_type & operator=(this_type const &);
+		hryky_delete_copy_constructor(Test);
+		hryky_delete_copy_assign_op(Test);
 		
+		typedef hryky::mempool::stack_type mempool_type;
+
 		/// tests hryky::mempool::Stack.
 		virtual bool run_impl();
-
 	};
 	Test const g_test;
 
@@ -93,8 +94,6 @@ bool Test::run_impl()
 	testing::Random random;
 
 	log.writer() << "random" << random;
-
-	typedef hryky::mempool::stack_type mempool_type;
 
 	// the distribution for the size of buffer.
 	random::Uniform<size_t>

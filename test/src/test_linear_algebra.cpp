@@ -150,20 +150,21 @@ bool test_row_column(testing::Log &, testing::Random &)
 			
 			result_type const result = row * rhs_type();
 		}
-		// confirms whether the operations of base class remains.
-		{
-			column_type column;
-			column + column_type();
-			column - column_type();
-			column += column_type();
-			column -= column_type();
-			
-			row_type row;
-			row + row_type();
-			row - row_type();
-			row += row_type();
-			row -= row_type();
-		}
+	}
+
+	// confirms whether the operations of base class remains.
+	{
+		column_type column;
+		column + column_type();
+		column - column_type();
+		column += column_type();
+		column -= column_type();
+		
+		row_type row;
+		row + row_type();
+		row - row_type();
+		row += row_type();
+		row -= row_type();
 	}
 
 	return true;

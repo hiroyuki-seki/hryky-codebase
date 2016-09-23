@@ -470,7 +470,10 @@ hryky::socket::Descriptor::recvfrom(
 	}
 
 	ReceivedSockAddr sockaddr;
-	int sockaddr_size =
+	/**
+	  'sockaddr_size' is defined in mswsockdef.h as global variable.
+	 */
+	int sock_addr_size =
 		static_cast<int>(ReceivedSockAddr::buffer_size);
 
 	int const flags = 0;
@@ -480,7 +483,7 @@ hryky::socket::Descriptor::recvfrom(
 		static_cast<int>(size),
 		flags,
 		&sockaddr.sockaddr,
-		&sockaddr_size);
+		&sock_addr_size);
 	if (-1 == received_size) {
 		if (!this->flag_.nonblock_ || !socket::in_progress()) {
 			hryky_log_err(
@@ -493,7 +496,7 @@ hryky::socket::Descriptor::recvfrom(
 		return received_type();
 	}
 
-	if (ReceivedSockAddr::buffer_size < sockaddr_size) {
+	if (ReceivedSockAddr::buffer_size < sock_addr_size) {
 		hryky_log_alert(
 			"The size of sockaddr exceeds the expected size.");
 		return received_type();
@@ -501,7 +504,7 @@ hryky::socket::Descriptor::recvfrom(
 
 	if (!addr.sockaddr(
 		&sockaddr.buffer[0],
-		&sockaddr.buffer[0] + sockaddr_size)) {
+		&sockaddr.buffer[0] + sock_addr_size)) {
 		hryky_log_err(
 			"failed to allocated memory for sockaddr.");
 		return received_type();

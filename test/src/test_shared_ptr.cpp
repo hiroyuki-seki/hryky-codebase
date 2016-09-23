@@ -108,7 +108,7 @@ bool Test::run_impl()
 		allocator_a);
 
 	{
-		SharedPtr<A> a(
+		SharedPtr<A> mix_allocator(
 			allocator::instantiate_by(allocator_b),
 			allocator_a);
 	}

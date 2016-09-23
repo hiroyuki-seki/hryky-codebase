@@ -123,7 +123,7 @@ hryky::shader::Layout::write_to(StreamT & out) const
 	stream::map::Scope<StreamT> const map(out);
 	out << stream::denote("location");
 	{
-		stream::map::Scope<StreamT> const map(out);
+		stream::map::Scope<StreamT> const child(out);
 		(out
 		 << stream::denote("index")
 		 << this->value_.location_.index_
@@ -132,7 +132,7 @@ hryky::shader::Layout::write_to(StreamT & out) const
 	}
 	out << stream::denote("local_size");
 	{
-		stream::map::Scope<StreamT> const map(out);
+		stream::map::Scope<StreamT> const child(out);
 		(out
 		 << stream::denote("x")
 		 << this->value_.local_size_.x_

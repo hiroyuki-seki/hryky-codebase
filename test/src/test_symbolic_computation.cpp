@@ -1082,9 +1082,9 @@ bool verify(
 	typedef testing::Log::writer_type log_writer_type;
 	
 	typedef sc::Simplify<FunctionT> simplified;
-	typedef typename simplified::eval_type eval_type;
+	typedef typename simplified::eval_type simplified_eval_type;
 	
-	eval_type const answer = simplified::eval(parameters);
+	simplified_eval_type const answer = simplified::eval(parameters);
 
 	if (correct != answer) {
 		hryky_log_alert(
@@ -1109,7 +1109,7 @@ bool verify(
 	{
 		os_type os;
 		log.writer() << (os << "d(" << simplified() << ")");
-		testing::Log::map_type const map(log.writer());
+		testing::Log::map_type const descend(log.writer());
 
 		(log.writer()
 		 << stream::denote("WRT x") << sc::D<FunctionT, x>()
@@ -1120,7 +1120,7 @@ bool verify(
 	{
 		os_type os;
 		log.writer() << (os << "simplified d(" << simplified() << ")");
-		testing::Log::map_type const map(log.writer());
+		testing::Log::map_type const descend(log.writer());
 
 		(log.writer()
 		 << stream::denote("simplified WRT x") << sc::Simplify<sc::D<FunctionT, x> >()

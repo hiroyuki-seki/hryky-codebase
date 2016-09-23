@@ -58,6 +58,8 @@ namespace
 		bool run();
 
 	private :
+		typedef mempool::Arbitrary<OffsetT> mempool_type;
+		
 		TestPool(this_type const &);
 		this_type & operator=(this_type const &);
 		
@@ -139,11 +141,11 @@ bool TestPool<OffsetT>::run()
 		1,              // min
 		0x80000);       // max
 
-	alignment_type const alignment = allocations_number_dist() % 5 + 1;
+	alignment_type const pool_alignment = allocations_number_dist() % 5 + 1;
 
-	log.writer() << "alignment" << static_cast<size_t>(alignment);
+	log.writer() << "alignment" << static_cast<size_t>(pool_alignment);
 
-	size_t const buffer_size = 0x10000u << alignment;
+	size_t const buffer_size = 0x10000u << pool_alignment;
 
 	void * buffer = ::std::malloc(buffer_size);
 	AutoFree const free_buffer(buffer);
@@ -159,11 +161,9 @@ bool TestPool<OffsetT>::run()
 
 	hryky::memset(buffer, -1, buffer_size);
 
-	typedef mempool::Arbitrary<OffsetT> mempool_type;
-
 	mempool_type mempool;
 
-	if (!mempool.reset(buffer, buffer_size, alignment)) {
+	if (!mempool.reset(buffer, buffer_size, pool_alignment)) {
 		hryky_log_crit(
 			"failed to reset mempool::Arbitrary "
 			<< (json::writer()

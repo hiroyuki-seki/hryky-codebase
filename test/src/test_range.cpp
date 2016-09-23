@@ -92,35 +92,35 @@ bool Test::run_impl()
 
 	// mutable built-in array.
 	{
-		uint32_t array[array_size] = { 0x1u, 0x2u, 0x3u, 0x4u, 0x5u, };
+		uint32_t mutable_array[array_size] = { 0x1u, 0x2u, 0x3u, 0x4u, 0x5u, };
 
-		range(array).foreach([](uint32_t & element) {
+		range(mutable_array).foreach([](uint32_t & element) {
 			element |= 0x80;
 		});
 
-		log.writer() << "mutable built-in array" << range(array);
+		log.writer() << "mutable built-in array" << range(mutable_array);
 	}
 
 	// immutable Array.
 	{
-		typedef Array<uint32_t const, 5> array_type;
+		typedef Array<uint32_t const, 5> immutable_array_type;
 		
-		array_type const array = { 0x1u, 0x2u, 0x3u, 0x4u, 0x5u, };
+		immutable_array_type const immutable_array = { 0x1u, 0x2u, 0x3u, 0x4u, 0x5u, };
 
-		typedef IteratorOf<array_type>::type array_iterator;
+		typedef IteratorOf<immutable_array_type>::type immutable_array_iterator;
 
-		log.writer() << "immutable Array" << range(array);
+		log.writer() << "immutable Array" << range(immutable_array);
 	}
 
 	// mutable Array.
 	{
-		Array<uint32_t, 5> array = { 0x1u, 0x2u, 0x3u, 0x4u, 0x5u, };
+		Array<uint32_t, 5> mutable_array = { 0x1u, 0x2u, 0x3u, 0x4u, 0x5u, };
 
-		range(array).foreach([](uint32_t & element) {
+		range(mutable_array).foreach([](uint32_t & element) {
 			element |= 0x80;
 		});
 
-		log.writer() << "mutable Array" << range(array);
+		log.writer() << "mutable Array" << range(mutable_array);
 	}
 
 	// immutable ::std::vector

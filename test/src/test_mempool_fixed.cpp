@@ -104,9 +104,9 @@ bool test_by_index(testing::Log & log, testing::Random & random)
 	random::Uniform<uint32_t>
 		allocations_number_dist(random.generator(), 1, 0x1000);
 
-	typedef hryky::mempool::Fixed<IndexT>  mempool_type;
-	typedef mempool_type::index_type       index_type;
-	typedef mempool_type::unit_size_type   unit_size_type;
+	typedef hryky::mempool::Fixed<IndexT>  fixed_mempool_type;
+	typedef fixed_mempool_type::index_type       index_type;
+	typedef fixed_mempool_type::unit_size_type   unit_size_type;
 	
 	/**
 	  initializes the generator of pseudo-random number according to the
@@ -129,12 +129,12 @@ bool test_by_index(testing::Log & log, testing::Random & random)
 		random.generator(),
 		0x4, // deviation
 		0x8, // mean
-		mempool_type::min_alignment,// min
+		fixed_mempool_type::min_alignment,// min
 		0x10);// max
 	alignment_type const alignment = alignment_dist();
 
 	// initialize a fixed memory pool.
-	mempool_type mempool(unit_size, alignment);
+	fixed_mempool_type mempool(unit_size, alignment);
 
 	/**
 	  initializes the generator of pseudo-random number according to the
@@ -244,7 +244,7 @@ bool test_by_index(testing::Log & log, testing::Random & random)
 
 #if PRINT_ALLOCATION_HISTORY
 				(log.writer()
-				 << "allocate" << mempool_type::address_type(mempool, allocated)
+				 << "allocate" << fixed_mempool_type::address_type(mempool, allocated)
 				 << "available" << mempool.available_size()
 				 );
 #endif // PRINT_ALLOCATION_HISTORY
@@ -275,7 +275,7 @@ bool test_by_index(testing::Log & log, testing::Random & random)
 
 #if PRINT_ALLOCATION_HISTORY
 				(log.writer()
-				<< stream::denote("deallocate") << mempool_type::address_type(mempool, *itr)
+				<< stream::denote("deallocate") << fixed_mempool_type::address_type(mempool, *itr)
 				<< stream::denote("avaiable") << mempool.available_size()
 				 );
 #endif // PRINT_ALLOCATION_HISTORY
@@ -321,7 +321,8 @@ bool test_by_index(testing::Log & log, testing::Random & random)
 							<< "octet_address" << ptr
 							<< "begin" << *itr
 							<< "end" << end
-							<< "address" << mempool_type::address_type(mempool,  *itr)
+							<< "address"
+							<< fixed_mempool_type::address_type(mempool,  *itr)
 							));
 					return false;
 				}
@@ -337,8 +338,10 @@ bool test_by_index(testing::Log & log, testing::Random & random)
 
 #if PRINT_ALLOCATION_HISTORY
 		(log.writer()
-		<< stream::denote("deallocate") << mempool_type::address_type(mempool, *itr)
-		<< stream::denote("available") << mempool.available_size()
+		 << stream::denote("deallocate")
+		 << fixed_mempool_type::address_type(mempool, *itr)
+		 << stream::denote("available")
+		 << mempool.available_size()
 		 );
 #endif // PRINT_ALLOCATION_HISTORY
 
