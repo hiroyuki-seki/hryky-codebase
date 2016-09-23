@@ -90,7 +90,7 @@ bool hryky::utf16::in_high_surrogate(char16_t const src)
   @brief extracts the high surrogate from the first half of surrogate pair.
  */
 inline
-hryky::char16_t hryky::utf16::to_high_surrogate(char16_t const src)
+char16_t hryky::utf16::to_high_surrogate(char16_t const src)
 {
 	return static_cast<char16_t>(src - g_high_surrogate_begin);
 }
@@ -106,7 +106,7 @@ bool hryky::utf16::in_low_surrogate(char16_t const src)
   @brief extracts the low surrogate from the last half of surrogate pair.
  */
 inline
-hryky::char16_t hryky::utf16::to_low_surrogate(char16_t const src)
+char16_t hryky::utf16::to_low_surrogate(char16_t const src)
 {
 	return static_cast<char16_t>(src - g_low_surrogate_begin);
 }
@@ -114,7 +114,7 @@ hryky::char16_t hryky::utf16::to_low_surrogate(char16_t const src)
   @brief creates a surrogate pair without checking errors.
  */
 inline
-hryky::char32_t hryky::utf16::surrogate_pair(
+char32_t hryky::utf16::surrogate_pair(
 	char16_t const high, char16_t const low)
 {
 	return (
