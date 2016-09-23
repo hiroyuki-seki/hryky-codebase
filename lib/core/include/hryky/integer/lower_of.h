@@ -94,6 +94,7 @@ class hryky::LowerOf<int16_t>
 public :
 	typedef int8_t type;
 };
+#if hryky_distinct_int_and_int32
 /**
   @brief retrieves the lower type of signed int.
  */
@@ -112,6 +113,7 @@ class hryky::LowerOf<unsigned int>
 public :
 	typedef unsigned short type;
 };
+#endif // hryky_distinct_int_and_int32
 } // namespace hryky
 //------------------------------------------------------------------------------
 // defines public member functions

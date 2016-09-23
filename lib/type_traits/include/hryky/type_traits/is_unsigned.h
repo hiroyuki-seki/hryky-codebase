@@ -74,6 +74,7 @@ class IsUnsigned<uint64_t>
 public :
 	typedef true_type type;
 };
+#if hryky_distinct_int_and_int32
 /**
   @brief specializes uint64_t.
  */
@@ -83,6 +84,7 @@ class IsUnsigned<uint_t>
 public :
 	typedef true_type type;
 };
+#endif // hryky_distinct_int_and_int32
 } // namespace hryky
 //------------------------------------------------------------------------------
 // defines public member functions

@@ -13,17 +13,47 @@
 //------------------------------------------------------------------------------
 // defines macros
 //------------------------------------------------------------------------------
-#if 199711L < __cplusplus || defined(__GXX_EXPERIMENTAL_CXX0X__)
-#   define hryky_cpp11  (1)
-#else
-#   define hryky_cpp11  (0)
-#endif
-
 #if defined(__GNUC__)
 #   define hryky_gcc_version \
 	    ((__GNUC__ * 10000) + (__GNUC_MINOR__ * 100) + (__GNUC_PATCHLEVEL__))
 #else
 #   define hryky_gcc_version (0)
+#endif
+
+#if defined(_MSC_VER)
+#   if _MSC_VER == 1900
+#       define hryky_msvs_ver (2015)
+#       define hryky_msvc_ver (14)
+#   elif _MSC_VER == 1800
+#       define hryky_msvs_ver (2013)
+#       define hryky_msvc_ver (12)
+#   elif _MSC_VER == 1700
+#       define hryky_msvs_ver (2012)
+#       define hryky_msvc_ver (11)
+#   elif _MSC_VER == 1600
+#       define hryky_msvs_ver (2010)
+#       define hryky_msvc_ver (10)
+#   else
+#       define hryky_msvs_ver (0)
+#       define hryky_msvc_ver (0)
+#   endif
+#else
+#   define hryky_msvs_ver (0)
+#   define hryky_msvc_ver (0)
+#endif
+
+#if 199711L < __cplusplus \
+	|| defined(__GXX_EXPERIMENTAL_CXX0X__) \
+	|| 2010 <= hryky_msvs_ver
+#   define hryky_cpp11  (1)
+#else
+#   define hryky_cpp11  (0)
+#endif
+
+#if (2015 > hryky_msvs_ver) && (0 == (hryky_gcc_version))
+#   define hryky_distinct_int_and_int32 (1)
+#else
+#   define hryky_distinct_int_and_int32 (0)
 #endif
 
 #if HRYKY_SUPPORT_DELETED_FUNCTION

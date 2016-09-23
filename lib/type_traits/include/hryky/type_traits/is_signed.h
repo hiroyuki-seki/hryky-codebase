@@ -6,6 +6,7 @@
  */
 #ifndef TYPE_IS_SIGNED_H_20120923200750505
 #define TYPE_IS_SIGNED_H_20120923200750505
+#include "hryky/definition.h"
 #include "hryky/stdint.h"
 #include "hryky/type_traits/integral_constant.h"
 //------------------------------------------------------------------------------
@@ -74,6 +75,7 @@ class IsSigned<int64_t>
 public :
 	typedef true_type type;
 };
+#if hryky_distinct_int_and_int32
 /**
   @brief specializes int_t.
  */
@@ -83,6 +85,7 @@ class IsSigned<int_t>
 public :
 	typedef true_type type;
 };
+#endif // hryky_distinct_int_and_int32
 } // namespace hryky
 //------------------------------------------------------------------------------
 // defines public member functions

@@ -140,6 +140,15 @@ public :
 	this_type & operator<<(
 		uint64_t const rhs);
 
+	/// appends a 16bit char to output string-stream.
+	this_type & operator<<(
+		char16_t const rhs);
+
+	/// appends a 32bit char to output string-stream.
+	this_type & operator<<(
+		char32_t const rhs);
+
+#if hryky_distinct_int_and_int32
 	/// appends an signed integer to an output string-stream.
 	this_type & operator<<(
 		int const rhs);
@@ -147,6 +156,7 @@ public :
 	/// appends an unsigned integer to an output string-stream.
 	this_type & operator<<(
 		unsigned int const rhs);
+#endif // hryky_distinct_int_and_int32
 
 	/// appends a line-break.
 	this_type & operator<<(
@@ -156,6 +166,11 @@ public :
 	template <typename RhsT>
 	this_type & operator<<(
 		WithStreamOut<RhsT> const & rhs);
+
+#if hryky_msvs_ver
+	/// appends a DWORD to output string-stream.
+	this_type & operator<<(DWORD const rhs);
+#endif // hryky_msvs_ver
 
 	/// releases the internal resources.
 	void clear();
@@ -180,11 +195,13 @@ public :
 	/// appends characters.
 	this_type & write(char_type const * const str, size_t const size);
 
+#if hryky_distinct_int_and_int32
 	/// appends an signed integer.
 	this_type & write(int const src);
 
 	/// appends an unsigned integer.
 	this_type & write(unsigned int const src);
+#endif // hryky_distinct_int_and_int32
 
 	/// appends a 32bit signed integer.
 	this_type & write(int32_t const src);
@@ -197,6 +214,12 @@ public :
 
 	/// appends a 64bit unsigned integer.
 	this_type & write(uint64_t const src);
+
+	/// appends a 16bit char.
+	this_type & write(char16_t const src);
+
+	/// appends a 32bit char.
+	this_type & write(char32_t const src);
 
 	/// appends a single precision floating-point.
 	this_type & write(float const src);
@@ -216,6 +239,11 @@ public :
 	/// appends a line-break.
 	this_type & write(Endl const &);
 
+#if hryky_msvs_ver
+	/// appends a DWORD.
+	this_type & write(DWORD const src);
+#endif // hryky_msvs_ver
+	
 	/// prescribes whether a boolean value is represented as string.
 	void boolalpha(bool const src);
 	
@@ -402,6 +430,7 @@ hryky::ostream::String<hryky_template_arg>::write(
 	this->str_.append(str, size);
 	return *this;
 }
+#if hryky_distinct_int_and_int32
 /**
   @brief appends an signed integer.
  */
@@ -431,6 +460,7 @@ hryky::ostream::String<hryky_template_arg>::write(
 		? this->write_hex<uint32_t>(src)
 		: this->write_uint<uint32_t>(src));
 }
+#endif // hryky_distinct_int_and_int32
 /**
   @brief appends a 32bit signed integer.
  */
@@ -488,6 +518,26 @@ hryky::ostream::String<hryky_template_arg>::write(
 		this->flag_.hex_
 		? this->write_hex<uint64_t>(src)
 		: this->write_uint<uint64_t>(src));
+}
+/**
+  @brief appends a 16bit char.
+ */
+template <hryky_template_param>
+hryky::ostream::String<hryky_template_arg> & 
+hryky::ostream::String<hryky_template_arg>::write(
+	char16_t const src)
+{
+	return this->write(static_cast<uint16_t>(src));
+}
+/**
+  @brief appends a 32bit char.
+ */
+template <hryky_template_param>
+hryky::ostream::String<hryky_template_arg> & 
+hryky::ostream::String<hryky_template_arg>::write(
+	char32_t const src)
+{
+	return this->write(static_cast<uint32_t>(src));
 }
 /**
   @brief appends a boolean value.
@@ -557,6 +607,18 @@ hryky::ostream::String<hryky_template_arg>::write(
 {
 	return this->write('\n');
 }
+#if hryky_msvs_ver
+/**
+  @brief appends a DWORD.
+ */
+template <hryky_template_param>
+hryky::ostream::String<hryky_template_arg> & 
+hryky::ostream::String<hryky_template_arg>::write(
+	DWORD const src)
+{
+	return this->write(static_cast<uint32_t>(src));
+}
+#endif // hryky_msvs_ver
 /**
   @brief prescribes whether a boolean value is represented as string.
  */
@@ -865,6 +927,7 @@ hryky::ostream::String<hryky_template_arg>::operator<<(
 {
 	return this->write(rhs);
 }
+#if hryky_distinct_int_and_int32
 /**
   @brief appends an signed integer to an output string-stream.
  */
@@ -885,6 +948,7 @@ hryky::ostream::String<hryky_template_arg>::operator<<(
 {
 	return this->write(rhs);
 }
+#endif // hryky_distinct_int_and_int32
 /**
   @brief appends a 8bit signed integer to an output string-stream.
  */
@@ -976,6 +1040,26 @@ hryky::ostream::String<hryky_template_arg>::operator<<(
 	return this->write(rhs);
 }
 /**
+  @brief appends a 16bit char to output string-stream.
+ */
+template <hryky_template_param>
+hryky::ostream::String<hryky_template_arg> &
+hryky::ostream::String<hryky_template_arg>::operator<<(
+	char16_t const rhs)
+{
+	return this->write(rhs);
+}
+/**
+  @brief appends a 32bit char to output string-stream.
+ */
+template <hryky_template_param>
+hryky::ostream::String<hryky_template_arg> &
+hryky::ostream::String<hryky_template_arg>::operator<<(
+	char32_t const rhs)
+{
+	return this->write(rhs);
+}
+/**
   @brief appends a line-break.
  */
 template <hryky_template_param>
@@ -985,6 +1069,18 @@ hryky::ostream::String<hryky_template_arg>::operator<<(
 {
 	return this->write(rhs);
 }
+#if hryky_msvs_ver
+/**
+  @brief appends a DWORD.
+ */
+template <hryky_template_param>
+hryky::ostream::String<hryky_template_arg> &
+hryky::ostream::String<hryky_template_arg>::operator<<(
+	DWORD const rhs)
+{
+	return this->write(rhs);
+}
+#endif // hryky_msvs_ver
 /**
   @brief output the information to a stream.
  */

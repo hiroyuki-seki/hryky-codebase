@@ -63,7 +63,8 @@ hryky::win32::format_error(DWORD const id)
 		NULL);
 	if (0u == size) {
 		hryky_log_err(
-			"failed to format an error-message: " << id);
+			"failed to format an error-message: "
+			<< static_cast<uint32_t>(id));
 		return String<>();
 	}
 
@@ -74,7 +75,7 @@ hryky::win32::format_error(DWORD const id)
 		hryky_log_err(
 			"failed to convert wide characters: "
 			<< (json::writer()
-				<< "id" << id));
+				<< "id" << static_cast<uint32_t>(id)));
 		return String<>();
 	}
 
