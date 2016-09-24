@@ -24,6 +24,10 @@ set(HRYKY_PCH_SOURCE src/${module_name}.cpp)
 
 hryky_build_library()
 
+if(MSVC)
+	add_definitions(-Zm131)
+endif()
+
 hryky_use_openssl()
 hryky_use_boost(asio)
 
