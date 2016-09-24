@@ -12,7 +12,7 @@
 @echo // MSSDK_ARCHITECTURE is [x86^|x86_amd64^|x64]
 @echo //------------------------------------------------------------------------
 @set TARGET_ARCHITECTURE=x64
-@set MSSDK_ARCHITECTURE=x64
+@set MSSDK_ARCHITECTURE=amd64
 @set TARGET_PROGRAM_FILES=%ProgramW6432%
 
 @echo //------------------------------------------------------------------------------

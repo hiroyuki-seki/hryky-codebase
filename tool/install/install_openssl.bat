@@ -2,12 +2,15 @@
 @echo // brief:
 @echo //   build and install OpenSSL
 @echo // usage:
-@echo //   install_openssl.bat
+@echo //   install_openssl.bat [command]
 @echo // version:
 @echo //   $Id: install-openssl.bat 346 2014-04-12 02:16:21Z hryky.private@gmail.com $
 @echo //----------------------------------------------------------------
 
 @setlocal ENABLEDELAYEDEXPANSION ENABLEEXTENSIONS
+
+@set COMMAND=%1
+shift
 
 @set TOOLROOT=%DEVROOT%/hryky-codebase/tool
 
@@ -23,7 +26,7 @@
 	@set TARGET_PROGRAMFILES=%ProgramFiles%
 )
 
-@set MODULE=openssl-1.0.1g
+@set MODULE=openssl-1.0.1u
 @set SRC_DIR=%DEVROOT%\%MODULE%\
 
 @echo //----------------------------------------------------------------
@@ -31,7 +34,7 @@
 @echo // The build system of OpenSSL doesn't support the path which includes
 @echo // some white spaces. (for example: "Program Files")
 @echo //----------------------------------------------------------------
-@set OUTPUT=%DEVROOT%\output\openssl
+@set OUTPUT=%DEVROOT%\hryky-codebase\external\openssl
 
 @set CLEAN_FIRST=no
 @set XCOPY=xcopy /E /F /Y 
@@ -78,9 +81,6 @@ nmake -f ms\nt.mak
 @echo // install
 @echo //----------------------------------------------------------------
 nmake -f ms\nt.mak install
-@if errorlevel 1 @goto :error
-
-%XCOPY% %OUTPUT%\* "%TARGET_PROGRAMFILES%"\openssl\
 @if errorlevel 1 @goto :error
 
 :success
