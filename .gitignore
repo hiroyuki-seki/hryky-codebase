@@ -18,3 +18,4 @@ misc/raytracing/**/INSTALL
 misc/raytracing/**/Makefile
 misc/raytracing/*/*.exe
 misc/raytracing/*/*.ppm
+external/*
