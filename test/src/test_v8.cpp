@@ -16,6 +16,8 @@
 #   pragma hryky_pragma_disable_warning_undef
 #   pragma hryky_pragma_disable_warning_unused_variable
 #   pragma hryky_pragma_disable_warning_deleted_move_constructor
+#   pragma hryky_pragma_disable_warning_bad_function_cast
+#   pragma hryky_pragma_disable_warning_related_reinterpret_cast
 #   include "v8/v8.h"
 #pragma hryky_pragma_pop_warning
 //------------------------------------------------------------------------------
@@ -30,6 +32,35 @@ namespace test
 {
 namespace
 {
+	template <typename MempoolT>
+	class V8Allocator : public ::v8::ArrayBuffer::Allocator
+	{
+	public :
+		V8Allocator(MempoolT & mempool)
+			: ::v8::ArrayBuffer::Allocator()
+			  , mempool_(mempool)
+		{
+		}
+		
+		virtual void * Allocate(size_t length)
+		{
+			auto const data = this->AllocateUninitialized(length);
+			return hryky_is_null(data) ? hryky_nullptr : memset(data, 0, length);
+		}
+
+		virtual void * AllocateUninitialized(size_t length)
+		{
+			return this->mempool_.allocate(length);
+		}
+
+		virtual void Free(void * data, size_t)
+		{
+			(void)this->mempool_.deallocate(data);
+		}
+	private:
+		MempoolT & mempool_;
+	};
+	
 	// enretisters a test.
 	class Test : testing::unit::Base
 	{
@@ -43,6 +74,9 @@ namespace
 	private:
 		Test(this_type const &);
 		this_type & operator=(this_type const &);
+
+		typedef mempool::Adapter<mempool::Lock<mempool::Arbitrary<> > >
+			mempool_type;
 		
 		/// tests V8 JavaScript Engine.
 		virtual bool run_impl();
@@ -97,14 +131,16 @@ bool Test::run_impl()
 		  isolates the allocation in V8.
 		  V8 can leak an instance for DefaultPlatform in v8::Context::New.
 		 */
-		mempool::Adapter<mempool::Lock<mempool::Arbitrary<> > >
-			mempool;
+		mempool_type mempool;
 		mempool.get()->get()->reset(&buffer[0], buffer.size());
 		mempool::global::Registry const global_mempool(&mempool);
 
 		// Get the default Isolate created at startup.
 		// v8::Isolate * const isolate = v8::Isolate::GetCurrent();
-		v8::Isolate * const isolate = v8::Isolate::New();
+		test::V8Allocator<mempool_type> v8_allocator(mempool);
+		::v8::Isolate::CreateParams create_params;
+		create_params.array_buffer_allocator = &v8_allocator;
+		v8::Isolate * const isolate = v8::Isolate::New(create_params);
 		auto const dispose_isolate = auto_call([isolate]() {
 			isolate->Dispose();
 		});

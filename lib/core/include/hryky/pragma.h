@@ -63,6 +63,8 @@
 	warning(disable:5027)
 #   define hryky_pragma_disable_warning_no_effect_before_comma \
 	warning(disable:4548)
+#   define hryky_pragma_disable_warning_related_reinterpret_cast \
+	warning(disable:4946)
 
 #else
 #   define hryky_pragma_push_warning
@@ -101,6 +103,7 @@
 #   define hryky_pragma_disable_warning_deleted_move_constructor
 #   define hryky_pragma_disable_warning_deleted_move_assign_op
 #   define hryky_pragma_disable_warning_no_effect_before_comma
+#   define hryky_pragma_disable_warning_related_reinterpret_cast
 #endif
 //------------------------------------------------------------------------------
 // defines macros
