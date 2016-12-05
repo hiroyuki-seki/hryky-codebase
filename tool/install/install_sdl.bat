@@ -24,65 +24,81 @@
 
 @call "%TOOLROOT%/build/define_variables.bat"
 
+@if "x64" == "%TARGET_ARCHITECTURE%" @(
+	set MSBUILD_PLATFORM=x64
+)
+@if "x86" == "%TARGET_ARCHITECTURE%" @(
+	set MSBUILD_PLATFORM=Win32
+)
+
 @set MODULE=SDL
 @set MODULE_ROOT=%DEVROOT%\%MODULE%\
 @set MODULE_PROJDIR=%DEVROOT%\%MODULE%\VisualC
 @set INSTALL_ROOT=%DEVROOT%\hryky-codebase\external\SDL
 @set XCOPY=xcopy /E /F /Y 
-@set DEVENVSLN=%MODULE_PROJDIR%\SDL_VS2010.sln
-@set DEVENVTARGET=
+@set MSVS_VERSION=2015
 
-@set DEVENVCONFIG=Debug
-@set DEVENVPLATFORM=%TARGET_ARCHITECTURE%
+@call %TOOLROOT%/build/setup_mssdk.bat
+@if errorlevel 1 @goto :error
 
+@pushd "%MODULE_PROJDIR%"
+@if errorlevel 1 @goto :error
+
+:build
 @echo //--------------------------------
-@echo // build %MODULE% : %DEVENVCONFIG% : %DEVENVPLATFORM%
+@echo // build %MODULE% : Debug : %TARGET_ARCHITECTURE%
 @echo //--------------------------------
 
-call "%BUILDSOLUTION%"
+msbuild ^
+	/property:Configuration=Debug ^
+	/property:Platform=%MSBUILD_PLATFORM% ^
+	/verbosity:n ^
+	/target:build ^
+	SDL\SDL_VS%MSVS_VERSION%.vcxproj
 @if errorlevel 1 @goto error
 
-@REM @echo //--------------------------------
-@REM @echo // test %MODULE% : %DEVENVCONFIG% : %DEVENVPLATFORM%
-@REM @echo //--------------------------------
-@REM 
-@REM call "%MODULE_PROJDIR%\%DEVENVCONFIG%\tests.exe"
-@REM @if errorlevel 1 @goto error
-@REM call "%MODULE_PROJDIR%\%DEVENVCONFIG%\lite-test.exe"
-@REM @if errorlevel 1 @goto error
-
-@echo //--------------------------------
-@echo // install %MODULE% : %DEVENVCONFIG% : %DEVENVPLATFORM%
-@echo //--------------------------------
-
-%XCOPY% "%MODULE_PROJDIR%\SDL\%DEVENVPLATFORM%\%DEVENVCONFIG%\*.lib" "%INSTALL_ROOT%\lib\win\%DEVENVPLATFORM%\%DEVENVCONFIG%\"
-%XCOPY% "%MODULE_PROJDIR%\SDLmain\%DEVENVPLATFORM%\%DEVENVCONFIG%\*.lib" "%INSTALL_ROOT%\lib\win\%DEVENVPLATFORM%\%DEVENVCONFIG%\"
-
-
-set DEVENVCONFIG=Release
-set DEVENVPLATFORM=%TARGET_ARCHITECTURE%
-@echo //--------------------------------
-@echo // build %MODULE% : %DEVENVCONFIG% : %DEVENVPLATFORM%
-@echo //--------------------------------
-
-call "%BUILDSOLUTION%"
+msbuild ^
+	/property:Configuration=Debug ^
+	/property:Platform=%MSBUILD_PLATFORM% ^
+	/verbosity:n ^
+	/target:build ^
+	SDLmain\SDLmain_VS%MSVS_VERSION%.vcxproj
 @if errorlevel 1 @goto error
 
-@REM @echo //--------------------------------
-@REM @echo // test %MODULE% : %DEVENVCONFIG% : %DEVENVPLATFORM%
-@REM @echo //--------------------------------
-@REM 
-@REM call "%MODULE_PROJDIR%\%DEVENVCONFIG%\tests.exe"
-@REM @if errorlevel 1 @goto error
-@REM call "%MODULE_PROJDIR%\%DEVENVCONFIG%\lite-test.exe"
-@REM @if errorlevel 1 @goto error
-
 @echo //--------------------------------
-@echo // install %MODULE% : %DEVENVCONFIG% : %DEVENVPLATFORM%
+@echo // build %MODULE% : Release : %TARGET_ARCHITECTURE%
 @echo //--------------------------------
 
-%XCOPY% "%MODULE_PROJDIR%\SDL\%DEVENVPLATFORM%\%DEVENVCONFIG%\*.lib" "%INSTALL_ROOT%\lib\win\%DEVENVPLATFORM%\%DEVENVCONFIG%\"
-%XCOPY% "%MODULE_PROJDIR%\SDLmain\%DEVENVPLATFORM%\%DEVENVCONFIG%\*.lib" "%INSTALL_ROOT%\lib\win\%DEVENVPLATFORM%\%DEVENVCONFIG%\"
+msbuild ^
+	/property:Configuration=Release ^
+	/property:Platform=%MSBUILD_PLATFORM% ^
+	/verbosity:n ^
+	/target:build ^
+	SDL\SDL_VS%MSVS_VERSION%.vcxproj
+@if errorlevel 1 @goto error
+
+msbuild ^
+	/property:Configuration=Release ^
+	/property:Platform=%MSBUILD_PLATFORM% ^
+	/verbosity:n ^
+	/target:build ^
+	SDLmain\SDLmain_VS%MSVS_VERSION%.vcxproj
+@if errorlevel 1 @goto error
+
+:install
+@echo //--------------------------------
+@echo // install %MODULE% : Debug : %TARGET_ARCHITECTURE%
+@echo //--------------------------------
+
+%XCOPY% "%MODULE_PROJDIR%\SDL\%MSBUILD_PLATFORM%\Debug\*.lib" "%INSTALL_ROOT%\lib\win\%MSBUILD_PLATFORM%\Debug%\"
+%XCOPY% "%MODULE_PROJDIR%\SDLmain\%MSBUILD_PLATFORM%\Debug\*.lib" "%INSTALL_ROOT%\lib\win\%MSBUILD_PLATFORM%\Debug\"
+
+@echo //--------------------------------
+@echo // install %MODULE% : Release : %TARGET_ARCHITECTURE%
+@echo //--------------------------------
+
+%XCOPY% "%MODULE_PROJDIR%\SDL\%MSBUILD_PLATFORM%\Release\*.lib" "%INSTALL_ROOT%\lib\win\%MSBUILD_PLATFORM%\Release%\"
+%XCOPY% "%MODULE_PROJDIR%\SDLmain\%MSBUILD_PLATFORM%\Release\*.lib" "%INSTALL_ROOT%\lib\win\%MSBUILD_PLATFORM%\Release\"
 
 @echo //--------------------------------
 @echo // install %MODULE% include files
@@ -90,7 +106,6 @@ call "%BUILDSOLUTION%"
 
 @mkdir "%INSTALL_ROOT%\include\SDL"
 %XCOPY% "%MODULE_ROOT%\include" "%INSTALL_ROOT%\include\SDL\"
-
 
 :success
 @echo //----------------------------------------------------------------
