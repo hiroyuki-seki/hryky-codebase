@@ -26,8 +26,9 @@
 )
 
 @set BOOST_ROOT=%DEVROOT%\boost_1_61_0
-@set INTERMEDIATE=%DEVROOT%\intermediate\boost\%TARGET_ARCHITECTURE%
-@set OUTPUT=%DEVROOT%\output\boost\%TARGET_ARCHITECTURE%
+@set BUILDDIR=%DEVROOT%\intermediate\boost\%TARGET_ARCHITECTURE%
+@set STAGEDIR=%DEVROOT%\output\boost\%TARGET_ARCHITECTURE%
+@set OUTPUTDIR=%DEVROOT%\hryky-codebase\external\boost\%TARGET_ARCHITECTURE%
 @set BJAM=b2.exe
 @set BJAM_WITH=^
 	--with-chrono ^
@@ -41,7 +42,7 @@
 	--with-system ^
 	--with-thread
 @set BJAM_FLAGS=^
-	--build-dir="%INTERMEDIATE%" ^
+	--build-dir="%BUILDDIR%" ^
 	%BJAM_WITH% ^
 	toolset=msvc-14.0 ^
 	address-model=%BJAM_ADDRESS_MODEL% ^
@@ -50,16 +51,13 @@
 	runtime-link=static ^
 	-j 8
 
-@set BJAM_CLEAN_FIRST=yes
+@set BJAM_CLEAN_FIRST=no
 
 @set DEVENVCONFIG=Debug
 @set DEVENVPLATFORM=%TARGET_ARCHITECTURE%
 
-@if not exist "%VSVARS%" @(
-	echo The batch to setup the environment of VisualStudio is not found.
-	@goto error
-)
-@call "%VSVARS%"
+@call %TOOLROOT%/build/setup_mssdk.bat
+@if errorlevel 1 @goto :error
 
 @pushd "%BOOST_ROOT%"
 
@@ -67,16 +65,23 @@
 
 @if "yes" == "%BJAM_CLEAN_FIRST%" @(
 @echo clean first.
-@rmdir /s "%INTERMEDIATE%"
-@rmdir /s "%OUTPUT%"
-@%BJAM% --stagedir="%OUTPUT%" %BJAM_FLAGS% --clean stage
+@rmdir /s /q "%BUILDDIR%"
+@rmdir /s /q "%STAGEDIR%"
+@%BJAM% --stagedir="%STAGEDIR%" ^
+	%BJAM_FLAGS% ^
+	--clean ^
+	stage
 @if errorlevel 1 @goto error
 )
 
-@%BJAM% --stagedir="%OUTPUT%" %BJAM_FLAGS% stage
+@%BJAM% --stagedir="%STAGEDIR%" ^
+	%BJAM_FLAGS% ^
+	stage
 @if errorlevel 1 @goto error
 
-@%BJAM% --prefix="%TARGET_PROGRAM_FILES%\Boost" %BJAM_FLAGS% install
+@%BJAM% --prefix="%OUTPUTDIR%" ^
+	%BJAM_FLAGS% ^
+	install
 @if errorlevel 1 @goto error
 
 @popd
