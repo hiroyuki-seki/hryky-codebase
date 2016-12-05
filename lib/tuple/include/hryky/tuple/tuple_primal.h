@@ -29,6 +29,15 @@ namespace hryky
 	template <hryky_template_param>
 	class Tuple;
 	
+namespace tuple
+{
+namespace detail
+{
+	template <typename TupleT>
+	class WriteTo;
+	
+} // namespace detail
+} // namespace tuple
 } // namespace hryky
 //------------------------------------------------------------------------------
 // declares classes
@@ -53,10 +62,11 @@ public :
 	
 	typedef typename AsParameter<first_type>::type  first_param_type;
 
-	static size_t const size_ = 1 + rest_type::size_;
-
 	/// default constructor.
 	Tuple();
+
+	/// constructs with a parameter.
+	Tuple(first_param_type first);
 
 	/// constructs with parameters.
 	Tuple(first_param_type first, rest_type const & rest);
@@ -90,10 +100,6 @@ public :
 	template <typename StreamT>
 	StreamT & write_to(StreamT & out) const;
 
-	/// outputs each element to stream.
-	template <typename StreamT>
-	StreamT & write_element_to(StreamT & out) const;
-
 	/// interchanges the each internal resources of two instances.
 	void swap(this_type & src);
 
@@ -119,9 +125,6 @@ public :
 	/// retrieves the rest elements of tuple as mutable.
 	rest_type & rest();
 
-	/// retrieves the size of tuple.
-	size_type size() const;
-
 protected :
 
 private :
@@ -129,11 +132,43 @@ private :
 	first_type  first_;
 
 };
+/**
+  writes an element.
+ */
+template <typename TupleT>
+class hryky::tuple::detail::WriteTo
+{
+public :
+	template <typename StreamT>
+	WriteTo(StreamT & out, TupleT const & tuple)
+	{
+		WriteTo<typename TupleT::rest_type>(out, tuple.rest());
+		out << tuple.first();
+	}
+};
 //------------------------------------------------------------------------------
 // specializes classes
 //------------------------------------------------------------------------------
 namespace hryky
 {
+namespace tuple
+{
+namespace detail
+{
+/**
+  writes no element.
+ */
+template <>
+class WriteTo<hryky::Null>
+{
+public :
+	template <typename StreamT>
+	WriteTo(StreamT &, hryky::Null const &)
+	{
+	}
+};
+} // namespace detail
+} // namespace tuple
 } // namespace hryky
 //------------------------------------------------------------------------------
 // defines public member functions
@@ -154,6 +189,15 @@ template <hryky_template_param>
 hryky::Tuple<hryky_template_arg>::Tuple(
 	first_param_type first, rest_type const & rest)
 	: rest_type(rest)
+	  , first_(first)
+{
+}
+/**
+  @brief constructs with a parameter.
+ */
+template <hryky_template_param>
+hryky::Tuple<hryky_template_arg>::Tuple(first_param_type first)
+	: rest_type()
 	  , first_(first)
 {
 }
@@ -233,18 +277,9 @@ hryky::Tuple<hryky_template_arg>::write_to(
 {
 	stream::array::Scope<StreamT> const array(out);
 
-	return this->write_element_to(out);
-}
-/**
-  @brief stringifies elements of tuple.
- */
-template <hryky_template_param>
-template <typename StreamT>
-StreamT & hryky::Tuple<hryky_template_arg>::write_element_to(
-	StreamT & out) const
-{
-	out << this->first();
-	return this->rest().write_element_to(out);
+	tuple::detail::WriteTo<this_type>(out, *this);
+
+	return out;
 }
 /**
   @brief retrieves the value by index.
@@ -305,15 +340,6 @@ typename hryky::Tuple<hryky_template_arg>::rest_type &
 hryky::Tuple<hryky_template_arg>::rest()
 {
 	return *static_cast<rest_type *>(this);
-}
-/**
-  @brief retrieves the size of tuple.
- */
-template <hryky_template_param>
-typename hryky::Tuple<hryky_template_arg>::size_type 
-hryky::Tuple<hryky_template_arg>::size() const
-{
-	return this_type::size_;
 }
 //------------------------------------------------------------------------------
 // defines protected member functions

@@ -167,6 +167,12 @@ public :
 	{
 	}
 
+	template <typename StreamT>
+	StreamT & write_to(StreamT & out) const
+	{
+		return this->base_type::write_to(out);
+	}
+
 protected :
 
 private :
@@ -201,6 +207,12 @@ public :
 	Tuple2(RhsT && rhs)
 		: base_type(::std::move(rhs))
 	{
+	}
+
+	template <typename StreamT>
+	StreamT & write_to(StreamT & out) const
+	{
+		return this->base_type::write_to(out);
 	}
 
 protected :
@@ -240,6 +252,12 @@ public :
 	{
 	}
 
+	template <typename StreamT>
+	StreamT & write_to(StreamT & out) const
+	{
+		return this->base_type::write_to(out);
+	}
+
 protected :
 
 private :
@@ -275,6 +293,12 @@ public :
 	Tuple4(RhsT && rhs)
 		: base_type(::std::move(rhs))
 	{
+	}
+
+	template <typename StreamT>
+	StreamT & write_to(StreamT & out) const
+	{
+		return this->base_type::write_to(out);
 	}
 
 protected :
@@ -314,6 +338,12 @@ public :
 	{
 	}
 
+	template <typename StreamT>
+	StreamT & write_to(StreamT & out) const
+	{
+		return this->base_type::write_to(out);
+	}
+
 protected :
 
 private :
@@ -349,6 +379,12 @@ public :
 	Tuple6(RhsT && rhs)
 		: base_type(::std::move(rhs))
 	{
+	}
+
+	template <typename StreamT>
+	StreamT & write_to(StreamT & out) const
+	{
+		return this->base_type::write_to(out);
 	}
 
 protected :
@@ -388,6 +424,12 @@ public :
 	{
 	}
 
+	template <typename StreamT>
+	StreamT & write_to(StreamT & out) const
+	{
+		return this->base_type::write_to(out);
+	}
+
 protected :
 
 private :
@@ -422,6 +464,12 @@ public :
 	Tuple8(RhsT && rhs)
 		: base_type(::std::move(rhs))
 	{
+	}
+
+	template <typename StreamT>
+	StreamT & write_to(StreamT & out) const
+	{
+		return this->base_type::write_to(out);
 	}
 
 protected :

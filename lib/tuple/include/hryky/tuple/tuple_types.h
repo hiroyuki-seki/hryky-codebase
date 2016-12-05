@@ -54,7 +54,7 @@ namespace tuple
   @brief retrieves the list of types from empty tuple.
  */
 template <>
-class Types<Tuple<> >
+class Types<Tuple<hryky::Null, hryky::Null> >
 {
 public :
 	typedef tmp::null_list_type type;
@@ -63,7 +63,7 @@ public :
   @brief retrieves the list of types from tuple with one element.
  */
 template <typename FirstT>
-class Types<Tuple<FirstT> >
+class Types<Tuple<FirstT, hryky::Null> >
 {
 public :
 	typedef tmp::List<FirstT, tmp::null_list_type> type;
