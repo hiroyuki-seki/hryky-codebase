@@ -22,3 +22,8 @@ include(${HRYKY_CODEBASE_ROOT}/etc/common.cmake)
 set(HRYKY_PCH_SOURCE src/${module_name}.cpp)
 
 hryky_build_library()
+
+if(MSVC)
+	add_definitions(-Zm129)
+endif()
+

@@ -24,3 +24,8 @@ set(HRYKY_PCH_SOURCE src/${module_name}.cpp)
 
 hryky_build_library()
 hryky_use_sdl()
+
+if(MSVC)
+	add_definitions(-Zm131)
+endif()
+
