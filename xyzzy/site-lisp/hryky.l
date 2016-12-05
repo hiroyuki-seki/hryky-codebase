@@ -65,6 +65,7 @@ THE SOFTWARE.
 		  delete-name-buffer
 		  cmake
 		  msys
+		  cmd-exe
 		  open-solution
 		  build-solution
 		  svn-update
@@ -176,6 +177,19 @@ THE SOFTWARE.
 	"~A"
 	(editor::concat (si:getenv "DEVROOT") "/hryky-codebase/tool/misc/msys.bat")
 	)
+   ""
+   (format nil "*~A*" buffer)
+   )
+  )
+
+;;--------------------------------------
+;; cmd
+;;--------------------------------------
+(defun cmd-exe
+  (buffer)
+  (interactive "sbuffer : ")
+  (execute-subprocess
+   "cmd"
    ""
    (format nil "*~A*" buffer)
    )
