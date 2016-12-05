@@ -155,31 +155,22 @@ bool hryky::display::Environment::reset(ResetParameter const &)
 	hryky_log_debug(
 		"The initial Video driver is " << initial_driver_name);
 
-	driver_id_type initial_driver_id = driver_id_type();
-
-	if (!hryky::repeat(static_cast<size_t>(drivers_size)).every_at(
-		[&allocator, &drivers, &initial_driver_name, &initial_driver_id](
-			size_t const driver_id) {
-			driver_type driver(allocator.mempool());
-			if (!driver.reset(Driver::ResetParameter(driver_id))) {
-				hryky_log_err(
-					"failed to reset video driver."
-					<< (json::writer()
-						<< stream::denote("driver") << driver_id));
-				return false;
-			}
-			drivers.push_back(driver);
-
-			if (initial_driver_name == driver.name()) {
-				initial_driver_id = driver_id;
-			}
-			return true;
-		})) {
+	driver_type driver(allocator.mempool());
+	if (!driver.reset(
+		Driver::ResetParameter().name_cstr(initial_driver_name))) {
+		hryky_log_err(
+			"failed to reset video driver."
+			<< (json::writer()
+				<< stream::denote("driverName")
+				<< (hryky_is_null(initial_driver_name)
+					? "null"
+					: initial_driver_name)));
 		return false;
 	}
+	drivers.push_back(driver);
 
 	this->drivers_.swap(drivers);
-	this->initial_driver_id_ = initial_driver_id;
+	this->initial_driver_id_ = 0;
 
 	return true;
 }

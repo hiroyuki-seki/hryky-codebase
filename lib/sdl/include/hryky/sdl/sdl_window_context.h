@@ -65,6 +65,9 @@ public :
 		int const height;
 		bool const use_opengl;
 		bool const hidden;
+
+		hryky_delete_default_constructor(Reset);
+		hryky_delete_copy_assign_op(Reset);
 	};
 
 	struct Fullscreen
@@ -73,6 +76,9 @@ public :
 		int width;
 		int height;
 		int refresh_rate;
+
+		hryky_delete_default_constructor(Fullscreen);
+		hryky_delete_copy_assign_op(Fullscreen);
 	};
 
 	/// default constructor.

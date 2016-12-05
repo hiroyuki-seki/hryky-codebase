@@ -47,7 +47,6 @@ namespace
 hryky::display::Driver::Driver()
 	: name_()
 	  , screens_()
-	  , id_()
 {
 	return;
 }
@@ -57,7 +56,6 @@ hryky::display::Driver::Driver()
 hryky::display::Driver::Driver(mempool_type mempool)
 	: name_(mempool)
 	  , screens_(mempool)
-	  , id_()
 {
 }
 /**
@@ -66,7 +64,6 @@ hryky::display::Driver::Driver(mempool_type mempool)
 hryky::display::Driver::Driver(this_type const & rhs)
 	: hryky_copy_member(name)
 	  , hryky_copy_member(screens)
-	  , hryky_copy_member(id)
 {
 }
 /**
@@ -75,7 +72,6 @@ hryky::display::Driver::Driver(this_type const & rhs)
 hryky::display::Driver::Driver(this_type && rhs)
 	: hryky_move_member(name)
 	  , hryky_move_member(screens)
-	  , hryky_move_member(id)
 {
 }
 /**
@@ -91,7 +87,6 @@ void hryky::display::Driver::clear()
 {
 	hryky::clear(this->screens_);
 	hryky::clear(this->name_);
-	hryky::clear(this->id_);
 }
 /**
   @brief interchanges the each internal resources of two instances.
@@ -100,15 +95,13 @@ void hryky::display::Driver::swap(this_type & src)
 {
 	hryky_swap_member(name);
 	hryky_swap_member(screens);
-	hryky_swap_member(id);
 }
 /**
   @brief assigns the information of display driver.
  */
 bool hryky::display::Driver::reset(ResetParameter const & param)
 {
-	char const * const name_cstr = ::SDL_GetVideoDriver(
-		static_cast<int>(param.driver_id()));
+	auto const name_cstr = param.name_cstr_;
 
 	screens_type::allocator_type allocator =
 		this->screens_.get_allocator();
@@ -165,7 +158,6 @@ bool hryky::display::Driver::reset(ResetParameter const & param)
 
 	hryky::swap(this->screens_, screens);
 	this->name_ = name_cstr;
-	this->id_ = param.driver_id();
 
 	return true;
 }

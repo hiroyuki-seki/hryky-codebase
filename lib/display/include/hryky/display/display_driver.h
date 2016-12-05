@@ -45,13 +45,29 @@ public :
 	typedef Screen              screen_type;
 	typedef mempool_type   mempool_type;
 
-	struct ResetParameter {
-		ResetParameter(driver_id_type const driver_id)
-			: driver_id_(driver_id)
+	struct ResetParameter
+	{
+		ResetParameter()
+			: name_cstr_()
 		{}
+
+		ResetParameter & driver_id(driver_id_type const driver_id)
+		{
+			this->name_cstr_ = ::SDL_GetVideoDriver(
+				static_cast<int>(driver_id));
+			return *this;
+		}
+
+		ResetParameter & name_cstr(char const * const src)
+		{
+			this->name_cstr_ = src;
+			return *this;
+		}
 		
 	private:
-		hryky_accessor_read(driver_id_type, driver_id);
+		friend class Driver;
+		
+		char const * name_cstr_;
 	};
 
 	/// default constructor.
