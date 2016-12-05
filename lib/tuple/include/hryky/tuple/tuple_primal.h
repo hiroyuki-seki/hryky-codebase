@@ -26,9 +26,7 @@
 namespace hryky
 {
 	/// retains multiple arbitrary values.
-	template <
-		typename FirstT = hryky::Null,
-		typename RestT = hryky::Null >
+	template <hryky_template_param>
 	class Tuple;
 	
 } // namespace hryky
@@ -38,7 +36,10 @@ namespace hryky
 /**
   @brief retains multiple arbitrary values.
  */
-template <hryky_template_param>
+template <
+	typename FirstT = hryky::Null,
+	typename RestT = hryky::Null
+>
 class hryky::Tuple :
 	public RestT,
 	public WithStreamOut<Tuple<hryky_template_arg> >,
@@ -98,12 +99,12 @@ public :
 
 	/// retrieves the value by index.
 	template <size_t Index>
-	typename hryky::TupleAt<this_type, Index>::type::first_param_type
+	typename hryky::tuple::At<this_type, Index>::type::first_param_type
 		at() const;
 
 	/// retrieves the mutable reference to the value by index.
 	template <size_t Index>
-	typename hryky::TupleAt<this_type, Index>::type::first_type &
+	typename hryky::tuple::At<this_type, Index>::type::first_type &
 		at();
 
 	/// retrieves the first element of tuple.
@@ -250,24 +251,24 @@ StreamT & hryky::Tuple<hryky_template_arg>::write_element_to(
  */
 template <hryky_template_param>
 template <size_t Index>
-typename hryky::TupleAt<
+typename hryky::tuple::At<
 	hryky::Tuple<hryky_template_arg>, Index>::type::first_param_type
 hryky::Tuple<hryky_template_arg>::at() const
 {
 	return static_cast<
-		typename TupleAt<this_type, Index>::type const *>(this)->first();
+		typename tuple::At<this_type, Index>::type const *>(this)->first();
 }
 /**
   @brief retrieves the mutable reference to the value by index.
  */
 template <hryky_template_param>
 template <size_t Index>
-typename hryky::TupleAt<
+typename hryky::tuple::At<
 	hryky::Tuple<hryky_template_arg>, Index>::type::first_type & 
 hryky::Tuple<hryky_template_arg>::at()
 {
 	return static_cast<
-		typename TupleAt<this_type, Index>::type *>(this)->first();
+		typename tuple::At<this_type, Index>::type *>(this)->first();
 }
 /**
   @brief retrieves the first element of tuple.

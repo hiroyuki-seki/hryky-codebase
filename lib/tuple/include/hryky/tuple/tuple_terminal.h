@@ -104,12 +104,12 @@ public :
 
 	/// retrieves the element in tuple.
 	template <size_t Index>
-	typename TupleAt<this_type, Index>::type::first_param_type
+	typename tuple::At<this_type, Index>::type::first_param_type
 		at() const;
 
 	/// retrieves the mutable reference to the value by index.
 	template <size_t Index>
-	typename TupleAt<this_type, Index>::type::first_type &
+	typename tuple::At<this_type, Index>::type::first_type &
 		at();
 
 protected :
@@ -350,24 +350,24 @@ hryky::Tuple<FirstT>::size() const
  */
 template <typename FirstT>
 template <size_t Index>
-typename hryky::TupleAt<
+typename hryky::tuple::At<
 	hryky::Tuple<FirstT>, Index>::type::first_param_type 
 hryky::Tuple<FirstT>::at() const
 {
 	return static_cast<
-		typename TupleAt<this_type, Index>::type const *>(this)->first();
+		typename tuple::At<this_type, Index>::type const *>(this)->first();
 }
 /**
   @brief retrieves the mutable reference to the value by index.
  */
 template <typename FirstT>
 template <size_t Index>
-typename hryky::TupleAt<
+typename hryky::tuple::At<
 	hryky::Tuple<FirstT>, Index>::type::first_type & 
 hryky::Tuple<FirstT>::at()
 {
 	return static_cast<
-		typename TupleAt<this_type, Index>::type *>(this)->first();
+		typename tuple::At<this_type, Index>::type *>(this)->first();
 }
 //------------------------------------------------------------------------------
 // defines public member functions of Tuple<>

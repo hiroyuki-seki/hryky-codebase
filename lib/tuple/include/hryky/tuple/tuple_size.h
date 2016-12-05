@@ -1,47 +1,77 @@
 /**
-  @file     placeholder.h
-  @brief    defines the indices of the actual arguments.
+  @file     tuple_size.h
+  @brief    retrieves the number of elements in a tuple.
   @author   HRYKY
-  @version  $Id: placeholder.h 353 2014-06-17 04:55:19Z hryky.private@gmail.com $
+  @version  $Id: hryky-template.l 381 2015-03-14 00:09:09Z hryky.private@gmail.com $
  */
-#ifndef PLACEHOLDER_H_20140617105737123
-#define PLACEHOLDER_H_20140617105737123
+#ifndef TUPLE_SIZE_H_20161205172530392
+#define TUPLE_SIZE_H_20161205172530392
+#include "hryky/tmp/null.h"
+#include "hryky/tmp/tmp_add.h"
 #include "hryky/type_traits/integral_constant.h"
 //------------------------------------------------------------------------------
 // defines macros
 //------------------------------------------------------------------------------
 #define hryky_template_param \
-	size_t Index
+	typename TupleT
 #define hryky_template_arg \
-	Index
+	TupleT
 //------------------------------------------------------------------------------
 // declares types
 //------------------------------------------------------------------------------
 namespace hryky
 {
-	/// defines the indices of the actual arguments.
-	template <size_t Index>
-	class Placeholder;
+	template <typename FirstT, typename RestT>
+	class Tuple;
 
+namespace tuple
+{
+	/// retrieves the number of elements in a tuple.
+	template <hryky_template_param>
+	class Size;
+
+} // namespace tuple
 } // namespace hryky
 //------------------------------------------------------------------------------
 // declares classes
 //------------------------------------------------------------------------------
 /**
-  @brief defines the indices of the actual arguments.
+  @brief retrieves the number of elements in a tuple.
  */
-template <hryky_template_param>
-class hryky::Placeholder :
-	public IntegralConstant<size_t, Index>
+template <typename TupleT>
+class hryky::tuple::Size
 {
 public :
-	
+	typedef typename tmp::Add<
+		IntegralConstant<size_t, 1u>,
+		Size<typename TupleT::rest_type> >::type type;
 };
 //------------------------------------------------------------------------------
 // specializes classes
 //------------------------------------------------------------------------------
 namespace hryky
 {
+namespace tuple
+{
+/**
+  The tuple is empty.
+ */
+template <>
+class Size<Tuple<hryky::Null, hryky::Null> >
+{
+public :
+	typedef IntegralConstant<size_t, 0> type;
+};
+/**
+  The tuple is empty.
+ */
+template <>
+class Size<hryky::Null>
+{
+public :
+	typedef IntegralConstant<size_t, 0> type;
+};
+} // namespace tuple
 } // namespace hryky
 //------------------------------------------------------------------------------
 // defines public member functions
@@ -57,41 +87,17 @@ namespace hryky
 //------------------------------------------------------------------------------
 namespace hryky
 {
-	/// binds the actual arguments.
-	template <typename FromsT, size_t Index>
-	typename hryky::tuple::At<FromsT, Index>::type::first_param_type
-		bind_arg(FromsT const & froms, Placeholder<Index> const &);
-
-	/// binds the actual arguments with the specified valud.
-	template <typename FromsT, typename ToT>
-	ToT bind_arg(FromsT const &, ToT to);
-
+namespace tuple
+{
+} // namespace tuple
 } // namespace hryky
 //------------------------------------------------------------------------------
 // defines global functions
 //------------------------------------------------------------------------------
-/**
-  @brief binds the actual arguments.
- */
-template <typename FromsT, size_t Index>
-typename hryky::tuple::At<FromsT, Index>::type::first_param_type
-hryky::bind_arg(
-	FromsT const & froms, Placeholder<Index> const &)
-{
-	return froms.at<Index>();
-}
-/**
-  @brief binds the actual arguments with the specified valud.
- */
-template <typename FromsT, typename ToT>
-ToT hryky::bind_arg(FromsT const &, ToT to)
-{
-	return to;
-}
 //------------------------------------------------------------------------------
 // revokes the temporary macros
 //------------------------------------------------------------------------------
 #undef hryky_template_param
 #undef hryky_template_arg
-#endif // PLACEHOLDER_H_20140617105737123
+#endif // TUPLE_SIZE_H_20161205172530392
 // end of file
