@@ -73,7 +73,7 @@
 @set CTEST_FLAGS=^
     --parallel 8 ^
     --output-on-failure ^
-    -vv ^
+    -VV ^
     -C "%CMAKE_CONFIG%"
 
 call %DEVROOT%/hryky-codebase/tool/build/define_variables.bat

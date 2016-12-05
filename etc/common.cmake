@@ -81,6 +81,27 @@ function(hryky_link_libraries)
 endfunction()
 
 #------------------------------------------------------------------------------
+# appends the custom command to copy DLL.
+#------------------------------------------------------------------------------
+function(hryky_deploy_dlls)
+	get_target_property(project_type ${PROJECT_NAME} TYPE)
+	if (NOT (EXECUTABLE STREQUAL ${project_type}))
+		return()
+	endif()
+	foreach(src ${ARGV})
+		set(dest $<TARGET_FILE_DIR:${PROJECT_NAME}>)
+		add_custom_command(
+			TARGET ${PROJECT_NAME}
+			POST_BUILD
+			COMMAND ${CMAKE_COMMAND}
+			ARGS -E copy "${src}" "${dest}"
+			DEPENDS ${src}
+			COMMENT "deploys a DLL in the directory of the target."
+			VERBATIM)
+	endforeach()
+endfunction()
+
+#------------------------------------------------------------------------------
 # appends a property of CMake directory scope.
 # param : {string} name is the name of directory property.
 # param : {string} value is the value of the directory property.
@@ -502,15 +523,36 @@ function(hryky_use_boost)
 
 		if (MSVC)
 			if (CMAKE_SIZEOF_VOID_P EQUAL 8)
-				set(BOOST_ROOT $ENV{ProgramW6432}/Boost)
+				set(BOOST_ROOT 
+					${HRYKY_EXTERNAL_DIR}/boost/x64
+					CACHE
+					FILEPATH
+					"The root directory of Boost")
 			else()
-				set(BOOST_ROOT $ENV{ProgramFiles}/Boost)
+				set(
+					BOOST_ROOT 
+					${HRYKY_EXTERNAL_DIR}/boost/x86
+					CACHE
+					FILEPATH
+					"The root directory of Boost")
 			endif()
-			set(BOOST_LIBRARYDIR ${BOOST_ROOT}/lib)
-			set(BOOST_INCLUDEDIR ${BOOST_ROOT}/include)
+			set(BOOST_LIBRARYDIR 
+				${BOOST_ROOT}/lib 
+				CACHE 
+				FILEPATH
+				"The directory in which the threre are libraries of Boost.")
+			set(BOOST_INCLUDEDIR 
+				${BOOST_ROOT}/include 
+				CACHE 
+				FILEPATH
+				"The directory in which the threre are headers of Boost.")
 		endif()
 	
+		hryky_info("BOOST_ROOT is : ${BOOST_ROOT}")
+		
+		hryky_print_var(BOOST_ROOT)
 		hryky_print_var(BOOST_LIBRARYDIR)
+		hryky_print_var(BOOST_INCLUDEDIR)
 		hryky_print_var(Boost_USE_MULTITHREADED)
 		hryky_print_var(Boost_USE_STATIC_LIBS)
 		hryky_print_var(Boost_NO_SYSTEM_PATHS)
@@ -693,9 +735,9 @@ function(hryky_use_openssl)
 	if (NOT DEFINED HRYKY_OPENSSL_SEARCHED)
 		if (MSVC)
 			if (HRYKY_ARCH64)
-				set(OPENSSL_ROOT_DIR $ENV{ProgramW6432}/openssl)
+				set(OPENSSL_ROOT_DIR ${HRYKY_EXTERNAL_DIR}/openssl/x64)
 			else()
-				set(OPENSSL_ROOT_DIR $ENV{ProgramFiles}/openssl)
+				set(OPENSSL_ROOT_DIR ${HRYKY_EXTERNAL_DIR}/openssl/x86)
 			endif()
 		endif()
 		hryky_print_var(OPENSSL_ROOT_DIR)
@@ -746,25 +788,38 @@ function(hryky_use_sdl)
 		if (NOT HRYKY_CODEBASE_ROOT)
 			hryky_emerg("HRYKY_CODEBASE_ROOT is not defined.")
 		endif()
-		
+
 		find_package(SDL)
 		
 		if(NOT SDL_FOUND)
-			set(SDL_INCLUDE_DIR       ${HRYKY_EXTERNAL_DIR}/SDL/include)
+			set(SDL_NAME
+				SDL2
+				CACHE
+				STRING
+				"The name of SDL. SDL or SDL2.")
+			find_path(
+				SDL_INCLUDE_DIR
+				SDL
+				PATHS ${HRYKY_EXTERNAL_DIR}/SDL/include/
+				DOC "The directory in which there are headers of SDL2"
+				NO_DEFAULT_PATH)
+			if (NOT SDL_INCLUDE_DIR)
+				hryky_emerg("SDL_INCLUDE_DIR is not found.")
+			endif()
 			set(SDL_LIBRARY_PREFIX    ${HRYKY_EXTERNAL_DIR}/SDL/lib)
 			if (MSVC)
 				if (CMAKE_SIZEOF_VOID_P EQUAL 8)
 					set(SDL_LIBRARIES
-						debug       ${SDL_LIBRARY_PREFIX}/win/x64/Debug/SDL.lib
-						debug       ${SDL_LIBRARY_PREFIX}/win/x64/Debug/SDLmain.lib
-						optimized   ${SDL_LIBRARY_PREFIX}/win/x64/Release/SDL.lib
-						optimized   ${SDL_LIBRARY_PREFIX}/win/x64/Release/SDLmain.lib)
+						debug       ${SDL_LIBRARY_PREFIX}/win/x64/Debug/${SDL_NAME}.lib
+						debug       ${SDL_LIBRARY_PREFIX}/win/x64/Debug/${SDL_NAME}main.lib
+						optimized   ${SDL_LIBRARY_PREFIX}/win/x64/Release/${SDL_NAME}.lib
+						optimized   ${SDL_LIBRARY_PREFIX}/win/x64/Release/${SDL_NAME}main.lib)
 				else()
 					set(SDL_LIBRARIES
-						debug       ${SDL_LIBRARY_PREFIX}/win/x86/Debug/SDL.lib
-						debug       ${SDL_LIBRARY_PREFIX}/win/x86/Debug/SDLmain.lib
-						optimized   ${SDL_LIBRARY_PREFIX}/win/x86/Release/SDL.lib
-						optimized   ${SDL_LIBRARY_PREFIX}/win/x86/Release/SDLmain.lib)
+						debug       ${SDL_LIBRARY_PREFIX}/win/x86/Debug/${SDL_NAME}.lib
+						debug       ${SDL_LIBRARY_PREFIX}/win/x86/Debug/${SDL_NAME}main.lib
+						optimized   ${SDL_LIBRARY_PREFIX}/win/x86/Release/${SDL_NAME}.lib
+						optimized   ${SDL_LIBRARY_PREFIX}/win/x86/Release/${SDL_NAME}main.lib)
 				endif()
 			else()
 				hryky_emerg("SDL is not found.")
@@ -917,37 +972,27 @@ function(hryky_use_v8)
 		find_package(V8)
 		
 		if(NOT V8_FOUND)
-			set(V8_DIR                  ${HRYKY_EXTERNAL_DIR}/v8)
-			set(V8_INCLUDE_DIR          ${V8_DIR}/include)
-			set(V8_LIBRARY_DIR          ${V8_DIR}/lib)
+			set(V8_DIR          ${HRYKY_EXTERNAL_DIR}/v8)
+			set(V8_INCLUDE_DIR  ${V8_DIR}/include)
 			if (MSVC)
 				if (CMAKE_SIZEOF_VOID_P EQUAL 8)
-					set(V8_LIBRARIES
-						debug       ${V8_LIBRARY_DIR}/win/x64/Debug/icui18n.lib
-						debug       ${V8_LIBRARY_DIR}/win/x64/Debug/icuuc.lib
-						debug       ${V8_LIBRARY_DIR}/win/x64/Debug/v8_base.lib
-						debug       ${V8_LIBRARY_DIR}/win/x64/Debug/v8_libbase.x64.lib
-						debug       ${V8_LIBRARY_DIR}/win/x64/Debug/v8_nosnapshot.lib
-						optimized   ${V8_LIBRARY_DIR}/win/x64/Release/icui18n.lib
-						optimized   ${V8_LIBRARY_DIR}/win/x64/Release/icuuc.lib
-						optimized   ${V8_LIBRARY_DIR}/win/x64/Release/v8_base.lib
-						optimized   ${V8_LIBRARY_DIR}/win/x64/Release/v8_libbase.x64.lib
-						optimized   ${V8_LIBRARY_DIR}/win/x64/Release/v8_nosnapshot.lib
-						)
+					set(V8_LIBRARY_DIR  ${V8_DIR}/lib/win/x64)
 				else()
-					set(V8_LIBRARIES
-						debug       ${V8_LIBRARY_DIR}/win/x86/Debug/icui18n.lib
-						debug       ${V8_LIBRARY_DIR}/win/x86/Debug/icuuc.lib
-						debug       ${V8_LIBRARY_DIR}/win/x86/Debug/v8_base.lib
-						debug       ${V8_LIBRARY_DIR}/win/x86/Debug/v8_libbase.lib
-						debug       ${V8_LIBRARY_DIR}/win/x86/Debug/v8_nosnapshot.lib
-						optimized   ${V8_LIBRARY_DIR}/win/x86/Release/icui18n.lib
-						optimized   ${V8_LIBRARY_DIR}/win/x86/Release/icuuc.lib
-						optimized   ${V8_LIBRARY_DIR}/win/x86/Release/v8_base.lib
-						optimized   ${V8_LIBRARY_DIR}/win/x86/Release/v8_libbase.lib
-						optimized   ${V8_LIBRARY_DIR}/win/x86/Release/v8_nosnapshot.lib
-						)
+					set(V8_LIBRARY_DIR  ${V8_DIR}/lib/win/x86)
 				endif()
+				set(V8_LIBRARIES
+					debug       ${V8_LIBRARY_DIR}/Debug/icui18n.dll.lib
+					debug       ${V8_LIBRARY_DIR}/Debug/icuuc.dll.lib
+					debug       ${V8_LIBRARY_DIR}/Debug/v8.dll.lib
+					optimized   ${V8_LIBRARY_DIR}/Release/icui18n.dll.lib
+					optimized   ${V8_LIBRARY_DIR}/Release/icuuc.dll.lib
+					optimized   ${V8_LIBRARY_DIR}/Release/v8.dll.lib
+					)
+				set(V8_DLLS
+					${V8_LIBRARY_DIR}/$<CONFIG>/icui18n.dll
+					${V8_LIBRARY_DIR}/$<CONFIG>/icuuc.dll
+					${V8_LIBRARY_DIR}/$<CONFIG>/v8.dll
+					)
 			else()
 				hryky_emerg("V8 JavaScript Engine is not found.")
 			endif()
@@ -956,18 +1001,22 @@ function(hryky_use_v8)
 		hryky_print_var(V8_FOUND)
 		hryky_print_var(V8_INCLUDE_DIR)
 		hryky_print_var(V8_LIBRARIES)
+		hryky_print_var(V8_DLLS)
 		
 		set(HRYKY_V8_SEARCHED true)
-		set(HRYKY_V8_LIBRARIES ${V8_LIBRARIES})
 		set(HRYKY_V8_INCLUDES ${V8_INCLUDE_DIR})
+		set(HRYKY_V8_LIBRARIES ${V8_LIBRARIES})
+		set(HRYKY_V8_DLLS ${V8_DLLS})
 	
 		hryky_export_var(HRYKY_V8_SEARCHED)
-		hryky_export_var(HRYKY_V8_LIBRARIES)
 		hryky_export_var(HRYKY_V8_INCLUDES)
+		hryky_export_var(HRYKY_V8_LIBRARIES)
+		hryky_export_var(HRYKY_V8_DLLS)
 	endif()
 	
 	hryky_append_includes(${HRYKY_V8_INCLUDES})
 	hryky_link_libraries(${HRYKY_V8_LIBRARIES})
+	hryky_deploy_dlls(${HRYKY_V8_DLLS})
 	
 	hryky_end_external()
 endfunction()
@@ -2155,6 +2204,13 @@ endfunction()
 #------------------------------------------------------------------------------
 function(hryky_debug)
 	hryky_print(0 ${ARGV})
+endfunction()
+
+#------------------------------------------------------------------------------
+# prints a noticeable message
+#------------------------------------------------------------------------------
+function(hryky_info)
+	hryky_print(1 ${ARGV})
 endfunction()
 
 #------------------------------------------------------------------------------
