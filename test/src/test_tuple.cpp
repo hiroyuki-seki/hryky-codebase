@@ -101,11 +101,11 @@ bool Test::run_impl()
 
 		modified.at<0>() = 2.0f;
 
+		log.writer() << "tuple1";
+		testing::Log::map_type const map(log.writer());
 		(log.writer()
-		 << "tuple1 "
-		 << (json::writer()
-			 << "source" << source
-			 << "modified" << modified));
+		 << hryky_stream_denote(source)
+		 << hryky_stream_denote(modified));
 	}
 
 	{
@@ -117,11 +117,11 @@ bool Test::run_impl()
 		modified.at<0>() = 2.0f;
 		modified.at<1>() = "bar";
 
-		(log.writer() << "tuple2 "
-		 << (json::writer()
-			 << "source" << source
-			 << "modified" << modified
-			 ));
+		log.writer() << "tuple2";
+		testing::Log::map_type const map(log.writer());
+		(log.writer()
+		 << hryky_stream_denote(source)
+		 << hryky_stream_denote(modified));
 	}
 
 	{
@@ -144,11 +144,12 @@ bool Test::run_impl()
 		auto args = make_tuple(1, 0.5f, true);
 		tuple::Call<void, decltype(args)>::by([&log](
 			int const arg1, float const arg2, bool const arg3) {
-			(log.writer() << "callWithTuple"
-			 << (json::writer()
-				 << "arg1" << arg1
-				 << "arg2" << arg2
-				 << "arg3" << arg3));
+			log.writer() << "callWithTuple";
+			testing::Log::map_type const map(log.writer());
+			(log.writer()
+			 << hryky_stream_denote(arg1)
+			 << hryky_stream_denote(arg2)
+			 << hryky_stream_denote(arg3));
 		}, args);
 	}
 
