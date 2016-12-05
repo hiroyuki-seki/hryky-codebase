@@ -34,7 +34,7 @@ shift
 @echo // The build system of OpenSSL doesn't support the path which includes
 @echo // some white spaces. (for example: "Program Files")
 @echo //----------------------------------------------------------------
-@set OUTPUT=%DEVROOT%\hryky-codebase\external\openssl
+@set OUTPUT=%DEVROOT%\hryky-codebase\external\openssl\%TARGET_ARCHITECTURE%
 
 @set CLEAN_FIRST=no
 @set XCOPY=xcopy /E /F /Y 
