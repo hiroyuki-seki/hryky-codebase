@@ -405,7 +405,7 @@ public :
 
 	/// constructor with parameters
 	Tuple7(hryky_tuple_rvalue7)
-		: hryky_tuple_rvalue_initial7
+		: hryky_tuple_rvalue_initial7()
 	{}
 
 	Tuple7(hryky_tuple_const_reference7)
