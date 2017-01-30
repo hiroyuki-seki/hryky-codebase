@@ -7,6 +7,7 @@
 #ifndef RTIOW_HITTABLE_CONTAINER_H_20170116152729310
 #define RTIOW_HITTABLE_CONTAINER_H_20170116152729310
 #include <vector>
+#include <memory>
 #include "hryky/tuple.h"
 #include "hryky/is_null.h"
 #include "./rtiow_ray_segment.h"
@@ -17,7 +18,7 @@
 #define hryky_template_param \
 	typename RayT, typename RandomizerT, typename ContainerT
 #define hryky_template_arg \
-	RayT, RandomizerT, typename ContainerT
+	RayT, RandomizerT, ContainerT
 //------------------------------------------------------------------------------
 // declares types
 //------------------------------------------------------------------------------
@@ -25,10 +26,13 @@ namespace hryky
 {
 namespace rtiow
 {
+namespace hittable
+{
 	/// checks if a ray intersects with any hitable objects in container.
 	template <hryky_template_param>
 	class Container;
 
+} // namespace hittable
 } // namespace rtiow
 } // namespace hryky
 //------------------------------------------------------------------------------
@@ -38,9 +42,10 @@ namespace rtiow
   @brief checks if a ray intersects with any hitable objects in container.
  */
 template <
-	typename RayT = hryky::rtiow::raw::Base<>
+	typename RayT = hryky::rtiow::ray::Base<>
 	, typename RandomizerT = hryky::rtiow::Randomizer<>
-	, typename ContainerT = ::std::vector<hryky::rtiow::hittable::Base const *>
+	, typename ContainerT = ::std::vector<
+		::std::shared_ptr<hryky::rtiow::hittable::Base<> const> >
 >
 class hryky::rtiow::hittable::Container
 	: public Base<RayT, RandomizerT>
@@ -85,6 +90,9 @@ public :
 	template <typename StreamT>
 	StreamT & write_to(StreamT & out) const;
 
+	/// retrieves the container.
+	ContainerT & get();
+
 protected :
 
 private :
@@ -111,6 +119,9 @@ namespace hryky
 {
 namespace rtiow
 {
+namespace hittable
+{
+} // namespace hittable
 } // namespace rtiow
 } // namespace hryky
 //------------------------------------------------------------------------------
@@ -187,6 +198,14 @@ hryky::rtiow::hittable::Container<hryky_template_arg>::write_to(
 	stream::map::Scope<StreamT> const map(out);
 	return out;
 }
+/**
+  @brief retrieves the container.
+ */
+template <hryky_template_param>
+ContainerT & hryky::rtiow::hittable::Container<hryky_template_arg>::get()
+{
+	return this->container_;
+}
 //------------------------------------------------------------------------------
 // defines protected member functions
 //------------------------------------------------------------------------------
@@ -197,7 +216,7 @@ hryky::rtiow::hittable::Container<hryky_template_arg>::write_to(
   @brief checks if a ray intersects with any hitable objects in container.
  */
 template <hryky_template_param>
-hryky::rtiow::hittable::Container<hryky_template_arg>::hit_type
+typename hryky::rtiow::hittable::Container<hryky_template_arg>::hit_type
 hryky::rtiow::hittable::Container<hryky_template_arg>::hit_impl(
 	ray_type const & ray, randomizer_type & randomizer) const
 {
@@ -212,12 +231,12 @@ hryky::rtiow::hittable::Container<hryky_template_arg>::hit_impl(
  */
 template <hryky_template_param>
 template <typename InputItr>
-hryky::rtiow::hittable::Container<hryky_template_arg>::hit_type
+typename hryky::rtiow::hittable::Container<hryky_template_arg>::hit_type
 hryky::rtiow::hittable::Container<hryky_template_arg>::hit_range(
 	ray_type const & ray,
 	randomizer_type & randomizer,
 	InputItr first,
-	InputItr last)
+	InputItr last) const
 {
 	InputItr itr = first;
 	for (; last != itr; ++itr) {

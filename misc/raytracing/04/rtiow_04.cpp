@@ -1,13 +1,13 @@
 #include <iostream>
 
 #include "../rtiow_vec3.h"
-#include "../rtiow_ray.h"
+#include "../rtiow_ray_half.h"
 
 namespace
 {
 	typedef hryky::rtiow::Vec3<> fvec3;
 	typedef hryky::rtiow::Vec3<int32_t> ivec3;
-	typedef hryky::rtiow::Ray<> ray_type;
+	typedef hryky::rtiow::ray::Half<> ray_type;
 
 	/// retrieves the color at the position where a ray intersects the screen.
 	fvec3 color(ray_type const & ray);

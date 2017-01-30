@@ -52,6 +52,7 @@ public :
 	typedef ScatterT scatter_type;
 	typedef typename scatter_type::ray_type ray_type;
 	typedef typename ray_type::coord_type coord_type;
+	typedef RandomizerT randomizer_type;
 
 	/// default constructor.
 	Base();
@@ -192,8 +193,9 @@ StreamT & hryky::rtiow::material::Base<hryky_template_arg>::write_to(
 /**
   @brief calculates the scattered ray.
  */
-hryky::rtiow::material::Base<hryky_template_arg>::scatter_type 
-hryky::rtiow::material::Base::reflect(
+template <hryky_template_param>
+typename hryky::rtiow::material::Base<hryky_template_arg>::scatter_type 
+hryky::rtiow::material::Base<hryky_template_arg>::reflect(
 	coord_type const & in,
 	coord_type const & pos,
 	coord_type const & normal,
@@ -205,7 +207,7 @@ hryky::rtiow::material::Base::reflect(
   @brief retrieves the albedo.
  */
 template <hryky_template_param>
-hryky::rtiow::material::Base<hryky_template_arg>::albedo_type const & 
+typename hryky::rtiow::material::Base<hryky_template_arg>::albedo_type const & 
 hryky::rtiow::material::Base<hryky_template_arg>::albedo() const
 {
 	return this->albedo_;

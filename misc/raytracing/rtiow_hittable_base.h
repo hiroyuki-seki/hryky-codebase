@@ -39,7 +39,7 @@ namespace hittable
   @brief The interface having hit() .
  */
 template <
-	typename RayT = hryky::ray::Base<>
+	typename RayT = hryky::rtiow::ray::Base<>
 	, typename RandomizerT = hryky::rtiow::Randomizer<>
 >
 class hryky::rtiow::hittable::Base
@@ -167,7 +167,7 @@ StreamT & hryky::rtiow::hittable::Base<hryky_template_arg>::write_to(
   @brief checks if a ray intersects with this object.
  */
 template <hryky_template_param>
-hryky::rtiow::hittable::Base<hryky_template_arg>::hit_type
+typename hryky::rtiow::hittable::Base<hryky_template_arg>::hit_type
 hryky::rtiow::hittable::Base<hryky_template_arg>::hit(
 	ray_type const & ray, randomizer_type & randomizer) const
 {
@@ -177,7 +177,7 @@ hryky::rtiow::hittable::Base<hryky_template_arg>::hit(
   @brief checks if a ray intersects with this object with the default randomizer.
  */
 template <hryky_template_param>
-hryky::rtiow::hittable::Base<hryky_template_arg>::hit_type 
+typename hryky::rtiow::hittable::Base<hryky_template_arg>::hit_type 
 hryky::rtiow::hittable::Base<hryky_template_arg>::hit(
 	ray_type const & ray) const
 {

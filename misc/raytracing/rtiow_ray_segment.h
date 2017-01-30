@@ -87,6 +87,8 @@ protected :
 
 private :
 
+	/// implements verify().
+	virtual bool verify_impl(rate_type const rate) const;
 };
 //------------------------------------------------------------------------------
 // specializes classes

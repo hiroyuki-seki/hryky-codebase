@@ -21,10 +21,13 @@ namespace hryky
 {
 namespace rtiow
 {
+namespace material
+{
 	/// retains parameters of a material for Lambertian.
 	template <hryky_template_param>
 	class Lambertian;
 
+} // namespace material
 } // namespace rtiow
 } // namespace hryky
 //------------------------------------------------------------------------------
@@ -45,11 +48,11 @@ public :
 
 	typedef Base<AlbedoT, ScatterT, RandomizerT> base_type;
 	typedef Lambertian<hryky_template_arg> this_type;
-	typedef typedef typename base_type::albedo_type albedo_type;
-	typedef typedef typename base_type::scatter_type scatter_type;
-	typedef typedef typename base_type::randomizer_type randomizer_type;
-	typedef typedef typename base_type::ray_type ray_type;
-	typedef typedef typename base_type::coord_type coord_type;
+	typedef typename base_type::albedo_type albedo_type;
+	typedef typename base_type::scatter_type scatter_type;
+	typedef typename base_type::randomizer_type randomizer_type;
+	typedef typename base_type::ray_type ray_type;
+	typedef typename base_type::coord_type coord_type;
 
 	/// default constructor.
 	Lambertian();
@@ -186,7 +189,7 @@ StreamT & hryky::rtiow::material::Lambertian<hryky_template_arg>::write_to(
   @brief calculates the scattered ray.
  */
 template <hryky_template_param>
-hryky::rtiow::material::Lambertian<hryky_template_arg>::scatter_type
+typename hryky::rtiow::material::Lambertian<hryky_template_arg>::scatter_type
 hryky::rtiow::material::Lambertian<hryky_template_arg>::reflect_impl(
 	coord_type const & in,
 	coord_type const & pos,

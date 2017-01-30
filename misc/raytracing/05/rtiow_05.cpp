@@ -1,19 +1,17 @@
 #include <iostream>
 
 #include "../rtiow_vec3.h"
-#include "../rtiow_ray.h"
-#include "../rtiow_greater.h"
-#include "../rtiow_less.h"
-#include "../rtiow_has_verify.h"
-#include "../rtiow_sphere.h"
-#include "../rtiow_tuple.h"
+#include "../rtiow_ray_half.h"
+#include "../rtiow_hittable_sphere.h"
+#include "../rtiow_hittable_container.h"
 
 namespace
 {
 	typedef hryky::rtiow::Vec3<> fvec3;
 	typedef hryky::rtiow::Vec3<int32_t> ivec3;
-	typedef hryky::rtiow::Ray<> ray_type;
-	typedef hryky::rtiow::Sphere<> sphere_type;
+	typedef hryky::rtiow::ray::Half<> ray_type;
+	typedef hryky::rtiow::hittable::Sphere<> sphere_type;
+	typedef hryky::rtiow::hittable::Container<> container_type;
 
 	/// retrieves the color at the position where a ray intersects the screen.
 	template <typename HitableT>
@@ -37,9 +35,11 @@ int main (int argc, char * argv[])
 	fvec3 const horizontal(4.0f, 0.0f, 0.0f);
 	fvec3 const vertical(0.0f, 2.0f, 0.0f);
 
-	auto const world = hryky::rtiow::tuple(hryky::make_tuple(
-		sphere_type(fvec3(0.0f, 0.0f, -1.0f), 0.5f),
-		sphere_type(fvec3(0.0f, -100.5f, -1.0f), 100.0f)));
+	container_type world;
+	world.get().emplace_back(
+		new sphere_type(fvec3(0.0f, 0.0f, -1.0f), 0.5f));
+	world.get().emplace_back(
+		new sphere_type(fvec3(0.0f, -100.5f, -1.0f), 100.0f));
 
 	uint32_t y = 0u;
 	for (; height != y; ++y) {

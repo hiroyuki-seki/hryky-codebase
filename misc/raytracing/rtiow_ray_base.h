@@ -45,7 +45,7 @@ public :
 
 	typedef Base<hryky_template_arg> this_type;
 	typedef CoordT coord_type;
-	typedef CoordT::value_type rate_type;
+	typedef typename CoordT::value_type rate_type;
 
 	/// default constructor.
 	Base();
@@ -78,6 +78,16 @@ public :
 	template <typename StreamT>
 	StreamT & write_to(StreamT & out) const;
 
+	/// retrieves the origin of this ray.
+	coord_type const & origin() const;
+	
+	/// retrieves the direction of this ray.
+	coord_type const & direction() const;
+	
+	/// creates a position.
+	template <typename RateT>
+	coord_type point(RateT && rate) const;
+	
 	/// confirms whether the rate is valid on this ray.
 	bool verify(rate_type const rate) const;
 
@@ -86,7 +96,7 @@ protected :
 private :
 
 	/// implements verify().
-	virtual bool verify_impl(rate_type const rate) const;
+	virtual bool verify_impl(rate_type const rate) const = 0;
 
 	coord_type origin_;
 	coord_type direction_;
@@ -203,8 +213,7 @@ hryky::rtiow::ray::Base<hryky_template_arg>::direction() const
 template <hryky_template_param>
 template <typename RateT>
 typename hryky::rtiow::ray::Base<hryky_template_arg>::coord_type
-hryky::rtiow::ray::Base<hryky_template_arg>::point(
-	RateT const & rate) const
+hryky::rtiow::ray::Base<hryky_template_arg>::point(RateT && rate) const
 {
 	return this->origin_ + rate * this->direction_;
 }
@@ -223,15 +232,6 @@ bool hryky::rtiow::ray::Base<hryky_template_arg>::verify(
 //------------------------------------------------------------------------------
 // defines private member functions
 //------------------------------------------------------------------------------
-/**
-  @brief implements verify().
- */
-template <hryky_template_param>
-bool hryky::rtiow::ray::Base<hryky_template_arg>::verify_impl(
-	rate_type const rate) const
-{
-	return false;
-}
 //------------------------------------------------------------------------------
 // declares global functions
 //------------------------------------------------------------------------------

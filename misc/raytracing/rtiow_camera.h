@@ -7,7 +7,7 @@
 #ifndef RTIOW_CAMERA_H_20160717170529378
 #define RTIOW_CAMERA_H_20160717170529378
 #include "./rtiow_vec3.h"
-#include "./rtiow_ray.h"
+#include "./rtiow_ray_half.h"
 //------------------------------------------------------------------------------
 // defines macros
 //------------------------------------------------------------------------------
@@ -44,6 +44,7 @@ public :
 
 	typedef Camera<hryky_template_arg> this_type;
 	typedef VectorT vector_type;
+	typedef ray::Half<vector_type> ray_type;
 
 	/// default constructor.
 	Camera();
@@ -87,7 +88,7 @@ public :
 	StreamT & write_to(StreamT & out) const;
 
 	/// creates a new ray.
-	Ray<VectorT> ray(float const u, float const v) const;
+	ray_type ray(float const u, float const v) const;
 
 protected :
 
@@ -230,11 +231,11 @@ StreamT & hryky::rtiow::Camera<hryky_template_arg>::write_to(
   @brief creates a new ray.
  */
 template <hryky_template_param>
-hryky::rtiow::Ray<VectorT>
+typename hryky::rtiow::Camera<hryky_template_arg>::ray_type
 hryky::rtiow::Camera<hryky_template_arg>::ray(
 	float const u, float const v) const
 {
-	return Ray<VectorT>(
+	return ray_type(
 		this->origin_,
 		this->lower_left_
 		+ u * this->horizontal_

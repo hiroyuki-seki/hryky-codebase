@@ -6,7 +6,8 @@
  */
 #ifndef RTIOW_HITTABLE_SPHERE_H_20170116151851304
 #define RTIOW_HITTABLE_SPHERE_H_20170116151851304
-#include "./rtiow_material_base.h"
+#include <memory>
+#include "./rtiow_material_lambertian.h"
 #include "./rtiow_hittable_base.h"
 //------------------------------------------------------------------------------
 // defines macros
@@ -42,8 +43,8 @@ namespace hittable
   @brief retains the information for a sphere.
  */
 template <
-	typename RayT = hryky::rtiow::ray::Base<>
-	typename RandomizerT = hryky::rtiow::Randomizer<>
+	typename RayT = hryky::rtiow::ray::Base<>,
+	typename RandomizerT = hryky::rtiow::Randomizer<>,
 	typename MaterialT = hryky::rtiow::material::Base<>,
 	typename CenterT = hryky::rtiow::Vec3<>,
 	typename RadiusT = typename CenterT::value_type
@@ -58,7 +59,7 @@ public :
 	typedef typename base_type::randomizer_type randomizer_type;
 	typedef typename base_type::hit_type hit_type;
 	typedef Sphere<hryky_template_arg> this_type;
-	typedef MaterialT material_type;
+	typedef ::std::shared_ptr<MaterialT> material_type;
 	typedef CenterT center_type;
 	typedef RadiusT radius_type;
 
@@ -146,7 +147,7 @@ hryky::rtiow::hittable::Sphere<hryky_template_arg>::Sphere()
 	: base_type()
 	  , center_()
 	  , radius_()
-	  , material_()
+	  , material_(::std::make_shared<material::Lambertian<> >())
 {
 }
 /**
@@ -158,7 +159,7 @@ hryky::rtiow::hittable::Sphere<hryky_template_arg>::Sphere(
 	: base_type()
 	  , center_(center)
 	  , radius_(radius)
-	  , material_()
+	  , material_(::std::make_shared<material::Lambertian<> >())
 {
 }
 /**
@@ -274,7 +275,7 @@ hryky::rtiow::hittable::Sphere<hryky_template_arg>::material() const
   @brief checks if a ray intersects with this sphere.
  */
 template <hryky_template_param>
-hryky::rtiow::hittable::Sphere<hryky_template_arg>::hit_type
+typename hryky::rtiow::hittable::Sphere<hryky_template_arg>::hit_type
 hryky::rtiow::hittable::Sphere<hryky_template_arg>::hit_impl(
 	ray_type const & ray, randomizer_type & randomizer) const
 {
@@ -292,7 +293,7 @@ hryky::rtiow::hittable::Sphere<hryky_template_arg>::hit_impl(
 		auto const point = ray.point(closer);
 		auto const normal = (point - this->center()) / this->radius();
 		return hit_type(
-			this->material_.scatter(
+			this->material_->reflect(
 				ray.direction(), point, normal, randomizer),
 			point,
 			normal,
@@ -304,7 +305,7 @@ hryky::rtiow::hittable::Sphere<hryky_template_arg>::hit_impl(
 		auto const point = ray.point(further);
 		auto const normal = (point - this->center()) / this->radius();
 		return hit_type(
-			this->material_.scatter(
+			this->material_->reflect(
 				ray.direction(), point, normal, randomizer),
 			point,
 			normal,

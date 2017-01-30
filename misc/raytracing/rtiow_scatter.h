@@ -6,7 +6,8 @@
  */
 #ifndef RTIOW_SCATTER_H_20160724145548288
 #define RTIOW_SCATTER_H_20160724145548288
-#include "./rtiow_ray.h"
+#include "./rtiow_ray_half.h"
+#include "./rtiow_vec3.h"
 #include "hryky/with_is_null.h"
 //------------------------------------------------------------------------------
 // defines macros
@@ -35,8 +36,8 @@ namespace rtiow
   @brief retains the information for scattering.
  */
 template <
-	typename RayT = hryky::rtiow::Ray<>,
-	typename AttenuationT = typename RayT::vector_type
+	typename RayT = hryky::rtiow::ray::Half<>,
+	typename AttenuationT = typename hryky::rtiow::Vec3<>
 >
 class hryky::rtiow::Scatter
 	: public hryky::WithIsNull<Scatter<hryky_template_arg> >
