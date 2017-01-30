@@ -25,10 +25,13 @@ namespace hryky
 {
 namespace rtiow
 {
+namespace material
+{
 	/// retains information of a dielectric material.
 	template <hryky_template_param>
 	class Dielectric;
 
+} // namespace material
 } // namespace rtiow
 } // namespace hryky
 //------------------------------------------------------------------------------
@@ -155,7 +158,8 @@ hryky::rtiow::material::Dielectric<hryky_template_arg>::Dielectric(
   @brief copy constructor.
  */
 template <hryky_template_param>
-hryky::rtiow::material::Dielectric<hryky_template_arg>::Dielectric(this_type const & rhs)
+hryky::rtiow::material::Dielectric<hryky_template_arg>::Dielectric(
+	this_type const & rhs)
 	: base_type(rhs)
 	  , hryky_copy_member(refraction)
 {
@@ -164,7 +168,8 @@ hryky::rtiow::material::Dielectric<hryky_template_arg>::Dielectric(this_type con
   @brief move constructor.
  */
 template <hryky_template_param>
-hryky::rtiow::material::Dielectric<hryky_template_arg>::Dielectric(this_type && rhs)
+hryky::rtiow::material::Dielectric<hryky_template_arg>::Dielectric(
+	this_type && rhs)
 	: base_type(::std::move(rhs))
 	  , hryky_move_member(refraction)
 {
@@ -189,7 +194,8 @@ void hryky::rtiow::material::Dielectric<hryky_template_arg>::clear()
   @brief interchanges the each internal resources of two instances.
  */
 template <hryky_template_param>
-void hryky::rtiow::material::Dielectric<hryky_template_arg>::swap(this_type & src)
+void hryky::rtiow::material::Dielectric<hryky_template_arg>::swap(
+	this_type & src)
 {
 	this->base_type::swap(src);
 	hryky_swap_member(refraction);
@@ -199,7 +205,8 @@ void hryky::rtiow::material::Dielectric<hryky_template_arg>::swap(this_type & sr
  */
 template <hryky_template_param>
 template <typename StreamT>
-StreamT & hryky::rtiow::material::Dielectric<hryky_template_arg>::write_to(
+StreamT &
+hryky::rtiow::material::Dielectric<hryky_template_arg>::write_to(
 	StreamT & out) const
 {
 	stream::map::Scope<StreamT> const map(out);
@@ -209,7 +216,7 @@ StreamT & hryky::rtiow::material::Dielectric<hryky_template_arg>::write_to(
   @brief calculates the scattered ray.
  */
 template <hryky_template_param>
-hryky::rtiow::material::Dielectric<hryky_template_arg>::scatter_type
+typename hryky::rtiow::material::Dielectric<hryky_template_arg>::scatter_type
 hryky::rtiow::material::Dielectric<hryky_template_arg>::reflect_impl(
 	coord_type const & in,
 	coord_type const & pos,
@@ -237,7 +244,7 @@ hryky::rtiow::material::Dielectric<hryky_template_arg>::reflect_impl(
 	coord_type refracted;
 	if (!refract(refracted, in, outward_normal, refraction)
 		|| randomizer() < schlick(cos, this->refraction_)) {
-		return scatter_type(ray_type(pos, reflect(in, normal)), this->albedo_);
+		return scatter_type(ray_type(pos, reflect(in, normal)), this->albedo());
 	}
 
 #if RTIOW_DEBUG
@@ -249,7 +256,7 @@ hryky::rtiow::material::Dielectric<hryky_template_arg>::reflect_impl(
 	 << "}" << ::std::endl);
 #endif
 	
-	return scatter_type(ray_type(pos, refracted), this->albedo_);
+	return scatter_type(ray_type(pos, refracted), this->albedo());
 }
 //------------------------------------------------------------------------------
 // defines protected member functions

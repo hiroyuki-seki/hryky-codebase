@@ -2,20 +2,17 @@
 #include <random>
 
 #include "../rtiow_vec3.h"
-#include "../rtiow_ray.h"
-#include "../rtiow_greater.h"
-#include "../rtiow_less.h"
-#include "../rtiow_has_verify.h"
-#include "../rtiow_sphere.h"
-#include "../rtiow_tuple.h"
+#include "../rtiow_hittable_sphere.h"
+#include "../rtiow_hittable_container.h"
 #include "../rtiow_camera.h"
 
 namespace
 {
 	typedef hryky::rtiow::Vec3<> fvec3;
 	typedef hryky::rtiow::Vec3<int32_t> ivec3;
-	typedef hryky::rtiow::Ray<> ray_type;
-	typedef hryky::rtiow::Sphere<> sphere_type;
+	typedef hryky::rtiow::ray::Half<> ray_type;
+	typedef hryky::rtiow::hittable::Sphere<> sphere_type;
+	typedef hryky::rtiow::hittable::Container<> container_type;
 	typedef hryky::rtiow::Camera<> camera_type;
 
 	/// retrieves the color at the position where a ray intersects the screen.
@@ -44,10 +41,10 @@ int main (int argc, char * argv[])
 
 	camera_type const camera;
 
-	auto const world = hryky::rtiow::tuple(hryky::make_tuple(
-		sphere_type(fvec3(0.0f, 0.0f, -1.0f), 0.5f),
-		sphere_type(fvec3(0.0f, -100.5f, -1.0f), 100.0f)));
-
+	container_type world;
+	world.get().emplace_back(new sphere_type(fvec3(0.0f, 0.0f, -1.0f), 0.5f));
+	world.get().emplace_back(new sphere_type(fvec3(0.0f, -100.5f, -1.0f), 100.0f));
+	
 	::std::random_device rd;
 	::std::mt19937 gen(rd());
 	::std::uniform_real_distribution<float> dist(0.0f, 1.0f);

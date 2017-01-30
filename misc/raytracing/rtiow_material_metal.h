@@ -21,10 +21,13 @@ namespace hryky
 {
 namespace rtiow
 {
+namespace material
+{
 	/// retains parameters of a material as a metal.
 	template <hryky_template_param>
 	class Metal;
 
+} // namespace material
 } // namespace rtiow
 } // namespace hryky
 //------------------------------------------------------------------------------
@@ -96,7 +99,7 @@ private :
 		coord_type const & in,
 		coord_type const & pos,
 		coord_type const & normal,
-		RandomizerT & randomizer) const;
+		randomizer_type & randomizer) const;
 
 	fuzz_type fuzz_;
 };
@@ -206,7 +209,7 @@ StreamT & hryky::rtiow::material::Metal<hryky_template_arg>::write_to(StreamT & 
   @brief calculates the scattered ray.
  */
 template <hryky_template_param>
-hryky::rtiow::material::Metal<hryky_template_arg>::scatter_type
+typename hryky::rtiow::material::Metal<hryky_template_arg>::scatter_type
 hryky::rtiow::material::Metal<hryky_template_arg>::reflect_impl(
 	coord_type const & in,
 	coord_type const & pos,

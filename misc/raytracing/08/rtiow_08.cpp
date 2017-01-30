@@ -2,28 +2,25 @@
 #include <random>
 
 #include "../rtiow_vec3.h"
-#include "../rtiow_ray.h"
-#include "../rtiow_greater.h"
-#include "../rtiow_less.h"
-#include "../rtiow_has_verify.h"
-#include "../rtiow_sphere.h"
-#include "../rtiow_tuple.h"
+#include "../rtiow_ray_half.h"
+#include "../rtiow_hittable_sphere.h"
+#include "../rtiow_hittable_container.h"
 #include "../rtiow_camera.h"
 #include "../rtiow_randomizer.h"
-#include "../rtiow_lambertian.h"
-#include "../rtiow_metal.h"
+#include "../rtiow_material_lambertian.h"
+#include "../rtiow_material_metal.h"
 
 namespace
 {
 	typedef hryky::rtiow::Vec3<> fvec3;
 	typedef hryky::rtiow::Vec3<int32_t> ivec3;
-	typedef hryky::rtiow::Ray<> ray_type;
+	typedef hryky::rtiow::ray::Half<> ray_type;
 	typedef hryky::rtiow::Camera<> camera_type;
 	typedef hryky::rtiow::Randomizer<> randomizer_type;
-	typedef hryky::rtiow::Lambertian<> lambertian_type;
-	typedef hryky::rtiow::Metal<> metal_type;
-	typedef hryky::rtiow::Sphere<lambertian_type> lambert_sphere_type;
-	typedef hryky::rtiow::Sphere<metal_type> metal_sphere_type;
+	typedef hryky::rtiow::material::Lambertian<> lambertian_type;
+	typedef hryky::rtiow::material::Metal<> metal_type;
+	typedef hryky::rtiow::hittable::Sphere<> sphere_type;
+	typedef hryky::rtiow::hittable::Container<> container_type;
 
 	/// retrieves the color at the position where a ray intersects the screen.
 	template <typename HitableT, typename RandomizerT>
@@ -48,24 +45,23 @@ int main (int argc, char * argv[])
 
 	camera_type const camera;
 
-	auto const world = hryky::rtiow::tuple(hryky::make_tuple(
-		lambert_sphere_type(
-			fvec3(0.0f, 0.0f, -1.0f),
-			0.5f,
-			lambertian_type(fvec3(0.8f, 0.3f, 0.3f))),
-		lambert_sphere_type(
-			fvec3(0.0f, -100.5f, -1.0f),
-			100.0f,
-			lambertian_type(fvec3(0.8f, 0.8f, 0.3f))),
-		metal_sphere_type(
-			fvec3(1.0f, 0.0f, -1.0f),
-			0.5f,
-			metal_type(fvec3(0.8f, 0.6f, 0.2f), 1.0f)),
-		metal_sphere_type(
-			fvec3(-1.0f, 0.0f, -1.0f),
-			0.5f,
-			metal_type(fvec3(0.8f, 0.8f, 0.8f), 0.3f))
-		));
+	container_type world;
+	world.get().emplace_back(new sphere_type(
+		fvec3(0.0f, 0.0f, -1.0f),
+		0.5f,
+		::std::make_shared<lambertian_type>(fvec3(0.8f, 0.3f, 0.3f))));
+	world.get().emplace_back(new sphere_type(
+		fvec3(0.0f, -100.5f, -1.0f),
+		100.0f,
+		::std::make_shared<lambertian_type>(fvec3(0.8f, 0.8f, 0.3f))));
+	world.get().emplace_back(new sphere_type(
+		fvec3(1.0f, 0.0f, -1.0f),
+		0.5f,
+		::std::make_shared<metal_type>(fvec3(0.8f, 0.6f, 0.2f), 1.0f)));
+	world.get().emplace_back(new sphere_type(
+		fvec3(-1.0f, 0.0f, -1.0f),
+		0.5f,
+		::std::make_shared<metal_type>(fvec3(0.8f, 0.8f, 0.8f), 0.3f)));
 
 	::std::random_device rd;
 
