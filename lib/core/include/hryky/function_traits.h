@@ -716,11 +716,11 @@ public :
   specializes empty tuple as arguments.
  */
 template <typename RetT>
-class FunctionTraitsTuple<RetT, Tuple<> >
+class FunctionTraitsTuple<RetT, Tuple<Null> >
 {
 public :
 	typedef RetT result_type;
-	typedef Tuple<> args_type;
+	typedef Tuple<Null> args_type;
 	typedef void arg1_type;
 	typedef void arg2_type;
 	typedef void arg3_type;

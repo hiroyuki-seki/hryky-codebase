@@ -7,7 +7,6 @@
 #ifndef TUPLE_TYPES_H_20140729191522469
 #define TUPLE_TYPES_H_20140729191522469
 #include "hryky/tmp/tmp_list.h"
-#include "hryky/tuple/tuple_primal.h"
 //------------------------------------------------------------------------------
 // defines macros
 //------------------------------------------------------------------------------
@@ -20,6 +19,8 @@
 //------------------------------------------------------------------------------
 namespace hryky
 {
+	class Tuple0;
+	
 namespace tuple
 {
 	/// retrieves the list of types from tuple.
@@ -54,19 +55,10 @@ namespace tuple
   @brief retrieves the list of types from empty tuple.
  */
 template <>
-class Types<Tuple<hryky::Null, hryky::Null> >
+class Types<Tuple0>
 {
 public :
 	typedef tmp::null_list_type type;
-};
-/**
-  @brief retrieves the list of types from tuple with one element.
- */
-template <typename FirstT>
-class Types<Tuple<FirstT, hryky::Null> >
-{
-public :
-	typedef tmp::List<FirstT, tmp::null_list_type> type;
 };
 } // namespace tuple
 } // namespace hryky

@@ -6,7 +6,10 @@
  */
 #ifndef TUPLE_AT_H_20131015232250640
 #define TUPLE_AT_H_20131015232250640
+#include "hryky/tmp/tmp_equal.h"
+#include "hryky/tmp/tmp_increment.h"
 #include "hryky/tuple/tuple_size.h"
+#include "hryky/type_traits/integral_constant.h"
 //------------------------------------------------------------------------------
 // defines macros
 //------------------------------------------------------------------------------
@@ -28,7 +31,12 @@ namespace tuple
 namespace detail
 {
 	/// ascend the base of the tuple.
-	template <typename TupleT, size_t Count>
+	template <
+		typename TupleT,
+		typename CountT,
+		typename IndexT,
+		bool = tmp::Equal<CountT, IndexT>::type::value
+	>
 	class AtImpl;
 	
 } // namespace detail
@@ -49,18 +57,21 @@ class hryky::tuple::At
 public :
 	typedef typename detail::AtImpl<
 		TupleT,
-		Size<TupleT>::type::value - Index - 1>::type type;
+		IntegralConstant<size_t, 0u>,
+		IntegralConstant<size_t, Index>
+	>::type type;
 };
 /**
   ascends the base of the tuple.
  */
-template <typename TupleT, size_t Count>
+template <typename TupleT, typename CountT, typename IndexT, bool>
 class hryky::tuple::detail::AtImpl
 {
 public :
 	typedef typename detail::AtImpl<
 		typename TupleT::rest_type,
-		Count - 1u
+		tmp::Increment<CountT>,
+		IndexT
 	>::type type;
 };
 //------------------------------------------------------------------------------
@@ -75,8 +86,8 @@ namespace detail
 /**
   retrieves the tuple itself.
  */
-template <typename TupleT>
-class AtImpl<TupleT, 0u>
+template <typename TupleT, typename CountT, typename IndexT>
+class AtImpl<TupleT, CountT, IndexT, true>
 {
 public :
 	typedef TupleT type;

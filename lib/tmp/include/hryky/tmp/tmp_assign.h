@@ -127,16 +127,6 @@ public :
 	typedef typename List<
 		ValueT, typename ListT::rest_type>::type type;
 };
-/**
-  propagates the lazy evaluation.
- */
-template <typename ListT, typename IndexT, typename ValueT>
-class EvalImpl<AssignAtImpl<ListT, IndexT, ValueT> >
-{
-public :
-	typedef typename AssignAt<
-		Eval<ListT>, Eval<IndexT>, Eval<ValueT> >::type type;
-};
 } // namespace tmp
 } // namespace hryky
 //------------------------------------------------------------------------------

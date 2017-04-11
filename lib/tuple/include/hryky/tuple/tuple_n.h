@@ -103,117 +103,141 @@
 //------------------------------------------------------------------------------
 namespace hryky
 {
-	/// tuple which has one value.
+	/// tuple which has no value.
+	class Tuple0;
+
+	/// tuple which has a value.
 	template < hryky_tuple_param1 >
 	class Tuple1;
 
-	/// tuple which has two values.
+	/// tuple which has 2 values.
 	template < hryky_tuple_param2 >
 	class Tuple2;
 
-	/// tuple which has three values.
+	/// tuple which has 3 values.
 	template < hryky_tuple_param3 >
 	class Tuple3;
 
-	/// tuple which has four values.
-	template <hryky_tuple_param4 >
+	/// tuple which has 4 values.
+	template < hryky_tuple_param4 >
 	class Tuple4;
-
-	/// tuple which has five values.
-	template <hryky_tuple_param5>
-	class Tuple5;
-
-	/// tuple which has six values.
-	template <hryky_tuple_param6>
-	class Tuple6;
-
-	/// tuple which has seven values.
-	template <hryky_tuple_param7>
-	class Tuple7;
-
-	/// tuple which has eight values.
-	template <hryky_tuple_param8>
-	class Tuple8;
 
 } // namespace hryky
 //------------------------------------------------------------------------------
 // declares classes
 //------------------------------------------------------------------------------
 /**
-  @brief tuple which has one value.
+  @brief tuple which has no value.
  */
-template < hryky_tuple_param1 >
-class hryky::Tuple1 : public hryky::Tuple< Arg1T >
+class hryky::Tuple0 : public Tuple< Tuple0 >
 {
 public :
 
-	typedef hryky::Tuple1<hryky_tuple_arg1> this_type;
-	typedef hryky_tuple_base1 base_type;
+	typedef hryky::Tuple0 this_type;
+	typedef Null first_type;
+	typedef Tuple0 rest_type;
 
-	/// constructor with parameter
-	Tuple1(hryky_tuple_rvalue1)
-		: base_type(arg1)
+	Tuple0()
 	{}
 
-	template <typename RhsT>
-	Tuple1(RhsT const & rhs)
-		: base_type(rhs)
+	Tuple0(this_type const &)
 	{
 	}
 
-	template <typename RhsT>
-	Tuple1(RhsT && rhs)
-		: base_type(::std::move(rhs))
+	Tuple0(this_type &&)
 	{
 	}
 
 	template <typename StreamT>
 	StreamT & write_to(StreamT & out) const
 	{
-		return this->base_type::write_to(out);
+		return out;
 	}
 
 protected :
 
 private :
 
+
+};
+/**
+  @brief tuple which has one value.
+ */
+template < hryky_tuple_param1 >
+class hryky::Tuple1 : public Tuple< Tuple1<hryky_tuple_arg1> >
+{
+public :
+
+	typedef hryky::Tuple1<hryky_tuple_arg1> this_type;
+	typedef Arg1T first_type;
+	typedef Tuple0 rest_type;
+	typedef Tuple<Tuple1> base_type;
+
+	Tuple1(hryky_tuple_const_reference1)
+		: arg1_(arg1)
+	{}
+
+	template <typename StreamT>
+	StreamT & write_to(StreamT & out) const
+	{
+		out << this->arg1_;
+		return out;
+	}
+
+	Arg1T arg1_;
+	
+protected :
+
+private :
+
+
 };
 /**
   @brief tuple which has two values.
  */
 template < hryky_tuple_param2 >
-class hryky::Tuple2 : public hryky_tuple_base2
+class hryky::Tuple2 : public Tuple< Tuple2<hryky_tuple_arg2> >
 {
 public :
 	typedef hryky::Tuple2<hryky_tuple_arg2> this_type;
-	typedef hryky_tuple_base2 base_type;
+	typedef Arg1T first_type;
+	typedef Tuple1<Arg2T> rest_type;
+	typedef Tuple<Tuple2> base_type;
 
 	/// constructor with parameters
 	Tuple2(hryky_tuple_rvalue2)
-		: hryky_tuple_rvalue_initial2()
+		: arg1_(::std::forward<Arg1T>(arg1))
+		  , arg2_(::std::forward<Arg2T>(arg2))
 	{}
 
 	Tuple2(hryky_tuple_const_reference2)
-		: hryky_tuple_initial2()
+		: arg1_(arg1)
+		  , arg2_(arg2)
 	{}
 
 	template <typename RhsT>
 	Tuple2(RhsT const & rhs)
-		: base_type(rhs)
+		: hryky_copy_member(arg1)
+		  , hryky_copy_member(arg2)
 	{
 	}
 
 	template <typename RhsT>
 	Tuple2(RhsT && rhs)
-		: base_type(::std::move(rhs))
+		: hryky_move_member(arg1)
+		  , hryky_move_member(arg2)
 	{
 	}
 
 	template <typename StreamT>
 	StreamT & write_to(StreamT & out) const
 	{
-		return this->base_type::write_to(out);
+		out << this->arg1_ << this->arg2_;
+		return out;
 	}
+
+	Arg1T arg1_;
+	Arg2T arg2_;
 
 protected :
 
@@ -224,39 +248,54 @@ private :
   @brief tuple which has three values.
  */
 template < hryky_tuple_param3 >
-class hryky::Tuple3 : public hryky_tuple_base3
+class hryky::Tuple3 : public hryky::Tuple< Tuple3<hryky_tuple_arg3> >
 {
 public :
 
 	typedef Tuple3<hryky_tuple_arg3> this_type;
-	typedef hryky_tuple_base3 base_type;
+	typedef Arg1T first_type;
+	typedef Tuple2<Arg2T, Arg3T> rest_type;
+	typedef Tuple<Tuple3> base_type;
 
 	/// constructor with parameters
 	Tuple3(hryky_tuple_rvalue3)
-		: hryky_tuple_rvalue_initial3()
+		: arg1_(::std::forward<Arg1T>(arg1))
+		  , arg2_(::std::forward<Arg2T>(arg2))
+		  , arg3_(::std::forward<Arg3T>(arg3))
 	{}
 
 	Tuple3(hryky_tuple_const_reference3)
-		: hryky_tuple_initial3()
+		: arg1_(arg1)
+		  , arg2_(arg2)
+		  , arg3_(arg3)
 	{}
 
 	template <typename RhsT>
 	Tuple3(RhsT const & rhs)
-		: base_type(rhs)
+		: hryky_copy_member(arg1)
+		  , hryky_copy_member(arg2)
+		  , hryky_copy_member(arg3)
 	{
 	}
 
 	template <typename RhsT>
 	Tuple3(RhsT && rhs)
-		: base_type(::std::move(rhs))
+		: hryky_move_member(arg1)
+		  , hryky_move_member(arg2)
+		  , hryky_move_member(arg3)
 	{
 	}
 
 	template <typename StreamT>
 	StreamT & write_to(StreamT & out) const
 	{
-		return this->base_type::write_to(out);
+		out << this->arg1_ << this->arg2_ << this->arg3_;
+		return out;
 	}
+
+	Arg1T arg1_;
+	Arg2T arg2_;
+	Arg3T arg3_;
 
 protected :
 
@@ -264,213 +303,62 @@ private :
 
 };
 /**
-  @brief tuple which has four values.
+  @brief tuple which has 4 values.
  */
-template <hryky_tuple_param4 >
-class hryky::Tuple4 : public hryky_tuple_base4
+template < hryky_tuple_param4 >
+class hryky::Tuple4 : public hryky::Tuple< Tuple4<hryky_tuple_arg4> >
 {
 public :
 
 	typedef Tuple4<hryky_tuple_arg4> this_type;
-	typedef hryky_tuple_base4 base_type;
+	typedef Arg1T first_type;
+	typedef Tuple3<Arg2T, Arg3T, Arg4T> rest_type;
+	typedef Tuple<Tuple4> base_type;
 
 	/// constructor with parameters
 	Tuple4(hryky_tuple_rvalue4)
-		: hryky_tuple_rvalue_initial4()
+		: arg1_(::std::forward<Arg1T>(arg1))
+		  , arg2_(::std::forward<Arg2T>(arg2))
+		  , arg3_(::std::forward<Arg3T>(arg3))
+		  , arg4_(::std::forward<Arg4T>(arg4))
 	{}
 
 	Tuple4(hryky_tuple_const_reference4)
-		: hryky_tuple_initial4()
+		: arg1_(arg1)
+		  , arg2_(arg2)
+		  , arg3_(arg3)
+		  , arg4_(arg4)
 	{}
 
 	template <typename RhsT>
 	Tuple4(RhsT const & rhs)
-		: base_type(rhs)
+		: hryky_copy_member(arg1)
+		  , hryky_copy_member(arg2)
+		  , hryky_copy_member(arg3)
+		  , hryky_copy_member(arg4)
 	{
 	}
 
 	template <typename RhsT>
 	Tuple4(RhsT && rhs)
-		: base_type(::std::move(rhs))
+		: hryky_move_member(arg1)
+		  , hryky_move_member(arg2)
+		  , hryky_move_member(arg3)
+		  , hryky_move_member(arg4)
 	{
 	}
 
 	template <typename StreamT>
 	StreamT & write_to(StreamT & out) const
 	{
-		return this->base_type::write_to(out);
+		out << this->arg1_ << this->arg2_ << this->arg3_ << this->arg4_;
+		return out;
 	}
 
-protected :
-
-private :
-
-};
-/**
-  @brief tuple which has five values.
- */
-template <hryky_tuple_param5>
-class hryky::Tuple5 : public hryky_tuple_base5
-{
-public :
-
-	typedef Tuple5<hryky_tuple_arg5> this_type;
-	typedef hryky_tuple_base5 base_type;
-
-	/// constructor with parameters
-	Tuple5(hryky_tuple_rvalue5)
-		: hryky_tuple_rvalue_initial5()
-	{}
-
-	Tuple5(hryky_tuple_const_reference5)
-		: hryky_tuple_initial5()
-	{}
-
-	template <typename RhsT>
-	Tuple5(RhsT const & rhs)
-		: base_type(rhs)
-	{
-	}
-
-	template <typename RhsT>
-	Tuple5(RhsT && rhs)
-		: base_type(::std::move(rhs))
-	{
-	}
-
-	template <typename StreamT>
-	StreamT & write_to(StreamT & out) const
-	{
-		return this->base_type::write_to(out);
-	}
-
-protected :
-
-private :
-
-};
-/**
-  @brief tuple which has six values.
- */
-template <hryky_tuple_param6 >
-class hryky::Tuple6 : public hryky_tuple_base6
-{
-public :
-
-	typedef Tuple6<hryky_tuple_arg6> this_type;
-	typedef hryky_tuple_base6 base_type;
-
-	/// constructor with parameters
-	Tuple6(hryky_tuple_rvalue6)
-		: hryky_tuple_rvalue_initial6()
-	{}
-
-	Tuple6(hryky_tuple_const_reference6)
-		: hryky_tuple_initial6()
-	{}
-
-	template <typename RhsT>
-	Tuple6(RhsT const & rhs)
-		: base_type(rhs)
-	{
-	}
-
-	template <typename RhsT>
-	Tuple6(RhsT && rhs)
-		: base_type(::std::move(rhs))
-	{
-	}
-
-	template <typename StreamT>
-	StreamT & write_to(StreamT & out) const
-	{
-		return this->base_type::write_to(out);
-	}
-
-protected :
-
-private :
-
-};
-/**
-  @brief tuple which has seven values.
- */
-template <hryky_tuple_param7 >
-class hryky::Tuple7 : public hryky_tuple_base7
-{
-public :
-
-	typedef Tuple7<hryky_tuple_arg7> this_type;
-	typedef hryky_tuple_base7 base_type;
-
-	/// constructor with parameters
-	Tuple7(hryky_tuple_rvalue7)
-		: hryky_tuple_rvalue_initial7()
-	{}
-
-	Tuple7(hryky_tuple_const_reference7)
-		: hryky_tuple_initial7()
-	{}
-
-	template <typename RhsT>
-	Tuple7(RhsT const & rhs)
-		: base_type(rhs)
-	{
-	}
-
-	template <typename RhsT>
-	Tuple7(RhsT && rhs)
-		: base_type(::std::move(rhs))
-	{
-	}
-
-	template <typename StreamT>
-	StreamT & write_to(StreamT & out) const
-	{
-		return this->base_type::write_to(out);
-	}
-
-protected :
-
-private :
-
-};
-/**
-  @brief tuple which has eight values.
- */
-template <hryky_tuple_param8 >
-class hryky::Tuple8 : public hryky_tuple_base8
-{
-public :
-	typedef Tuple8<hryky_tuple_arg8> this_type;
-	typedef hryky_tuple_base8 base_type;
-
-	/// constructor with parameters
-	Tuple8(hryky_tuple_rvalue8)
-		: hryky_tuple_rvalue_initial8()
-	{}
-
-	Tuple8(hryky_tuple_const_reference8)
-		: hryky_tuple_initial8()
-	{}
-
-	template <typename RhsT>
-	Tuple8(RhsT const & rhs)
-		: base_type(rhs)
-	{
-	}
-
-	template <typename RhsT>
-	Tuple8(RhsT && rhs)
-		: base_type(::std::move(rhs))
-	{
-	}
-
-	template <typename StreamT>
-	StreamT & write_to(StreamT & out) const
-	{
-		return this->base_type::write_to(out);
-	}
+	Arg1T arg1_;
+	Arg2T arg2_;
+	Arg3T arg3_;
+	Arg4T arg4_;
 
 protected :
 
@@ -497,6 +385,9 @@ namespace hryky
 //------------------------------------------------------------------------------
 namespace hryky
 {
+	/// creates a tuple which has no value.
+	Tuple0 make_tuple();
+
 	/// creates a tuple which has one value.
 	template <hryky_tuple_param1 >
 	Tuple1<hryky_tuple_arg1> make_tuple(hryky_tuple_rvalue1);
@@ -509,32 +400,24 @@ namespace hryky
 	template <hryky_tuple_param3 >
 	Tuple3<hryky_tuple_arg3> make_tuple(hryky_tuple_rvalue3);
 
-	/// creates a tuple which has four values.
+	/// creates a tuple which has three values.
 	template <hryky_tuple_param4 >
 	Tuple4<hryky_tuple_arg4> make_tuple(hryky_tuple_rvalue4);
 
-	/// creates a tuple which has five values.
-	template <hryky_tuple_param5 >
-	Tuple5<hryky_tuple_arg5> make_tuple(hryky_tuple_rvalue5);
-
-	/// creates a tuple which has six values.
-	template <hryky_tuple_param6 >
-	Tuple6<hryky_tuple_arg6> make_tuple(hryky_tuple_rvalue6);
-
-	/// creates a tuple which has seven values.
-	template <hryky_tuple_param7 >
-	Tuple7<hryky_tuple_arg7>
-		make_tuple(hryky_tuple_rvalue7);
-
-	/// creates a tuple which has eight values.
-	template <hryky_tuple_param8 >
-	Tuple8<hryky_tuple_arg8>
-		make_tuple(hryky_tuple_rvalue8);
 
 } // namespace hryky
 //------------------------------------------------------------------------------
 // defines global functions
 //------------------------------------------------------------------------------
+/**
+  @brief creates a tuple which has no value.
+ */
+inline
+hryky::Tuple0
+hryky::make_tuple()
+{
+	return Tuple0();
+}
 /**
   @brief creates a tuple which has one value.
  */
@@ -563,49 +446,13 @@ hryky::make_tuple(hryky_tuple_rvalue3)
 	return Tuple3<hryky_tuple_arg3>(hryky_tuple_forward3);
 }
 /**
-  @brief creates a tuple which has five values.
+  @brief creates a tuple which has 4 values.
  */
 template <hryky_tuple_param4 >
 hryky::Tuple4<hryky_tuple_arg4>
 hryky::make_tuple(hryky_tuple_rvalue4)
 {
 	return Tuple4<hryky_tuple_arg4>(hryky_tuple_forward4);
-}
-/**
-  @brief creates a tuple which has five values.
- */
-template <hryky_tuple_param5 >
-hryky::Tuple5<hryky_tuple_arg5>
-hryky::make_tuple(hryky_tuple_rvalue5)
-{
-	return Tuple5<hryky_tuple_arg5>(hryky_tuple_forward5);
-}
-/**
-  @brief creates a tuple which has six values.
- */
-template <hryky_tuple_param6 >
-hryky::Tuple6<hryky_tuple_arg6>
-hryky::make_tuple(hryky_tuple_rvalue6)
-{
-	return Tuple6<hryky_tuple_arg6>(hryky_tuple_forward6);
-}
-/**
-  @brief creates a tuple which has seven values.
- */
-template <hryky_tuple_param7 >
-hryky::Tuple7<hryky_tuple_arg7>
-hryky::make_tuple(hryky_tuple_rvalue7)
-{
-	return Tuple7<hryky_tuple_arg7>(hryky_tuple_forward7);
-}
-/**
-  @brief creates a tuple which has eight values.
- */
-template <hryky_tuple_param8 >
-hryky::Tuple8<hryky_tuple_arg8>
-hryky::make_tuple(hryky_tuple_rvalue8)
-{
-	return Tuple8<hryky_tuple_arg8>(hryky_tuple_forward8);
 }
 //------------------------------------------------------------------------------
 // revokes macros

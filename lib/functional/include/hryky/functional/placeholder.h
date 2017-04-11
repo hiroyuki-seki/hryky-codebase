@@ -59,7 +59,8 @@ namespace hryky
 {
 	/// binds the actual arguments.
 	template <typename FromsT, size_t Index>
-	typename hryky::tuple::At<FromsT, Index>::type::first_param_type
+	typename AsParameter<
+		typename tuple::At<FromsT, Index>::type::first_type>::type
 		bind_arg(FromsT const & froms, Placeholder<Index> const &);
 
 	/// binds the actual arguments with the specified valud.
@@ -74,7 +75,8 @@ namespace hryky
   @brief binds the actual arguments.
  */
 template <typename FromsT, size_t Index>
-typename hryky::tuple::At<FromsT, Index>::type::first_param_type
+typename hryky::AsParameter<
+	typename hryky::tuple::At<FromsT, Index>::type::first_type>::type
 hryky::bind_arg(
 	FromsT const & froms, Placeholder<Index> const &)
 {

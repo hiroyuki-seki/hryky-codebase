@@ -52,7 +52,9 @@ template <hryky_template_param>
 class hryky::tmp::AddImpl
 {
 public :
-	typedef AddImpl<hryky_template_arg> type;
+	typedef IntegralConstant<
+		decltype(LhsT::value + RhsT::value),
+		(LhsT::value + RhsT::value)> type;
 };
 //------------------------------------------------------------------------------
 // specializes classes
@@ -61,28 +63,6 @@ namespace hryky
 {
 namespace tmp
 {
-/**
-  add an integer to an other integer.
- */
-template <typename LhsT, LhsT Lhs, typename RhsT, RhsT Rhs>
-class AddImpl<
-	IntegralConstant<LhsT, Lhs>,
-	IntegralConstant<RhsT, Rhs>
->
-{
-public :
-	typedef IntegralConstant<
-		decltype(Lhs + Rhs), (Lhs + Rhs)> type;
-};
-/**
-  propagates the lazy evaluation.
- */
-template <hryky_template_param>
-class EvalImpl<AddImpl<hryky_template_arg> >
-{
-public :
-	typedef typename Add<Eval<LhsT>, Eval<RhsT> >::type type;
-};
 } // namespace tmp
 } // namespace hryky
 //------------------------------------------------------------------------------

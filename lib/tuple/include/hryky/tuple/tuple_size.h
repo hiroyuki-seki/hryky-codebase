@@ -21,9 +21,8 @@
 //------------------------------------------------------------------------------
 namespace hryky
 {
-	template <typename FirstT, typename RestT>
-	class Tuple;
-
+	class Tuple0;
+	
 namespace tuple
 {
 	/// retrieves the number of elements in a tuple.
@@ -57,16 +56,7 @@ namespace tuple
   The tuple is empty.
  */
 template <>
-class Size<Tuple<hryky::Null, hryky::Null> >
-{
-public :
-	typedef IntegralConstant<size_t, 0> type;
-};
-/**
-  The tuple is empty.
- */
-template <>
-class Size<hryky::Null>
+class Size<Tuple0 >
 {
 public :
 	typedef IntegralConstant<size_t, 0> type;

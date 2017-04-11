@@ -11,7 +11,7 @@
 #include "hryky/exclusion/exclusion_mutex.h"
 #include "hryky/with_stream_out.h"
 #include "hryky/with_swap.h"
-#include "hryky/tuple/tuple_primal.h"
+#include "hryky/tuple/tuple_n.h"
 #include "hryky/function_traits.h"
 //------------------------------------------------------------------------------
 // defines macros
@@ -30,7 +30,7 @@ namespace runnable
 	/// the interface to invoke a function at a concurrent unit
 	template <
 		typename RetT = void,
-		typename ArgsT = Tuple<>,
+		typename ArgsT = Tuple0,
 		typename LockableT = exclusion::Mutex
 	>
 	class Base;

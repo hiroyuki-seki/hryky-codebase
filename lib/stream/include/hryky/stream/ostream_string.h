@@ -162,6 +162,10 @@ public :
 	this_type & operator<<(
 		Endl const & rhs);
 
+	/// appends a nullptr.
+	this_type & operator<<(
+		::std::nullptr_t);
+
 	/// output the information to a stream.
 	template <typename RhsT>
 	this_type & operator<<(
@@ -1068,6 +1072,16 @@ hryky::ostream::String<hryky_template_arg>::operator<<(
 	Endl const & rhs)
 {
 	return this->write(rhs);
+}
+/**
+  @brief appends a nullptr.
+ */
+template <hryky_template_param>
+hryky::ostream::String<hryky_template_arg> &
+hryky::ostream::String<hryky_template_arg>::operator<<(
+	::std::nullptr_t)
+{
+	return this->write(hryky_nullptr);
 }
 #if hryky_msvs_ver
 /**

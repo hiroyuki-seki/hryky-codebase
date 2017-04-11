@@ -202,7 +202,7 @@ void hryky::event::Facility::on_quit()
 	if (hryky_is_null(this->on_quit_)) {
 		return;
 	}
-	this->on_quit_->run(Tuple<>());
+	this->on_quit_->run(make_tuple());
 }
 /**
   @brief arises for rendering.
@@ -212,7 +212,7 @@ bool hryky::event::Facility::on_draw()
 	if (hryky_is_null(this->on_draw_)) {
 		return true;
 	}
-	return this->on_draw_->run(Tuple<>());
+	return this->on_draw_->run(make_tuple());
 }
 /**
   @brief handles events in one loop.

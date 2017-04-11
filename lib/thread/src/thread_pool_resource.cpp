@@ -211,7 +211,7 @@ void hryky::thread::pool::Resource::run()
 		
 		if (!hryky_is_null(runnable)) {
 			++this->used_count_;
-			runnable->run(Tuple<>());
+			runnable->run(make_tuple());
 		}
 	}
 
