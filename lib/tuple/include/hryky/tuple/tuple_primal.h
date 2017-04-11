@@ -104,12 +104,12 @@ class Tuple<DerivedT>::At<0, DummyT>
 		typename tuple::At<DerivedT, 0>::type::first_type>::type
 			arg(DerivedT const & derived)
 	{
-		return derived.arg1_;
+		return derived.v1_;
 	}
 	static typename tuple::At<DerivedT, 0>::type::first_type &
 		arg(DerivedT & derived)
 	{
-		return derived.arg1_;
+		return derived.v1_;
 	}
 };
 template <typename DerivedT>
@@ -122,12 +122,12 @@ class Tuple<DerivedT>::At<1, DummyT>
 		typename tuple::At<DerivedT, 1>::type::first_type>::type
 			arg(DerivedT const & derived)
 	{
-		return derived.arg2_;
+		return derived.v2_;
 	}
 	static typename tuple::At<DerivedT, 1>::type::first_type &
 		arg(DerivedT & derived)
 	{
-		return derived.arg2_;
+		return derived.v2_;
 	}
 };
 template <typename DerivedT>
@@ -140,12 +140,12 @@ class Tuple<DerivedT>::At<2, DummyT>
 		typename tuple::At<DerivedT, 2>::type::first_type>::type
 			arg(DerivedT const & derived)
 	{
-		return derived.arg3_;
+		return derived.v3_;
 	}
 	static typename tuple::At<DerivedT, 2>::type::first_type &
 		arg(DerivedT & derived)
 	{
-		return derived.arg3_;
+		return derived.v3_;
 	}
 };
 } // namespace tuple

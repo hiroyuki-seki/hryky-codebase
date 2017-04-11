@@ -10,93 +10,97 @@
 //------------------------------------------------------------------------------
 // defines macros
 //------------------------------------------------------------------------------
-#define hryky_tuple_param1 typename Arg1T
-#define hryky_tuple_param2 hryky_tuple_param1, typename Arg2T
-#define hryky_tuple_param3 hryky_tuple_param2, typename Arg3T
-#define hryky_tuple_param4 hryky_tuple_param3, typename Arg4T
-#define hryky_tuple_param5 hryky_tuple_param4, typename Arg5T
-#define hryky_tuple_param6 hryky_tuple_param5, typename Arg6T
-#define hryky_tuple_param7 hryky_tuple_param6, typename Arg7T
-#define hryky_tuple_param8 hryky_tuple_param7, typename Arg8T
+#define hryky_template_param1 typename A1T
+#define hryky_template_param2 hryky_template_param1, typename A2T
+#define hryky_template_param3 hryky_template_param2, typename A3T
+#define hryky_template_param4 hryky_template_param3, typename A4T
+#define hryky_template_param5 hryky_template_param4, typename A5T
+#define hryky_template_param6 hryky_template_param5, typename A6T
+#define hryky_template_param7 hryky_template_param6, typename A7T
+#define hryky_template_param8 hryky_template_param7, typename A8T
 
-#define hryky_tuple_rvalue1 Arg1T && arg1
-#define hryky_tuple_rvalue2 hryky_tuple_rvalue1, Arg2T && arg2
-#define hryky_tuple_rvalue3 hryky_tuple_rvalue2, Arg3T && arg3
-#define hryky_tuple_rvalue4 hryky_tuple_rvalue3, Arg4T && arg4
-#define hryky_tuple_rvalue5 hryky_tuple_rvalue4, Arg5T && arg5
-#define hryky_tuple_rvalue6 hryky_tuple_rvalue5, Arg6T && arg6
-#define hryky_tuple_rvalue7 hryky_tuple_rvalue6, Arg7T && arg7
-#define hryky_tuple_rvalue8 hryky_tuple_rvalue7, Arg8T && arg8
+#define hryky_rval_arg1 A1T && v1
+#define hryky_rval_arg2 hryky_rval_arg1, A2T && v2
+#define hryky_rval_arg3 hryky_rval_arg2, A3T && v3
+#define hryky_rval_arg4 hryky_rval_arg3, A4T && v4
+#define hryky_rval_arg5 hryky_rval_arg4, A5T && v5
+#define hryky_rval_arg6 hryky_rval_arg5, A6T && v6
+#define hryky_rval_arg7 hryky_rval_arg6, A7T && v7
+#define hryky_rval_arg8 hryky_rval_arg7, A8T && v8
 
-#define hryky_tuple_arg1 Arg1T
-#define hryky_tuple_arg2 hryky_tuple_arg1, Arg2T
-#define hryky_tuple_arg3 hryky_tuple_arg2, Arg3T
-#define hryky_tuple_arg4 hryky_tuple_arg3, Arg4T
-#define hryky_tuple_arg5 hryky_tuple_arg4, Arg5T
-#define hryky_tuple_arg6 hryky_tuple_arg5, Arg6T
-#define hryky_tuple_arg7 hryky_tuple_arg6, Arg7T
-#define hryky_tuple_arg8 hryky_tuple_arg7, Arg8T
+#define hryky_rval_init1() v1_(::std::forward<A1T>(v1))
+#define hryky_rval_init2() hryky_rval_init1(), v2_(::std::forward<A2T>(v2))
+#define hryky_rval_init3() hryky_rval_init2(), v3_(::std::forward<A3T>(v3))
+#define hryky_rval_init4() hryky_rval_init3(), v4_(::std::forward<A4T>(v4))
 
-#define hryky_tuple_const_reference1 \
-	typename AddConstReference<Arg1T>::type arg1
-#define hryky_tuple_const_reference2 \
-	hryky_tuple_const_reference1, typename AddConstReference<Arg2T>::type arg2
-#define hryky_tuple_const_reference3 \
-	hryky_tuple_const_reference2, typename AddConstReference<Arg3T>::type arg3
-#define hryky_tuple_const_reference4 \
-	hryky_tuple_const_reference3, typename AddConstReference<Arg4T>::type arg4
-#define hryky_tuple_const_reference5 \
-	hryky_tuple_const_reference4, typename AddConstReference<Arg5T>::type arg5
-#define hryky_tuple_const_reference6 \
-	hryky_tuple_const_reference5, typename AddConstReference<Arg6T>::type arg6
-#define hryky_tuple_const_reference7 \
-	hryky_tuple_const_reference6, typename AddConstReference<Arg7T>::type arg7
-#define hryky_tuple_const_reference8 \
-	hryky_tuple_const_reference7, typename AddConstReference<Arg8T>::type arg8
+#define hryky_const_init1() v1_(v1)
+#define hryky_const_init2() hryky_const_init1(), v2_(v2)
+#define hryky_const_init3() hryky_const_init2(), v3_(v3)
+#define hryky_const_init4() hryky_const_init3(), v4_(v4)
 
-#define hryky_tuple_base1 hryky::Tuple<Arg1T >
-#define hryky_tuple_base2 hryky::Tuple<Arg2T, hryky_tuple_base1 >
-#define hryky_tuple_base3 hryky::Tuple<Arg3T, hryky_tuple_base2 >
-#define hryky_tuple_base4 hryky::Tuple<Arg4T, hryky_tuple_base3 >
-#define hryky_tuple_base5 hryky::Tuple<Arg5T, hryky_tuple_base4 >
-#define hryky_tuple_base6 hryky::Tuple<Arg6T, hryky_tuple_base5 >
-#define hryky_tuple_base7 hryky::Tuple<Arg7T, hryky_tuple_base6 >
-#define hryky_tuple_base8 hryky::Tuple<Arg8T, hryky_tuple_base7 >
+#define hryky_copy_init1() hryky_copy_member(v1)
+#define hryky_copy_init2() hryky_copy_init1(), hryky_copy_member(v2)
+#define hryky_copy_init3() hryky_copy_init2(), hryky_copy_member(v3)
+#define hryky_copy_init4() hryky_copy_init3(), hryky_copy_member(v4)
 
-#define hryky_tuple_initial1() hryky_tuple_base1(arg1)
-#define hryky_tuple_initial2() hryky_tuple_base2(arg2, hryky_tuple_initial1())
-#define hryky_tuple_initial3() hryky_tuple_base3(arg3, hryky_tuple_initial2())
-#define hryky_tuple_initial4() hryky_tuple_base4(arg4, hryky_tuple_initial3())
-#define hryky_tuple_initial5() hryky_tuple_base5(arg5, hryky_tuple_initial4())
-#define hryky_tuple_initial6() hryky_tuple_base6(arg6, hryky_tuple_initial5())
-#define hryky_tuple_initial7() hryky_tuple_base7(arg7, hryky_tuple_initial6())
-#define hryky_tuple_initial8() hryky_tuple_base8(arg8, hryky_tuple_initial7())
+#define hryky_move_init1() hryky_move_member(v1)
+#define hryky_move_init2() hryky_move_init1(), hryky_move_member(v2)
+#define hryky_move_init3() hryky_move_init2(), hryky_move_member(v3)
+#define hryky_move_init4() hryky_move_init3(), hryky_move_member(v4)
 
-#define hryky_tuple_rvalue_initial1() \
-	hryky_tuple_base1(::std::forward<Arg1T>(arg1))
-#define hryky_tuple_rvalue_initial2() \
-	hryky_tuple_base2(::std::forward<Arg2T>(arg2), hryky_tuple_rvalue_initial1())
-#define hryky_tuple_rvalue_initial3() \
-	hryky_tuple_base3(::std::forward<Arg3T>(arg3), hryky_tuple_rvalue_initial2())
-#define hryky_tuple_rvalue_initial4() \
-	hryky_tuple_base4(::std::forward<Arg4T>(arg4), hryky_tuple_rvalue_initial3())
-#define hryky_tuple_rvalue_initial5() \
-	hryky_tuple_base5(::std::forward<Arg5T>(arg5), hryky_tuple_rvalue_initial4())
-#define hryky_tuple_rvalue_initial6() \
-	hryky_tuple_base6(::std::forward<Arg6T>(arg6), hryky_tuple_rvalue_initial5())
-#define hryky_tuple_rvalue_initial7() \
-	hryky_tuple_base7(::std::forward<Arg7T>(arg7), hryky_tuple_rvalue_initial6())
-#define hryky_tuple_rvalue_initial8() \
-	hryky_tuple_base8(::std::forward<Arg8T>(arg8), hryky_tuple_rvalue_initial7())
+#define hryky_write1 this->v1_
+#define hryky_write2 hryky_write1 << this->v2_
+#define hryky_write3 hryky_write2 << this->v3_
+#define hryky_write4 hryky_write3 << this->v4_
 
-#define hryky_tuple_forward1 ::std::forward<Arg1T>(arg1)
-#define hryky_tuple_forward2 hryky_tuple_forward1, ::std::forward<Arg2T>(arg2)
-#define hryky_tuple_forward3 hryky_tuple_forward2, ::std::forward<Arg3T>(arg3)
-#define hryky_tuple_forward4 hryky_tuple_forward3, ::std::forward<Arg4T>(arg4)
-#define hryky_tuple_forward5 hryky_tuple_forward4, ::std::forward<Arg5T>(arg5)
-#define hryky_tuple_forward6 hryky_tuple_forward5, ::std::forward<Arg6T>(arg6)
-#define hryky_tuple_forward7 hryky_tuple_forward6, ::std::forward<Arg7T>(arg7)
-#define hryky_tuple_forward8 hryky_tuple_forward7, ::std::forward<Arg8T>(arg8)
+#define hryky_def1 A1T v1_;
+#define hryky_def2 hryky_def1; A2T v2_;
+#define hryky_def3 hryky_def2; A3T v3_;
+#define hryky_def4 hryky_def3; A4T v4_;
+
+#define hryky_rest2 A2T
+#define hryky_rest3 hryky_rest2, A3T
+#define hryky_rest4 hryky_rest3, A4T
+
+#define hryky_make1 typename hryky::RemoveConstReference<A1T>::type
+#define hryky_make2 hryky_make1, typename hryky::RemoveConstReference<A2T>::type
+#define hryky_make3 hryky_make2, typename hryky::RemoveConstReference<A3T>::type
+#define hryky_make4 hryky_make3, typename hryky::RemoveConstReference<A4T>::type
+
+#define hryky_template_arg1 A1T
+#define hryky_template_arg2 hryky_template_arg1, A2T
+#define hryky_template_arg3 hryky_template_arg2, A3T
+#define hryky_template_arg4 hryky_template_arg3, A4T
+#define hryky_template_arg5 hryky_template_arg4, A5T
+#define hryky_template_arg6 hryky_template_arg5, A6T
+#define hryky_template_arg7 hryky_template_arg6, A7T
+#define hryky_template_arg8 hryky_template_arg7, A8T
+
+#define hryky_const_arg1 \
+	typename AddConstReference<A1T>::type v1
+#define hryky_const_arg2 \
+	hryky_const_arg1, typename AddConstReference<A2T>::type v2
+#define hryky_const_arg3 \
+	hryky_const_arg2, typename AddConstReference<A3T>::type v3
+#define hryky_const_arg4 \
+	hryky_const_arg3, typename AddConstReference<A4T>::type v4
+#define hryky_const_arg5 \
+	hryky_const_arg4, typename AddConstReference<A5T>::type v5
+#define hryky_const_arg6 \
+	hryky_const_arg5, typename AddConstReference<A6T>::type v6
+#define hryky_const_arg7 \
+	hryky_const_arg6, typename AddConstReference<A7T>::type v7
+#define hryky_const_arg8 \
+	hryky_const_arg7, typename AddConstReference<A8T>::type v8
+
+#define hryky_forward_arg1 ::std::forward<A1T>(v1)
+#define hryky_forward_arg2 hryky_forward_arg1, ::std::forward<A2T>(v2)
+#define hryky_forward_arg3 hryky_forward_arg2, ::std::forward<A3T>(v3)
+#define hryky_forward_arg4 hryky_forward_arg3, ::std::forward<A4T>(v4)
+#define hryky_forward_arg5 hryky_forward_arg4, ::std::forward<A5T>(v5)
+#define hryky_forward_arg6 hryky_forward_arg5, ::std::forward<A6T>(v6)
+#define hryky_forward_arg7 hryky_forward_arg6, ::std::forward<A7T>(v7)
+#define hryky_forward_arg8 hryky_forward_arg7, ::std::forward<A8T>(v8)
 
 //------------------------------------------------------------------------------
 // declares types
@@ -107,19 +111,19 @@ namespace hryky
 	class Tuple0;
 
 	/// tuple which has a value.
-	template < hryky_tuple_param1 >
+	template < hryky_template_param1 >
 	class Tuple1;
 
 	/// tuple which has 2 values.
-	template < hryky_tuple_param2 >
+	template < hryky_template_param2 >
 	class Tuple2;
 
 	/// tuple which has 3 values.
-	template < hryky_tuple_param3 >
+	template < hryky_template_param3 >
 	class Tuple3;
 
 	/// tuple which has 4 values.
-	template < hryky_tuple_param4 >
+	template < hryky_template_param4 >
 	class Tuple4;
 
 } // namespace hryky
@@ -163,28 +167,32 @@ private :
 /**
   @brief tuple which has one value.
  */
-template < hryky_tuple_param1 >
-class hryky::Tuple1 : public Tuple< Tuple1<hryky_tuple_arg1> >
+template < hryky_template_param1 >
+class hryky::Tuple1 : public Tuple< Tuple1<hryky_template_arg1> >
 {
 public :
 
-	typedef hryky::Tuple1<hryky_tuple_arg1> this_type;
-	typedef Arg1T first_type;
+	typedef hryky::Tuple1<hryky_template_arg1> this_type;
+	typedef A1T first_type;
 	typedef Tuple0 rest_type;
 	typedef Tuple<Tuple1> base_type;
 
-	Tuple1(hryky_tuple_const_reference1)
-		: arg1_(arg1)
+	Tuple1(hryky_rval_arg1)
+		: hryky_rval_init1()
+	{}
+
+	Tuple1(hryky_const_arg1)
+		: hryky_const_init1()
 	{}
 
 	template <typename StreamT>
 	StreamT & write_to(StreamT & out) const
 	{
-		out << this->arg1_;
+		out << hryky_write1;
 		return out;
 	}
 
-	Arg1T arg1_;
+	hryky_def1;
 	
 protected :
 
@@ -195,49 +203,44 @@ private :
 /**
   @brief tuple which has two values.
  */
-template < hryky_tuple_param2 >
-class hryky::Tuple2 : public Tuple< Tuple2<hryky_tuple_arg2> >
+template < hryky_template_param2 >
+class hryky::Tuple2 : public Tuple< Tuple2<hryky_template_arg2> >
 {
 public :
-	typedef hryky::Tuple2<hryky_tuple_arg2> this_type;
-	typedef Arg1T first_type;
-	typedef Tuple1<Arg2T> rest_type;
+	typedef hryky::Tuple2<hryky_template_arg2> this_type;
+	typedef A1T first_type;
+	typedef Tuple1<hryky_rest2> rest_type;
 	typedef Tuple<Tuple2> base_type;
 
 	/// constructor with parameters
-	Tuple2(hryky_tuple_rvalue2)
-		: arg1_(::std::forward<Arg1T>(arg1))
-		  , arg2_(::std::forward<Arg2T>(arg2))
+	Tuple2(hryky_rval_arg2)
+		: hryky_rval_init2()
 	{}
 
-	Tuple2(hryky_tuple_const_reference2)
-		: arg1_(arg1)
-		  , arg2_(arg2)
+	Tuple2(hryky_const_arg2)
+		: hryky_const_init2()
 	{}
 
 	template <typename RhsT>
 	Tuple2(RhsT const & rhs)
-		: hryky_copy_member(arg1)
-		  , hryky_copy_member(arg2)
+		: hryky_copy_init2()
 	{
 	}
 
 	template <typename RhsT>
 	Tuple2(RhsT && rhs)
-		: hryky_move_member(arg1)
-		  , hryky_move_member(arg2)
+		: hryky_move_init2()
 	{
 	}
 
 	template <typename StreamT>
 	StreamT & write_to(StreamT & out) const
 	{
-		out << this->arg1_ << this->arg2_;
+		out << hryky_write2;
 		return out;
 	}
 
-	Arg1T arg1_;
-	Arg2T arg2_;
+	hryky_def2;
 
 protected :
 
@@ -247,55 +250,45 @@ private :
 /**
   @brief tuple which has three values.
  */
-template < hryky_tuple_param3 >
-class hryky::Tuple3 : public hryky::Tuple< Tuple3<hryky_tuple_arg3> >
+template < hryky_template_param3 >
+class hryky::Tuple3 : public hryky::Tuple< Tuple3<hryky_template_arg3> >
 {
 public :
 
-	typedef Tuple3<hryky_tuple_arg3> this_type;
-	typedef Arg1T first_type;
-	typedef Tuple2<Arg2T, Arg3T> rest_type;
+	typedef Tuple3<hryky_template_arg3> this_type;
+	typedef A1T first_type;
+	typedef Tuple2<hryky_rest3> rest_type;
 	typedef Tuple<Tuple3> base_type;
 
 	/// constructor with parameters
-	Tuple3(hryky_tuple_rvalue3)
-		: arg1_(::std::forward<Arg1T>(arg1))
-		  , arg2_(::std::forward<Arg2T>(arg2))
-		  , arg3_(::std::forward<Arg3T>(arg3))
+	Tuple3(hryky_rval_arg3)
+		: hryky_rval_init3()
 	{}
 
-	Tuple3(hryky_tuple_const_reference3)
-		: arg1_(arg1)
-		  , arg2_(arg2)
-		  , arg3_(arg3)
+	Tuple3(hryky_const_arg3)
+		: hryky_const_init3()
 	{}
 
 	template <typename RhsT>
 	Tuple3(RhsT const & rhs)
-		: hryky_copy_member(arg1)
-		  , hryky_copy_member(arg2)
-		  , hryky_copy_member(arg3)
+		: hryky_copy_init3()
 	{
 	}
 
 	template <typename RhsT>
 	Tuple3(RhsT && rhs)
-		: hryky_move_member(arg1)
-		  , hryky_move_member(arg2)
-		  , hryky_move_member(arg3)
+		: hryky_move_init3()
 	{
 	}
 
 	template <typename StreamT>
 	StreamT & write_to(StreamT & out) const
 	{
-		out << this->arg1_ << this->arg2_ << this->arg3_;
+		out << hryky_write3;
 		return out;
 	}
 
-	Arg1T arg1_;
-	Arg2T arg2_;
-	Arg3T arg3_;
+	hryky_def3;
 
 protected :
 
@@ -305,60 +298,45 @@ private :
 /**
   @brief tuple which has 4 values.
  */
-template < hryky_tuple_param4 >
-class hryky::Tuple4 : public hryky::Tuple< Tuple4<hryky_tuple_arg4> >
+template < hryky_template_param4 >
+class hryky::Tuple4 : public hryky::Tuple< Tuple4<hryky_template_arg4> >
 {
 public :
 
-	typedef Tuple4<hryky_tuple_arg4> this_type;
-	typedef Arg1T first_type;
-	typedef Tuple3<Arg2T, Arg3T, Arg4T> rest_type;
+	typedef Tuple4<hryky_template_arg4> this_type;
+	typedef A1T first_type;
+	typedef Tuple3<hryky_rest4> rest_type;
 	typedef Tuple<Tuple4> base_type;
 
 	/// constructor with parameters
-	Tuple4(hryky_tuple_rvalue4)
-		: arg1_(::std::forward<Arg1T>(arg1))
-		  , arg2_(::std::forward<Arg2T>(arg2))
-		  , arg3_(::std::forward<Arg3T>(arg3))
-		  , arg4_(::std::forward<Arg4T>(arg4))
+	Tuple4(hryky_rval_arg4)
+		: hryky_rval_init4()
 	{}
 
-	Tuple4(hryky_tuple_const_reference4)
-		: arg1_(arg1)
-		  , arg2_(arg2)
-		  , arg3_(arg3)
-		  , arg4_(arg4)
+	Tuple4(hryky_const_arg4)
+		: hryky_const_init4()
 	{}
 
 	template <typename RhsT>
 	Tuple4(RhsT const & rhs)
-		: hryky_copy_member(arg1)
-		  , hryky_copy_member(arg2)
-		  , hryky_copy_member(arg3)
-		  , hryky_copy_member(arg4)
+		: hryky_copy_init4()
 	{
 	}
 
 	template <typename RhsT>
 	Tuple4(RhsT && rhs)
-		: hryky_move_member(arg1)
-		  , hryky_move_member(arg2)
-		  , hryky_move_member(arg3)
-		  , hryky_move_member(arg4)
+		: hryky_move_init4()
 	{
 	}
 
 	template <typename StreamT>
 	StreamT & write_to(StreamT & out) const
 	{
-		out << this->arg1_ << this->arg2_ << this->arg3_ << this->arg4_;
+		out << hryky_write4;
 		return out;
 	}
 
-	Arg1T arg1_;
-	Arg2T arg2_;
-	Arg3T arg3_;
-	Arg4T arg4_;
+	hryky_def4;
 
 protected :
 
@@ -389,20 +367,20 @@ namespace hryky
 	Tuple0 make_tuple();
 
 	/// creates a tuple which has one value.
-	template <hryky_tuple_param1 >
-	Tuple1<hryky_tuple_arg1> make_tuple(hryky_tuple_rvalue1);
+	template <hryky_template_param1 >
+	Tuple1<hryky_make1> make_tuple(hryky_rval_arg1);
 
 	/// creates a tuple which has two values.
-	template <hryky_tuple_param2 >
-	Tuple2<hryky_tuple_arg2> make_tuple(hryky_tuple_rvalue2);
+	template <hryky_template_param2 >
+	Tuple2<hryky_make2> make_tuple(hryky_rval_arg2);
 
 	/// creates a tuple which has three values.
-	template <hryky_tuple_param3 >
-	Tuple3<hryky_tuple_arg3> make_tuple(hryky_tuple_rvalue3);
+	template <hryky_template_param3 >
+	Tuple3<hryky_make3> make_tuple(hryky_rval_arg3);
 
 	/// creates a tuple which has three values.
-	template <hryky_tuple_param4 >
-	Tuple4<hryky_tuple_arg4> make_tuple(hryky_tuple_rvalue4);
+	template <hryky_template_param4 >
+	Tuple4<hryky_make4> make_tuple(hryky_rval_arg4);
 
 
 } // namespace hryky
@@ -421,113 +399,125 @@ hryky::make_tuple()
 /**
   @brief creates a tuple which has one value.
  */
-template <hryky_tuple_param1 >
-hryky::Tuple1<hryky_tuple_arg1>
-hryky::make_tuple(hryky_tuple_rvalue1)
+template <hryky_template_param1 >
+hryky::Tuple1<hryky_make1>
+hryky::make_tuple(hryky_rval_arg1)
 {
-	return Tuple1<hryky_tuple_arg1>(hryky_tuple_forward1);
+	return Tuple1<hryky_make1>(hryky_forward_arg1);
 }
 /**
   @brief creates a tuple which has two values.
  */
-template <hryky_tuple_param2 >
-hryky::Tuple2<hryky_tuple_arg2>
-hryky::make_tuple(hryky_tuple_rvalue2)
+template <hryky_template_param2 >
+hryky::Tuple2<hryky_make2>
+hryky::make_tuple(hryky_rval_arg2)
 {
-	return Tuple2<hryky_tuple_arg2>(hryky_tuple_forward2);
+	return Tuple2<hryky_make2>(hryky_forward_arg2);
 }
 /**
   @brief creates a tuple which has three values.
  */
-template <hryky_tuple_param3 >
-hryky::Tuple3<hryky_tuple_arg3>
-hryky::make_tuple(hryky_tuple_rvalue3)
+template <hryky_template_param3 >
+hryky::Tuple3<hryky_make3>
+hryky::make_tuple(hryky_rval_arg3)
 {
-	return Tuple3<hryky_tuple_arg3>(hryky_tuple_forward3);
+	return Tuple3<hryky_make3>(hryky_forward_arg3);
 }
 /**
   @brief creates a tuple which has 4 values.
  */
-template <hryky_tuple_param4 >
-hryky::Tuple4<hryky_tuple_arg4>
-hryky::make_tuple(hryky_tuple_rvalue4)
+template <hryky_template_param4 >
+hryky::Tuple4<hryky_make4>
+hryky::make_tuple(hryky_rval_arg4)
 {
-	return Tuple4<hryky_tuple_arg4>(hryky_tuple_forward4);
+	return Tuple4<hryky_make4>(hryky_forward_arg4);
 }
 //------------------------------------------------------------------------------
 // revokes macros
 //------------------------------------------------------------------------------
-#undef hryky_tuple_param1
-#undef hryky_tuple_param2
-#undef hryky_tuple_param3
-#undef hryky_tuple_param4
-#undef hryky_tuple_param5
-#undef hryky_tuple_param6
-#undef hryky_tuple_param7
-#undef hryky_tuple_param8
+#undef hryky_template_param1
+#undef hryky_template_param2
+#undef hryky_template_param3
+#undef hryky_template_param4
+#undef hryky_template_param5
+#undef hryky_template_param6
+#undef hryky_template_param7
+#undef hryky_template_param8
 
-#undef hryky_tuple_rvalue1
-#undef hryky_tuple_rvalue2
-#undef hryky_tuple_rvalue3
-#undef hryky_tuple_rvalue4
-#undef hryky_tuple_rvalue5
-#undef hryky_tuple_rvalue6
-#undef hryky_tuple_rvalue7
-#undef hryky_tuple_rvalue8
+#undef hryky_rval_arg1
+#undef hryky_rval_arg2
+#undef hryky_rval_arg3
+#undef hryky_rval_arg4
+#undef hryky_rval_arg5
+#undef hryky_rval_arg6
+#undef hryky_rval_arg7
+#undef hryky_rval_arg8
 
-#undef hryky_tuple_arg1
-#undef hryky_tuple_arg2
-#undef hryky_tuple_arg3
-#undef hryky_tuple_arg4
-#undef hryky_tuple_arg5
-#undef hryky_tuple_arg6
-#undef hryky_tuple_arg7
-#undef hryky_tuple_arg8
+#undef hryky_rval_init1
+#undef hryky_rval_init2
+#undef hryky_rval_init3
+#undef hryky_rval_init4
 
-#undef hryky_tuple_const_reference1
-#undef hryky_tuple_const_reference2
-#undef hryky_tuple_const_reference3
-#undef hryky_tuple_const_reference4
-#undef hryky_tuple_const_reference5
-#undef hryky_tuple_const_reference6
-#undef hryky_tuple_const_reference7
-#undef hryky_tuple_const_reference8
+#undef hryky_const_init1
+#undef hryky_const_init2
+#undef hryky_const_init3
+#undef hryky_const_init4
 
-#undef hryky_tuple_base1
-#undef hryky_tuple_base2
-#undef hryky_tuple_base3
-#undef hryky_tuple_base4
-#undef hryky_tuple_base5
-#undef hryky_tuple_base6
-#undef hryky_tuple_base7
-#undef hryky_tuple_base8
+#undef hryky_copy_init1
+#undef hryky_copy_init2
+#undef hryky_copy_init3
+#undef hryky_copy_init4
 
-#undef hryky_tuple_initial1
-#undef hryky_tuple_initial2
-#undef hryky_tuple_initial3
-#undef hryky_tuple_initial4
-#undef hryky_tuple_initial5
-#undef hryky_tuple_initial6
-#undef hryky_tuple_initial7
-#undef hryky_tuple_initial8
+#undef hryky_move_init1
+#undef hryky_move_init2
+#undef hryky_move_init3
+#undef hryky_move_init4
 
-#undef hryky_tuple_rvalue_initial1
-#undef hryky_tuple_rvalue_initial2
-#undef hryky_tuple_rvalue_initial3
-#undef hryky_tuple_rvalue_initial4
-#undef hryky_tuple_rvalue_initial5
-#undef hryky_tuple_rvalue_initial6
-#undef hryky_tuple_rvalue_initial7
-#undef hryky_tuple_rvalue_initial8
+#undef hryky_write1
+#undef hryky_write2
+#undef hryky_write3
+#undef hryky_write4
 
-#undef hryky_tuple_forward1
-#undef hryky_tuple_forward2
-#undef hryky_tuple_forward3
-#undef hryky_tuple_forward4
-#undef hryky_tuple_forward5
-#undef hryky_tuple_forward6
-#undef hryky_tuple_forward7
-#undef hryky_tuple_forward8
+#undef hryky_def1
+#undef hryky_def2
+#undef hryky_def3
+#undef hryky_def4
+
+#undef hryky_rest2
+#undef hryky_rest3
+#undef hryky_rest4
+
+#undef hryky_make1
+#undef hryky_make2
+#undef hryky_make3
+#undef hryky_make4
+
+#undef hryky_template_arg1
+#undef hryky_template_arg2
+#undef hryky_template_arg3
+#undef hryky_template_arg4
+#undef hryky_template_arg5
+#undef hryky_template_arg6
+#undef hryky_template_arg7
+#undef hryky_template_arg8
+
+#undef hryky_const_arg1
+#undef hryky_const_arg2
+#undef hryky_const_arg3
+#undef hryky_const_arg4
+#undef hryky_const_arg5
+#undef hryky_const_arg6
+#undef hryky_const_arg7
+#undef hryky_const_arg8
+
+#undef hryky_forward_arg1
+#undef hryky_forward_arg2
+#undef hryky_forward_arg3
+#undef hryky_forward_arg4
+#undef hryky_forward_arg5
+#undef hryky_forward_arg6
+#undef hryky_forward_arg7
+#undef hryky_forward_arg8
 
 #endif // TUPLE_N_H_20131015230751630
 // end of file
