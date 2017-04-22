@@ -1,0 +1,10 @@
+au GUIEnter * simalt ~x
+set hlsearch
+set list
+set listchars=tab:>-,trail:-
+set number
+syntax on
+set verbose=0
+nnoremap <M-x><C-s> :mksession!<CR>
+nnoremap <C-s> :w<CR>
+
