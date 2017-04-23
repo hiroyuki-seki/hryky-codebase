@@ -29,13 +29,19 @@ set tabstop=4
 set noexpandtab
 
 let g:hryky={}
-function hryky.StrDate(...)
+function hryky.Date(...)
 	return strftime("%Y-%m-%d", 0 <# a:0 ? a:1 : localtime())
 endfunction
-function hryky.StrTime(...)
+function hryky.Time(...)
 	return strftime("%H:%M:%S", 0 <# a:0 ? a:1 : localtime())
 endfunction
-function hryky.StrDateTime(...)
+function hryky.DateTime(...)
 	let time = 0 <# a:0 ? a:1 : localtime()
-	return g:hryky.StrDate(time) . "T" . g:hryky.StrTime(time)
+	return g:hryky.Date(time) . "T" . g:hryky.Time(time)
+endfunction
+function hryky.IncludeGuard()
+	return toupper(
+		\substitute(
+			\substitute(expand("%:t").g:hryky.DateTime(),"[\-\:]","","g"),
+			\"[\.\-]","_","g"))
 endfunction
