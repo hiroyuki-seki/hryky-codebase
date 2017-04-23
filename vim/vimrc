@@ -1,10 +1,30 @@
-au GUIEnter * simalt ~x
+"maximizes Window.
+autocmd GUIEnter * simalt ~x 
+
+nnoremap <C-s><C-s> :w<CR>
+nnoremap <C-s><C-a> :mksession!<CR>
+nnoremap <C-s><C-k> :bp<Bar>:bd<Space>#<CR>
+nnoremap <F11> :cnext<CR>
+set guioptions-=m
+set guioptions-=T
+set guioptions-=r
+set guioptions-=R
+set guioptions-=l
+set guioptions-=L
+set guioptions-=b
+set grepprg=grep\ -n\ --exclude=tags\ --exclude=TAGS\ --exclude=XTAGS
 set hlsearch
+set iminsert=0 "disables Input Method in Insert mode.
+set imsearch=0 "disables Input Method when entering a search parttern.
 set list
 set listchars=tab:>-,trail:-
 set number
-syntax on
+set autoindent
+set smartindent
+set statusline=%f\ (%l,%c)\ %y\ %m\ %r
 set verbose=0
-nnoremap <M-x><C-s> :mksession!<CR>
-nnoremap <C-s> :w<CR>
+syntax on
+set shiftwidth=4
+set tabstop=4
+set noexpandtab
 

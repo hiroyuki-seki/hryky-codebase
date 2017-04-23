@@ -20,3 +20,5 @@ misc/raytracing/*/*.exe
 misc/raytracing/*/*.ppm
 tool/build/define_variables_custom.bat
 external
+.*.swp
+tags
