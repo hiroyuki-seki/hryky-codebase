@@ -28,3 +28,14 @@ set shiftwidth=4
 set tabstop=4
 set noexpandtab
 
+let g:hryky={}
+function hryky.StrDate(...)
+	return strftime("%Y-%m-%d", 0 <# a:0 ? a:1 : localtime())
+endfunction
+function hryky.StrTime(...)
+	return strftime("%H:%M:%S", 0 <# a:0 ? a:1 : localtime())
+endfunction
+function hryky.StrDateTime(...)
+	let time = 0 <# a:0 ? a:1 : localtime()
+	return g:hryky.StrDate(time) . "T" . g:hryky.StrTime(time)
+endfunction
