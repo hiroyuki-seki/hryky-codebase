@@ -5,6 +5,7 @@ nnoremap <C-s><C-s> :w<CR>
 nnoremap <C-s><C-a> :mksession!<CR>
 nnoremap <C-s><C-k> :bp<Bar>:bd<Space>#<CR>
 nnoremap <F11> :cnext<CR>
+nnoremap <Space> ma
 set guioptions-=m
 set guioptions-=T
 set guioptions-=r
@@ -17,31 +18,109 @@ set hlsearch
 set iminsert=0 "disables Input Method in Insert mode.
 set imsearch=0 "disables Input Method when entering a search parttern.
 set list
-set listchars=tab:>-,trail:-
+set listchars=tab:>-,trail:$
 set number
 set autoindent
 set smartindent
-set statusline=%f\ (%l,%c)\ %y\ %m\ %r
+set statusline=%f\ (%l\,%c)%y%m%r%{g:hryky.Statusline()}
 set verbose=0
 syntax on
 set shiftwidth=4
 set tabstop=4
 set noexpandtab
+"-------------------------------------------------------------------------------
+"functions used in this script
+"-------------------------------------------------------------------------------
+"retrieves the EOL format of the current file.
+function! s:EolFormat()
+	return &fileformat
+endfunction
 
-let g:hryky={}
-function hryky.Date(...)
+"retrieves the character encoding of the current file.
+function! s:Encoding()
+	let enc = &fileencoding
+	let enc = empty(enc) ? &encoding : enc
+	return enc.(&l:bomb?"+BOM":"")
+endfunction
+
+"retrieves the current date as string.
+function! s:Date(...)
 	return strftime("%Y-%m-%d", 0 <# a:0 ? a:1 : localtime())
 endfunction
-function hryky.Time(...)
+
+"retrieves the current time as string.
+function! s:Time(...)
 	return strftime("%H:%M:%S", 0 <# a:0 ? a:1 : localtime())
 endfunction
-function hryky.DateTime(...)
-	let time = 0 <# a:0 ? a:1 : localtime()
-	return g:hryky.Date(time) . "T" . g:hryky.Time(time)
+
+"retrieves a comment line as a border.
+function! s:CommentBorder()
+	return "//".repeat("-",78)
 endfunction
-function hryky.IncludeGuard()
+
+"retrieves the definition of C++ namespace.
+function! s:DefNamespace(...)
+	let args = 0 <# a:0 ? a:1 : {}
+	let str = (has_key(args,'namespace')
+		\? args['namespace']
+		\: input("namespace is: ", "", "cscope"))
+	let namespaces = split(str, ':\+')
+	let ret = ""
+	for namespace in namespaces
+		if "*" ==# namespace
+			let namespace = ""
+		endif
+		let ret .= "namespace ".namespace." {\<CR>"
+	endfor
+	for namespace in reverse(namespaces)
+		if "*" ==# namespace
+			let namespace = ""
+		endif
+		let ret .= "}// namespace ".namespace."\<CR>"
+	endfor
+	echom "DefNamespace()=>".ret
+	return ret
+endfunction
+
+"retrieves comment lines as a headline.
+function! s:CommentHeadline(...)
+	let str = 0 <# a:0 ? a:1 : input("description is: ")
+	return s:CommentBorder()."\n"
+		\."// ".str."\n"
+		\.s:CommentBorder()."\n"
+endfunction
+
+"retrieves an Include Guard used as a macro.
+function! s:IncludeGuard()
 	return toupper(
 		\substitute(
 			\substitute(expand("%:t").g:hryky.DateTime(),"[\-\:]","","g"),
 			\"[\.\-]","_","g"))
 endfunction
+
+"-------------------------------------------------------------------------------
+"functions used from outside of this script
+"-------------------------------------------------------------------------------
+let g:hryky={}
+
+"retrieves the statusline
+function! hryky.Statusline()
+	let enc = s:Encoding()
+	let eol = s:EolFormat()
+	return (empty(enc)?'':'['.enc.']')
+		\.(empty(eol)?'':'['.eol.']')
+endfunction
+
+"retrieves the current date and time as string.
+function! hryky.DateTime(...)
+	let time = 0 <# a:0 ? a:1 : localtime()
+	return s:Date(time) . "T" . s:Time(time)
+endfunction
+
+"-------------------------------------------------------------------------------
+"commands
+"-------------------------------------------------------------------------------
+command! -nargs=0 DefNamespace exec "normal i".s:DefNamespace()
+command! -nargs=? CommentHeadline exec "normal i".s:CommentHeadline(<args>)
+command! -nargs=0 ktIncludeGuard exec "normal i".s:IncludeGuard()
+
