@@ -1,34 +1,41 @@
 "maximizes Window.
 autocmd GUIEnter * simalt ~x 
 
+language messages en
 nnoremap <C-s><C-s> :w<CR>
 nnoremap <C-s><C-a> :mksession!<CR>
 nnoremap <C-s><C-k> :bp<Bar>:bd<Space>#<CR>
 nnoremap <F11> :cnext<CR>
 nnoremap <S-F11> :cprevious<CR>
 nnoremap <Space> ma
-set guioptions-=m
-set guioptions-=T
-set guioptions-=r
-set guioptions-=R
-set guioptions-=l
-set guioptions-=L
-set guioptions-=b
+set autoindent
+set encoding=utf-8
 set grepprg=grep\ -n\ --exclude=tags\ --exclude=TAGS\ --exclude=XTAGS
+set guioptions-=L
+set guioptions-=R
+set guioptions-=T
+set guioptions-=b
+set guioptions-=l
+set guioptions-=m
+set guioptions-=r
 set hlsearch
 set iminsert=0 "disables Input Method in Insert mode.
 set imsearch=0 "disables Input Method when entering a search parttern.
 set list
 set listchars=tab:>-,trail:$
+set noexpandtab
 set number
-set autoindent
+set shiftwidth=4
 set smartindent
 set statusline=%f\ (%l\,%c)%y%m%r%{g:hryky.Statusline()}
-set verbose=0
-syntax on
-set shiftwidth=4
 set tabstop=4
-set noexpandtab
+set verbose=0
+if has('win32')
+	set guifontwide=MS_Gothic:h10
+	set guifont=Lucida_Console:h10
+	set ambiwidth=double
+endif
+syntax on
 "-------------------------------------------------------------------------------
 "functions used in this script
 "-------------------------------------------------------------------------------
