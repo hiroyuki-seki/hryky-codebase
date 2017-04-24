@@ -5,6 +5,7 @@ nnoremap <C-s><C-s> :w<CR>
 nnoremap <C-s><C-a> :mksession!<CR>
 nnoremap <C-s><C-k> :bp<Bar>:bd<Space>#<CR>
 nnoremap <F11> :cnext<CR>
+nnoremap <S-F11> :cprevious<CR>
 nnoremap <Space> ma
 set guioptions-=m
 set guioptions-=T
@@ -58,12 +59,26 @@ function! s:CommentBorder()
 	return "//".repeat("-",78)
 endfunction
 
+"call input() conservatively.
+function! s:Input(prompt, ...)
+	let text = 0 <# a:0 ? a:1 : ""
+	let completion = 1 <# a:0 ? a:2 : ""
+	call inputsave()
+	if empty(completion)
+		let input = input(a:prompt, text)
+	else
+		let input = input(a:prompt, text, completion)
+	endif
+	call inputrestore()
+	return input
+endfunction
+
 "retrieves the definition of C++ namespace.
 function! s:DefNamespace(...)
 	let args = 0 <# a:0 ? a:1 : {}
 	let str = (has_key(args,'namespace')
 		\? args['namespace']
-		\: input("namespace is: ", "", "cscope"))
+		\: s:Input("namespace is: ", "", "cscope"))
 	let namespaces = split(str, ':\+')
 	let ret = ""
 	for namespace in namespaces
@@ -84,7 +99,7 @@ endfunction
 
 "retrieves comment lines as a headline.
 function! s:CommentHeadline(...)
-	let str = 0 <# a:0 ? a:1 : input("description is: ")
+	let str = 0 <# a:0 ? a:1 : s:Input("description is: ")
 	return s:CommentBorder()."\n"
 		\."// ".str."\n"
 		\.s:CommentBorder()."\n"
@@ -96,6 +111,54 @@ function! s:IncludeGuard()
 		\substitute(
 			\substitute(expand("%:t").g:hryky.DateTime(),"[\-\:]","","g"),
 			\"[\.\-]","_","g"))
+endfunction
+
+"retrieves the argument from the dictionary.
+function! s:Arg(dict, key, ...)
+	let defvalue = 0 <# a:0 ? a:1 : ""
+	let has_key = has_key(a:dict, a:key)
+	if 1 <# a:0
+		let ret = has_key ? a:dict[a:key] : s:Input(a:key." is: ", defvalue, a:2)
+	else
+		let ret = has_key ? a:dict[a:key] : s:Input(a:key." is: ", defvalue)
+	endif
+	return ret
+endfunction
+
+"retrieves the declaration of a function.
+function! s:DeclFunction(...)
+	let args = 0 <# a:0 ? a:1 : {}
+	let funcname = s:Arg(args, 'funcname', '', 'cscope')
+	let funcargs = s:Arg(args, 'funcargs')
+	let rettype = s:Arg(args, 'rettype', '', 'cscope')
+	let brief = s:Arg(args, 'brief')
+	let desc = '/// '.brief."\n".rettype.' '.funcname.'('.funcargs.');'
+	return desc
+endfunction
+
+"retrieves the definition of a function.
+function! s:DefFunction(...)
+	let args = 0 <# a:0 ? a:1 : {}
+	let namespace = s:Arg(args, 'namespace', '', 'cscope')
+	let funcname = s:Arg(args, 'funcname', '', 'cscope')
+	let funcargs = s:Arg(args, 'funcargs')
+	let rettype = s:Arg(args, 'rettype', '', 'cscope')
+	let brief = s:Arg(args, 'brief')
+	let desc = 
+		\"/**\n"
+		\.'  @brief '.brief."\n"
+		\.s:DeclFunction({
+			\'funcname':funcname
+			\, 'funcargs':funcargs
+			\, 'rettype':rettype
+			\, 'brief':brief
+			\})."\n"
+		\." */\n"
+		\.rettype."\n"
+		\.namespace.'::'.funcname.'('.funcargs.")\n"
+		\."{\n"
+		\."}\n"
+	return desc
 endfunction
 
 "-------------------------------------------------------------------------------
@@ -117,10 +180,27 @@ function! hryky.DateTime(...)
 	return s:Date(time) . "T" . s:Time(time)
 endfunction
 
+"inserts a string.
+function! s:InsertExec(str)
+	let autoindent = &l:autoindent
+	let smartindent = &l:smartindent
+	let &l:autoindent = 0
+	let &l:smartindent = 0
+	exec "normal i".a:str
+	if autoindent
+		let &l:autoindent = 1
+	endif
+	if smartindent
+		let &l:smartindent = 1
+	endif
+endfunction
+
 "-------------------------------------------------------------------------------
 "commands
 "-------------------------------------------------------------------------------
-command! -nargs=0 DefNamespace exec "normal i".s:DefNamespace()
-command! -nargs=? CommentHeadline exec "normal i".s:CommentHeadline(<args>)
-command! -nargs=0 ktIncludeGuard exec "normal i".s:IncludeGuard()
+command! -nargs=0 DefNamespace call s:InsertExec(s:DefNamespace())
+command! -nargs=? CommentHeadline call s:InsertExec(s:CommentHeadline(<args>))
+command! -nargs=0 IncludeGuard call s:InsertExec(s:IncludeGuard())
+command! -nargs=0 DeclFunction call s:InsertExec(s:DeclFunction())
+command! -nargs=0 DefFunction call s:InsertExec(s:DefFunction())
 
