@@ -1,7 +1,9 @@
-"maximizes Window.
-autocmd GUIEnter * simalt ~x 
+if has("win32")
+	"maximizes Window.
+	autocmd GUIEnter * simalt ~x 
 
-language messages en
+	language messages en
+endif
 nnoremap <C-s><C-s> :w<CR>
 nnoremap <C-s><C-a> :mksession!<CR>
 nnoremap <C-s><C-k> :bp<Bar>:bd<Space>#<CR>
@@ -25,6 +27,7 @@ set list
 set listchars=tab:>-,trail:$
 set noexpandtab
 set number
+set shellslash
 set shiftwidth=4
 set smartindent
 set statusline=%f\ (%l\,%c)%y%m%r%{g:hryky.Statusline()}
