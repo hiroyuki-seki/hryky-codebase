@@ -10,6 +10,8 @@ nnoremap <C-s><C-k> :bp<Bar>:bd<Space>#<CR>
 nnoremap <F11> :cnext<CR>
 nnoremap <S-F11> :cprevious<CR>
 nnoremap <Space> ma
+nnoremap <F8> :tnext<CR>
+nnoremap <S-F8> :tprevious<CR>
 set autoindent
 set encoding=utf-8
 set grepprg=grep\ -n\ --exclude=tags\ --exclude=TAGS\ --exclude=XTAGS
