@@ -4,6 +4,10 @@ if has("win32")
 
 	language messages en
 endif
+if has('multi_byte_ime')
+	highlight Cursor guifg=NONE guibg=Green
+	highlight CursorIM guifg=NONE guibg=Purple
+endif
 nnoremap <C-s><C-s> :w<CR>
 nnoremap <C-s><C-a> :mksession!<CR>
 nnoremap <C-s><C-k> :bp<Bar>:bd<Space>#<CR>
