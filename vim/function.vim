@@ -113,7 +113,7 @@ function! s:DefFunction(...)
 	let funcargs = s:Arg(args, 'funcargs')
 	let rettype = s:Arg(args, 'rettype', '', 'cscope')
 	let brief = s:Arg(args, 'brief')
-	let desc = 
+	let desc =
 		\"/**\n"
 		\.'  @brief '.brief."\n"
 		\.s:DeclFunction({
