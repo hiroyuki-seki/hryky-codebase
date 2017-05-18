@@ -102,18 +102,6 @@ function! s:Arg(dict, key, ...)
 	return ret
 endfunction
 
-"retrieves the declaration of a function.
-function! s:DeclFunc(...)
-	let args = 0 <# a:0 ? a:1 : {}
-	let funcname = s:Arg(l:args, 'funcname', '', 'cscope')
-	let funcargs = s:Arg(l:args, 'funcargs')
-	let rettype = s:Arg(l:args, 'rettype', '', 'cscope')
-	let brief = s:Arg(l:args, 'brief')
-	let desc = s:Line('/// ' . l:brief)
-		\. s:Line(l:rettype . ' ' . l:funcname . '(' . l:funcargs . ');')
-	return l:desc
-endfunction
-
 "retrieves a line.
 function! s:Line(...)
 	let str = 0 <# a:0 ? a:1 : ''
@@ -124,7 +112,7 @@ endfunction
 function! s:Indent(...)
 	let lines = 0 <# a:0 ? a:1 : ''
 	let prefix = 1 <# a:0 ? a:2 : "\t"
-	let desc = substitute(l:lines, "^", l:prefix, 'g')
+	let desc = substitute(l:lines, '^', l:prefix, 'g')
 	return l:desc
 endfunction
 
@@ -139,14 +127,25 @@ function! s:CommentBlock(...)
 	return l:ret
 endfunction
 
+"concatenate two strings with a delimiter.
+function! s:Concat(prefix, src, ...)
+	let delimiter = 0 <# a:0 ? a:1 : ''
+	if 0 <# strlen(a:prefix)
+		if 0 <# strlen(a:src)
+			return a:prefix . l:delimiter . a:src
+		else
+			return a:prefix
+		endif
+	elseif 0 <# strlen(a:src)
+		return a:src
+	else
+		return ''
+	endif
+endfunction
+
 "qualifies a name with the namespace.
-function! s:QualifyName(...)
-	let args = 0 <# a:0 ? a:1 : {}
-	let namespace = s:Arg(l:args, 'namespace', '', 'cscope')
-	let name = s:Arg(l:args, 'name', '', 'cscope')
-	let ret = (0 ==# strlen(l:namespace))
-		\? l:name : (l:namespace . '::' . l:name)
-	return l:ret
+function! s:Qualify(prefix, name)
+	return s:Concat(a:prefix, a:name, '::')
 endfunction
 
 "constructs a namespace from strings.
@@ -155,13 +154,183 @@ function! s:JoinNamespace(...)
 	return join(l:list, '::')
 endfunction
 
-"constructs a namespace from a filename.
-function! s:NamespaceFromFilename(...)
-	let filename = 0 <# a:0 ? a:1 : expand('%:t:r')
-	let ret = s:JoinNamespace(split(tolower(substitute(
-		\substitute(l:filename, '\(\u\+\)', ' \1', 'g')
-		\, '\W\+', ' ', 'g')), '\s\+'))
+"assigns the default prefix of namespace.
+function! s:DefaultNamespace(...)
+	let g:hryky.namespace = 0 <# a:0 ? a:1 : s:Input(
+		\'default namespace is : ',
+		\g:hryky.namespace,
+		\'cscope')
+endfunction
+
+"assigns the default template parameters.
+function! s:DefaultTemplateParams(...)
+	let g:hryky.template_params = 0 <# a:0 ? a:1 : s:Input(
+		\'macro for template parameters is : ',
+		\g:hryky.template_params,
+		\'cscope')
+endfunction
+
+"assigns the default template arguments.
+function! s:DefaultTemplateArgs(...)
+	let g:hryky.template_args = 0 <# a:0 ? a:1 : s:Input(
+		\'macro for template arguments is : ',
+		\g:hryky.template_args,
+		\'cscope')
+endfunction
+
+"constructs template parameters from a string.
+function! s:TemplateParamsFrom(...)
+	let str = 0 <# a:0 ? a:1 : ''
+	if empty(l:str)
+		return ''
+	endif
+	let ret = l:str is# '*' ? g:hryky.template_params : l:str
 	return l:ret
+endfunction
+
+"constructs template arguments from a string.
+function! s:TemplateArgsFrom(...)
+	let str = 0 <# a:0 ? a:1 : ''
+	if empty(l:str)
+		return ''
+	endif
+	if l:str is# '*'
+		return g:hryky.template_args
+	endif
+	let params = split(str, '\s*,\s*')
+	let args = []
+	for param in l:params
+		call add(l:args, split(param, '\s\+')[-1])
+	endfor
+	return join(args, ', ')
+endfunction
+
+"constructs namespace components from a string.
+function! s:ComponentsFrom(...)
+	let str = s:Qualify(
+		\g:hryky.namespace
+		\, 0 <# a:0 ? a:1 : expand('%:t:r'))
+	let components = tolower(
+		\substitute(
+			\substitute(l:str, '\(\u\+\)', ' \1', 'g')
+			\, '\W\+', ' ', 'g'))
+	let ret = split(components, '\s\+')
+	if !empty(l:ret)
+		let ret[-1] = toupper(strpart(l:ret[-1], 0, 1))
+			\. strpart(l:ret[-1], 1)
+	endif
+	return l:ret
+endfunc
+
+"constructs a namespace from a string.
+function! s:NamespaceFrom(...)
+	let str = 0 <# a:0 ? a:1 : expand('%:t:r')
+	let components = s:ComponentsFrom(l:str)
+	if !empty(l:components)
+		let components = l:components[:-2]
+	endif
+	let ret = s:JoinNamespace(l:components)
+	return l:ret
+endfunction
+
+"constructs a name of class from a string
+function! s:ClsnameFrom(...)
+	let str = 0 <# a:0 ? a:1 : expand('%:t:r')
+	let components = s:ComponentsFrom(l:str)
+	return empty(l:components) ? '' : l:components[-1]
+endfunction
+
+
+"confirms whether a string is yes.
+function! s:IsYes(...)
+	return 0 <# a:0 ? (a:1 is# 'y') || (a:1 is# 1) : 0
+endfunction
+
+"retrieves a string if true.
+function! s:Fallback(boolean, true, ...)
+	let false = 0 <# a:0 ? a:1 : ''
+	return a:boolean ? a:true : l:false
+endfunction
+
+"retrieves the declaration of a member function.
+function! s:DeclMemfunc(...)
+	let args = 0 <# a:0 ? a:1 : {}
+	let funcname = s:Arg(l:args, 'funcname', '', 'cscope')
+	let funcargs = s:Arg(l:args, 'funcargs')
+	let rettype = s:Arg(l:args, 'rettype', '', 'cscope')
+	let is_static = s:IsYes(s:Arg(l:args, 'is_static', '', 'cscope'))
+	let is_const = !is_static
+		\ && s:IsYes(s:Arg(l:args, 'is_const', '', 'cscope'))
+	let is_virtual = !is_static
+		\ && s:IsYes(s:Arg(l:args, 'is_virtual', '', 'cscope'))
+	let brief = s:Arg(l:args, 'brief')
+	let ret = s:Line('/// ' . l:brief)
+		\. s:Line(
+			\s:Fallback(l:is_static, 'static ')
+			\. s:Fallback(l:is_virtual, 'virtual ')
+			\. l:rettype . ' ' . l:funcname . '(' . l:funcargs . ')'
+			\. s:Fallback(l:is_const, ' const')
+			\. ';')
+	return l:ret
+endfunction
+
+"retrieves the definition of a member function.
+function! s:DefMemfunc(...)
+	let args = 0 <# a:0 ? a:1 : {}
+	let namespace = s:Arg(l:args, 'namespace', s:NamespaceFrom(), 'cscope')
+	let clsname = s:Arg(l:args, 'clsname', s:ClsnameFrom(), 'cscope')
+	let funcname = s:Arg(l:args, 'funcname', '', 'cscope')
+	let funcargs = s:Arg(l:args, 'funcargs')
+	let rettype = s:Arg(l:args, 'rettype', '', 'cscope')
+	let tplparams = s:Arg(l:args, 'template params', '', 'cscope')
+	let is_static = s:IsYes(s:Arg(l:args, 'is_static', '', 'cscope'))
+	let is_const = !is_static
+		\ && s:IsYes(s:Arg(l:args, 'is_const', '', 'cscope'))
+	let is_virtual = !is_static
+		\ && s:IsYes(s:Arg(l:args, 'is_virtual', '', 'cscope'))
+	let brief = s:Arg(l:args, 'brief')
+	let ret =
+		\s:CommentBlock(
+		\s:Line('@brief ' . l:brief)
+		\. s:DeclFunc({
+			\'funcname': l:funcname
+			\, 'funcargs': l:funcargs
+			\, 'rettype': l:rettype
+			\, 'is_static': l:is_static
+			\, 'is_const': l:is_const
+			\, 'is_virtual': l:is_virtual
+			\, 'brief': l:brief
+			\})
+		\)
+		\. s:Fallback(
+			\!empty(l:tplparams),
+			\s:Line('template <' . s:TemplateParamsFrom(l:tplparams) . ' >'))
+		\. s:Line(l:rettype)
+		\. s:Qualify(
+			\l:namespace,
+			\s:Qualify(
+				\l:clsname . s:Fallback(
+					\!empty(l:tplparams),
+					\'<' . s:TemplateArgsFrom(l:tplparams) . ' >'),
+				\l:funcname))
+		\. s:Line(
+			\'(' . l:funcargs . ')'
+			\. s:Fallback(l:is_const, ' const'))
+		\. s:Line('{')
+		\. s:Line('}')
+	return l:ret
+endfunction
+
+"retrieves the declaration of a function.
+function! s:DeclFunc(...)
+	let args = 0 <# a:0 ? a:1 : {}
+	let funcname = s:Arg(l:args, 'funcname', '', 'cscope')
+	let funcargs = s:Arg(l:args, 'funcargs')
+	let rettype = s:Arg(l:args, 'rettype', '', 'cscope')
+	let brief = s:Arg(l:args, 'brief')
+	let desc = s:Line('/// ' . l:brief)
+		\. s:Line(l:rettype . ' ' . l:funcname . '(' . l:funcargs . ');')
+	return l:desc
 endfunction
 
 "retrieves the definition of a function.
@@ -172,7 +341,7 @@ function! s:DefFunc(...)
 	let funcargs = s:Arg(l:args, 'funcargs')
 	let rettype = s:Arg(l:args, 'rettype', '', 'cscope')
 	let brief = s:Arg(l:args, 'brief')
-	let desc =
+	let ret =
 		\s:CommentBlock(
 		\s:Line('@brief ' . l:brief)
 		\. s:DeclFunc({
@@ -183,18 +352,15 @@ function! s:DefFunc(...)
 			\})
 		\)
 		\. s:Line(l:rettype)
-		\. s:QualifyName({
-			\'namespace': l:namespace
-			\, 'name': l:funcname
-			\})
-		\. '(' . l:funcargs . ")\n"
+		\. s:Qualify(l:namespace, l:funcname)
+		\. s:Line('(' . l:funcargs . ')')
 		\. s:Line('{')
 		\. s:Line('}')
-	return l:desc
+	return l:ret
 endfunction
 
 "inserts a string.
-function! s:InsertExec(str)
+function! s:Insert(str)
 	let autoindent = &l:autoindent
 	let smartindent = &l:smartindent
 	let &l:autoindent = 0
@@ -213,6 +379,15 @@ endfunction
 "-------------------------------------------------------------------------------
 let g:hryky={}
 
+"default prefix for namespace.
+let g:hryky.namespace = 'hryky'
+
+"default macro for template parameters.
+let g:hryky.template_params = 'hryky_template_params'
+
+"default macro for template arguments.
+let g:hryky.template_args = 'hryky_template_args'
+
 "retrieves the statusline
 function! hryky.Statusline()
 	let enc = s:Encoding()
@@ -230,12 +405,19 @@ endfunction
 "-------------------------------------------------------------------------------
 "commands
 "-------------------------------------------------------------------------------
-command! -nargs=0 DefNamespace call s:InsertExec(s:DefNamespace())
-command! -nargs=? CommentHeadline call s:InsertExec(s:CommentHeadline(<args>))
-command! -nargs=? IncludeGuard call s:InsertExec(s:IncludeGuard(<args>))
-command! -nargs=0 DeclFunc call s:InsertExec(s:DeclFunc())
-command! -nargs=0 DefFunc call s:InsertExec(s:DefFunc())
-command! -nargs=? CommentBlock call s:InsertExec(s:CommentBlock(<args>))
-command! -nargs=? NamespaceFromFilename
-	\ call s:InsertExec(s:NamespaceFromFilename(<args>))
+command! -nargs=0 DefNamespace call s:Insert(s:DefNamespace())
+command! -nargs=? CommentHeadline call s:Insert(s:CommentHeadline(<args>))
+command! -nargs=? IncludeGuard call s:Insert(s:IncludeGuard(<args>))
+command! -nargs=? DeclFunc call s:Insert(s:DeclFunc(<args>))
+command! -nargs=? DeclMemfunc call s:Insert(s:DeclMemfunc(<args>))
+command! -nargs=? DefFunc call s:Insert(s:DefFunc(<args>))
+command! -nargs=? DefMemfunc call s:Insert(s:DefMemfunc(<args>))
+command! -nargs=? CommentBlock call s:Insert(s:CommentBlock(<args>))
+command! -nargs=? NamespaceFrom call s:Insert(s:NamespaceFrom(<args>))
+command! -nargs=? ClsnameFrom call s:Insert(s:ClsnameFrom(<args>))
+command! -nargs=? DefaultNamespace call s:DefaultNamespace(<args>)
+command! -nargs=? DefaultTemplateParams call s:DefaultTemplateParams(<args>)
+command! -nargs=? DefaultTemplateArgs call s:DefaultTemplateArgs(<args>)
+command! -nargs=? TemplateParamsFrom call s:Insert(s:TemplateParamsFrom(<args>))
+command! -nargs=? TemplateArgsFrom call s:Insert(s:TemplateArgsFrom(<args>))
 
