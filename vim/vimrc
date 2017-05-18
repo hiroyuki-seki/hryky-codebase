@@ -44,3 +44,7 @@ syntax on
 
 source <sfile>:p:h/keymap.vim
 
+if filereadable(getcwd() . '/user.vimrc')
+	source user.vimrc
+endif
+
