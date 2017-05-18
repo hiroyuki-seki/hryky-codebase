@@ -155,7 +155,7 @@ function! s:InsertExec(str)
 	let smartindent = &l:smartindent
 	let &l:autoindent = 0
 	let &l:smartindent = 0
-	exec 'normal i'.a:str
+	exec 'normal! i'.a:str
 	if autoindent
 		let &l:autoindent = 1
 	endif
