@@ -78,7 +78,7 @@ endfunction
 function! s:IncludeGuard()
 	return toupper(
 		\substitute(
-			\substitute(expand('%:t').g:hryky.DateTime(),"[\-\:]",'','g'),
+			\substitute(expand('%:t').g:hryky.DateTime(), "[\-\:]", '', 'g'),
 			\"[\.\-]",'_','g'))
 endfunction
 
@@ -106,6 +106,35 @@ function! s:DeclFunction(...)
 	let rettype = s:Arg(args, 'rettype', '', 'cscope')
 	let brief = s:Arg(args, 'brief')
 	let desc = '/// '.brief."\n".rettype.' '.funcname.'('.funcargs.');'
+	return desc
+endfunction
+
+"retrieves a line.
+function! s:Line(...)
+	let str = 0 <# a:0 ? a:1 : ''
+	return str . "\n"
+endfunction
+
+"retrieves the indented lines.
+function! s:Indent(...)
+	let lines = 0 <# a:0 ? a:1 : ''
+	let prefix = 1 <# a:0 ? a:2 : "\t"
+	let desc = substitute(lines, "^", prefix, 'g')
+	return desc
+endfunction
+
+"retrieves a block comment
+function! s:CommentBlock(...)
+	let args = 0 <# a:0 ? a:1 : {}
+	let brief = s:Arg(args, 'brief', '')
+	let details = s:Arg(args, 'details', '')
+	let desc =
+		\s:Line('/**')
+		\.s:Indent(
+			\s:Line('@brief '.brief)
+			\, '  '
+			\)
+		\.s:Line(' */')
 	return desc
 endfunction
 
@@ -167,7 +196,7 @@ function! hryky.DateTime(...)
 	let time = 0 <# a:0 ? a:1 : localtime()
 	return s:Date(time) . 'T' . s:Time(time)
 endfunction
-
+0
 "-------------------------------------------------------------------------------
 "commands
 "-------------------------------------------------------------------------------
@@ -176,4 +205,5 @@ command! -nargs=? CommentHeadline call s:InsertExec(s:CommentHeadline(<args>))
 command! -nargs=0 IncludeGuard call s:InsertExec(s:IncludeGuard())
 command! -nargs=0 DeclFunction call s:InsertExec(s:DeclFunction())
 command! -nargs=0 DefFunction call s:InsertExec(s:DefFunction())
+command! -nargs=0 CommentBlock call s:InsertExec(s:CommentBlock())
 
