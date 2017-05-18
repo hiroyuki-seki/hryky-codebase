@@ -188,6 +188,18 @@ function! s:TemplateParamsFrom(...)
 	return l:ret
 endfunction
 
+"retrieves template specifier.
+function! s:SpecifyTemplateParams(str)
+	let params = s:TemplateParamsFrom(a:str)
+	return empty(l:params) ? '' : 'template <' . l:params . ' >'
+endfunction
+
+"specifies template arguments of class.
+function! s:SpecifyTemplateArgs(cls, str)
+	let args = s:TemplateArgsFrom(a:str)
+	return empty(l:args) ? a:cls : a:cls . '<' . l:args . ' >'
+endfunction
+
 "constructs template arguments from a string.
 function! s:TemplateArgsFrom(...)
 	let str = 0 <# a:0 ? a:1 : ''
@@ -292,7 +304,7 @@ function! s:DefMemfunc(...)
 	let ret =
 		\s:CommentBlock(
 		\s:Line('@brief ' . l:brief)
-		\. s:DeclFunc({
+		\. s:DeclMemfunc({
 			\'funcname': l:funcname
 			\, 'funcargs': l:funcargs
 			\, 'rettype': l:rettype
@@ -302,16 +314,12 @@ function! s:DefMemfunc(...)
 			\, 'brief': l:brief
 			\})
 		\)
-		\. s:Fallback(
-			\!empty(l:tplparams),
-			\s:Line('template <' . s:TemplateParamsFrom(l:tplparams) . ' >'))
+		\. s:Line(s:SpecifyTemplateParams(l:tplparams))
 		\. s:Line(l:rettype)
 		\. s:Qualify(
 			\l:namespace,
 			\s:Qualify(
-				\l:clsname . s:Fallback(
-					\!empty(l:tplparams),
-					\'<' . s:TemplateArgsFrom(l:tplparams) . ' >'),
+				\s:SpecifyTemplateArgs(l:clsname, l:tplparams),
 				\l:funcname))
 		\. s:Line(
 			\'(' . l:funcargs . ')'
