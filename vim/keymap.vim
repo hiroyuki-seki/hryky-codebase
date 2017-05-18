@@ -6,4 +6,5 @@ nnoremap <S-F11> :cprevious<CR>
 nnoremap <Space> ma
 nnoremap <F8> :tnext<CR>
 nnoremap <S-F8> :tprevious<CR>
+nnoremap <C-k> lD
 

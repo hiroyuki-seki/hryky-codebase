@@ -66,16 +66,15 @@ function! s:DefNamespace(...)
 		endif
 		let ret .= '}// namespace' . l:namespace . "\<CR>"
 	endfor
-	echom 'DefNamespace()=>' . l:ret
 	return l:ret
 endfunction
 
 "retrieves comment lines as a headline.
 function! s:CommentHeadline(...)
 	let str = 0 <# a:0 ? a:1 : s:Input('description is: ')
-	return s:CommentBorder() . "\n"
-		\. '// ' . l:str . "\n"
-		\. s:CommentBorder() . "\n"
+	return s:Line(s:CommentBorder())
+		\. s:Line('// ' . l:str)
+		\. s:Line(s:CommentBorder())
 endfunction
 
 "retrieves an Include Guard used as a macro.
@@ -104,13 +103,14 @@ function! s:Arg(dict, key, ...)
 endfunction
 
 "retrieves the declaration of a function.
-function! s:DeclFunction(...)
+function! s:DeclFunc(...)
 	let args = 0 <# a:0 ? a:1 : {}
 	let funcname = s:Arg(l:args, 'funcname', '', 'cscope')
 	let funcargs = s:Arg(l:args, 'funcargs')
 	let rettype = s:Arg(l:args, 'rettype', '', 'cscope')
 	let brief = s:Arg(l:args, 'brief')
-	let desc = '/// ' . l:brief . "\n" . l:rettype . ' ' . l:funcname . '(' . l:funcargs . ');'
+	let desc = s:Line('/// ' . l:brief)
+		\. s:Line(l:rettype . ' ' . l:funcname . '(' . l:funcargs . ');')
 	return l:desc
 endfunction
 
@@ -130,21 +130,27 @@ endfunction
 
 "retrieves a block comment
 function! s:CommentBlock(...)
-	let args = 0 <# a:0 ? a:1 : {}
-	let brief = s:Arg(l:args, 'brief', '')
-	let details = s:Arg(l:args, 'details', '')
-	let desc =
+	let desc = 0 <# a:0 ? a:1 : s:Input('desc is: ', '')
+	let ret =
 		\s:Line('/**')
-		\. s:Indent(
-			\s:Line('@brief ' . l:brief)
-			\, '  '
-			\)
+		\. s:Indent(desc, '  ')
+		\. (0 <# strlen(l:desc) ? s:Line() : '')
 		\. s:Line(' */')
-	return l:desc
+	return l:ret
+endfunction
+
+"qualifies a name with the namespace.
+function! s:QualifyName(...)
+	let args = 0 <# a:0 ? a:1 : {}
+	let namespace = s:Arg(l:args, 'namespace', '', 'cscope')
+	let name = s:Arg(l:args, 'name', '', 'cscope')
+	let ret = (0 ==# strlen(l:namespace))
+		\? l:name : (l:namespace . '::' . l:name)
+	return l:ret
 endfunction
 
 "retrieves the definition of a function.
-function! s:DefFunction(...)
+function! s:DefFunc(...)
 	let args = 0 <# a:0 ? a:1 : {}
 	let namespace = s:Arg(l:args, 'namespace', '', 'cscope')
 	let funcname = s:Arg(l:args, 'funcname', '', 'cscope')
@@ -152,19 +158,23 @@ function! s:DefFunction(...)
 	let rettype = s:Arg(l:args, 'rettype', '', 'cscope')
 	let brief = s:Arg(l:args, 'brief')
 	let desc =
-		\"/**\n"
-		\. '  @brief ' . l:brief . "\n"
-		\. s:DeclFunction({
+		\s:CommentBlock(
+		\s:Line('@brief ' . l:brief)
+		\. s:DeclFunc({
 			\'funcname': l:funcname
 			\, 'funcargs': l:funcargs
 			\, 'rettype': l:rettype
 			\, 'brief': l:brief
-			\}) . "\n"
-		\. " */\n"
-		\. l:rettype . "\n"
-		\. l:namespace . '::' . l:funcname . '(' . l:funcargs . ")\n"
-		\. "{\n"
-		\. "}\n"
+			\})
+		\)
+		\. s:Line(l:rettype)
+		\. s:QualifyName({
+			\'namespace': l:namespace
+			\, 'name': l:funcname
+			\})
+		\. '(' . l:funcargs . ")\n"
+		\. s:Line('{')
+		\. s:Line('}')
 	return l:desc
 endfunction
 
@@ -208,7 +218,7 @@ endfunction
 command! -nargs=0 DefNamespace call s:InsertExec(s:DefNamespace())
 command! -nargs=? CommentHeadline call s:InsertExec(s:CommentHeadline(<args>))
 command! -nargs=0 IncludeGuard call s:InsertExec(s:IncludeGuard())
-command! -nargs=0 DeclFunction call s:InsertExec(s:DeclFunction())
-command! -nargs=0 DefFunction call s:InsertExec(s:DefFunction())
-command! -nargs=0 CommentBlock call s:InsertExec(s:CommentBlock())
+command! -nargs=0 DeclFunc call s:InsertExec(s:DeclFunc())
+command! -nargs=0 DefFunc call s:InsertExec(s:DefFunc())
+command! -nargs=? CommentBlock call s:InsertExec(s:CommentBlock(<args>))
 
