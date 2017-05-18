@@ -9,8 +9,8 @@ endfunction
 "retrieves the character encoding of the current file.
 function! s:Encoding()
 	let enc = &fileencoding
-	let enc = empty(enc) ? &encoding : enc
-	return enc.(&l:bomb?'+BOM':'')
+	let enc = empty(l:enc) ? &encoding : l:enc
+	return l:enc . (&l:bomb ? '+BOM' : '')
 endfunction
 
 "retrieves the current date as string.
@@ -25,7 +25,7 @@ endfunction
 
 "retrieves a comment line as a border.
 function! s:CommentBorder()
-	return '//'.repeat('-',78)
+	return '//' . repeat('-', 78)
 endfunction
 
 "call input() conservatively.
@@ -33,53 +33,58 @@ function! s:Input(prompt, ...)
 	let text = 0 <# a:0 ? a:1 : ''
 	let completion = 1 <# a:0 ? a:2 : ''
 	call inputsave()
-	if empty(completion)
-		let input = input(a:prompt, text)
+	if empty(l:completion)
+		let input = input(a:prompt, l:text)
 	else
-		let input = input(a:prompt, text, completion)
+		let input = input(a:prompt, l:text, l:completion)
 	endif
 	call inputrestore()
-	return input
+	return l:input
 endfunction
 
 "retrieves the definition of C++ namespace.
 function! s:DefNamespace(...)
 	let args = 0 <# a:0 ? a:1 : {}
-	let str = (has_key(args,'namespace')
-		\? args['namespace']
+	let str = (has_key(l:args,'namespace')
+		\? l:args['namespace']
 		\: s:Input('namespace is: ', '', 'cscope'))
-	let namespaces = split(str, ':\+')
+	let namespaces = split(l:str, ':\+')
 	let ret = ''
-	for namespace in namespaces
-		if '*' is# namespace
+	for namespace in l:namespaces
+		if '*' is# l:namespace
 			let namespace = ''
+		else
+			let namespace = ' ' . l:namespace
 		endif
-		let ret .= 'namespace '.namespace." {\<CR>"
+		let ret .= 'namespace' . l:namespace . " {\<CR>"
 	endfor
-	for namespace in reverse(namespaces)
-		if '*' is# namespace
+	for namespace in reverse(l:namespaces)
+		if '*' is# l:namespace
 			let namespace = ''
+		else
+			let namespace = ' ' . l:namespace
 		endif
-		let ret .= '}// namespace '.namespace."\<CR>"
+		let ret .= '}// namespace' . l:namespace . "\<CR>"
 	endfor
-	echom 'DefNamespace()=>'.ret
-	return ret
+	echom 'DefNamespace()=>' . l:ret
+	return l:ret
 endfunction
 
 "retrieves comment lines as a headline.
 function! s:CommentHeadline(...)
 	let str = 0 <# a:0 ? a:1 : s:Input('description is: ')
-	return s:CommentBorder()."\n"
-		\.'// '.str."\n"
-		\.s:CommentBorder()."\n"
+	return s:CommentBorder() . "\n"
+		\. '// ' . l:str . "\n"
+		\. s:CommentBorder() . "\n"
 endfunction
 
 "retrieves an Include Guard used as a macro.
 function! s:IncludeGuard()
 	return toupper(
 		\substitute(
-			\substitute(expand('%:t').g:hryky.DateTime(), "[\-\:]", '', 'g'),
-			\"[\.\-]",'_','g'))
+			\substitute(
+				expand('%:t') . g:hryky.DateTime(), "[\-\:]", '', 'g'),
+			\"[\.\-]", '_', 'g'))
 endfunction
 
 "retrieves the argument from the dictionary.
@@ -87,13 +92,13 @@ function! s:Arg(dict, key, ...)
 	let defvalue = 0 <# a:0 ? a:1 : ''
 	let has_key = has_key(a:dict, a:key)
 	if 1 <# a:0
-		let ret = has_key
+		let ret = l:has_key
 			\? a:dict[a:key]
-			\: s:Input(a:key.' is: ', defvalue, a:2)
+			\: s:Input(a:key.' is: ', l:defvalue, a:2)
 	else
-		let ret = has_key
+		let ret = l:has_key
 			\? a:dict[a:key]
-			\: s:Input(a:key.' is: ', defvalue)
+			\: s:Input(a:key.' is: ', l:defvalue)
 	endif
 	return ret
 endfunction
@@ -101,66 +106,66 @@ endfunction
 "retrieves the declaration of a function.
 function! s:DeclFunction(...)
 	let args = 0 <# a:0 ? a:1 : {}
-	let funcname = s:Arg(args, 'funcname', '', 'cscope')
-	let funcargs = s:Arg(args, 'funcargs')
-	let rettype = s:Arg(args, 'rettype', '', 'cscope')
-	let brief = s:Arg(args, 'brief')
-	let desc = '/// '.brief."\n".rettype.' '.funcname.'('.funcargs.');'
-	return desc
+	let funcname = s:Arg(l:args, 'funcname', '', 'cscope')
+	let funcargs = s:Arg(l:args, 'funcargs')
+	let rettype = s:Arg(l:args, 'rettype', '', 'cscope')
+	let brief = s:Arg(l:args, 'brief')
+	let desc = '/// ' . l:brief . "\n" . l:rettype . ' ' . l:funcname . '(' . l:funcargs . ');'
+	return l:desc
 endfunction
 
 "retrieves a line.
 function! s:Line(...)
 	let str = 0 <# a:0 ? a:1 : ''
-	return str . "\n"
+	return l:str . "\n"
 endfunction
 
 "retrieves the indented lines.
 function! s:Indent(...)
 	let lines = 0 <# a:0 ? a:1 : ''
 	let prefix = 1 <# a:0 ? a:2 : "\t"
-	let desc = substitute(lines, "^", prefix, 'g')
-	return desc
+	let desc = substitute(l:lines, "^", l:prefix, 'g')
+	return l:desc
 endfunction
 
 "retrieves a block comment
 function! s:CommentBlock(...)
 	let args = 0 <# a:0 ? a:1 : {}
-	let brief = s:Arg(args, 'brief', '')
-	let details = s:Arg(args, 'details', '')
+	let brief = s:Arg(l:args, 'brief', '')
+	let details = s:Arg(l:args, 'details', '')
 	let desc =
 		\s:Line('/**')
-		\.s:Indent(
-			\s:Line('@brief '.brief)
+		\. s:Indent(
+			\s:Line('@brief ' . l:brief)
 			\, '  '
 			\)
-		\.s:Line(' */')
-	return desc
+		\. s:Line(' */')
+	return l:desc
 endfunction
 
 "retrieves the definition of a function.
 function! s:DefFunction(...)
 	let args = 0 <# a:0 ? a:1 : {}
-	let namespace = s:Arg(args, 'namespace', '', 'cscope')
-	let funcname = s:Arg(args, 'funcname', '', 'cscope')
-	let funcargs = s:Arg(args, 'funcargs')
-	let rettype = s:Arg(args, 'rettype', '', 'cscope')
-	let brief = s:Arg(args, 'brief')
+	let namespace = s:Arg(l:args, 'namespace', '', 'cscope')
+	let funcname = s:Arg(l:args, 'funcname', '', 'cscope')
+	let funcargs = s:Arg(l:args, 'funcargs')
+	let rettype = s:Arg(l:args, 'rettype', '', 'cscope')
+	let brief = s:Arg(l:args, 'brief')
 	let desc =
 		\"/**\n"
-		\.'  @brief '.brief."\n"
-		\.s:DeclFunction({
-			\'funcname':funcname
-			\, 'funcargs':funcargs
-			\, 'rettype':rettype
-			\, 'brief':brief
-			\})."\n"
-		\." */\n"
-		\.rettype."\n"
-		\.namespace.'::'.funcname.'('.funcargs.")\n"
-		\."{\n"
-		\."}\n"
-	return desc
+		\. '  @brief ' . l:brief . "\n"
+		\. s:DeclFunction({
+			\'funcname': l:funcname
+			\, 'funcargs': l:funcargs
+			\, 'rettype': l:rettype
+			\, 'brief': l:brief
+			\}) . "\n"
+		\. " */\n"
+		\. l:rettype . "\n"
+		\. l:namespace . '::' . l:funcname . '(' . l:funcargs . ")\n"
+		\. "{\n"
+		\. "}\n"
+	return l:desc
 endfunction
 
 "inserts a string.
@@ -169,11 +174,11 @@ function! s:InsertExec(str)
 	let smartindent = &l:smartindent
 	let &l:autoindent = 0
 	let &l:smartindent = 0
-	exec 'normal! i'.a:str
-	if autoindent
+	exec 'normal! i' . a:str
+	if l:autoindent
 		let &l:autoindent = 1
 	endif
-	if smartindent
+	if l:smartindent
 		let &l:smartindent = 1
 	endif
 endfunction
@@ -187,16 +192,16 @@ let g:hryky={}
 function! hryky.Statusline()
 	let enc = s:Encoding()
 	let eol = s:EolFormat()
-	return (empty(enc)?'':'['.enc.']')
-		\.(empty(eol)?'':'['.eol.']')
+	return (empty(l:enc) ? '' : '[' . l:enc . ']')
+		\. (empty(l:eol) ? '' : '[' . l:eol . ']')
 endfunction
 
 "retrieves the current date and time as string.
 function! hryky.DateTime(...)
 	let time = 0 <# a:0 ? a:1 : localtime()
-	return s:Date(time) . 'T' . s:Time(time)
+	return s:Date(l:time) . 'T' . s:Time(l:time)
 endfunction
-0
+
 "-------------------------------------------------------------------------------
 "commands
 "-------------------------------------------------------------------------------
