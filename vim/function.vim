@@ -51,13 +51,13 @@ function! s:DefNamespace(...)
 	let namespaces = split(str, ':\+')
 	let ret = ''
 	for namespace in namespaces
-		if '*' ==# namespace
+		if '*' is# namespace
 			let namespace = ''
 		endif
 		let ret .= 'namespace '.namespace." {\<CR>"
 	endfor
 	for namespace in reverse(namespaces)
-		if '*' ==# namespace
+		if '*' is# namespace
 			let namespace = ''
 		endif
 		let ret .= '}// namespace '.namespace."\<CR>"
