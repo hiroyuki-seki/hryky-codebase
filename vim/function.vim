@@ -78,12 +78,12 @@ function! s:CommentHeadline(...)
 endfunction
 
 "retrieves an Include Guard used as a macro.
-function! s:IncludeGuard()
+function! s:IncludeGuard(...)
+	let name = 0 <# a:0 ? a:1 : expand('%:t') . g:hryky.DateTime()
 	return toupper(
 		\substitute(
-			\substitute(
-				expand('%:t') . g:hryky.DateTime(), "[\-\:]", '', 'g'),
-			\"[\.\-]", '_', 'g'))
+			\substitute(l:name , '\W', '_', 'g'),
+			\'_\+', '_', 'g'))
 endfunction
 
 "retrieves the argument from the dictionary.
@@ -146,6 +146,21 @@ function! s:QualifyName(...)
 	let name = s:Arg(l:args, 'name', '', 'cscope')
 	let ret = (0 ==# strlen(l:namespace))
 		\? l:name : (l:namespace . '::' . l:name)
+	return l:ret
+endfunction
+
+"constructs a namespace from strings.
+function! s:JoinNamespace(...)
+	let list = 0 <# a:0 ? a:1 : []
+	return join(l:list, '::')
+endfunction
+
+"constructs a namespace from a filename.
+function! s:NamespaceFromFilename(...)
+	let filename = 0 <# a:0 ? a:1 : expand('%:t:r')
+	let ret = s:JoinNamespace(split(tolower(substitute(
+		\substitute(l:filename, '\(\u\+\)', ' \1', 'g')
+		\, '\W\+', ' ', 'g')), '\s\+'))
 	return l:ret
 endfunction
 
@@ -217,8 +232,10 @@ endfunction
 "-------------------------------------------------------------------------------
 command! -nargs=0 DefNamespace call s:InsertExec(s:DefNamespace())
 command! -nargs=? CommentHeadline call s:InsertExec(s:CommentHeadline(<args>))
-command! -nargs=0 IncludeGuard call s:InsertExec(s:IncludeGuard())
+command! -nargs=? IncludeGuard call s:InsertExec(s:IncludeGuard(<args>))
 command! -nargs=0 DeclFunc call s:InsertExec(s:DeclFunc())
 command! -nargs=0 DefFunc call s:InsertExec(s:DefFunc())
 command! -nargs=? CommentBlock call s:InsertExec(s:CommentBlock(<args>))
+command! -nargs=? NamespaceFromFilename
+	\ call s:InsertExec(s:NamespaceFromFilename(<args>))
 
