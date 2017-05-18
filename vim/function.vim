@@ -87,9 +87,13 @@ function! s:Arg(dict, key, ...)
 	let defvalue = 0 <# a:0 ? a:1 : ''
 	let has_key = has_key(a:dict, a:key)
 	if 1 <# a:0
-		let ret = has_key ? a:dict[a:key] : s:Input(a:key.' is: ', defvalue, a:2)
+		let ret = has_key
+			\? a:dict[a:key]
+			\: s:Input(a:key.' is: ', defvalue, a:2)
 	else
-		let ret = has_key ? a:dict[a:key] : s:Input(a:key.' is: ', defvalue)
+		let ret = has_key
+			\? a:dict[a:key]
+			\: s:Input(a:key.' is: ', defvalue)
 	endif
 	return ret
 endfunction
@@ -130,6 +134,21 @@ function! s:DefFunction(...)
 	return desc
 endfunction
 
+"inserts a string.
+function! s:InsertExec(str)
+	let autoindent = &l:autoindent
+	let smartindent = &l:smartindent
+	let &l:autoindent = 0
+	let &l:smartindent = 0
+	exec 'normal! i'.a:str
+	if autoindent
+		let &l:autoindent = 1
+	endif
+	if smartindent
+		let &l:smartindent = 1
+	endif
+endfunction
+
 "-------------------------------------------------------------------------------
 "functions used from outside of this script
 "-------------------------------------------------------------------------------
@@ -147,21 +166,6 @@ endfunction
 function! hryky.DateTime(...)
 	let time = 0 <# a:0 ? a:1 : localtime()
 	return s:Date(time) . 'T' . s:Time(time)
-endfunction
-
-"inserts a string.
-function! s:InsertExec(str)
-	let autoindent = &l:autoindent
-	let smartindent = &l:smartindent
-	let &l:autoindent = 0
-	let &l:smartindent = 0
-	exec 'normal! i'.a:str
-	if autoindent
-		let &l:autoindent = 1
-	endif
-	if smartindent
-		let &l:smartindent = 1
-	endif
 endfunction
 
 "-------------------------------------------------------------------------------
