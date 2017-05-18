@@ -10,28 +10,28 @@ endfunction
 function! s:Encoding()
 	let enc = &fileencoding
 	let enc = empty(enc) ? &encoding : enc
-	return enc.(&l:bomb?"+BOM":"")
+	return enc.(&l:bomb?'+BOM':'')
 endfunction
 
 "retrieves the current date as string.
 function! s:Date(...)
-	return strftime("%Y-%m-%d", 0 <# a:0 ? a:1 : localtime())
+	return strftime('%Y-%m-%d', 0 <# a:0 ? a:1 : localtime())
 endfunction
 
 "retrieves the current time as string.
 function! s:Time(...)
-	return strftime("%H:%M:%S", 0 <# a:0 ? a:1 : localtime())
+	return strftime('%H:%M:%S', 0 <# a:0 ? a:1 : localtime())
 endfunction
 
 "retrieves a comment line as a border.
 function! s:CommentBorder()
-	return "//".repeat("-",78)
+	return '//'.repeat('-',78)
 endfunction
 
 "call input() conservatively.
 function! s:Input(prompt, ...)
-	let text = 0 <# a:0 ? a:1 : ""
-	let completion = 1 <# a:0 ? a:2 : ""
+	let text = 0 <# a:0 ? a:1 : ''
+	let completion = 1 <# a:0 ? a:2 : ''
 	call inputsave()
 	if empty(completion)
 		let input = input(a:prompt, text)
@@ -47,30 +47,30 @@ function! s:DefNamespace(...)
 	let args = 0 <# a:0 ? a:1 : {}
 	let str = (has_key(args,'namespace')
 		\? args['namespace']
-		\: s:Input("namespace is: ", "", "cscope"))
+		\: s:Input('namespace is: ', '', 'cscope'))
 	let namespaces = split(str, ':\+')
-	let ret = ""
+	let ret = ''
 	for namespace in namespaces
-		if "*" ==# namespace
-			let namespace = ""
+		if '*' ==# namespace
+			let namespace = ''
 		endif
-		let ret .= "namespace ".namespace." {\<CR>"
+		let ret .= 'namespace '.namespace." {\<CR>"
 	endfor
 	for namespace in reverse(namespaces)
-		if "*" ==# namespace
-			let namespace = ""
+		if '*' ==# namespace
+			let namespace = ''
 		endif
-		let ret .= "}// namespace ".namespace."\<CR>"
+		let ret .= '}// namespace '.namespace."\<CR>"
 	endfor
-	echom "DefNamespace()=>".ret
+	echom 'DefNamespace()=>'.ret
 	return ret
 endfunction
 
 "retrieves comment lines as a headline.
 function! s:CommentHeadline(...)
-	let str = 0 <# a:0 ? a:1 : s:Input("description is: ")
+	let str = 0 <# a:0 ? a:1 : s:Input('description is: ')
 	return s:CommentBorder()."\n"
-		\."// ".str."\n"
+		\.'// '.str."\n"
 		\.s:CommentBorder()."\n"
 endfunction
 
@@ -78,18 +78,18 @@ endfunction
 function! s:IncludeGuard()
 	return toupper(
 		\substitute(
-			\substitute(expand("%:t").g:hryky.DateTime(),"[\-\:]","","g"),
-			\"[\.\-]","_","g"))
+			\substitute(expand('%:t').g:hryky.DateTime(),"[\-\:]",'','g'),
+			\"[\.\-]",'_','g'))
 endfunction
 
 "retrieves the argument from the dictionary.
 function! s:Arg(dict, key, ...)
-	let defvalue = 0 <# a:0 ? a:1 : ""
+	let defvalue = 0 <# a:0 ? a:1 : ''
 	let has_key = has_key(a:dict, a:key)
 	if 1 <# a:0
-		let ret = has_key ? a:dict[a:key] : s:Input(a:key." is: ", defvalue, a:2)
+		let ret = has_key ? a:dict[a:key] : s:Input(a:key.' is: ', defvalue, a:2)
 	else
-		let ret = has_key ? a:dict[a:key] : s:Input(a:key." is: ", defvalue)
+		let ret = has_key ? a:dict[a:key] : s:Input(a:key.' is: ', defvalue)
 	endif
 	return ret
 endfunction
@@ -146,7 +146,7 @@ endfunction
 "retrieves the current date and time as string.
 function! hryky.DateTime(...)
 	let time = 0 <# a:0 ? a:1 : localtime()
-	return s:Date(time) . "T" . s:Time(time)
+	return s:Date(time) . 'T' . s:Time(time)
 endfunction
 
 "inserts a string.
@@ -155,7 +155,7 @@ function! s:InsertExec(str)
 	let smartindent = &l:smartindent
 	let &l:autoindent = 0
 	let &l:smartindent = 0
-	exec "normal i".a:str
+	exec 'normal i'.a:str
 	if autoindent
 		let &l:autoindent = 1
 	endif

@@ -1,5 +1,5 @@
 source <sfile>:p:h/function.vim
-if has("win32")
+if has('win32')
 	"maximizes Window.
 	autocmd GUIEnter * simalt ~x 
 
