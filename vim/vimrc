@@ -31,7 +31,7 @@ set hlsearch
 set iminsert=0 "disables Input Method in Insert mode.
 set imsearch=0 "disables Input Method when entering a search parttern.
 set list
-set listchars=tab:>-,trail:$
+set listchars=tab:¬¬,trail:«
 set noexpandtab
 set number
 set shellslash
