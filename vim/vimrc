@@ -1,7 +1,7 @@
 source <sfile>:p:h/function.vim
 if has('win32')
 	"maximizes Window.
-	autocmd GUIEnter * simalt ~x 
+	autocmd GUIEnter * simalt ~x
 
 	language messages en
 endif
@@ -9,14 +9,6 @@ if has('multi_byte_ime')
 	highlight Cursor guifg=NONE guibg=Green
 	highlight CursorIM guifg=NONE guibg=Purple
 endif
-nnoremap <C-s><C-s> :w<CR>
-nnoremap <C-s><C-a> :mksession!<CR>
-nnoremap <C-s><C-k> :bp<Bar>:bd<Space>#<CR>
-nnoremap <F11> :cnext<CR>
-nnoremap <S-F11> :cprevious<CR>
-nnoremap <Space> ma
-nnoremap <F8> :tnext<CR>
-nnoremap <S-F8> :tprevious<CR>
 set autoindent
 set encoding=utf-8
 set grepprg=grep\ -n\ --exclude=tags\ --exclude=TAGS\ --exclude=XTAGS
@@ -46,3 +38,6 @@ if has('win32')
 	set ambiwidth=double
 endif
 syntax on
+
+source <sfile>:p:h/keymap.vim
+
