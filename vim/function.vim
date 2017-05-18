@@ -105,7 +105,7 @@ endfunction
 "retrieves a line.
 function! s:Line(...)
 	let str = 0 <# a:0 ? a:1 : ''
-	return l:str . "\n"
+	return empty(l:str) ?  '' : l:str . "\n"
 endfunction
 
 "retrieves the indented lines.
@@ -294,7 +294,7 @@ function! s:DefMemfunc(...)
 	let funcname = s:Arg(l:args, 'funcname', '', 'cscope')
 	let funcargs = s:Arg(l:args, 'funcargs')
 	let rettype = s:Arg(l:args, 'rettype', '', 'cscope')
-	let tplparams = s:Arg(l:args, 'template params', '', 'cscope')
+	let tplparams = s:Arg(l:args, 'tplparams', '', 'cscope')
 	let is_static = s:IsYes(s:Arg(l:args, 'is_static', '', 'cscope'))
 	let is_const = !is_static
 		\ && s:IsYes(s:Arg(l:args, 'is_const', '', 'cscope'))
@@ -335,8 +335,10 @@ function! s:DeclFunc(...)
 	let funcname = s:Arg(l:args, 'funcname', '', 'cscope')
 	let funcargs = s:Arg(l:args, 'funcargs')
 	let rettype = s:Arg(l:args, 'rettype', '', 'cscope')
+	let tplparams = s:Arg(l:args, 'tplparams', '', 'cscope')
 	let brief = s:Arg(l:args, 'brief')
 	let desc = s:Line('/// ' . l:brief)
+		\. s:Line(s:SpecifyTemplateParams(l:tplparams))
 		\. s:Line(l:rettype . ' ' . l:funcname . '(' . l:funcargs . ');')
 	return l:desc
 endfunction
@@ -344,10 +346,11 @@ endfunction
 "retrieves the definition of a function.
 function! s:DefFunc(...)
 	let args = 0 <# a:0 ? a:1 : {}
-	let namespace = s:Arg(l:args, 'namespace', '', 'cscope')
+	let namespace = s:Arg(l:args, 'namespace', s:NamespaceFrom(), 'cscope')
 	let funcname = s:Arg(l:args, 'funcname', '', 'cscope')
 	let funcargs = s:Arg(l:args, 'funcargs')
 	let rettype = s:Arg(l:args, 'rettype', '', 'cscope')
+	let tplparams = s:Arg(l:args, 'tplparams', '', 'cscope')
 	let brief = s:Arg(l:args, 'brief')
 	let ret =
 		\s:CommentBlock(
@@ -356,9 +359,11 @@ function! s:DefFunc(...)
 			\'funcname': l:funcname
 			\, 'funcargs': l:funcargs
 			\, 'rettype': l:rettype
+			\, 'tplparams': l:tplparams
 			\, 'brief': l:brief
 			\})
 		\)
+		\. s:Line(s:SpecifyTemplateParams(l:tplparams))
 		\. s:Line(l:rettype)
 		\. s:Qualify(l:namespace, l:funcname)
 		\. s:Line('(' . l:funcargs . ')')
