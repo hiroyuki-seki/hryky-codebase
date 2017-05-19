@@ -99,7 +99,7 @@ function! s:Arg(dict, key, ...)
 			\? a:dict[a:key]
 			\: s:Input(a:key.' is: ', l:defvalue)
 	endif
-	return ret
+	return l:ret
 endfunction
 
 "retrieves a line.
