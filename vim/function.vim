@@ -29,14 +29,16 @@ function! s:CommentBorder()
 endfunction
 
 "call input() conservatively.
-function! s:Input(prompt, ...)
-	let text = 0 <# a:0 ? a:1 : ''
-	let completion = 1 <# a:0 ? a:2 : ''
+function! s:Input(...)
+	let args = 0 <# a:0 ? a:1 : {}
+	let prompt = s:DictValue(args, 'prompt', 'input: ')
+	let defvalue = s:DictValue(args, 'defvalue')
+	let completion = s:DictValue(args, 'completion')
 	call inputsave()
 	if empty(l:completion)
-		let input = input(a:prompt, l:text)
+		let input = input(l:prompt, l:defvalue)
 	else
-		let input = input(a:prompt, l:text, l:completion)
+		let input = input(l:prompt, l:defvalue, l:completion)
 	endif
 	call inputrestore()
 	return l:input
@@ -45,9 +47,7 @@ endfunction
 "retrieves the definition of C++ namespace.
 function! s:DefNamespace(...)
 	let args = 0 <# a:0 ? a:1 : {}
-	let str = (has_key(l:args,'namespace')
-		\? l:args['namespace']
-		\: s:Input('namespace is: ', '', 'cscope'))
+	let str = s:Arg(args, 'namespace', {'completion': 'cscope'})
 	let namespaces = split(l:str, ':\+')
 	let ret = ''
 	for namespace in l:namespaces
@@ -71,7 +71,7 @@ endfunction
 
 "retrieves comment lines as a headline.
 function! s:CommentHeadline(...)
-	let str = 0 <# a:0 ? a:1 : s:Input('description is: ')
+	let str = 0 <# a:0 ? a:1 : s:Input()
 	return s:Line(s:CommentBorder())
 		\. s:Line('// ' . l:str)
 		\. s:Line(s:CommentBorder())
@@ -88,18 +88,19 @@ endfunction
 
 "retrieves the argument from the dictionary.
 function! s:Arg(dict, key, ...)
-	let defvalue = 0 <# a:0 ? a:1 : ''
-	let has_key = has_key(a:dict, a:key)
-	if 1 <# a:0
-		let ret = l:has_key
-			\? a:dict[a:key]
-			\: s:Input(a:key.' is: ', l:defvalue, a:2)
-	else
-		let ret = l:has_key
-			\? a:dict[a:key]
-			\: s:Input(a:key.' is: ', l:defvalue)
+	let options = 0 <# a:0 ? a:1 : {}
+	if !has_key(options, 'prompt')
+		let options = copy(options)
+		let options['prompt'] = a:key . ' is: '
 	endif
+	let ret = has_key(a:dict, a:key) ? a:dict[a:key] : s:Input(l:options)
 	return l:ret
+endfunction
+
+"retrieves the value from the dictionary without prompt.
+function! s:DictValue(dict, key, ...)
+	let fallback = 0 <# a:0 ? a:1 : ''
+	return has_key(a:dict, a:key) ? a:dict[a:key] : l:fallback
 endfunction
 
 "retrieves a line.
@@ -118,7 +119,7 @@ endfunction
 
 "retrieves a block comment
 function! s:CommentBlock(...)
-	let desc = 0 <# a:0 ? a:1 : s:Input('desc is: ', '')
+	let desc = 0 <# a:0 ? a:1 : s:Input()
 	let ret =
 		\s:Line('/**')
 		\. s:Indent(desc, '  ')
@@ -157,25 +158,28 @@ endfunction
 "assigns the default prefix of namespace.
 function! s:DefaultNamespace(...)
 	let g:hryky.namespace = 0 <# a:0 ? a:1 : s:Input(
-		\'default namespace is : ',
-		\g:hryky.namespace,
-		\'cscope')
+		\{'prompt': 'default namespace is : '
+		\, 'defvalue': g:hryky.namespace
+		\, 'completion': 'cscope'
+		\})
 endfunction
 
 "assigns the default template parameters.
 function! s:DefaultTemplateParams(...)
 	let g:hryky.template_params = 0 <# a:0 ? a:1 : s:Input(
-		\'macro for template parameters is : ',
-		\g:hryky.template_params,
-		\'cscope')
+		\{'prompt': 'macro for template parameters is : '
+		\, 'defvalue': g:hryky.template_params
+		\, 'completion': 'cscope'
+		\})
 endfunction
 
 "assigns the default template arguments.
 function! s:DefaultTemplateArgs(...)
 	let g:hryky.template_args = 0 <# a:0 ? a:1 : s:Input(
-		\'macro for template arguments is : ',
-		\g:hryky.template_args,
-		\'cscope')
+		\{'prompt': 'macro for template arguments is : '
+		\, 'defvalue': g:hryky.template_args
+		\, 'completion': 'cscope'
+		\})
 endfunction
 
 "constructs template parameters from a string.
@@ -267,14 +271,13 @@ endfunction
 "retrieves the declaration of a member function.
 function! s:DeclMemfunc(...)
 	let args = 0 <# a:0 ? a:1 : {}
-	let funcname = s:Arg(l:args, 'funcname', '', 'cscope')
-	let funcargs = s:Arg(l:args, 'funcargs')
-	let rettype = s:Arg(l:args, 'rettype', '', 'cscope')
-	let is_static = s:IsYes(s:Arg(l:args, 'is_static', '', 'cscope'))
-	let is_const = !is_static
-		\ && s:IsYes(s:Arg(l:args, 'is_const', '', 'cscope'))
-	let is_virtual = !is_static
-		\ && s:IsYes(s:Arg(l:args, 'is_virtual', '', 'cscope'))
+	let completion = {'completion': 'cscope'}
+	let funcname = s:Arg(l:args, 'funcname', completion)
+	let funcargs = s:Arg(l:args, 'funcargs', completion)
+	let rettype = s:Arg(l:args, 'rettype', completion)
+	let is_static = s:IsYes(s:Arg(l:args, 'is_static'))
+	let is_const = !is_static && s:IsYes(s:Arg(l:args, 'is_const'))
+	let is_virtual = !is_static && s:IsYes(s:Arg(l:args, 'is_virtual'))
 	let brief = s:Arg(l:args, 'brief')
 	let ret = s:Line('/// ' . l:brief)
 		\. s:Line(
@@ -289,17 +292,22 @@ endfunction
 "retrieves the definition of a member function.
 function! s:DefMemfunc(...)
 	let args = 0 <# a:0 ? a:1 : {}
-	let namespace = s:Arg(l:args, 'namespace', s:NamespaceFrom(), 'cscope')
-	let clsname = s:Arg(l:args, 'clsname', s:ClsnameFrom(), 'cscope')
-	let funcname = s:Arg(l:args, 'funcname', '', 'cscope')
-	let funcargs = s:Arg(l:args, 'funcargs')
-	let rettype = s:Arg(l:args, 'rettype', '', 'cscope')
-	let tplparams = s:Arg(l:args, 'tplparams', '', 'cscope')
-	let is_static = s:IsYes(s:Arg(l:args, 'is_static', '', 'cscope'))
-	let is_const = !is_static
-		\ && s:IsYes(s:Arg(l:args, 'is_const', '', 'cscope'))
-	let is_virtual = !is_static
-		\ && s:IsYes(s:Arg(l:args, 'is_virtual', '', 'cscope'))
+	let namespace = s:Arg(l:args, 'namespace',
+		\{'defvalue': s:NamespaceFrom()
+		\, 'completion': 'cscope'
+		\})
+	let clsname = s:Arg(l:args, 'clsname',
+		\{'defvalue': s:ClsnameFrom()
+		\, 'completion': 'cscope'
+		\})
+	let completion = {'completion': 'cscope'}
+	let funcname = s:Arg(l:args, 'funcname', completion)
+	let funcargs = s:Arg(l:args, 'funcargs', completion)
+	let rettype = s:Arg(l:args, 'rettype', completion)
+	let tplparams = s:Arg(l:args, 'tplparams', completion)
+	let is_static = s:IsYes(s:Arg(l:args, 'is_static'))
+	let is_const = !is_static && s:IsYes(s:Arg(l:args, 'is_const'))
+	let is_virtual = !is_static && s:IsYes(s:Arg(l:args, 'is_virtual'))
 	let brief = s:Arg(l:args, 'brief')
 	let ret =
 		\s:CommentBlock(
@@ -332,10 +340,11 @@ endfunction
 "retrieves the declaration of a function.
 function! s:DeclFunc(...)
 	let args = 0 <# a:0 ? a:1 : {}
-	let funcname = s:Arg(l:args, 'funcname', '', 'cscope')
-	let funcargs = s:Arg(l:args, 'funcargs')
-	let rettype = s:Arg(l:args, 'rettype', '', 'cscope')
-	let tplparams = s:Arg(l:args, 'tplparams', '', 'cscope')
+	let completion = {'completion': 'cscope'}
+	let funcname = s:Arg(l:args, 'funcname', completion)
+	let funcargs = s:Arg(l:args, 'funcargs', completion)
+	let rettype = s:Arg(l:args, 'rettype', completion)
+	let tplparams = s:Arg(l:args, 'tplparams', completion)
 	let brief = s:Arg(l:args, 'brief')
 	let desc = s:Line('/// ' . l:brief)
 		\. s:Line(s:SpecifyTemplateParams(l:tplparams))
@@ -346,11 +355,15 @@ endfunction
 "retrieves the definition of a function.
 function! s:DefFunc(...)
 	let args = 0 <# a:0 ? a:1 : {}
-	let namespace = s:Arg(l:args, 'namespace', s:NamespaceFrom(), 'cscope')
-	let funcname = s:Arg(l:args, 'funcname', '', 'cscope')
-	let funcargs = s:Arg(l:args, 'funcargs')
-	let rettype = s:Arg(l:args, 'rettype', '', 'cscope')
-	let tplparams = s:Arg(l:args, 'tplparams', '', 'cscope')
+	let namespace = s:Arg(l:args, 'namespace',
+		\{'defvalue': s:NamespaceFrom()
+		\, 'completion': 'cscope'
+		\})
+	let completion = {'completion': 'cscope'}
+	let funcname = s:Arg(l:args, 'funcname', completion)
+	let funcargs = s:Arg(l:args, 'funcargs', completion)
+	let rettype = s:Arg(l:args, 'rettype', completion)
+	let tplparams = s:Arg(l:args, 'tplparams', completion)
 	let brief = s:Arg(l:args, 'brief')
 	let ret =
 		\s:CommentBlock(
@@ -370,6 +383,29 @@ function! s:DefFunc(...)
 		\. s:Line('{')
 		\. s:Line('}')
 	return l:ret
+endfunction
+
+"open files.
+function! s:Open(...)
+	let files = a:000
+	if empty(files)
+		let pattern = s:Input(
+			\{'prompt': 'glob pattern: '
+			\, 'completion': 'file'
+			\, 'defvalue': expand('%:p')
+			\})
+		let founds = split(glob(l:pattern), "\n")
+
+		let files = copy(l:files)
+		for found in l:founds
+			if filereadable(l:found)
+				call add(files, l:found)
+			endif
+		endfor
+	endif
+	for file in l:files
+		execute 'edit ' . l:file
+	endfor
 endfunction
 
 "inserts a string.
@@ -433,4 +469,5 @@ command! -nargs=? DefaultTemplateParams call s:DefaultTemplateParams(<args>)
 command! -nargs=? DefaultTemplateArgs call s:DefaultTemplateArgs(<args>)
 command! -nargs=? TemplateParamsFrom call s:Insert(s:TemplateParamsFrom(<args>))
 command! -nargs=? TemplateArgsFrom call s:Insert(s:TemplateArgsFrom(<args>))
+command! -nargs=* -complete=file Open call s:Open(<f-args>)
 
