@@ -2,6 +2,7 @@ if exists('+colorcolumn')
 	set colorcolumn=80
 endif
 set autoindent
+set autowrite
 set encoding=utf-8
 set grepprg=grep\ -n\ --exclude=tags\ --exclude=TAGS\ --exclude=XTAGS
 set guioptions-=L
