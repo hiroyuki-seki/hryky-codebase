@@ -52,12 +52,14 @@ endfunction
 
 "retrieves the definition of C++ namespace.
 function! s:DefNamespace(...)
-	let args = 0 <# a:0 ? a:1 : {}
-	let str = s:Arg(args, 'namespace', {'completion': 'cscope'})
+	let str = 0 <# a:0 ? a:1 : s:Input(
+		\ {'completion': 'cscope'
+		\ ,'defvalue': s:NamespaceFrom()
+		\ })
 	let namespaces = split(l:str, ':\+')
 	let ret = ''
 	for namespace in l:namespaces
-		if Anonymous() is# l:namespace
+		if s:Anonymous() is# l:namespace
 			let namespace = ''
 		else
 			let namespace = ' ' . l:namespace
@@ -65,7 +67,7 @@ function! s:DefNamespace(...)
 		let ret .= 'namespace' . l:namespace . "\<CR>{\<CR>"
 	endfor
 	for namespace in reverse(l:namespaces)
-		if Anonymous() is# l:namespace
+		if s:Anonymous() is# l:namespace
 			let namespace = ''
 		else
 			let namespace = ' ' . l:namespace
@@ -195,7 +197,7 @@ function! s:TemplateParamsFrom(...)
 	if empty(l:str)
 		return ''
 	endif
-	let ret = l:str is# Anonymous() ? g:hryky.template_params : l:str
+	let ret = l:str is# s:Anonymous() ? g:hryky.template_params : l:str
 	return l:ret
 endfunction
 
@@ -217,7 +219,7 @@ function! s:TemplateArgsFrom(...)
 	if empty(l:str)
 		return ''
 	endif
-	if l:str is# Anonymous()
+	if l:str is# s:Anonymous()
 		return g:hryky.template_args
 	endif
 	let params = split(str, '\s*,\s*')
@@ -420,6 +422,18 @@ function! s:CppHeader(...)
 	let include_guard = s:IncludeGuard()
 	let ret .= s:Line('#ifndef ' . l:include_guard)
 	let ret .= s:Line('#define ' . l:include_guard)
+	let ret .= s:CommentHeadline('defines macros.')
+	let ret .= s:CommentHeadline('declares types.')
+	let ret .= s:DefNamespace(l:namespace)
+	let ret .= s:CommentHeadline('declares classes.')
+	let ret .= s:CommentHeadline('declares functions.')
+	let ret .= s:DefNamespace(l:namespace)
+	let ret .= s:CommentHeadline('specializes classes.')
+	let ret .= s:DefNamespace(l:namespace)
+	let ret .= s:CommentHeadline('defines public member functions.')
+	let ret .= s:CommentHeadline('defines protected member functions.')
+	let ret .= s:CommentHeadline('defines private member functions.')
+	let ret .= s:CommentHeadline('defines functions.')
 	let ret .= s:Line('#endif // ' . l:include_guard)
 	return l:ret
 endfunction
