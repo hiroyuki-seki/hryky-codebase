@@ -23,6 +23,12 @@ function! s:Time(...)
 	return strftime('%H:%M:%S', 0 <# a:0 ? a:1 : localtime())
 endfunction
 
+"retrieves the current date and time as string.
+function! s:DateTime(...)
+	let time = 0 <# a:0 ? a:1 : localtime()
+	return s:Date(l:time) . 'T' . s:Time(l:time)
+endfunction
+
 "retrieves a comment line as a border.
 function! s:CommentBorder()
 	return '//' . repeat('-', 78)
@@ -51,7 +57,7 @@ function! s:DefNamespace(...)
 	let namespaces = split(l:str, ':\+')
 	let ret = ''
 	for namespace in l:namespaces
-		if '*' is# l:namespace
+		if Anonymous() is# l:namespace
 			let namespace = ''
 		else
 			let namespace = ' ' . l:namespace
@@ -59,7 +65,7 @@ function! s:DefNamespace(...)
 		let ret .= 'namespace' . l:namespace . "\<CR>{\<CR>"
 	endfor
 	for namespace in reverse(l:namespaces)
-		if '*' is# l:namespace
+		if Anonymous() is# l:namespace
 			let namespace = ''
 		else
 			let namespace = ' ' . l:namespace
@@ -79,7 +85,7 @@ endfunction
 
 "retrieves an Include Guard used as a macro.
 function! s:IncludeGuard(...)
-	let name = 0 <# a:0 ? a:1 : expand('%:t') . g:hryky.DateTime()
+	let name = 0 <# a:0 ? a:1 : expand('%:t') . s:DateTime()
 	return toupper(
 		\substitute(
 			\substitute(l:name , '\W', '_', 'g'),
@@ -113,7 +119,8 @@ endfunction
 function! s:Indent(...)
 	let lines = 0 <# a:0 ? a:1 : ''
 	let prefix = 1 <# a:0 ? a:2 : "\t"
-	let desc = substitute(l:lines, '^', l:prefix, 'g')
+	let desc = substitute(l:lines, '^', l:prefix, '')
+	let desc = substitute(l:desc, "\\n", "\n" . l:prefix, 'g')
 	return l:desc
 endfunction
 
@@ -188,7 +195,7 @@ function! s:TemplateParamsFrom(...)
 	if empty(l:str)
 		return ''
 	endif
-	let ret = l:str is# '*' ? g:hryky.template_params : l:str
+	let ret = l:str is# Anonymous() ? g:hryky.template_params : l:str
 	return l:ret
 endfunction
 
@@ -210,7 +217,7 @@ function! s:TemplateArgsFrom(...)
 	if empty(l:str)
 		return ''
 	endif
-	if l:str is# '*'
+	if l:str is# Anonymous()
 		return g:hryky.template_args
 	endif
 	let params = split(str, '\s*,\s*')
@@ -221,11 +228,21 @@ function! s:TemplateArgsFrom(...)
 	return join(args, ', ')
 endfunction
 
+"retrieves the secifier of anonymous namespace.
+function! s:Anonymous()
+	return '*'
+endfunction
+
+"retrieves the filename of the current buffer.
+function! s:Filename()
+	return expand('%:t:r')
+endfunction
+
 "constructs namespace components from a string.
 function! s:ComponentsFrom(...)
 	let str = s:Qualify(
 		\g:hryky.namespace
-		\, 0 <# a:0 ? a:1 : expand('%:t:r'))
+		\, 0 <# a:0 ? a:1 : s:Filename())
 	let components = tolower(
 		\substitute(
 			\substitute(l:str, '\(\u\+\)', ' \1', 'g')
@@ -240,7 +257,7 @@ endfunc
 
 "constructs a namespace from a string.
 function! s:NamespaceFrom(...)
-	let str = 0 <# a:0 ? a:1 : expand('%:t:r')
+	let str = 0 <# a:0 ? a:1 : s:Filename()
 	let components = s:ComponentsFrom(l:str)
 	if !empty(l:components)
 		let components = l:components[:-2]
@@ -251,7 +268,7 @@ endfunction
 
 "constructs a name of class from a string
 function! s:ClsnameFrom(...)
-	let str = 0 <# a:0 ? a:1 : expand('%:t:r')
+	let str = 0 <# a:0 ? a:1 : s:Filename()
 	let components = s:ComponentsFrom(l:str)
 	return empty(l:components) ? '' : l:components[-1]
 endfunction
@@ -385,6 +402,28 @@ function! s:DefFunc(...)
 	return l:ret
 endfunction
 
+"retrieves the template of a C++ header file.
+function! s:CppHeader(...)
+	let args = 0 <# a:0 ? a:1 : {}
+	let brief = s:Arg(l:args, 'brief')
+	let namespace = s:Arg(l:args, 'namespace',
+		\{'defvalue': s:NamespaceFrom()
+		\, 'completion': 'cscope'
+		\})
+	let filename = s:Filename()
+	let since = s:Date()
+	let ret = s:CommentBlock(''
+		\. s:Line('@file ' . l:filename)
+		\. s:Line('@brief ' . l:brief)
+		\. s:Line('@since ' . l:since)
+		\)
+	let include_guard = s:IncludeGuard()
+	let ret .= s:Line('#ifndef ' . l:include_guard)
+	let ret .= s:Line('#define ' . l:include_guard)
+	let ret .= s:Line('#endif // ' . l:include_guard)
+	return l:ret
+endfunction
+
 "open files.
 function! s:Open(...)
 	let files = a:000
@@ -468,7 +507,7 @@ endfunction
 "retrieves the current date and time as string.
 function! hryky.DateTime(...)
 	let time = 0 <# a:0 ? a:1 : localtime()
-	return s:Date(l:time) . 'T' . s:Time(l:time)
+	return s:DateTime(l:time)
 endfunction
 
 "-------------------------------------------------------------------------------
@@ -521,4 +560,7 @@ command! -nargs=? -complete=cscope
 	\ call s:Append(s:TemplateArgsFrom(<args>))
 command! -nargs=* -complete=file Open
 	\ call s:Open(<f-args>)
+command! -nargs=?
+	\ CppHeader
+	\ call s:AppendLine(s:CppHeader(<args>))
 
