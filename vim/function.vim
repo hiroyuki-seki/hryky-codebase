@@ -56,7 +56,7 @@ function! s:DefNamespace(...)
 		else
 			let namespace = ' ' . l:namespace
 		endif
-		let ret .= 'namespace' . l:namespace . " {\<CR>"
+		let ret .= 'namespace' . l:namespace . "\<CR>{\<CR>"
 	endfor
 	for namespace in reverse(l:namespaces)
 		if '*' is# l:namespace
@@ -408,19 +408,39 @@ function! s:Open(...)
 	endfor
 endfunction
 
-"inserts a string.
-function! s:Insert(str)
+"inserts a string with a command.
+function! s:InsertAs(command, str)
 	let autoindent = &l:autoindent
 	let smartindent = &l:smartindent
 	let &l:autoindent = 0
 	let &l:smartindent = 0
-	exec 'normal! i' . a:str
+	exec 'normal! ' . a:command . a:str
 	if l:autoindent
 		let &l:autoindent = 1
 	endif
 	if l:smartindent
 		let &l:smartindent = 1
 	endif
+endfunction
+
+"inserts a string under the current cursor.
+function! s:Insert(str)
+	call s:InsertAs('i', a:str)
+endfunction
+
+"appends a string after the current cursor.
+function! s:Append(str)
+	call s:InsertAs('a', a:str)
+endfunction
+
+"inserts a string before the current line.
+function! s:InsertLine(str)
+	call s:InsertAs('O', a:str)
+endfunction
+
+"appends a string below the current line.
+function! s:AppendLine(str)
+	call s:InsertAs('o', a:str)
 endfunction
 
 "-------------------------------------------------------------------------------
@@ -454,20 +474,51 @@ endfunction
 "-------------------------------------------------------------------------------
 "commands
 "-------------------------------------------------------------------------------
-command! -nargs=0 DefNamespace call s:Insert(s:DefNamespace())
-command! -nargs=? CommentHeadline call s:Insert(s:CommentHeadline(<args>))
-command! -nargs=? IncludeGuard call s:Insert(s:IncludeGuard(<args>))
-command! -nargs=? DeclFunc call s:Insert(s:DeclFunc(<args>))
-command! -nargs=? DeclMemfunc call s:Insert(s:DeclMemfunc(<args>))
-command! -nargs=? DefFunc call s:Insert(s:DefFunc(<args>))
-command! -nargs=? DefMemfunc call s:Insert(s:DefMemfunc(<args>))
-command! -nargs=? CommentBlock call s:Insert(s:CommentBlock(<args>))
-command! -nargs=? NamespaceFrom call s:Insert(s:NamespaceFrom(<args>))
-command! -nargs=? ClsnameFrom call s:Insert(s:ClsnameFrom(<args>))
-command! -nargs=? DefaultNamespace call s:DefaultNamespace(<args>)
-command! -nargs=? DefaultTemplateParams call s:DefaultTemplateParams(<args>)
-command! -nargs=? DefaultTemplateArgs call s:DefaultTemplateArgs(<args>)
-command! -nargs=? TemplateParamsFrom call s:Insert(s:TemplateParamsFrom(<args>))
-command! -nargs=? TemplateArgsFrom call s:Insert(s:TemplateArgsFrom(<args>))
-command! -nargs=* -complete=file Open call s:Open(<f-args>)
+command! -nargs=? -complete=cscope
+	\ DefNamespace
+	\ call s:AppendLine(s:DefNamespace(<args>))
+command! -nargs=?
+	\ CommentHeadline
+	\ call s:AppendLine(s:CommentHeadline(<args>))
+command! -nargs=?
+	\ IncludeGuard
+	\ call s:Append(s:IncludeGuard(<args>))
+command! -nargs=? -complete=cscope
+	\ DeclFunc
+	\ call s:AppendLine(s:DeclFunc(<args>))
+command! -nargs=? -complete=cscope
+	\ DeclMemfunc
+	\ call s:AppendLine(s:DeclMemfunc(<args>))
+command! -nargs=? -complete=cscope
+	\ DefFunc
+	\ call s:AppendLine(s:DefFunc(<args>))
+command! -nargs=? -complete=cscope
+	\ DefMemfunc
+	\ call s:AppendLine(s:DefMemfunc(<args>))
+command! -nargs=?
+	\ CommentBlock
+	\ call s:AppendLine(s:CommentBlock(<args>))
+command! -nargs=? -complete=file
+	\ NamespaceFrom
+	\ call s:Append(s:NamespaceFrom(<args>))
+command! -nargs=? -complete=file
+	\ ClsnameFrom
+	\ call s:Append(s:ClsnameFrom(<args>))
+command! -nargs=? -complete=cscope
+	\ DefaultNamespace
+	\ call s:DefaultNamespace(<args>)
+command! -nargs=? -complete=cscope
+	\ DefaultTemplateParams
+	\ call s:DefaultTemplateParams(<args>)
+command! -nargs=? -complete=cscope
+	\ DefaultTemplateArgs
+	\ call s:DefaultTemplateArgs(<args>)
+command! -nargs=? -complete=cscope
+	\ TemplateParamsFrom
+	\ call s:Append(s:TemplateParamsFrom(<args>))
+command! -nargs=? -complete=cscope
+	\ TemplateArgsFrom
+	\ call s:Append(s:TemplateArgsFrom(<args>))
+command! -nargs=* -complete=file Open
+	\ call s:Open(<f-args>)
 
