@@ -1,3 +1,4 @@
+cnoremap <expr> <C-o>p expand('%:p')
 nnoremap <C-k>q :bp<Bar>:bd<Space>#<CR>
 nnoremap <C-k>w :w<Bar>:mksession!<CR>
 nnoremap <C-k>y :execute "'a,.yank " . v:register<CR>
