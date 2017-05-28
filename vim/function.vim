@@ -461,6 +461,11 @@ function! s:Open(...)
 	endfor
 endfunction
 
+"folds the current scope.
+function! s:FoldOuterBrace()
+	execute 'normal! [{zf%'
+endfunction
+
 "inserts a string with a command.
 function! s:InsertAs(command, str)
 	let autoindent = &l:autoindent
@@ -577,4 +582,7 @@ command! -nargs=* -complete=file Open
 command! -nargs=?
 	\ CppHeader
 	\ call s:AppendLine(s:CppHeader(<args>))
+command! -nargs=0
+	\ FoldOuterBrace
+	\ call s:FoldOuterBrace()
 
