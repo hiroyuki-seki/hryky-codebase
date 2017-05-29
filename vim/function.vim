@@ -379,6 +379,7 @@ function! s:DefDefaultConstructor(...)
 		\ , 'is_const': 0
 		\ , 'is_virtual': 0
 		\ , 'brief': 'default constructor.'
+		\ , 'with_decl': s:DictValue(l:args, 'with_decl', 'y')
 		\ })
 endfunction
 
@@ -404,6 +405,7 @@ function! s:DefConstructor(...)
 		\ , 'is_const': 0
 		\ , 'is_virtual': 0
 		\ , 'brief': l:brief
+		\ , 'with_decl': s:DictValue(l:args, 'with_decl', 'y')
 		\ })
 endfunction
 
@@ -426,6 +428,7 @@ function! s:DefDestructor(...)
 		\ , 'is_const': 0
 		\ , 'is_virtual': 0
 		\ , 'brief': 'destructor'
+		\ , 'with_decl': s:DictValue(l:args, 'with_decl', 'y')
 		\ })
 endfunction
 
@@ -695,6 +698,47 @@ function! s:CppClassHeader(...)
 	return l:ret
 endfunction
 
+"retrieves the template of a C++ class source file.
+function! s:CppClassSource(...)
+	let args = 0 <# a:0 ? a:1 : {}
+	let brief = s:Arg(l:args, 'brief')
+	let namespace = s:NamespaceArg(l:args)
+	let clsname = s:ClsnameArg(l:args)
+	let completion = {'completion': 'cscope'}
+	let tplparams = s:Arg(l:args, 'tplparams', l:completion)
+	let anonymous = s:Qualify(l:namespace, s:Anonymous())
+	let filename = s:Filename()
+	let since = s:Date()
+	let ret =
+		\ s:CommentBlock(''
+		\ . s:Line('@file ' . l:filename)
+		\ . s:Line('@brief ' . l:brief)
+		\ . s:Line('@since ' . l:since)
+		\ )
+		\ . s:CommentHeadline('defines macros.')
+		\ . s:CommentHeadline('declares types.')
+		\ . s:DefNamespace(l:anonymous)
+		\ . s:CommentHeadline('defines public member functions.')
+		\ . s:DefDefaultConstructor(
+			\ { 'namespace': l:namespace
+			\ , 'clsname': l:clsname
+			\ , 'tplparams': l:tplparams
+			\ , 'with_decl': 'no'
+			\ })
+		\ . s:DefDestructor(
+			\ { 'namespace': l:namespace
+			\ , 'clsname': l:clsname
+			\ , 'tplparams': l:tplparams
+			\ , 'with_decl': 'no'
+			\ })
+		\ . s:CommentHeadline('defines protected member functions.')
+		\ . s:CommentHeadline('defines private member functions.')
+		\ . s:CommentHeadline('defines global functions.')
+		\ . s:CommentHeadline('defines functions.')
+		\ . s:DefNamespace(l:anonymous)
+	return l:ret
+endfunction
+
 "open files.
 function! s:Open(...)
 	let files = a:000
@@ -938,6 +982,9 @@ command! -nargs=?
 command! -nargs=?
 	\ CppClassHeader
 	\ call s:AppendLine(s:CppClassHeader(<args>))
+command! -nargs=?
+	\ CppClassSource
+	\ call s:AppendLine(s:CppClassSource(<args>))
 command! -nargs=0
 	\ FoldOuterBrace
 	\ call s:FoldOuterBrace()
