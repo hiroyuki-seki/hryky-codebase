@@ -472,8 +472,8 @@ function! s:SearchPairs(...)
 	execute 'normal! gg'
 	let pairs = []
 	let not_found = [0, 0]
+	let found = searchpos(l:begin, 'Wc')
 	while 1
-		let found = searchpos(l:begin, 'W')
 		if l:not_found ==# l:found
 			break
 		endif
@@ -482,8 +482,9 @@ function! s:SearchPairs(...)
 		if l:not_found ==# l:close_pos
 			continue
 		endif
-		call setpos('.', l:open_pos)
 		call add(l:pairs, [l:open_pos[1] , l:close_pos[0]])
+		call setpos('.', l:open_pos)
+		let found = searchpos(l:begin, 'W')
 	endwhile
 	call setpos('.', l:save_cursor)
 	return l:pairs
@@ -508,6 +509,14 @@ function! s:FoldAllPairs(...)
 	if l:foldenable
 		let &l:foldenable = 1
 	endif
+endfunction
+
+"folds all C/C++ comment blocks in the current buffer.
+function! s:FoldAllCommentBlocks()
+	call s:FoldAllPairs(
+		\ { 'begin': '/\*'
+		\ , 'end' : '\*/'
+		\ })
 endfunction
 
 "folds all functions of the current Vim Script.
@@ -651,6 +660,9 @@ command! -nargs=0
 command! -nargs=0
 	\ FoldAllVimFunction
 	\ call s:FoldAllVimFunction()
+command! -nargs=0
+	\ FoldAllCommentBlocks
+	\ call s:FoldAllCommentBlocks()
 command! -nargs=?
 	\ SearchPairs
 	\ echo s:SearchPairs(<args>)
