@@ -173,27 +173,27 @@ endfunction
 
 "assigns the default prefix of namespace.
 function! s:DefaultNamespace(...)
-	let g:hryky.namespace = 0 <# a:0 ? a:1 : s:Input(
+	let g:my.namespace = 0 <# a:0 ? a:1 : s:Input(
 		\{'prompt': 'default namespace is : '
-		\, 'defvalue': g:hryky.namespace
+		\, 'defvalue': g:my.namespace
 		\, 'completion': 'cscope'
 		\})
 endfunction
 
 "assigns the default template parameters.
 function! s:DefaultTemplateParams(...)
-	let g:hryky.template_params = 0 <# a:0 ? a:1 : s:Input(
+	let g:my.template_params = 0 <# a:0 ? a:1 : s:Input(
 		\{'prompt': 'macro for template parameters is : '
-		\, 'defvalue': g:hryky.template_params
+		\, 'defvalue': g:my.template_params
 		\, 'completion': 'cscope'
 		\})
 endfunction
 
 "assigns the default template arguments.
 function! s:DefaultTemplateArgs(...)
-	let g:hryky.template_args = 0 <# a:0 ? a:1 : s:Input(
+	let g:my.template_args = 0 <# a:0 ? a:1 : s:Input(
 		\{'prompt': 'macro for template arguments is : '
-		\, 'defvalue': g:hryky.template_args
+		\, 'defvalue': g:my.template_args
 		\, 'completion': 'cscope'
 		\})
 endfunction
@@ -204,7 +204,7 @@ function! s:TemplateParamsFrom(...)
 	if empty(l:str)
 		return ''
 	endif
-	let ret = l:str is# s:Anonymous() ? g:hryky.template_params : l:str
+	let ret = l:str is# s:Anonymous() ? g:my.template_params : l:str
 	return l:ret
 endfunction
 
@@ -227,7 +227,7 @@ function! s:TemplateArgsFrom(...)
 		return ''
 	endif
 	if l:str is# s:Anonymous()
-		return g:hryky.template_args
+		return g:my.template_args
 	endif
 	let params = split(str, '\s*,\s*')
 	let args = []
@@ -250,7 +250,7 @@ endfunction
 "constructs namespace components from a string.
 function! s:ComponentsFrom(...)
 	let str = s:Qualify(
-		\g:hryky.namespace
+		\g:my.namespace
 		\, 0 <# a:0 ? a:1 : s:Filename())
 	let components = tolower(
 		\substitute(
@@ -667,9 +667,9 @@ function! s:CppClassHeader(...)
 		\ . s:CommentHeadline('defines macros.')
 	if !empty(l:tplparams)
 		let ret .=
-			\ s:Line('#define ' . g:hryky.template_params . ' \')
+			\ s:Line('#define ' . g:my.template_params . ' \')
 			\ . s:Indent(s:Line(l:tplparams))
-			\ . s:Line('#define ' . g:hryky.template_args . ' \')
+			\ . s:Line('#define ' . g:my.template_args . ' \')
 			\ . s:Indent(s:Line(s:TemplateArgsFrom(l:tplparams)))
 	endif
 	let ret .=
@@ -688,8 +688,8 @@ function! s:CppClassHeader(...)
 	if !empty(l:tplparams)
 		let ret .= 
 			\ s:CommentHeadline('revokes temporary macros.')
-			\ . s:Line('#undef ' . g:hryky.template_params)
-			\ . s:Line('#undef ' . g:hryky.template_args)
+			\ . s:Line('#undef ' . g:my.template_params)
+			\ . s:Line('#undef ' . g:my.template_args)
 	endif
 	let ret .= s:Line('#endif // ' . l:include_guard)
 	return l:ret
@@ -830,19 +830,19 @@ endfunction
 "-------------------------------------------------------------------------------
 "functions used from outside of this script
 "-------------------------------------------------------------------------------
-let g:hryky={}
+let g:my={}
 
 "default prefix for namespace.
-let g:hryky.namespace = 'hryky'
+let g:my.namespace = 'my'
 
 "default macro for template parameters.
-let g:hryky.template_params = 'hryky_template_params'
+let g:my.template_params = 'my_template_params'
 
 "default macro for template arguments.
-let g:hryky.template_args = 'hryky_template_args'
+let g:my.template_args = 'my_template_args'
 
 "retrieves the statusline
-function! hryky.Statusline()
+function! my.Statusline()
 	let enc = s:Encoding()
 	let eol = s:EolFormat()
 	return (empty(l:enc) ? '' : '[' . l:enc . ']')
@@ -850,7 +850,7 @@ function! hryky.Statusline()
 endfunction
 
 "retrieves the current date and time as string.
-function! hryky.DateTime(...)
+function! my.DateTime(...)
 	let time = 0 <# a:0 ? a:1 : localtime()
 	return s:DateTime(l:time)
 endfunction
