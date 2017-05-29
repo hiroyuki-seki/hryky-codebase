@@ -4,6 +4,7 @@ endif
 set autoindent
 set autowrite
 set encoding=utf-8
+set foldmethod=manual
 set grepprg=grep\ -n\ --exclude=tags\ --exclude=TAGS\ --exclude=XTAGS
 set guioptions-=L
 set guioptions-=R
