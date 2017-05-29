@@ -672,7 +672,6 @@ function! s:DeclConstructor(...)
 		\ })
 endfunction
 
-0
 "retrieves the declaration of the default constructor.
 function! s:DeclDefaultConstructor(...)
 	let args = 0 <# a:0 ? a:1 : {}
