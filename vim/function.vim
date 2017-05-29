@@ -117,12 +117,19 @@ function! s:Line(...)
 	return empty(l:str) ?  '' : l:str . "\n"
 endfunction
 
+"retrieves a linebreak.
+function! s:Newline()
+	return "\n"
+endfunction
+
 "retrieves the indented lines.
 function! s:Indent(...)
 	let lines = 0 <# a:0 ? a:1 : ''
 	let prefix = 1 <# a:0 ? a:2 : "\t"
-	let desc = substitute(l:lines, '^', l:prefix, '')
-	let desc = substitute(l:desc, "\\n", "\n" . l:prefix, 'g')
+	let desc = substitute(
+		\ l:lines, '^\([^\n]\)', l:prefix . '\1', '')
+	let desc = substitute(
+		\ l:desc, '\n\([^\n]\)', "\n" . l:prefix . '\1', 'g')
 	return l:desc
 endfunction
 
@@ -132,7 +139,7 @@ function! s:CommentBlock(...)
 	let ret =
 		\s:Line('/**')
 		\. s:Indent(desc, '  ')
-		\. (0 <# strlen(l:desc) ? s:Line() : '')
+		\. (0 <# strlen(l:desc) ? s:Newline() : '')
 		\. s:Line(' */')
 	return l:ret
 endfunction
@@ -248,7 +255,7 @@ function! s:ComponentsFrom(...)
 	let components = tolower(
 		\substitute(
 			\substitute(l:str, '\(\u\+\)', ' \1', 'g')
-			\, '\W\+', ' ', 'g'))
+			\, '[\W_]\+', ' ', 'g'))
 	let ret = split(components, '\s\+')
 	if !empty(l:ret)
 		let ret[-1] = toupper(strpart(l:ret[-1], 0, 1))
@@ -302,7 +309,8 @@ function! s:DeclMemfunc(...)
 		\. s:Line(
 			\s:Fallback(l:is_static, 'static ')
 			\. s:Fallback(l:is_virtual, 'virtual ')
-			\. l:rettype . ' ' . l:funcname . '(' . l:funcargs . ')'
+			\. (empty(l:rettype) ? '' : l:rettype . ' ')
+			\. l:funcname . '(' . l:funcargs . ')'
 			\. s:Fallback(l:is_const, ' const')
 			\. ';')
 	return l:ret
@@ -311,42 +319,36 @@ endfunction
 "retrieves the definition of a member function.
 function! s:DefMemfunc(...)
 	let args = 0 <# a:0 ? a:1 : {}
-	let namespace = s:Arg(l:args, 'namespace',
-		\{'defvalue': s:NamespaceFrom()
-		\, 'completion': 'cscope'
-		\})
-	let clsname = s:Arg(l:args, 'clsname',
-		\{'defvalue': s:ClsnameFrom()
-		\, 'completion': 'cscope'
-		\})
+	let namespace = s:NamespaceArg(args)
+	let clsname = s:ClsnameArg(args)
 	let completion = {'completion': 'cscope'}
 	let funcname = s:Arg(l:args, 'funcname', completion)
 	let funcargs = s:Arg(l:args, 'funcargs', completion)
 	let rettype = s:Arg(l:args, 'rettype', completion)
-	let tplparams = s:Arg(l:args, 'tplparams', completion)
+	let cls_tplparams = s:Arg(l:args, 'cls_tplparams', completion)
+	let func_tplparams = s:Arg(l:args, 'func_tplparams', completion)
 	let is_static = s:IsYes(s:Arg(l:args, 'is_static'))
 	let is_const = !is_static && s:IsYes(s:Arg(l:args, 'is_const'))
 	let is_virtual = !is_static && s:IsYes(s:Arg(l:args, 'is_virtual'))
 	let brief = s:Arg(l:args, 'brief')
+	let prototype = s:DeclMemfunc({
+		\'funcname': l:funcname
+		\, 'funcargs': l:funcargs
+		\, 'rettype': l:rettype
+		\, 'is_static': l:is_static
+		\, 'is_const': l:is_const
+		\, 'is_virtual': l:is_virtual
+		\, 'brief': l:brief
+		\})
 	let ret =
-		\s:CommentBlock(
-		\s:Line('@brief ' . l:brief)
-		\. s:DeclMemfunc({
-			\'funcname': l:funcname
-			\, 'funcargs': l:funcargs
-			\, 'rettype': l:rettype
-			\, 'is_static': l:is_static
-			\, 'is_const': l:is_const
-			\, 'is_virtual': l:is_virtual
-			\, 'brief': l:brief
-			\})
-		\)
-		\. s:Line(s:SpecifyTemplateParams(l:tplparams))
+		\s:CommentBlock(s:Line('@brief ' . l:brief) . l:prototype)
+		\. s:Line(s:SpecifyTemplateParams(l:cls_tplparams))
+		\. s:Line(s:SpecifyTemplateParams(l:func_tplparams))
 		\. s:Line(l:rettype)
 		\. s:Qualify(
 			\l:namespace,
 			\s:Qualify(
-				\s:SpecifyTemplateArgs(l:clsname, l:tplparams),
+				\s:SpecifyTemplateArgs(l:clsname, l:cls_tplparams),
 				\l:funcname))
 		\. s:Line(
 			\'(' . l:funcargs . ')'
@@ -354,6 +356,75 @@ function! s:DefMemfunc(...)
 		\. s:Line('{')
 		\. s:Line('}')
 	return l:ret
+endfunction
+
+"retrieves the definition of the default constructor
+function! s:DefDefaultConstructor(...)
+	let args = 0 <# a:0 ? a:1 : {}
+	let namespace = s:NamespaceArg(args)
+	let clsname = s:ClsnameArg(args)
+	let completion = {'completion': 'cscope'}
+	let tplparams = s:Arg(l:args, 'tplparams', completion)
+	return s:DefMemfunc(
+		\ { 'namespace': l:namespace
+		\ , 'clsname': l:clsname
+		\ , 'funcname': l:clsname
+		\ , 'funcargs': ''
+		\ , 'rettype': ''
+		\ , 'cls_tplparams': l:tplparams
+		\ , 'func_tplparams': ''
+		\ , 'is_static': 0
+		\ , 'is_const': 0
+		\ , 'is_virtual': 0
+		\ , 'brief': 'default constructor.'
+		\ })
+endfunction
+
+"retrieves the definition of a constructor
+function! s:DefConstructor(...)
+	let args = 0 <# a:0 ? a:1 : {}
+	let namespace = s:NamespaceArg(args)
+	let clsname = s:ClsnameArg(args)
+	let completion = {'completion': 'cscope'}
+	let funcargs = s:Arg(l:args, 'funcargs', completion)
+	let cls_tplparams = s:Arg(l:args, 'cls_tplparams', completion)
+	let func_tplparams = s:Arg(l:args, 'func_tplparams', completion)
+	let brief = s:Arg(l:args, 'brief')
+	return s:DefMemfunc(
+		\ { 'namespace': l:namespace
+		\ , 'clsname': l:clsname
+		\ , 'funcname': l:clsname
+		\ , 'funcargs': l:funcargs
+		\ , 'rettype': ''
+		\ , 'cls_tplparams': l:cls_tplparams
+		\ , 'func_tplparams': l:func_tplparams
+		\ , 'is_static': 0
+		\ , 'is_const': 0
+		\ , 'is_virtual': 0
+		\ , 'brief': l:brief
+		\ })
+endfunction
+
+"retrieves the definition of the destructor.
+function! s:DefDestructor(...)
+	let args = 0 <# a:0 ? a:1 : {}
+	let namespace = s:NamespaceArg(args)
+	let clsname = s:ClsnameArg(args)
+	let completion = {'completion': 'cscope'}
+	let tplparams = s:Arg(l:args, 'tplparams', completion)
+	return s:DefMemfunc(
+		\ { 'namespace': l:namespace
+		\ , 'clsname': l:clsname
+		\ , 'funcname': '~' . l:clsname
+		\ , 'funcargs': ''
+		\ , 'rettype': ''
+		\ , 'cls_tplparams': l:tplparams
+		\ , 'func_tplparams': ''
+		\ , 'is_static': 0
+		\ , 'is_const': 0
+		\ , 'is_virtual': 0
+		\ , 'brief': 'destructor'
+		\ })
 endfunction
 
 "retrieves the declaration of a function.
@@ -367,17 +438,16 @@ function! s:DeclFunc(...)
 	let brief = s:Arg(l:args, 'brief')
 	let desc = s:Line('/// ' . l:brief)
 		\. s:Line(s:SpecifyTemplateParams(l:tplparams))
-		\. s:Line(l:rettype . ' ' . l:funcname . '(' . l:funcargs . ');')
+		\. s:Line(''
+			\. (empty(l:rettype) ? '' : l:rettype . ' ')
+			\. l:funcname . '(' . l:funcargs . ');')
 	return l:desc
 endfunction
 
 "retrieves the definition of a function.
 function! s:DefFunc(...)
 	let args = 0 <# a:0 ? a:1 : {}
-	let namespace = s:Arg(l:args, 'namespace',
-		\{'defvalue': s:NamespaceFrom()
-		\, 'completion': 'cscope'
-		\})
+	let namespace = s:NamespaceArg(args)
 	let completion = {'completion': 'cscope'}
 	let funcname = s:Arg(l:args, 'funcname', completion)
 	let funcargs = s:Arg(l:args, 'funcargs', completion)
@@ -404,14 +474,118 @@ function! s:DefFunc(...)
 	return l:ret
 endfunction
 
+"retrieves the definition of a class.
+function! s:DefClass(...)
+	let args = 0 <# a:0 ? a:1 : {}
+	let namespace = s:NamespaceArg(args)
+	let clsname = s:ClsnameArg(args)
+	let completion = {'completion': 'cscope'}
+	let tplparams = s:Arg(l:args, 'tplparams', completion)
+	let brief = s:Arg(l:args, 'brief')
+	let decl_cls = s:DeclClass(
+		\ { 'clsname': l:clsname
+		\ , 'tplparams': l:tplparams
+		\ , 'brief': l:brief
+		\ })
+	let comment = s:CommentBlock(
+		\ s:Line('@brief ' . l:brief)
+		\ . l:decl_cls)
+	let public = s:Line(
+			\ 'typedef '
+			\ . s:Qualify(
+				\ l:namespace,
+				\ s:SpecifyTemplateArgs(l:clsname, l:tplparams))
+			\ . ' this_type')
+		\ . s:Newline()
+		\ . s:DeclDefaultConstructor(
+			\ { 'clsname': l:clsname })
+		\ . s:Newline()
+		\ . s:DeclDestructor(
+			\ { 'clsname': l:clsname })
+		\ . s:Newline()
+	return l:comment
+		\ . s:Line(s:SpecifyTemplateParams(l:tplparams))
+		\ . s:Line('class ' . s:Qualify(l:namespace, l:clsname))
+		\ . s:Line('{')
+		\ . s:Line('public :')
+		\ . s:Indent(l:public)
+		\ . s:Line('protected :')
+		\ . s:Newline()
+		\ . s:Line('private :')
+		\ . s:Newline()
+		\ . s:Line('};')
+endfunction
+
+"retrieves the namespace from arguments.
+function! s:NamespaceArg(...)
+	let args = 0 <# a:0 ? a:1 : {}
+	return s:Arg(l:args, 'namespace',
+		\{'defvalue': s:NamespaceFrom()
+		\, 'completion': 'cscope'
+		\})
+endfunction
+
+"retrieves the name of class from arguments.
+function! s:ClsnameArg(...)
+	let args = 0 <# a:0 ? a:1 : {}
+	return s:Arg(l:args, 'clsname',
+		\{'defvalue': s:ClsnameFrom()
+		\, 'completion': 'cscope'
+		\})
+endfunction
+
+"retrieves the declaration of a class.
+function! s:DeclClass(...)
+	let args = 0 <# a:0 ? a:1 : {}
+	let clsname = s:ClsnameArg(args)
+	let completion = {'completion': 'cscope'}
+	let tplparams = s:Arg(l:args, 'tplparams', completion)
+	let brief = s:Arg(l:args, 'brief')
+	let ret = s:Line('/// ' . l:brief)
+		\ . s:Line(s:SpecifyTemplateParams(l:tplparams))
+		\ . s:Line('class ' . l:clsname)
+	return ret
+endfunction
+
+"retrieves the declaration of the destructor.
+function! s:DeclDestructor(...)
+	let args = 0 <# a:0 ? a:1 : {}
+	let clsname = s:ClsnameArg(args)
+	let completion = {'completion': 'cscope'}
+	let ret = s:Line('/// destructor.')
+		\ . s:Line('~' . l:clsname . '();')
+	return ret
+endfunction
+
+"retrieves the declaration of the default constructor.
+function! s:DeclDefaultConstructor(...)
+	let args = 0 <# a:0 ? a:1 : {}
+	let clsname = s:ClsnameArg(args)
+	let completion = {'completion': 'cscope'}
+	let ret = s:Line('/// default constructor.')
+		\ . s:Line(l:clsname . '();')
+	return ret
+endfunction
+
+"retrieves the declaration of a constructor.
+function! s:DeclConstructor(...)
+	let args = 0 <# a:0 ? a:1 : {}
+	let clsname = s:ClsnameArg(args)
+	let completion = {'completion': 'cscope'}
+	let funcargs = s:Arg(l:args, 'funcargs', completion)
+	let tplparams = s:Arg(l:args, 'tplparams', completion)
+	let brief = s:Arg(l:args, 'brief')
+	let ret = s:Line('/// ' . l:brief)
+		\ . s:Line(s:SpecifyTemplateParams(l:tplparams))
+		\ . s:Line(l:clsname . '(' . l:funcargs . ');')
+	return ret
+endfunction
+
 "retrieves the template of a C++ header file.
 function! s:CppHeader(...)
 	let args = 0 <# a:0 ? a:1 : {}
 	let brief = s:Arg(l:args, 'brief')
-	let namespace = s:Arg(l:args, 'namespace',
-		\{'defvalue': s:NamespaceFrom()
-		\, 'completion': 'cscope'
-		\})
+	let namespace = s:NamespaceArg(args)
 	let filename = s:Filename()
 	let since = s:Date()
 	let ret = s:CommentBlock(''
@@ -614,6 +788,18 @@ command! -nargs=? -complete=cscope
 	\ DeclFunc
 	\ call s:AppendLine(s:DeclFunc(<args>))
 command! -nargs=? -complete=cscope
+	\ DeclClass
+	\ call s:AppendLine(s:DeclClass(<args>))
+command! -nargs=? -complete=cscope
+	\ DeclDefaultConstructor
+	\ call s:AppendLine(s:DeclDefaultConstructor(<args>))
+command! -nargs=? -complete=cscope
+	\ DeclDestructor
+	\ call s:AppendLine(s:DeclDestructor(<args>))
+command! -nargs=? -complete=cscope
+	\ DeclConstructor
+	\ call s:AppendLine(s:DeclConstructor(<args>))
+command! -nargs=? -complete=cscope
 	\ DeclMemfunc
 	\ call s:AppendLine(s:DeclMemfunc(<args>))
 command! -nargs=? -complete=cscope
@@ -622,6 +808,18 @@ command! -nargs=? -complete=cscope
 command! -nargs=? -complete=cscope
 	\ DefMemfunc
 	\ call s:AppendLine(s:DefMemfunc(<args>))
+command! -nargs=? -complete=cscope
+	\ DefDefaultConstructor
+	\ call s:AppendLine(s:DefDefaultConstructor(<args>))
+command! -nargs=? -complete=cscope
+	\ DefConstructor
+	\ call s:AppendLine(s:DefConstructor(<args>))
+command! -nargs=? -complete=cscope
+	\ DefDestructor
+	\ call s:AppendLine(s:DefDestructor(<args>))
+command! -nargs=? -complete=cscope
+	\ DefClass
+	\ call s:AppendLine(s:DefClass(<args>))
 command! -nargs=?
 	\ CommentBlock
 	\ call s:AppendLine(s:CommentBlock(<args>))
