@@ -466,6 +466,42 @@ function! s:FoldOuterBrace()
 	execute 'normal! [{zf%'
 endfunction
 
+"folds all braces of the current buffer.
+function! s:FoldAllBraces()
+	let begin = '{'
+	let middle = ''
+	let end = '}'
+	"aggregates pairs.
+	let save_cursor = getpos('.')
+	execute 'normal! gg'
+	let pairs = []
+	let not_found = [0, 0]
+	while 1
+		let found = searchpos(l:begin, 'W')
+		if l:not_found ==# l:found
+			break
+		endif
+		let open_pos = getpos('.')
+		let close_pos = searchpairpos(l:begin, l:middle, l:end, 'W')
+		if l:not_found ==# l:close_pos
+			continue
+		endif
+		call setpos('.', l:open_pos)
+		call add(l:pairs, [l:open_pos[1] , l:close_pos[0]])
+	endwhile
+	echo l:pairs
+	"creates folds.
+	let foldenable = &l:foldenable
+	let &l:foldenable = 0
+	for pair in l:pairs
+		execute string(pair[0]) . ',' . string(pair[1]) . 'fold'
+	endfor
+	if l:foldenable
+		let &l:foldenable = 1
+	endif
+	call setpos('.', l:save_cursor)
+endfunction
+
 "inserts a string with a command.
 function! s:InsertAs(command, str)
 	let autoindent = &l:autoindent
@@ -585,4 +621,7 @@ command! -nargs=?
 command! -nargs=0
 	\ FoldOuterBrace
 	\ call s:FoldOuterBrace()
+command! -nargs=0
+	\ FoldAllBraces
+	\ call s:FoldAllBraces()
 
