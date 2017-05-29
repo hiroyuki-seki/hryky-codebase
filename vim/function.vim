@@ -461,18 +461,14 @@ function! s:Open(...)
 	endfor
 endfunction
 
-"folds the current scope.
-function! s:FoldOuterBrace()
-	execute 'normal! [{zf%'
-endfunction
-
-"folds all braces of the current buffer.
-function! s:FoldAllBraces()
-	let begin = '{'
-	let middle = ''
-	let end = '}'
-	"aggregates pairs.
+"search pairs
+function! s:SearchPairs(...)
+	let args = 0 <# a:0 ? a:1 : {}
+	let begin = s:Arg(l:args, 'begin')
+	let middle = s:DictValue(l:args, 'middle')
+	let end = s:Arg(l:args, 'end')
 	let save_cursor = getpos('.')
+	"aggregates pairs.
 	execute 'normal! gg'
 	let pairs = []
 	let not_found = [0, 0]
@@ -489,6 +485,19 @@ function! s:FoldAllBraces()
 		call setpos('.', l:open_pos)
 		call add(l:pairs, [l:open_pos[1] , l:close_pos[0]])
 	endwhile
+	call setpos('.', l:save_cursor)
+	return l:pairs
+endfunction
+
+"folds the current scope.
+function! s:FoldOuterBrace()
+	execute 'normal! [{zf%'
+endfunction
+
+"folds all pairs of the current buffer.
+function! s:FoldAllPairs(...)
+	let args = 0 <# a:0 ? a:1 : {}
+	let pairs = s:SearchPairs(args)
 	echo l:pairs
 	"creates folds.
 	let foldenable = &l:foldenable
@@ -499,7 +508,22 @@ function! s:FoldAllBraces()
 	if l:foldenable
 		let &l:foldenable = 1
 	endif
-	call setpos('.', l:save_cursor)
+endfunction
+
+"folds all functions of the current Vim Script.
+function! s:FoldAllVimFunction()
+	call s:FoldAllPairs(
+		\ { 'begin': '^\<fu\%[nction]\>'
+		\ , 'end' : '^\<endf\%[unction]\>'
+		\ })
+endfunction
+
+"folds all braces of the current buffer.
+function! s:FoldAllBraces()
+	call s:FoldAllPairs(
+		\ { 'begin': '{'
+		\ , 'end' : '}'
+		\ })
 endfunction
 
 "inserts a string with a command.
@@ -624,4 +648,10 @@ command! -nargs=0
 command! -nargs=0
 	\ FoldAllBraces
 	\ call s:FoldAllBraces()
+command! -nargs=0
+	\ FoldAllVimFunction
+	\ call s:FoldAllVimFunction()
+command! -nargs=?
+	\ SearchPairs
+	\ echo s:SearchPairs(<args>)
 
