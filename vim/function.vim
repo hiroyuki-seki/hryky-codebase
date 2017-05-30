@@ -1039,6 +1039,17 @@ let g:my.template_params = 'my_template_params'
 "default macro for template arguments.
 let g:my.template_args = 'my_template_args'
 
+"retrieves a line
+function! my.Line(...)
+	let str = 0 <# a:0 ? a:1 : ''
+	return s:Line(l:str)
+endfunction
+
+"retrieves a linebreak.
+function! my.Newline()
+	return s:Newline()
+endfunction
+
 "retrieves the statusline
 function! my.Statusline()
 	let enc = s:Encoding()
