@@ -1067,6 +1067,9 @@ endfunction
 "-------------------------------------------------------------------------------
 "commands
 "-------------------------------------------------------------------------------
+command! -nargs=?
+	\ DateTime
+	\ call s:Append(s:DateTime(<args>))
 command! -nargs=? -complete=cscope
 	\ DefNamespace
 	\ call s:AppendLine(s:DefNamespace(<args>))
