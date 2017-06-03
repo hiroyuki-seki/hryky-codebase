@@ -991,23 +991,19 @@ function! s:FoldAllBraces()
 endfunction
 
 "inserts a string with a command.
-function! s:InsertAs(command, str)
+function! s:InsertAs(pre, str, ...)
+	let post = 0 <# a:0 ? a:1 : ''
 	let autoindent = &l:autoindent
 	let smartindent = &l:smartindent
 	let &l:autoindent = 0
 	let &l:smartindent = 0
-	exec 'normal! ' . a:command . a:str
+	exec 'normal! ' . a:pre . a:str . "\<ESC>" . post
 	if l:autoindent
 		let &l:autoindent = 1
 	endif
 	if l:smartindent
 		let &l:smartindent = 1
 	endif
-endfunction
-
-"inserts a string under the current cursor.
-function! s:Insert(str)
-	call s:InsertAs('i', a:str)
 endfunction
 
 "appends a string after the current cursor.
@@ -1025,6 +1021,15 @@ function! s:AppendLine(str)
 	call s:InsertAs('o', a:str)
 endfunction
 
+"retrieves the white spaces as a indent.
+function! s:IndentSpace(...)
+	let addition = 0 <# a:0 ? a:1 : 0
+	let col = virtcol('.')
+	let tabstop = &l:tabstop
+	return repeat(
+		\ ' ',
+		\ (l:tabstop * (l:addition + 1)) - (l:col - 1) % l:tabstop)
+endfunction
 "-------------------------------------------------------------------------------
 "functions used from outside of this script
 "-------------------------------------------------------------------------------
@@ -1064,6 +1069,12 @@ function! my.DateTime(...)
 	return s:DateTime(l:time)
 endfunction
 
+"retrieves indent as white space.
+function! my.IndentSpace(...)
+	let addition = 0 <# a:0 ? a:1 : 0
+	return s:IndentSpace(l:addition)
+endfunction
+
 "-------------------------------------------------------------------------------
 "commands
 "-------------------------------------------------------------------------------
@@ -1072,76 +1083,76 @@ command! -nargs=?
 	\ call s:Append(s:DateTime(<args>))
 command! -nargs=? -complete=cscope
 	\ DefNamespace
-	\ call s:AppendLine(s:DefNamespace(<args>))
+	\ call s:InsertLine(s:DefNamespace(<args>))
 command! -nargs=?
 	\ CommentHeadline
-	\ call s:AppendLine(s:CommentHeadline(<args>))
+	\ call s:InsertLine(s:CommentHeadline(<args>))
 command! -nargs=?
 	\ IncludeGuard
 	\ call s:Append(s:IncludeGuard(<args>))
 command! -nargs=? -complete=cscope
 	\ DeclFunc
-	\ call s:AppendLine(s:DeclFunc(<args>))
+	\ call s:InsertLine(s:DeclFunc(<args>))
 command! -nargs=? -complete=cscope
 	\ DeclClass
-	\ call s:AppendLine(s:DeclClass(<args>))
+	\ call s:InsertLine(s:DeclClass(<args>))
 command! -nargs=? -complete=cscope
 	\ DeclMemfunc
-	\ call s:AppendLine(s:DeclMemfunc(<args>))
+	\ call s:InsertLine(s:DeclMemfunc(<args>))
 command! -nargs=? -complete=cscope
 	\ DeclConstructor
-	\ call s:AppendLine(s:DeclConstructor(<args>))
+	\ call s:InsertLine(s:DeclConstructor(<args>))
 command! -nargs=? -complete=cscope
 	\ DeclDefaultConstructor
-	\ call s:AppendLine(s:DeclDefaultConstructor(<args>))
+	\ call s:InsertLine(s:DeclDefaultConstructor(<args>))
 command! -nargs=? -complete=cscope
 	\ DeclCopyConstructor
-	\ call s:AppendLine(s:DeclCopyConstructor(<args>))
+	\ call s:InsertLine(s:DeclCopyConstructor(<args>))
 command! -nargs=? -complete=cscope
 	\ DeclMoveConstructor
-	\ call s:AppendLine(s:DeclMoveConstructor(<args>))
+	\ call s:InsertLine(s:DeclMoveConstructor(<args>))
 command! -nargs=? -complete=cscope
 	\ DeclDestructor
-	\ call s:AppendLine(s:DeclDestructor(<args>))
+	\ call s:InsertLine(s:DeclDestructor(<args>))
 command! -nargs=? -complete=cscope
 	\ DeclMemfuncClear
-	\ call s:AppendLine(s:DeclMemfuncClear(<args>))
+	\ call s:InsertLine(s:DeclMemfuncClear(<args>))
 command! -nargs=? -complete=cscope
 	\ DeclMemfuncSwap
-	\ call s:AppendLine(s:DeclMemfuncSwap(<args>))
+	\ call s:InsertLine(s:DeclMemfuncSwap(<args>))
 command! -nargs=? -complete=cscope
 	\ DefFunc
-	\ call s:AppendLine(s:DefFunc(<args>))
+	\ call s:InsertLine(s:DefFunc(<args>))
 command! -nargs=? -complete=cscope
 	\ DefMemfunc
-	\ call s:AppendLine(s:DefMemfunc(<args>))
+	\ call s:InsertLine(s:DefMemfunc(<args>))
 command! -nargs=? -complete=cscope
 	\ DefConstructor
-	\ call s:AppendLine(s:DefConstructor(<args>))
+	\ call s:InsertLine(s:DefConstructor(<args>))
 command! -nargs=? -complete=cscope
 	\ DefDefaultConstructor
-	\ call s:AppendLine(s:DefDefaultConstructor(<args>))
+	\ call s:InsertLine(s:DefDefaultConstructor(<args>))
 command! -nargs=? -complete=cscope
 	\ DefCopyConstructor
-	\ call s:AppendLine(s:DefCopyConstructor(<args>))
+	\ call s:InsertLine(s:DefCopyConstructor(<args>))
 command! -nargs=? -complete=cscope
 	\ DefMoveConstructor
-	\ call s:AppendLine(s:DefMoveConstructor(<args>))
+	\ call s:InsertLine(s:DefMoveConstructor(<args>))
 command! -nargs=? -complete=cscope
 	\ DefDestructor
-	\ call s:AppendLine(s:DefDestructor(<args>))
+	\ call s:InsertLine(s:DefDestructor(<args>))
 command! -nargs=? -complete=cscope
 	\ DefMemfuncClear
-	\ call s:AppendLine(s:DefMemfuncClear(<args>))
+	\ call s:InsertLine(s:DefMemfuncClear(<args>))
 command! -nargs=? -complete=cscope
 	\ DefMemfuncSwap
-	\ call s:AppendLine(s:DefMemfuncSwap(<args>))
+	\ call s:InsertLine(s:DefMemfuncSwap(<args>))
 command! -nargs=? -complete=cscope
 	\ DefClass
-	\ call s:AppendLine(s:DefClass(<args>))
+	\ call s:InsertLine(s:DefClass(<args>))
 command! -nargs=?
 	\ CommentBlock
-	\ call s:AppendLine(s:CommentBlock(<args>))
+	\ call s:InsertLine(s:CommentBlock(<args>))
 command! -nargs=? -complete=file
 	\ NamespaceFrom
 	\ call s:Append(s:NamespaceFrom(<args>))
@@ -1192,4 +1203,7 @@ command! -nargs=0
 command! -nargs=?
 	\ SearchPairs
 	\ echo s:SearchPairs(<args>)
+command! -nargs=?
+	\ IndentSpace
+	\ echo s:InsertAs('i', s:IndentSpace(<args>), 'l')
 
