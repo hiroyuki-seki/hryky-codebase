@@ -23,7 +23,7 @@ set number
 set shellslash
 set shiftwidth=4
 set smartindent
-set statusline=%n\ %f\ (%l\,%c)%y%m%r%{g:my.Statusline()}
+set statusline=%n\ %f\ (%l\,%v)%y%m%r%{g:my.Statusline()}
 set tabstop=4
 set verbose=0
 if has('win32')
