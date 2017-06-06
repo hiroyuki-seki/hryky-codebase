@@ -260,7 +260,7 @@ function! s:ComponentsFrom(...)
 	let components = tolower(
 		\substitute(
 			\substitute(l:str, '\(\u\+\)', ' \1', 'g')
-			\, '[\W_:]\+', ' ', 'g'))
+			\, '[_:]\+\|\W\+', ' ', 'g'))
 	let ret = split(components, '\s\+')
 	if !empty(l:ret)
 		let ret[-1] = toupper(strpart(l:ret[-1], 0, 1))
