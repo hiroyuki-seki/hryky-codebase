@@ -3,6 +3,8 @@ if exists('+colorcolumn')
 endif
 set autoindent
 set autowrite
+set cursorcolumn
+set cursorline
 set encoding=utf-8
 set foldmethod=manual
 set grepprg=grep\ -n\ --exclude=tags\ --exclude=TAGS\ --exclude=XTAGS
