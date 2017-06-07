@@ -583,7 +583,7 @@ function! s:DefClass(...)
 		\ s:Line(
 			\ 'typedef '
 			\ . s:SpecifyTemplateArgs(l:clsname, l:tplparams)
-			\ . ' this_type')
+			\ . ' this_type;')
 		\ . s:Newline()
 		\ . s:DeclDefaultConstructor({ 'clsname': l:clsname })
 		\ . s:DeclCopyConstructor({ 'clsname': l:clsname })
