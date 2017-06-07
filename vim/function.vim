@@ -578,7 +578,10 @@ function! s:DefClass(...)
 		\ , 'tplparams': l:tplparams
 		\ , 'brief': l:brief
 		\ }))
-	let comment = s:CommentBlock(s:Line('@brief ' . l:brief) . l:prototype)
+	let comment = s:CommentBlock(
+		\ s:Line('@brief ' . l:brief)
+		\ . l:prototype
+		\ . s:Newline())
 	let public =
 		\ s:Line(
 			\ 'typedef '
@@ -632,7 +635,6 @@ function! s:DeclClass(...)
 	let ret = s:Line('/// ' . l:brief)
 		\ . s:Line(s:SpecifyTemplateParams(l:tplparams))
 		\ . s:Line('class ' . l:clsname)
-		\ . s:Newline()
 	return l:ret
 endfunction
 
