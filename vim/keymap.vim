@@ -13,8 +13,8 @@ nnoremap <C-k>w :w<Bar>:mksession!<CR>
 nnoremap <C-k>y :execute "'a,.yank " . v:register<CR>
 nnoremap <F11> :cnext<CR>
 nnoremap <F2> :tnext<CR>
-nnoremap <F3> ]]
 nnoremap <S-F11> :cprevious<CR>
 nnoremap <S-F2> :tprevious<CR>
-nnoremap <S-F3> [[
 nnoremap <Space> ma
+noremap <F3> ]]
+noremap <S-F3> [[
