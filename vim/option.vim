@@ -8,6 +8,8 @@ set cursorline
 set encoding=utf-8
 set foldmethod=manual
 set grepprg=grep\ -n\ --exclude=tags\ --exclude=TAGS\ --exclude=XTAGS
+set grepprg+=\ --exclude=*.tmp
+set grepprg+=\ --exclude=*.bak
 set guioptions-=L
 set guioptions-=R
 set guioptions-=T
