@@ -7,9 +7,13 @@ set cursorcolumn
 set cursorline
 set encoding=utf-8
 set foldmethod=manual
-set grepprg=grep\ -n\ --exclude=tags\ --exclude=TAGS\ --exclude=XTAGS
+set grepprg=grep\ -n\ -R
+set grepprg+=\ --exclude=tags
+set grepprg+=\ --exclude=TAGS
+set grepprg+=\ --exclude=XTAGS
 set grepprg+=\ --exclude=*.tmp
 set grepprg+=\ --exclude=*.bak
+set grepprg+=\ --exclude=#*#
 set guioptions-=L
 set guioptions-=R
 set guioptions-=T
