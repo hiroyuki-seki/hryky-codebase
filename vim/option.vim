@@ -13,7 +13,7 @@ set grepprg+=\ --exclude=TAGS
 set grepprg+=\ --exclude=XTAGS
 set grepprg+=\ --exclude=*.tmp
 set grepprg+=\ --exclude=*.bak
-set grepprg+=\ --exclude=#*#
+set grepprg+=\ --exclude=\\#*\\#
 set guioptions-=L
 set guioptions-=R
 set guioptions-=T
@@ -27,6 +27,7 @@ set imsearch=0 "disables Input Method when entering a search parttern.
 set list
 set listchars=tab:¬¬,trail:«
 set noexpandtab
+set nowrapscan
 set number
 set shellslash
 set shiftwidth=4
