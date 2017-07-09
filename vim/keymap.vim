@@ -12,10 +12,10 @@ nnoremap <C-k>es :e ++enc=sjis<CR>
 nnoremap <C-k>q :bp<Bar>:bd<Space>#<CR>
 nnoremap <C-k>w :w<Bar>:mksession!<CR>
 nnoremap <C-k>y :execute "'a,.yank " . v:register<CR>
-nnoremap <F11> :cnext<CR>
-nnoremap <F2> :tnext<CR>
-nnoremap <S-F11> :cprevious<CR>
-nnoremap <S-F2> :tprevious<CR>
+nnoremap <F11> :cnext<CR>zz
+nnoremap <F2> :tnext<CR>zz
+nnoremap <S-F11> :cprevious<CR>zz
+nnoremap <S-F2> :tprevious<CR>zz
 nnoremap <Space> ma
 noremap <F3> ]]zz
 noremap <S-F3> [[zz
