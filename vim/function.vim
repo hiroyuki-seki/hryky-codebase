@@ -530,7 +530,8 @@ function! s:DeclFunc(...)
 		\. s:Line(s:SpecifyTemplateParams(l:tplparams))
 		\. s:Line(''
 			\. (empty(l:rettype) ? '' : l:rettype . ' ')
-			\. l:funcname . '(' . l:funcargs . ');')
+			\. l:funcname . '(' . l:funcargs . ')'
+			\. ';')
 		\. s:Newline()
 	return l:desc
 endfunction
@@ -634,7 +635,7 @@ function! s:DeclClass(...)
 	let brief = s:Arg(l:args, 'brief')
 	let ret = s:Line('/// ' . l:brief)
 		\ . s:Line(s:SpecifyTemplateParams(l:tplparams))
-		\ . s:Line('class ' . l:clsname)
+		\ . s:Line('class ' . l:clsname . ';')
 	return l:ret
 endfunction
 
