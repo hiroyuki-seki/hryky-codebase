@@ -52,6 +52,7 @@ endfunction
 
 "retrieves the definition of C++ namespace.
 function! s:DefNamespace(...)
+	let desc = 1 <# a:0 ? a:2 : ''
 	let str = 0 <# a:0 ? a:1 : s:Input(
 		\ {'completion': 'cscope'
 		\ ,'defvalue': s:NamespaceFrom()
@@ -66,6 +67,7 @@ function! s:DefNamespace(...)
 		endif
 		let ret .= 'namespace' . l:namespace . "\<CR>{\<CR>"
 	endfor
+	let ret .= desc
 	for namespace in reverse(l:namespaces)
 		if s:Anonymous() is# l:namespace
 			let namespace = ''
@@ -114,7 +116,7 @@ endfunction
 "retrieves a line.
 function! s:Line(...)
 	let str = 0 <# a:0 ? a:1 : ''
-	return empty(l:str) ?  '' : l:str . "\n"
+	return empty(l:str) ? '' : l:str . "\n"
 endfunction
 
 "retrieves a linebreak.
@@ -138,7 +140,7 @@ function! s:CommentBlock(...)
 	let desc = 0 <# a:0 ? a:1 : s:Input()
 	let ret =
 		\s:Line('/**')
-		\. s:Indent(desc, '  ')
+		\. desc
 		\. (l:desc !~# '\n$' ? s:Newline() : '')
 		\. s:Line(' */')
 	return l:ret
@@ -351,7 +353,10 @@ function! s:DefMemfunc(...)
 		\ , 'is_virtual': l:is_virtual
 		\ }))
 	let ret =
-		\s:CommentBlock(s:Line('@brief ' . l:brief) . l:prototype)
+		\s:CommentBlock(
+			\s:Indent(s:Line('@brief ' . l:brief), g:my.comment_indent)
+			\. s:Indent(l:prototype)
+		\)
 		\. s:Line(s:SpecifyTemplateParams(l:cls_tplparams))
 		\. s:Line(s:SpecifyTemplateParams(l:func_tplparams))
 		\. s:Line(l:rettype)
@@ -555,7 +560,10 @@ function! s:DefFunc(...)
 		\, 'brief': l:brief
 		\}))
 	let ret =
-		\s:CommentBlock(s:Line('@brief ' . l:brief) . l:prototype)
+		\s:CommentBlock(
+			\s:Indent(s:Line('@brief ' . l:brief), g:my.comment_indent)
+			\. s:Indent(l:prototype)
+		\)
 		\. s:Line(s:SpecifyTemplateParams(l:tplparams))
 		\. s:Line(l:rettype)
 		\. s:Qualify(l:namespace, l:funcname)
@@ -575,14 +583,13 @@ function! s:DefClass(...)
 	let tplparams = s:Arg(l:args, 'tplparams', l:completion)
 	let with_decl = s:IsYes(s:DictValue(l:args, 'with_decl', 'y'))
 	let prototype = s:Fallback(with_decl, s:DeclClass(
-		\ { 'clsname': l:clsname
-		\ , 'tplparams': l:tplparams
-		\ , 'brief': l:brief
-		\ }))
+		\{ 'clsname': l:clsname
+		\, 'tplparams': l:tplparams
+		\, 'brief': l:brief
+		\}))
 	let comment = s:CommentBlock(
-		\ s:Line('@brief ' . l:brief)
-		\ . l:prototype
-		\ . s:Newline())
+		\s:Indent(s:Line('@brief ' . l:brief), g:my.comment_indent)
+		\. s:Indent(l:prototype))
 	let public =
 		\ s:Line(
 			\ 'typedef '
@@ -634,8 +641,9 @@ function! s:DeclClass(...)
 	let tplparams = s:Arg(l:args, 'tplparams', l:completion)
 	let brief = s:Arg(l:args, 'brief')
 	let ret = s:Line('/// ' . l:brief)
-		\ . s:Line(s:SpecifyTemplateParams(l:tplparams))
-		\ . s:Line('class ' . l:clsname . ';')
+		\. s:Line(s:SpecifyTemplateParams(l:tplparams))
+		\. s:Line('class ' . l:clsname . ';')
+		\. s:Newline()
 	return l:ret
 endfunction
 
@@ -750,11 +758,11 @@ function! s:CppHeader(...)
 	let since = s:Date()
 	let include_guard = s:IncludeGuard()
 	let ret =
-		\ s:CommentBlock(''
-			\. s:Line('@file ' . l:filename)
+		\ s:CommentBlock(s:Indent(
+			\s:Line('@file ' . l:filename)
 			\. s:Line('@brief ' . l:brief)
 			\. s:Line('@since ' . l:since)
-			\)
+		\), g:my.comment_indent)
 		\ . s:Line('#ifndef ' . l:include_guard)
 		\ . s:Line('#define ' . l:include_guard)
 		\ . s:CommentHeadline('defines macros.')
@@ -782,11 +790,11 @@ function! s:CppSource(...)
 	let filename = s:Basename()
 	let since = s:Date()
 	let ret =
-		\ s:CommentBlock(''
-			\. s:Line('@file ' . l:filename)
+		\ s:CommentBlock(s:Indent(
+			\s:Line('@file ' . l:filename)
 			\. s:Line('@brief ' . l:brief)
 			\. s:Line('@since ' . l:since)
-		\)
+		\), g:my.comment_indent)
 		\ . s:CommentHeadline('defines macros.')
 		\ . s:CommentHeadline('declares types.')
 		\ . s:DefNamespace(l:anonymous)
@@ -810,6 +818,11 @@ function! s:CppClassHeader(...)
 	let filename = s:Basename()
 	let since = s:Date()
 	let include_guard = s:IncludeGuard()
+	let decl_cls = s:DeclClass(
+		\ { 'clsname': l:clsname
+		\ , 'tplparams': l:tplparams
+		\ , 'brief': l:brief
+		\ })
 	let def_cls = s:DefClass(
 		\ { 'brief': l:brief
 		\ , 'namespace': l:namespace
@@ -817,11 +830,11 @@ function! s:CppClassHeader(...)
 		\ , 'tplparams': l:tplparams
 		\ , 'with_decl': 'no'
 		\ })
-	let ret = s:CommentBlock(''
-			\ . s:Line('@file ' . l:filename)
-			\ . s:Line('@brief ' . l:brief)
-			\ . s:Line('@since ' . l:since)
-		\ )
+	let ret = s:CommentBlock(s:Indent(
+			\s:Line('@file ' . l:filename)
+			\. s:Line('@brief ' . l:brief)
+			\. s:Line('@since ' . l:since)
+		\), g:my.comment_indent)
 		\ . s:Line('#ifndef ' . l:include_guard)
 		\ . s:Line('#define ' . l:include_guard)
 		\ . s:CommentHeadline('defines macros.')
@@ -834,7 +847,7 @@ function! s:CppClassHeader(...)
 	endif
 	let ret .=
 		\ s:CommentHeadline('declares types.')
-		\ . s:DefNamespace(l:namespace)
+		\ . s:DefNamespace(l:namespace, s:Indent(l:decl_cls))
 		\ . s:CommentHeadline('declares classes.')
 		\ . def_cls
 		\ . s:CommentHeadline('declares functions.')
@@ -873,11 +886,11 @@ function! s:CppClassSource(...)
 		\ , 'with_decl': 'no'
 		\ }
 	let ret =
-		\ s:CommentBlock(''
-			\ . s:Line('@file ' . l:filename)
-			\ . s:Line('@brief ' . l:brief)
-			\ . s:Line('@since ' . l:since)
-		\ )
+		\s:CommentBlock(s:Indent(
+			\s:Line('@file ' . l:filename)
+			\. s:Line('@brief ' . l:brief)
+			\. s:Line('@since ' . l:since)
+		\), g:my.comment_indent)
 		\ . s:CommentHeadline('defines macros.')
 		\ . s:CommentHeadline('declares types.')
 		\ . s:DefNamespace(l:anonymous)
@@ -1047,6 +1060,9 @@ let g:my.template_params = 'my_template_params'
 "default macro for template arguments.
 let g:my.template_args = 'my_template_args'
 
+"default indention for Block Comment.
+let g:my.comment_indent = '  '
+
 "retrieves a line
 function! my.Line(...)
 	let str = 0 <# a:0 ? a:1 : ''
@@ -1083,114 +1099,114 @@ endfunction
 "-------------------------------------------------------------------------------
 command! -nargs=?
 	\ DateTime
-	\ call s:Append(s:DateTime(<args>))
+	\ call s:Append(s:DateTime(<f-args>))
 command! -nargs=? -complete=cscope
 	\ DefNamespace
-	\ call s:InsertLine(s:DefNamespace(<args>))
+	\ call s:InsertLine(s:DefNamespace(<f-args>))
 command! -nargs=?
 	\ CommentHeadline
-	\ call s:InsertLine(s:CommentHeadline(<args>))
+	\ call s:InsertLine(s:CommentHeadline(<f-args>))
 command! -nargs=?
 	\ IncludeGuard
-	\ call s:Append(s:IncludeGuard(<args>))
+	\ call s:Append(s:IncludeGuard(<f-args>))
 command! -nargs=? -complete=cscope
 	\ DeclFunc
-	\ call s:InsertLine(s:DeclFunc(<args>))
+	\ call s:InsertLine(s:DeclFunc(<f-args>))
 command! -nargs=? -complete=cscope
 	\ DeclClass
-	\ call s:InsertLine(s:DeclClass(<args>))
+	\ call s:InsertLine(s:DeclClass(<f-args>))
 command! -nargs=? -complete=cscope
 	\ DeclMemfunc
-	\ call s:InsertLine(s:DeclMemfunc(<args>))
+	\ call s:InsertLine(s:DeclMemfunc(<f-args>))
 command! -nargs=? -complete=cscope
 	\ DeclConstructor
-	\ call s:InsertLine(s:DeclConstructor(<args>))
+	\ call s:InsertLine(s:DeclConstructor(<f-args>))
 command! -nargs=? -complete=cscope
 	\ DeclDefaultConstructor
-	\ call s:InsertLine(s:DeclDefaultConstructor(<args>))
+	\ call s:InsertLine(s:DeclDefaultConstructor(<f-args>))
 command! -nargs=? -complete=cscope
 	\ DeclCopyConstructor
-	\ call s:InsertLine(s:DeclCopyConstructor(<args>))
+	\ call s:InsertLine(s:DeclCopyConstructor(<f-args>))
 command! -nargs=? -complete=cscope
 	\ DeclMoveConstructor
-	\ call s:InsertLine(s:DeclMoveConstructor(<args>))
+	\ call s:InsertLine(s:DeclMoveConstructor(<f-args>))
 command! -nargs=? -complete=cscope
 	\ DeclDestructor
-	\ call s:InsertLine(s:DeclDestructor(<args>))
+	\ call s:InsertLine(s:DeclDestructor(<f-args>))
 command! -nargs=? -complete=cscope
 	\ DeclMemfuncClear
-	\ call s:InsertLine(s:DeclMemfuncClear(<args>))
+	\ call s:InsertLine(s:DeclMemfuncClear(<f-args>))
 command! -nargs=? -complete=cscope
 	\ DeclMemfuncSwap
-	\ call s:InsertLine(s:DeclMemfuncSwap(<args>))
+	\ call s:InsertLine(s:DeclMemfuncSwap(<f-args>))
 command! -nargs=? -complete=cscope
 	\ DefFunc
-	\ call s:InsertLine(s:DefFunc(<args>))
+	\ call s:InsertLine(s:DefFunc(<f-args>))
 command! -nargs=? -complete=cscope
 	\ DefMemfunc
-	\ call s:InsertLine(s:DefMemfunc(<args>))
+	\ call s:InsertLine(s:DefMemfunc(<f-args>))
 command! -nargs=? -complete=cscope
 	\ DefConstructor
-	\ call s:InsertLine(s:DefConstructor(<args>))
+	\ call s:InsertLine(s:DefConstructor(<f-args>))
 command! -nargs=? -complete=cscope
 	\ DefDefaultConstructor
-	\ call s:InsertLine(s:DefDefaultConstructor(<args>))
+	\ call s:InsertLine(s:DefDefaultConstructor(<f-args>))
 command! -nargs=? -complete=cscope
 	\ DefCopyConstructor
-	\ call s:InsertLine(s:DefCopyConstructor(<args>))
+	\ call s:InsertLine(s:DefCopyConstructor(<f-args>))
 command! -nargs=? -complete=cscope
 	\ DefMoveConstructor
-	\ call s:InsertLine(s:DefMoveConstructor(<args>))
+	\ call s:InsertLine(s:DefMoveConstructor(<f-args>))
 command! -nargs=? -complete=cscope
 	\ DefDestructor
-	\ call s:InsertLine(s:DefDestructor(<args>))
+	\ call s:InsertLine(s:DefDestructor(<f-args>))
 command! -nargs=? -complete=cscope
 	\ DefMemfuncClear
-	\ call s:InsertLine(s:DefMemfuncClear(<args>))
+	\ call s:InsertLine(s:DefMemfuncClear(<f-args>))
 command! -nargs=? -complete=cscope
 	\ DefMemfuncSwap
-	\ call s:InsertLine(s:DefMemfuncSwap(<args>))
+	\ call s:InsertLine(s:DefMemfuncSwap(<f-args>))
 command! -nargs=? -complete=cscope
 	\ DefClass
-	\ call s:InsertLine(s:DefClass(<args>))
+	\ call s:InsertLine(s:DefClass(<f-args>))
 command! -nargs=?
 	\ CommentBlock
-	\ call s:InsertLine(s:CommentBlock(<args>))
+	\ call s:InsertLine(s:CommentBlock(<f-args>))
 command! -nargs=? -complete=file
 	\ NamespaceFrom
-	\ call s:Append(s:NamespaceFrom(<args>))
+	\ call s:Append(s:NamespaceFrom(<f-args>))
 command! -nargs=? -complete=file
 	\ ClsnameFrom
-	\ call s:Append(s:ClsnameFrom(<args>))
+	\ call s:Append(s:ClsnameFrom(<f-args>))
 command! -nargs=? -complete=cscope
 	\ DefaultNamespace
-	\ call s:DefaultNamespace(<args>)
+	\ call s:DefaultNamespace(<f-args>)
 command! -nargs=? -complete=cscope
 	\ DefaultTemplateParams
-	\ call s:DefaultTemplateParams(<args>)
+	\ call s:DefaultTemplateParams(<f-args>)
 command! -nargs=? -complete=cscope
 	\ DefaultTemplateArgs
-	\ call s:DefaultTemplateArgs(<args>)
+	\ call s:DefaultTemplateArgs(<f-args>)
 command! -nargs=? -complete=cscope
 	\ TemplateParamsFrom
-	\ call s:Append(s:TemplateParamsFrom(<args>))
+	\ call s:Append(s:TemplateParamsFrom(<f-args>))
 command! -nargs=? -complete=cscope
 	\ TemplateArgsFrom
-	\ call s:Append(s:TemplateArgsFrom(<args>))
+	\ call s:Append(s:TemplateArgsFrom(<f-args>))
 command! -nargs=* -complete=file Open
 	\ call s:Open(<f-args>)
 command! -nargs=?
 	\ CppHeader
-	\ call s:AppendLine(s:CppHeader(<args>))
+	\ call s:AppendLine(s:CppHeader(<f-args>))
 command! -nargs=?
 	\ CppSource
-	\ call s:AppendLine(s:CppSource(<args>))
+	\ call s:AppendLine(s:CppSource(<f-args>))
 command! -nargs=?
 	\ CppClassHeader
-	\ call s:AppendLine(s:CppClassHeader(<args>))
+	\ call s:AppendLine(s:CppClassHeader(<f-args>))
 command! -nargs=?
 	\ CppClassSource
-	\ call s:AppendLine(s:CppClassSource(<args>))
+	\ call s:AppendLine(s:CppClassSource(<f-args>))
 command! -nargs=0
 	\ FoldOuterBrace
 	\ call s:FoldOuterBrace()
@@ -1205,8 +1221,8 @@ command! -nargs=0
 	\ call s:FoldAllCommentBlocks()
 command! -nargs=?
 	\ SearchPairs
-	\ echo s:SearchPairs(<args>)
+	\ echo s:SearchPairs(<f-args>)
 command! -nargs=?
 	\ IndentSpace
-	\ echo s:InsertAs('i', s:IndentSpace(<args>), 'l')
+	\ echo s:InsertAs('i', s:IndentSpace(<f-args>), 'l')
 
