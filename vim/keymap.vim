@@ -1,6 +1,7 @@
 cnoremap <expr> <C-o>h expand('%:p:h')
 cnoremap <expr> <C-o>p expand('%:p')
 cnoremap <expr> <C-o>t expand('%:t')
+cnoremap <expr> <C-o>r expand('%:t:r')
 nnoremap <C-k><lt> :execute "'a,.<lt>"<CR>
 nnoremap <C-k>> :execute "'a,.>"<CR>
 nnoremap <C-k>C :execute 'normal! "' . v:register . "c`a"<BAR>:startinsert<CR>
