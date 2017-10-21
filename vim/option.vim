@@ -8,6 +8,11 @@ set cursorline
 set encoding=utf-8
 set foldmethod=manual
 set grepprg=grep\ -n\ -R
+set grepprg+=\ --include=*.h
+set grepprg+=\ --include=*.c
+set grepprg+=\ --include=*.cpp
+set grepprg+=\ --include=*.m
+set grepprg+=\ --include=*.mm
 set grepprg+=\ --exclude=tags
 set grepprg+=\ --exclude=TAGS
 set grepprg+=\ --exclude=XTAGS
@@ -39,5 +44,8 @@ if has('win32')
 	set guifontwide=MS_Gothic:h10
 	set guifont=Lucida_Console:h10
 	set ambiwidth=double
+endif
+if has('path_extra')
+	set tags=./tags;,tags
 endif
 
