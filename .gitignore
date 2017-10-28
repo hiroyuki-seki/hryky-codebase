@@ -22,3 +22,4 @@ tool/build/define_variables_custom.bat
 external
 .*.swp
 tags
+*.stackdump
