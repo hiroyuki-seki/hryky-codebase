@@ -85,6 +85,7 @@ function! s:CommentHeadline(...)
 	return s:Line(s:CommentBorder())
 		\. s:Line('// ' . l:str)
 		\. s:Line(s:CommentBorder())
+		\. s:Newline()
 endfunction
 
 "retrieves an Include Guard used as a macro.
@@ -370,6 +371,7 @@ function! s:DefMemfunc(...)
 			\. s:Fallback(l:is_const, ' const'))
 		\. s:Line('{')
 		\. s:Line('}')
+		\. s:Newline()
 	return l:ret
 endfunction
 
@@ -442,7 +444,7 @@ function! s:DefMoveConstructor(...)
 	let clsname = s:ClsnameArg(l:args)
 	let completion = {'completion': 'cscope'}
 	let tplparams = s:Arg(l:args, 'tplparams', l:completion)
-	return s:DefConstructor(
+	let ret = s:DefConstructor(
 		\ { 'brief': 'move constructor.'
 		\ , 'namespace': l:namespace
 		\ , 'clsname': l:clsname
@@ -451,6 +453,14 @@ function! s:DefMoveConstructor(...)
 		\ , 'func_tplparams': ''
 		\ , 'with_decl': s:DictValue(l:args, 'with_decl', 'y')
 		\ })
+	if (empty(g:my.rvalue_reference))
+		return l:ret
+	else
+		return s:Line('#if ' . g:my.rvalue_reference)
+			\ . l:ret
+			\ . s:Line('#endif // ' . g:my.rvalue_reference)
+			\ . s:Newline()
+	endif
 endfunction
 
 "retrieves the definition of the destructor.
@@ -570,6 +580,7 @@ function! s:DefFunc(...)
 		\. s:Line('(' . l:funcargs . ')')
 		\. s:Line('{')
 		\. s:Line('}')
+		\. s:Newline()
 	return l:ret
 endfunction
 
@@ -600,7 +611,16 @@ function! s:DefClass(...)
 		\ . s:DeclCopyConstructor({ 'clsname': l:clsname })
 		\ . s:DeclMoveConstructor({ 'clsname': l:clsname })
 		\ . s:DeclDestructor({ 'clsname': l:clsname })
-		\ . s:DeclMemfuncClear()
+	if (!empty(g:my.copy_assign_op))
+		let public .= s:Line(g:my.copy_assign_op)
+			\ . s:Newline()
+	endif
+	if (!empty(g:my.move_assign_op))
+		let public .= s:Line(g:my.move_assign_op)
+			\ . s:Newline()
+	endif
+	let public .=
+		\ s:DeclMemfuncClear()
 		\ . s:DeclMemfuncSwap({ 'clsname': l:clsname })
 	return l:comment
 		\ . s:Line(s:SpecifyTemplateParams(l:tplparams))
@@ -613,6 +633,7 @@ function! s:DefClass(...)
 		\ . s:Line('private :')
 		\ . s:Newline()
 		\ . s:Line('};')
+		\ . s:Newline()
 endfunction
 
 "retrieves the namespace from arguments.
@@ -711,12 +732,20 @@ endfunction
 function! s:DeclMoveConstructor(...)
 	let args = 0 <# a:0 ? a:1 : {}
 	let clsname = s:ClsnameArg(l:args)
-	return s:DeclConstructor(
+	let ret = s:DeclConstructor(
 		\ { 'brief': 'move constructor.'
 		\ , 'clsname': l:clsname
 		\ , 'funcargs': l:clsname . ' && rhs'
 		\ , 'tplparams': ''
 		\ })
+	if (empty(g:my.rvalue_reference))
+		return l:ret
+	else
+		return s:Line('#if ' . g:my.rvalue_reference)
+			\ . l:ret
+			\ . s:Line('#endif // ' . g:my.rvalue_reference)
+			\ . s:Newline()
+	endif
 endfunction
 
 "retrieves the declaration of the clear member function.
@@ -1027,6 +1056,11 @@ function! s:Append(str)
 	call s:InsertAs('a', a:str)
 endfunction
 
+"inserts a string at the beginning of the current line.
+function! s:InsertBol(str)
+	call s:InsertAs('^i', a:str)
+endfunction
+
 "inserts a string before the current line.
 function! s:InsertLine(str)
 	call s:InsertAs('O', a:str)
@@ -1062,6 +1096,15 @@ let g:my.template_args = 'my_template_args'
 
 "default indention for Block Comment.
 let g:my.comment_indent = '  '
+
+"default macro for the support of Rvalue Reference.
+let g:my.rvalue_reference = 'my_rvalue_reference'
+
+"default macro for a copy assignment operator.
+let g:my.copy_assign_op = 'my_copy_assign_op'
+
+"default macro for a move assignment operator.
+let g:my.move_assign_op = 'my_move_assign_op'
 
 "retrieves a line
 function! my.Line(...)
@@ -1105,7 +1148,7 @@ command! -nargs=? -complete=cscope
 	\ call s:InsertLine(s:DefNamespace(<f-args>))
 command! -nargs=?
 	\ CommentHeadline
-	\ call s:InsertLine(s:CommentHeadline(<f-args>))
+	\ call s:InsertBol(s:CommentHeadline(<f-args>))
 command! -nargs=?
 	\ IncludeGuard
 	\ call s:Append(s:IncludeGuard(<f-args>))
@@ -1141,34 +1184,34 @@ command! -nargs=? -complete=cscope
 	\ call s:InsertLine(s:DeclMemfuncSwap(<f-args>))
 command! -nargs=? -complete=cscope
 	\ DefFunc
-	\ call s:InsertLine(s:DefFunc(<f-args>))
+	\ call s:InsertBol(s:DefFunc(<f-args>))
 command! -nargs=? -complete=cscope
 	\ DefMemfunc
-	\ call s:InsertLine(s:DefMemfunc(<f-args>))
+	\ call s:InsertBol(s:DefMemfunc(<f-args>))
 command! -nargs=? -complete=cscope
 	\ DefConstructor
-	\ call s:InsertLine(s:DefConstructor(<f-args>))
+	\ call s:InsertBol(s:DefConstructor(<f-args>))
 command! -nargs=? -complete=cscope
 	\ DefDefaultConstructor
-	\ call s:InsertLine(s:DefDefaultConstructor(<f-args>))
+	\ call s:InsertBol(s:DefDefaultConstructor(<f-args>))
 command! -nargs=? -complete=cscope
 	\ DefCopyConstructor
-	\ call s:InsertLine(s:DefCopyConstructor(<f-args>))
+	\ call s:InsertBol(s:DefCopyConstructor(<f-args>))
 command! -nargs=? -complete=cscope
 	\ DefMoveConstructor
-	\ call s:InsertLine(s:DefMoveConstructor(<f-args>))
+	\ call s:InsertBol(s:DefMoveConstructor(<f-args>))
 command! -nargs=? -complete=cscope
 	\ DefDestructor
-	\ call s:InsertLine(s:DefDestructor(<f-args>))
+	\ call s:InsertBol(s:DefDestructor(<f-args>))
 command! -nargs=? -complete=cscope
 	\ DefMemfuncClear
-	\ call s:InsertLine(s:DefMemfuncClear(<f-args>))
+	\ call s:InsertBol(s:DefMemfuncClear(<f-args>))
 command! -nargs=? -complete=cscope
 	\ DefMemfuncSwap
-	\ call s:InsertLine(s:DefMemfuncSwap(<f-args>))
+	\ call s:InsertBol(s:DefMemfuncSwap(<f-args>))
 command! -nargs=? -complete=cscope
 	\ DefClass
-	\ call s:InsertLine(s:DefClass(<f-args>))
+	\ call s:InsertBol(s:DefClass(<f-args>))
 command! -nargs=?
 	\ CommentBlock
 	\ call s:InsertLine(s:CommentBlock(<f-args>))
