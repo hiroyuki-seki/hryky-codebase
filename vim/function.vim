@@ -1288,10 +1288,10 @@ command! -nargs=?
 	\ call s:AppendLine(s:CppSource(<f-args>))
 command! -nargs=?
 	\ CppClassHeader
-	\ call s:AppendLine(s:CppClassHeader(<f-args>))
+	\ call s:InsertBol(s:CppClassHeader(<f-args>))
 command! -nargs=?
 	\ CppClassSource
-	\ call s:AppendLine(s:CppClassSource(<f-args>))
+	\ call s:InsertBol(s:CppClassSource(<f-args>))
 command! -nargs=0
 	\ FoldOuterBrace
 	\ call s:FoldOuterBrace()
