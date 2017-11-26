@@ -973,6 +973,7 @@ function! s:CppClassSource(...)
 		\ . s:CommentHeadline('defines protected member functions.')
 		\ . s:CommentHeadline('defines private member functions.')
 		\ . s:CommentHeadline('defines global functions.')
+		\ . s:DefFuncSwap(options)
 		\ . s:CommentHeadline('defines functions.')
 		\ . s:DefNamespace(l:anonymous)
 	return l:ret
