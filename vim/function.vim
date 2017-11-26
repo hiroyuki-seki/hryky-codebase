@@ -517,7 +517,7 @@ function! s:DefMemfuncSwap(...)
 	let completion = {'completion': 'cscope'}
 	let tplparams = s:Arg(l:args, 'tplparams', completion)
 	return s:DefMemfunc(
-		\ { 'brief': 'clears all internal resources.'
+		\ { 'brief': 'exchanges internal resources.'
 		\ , 'namespace': l:namespace
 		\ , 'clsname': l:clsname
 		\ , 'funcname': 'swap'
@@ -551,6 +551,22 @@ function! s:DeclFunc(...)
 	return l:desc
 endfunction
 
+"retrieves the declaration of the swap function.
+function! s:DeclFuncSwap(...)
+	let args = 0 <# a:0 ? a:1 : {}
+	let clsname = s:ClsnameArg(l:args)
+	let completion = {'completion': 'cscope'}
+	let tplparams = s:Arg(l:args, 'tplparams', l:completion)
+	let specified = s:SpecifyTemplateArgs(l:clsname, l:tplparams)
+	return s:DeclFunc(
+		\ { 'brief': 'exchanges resources.'
+		\ , 'funcname': 'swap'
+		\ , 'funcargs': l:specified . ' & lhs, ' . l:specified . ' & rhs'
+		\ , 'rettype': 'void'
+		\ , 'tplparams': l:tplparams
+		\ })
+endfunction
+
 "retrieves the definition of a function.
 function! s:DefFunc(...)
 	let args = 0 <# a:0 ? a:1 : {}
@@ -582,6 +598,26 @@ function! s:DefFunc(...)
 		\. s:Line('}')
 		\. s:Newline()
 	return l:ret
+endfunction
+
+"retrieves the definition of the swap() function.
+function! s:DefFuncSwap(...)
+	let args = 0 <# a:0 ? a:1 : {}
+	let namespace = s:NamespaceArg(args)
+	let clsname = s:ClsnameArg(args)
+	let completion = {'completion': 'cscope'}
+	let tplparams = s:Arg(l:args, 'tplparams', completion)
+	let specified = s:SpecifyTemplateArgs(l:clsname, l:tplparams)
+	return s:DefFunc(
+		\ { 'brief': 'exchanges internal resources.'
+		\ , 'namespace': l:namespace
+		\ , 'clsname': l:clsname
+		\ , 'funcname': 'swap'
+		\ , 'funcargs': l:specified . ' & lhs, ' . l:specified . ' & rhs'
+		\ , 'rettype': 'void'
+		\ , 'tplparams': l:tplparams
+		\ , 'with_decl': s:DictValue(l:args, 'with_decl', 'y')
+		\ })
 endfunction
 
 "retrieves the definition of a class.
@@ -1156,6 +1192,9 @@ command! -nargs=? -complete=cscope
 	\ DeclFunc
 	\ call s:InsertLine(s:DeclFunc(<f-args>))
 command! -nargs=? -complete=cscope
+	\ DeclFuncSwap
+	\ call s:InsertLine(s:DeclFuncSwap(<f-args>))
+command! -nargs=? -complete=cscope
 	\ DeclClass
 	\ call s:InsertLine(s:DeclClass(<f-args>))
 command! -nargs=? -complete=cscope
@@ -1185,6 +1224,9 @@ command! -nargs=? -complete=cscope
 command! -nargs=? -complete=cscope
 	\ DefFunc
 	\ call s:InsertBol(s:DefFunc(<f-args>))
+command! -nargs=? -complete=cscope
+	\ DefFuncSwap
+	\ call s:InsertBol(s:DefFuncSwap(<f-args>))
 command! -nargs=? -complete=cscope
 	\ DefMemfunc
 	\ call s:InsertBol(s:DefMemfunc(<f-args>))
