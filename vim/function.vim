@@ -895,6 +895,10 @@ function! s:CppClassHeader(...)
 		\ , 'tplparams': l:tplparams
 		\ , 'with_decl': 'no'
 		\ })
+	let decl_funcs = s:DeclFuncSwap(
+		\ { 'clsname' : l:clsname
+		\ , 'tplparams' : l:tplparams
+		\ })
 	let ret = s:CommentBlock(s:Indent(
 			\s:Line('@file ' . l:filename)
 			\. s:Line('@brief ' . l:brief)
@@ -916,7 +920,7 @@ function! s:CppClassHeader(...)
 		\ . s:CommentHeadline('declares classes.')
 		\ . def_cls
 		\ . s:CommentHeadline('declares functions.')
-		\ . s:DefNamespace(l:namespace)
+		\ . s:DefNamespace(l:namespace, s:Indent(l:decl_funcs))
 		\ . s:CommentHeadline('specializes classes.')
 		\ . s:DefNamespace(l:namespace)
 		\ . s:CommentHeadline('defines public member functions.')
