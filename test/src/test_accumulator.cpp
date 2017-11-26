@@ -160,3 +160,4 @@ bool Test::run_impl()
 } // namespace "anonymous"
 } // namespace test
 } // namespace hryky
+
