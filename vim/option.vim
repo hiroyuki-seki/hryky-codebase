@@ -3,6 +3,7 @@ if exists('+colorcolumn')
 endif
 set autoindent
 set autowrite
+set complete=.,t,b
 set cursorcolumn
 set cursorline
 set encoding=utf-8
