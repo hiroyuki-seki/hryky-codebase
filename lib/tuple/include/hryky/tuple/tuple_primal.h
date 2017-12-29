@@ -89,11 +89,6 @@ private :
 //------------------------------------------------------------------------------
 namespace hryky
 {
-namespace tuple
-{
-namespace detail
-{
-} // namespace detail
 template <typename DerivedT>
 template <typename DummyT>
 class Tuple<DerivedT>::At<0, DummyT>
@@ -148,7 +143,6 @@ class Tuple<DerivedT>::At<2, DummyT>
 		return derived.v3_;
 	}
 };
-} // namespace tuple
 } // namespace hryky
 //------------------------------------------------------------------------------
 // defines public member functions
