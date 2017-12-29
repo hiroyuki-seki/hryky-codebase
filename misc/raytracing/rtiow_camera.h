@@ -62,6 +62,21 @@ public :
 		Degree<DegreeT> const & vfov,
 		AspectT aspect);
 
+	/// instantiates with an aperture.
+	template <
+		typename DegreeT,
+		typename AspectT,
+		typename ApertureT,
+		typename FocusT >
+	Camera(
+		vector_type const & from,
+		vector_type const & at,
+		vector_type const & up,
+		DegreeT const & vfov,
+		AspectT const & aspect,
+		ApertureT const & aperture,
+		FocusT const & focus_dist);
+
 	/// copy constructor.
 	Camera(this_type const &);
 
@@ -90,6 +105,13 @@ public :
 	/// creates a new ray.
 	ray_type ray(float const u, float const v) const;
 
+	/// creates a new ray randomized by the aperture.
+	template <typename RandomizerT >
+	ray_type ray(
+		float const u,
+		float const v,
+		RandomizerT & randomizer) const;
+
 protected :
 
 private :
@@ -98,6 +120,8 @@ private :
 	vector_type lower_left_;
 	vector_type horizontal_;
 	vector_type vertical_;
+	vector_type basis_[3];
+	float lens_radius_;
 
 };
 //------------------------------------------------------------------------------
@@ -121,8 +145,11 @@ hryky::rtiow::Camera<hryky_template_arg>::Camera()
 	  , lower_left_(-2.0f, -1.0f, -1.0f)
 	  , horizontal_(4.0f, 0.0f, 0.0f)
 	  , vertical_(0.0f, 2.0f, 0.0f)
+	  , basis_()
+	  , lens_radius_(1.0f)
 {
 }
+
 /**
   @brief creates an instance from a vertical FOV and an aspect ratio.
  */
@@ -131,6 +158,8 @@ template <typename DegreeT, typename AspectT>
 hryky::rtiow::Camera<hryky_template_arg>::Camera(
 	Degree<DegreeT> const & vfov, AspectT aspect)
 	: origin_(0.0f)
+	, basis_()
+	, lens_radius_(1.0f)
 {
 	auto const vfov_radian = radian(vfov);
 	auto const half_height = ::std::tan(vfov_radian.get() / 2.0f);
@@ -140,6 +169,7 @@ hryky::rtiow::Camera<hryky_template_arg>::Camera(
 	this->horizontal_ = vector_type(2.0f * half_width, 0.0f, 0.0f);
 	this->vertical_ = vector_type(0.0f, 2.0f * half_height, 0.0f);
 }
+
 /**
   @brief creates an instance from parameters.
  */
@@ -152,19 +182,61 @@ hryky::rtiow::Camera<hryky_template_arg>::Camera(
 	Degree<DegreeT> const & vfov,
 	AspectT aspect)
 	: origin_(from)
+	, lens_radius_(1.0f)
 {
 	auto const vfov_radian = radian(vfov);
 	auto const half_height = ::std::tan(vfov_radian.get() / 2.0f);
 	auto const half_width = aspect * half_height;
-	auto const minus_w = normalize(from - at);
-	auto const u = normalize(cross(up, minus_w));
-	auto const v = cross(minus_w, u);
+	this->basis_[2] = normalize(from - at);
+	this->basis_[0] = normalize(cross(up, this->basis_[2]));
+	this->basis_[1] = cross(this->basis_[2], this->basis_[0]);
 	
-	this->lower_left_
-		= this->origin_ - half_width * u - half_height * v - minus_w;
-	this->horizontal_ = 2.0f * half_width * u;
-	this->vertical_ = 2.0f * half_height * v;
+	this->lower_left_ = (
+		this->origin_
+		- half_width * this->basis_[0]
+		- half_height * this->basis_[1]
+		- this->basis_[2]);
+	this->horizontal_ = 2.0f * half_width * this->basis_[0];
+	this->vertical_ = 2.0f * half_height * this->basis_[1];
 }
+
+/**
+  @brief instantiates with an aperture.
+ */
+template <hryky_template_param >
+template <
+	typename DegreeT,
+	typename AspectT,
+	typename ApertureT,
+	typename FocusT
+>
+hryky::rtiow::Camera<hryky_template_arg >::Camera(
+	vector_type const & from,
+	vector_type const & at,
+	vector_type const & up,
+	DegreeT const & vfov,
+	AspectT const & aspect,
+	ApertureT const & aperture,
+	FocusT const & focus_dist)
+	: origin_(from)
+{
+	auto const vfov_radian = radian(vfov);
+	auto const half_height = ::std::tan(vfov_radian.get() / 2.0f);
+	auto const half_width = aspect * half_height;
+	this->basis_[2] = normalize(from - at);
+	this->basis_[0] = normalize(cross(up, this->basis_[2]));
+	this->basis_[1] = cross(this->basis_[2], this->basis_[0]);
+	
+	this->lower_left_ = (
+		this->origin_
+		- focus_dist * half_width * this->basis_[0]
+		- focus_dist * half_height * this->basis_[1]
+		- focus_dist * this->basis_[2]);
+	this->horizontal_ = 2.0f * focus_dist * half_width * this->basis_[0];
+	this->vertical_ = 2.0f * focus_dist * half_height * this->basis_[1];
+	this->lens_radius_ = aperture / 2.0f;
+}
+
 /**
   @brief copy constructor.
  */
@@ -174,6 +246,8 @@ hryky::rtiow::Camera<hryky_template_arg>::Camera(this_type const & rhs)
 	  , hryky_copy_member(lower_left)
 	  , hryky_copy_member(horizontal)
 	  , hryky_copy_member(vertical)
+	  , hryky_copy_member(basis)
+	  , hryky_copy_member(lens_radius)
 {
 }
 /**
@@ -185,6 +259,8 @@ hryky::rtiow::Camera<hryky_template_arg>::Camera(this_type && rhs)
 	  , hryky_move_member(lower_left)
 	  , hryky_move_member(horizontal)
 	  , hryky_move_member(vertical)
+	  , hryky_move_member(basis)
+	  , hryky_move_member(lens_radius)
 {
 }
 /**
@@ -200,6 +276,8 @@ hryky::rtiow::Camera<hryky_template_arg>::~Camera()
 template <hryky_template_param>
 void hryky::rtiow::Camera<hryky_template_arg>::clear()
 {
+	hryky::clear(this->lens_radius_);
+	hryky::clear(this->basis_);
 	hryky::clear(this->vertical_);
 	hryky::clear(this->horizontal_);
 	hryky::clear(this->lower_left_);
@@ -215,6 +293,8 @@ void hryky::rtiow::Camera<hryky_template_arg>::swap(this_type & src)
 	hryky_swap_member(lower_left);
 	hryky_swap_member(horizontal);
 	hryky_swap_member(vertical);
+	hryky_swap_member(basis);
+	hryky_swap_member(lens_radius);
 }
 /**
   @brief outputs the information through stream.
@@ -242,6 +322,30 @@ hryky::rtiow::Camera<hryky_template_arg>::ray(
 		+ v * this->vertical_
 		- this->origin_);
 }
+
+/**
+  @brief creates a new ray randomized by the aperture.
+ */
+template <hryky_template_param >
+template <typename RandomizerT >
+typename hryky::rtiow::Camera<hryky_template_arg >::ray_type
+hryky::rtiow::Camera<hryky_template_arg >::ray(
+	float const u,
+	float const v,
+	RandomizerT & randomizer) const
+{
+	auto const rd = this->lens_radius_ * randomizer.in_disk();
+	auto const offset = rd[0] * this->basis_[0] + rd[1] * this->basis_[1];
+
+	return ray_type(
+		this->origin_ + offset,
+		this->lower_left_
+		+ u * this->horizontal_
+		+ v * this->vertical_
+		- this->origin_
+		- offset);
+}
+
 //------------------------------------------------------------------------------
 // defines protected member functions
 //------------------------------------------------------------------------------

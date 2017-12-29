@@ -54,13 +54,21 @@ int main (int argc, char * argv[])
 	auto const up = fvec3(0.0f, 1.0f, 0.0f);
 	auto const vfov = hryky::rtiow::degree(20.0f);
 	auto const aspect = static_cast<float>(width) / height;
+	auto const aperture = 2.0f;
+	auto const dist_to_focus = (lookfrom - lookat).length();
+
+	::std::random_device rd;
+
+	randomizer_type randomizer(rd());
 
 	camera_type const camera(
 		lookfrom,
 		lookat,
 		up,
 		vfov,
-		aspect);
+		aspect,
+		aperture,
+		dist_to_focus);
 
 	container_type world;
 	world.get().emplace_back(new sphere_type(
@@ -84,10 +92,6 @@ int main (int argc, char * argv[])
 			-0.45f,
 		::std::make_shared<dielectric_type>(fvec3(1.0f, 1.0f, 1.0f), 1.5f)));
 
-	::std::random_device rd;
-
-	randomizer_type randomizer(rd());
-
 	uint32_t y = 0u;
 	for (; height != y; ++y) {
 		uint32_t x = 0u;
@@ -102,7 +106,7 @@ int main (int argc, char * argv[])
 					= (static_cast<float>(x) + randomizer()) / width;
 				auto const ratio_y
 					= (static_cast<float>(height - (y + 1u)) + randomizer()) / height;
-				ray_type const ray = camera.ray(ratio_x, ratio_y);
+				ray_type const ray = camera.ray(ratio_x, ratio_y, randomizer);
 				fcolor += color(ray, world, randomizer, 50u);
 			}
 			fcolor /= samples;

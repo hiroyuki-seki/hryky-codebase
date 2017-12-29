@@ -75,6 +75,9 @@ public :
 	/// generates a point in a unit sphere.
 	VectorT in_sphere();
 
+	/// generates a point in a unit disk.
+	VectorT in_disk();
+
 protected :
 
 private :
@@ -182,6 +185,22 @@ hryky::rtiow::Randomizer<hryky_template_arg>::in_sphere()
 	} while (1.0f <= p.slength());
 	return p;
 }
+
+/**
+  @brief generates a point in a unit disk.
+ */
+template <hryky_template_param >
+VectorT
+hryky::rtiow::Randomizer<hryky_template_arg >::in_disk()
+{
+	VectorT p;
+	do {
+		p = 2.0f * VectorT((*this)(), (*this)(), 0.0f)
+			- VectorT(1.0f, 1.0f, 0.0f);
+	} while (1.0f <= dot(p, p));
+	return p;
+}
+
 //------------------------------------------------------------------------------
 // defines protected member functions
 //------------------------------------------------------------------------------
