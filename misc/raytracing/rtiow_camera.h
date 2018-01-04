@@ -250,6 +250,7 @@ hryky::rtiow::Camera<hryky_template_arg>::Camera(this_type const & rhs)
 	  , hryky_copy_member(lens_radius)
 {
 }
+
 /**
   @brief move constructor.
  */
@@ -263,6 +264,7 @@ hryky::rtiow::Camera<hryky_template_arg>::Camera(this_type && rhs)
 	  , hryky_move_member(lens_radius)
 {
 }
+
 /**
   @brief destructor.
  */
@@ -270,6 +272,7 @@ template <hryky_template_param>
 hryky::rtiow::Camera<hryky_template_arg>::~Camera()
 {
 }
+
 /**
   @brief releases the internal resources.
  */
@@ -283,6 +286,7 @@ void hryky::rtiow::Camera<hryky_template_arg>::clear()
 	hryky::clear(this->lower_left_);
 	hryky::clear(this->origin_);
 }
+
 /**
   @brief interchanges the each internal resources of two instances.
  */
@@ -296,6 +300,7 @@ void hryky::rtiow::Camera<hryky_template_arg>::swap(this_type & src)
 	hryky_swap_member(basis);
 	hryky_swap_member(lens_radius);
 }
+
 /**
   @brief outputs the information through stream.
  */
@@ -307,6 +312,7 @@ StreamT & hryky::rtiow::Camera<hryky_template_arg>::write_to(
 	stream::map::Scope<StreamT> const map(out);
 	return out;
 }
+
 /**
   @brief creates a new ray.
  */
@@ -349,9 +355,11 @@ hryky::rtiow::Camera<hryky_template_arg >::ray(
 //------------------------------------------------------------------------------
 // defines protected member functions
 //------------------------------------------------------------------------------
+
 //------------------------------------------------------------------------------
 // defines private member functions
 //------------------------------------------------------------------------------
+
 //------------------------------------------------------------------------------
 // declares global functions
 //------------------------------------------------------------------------------
@@ -364,6 +372,7 @@ namespace rtiow
 //------------------------------------------------------------------------------
 // defines global functions
 //------------------------------------------------------------------------------
+
 //------------------------------------------------------------------------------
 // revokes the temporary macros
 //------------------------------------------------------------------------------

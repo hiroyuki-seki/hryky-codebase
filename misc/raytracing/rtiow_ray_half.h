@@ -112,6 +112,7 @@ hryky::rtiow::ray::Half<hryky_template_arg>::Half()
 	: base_type()
 {
 }
+
 /**
   @brief instantiates with an origin and a direction.
  */
@@ -121,6 +122,7 @@ hryky::rtiow::ray::Half<hryky_template_arg>::Half(
 	: base_type(origin, direction)
 {
 }
+
 /**
   @brief copy constructor.
  */
@@ -129,6 +131,7 @@ hryky::rtiow::ray::Half<hryky_template_arg>::Half(this_type const & rhs)
 	: base_type(rhs)
 {
 }
+
 /**
   @brief move constructor.
  */
@@ -137,6 +140,7 @@ hryky::rtiow::ray::Half<hryky_template_arg>::Half(this_type && rhs)
 	: base_type(::std::move(rhs))
 {
 }
+
 /**
   @brief destructor.
  */
@@ -144,6 +148,7 @@ template <hryky_template_param>
 hryky::rtiow::ray::Half<hryky_template_arg>::~Half()
 {
 }
+
 /**
   @brief releases the internal resources.
  */
@@ -152,6 +157,7 @@ void hryky::rtiow::ray::Half<hryky_template_arg>::clear()
 {
 	this->base_type::clear();
 }
+
 /**
   @brief interchanges the each internal resources of two instances.
  */
@@ -160,6 +166,7 @@ void hryky::rtiow::ray::Half<hryky_template_arg>::swap(this_type & src)
 {
 	this->base_type::swap(src);
 }
+
 /**
   @brief outputs the information through stream.
  */
@@ -172,9 +179,11 @@ hryky::rtiow::ray::Half<hryky_template_arg>::write_to(
 	stream::map::Scope<StreamT> const map(out);
 	return out;
 }
+
 //------------------------------------------------------------------------------
 // defines protected member functions
 //------------------------------------------------------------------------------
+
 //------------------------------------------------------------------------------
 // defines private member functions
 //------------------------------------------------------------------------------
@@ -187,6 +196,7 @@ bool hryky::rtiow::ray::Half<hryky_template_arg>::verify_impl(
 {
 	return 0.001f < rate;
 }
+
 //------------------------------------------------------------------------------
 // declares global functions
 //------------------------------------------------------------------------------
@@ -220,6 +230,7 @@ StreamT & hryky::rtiow::ray::operator<<(
 		<< ",direction:[" << rhs.direction() << "]"
 		<< "}");
 }
+
 //------------------------------------------------------------------------------
 // revokes the temporary macros
 //------------------------------------------------------------------------------

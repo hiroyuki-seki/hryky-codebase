@@ -135,6 +135,7 @@ hryky::rtiow::hittable::Container<hryky_template_arg>::Container()
 	: container_()
 {
 }
+
 /**
   @brief instantiates with a container.
  */
@@ -144,6 +145,7 @@ hryky::rtiow::hittable::Container<hryky_template_arg>::Container(
 	: container_(container)
 {
 }
+
 /**
   @brief copy constructor.
  */
@@ -153,6 +155,7 @@ hryky::rtiow::hittable::Container<hryky_template_arg>::Container(
 	: hryky_copy_member(container)
 {
 }
+
 /**
   @brief move constructor.
  */
@@ -162,6 +165,7 @@ hryky::rtiow::hittable::Container<hryky_template_arg>::Container(
 	: hryky_move_member(container)
 {
 }
+
 /**
   @brief destructor.
  */
@@ -169,6 +173,7 @@ template <hryky_template_param>
 hryky::rtiow::hittable::Container<hryky_template_arg>::~Container()
 {
 }
+
 /**
   @brief releases the internal resources.
  */
@@ -177,6 +182,7 @@ void hryky::rtiow::hittable::Container<hryky_template_arg>::clear()
 {
 	hryky::clear(this->container_);
 }
+
 /**
   @brief interchanges the each internal resources of two instances.
  */
@@ -186,6 +192,7 @@ void hryky::rtiow::hittable::Container<hryky_template_arg>::swap(
 {
 	hryky_swap_member(container);
 }
+
 /**
   @brief outputs the information through stream.
  */
@@ -198,6 +205,7 @@ hryky::rtiow::hittable::Container<hryky_template_arg>::write_to(
 	stream::map::Scope<StreamT> const map(out);
 	return out;
 }
+
 /**
   @brief retrieves the container.
  */
@@ -206,9 +214,11 @@ ContainerT & hryky::rtiow::hittable::Container<hryky_template_arg>::get()
 {
 	return this->container_;
 }
+
 //------------------------------------------------------------------------------
 // defines protected member functions
 //------------------------------------------------------------------------------
+
 //------------------------------------------------------------------------------
 // defines private member functions
 //------------------------------------------------------------------------------
@@ -226,6 +236,7 @@ hryky::rtiow::hittable::Container<hryky_template_arg>::hit_impl(
 		this->container_.begin(),
 		this->container_.end());
 }
+
 /**
   @brief checks if a ray intersects with any hitable objects in container.
  */
@@ -258,6 +269,7 @@ hryky::rtiow::hittable::Container<hryky_template_arg>::hit_range(
 
 	return hit_type();
 }
+
 //------------------------------------------------------------------------------
 // declares global functions
 //------------------------------------------------------------------------------
@@ -273,6 +285,7 @@ namespace hittable
 //------------------------------------------------------------------------------
 // defines global functions
 //------------------------------------------------------------------------------
+
 //------------------------------------------------------------------------------
 // revokes the temporary macros
 //------------------------------------------------------------------------------

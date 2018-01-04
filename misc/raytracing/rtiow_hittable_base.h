@@ -117,6 +117,7 @@ template <typename RayT, typename RandomizerT>
 hryky::rtiow::hittable::Base<RayT, RandomizerT>::Base()
 {
 }
+
 /**
   @brief copy constructor.
  */
@@ -124,6 +125,7 @@ template <typename RayT, typename RandomizerT>
 hryky::rtiow::hittable::Base<RayT, RandomizerT>::Base(this_type const & rhs)
 {
 }
+
 /**
   @brief move constructor.
  */
@@ -131,6 +133,7 @@ template <typename RayT, typename RandomizerT>
 hryky::rtiow::hittable::Base<RayT, RandomizerT>::Base(this_type && rhs)
 {
 }
+
 /**
   @brief destructor.
  */
@@ -138,6 +141,7 @@ template <typename RayT, typename RandomizerT>
 hryky::rtiow::hittable::Base<RayT, RandomizerT>::~Base()
 {
 }
+
 /**
   @brief releases the internal resources.
  */
@@ -145,6 +149,7 @@ template <typename RayT, typename RandomizerT>
 void hryky::rtiow::hittable::Base<RayT, RandomizerT>::clear()
 {
 }
+
 /**
   @brief interchanges the each internal resources of two instances.
  */
@@ -152,6 +157,7 @@ template <typename RayT, typename RandomizerT>
 void hryky::rtiow::hittable::Base<RayT, RandomizerT>::swap(this_type & src)
 {
 }
+
 /**
   @brief outputs the information through stream.
  */
@@ -163,6 +169,7 @@ StreamT & hryky::rtiow::hittable::Base<hryky_template_arg>::write_to(
 	stream::map::Scope<StreamT> const map(out);
 	return out;
 }
+
 /**
   @brief checks if a ray intersects with this object.
  */
@@ -173,6 +180,7 @@ hryky::rtiow::hittable::Base<hryky_template_arg>::hit(
 {
 	return this->hit_impl(ray, randomizer);
 }
+
 /**
   @brief checks if a ray intersects with this object with the default randomizer.
  */
@@ -184,12 +192,15 @@ hryky::rtiow::hittable::Base<hryky_template_arg>::hit(
 	randomizer_type randomizer;
 	return this->hit_impl(ray, randomizer);
 }
+
 //------------------------------------------------------------------------------
 // defines protected member functions
 //------------------------------------------------------------------------------
+
 //------------------------------------------------------------------------------
 // defines private member functions
 //------------------------------------------------------------------------------
+
 //------------------------------------------------------------------------------
 // declares global functions
 //------------------------------------------------------------------------------
@@ -205,6 +216,7 @@ namespace hittable
 //------------------------------------------------------------------------------
 // defines global functions
 //------------------------------------------------------------------------------
+
 //------------------------------------------------------------------------------
 // revokes the temporary macros
 //------------------------------------------------------------------------------

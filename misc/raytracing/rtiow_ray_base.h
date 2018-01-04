@@ -125,6 +125,7 @@ hryky::rtiow::ray::Base<hryky_template_arg>::Base()
 	  , direction_()
 {
 }
+
 /**
   @brief instantiates with the origin and the direction.
  */
@@ -135,6 +136,7 @@ hryky::rtiow::ray::Base<hryky_template_arg>::Base(
 	  , direction_(direction)
 {
 }
+
 /**
   @brief copy constructor.
  */
@@ -144,6 +146,7 @@ hryky::rtiow::ray::Base<hryky_template_arg>::Base(this_type const & rhs)
 	  , hryky_copy_member(direction)
 {
 }
+
 /**
   @brief move constructor.
  */
@@ -153,6 +156,7 @@ hryky::rtiow::ray::Base<hryky_template_arg>::Base(this_type && rhs)
 	  , hryky_move_member(direction)
 {
 }
+
 /**
   @brief destructor.
  */
@@ -160,6 +164,7 @@ template <hryky_template_param>
 hryky::rtiow::ray::Base<hryky_template_arg>::~Base()
 {
 }
+
 /**
   @brief releases the internal resources.
  */
@@ -169,6 +174,7 @@ void hryky::rtiow::ray::Base<hryky_template_arg>::clear()
 	hryky::clear(this->direction_);
 	hryky::clear(this->origin_);
 }
+
 /**
   @brief interchanges the each internal resources of two instances.
  */
@@ -178,6 +184,7 @@ void hryky::rtiow::ray::Base<hryky_template_arg>::swap(this_type & src)
 	hryky_swap_member(origin);
 	hryky_swap_member(direction);
 }
+
 /**
   @brief outputs the information through stream.
  */
@@ -189,6 +196,7 @@ StreamT & hryky::rtiow::ray::Base<hryky_template_arg>::write_to(
 	stream::map::Scope<StreamT> const map(out);
 	return out;
 }
+
 /**
   @brief retrieves the origin of this ray.
  */
@@ -198,6 +206,7 @@ hryky::rtiow::ray::Base<hryky_template_arg>::origin() const
 {
 	return this->origin_;
 }
+
 /**
   @brief retrieves the direction of this ray.
  */
@@ -207,6 +216,7 @@ hryky::rtiow::ray::Base<hryky_template_arg>::direction() const
 {
 	return this->direction_;
 }
+
 /**
   @brief creates a position.
  */
@@ -217,6 +227,7 @@ hryky::rtiow::ray::Base<hryky_template_arg>::point(RateT && rate) const
 {
 	return this->origin_ + rate * this->direction_;
 }
+
 /**
   @brief confirms whether the rate is valid on this ray.
  */
@@ -226,12 +237,15 @@ bool hryky::rtiow::ray::Base<hryky_template_arg>::verify(
 {
 	return this->verify_impl(rate);
 }
+
 //------------------------------------------------------------------------------
 // defines protected member functions
 //------------------------------------------------------------------------------
+
 //------------------------------------------------------------------------------
 // defines private member functions
 //------------------------------------------------------------------------------
+
 //------------------------------------------------------------------------------
 // declares global functions
 //------------------------------------------------------------------------------
@@ -247,6 +261,7 @@ namespace ray
 //------------------------------------------------------------------------------
 // defines global functions
 //------------------------------------------------------------------------------
+
 //------------------------------------------------------------------------------
 // revokes the temporary macros
 //------------------------------------------------------------------------------

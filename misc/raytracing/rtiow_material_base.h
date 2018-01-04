@@ -131,6 +131,7 @@ hryky::rtiow::material::Base<hryky_template_arg>::Base()
 	: albedo_()
 {
 }
+
 /**
   @brief instantiates with an albedo.
  */
@@ -140,6 +141,7 @@ hryky::rtiow::material::Base<hryky_template_arg>::Base(
 	: albedo_(albedo)
 {
 }
+
 /**
   @brief copy constructor.
  */
@@ -148,6 +150,7 @@ hryky::rtiow::material::Base<hryky_template_arg>::Base(this_type const & rhs)
 	: hryky_copy_member(albedo)
 {
 }
+
 /**
   @brief move constructor.
  */
@@ -156,6 +159,7 @@ hryky::rtiow::material::Base<hryky_template_arg>::Base(this_type && rhs)
 	: hryky_move_member(albedo)
 {
 }
+
 /**
   @brief destructor.
  */
@@ -163,6 +167,7 @@ template <hryky_template_param>
 hryky::rtiow::material::Base<hryky_template_arg>::~Base()
 {
 }
+
 /**
   @brief releases the internal resources.
  */
@@ -171,6 +176,7 @@ void hryky::rtiow::material::Base<hryky_template_arg>::clear()
 {
 	hryky::clear(this->albedo_);
 }
+
 /**
   @brief interchanges the each internal resources of two instances.
  */
@@ -179,6 +185,7 @@ void hryky::rtiow::material::Base<hryky_template_arg>::swap(this_type & src)
 {
 	hryky_swap_member(albedo);
 }
+
 /**
   @brief outputs the information through stream.
  */
@@ -190,6 +197,7 @@ StreamT & hryky::rtiow::material::Base<hryky_template_arg>::write_to(
 	stream::map::Scope<StreamT> const map(out);
 	return out;
 }
+
 /**
   @brief calculates the scattered ray.
  */
@@ -203,6 +211,7 @@ hryky::rtiow::material::Base<hryky_template_arg>::reflect(
 {
 	return this->reflect_impl(in, pos, normal, randomizer);
 }
+
 /**
   @brief retrieves the albedo.
  */
@@ -212,12 +221,15 @@ hryky::rtiow::material::Base<hryky_template_arg>::albedo() const
 {
 	return this->albedo_;
 }
+
 //------------------------------------------------------------------------------
 // defines protected member functions
 //------------------------------------------------------------------------------
+
 //------------------------------------------------------------------------------
 // defines private member functions
 //------------------------------------------------------------------------------
+
 //------------------------------------------------------------------------------
 // declares global functions
 //------------------------------------------------------------------------------
@@ -233,6 +245,7 @@ namespace material
 //------------------------------------------------------------------------------
 // defines global functions
 //------------------------------------------------------------------------------
+
 //------------------------------------------------------------------------------
 // revokes the temporary macros
 //------------------------------------------------------------------------------

@@ -127,6 +127,7 @@ hryky::rtiow::material::Metal<hryky_template_arg>::Metal()
 	  , fuzz_()
 {
 }
+
 /**
   @brief instantiates with parameters.
  */
@@ -136,6 +137,7 @@ hryky::rtiow::material::Metal<hryky_template_arg>::Metal(albedo_type const & alb
 	  , fuzz_()
 {
 }
+
 /**
   @brief instantiates with parameters.
  */
@@ -146,6 +148,7 @@ hryky::rtiow::material::Metal<hryky_template_arg>::Metal(
 	  , fuzz_(fuzz)
 {
 }
+
 /**
   @brief copy constructor.
  */
@@ -155,6 +158,7 @@ hryky::rtiow::material::Metal<hryky_template_arg>::Metal(this_type const & rhs)
 	  , hryky_copy_member(fuzz)
 {
 }
+
 /**
   @brief move constructor.
  */
@@ -164,6 +168,7 @@ hryky::rtiow::material::Metal<hryky_template_arg>::Metal(this_type && rhs)
 	  , hryky_move_member(fuzz)
 {
 }
+
 /**
   @brief destructor.
  */
@@ -171,6 +176,7 @@ template <hryky_template_param>
 hryky::rtiow::material::Metal<hryky_template_arg>::~Metal()
 {
 }
+
 /**
   @brief releases the internal resources.
  */
@@ -180,6 +186,7 @@ void hryky::rtiow::material::Metal<hryky_template_arg>::clear()
 	hryky::clear(this->fuzz_);
 	this->base_type::clear();
 }
+
 /**
   @brief interchanges the each internal resources of two instances.
  */
@@ -189,6 +196,7 @@ void hryky::rtiow::material::Metal<hryky_template_arg>::swap(this_type & src)
 	this->base_type::swap(src);
 	hryky_swap_member(fuzz);
 }
+
 /**
   @brief outputs the information through stream.
  */
@@ -199,9 +207,11 @@ StreamT & hryky::rtiow::material::Metal<hryky_template_arg>::write_to(StreamT & 
 	stream::map::Scope<StreamT> const map(out);
 	return out;
 }
+
 //------------------------------------------------------------------------------
 // defines protected member functions
 //------------------------------------------------------------------------------
+
 //------------------------------------------------------------------------------
 // defines private member functions
 //------------------------------------------------------------------------------
@@ -222,6 +232,7 @@ hryky::rtiow::material::Metal<hryky_template_arg>::reflect_impl(
 
 	return scatter_type(ray_type(pos, reflected), this->albedo());
 }
+
 //------------------------------------------------------------------------------
 // declares global functions
 //------------------------------------------------------------------------------
@@ -237,6 +248,7 @@ namespace material
 //------------------------------------------------------------------------------
 // defines global functions
 //------------------------------------------------------------------------------
+
 //------------------------------------------------------------------------------
 // revokes the temporary macros
 //------------------------------------------------------------------------------

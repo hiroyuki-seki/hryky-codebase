@@ -134,6 +134,7 @@ hryky::rtiow::material::Dielectric<hryky_template_arg>::Dielectric()
 	  , refraction_(1.0f)
 {
 }
+
 /**
   @brief instantiates with parameters.
  */
@@ -144,6 +145,7 @@ hryky::rtiow::material::Dielectric<hryky_template_arg>::Dielectric(
 	  , refraction_(1.0f)
 {
 }
+
 /**
   @brief instantiates with parameters.
  */
@@ -154,6 +156,7 @@ hryky::rtiow::material::Dielectric<hryky_template_arg>::Dielectric(
 	  , refraction_(refraction)
 {
 }
+
 /**
   @brief copy constructor.
  */
@@ -164,6 +167,7 @@ hryky::rtiow::material::Dielectric<hryky_template_arg>::Dielectric(
 	  , hryky_copy_member(refraction)
 {
 }
+
 /**
   @brief move constructor.
  */
@@ -174,6 +178,7 @@ hryky::rtiow::material::Dielectric<hryky_template_arg>::Dielectric(
 	  , hryky_move_member(refraction)
 {
 }
+
 /**
   @brief destructor.
  */
@@ -181,6 +186,7 @@ template <hryky_template_param>
 hryky::rtiow::material::Dielectric<hryky_template_arg>::~Dielectric()
 {
 }
+
 /**
   @brief releases the internal resources.
  */
@@ -190,6 +196,7 @@ void hryky::rtiow::material::Dielectric<hryky_template_arg>::clear()
 	hryky::clear(this->refraction_);
 	this->base_type::clear();
 }
+
 /**
   @brief interchanges the each internal resources of two instances.
  */
@@ -200,6 +207,7 @@ void hryky::rtiow::material::Dielectric<hryky_template_arg>::swap(
 	this->base_type::swap(src);
 	hryky_swap_member(refraction);
 }
+
 /**
   @brief outputs the information through stream.
  */
@@ -212,6 +220,7 @@ hryky::rtiow::material::Dielectric<hryky_template_arg>::write_to(
 	stream::map::Scope<StreamT> const map(out);
 	return out;
 }
+
 /**
   @brief calculates the scattered ray.
  */
@@ -258,12 +267,15 @@ hryky::rtiow::material::Dielectric<hryky_template_arg>::reflect_impl(
 	
 	return scatter_type(ray_type(pos, refracted), this->albedo());
 }
+
 //------------------------------------------------------------------------------
 // defines protected member functions
 //------------------------------------------------------------------------------
+
 //------------------------------------------------------------------------------
 // defines private member functions
 //------------------------------------------------------------------------------
+
 //------------------------------------------------------------------------------
 // declares global functions
 //------------------------------------------------------------------------------
@@ -276,6 +288,7 @@ namespace rtiow
 //------------------------------------------------------------------------------
 // defines global functions
 //------------------------------------------------------------------------------
+
 //------------------------------------------------------------------------------
 // revokes the temporary macros
 //------------------------------------------------------------------------------

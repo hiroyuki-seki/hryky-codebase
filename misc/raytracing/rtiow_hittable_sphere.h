@@ -150,6 +150,7 @@ hryky::rtiow::hittable::Sphere<hryky_template_arg>::Sphere()
 	  , material_(::std::make_shared<material::Lambertian<> >())
 {
 }
+
 /**
   @brief instantiates with a center and a radius.
  */
@@ -162,6 +163,7 @@ hryky::rtiow::hittable::Sphere<hryky_template_arg>::Sphere(
 	  , material_(::std::make_shared<material::Lambertian<> >())
 {
 }
+
 /**
   @brief instantiates with parameters.
  */
@@ -176,6 +178,7 @@ hryky::rtiow::hittable::Sphere<hryky_template_arg>::Sphere(
 	  , material_(material)
 {
 }
+
 /**
   @brief copy constructor.
  */
@@ -187,6 +190,7 @@ hryky::rtiow::hittable::Sphere<hryky_template_arg>::Sphere(this_type const & rhs
 	  , hryky_copy_member(material)
 {
 }
+
 /**
   @brief move constructor.
  */
@@ -198,6 +202,7 @@ hryky::rtiow::hittable::Sphere<hryky_template_arg>::Sphere(this_type && rhs)
 	  , hryky_move_member(material)
 {
 }
+
 /**
   @brief destructor.
  */
@@ -205,6 +210,7 @@ template <hryky_template_param>
 hryky::rtiow::hittable::Sphere<hryky_template_arg>::~Sphere()
 {
 }
+
 /**
   @brief releases the internal resources.
  */
@@ -216,6 +222,7 @@ void hryky::rtiow::hittable::Sphere<hryky_template_arg>::clear()
 	hryky::clear(this->center_);
 	this->base_type::clear();
 }
+
 /**
   @brief interchanges the each internal resources of two instances.
  */
@@ -227,6 +234,7 @@ void hryky::rtiow::hittable::Sphere<hryky_template_arg>::swap(this_type & src)
 	hryky_swap_member(radius);
 	hryky_swap_member(material);
 }
+
 /**
   @brief outputs the information through stream.
  */
@@ -238,6 +246,7 @@ StreamT & hryky::rtiow::hittable::Sphere<hryky_template_arg>::write_to(
 	stream::map::Scope<StreamT> const map(out);
 	return out;
 }
+
 /**
   @brief retrieves the center of this sphere.
  */
@@ -247,6 +256,7 @@ hryky::rtiow::hittable::Sphere<hryky_template_arg>::center() const
 {
 	return this->center_;
 }
+
 /**
   @brief retrieves the radius of this sphere.
  */
@@ -256,6 +266,7 @@ hryky::rtiow::hittable::Sphere<hryky_template_arg>::radius() const
 {
 	return this->radius_;
 }
+
 /**
   @brief retrieves the matrial of this sphere.
  */
@@ -265,9 +276,11 @@ hryky::rtiow::hittable::Sphere<hryky_template_arg>::material() const
 {
 	return this->material_;
 }
+
 //------------------------------------------------------------------------------
 // defines protected member functions
 //------------------------------------------------------------------------------
+
 //------------------------------------------------------------------------------
 // defines private member functions
 //------------------------------------------------------------------------------
@@ -314,6 +327,7 @@ hryky::rtiow::hittable::Sphere<hryky_template_arg>::hit_impl(
 
 	return hit_type();
 }
+
 //------------------------------------------------------------------------------
 // declares global functions
 //------------------------------------------------------------------------------
@@ -329,6 +343,7 @@ namespace hittable
 //------------------------------------------------------------------------------
 // defines global functions
 //------------------------------------------------------------------------------
+
 //------------------------------------------------------------------------------
 // revokes the temporary macros
 //------------------------------------------------------------------------------

@@ -113,6 +113,7 @@ hryky::rtiow::ray::Segment<hryky_template_arg>::Segment()
 	: base_type()
 {
 }
+
 /**
   @brief constructor.
  */
@@ -122,6 +123,7 @@ hryky::rtiow::ray::Segment<hryky_template_arg>::Segment(
 	: base_type(origin, direction)
 {
 }
+
 /**
   @brief copy constructor.
  */
@@ -130,6 +132,7 @@ hryky::rtiow::ray::Segment<hryky_template_arg>::Segment(this_type const & rhs)
 	: base_type(rhs)
 {
 }
+
 /**
   @brief move constructor.
  */
@@ -138,6 +141,7 @@ hryky::rtiow::ray::Segment<hryky_template_arg>::Segment(this_type && rhs)
 	: base_type(::std::move(rhs))
 {
 }
+
 /**
   @brief destructor.
  */
@@ -145,6 +149,7 @@ template <hryky_template_param>
 hryky::rtiow::ray::Segment<hryky_template_arg>::~Segment()
 {
 }
+
 /**
   @brief releases the internal resources.
  */
@@ -153,6 +158,7 @@ void hryky::rtiow::ray::Segment<hryky_template_arg>::clear()
 {
 	this->base_type::clear();
 }
+
 /**
   @brief interchanges the each internal resources of two instances.
  */
@@ -161,6 +167,7 @@ void hryky::rtiow::ray::Segment<hryky_template_arg>::swap(this_type & src)
 {
 	this->base_type::swap(src);
 }
+
 /**
   @brief outputs the information through stream.
  */
@@ -172,9 +179,11 @@ StreamT & hryky::rtiow::ray::Segment<hryky_template_arg>::write_to(
 	stream::map::Scope<StreamT> const map(out);
 	return out;
 }
+
 //------------------------------------------------------------------------------
 // defines protected member functions
 //------------------------------------------------------------------------------
+
 //------------------------------------------------------------------------------
 // defines private member functions
 //------------------------------------------------------------------------------
@@ -187,6 +196,7 @@ bool hryky::rtiow::ray::Segment<hryky_template_arg>::verify_impl(
 {
 	return 0.001f < rate && 1.0f > rate;
 }
+
 //------------------------------------------------------------------------------
 // declares global functions
 //------------------------------------------------------------------------------
@@ -202,6 +212,7 @@ namespace ray
 //------------------------------------------------------------------------------
 // defines global functions
 //------------------------------------------------------------------------------
+
 //------------------------------------------------------------------------------
 // revokes the temporary macros
 //------------------------------------------------------------------------------

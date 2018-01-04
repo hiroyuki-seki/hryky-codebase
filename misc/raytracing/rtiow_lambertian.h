@@ -108,6 +108,7 @@ hryky::rtiow::Lambertian<hryky_template_arg>::Lambertian()
 	: albedo_()
 {
 }
+
 /**
   @brief instantiates with the albedo.
  */
@@ -117,6 +118,7 @@ hryky::rtiow::Lambertian<hryky_template_arg>::Lambertian(
 	: albedo_(albedo)
 {
 }
+
 /**
   @brief copy constructor.
  */
@@ -125,6 +127,7 @@ hryky::rtiow::Lambertian<hryky_template_arg>::Lambertian(this_type const & rhs)
 	: hryky_copy_member(albedo)
 {
 }
+
 /**
   @brief move constructor.
  */
@@ -133,6 +136,7 @@ hryky::rtiow::Lambertian<hryky_template_arg>::Lambertian(this_type && rhs)
 	: hryky_move_member(albedo)
 {
 }
+
 /**
   @brief destructor.
  */
@@ -140,6 +144,7 @@ template <hryky_template_param>
 hryky::rtiow::Lambertian<hryky_template_arg>::~Lambertian()
 {
 }
+
 /**
   @brief releases the internal resources.
  */
@@ -148,6 +153,7 @@ void hryky::rtiow::Lambertian<hryky_template_arg>::clear()
 {
 	hryky::clear(this->albedo_);
 }
+
 /**
   @brief interchanges the each internal resources of two instances.
  */
@@ -156,6 +162,7 @@ void hryky::rtiow::Lambertian<hryky_template_arg>::swap(this_type & src)
 {
 	hryky_swap_member(albedo);
 }
+
 /**
   @brief outputs the information through stream.
  */
@@ -167,6 +174,7 @@ StreamT & hryky::rtiow::Lambertian<hryky_template_arg>::write_to(
 	stream::map::Scope<StreamT> const map(out);
 	return out;
 }
+
 /**
   @brief calculates the scattered ray.
  */
@@ -183,12 +191,15 @@ hryky::rtiow::Lambertian<hryky_template_arg>::scatter(
 	
 	return Scatter<>(ray(pos, target - pos), this->albedo_);
 }
+
 //------------------------------------------------------------------------------
 // defines protected member functions
 //------------------------------------------------------------------------------
+
 //------------------------------------------------------------------------------
 // defines private member functions
 //------------------------------------------------------------------------------
+
 //------------------------------------------------------------------------------
 // declares global functions
 //------------------------------------------------------------------------------
@@ -201,6 +212,7 @@ namespace rtiow
 //------------------------------------------------------------------------------
 // defines global functions
 //------------------------------------------------------------------------------
+
 //------------------------------------------------------------------------------
 // revokes the temporary macros
 //------------------------------------------------------------------------------
