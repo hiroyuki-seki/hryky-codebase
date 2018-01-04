@@ -117,6 +117,7 @@ hryky::rtiow::Metal<hryky_template_arg>::Metal()
 	  , fuzz_()
 {
 }
+
 /**
   @brief instantiates with parameters.
  */
@@ -126,6 +127,7 @@ hryky::rtiow::Metal<hryky_template_arg>::Metal(albedo_type const & albedo)
 	  , fuzz_()
 {
 }
+
 /**
   @brief instantiates with parameters.
  */
@@ -136,6 +138,7 @@ hryky::rtiow::Metal<hryky_template_arg>::Metal(
 	  , fuzz_(fuzz)
 {
 }
+
 /**
   @brief copy constructor.
  */
@@ -145,6 +148,7 @@ hryky::rtiow::Metal<hryky_template_arg>::Metal(this_type const & rhs)
 	  , hryky_copy_member(fuzz)
 {
 }
+
 /**
   @brief move constructor.
  */
@@ -154,6 +158,7 @@ hryky::rtiow::Metal<hryky_template_arg>::Metal(this_type && rhs)
 	  , hryky_move_member(fuzz)
 {
 }
+
 /**
   @brief destructor.
  */
@@ -161,6 +166,7 @@ template <hryky_template_param>
 hryky::rtiow::Metal<hryky_template_arg>::~Metal()
 {
 }
+
 /**
   @brief releases the internal resources.
  */
@@ -170,6 +176,7 @@ void hryky::rtiow::Metal<hryky_template_arg>::clear()
 	hryky::clear(this->fuzz_);
 	hryky::clear(this->albedo_);
 }
+
 /**
   @brief interchanges the each internal resources of two instances.
  */
@@ -179,6 +186,7 @@ void hryky::rtiow::Metal<hryky_template_arg>::swap(this_type & src)
 	hryky_swap_member(albedo);
 	hryky_swap_member(fuzz);
 }
+
 /**
   @brief outputs the information through stream.
  */
@@ -189,6 +197,7 @@ StreamT & hryky::rtiow::Metal<hryky_template_arg>::write_to(StreamT & out) const
 	stream::map::Scope<StreamT> const map(out);
 	return out;
 }
+
 /**
   @brief calculates the scattered ray.
  */
@@ -206,12 +215,15 @@ hryky::rtiow::Metal<hryky_template_arg>::scatter(
 
 	return Scatter<>(ray(pos, reflected), this->albedo_);
 }
+
 //------------------------------------------------------------------------------
 // defines protected member functions
 //------------------------------------------------------------------------------
+
 //------------------------------------------------------------------------------
 // defines private member functions
 //------------------------------------------------------------------------------
+
 //------------------------------------------------------------------------------
 // declares global functions
 //------------------------------------------------------------------------------
@@ -224,6 +236,7 @@ namespace rtiow
 //------------------------------------------------------------------------------
 // defines global functions
 //------------------------------------------------------------------------------
+
 //------------------------------------------------------------------------------
 // revokes the temporary macros
 //------------------------------------------------------------------------------

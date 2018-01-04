@@ -135,6 +135,7 @@ hryky::rtiow::Hit<hryky_template_arg>::Hit()
 	  , rate_()
 {
 }
+
 /**
   @brief instantiates with parameters.
  */
@@ -150,6 +151,7 @@ hryky::rtiow::Hit<hryky_template_arg>::Hit(
 	  , rate_(rate)
 {
 }
+
 /**
   @brief copy constructor.
  */
@@ -161,6 +163,7 @@ hryky::rtiow::Hit<hryky_template_arg>::Hit(this_type const & rhs)
 	  , hryky_copy_member(rate)
 {
 }
+
 /**
   @brief move constructor.
  */
@@ -172,6 +175,7 @@ hryky::rtiow::Hit<hryky_template_arg>::Hit(this_type && rhs)
 	  , hryky_move_member(rate)
 {
 }
+
 /**
   @brief destructor.
  */
@@ -179,6 +183,7 @@ template <hryky_template_param>
 hryky::rtiow::Hit<hryky_template_arg>::~Hit()
 {
 }
+
 /**
   @brief releases the internal resources.
  */
@@ -190,6 +195,7 @@ void hryky::rtiow::Hit<hryky_template_arg>::clear()
 	hryky::clear(this->pos_);
 	hryky::clear(this->scatter_);
 }
+
 /**
   @brief interchanges the each internal resources of two instances.
  */
@@ -201,6 +207,7 @@ void hryky::rtiow::Hit<hryky_template_arg>::swap(this_type & src)
 	hryky_swap_member(normal);
 	hryky_swap_member(rate);
 }
+
 /**
   @brief outputs the information through stream.
  */
@@ -211,6 +218,7 @@ StreamT & hryky::rtiow::Hit<hryky_template_arg>::write_to(StreamT & out) const
 	stream::map::Scope<StreamT> const map(out);
 	return out;
 }
+
 /**
   @brief retrieves the scattered ray.
  */
@@ -220,6 +228,7 @@ hryky::rtiow::Hit<hryky_template_arg>::scatter() const
 {
 	return this->scatter_;
 }
+
 /**
   @brief retrieves the position where the ray intersected.
  */
@@ -229,6 +238,7 @@ hryky::rtiow::Hit<hryky_template_arg>::pos() const
 {
 	return this->pos_;
 }
+
 /**
   @brief retrieves the normal where the ray intersected.
  */
@@ -238,6 +248,7 @@ hryky::rtiow::Hit<hryky_template_arg>::normal() const
 {
 	return this->normal_;
 }
+
 /**
   @brief retrieves the rate of direction.
  */
@@ -247,6 +258,7 @@ hryky::rtiow::Hit<hryky_template_arg>::rate() const
 {
 	return this->rate_;
 }
+
 /**
   @brief confirms whether resources are invalid.
  */
@@ -255,12 +267,15 @@ bool hryky::rtiow::Hit<hryky_template_arg>::is_null() const
 {
 	return normal_type() == this->normal_;
 }
+
 //------------------------------------------------------------------------------
 // defines protected member functions
 //------------------------------------------------------------------------------
+
 //------------------------------------------------------------------------------
 // defines private member functions
 //------------------------------------------------------------------------------
+
 //------------------------------------------------------------------------------
 // declares global functions
 //------------------------------------------------------------------------------
@@ -294,6 +309,7 @@ hryky::rtiow::operator<<(
 		<< ",scatter:" << rhs.scatter()
 		<< "}");
 }
+
 //------------------------------------------------------------------------------
 // revokes the temporary macros
 //------------------------------------------------------------------------------

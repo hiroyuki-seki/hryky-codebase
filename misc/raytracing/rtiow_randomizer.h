@@ -108,6 +108,7 @@ hryky::rtiow::Randomizer<hryky_template_arg>::Randomizer()
 	  , dist_(0.0f, 1.0f)
 {
 }
+
 /**
   @brief instantiates with the seed.
  */
@@ -118,6 +119,7 @@ hryky::rtiow::Randomizer<hryky_template_arg>::Randomizer(SeedT seed)
 	  , dist_(0.0f, 1.0f)
 {
 }
+
 /**
   @brief move constructor.
  */
@@ -127,6 +129,7 @@ hryky::rtiow::Randomizer<hryky_template_arg>::Randomizer(this_type && rhs)
 	  , hryky_move_member(dist)
 {
 }
+
 /**
   @brief destructor.
  */
@@ -134,6 +137,7 @@ template <hryky_template_param>
 hryky::rtiow::Randomizer<hryky_template_arg>::~Randomizer()
 {
 }
+
 /**
   @brief generates a value.
  */
@@ -143,6 +147,7 @@ hryky::rtiow::Randomizer<hryky_template_arg>::operator()()
 {
 	return value_type(this->dist_(this->gen_));
 }
+
 /**
   @brief releases the internal resources.
  */
@@ -152,6 +157,7 @@ void hryky::rtiow::Randomizer<hryky_template_arg>::clear()
 	hryky::clear(this->dist_);
 	hryky::clear(this->gen_);
 }
+
 /**
   @brief interchanges the each internal resources of two instances.
  */
@@ -161,6 +167,7 @@ void hryky::rtiow::Randomizer<hryky_template_arg>::swap(this_type & src)
 	hryky_swap_member(gen);
 	hryky_swap_member(dist);
 }
+
 /**
   @brief outputs the information through stream.
  */
@@ -172,6 +179,7 @@ StreamT & hryky::rtiow::Randomizer<hryky_template_arg>::write_to(
 	stream::map::Scope<StreamT> const map(out);
 	return out;
 }
+
 /**
   @brief generates a point in a unit sphere.
  */
@@ -204,9 +212,11 @@ hryky::rtiow::Randomizer<hryky_template_arg >::in_disk()
 //------------------------------------------------------------------------------
 // defines protected member functions
 //------------------------------------------------------------------------------
+
 //------------------------------------------------------------------------------
 // defines private member functions
 //------------------------------------------------------------------------------
+
 //------------------------------------------------------------------------------
 // declares global functions
 //------------------------------------------------------------------------------
@@ -219,6 +229,7 @@ namespace rtiow
 //------------------------------------------------------------------------------
 // defines global functions
 //------------------------------------------------------------------------------
+
 //------------------------------------------------------------------------------
 // revokes the temporary macros
 //------------------------------------------------------------------------------

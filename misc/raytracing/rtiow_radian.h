@@ -100,6 +100,7 @@ template <hryky_template_param>
 void hryky::rtiow::Radian<hryky_template_arg>::clear()
 {
 }
+
 /**
   @brief interchanges the each internal resources of two instances.
  */
@@ -107,6 +108,7 @@ template <hryky_template_param>
 void hryky::rtiow::Radian<hryky_template_arg>::swap(this_type & src)
 {
 }
+
 /**
   @brief outputs the information through stream.
  */
@@ -118,6 +120,7 @@ StreamT & hryky::rtiow::Radian<hryky_template_arg>::write_to(
 	stream::map::Scope<StreamT> const map(out);
 	return out;
 }
+
 /**
   @brief retrieves the value.
  */
@@ -127,6 +130,7 @@ hryky::rtiow::Radian<hryky_template_arg>::get() const
 {
 	return this->value_;
 }
+
 /**
   @brief retrieves the reference as mutable.
  */
@@ -136,12 +140,15 @@ hryky::rtiow::Radian<hryky_template_arg>::get()
 {
 	return this->value_;
 }
+
 //------------------------------------------------------------------------------
 // defines protected member functions
 //------------------------------------------------------------------------------
+
 //------------------------------------------------------------------------------
 // defines private member functions
 //------------------------------------------------------------------------------
+
 //------------------------------------------------------------------------------
 // declares global functions
 //------------------------------------------------------------------------------
@@ -170,6 +177,7 @@ hryky::rtiow::radian(Degree<hryky_template_arg> const & degree)
 		degree.get() * CalcPi<float, 23>::value / ValueT(180) };
 	return ret;
 }
+
 //------------------------------------------------------------------------------
 // revokes the temporary macros
 //------------------------------------------------------------------------------

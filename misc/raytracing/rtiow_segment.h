@@ -113,6 +113,7 @@ template <hryky_template_param>
 hryky::rtiow::Segment<hryky_template_arg>::Segment()
 {
 }
+
 /**
   @brief constructor.
  */
@@ -123,6 +124,7 @@ hryky::rtiow::Segment<hryky_template_arg>::Segment(
 	  , direction_(direction)
 {
 }
+
 /**
   @brief copy constructor.
  */
@@ -132,6 +134,7 @@ hryky::rtiow::Segment<hryky_template_arg>::Segment(this_type const & rhs)
 	  , hryky_copy_member(direction)
 {
 }
+
 /**
   @brief move constructor.
  */
@@ -141,6 +144,7 @@ hryky::rtiow::Segment<hryky_template_arg>::Segment(this_type && rhs)
 	  , hryky_move_member(direction)
 {
 }
+
 /**
   @brief destructor.
  */
@@ -148,6 +152,7 @@ template <hryky_template_param>
 hryky::rtiow::Segment<hryky_template_arg>::~Segment()
 {
 }
+
 /**
   @brief releases the internal resources.
  */
@@ -157,6 +162,7 @@ void hryky::rtiow::Segment<hryky_template_arg>::clear()
 	hryky::clear(direction);
 	hryky::clear(origin);
 }
+
 /**
   @brief interchanges the each internal resources of two instances.
  */
@@ -166,6 +172,7 @@ void hryky::rtiow::Segment<hryky_template_arg>::swap(this_type & src)
 	hryky_swap_member(origin);
 	hryky_swap_member(direction);
 }
+
 /**
   @brief outputs the information through stream.
  */
@@ -177,6 +184,7 @@ StreamT & hryky::rtiow::Segment<hryky_template_arg>::write_to(
 	stream::map::Scope<StreamT> const map(out);
 	return out;
 }
+
 /**
   @brief retrieves the origin of this directional segment.
  */
@@ -186,6 +194,7 @@ hryky::rtiow::Segment<hryky_template_arg>::origin() const
 {
 	return this->origin_;
 }
+
 /**
   @brief retrieves the direction of this directional segment.
  */
@@ -195,6 +204,7 @@ hryky::rtiow::Segment<hryky_template_arg>::direction() const
 {
 	return this->direction_;
 }
+
 /**
   @brief retrieves the point on the line.
  */
@@ -205,6 +215,7 @@ hryky::rtiow::Segment<hryky_template_arg>::point(RateT rate) const
 {
 	return this->origin() + rate * this->direction();
 }
+
 /**
   @brief confirms whether an rate is valid.
  */
@@ -215,12 +226,15 @@ bool hryky::rtiow::Segment<hryky_template_arg>::verify(
 {
 	return 0.001f < rate && 1.0f > rate;
 }
+
 //------------------------------------------------------------------------------
 // defines protected member functions
 //------------------------------------------------------------------------------
+
 //------------------------------------------------------------------------------
 // defines private member functions
 //------------------------------------------------------------------------------
+
 //------------------------------------------------------------------------------
 // declares global functions
 //------------------------------------------------------------------------------
@@ -233,6 +247,7 @@ namespace rtiow
 //------------------------------------------------------------------------------
 // defines global functions
 //------------------------------------------------------------------------------
+
 //------------------------------------------------------------------------------
 // revokes the temporary macros
 //------------------------------------------------------------------------------

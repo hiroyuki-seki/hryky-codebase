@@ -98,6 +98,7 @@ void hryky::rtiow::Degree<hryky_template_arg>::clear()
 {
 	hryky::clear(this->value_);
 }
+
 /**
   @brief interchanges the each internal resources of two instances.
  */
@@ -106,6 +107,7 @@ void hryky::rtiow::Degree<hryky_template_arg>::swap(this_type & src)
 {
 	hryky_swap_member(value);
 }
+
 /**
   @brief outputs the information through stream.
  */
@@ -117,6 +119,7 @@ StreamT & hryky::rtiow::Degree<hryky_template_arg>::write_to(
 	stream::map::Scope<StreamT> const map(out);
 	return out;
 }
+
 /**
   @brief retrieves the value.
  */
@@ -126,6 +129,7 @@ hryky::rtiow::Degree<hryky_template_arg>::get() const
 {
 	return this->value_;
 }
+
 /**
   @brief retrieves the reference as mutable.
  */
@@ -135,12 +139,15 @@ hryky::rtiow::Degree<hryky_template_arg>::get()
 {
 	return this->value_;
 }
+
 //------------------------------------------------------------------------------
 // defines protected member functions
 //------------------------------------------------------------------------------
+
 //------------------------------------------------------------------------------
 // defines private member functions
 //------------------------------------------------------------------------------
+
 //------------------------------------------------------------------------------
 // declares global functions
 //------------------------------------------------------------------------------
@@ -167,6 +174,7 @@ hryky::rtiow::degree(ValueT value)
 	Degree<hryky_template_arg> const ret = {value};
 	return ret;
 }
+
 //------------------------------------------------------------------------------
 // revokes the temporary macros
 //------------------------------------------------------------------------------

@@ -117,6 +117,7 @@ hryky::rtiow::Scatter<hryky_template_arg>::Scatter()
 	  , attenuation_()
 {
 }
+
 /**
   @brief instantiates with parameters.
  */
@@ -128,6 +129,7 @@ hryky::rtiow::Scatter<hryky_template_arg>::Scatter(
 	  , attenuation_(attenuation)
 {
 }
+
 /**
   @brief copy constructor.
  */
@@ -137,6 +139,7 @@ hryky::rtiow::Scatter<hryky_template_arg>::Scatter(this_type const & rhs)
 	  , hryky_copy_member(attenuation)
 {
 }
+
 /**
   @brief move constructor.
  */
@@ -146,6 +149,7 @@ hryky::rtiow::Scatter<hryky_template_arg>::Scatter(this_type && rhs)
 	  , hryky_move_member(attenuation)
 {
 }
+
 /**
   @brief destructor.
  */
@@ -153,6 +157,7 @@ template <hryky_template_param>
 hryky::rtiow::Scatter<hryky_template_arg>::~Scatter()
 {
 }
+
 /**
   @brief releases the internal resources.
  */
@@ -162,6 +167,7 @@ void hryky::rtiow::Scatter<hryky_template_arg>::clear()
 	hryky::clear(this->attenuation_);
 	hryky::clear(this->ray_);
 }
+
 /**
   @brief interchanges the each internal resources of two instances.
  */
@@ -171,6 +177,7 @@ void hryky::rtiow::Scatter<hryky_template_arg>::swap(this_type & src)
 	hryky_swap_member(ray);
 	hryky_swap_member(attenuation);
 }
+
 /**
   @brief outputs the information through stream.
  */
@@ -182,6 +189,7 @@ StreamT & hryky::rtiow::Scatter<hryky_template_arg>::write_to(
 	stream::map::Scope<StreamT> const map(out);
 	return out;
 }
+
 /**
   @brief confirms whether the whole of ray is absorbed.
  */
@@ -190,6 +198,7 @@ bool hryky::rtiow::Scatter<hryky_template_arg>::is_null() const
 {
 	return attenuation_type() == this->attenuation_;
 }
+
 /**
   @brief retrieves the attenuation.
  */
@@ -199,6 +208,7 @@ hryky::rtiow::Scatter<hryky_template_arg>::attenuation() const
 {
 	return this->attenuation_;
 }
+
 /**
   @brief retrieves the scattered ray.
  */
@@ -208,12 +218,15 @@ hryky::rtiow::Scatter<hryky_template_arg>::ray() const
 {
 	return this->ray_;
 }
+
 //------------------------------------------------------------------------------
 // defines protected member functions
 //------------------------------------------------------------------------------
+
 //------------------------------------------------------------------------------
 // defines private member functions
 //------------------------------------------------------------------------------
+
 //------------------------------------------------------------------------------
 // declares global functions
 //------------------------------------------------------------------------------
@@ -246,6 +259,7 @@ hryky::rtiow::scatter(
 {
 	return Scatter<hryky_template_arg>(ray, attenuation);
 }
+
 /**
   @brief prints values to a stream.
  */
@@ -260,6 +274,7 @@ hryky::rtiow::operator<<(
 		<< ",attenuation:" << rhs.attenuation()
 		<< "}");
 }
+
 //------------------------------------------------------------------------------
 // revokes the temporary macros
 //------------------------------------------------------------------------------

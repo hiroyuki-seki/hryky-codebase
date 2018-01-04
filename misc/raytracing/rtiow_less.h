@@ -113,6 +113,7 @@ hryky::rtiow::Less<hryky_template_arg>::Less()
 	: value_()
 {
 }
+
 /**
   @brief instantiates with a value.
  */
@@ -121,6 +122,7 @@ hryky::rtiow::Less<hryky_template_arg>::Less(ValueT const & value)
 	: value_(value)
 {
 }
+
 /**
   @brief copy constructor.
  */
@@ -129,6 +131,7 @@ hryky::rtiow::Less<hryky_template_arg>::Less(this_type const & rhs)
 	: hryky_copy_member(value)
 {
 }
+
 /**
   @brief move constructor.
  */
@@ -137,6 +140,7 @@ hryky::rtiow::Less<hryky_template_arg>::Less(this_type && rhs)
 	: hryky_move_member(value)
 {
 }
+
 /**
   @brief destructor.
  */
@@ -144,6 +148,7 @@ template <hryky_template_param>
 hryky::rtiow::Less<hryky_template_arg>::~Less()
 {
 }
+
 /**
   @brief releases the internal resources.
  */
@@ -152,6 +157,7 @@ void hryky::rtiow::Less<hryky_template_arg>::clear()
 {
 	hryky::clear(this->value_);
 }
+
 /**
   @brief interchanges the each internal resources of two instances.
  */
@@ -160,6 +166,7 @@ void hryky::rtiow::Less<hryky_template_arg>::swap(this_type & src)
 {
 	hryky_swap_member(value);
 }
+
 /**
   @brief outputs the information through stream.
  */
@@ -171,6 +178,7 @@ StreamT & hryky::rtiow::Less<hryky_template_arg>::write_to(
 	stream::map::Scope<StreamT> const map(out);
 	return out;
 }
+
 /**
   @brief confirms whether a value is in the range.
  */
@@ -180,12 +188,15 @@ bool hryky::rtiow::Less<hryky_template_arg>::verify(SrcT src) const
 {
 	return this->value_ > src;
 }
+
 //------------------------------------------------------------------------------
 // defines protected member functions
 //------------------------------------------------------------------------------
+
 //------------------------------------------------------------------------------
 // defines private member functions
 //------------------------------------------------------------------------------
+
 //------------------------------------------------------------------------------
 // declares global functions
 //------------------------------------------------------------------------------
@@ -198,6 +209,7 @@ namespace rtiow
 //------------------------------------------------------------------------------
 // defines global functions
 //------------------------------------------------------------------------------
+
 //------------------------------------------------------------------------------
 // revokes the temporary macros
 //------------------------------------------------------------------------------

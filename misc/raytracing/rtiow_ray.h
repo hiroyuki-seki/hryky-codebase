@@ -117,6 +117,7 @@ hryky::rtiow::Ray<hryky_template_arg>::Ray()
 	  , direction_()
 {
 }
+
 /**
   @brief instantiates with an origin and a direction.
  */
@@ -127,6 +128,7 @@ hryky::rtiow::Ray<hryky_template_arg>::Ray(
 	  , direction_(direction)
 {
 }
+
 /**
   @brief copy constructor.
  */
@@ -136,6 +138,7 @@ hryky::rtiow::Ray<hryky_template_arg>::Ray(this_type const & rhs)
 	  , hryky_copy_member(direction)
 {
 }
+
 /**
   @brief move constructor.
  */
@@ -145,6 +148,7 @@ hryky::rtiow::Ray<hryky_template_arg>::Ray(this_type && rhs)
 	  , hryky_move_member(direction)
 {
 }
+
 /**
   @brief destructor.
  */
@@ -152,6 +156,7 @@ template <hryky_template_param>
 hryky::rtiow::Ray<hryky_template_arg>::~Ray()
 {
 }
+
 /**
   @brief releases the internal resources.
  */
@@ -161,6 +166,7 @@ void hryky::rtiow::Ray<hryky_template_arg>::clear()
 	hryky::clear(this->direction_);
 	hryky::clear(this->origin_);
 }
+
 /**
   @brief interchanges the each internal resources of two instances.
  */
@@ -170,6 +176,7 @@ void hryky::rtiow::Ray<hryky_template_arg>::swap(this_type & src)
 	hryky_swap_member(origin);
 	hryky_swap_member(direction);
 }
+
 /**
   @brief outputs the information through stream.
  */
@@ -180,6 +187,7 @@ StreamT & hryky::rtiow::Ray<hryky_template_arg>::write_to(StreamT & out) const
 	stream::map::Scope<StreamT> const map(out);
 	return out;
 }
+
 /**
   @brief retrieves the origin of this ray.
  */
@@ -189,6 +197,7 @@ hryky::rtiow::Ray<hryky_template_arg>::origin() const
 {
 	return this->origin_;
 }
+
 /**
   @brief retrieves the direction of this ray.
  */
@@ -198,6 +207,7 @@ hryky::rtiow::Ray<hryky_template_arg>::direction() const
 {
 	return this->direction_;
 }
+
 /**
   @brief creates a position.
  */
@@ -209,6 +219,7 @@ hryky::rtiow::Ray<hryky_template_arg>::point(
 {
 	return this->origin_ + rate * this->direction_;
 }
+
 /**
   @brief confirms whether an rate is valid.
  */
@@ -218,12 +229,15 @@ bool hryky::rtiow::Ray<hryky_template_arg>::verify(RateT const & rate) const
 {
 	return 0.001f < rate;
 }
+
 //------------------------------------------------------------------------------
 // defines protected member functions
 //------------------------------------------------------------------------------
+
 //------------------------------------------------------------------------------
 // defines private member functions
 //------------------------------------------------------------------------------
+
 //------------------------------------------------------------------------------
 // declares global functions
 //------------------------------------------------------------------------------
@@ -255,6 +269,7 @@ hryky::rtiow::Ray<hryky_template_arg> hryky::rtiow::ray(
 {
 	return Ray<hryky_template_arg>(origin, direction);
 }
+
 /**
   @brief prints values to a stream.
  */
@@ -268,6 +283,7 @@ StreamT & hryky::rtiow::operator<<(
 		<< ",direction:[" << rhs.direction() << "]"
 		<< "}");
 }
+
 //------------------------------------------------------------------------------
 // revokes the temporary macros
 //------------------------------------------------------------------------------
