@@ -146,6 +146,7 @@ hryky::rtiow::Tuple<hryky_template_arg>::Tuple()
 	: tuple_()
 {
 }
+
 /**
   @brief instantiates with a tuple.
  */
@@ -154,6 +155,7 @@ hryky::rtiow::Tuple<hryky_template_arg>::Tuple(TupleT const & tuple)
 	: tuple_(tuple)
 {
 }
+
 /**
   @brief copy constructor.
  */
@@ -162,6 +164,7 @@ hryky::rtiow::Tuple<hryky_template_arg>::Tuple(this_type const & rhs)
 	: hryky_copy_member(tuple)
 {
 }
+
 /**
   @brief move constructor.
  */
@@ -170,6 +173,7 @@ hryky::rtiow::Tuple<hryky_template_arg>::Tuple(this_type && rhs)
 	: hryky_move_member(tuple)
 {
 }
+
 /**
   @brief destructor.
  */
@@ -177,6 +181,7 @@ template <hryky_template_param>
 hryky::rtiow::Tuple<hryky_template_arg>::~Tuple()
 {
 }
+
 /**
   @brief releases the internal resources.
  */
@@ -185,6 +190,7 @@ void hryky::rtiow::Tuple<hryky_template_arg>::clear()
 {
 	hryky::clear(this->tuple_);
 }
+
 /**
   @brief interchanges the each internal resources of two instances.
  */
@@ -193,6 +199,7 @@ void hryky::rtiow::Tuple<hryky_template_arg>::swap(this_type & src)
 {
 	hryky_swap_member(tuple);
 }
+
 /**
   @brief outputs the information through stream.
  */
@@ -203,6 +210,7 @@ StreamT & hryky::rtiow::Tuple<hryky_template_arg>::write_to(StreamT & out) const
 	stream::map::Scope<StreamT> const map(out);
 	return out;
 }
+
 /**
   @brief checks if a ray intersects with any hitable objects in tuple.
  */
@@ -215,6 +223,7 @@ hryky::rtiow::Tuple<hryky_template_arg>::hit(
 	return this_type::hit(
 		ray, randomizer, this->tuple_.first(), this->tuple_.rest());
 }
+
 //------------------------------------------------------------------------------
 // defines protected member functions
 //------------------------------------------------------------------------------
@@ -248,6 +257,7 @@ hryky::rtiow::Tuple<hryky_template_arg>::hit(
 	
 	return hryky_is_null(next) ? hit : next;
 }
+
 /**
   @brief checks if a ray intersects with the last hitable object in tuple.
  */
@@ -262,6 +272,7 @@ hryky::rtiow::Tuple<hryky_template_arg>::hit(
 {
 	return first.hit(ray, randomizer);
 }
+
 /**
   @brief checks intersection against the empty tuple.
  */
@@ -276,6 +287,7 @@ hryky::rtiow::Tuple<hryky_template_arg>::hit(
 {
 	return Hit<>();
 }
+
 //------------------------------------------------------------------------------
 // declares global functions
 //------------------------------------------------------------------------------
@@ -301,6 +313,7 @@ hryky::rtiow::tuple(TupleT const & tuple)
 {
 	return Tuple<TupleT>(tuple);
 }
+
 //------------------------------------------------------------------------------
 // revokes the temporary macros
 //------------------------------------------------------------------------------
