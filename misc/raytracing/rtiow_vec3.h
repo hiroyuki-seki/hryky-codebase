@@ -657,7 +657,8 @@ hryky::rtiow::operator<<(
 	StreamT & lhs,
 	Vec3<hryky_template_arg> const & rhs)
 {
-	return lhs << rhs[0] << " " << rhs[1] << " " << rhs[2];
+	lhs << rhs[0] << " " << rhs[1] << " " << rhs[2];
+	return lhs;
 }
 
 /**
