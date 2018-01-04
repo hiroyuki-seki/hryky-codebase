@@ -200,6 +200,7 @@ hryky::rtiow::Vec3<hryky_template_arg>::Vec3()
 	: values_()
 {
 }
+
 /**
   @brief instantiates with other vector.
  */
@@ -211,6 +212,7 @@ hryky::rtiow::Vec3<hryky_template_arg>::Vec3(Vec3<OtherT> const & rhs)
 	this->values_[1] = static_cast<value_type>(rhs[1]);
 	this->values_[2] = static_cast<value_type>(rhs[2]);
 }
+
 /**
   @brief instantiates with three elements.
  */
@@ -222,6 +224,7 @@ hryky::rtiow::Vec3<hryky_template_arg>::Vec3(A1T x, A2T y, A3T z)
 	this->values_[1] = static_cast<value_type>(y);
 	this->values_[2] = static_cast<value_type>(z);
 }
+
 /**
   @brief instantiates with an element.
  */
@@ -232,6 +235,7 @@ hryky::rtiow::Vec3<hryky_template_arg>::Vec3(const_reference a1)
 	this->values_[1] = a1;
 	this->values_[2] = a1;
 }
+
 /**
   @brief copy constructor.
  */
@@ -240,6 +244,7 @@ hryky::rtiow::Vec3<hryky_template_arg>::Vec3(this_type const & rhs)
 {
 	::std::copy(&rhs.values_[0], &rhs.values_[3], &this->values_[0]);
 }
+
 /**
   @brief move constructor.
  */
@@ -248,6 +253,7 @@ hryky::rtiow::Vec3<hryky_template_arg>::Vec3(this_type && rhs)
 {
 	::std::copy(&rhs.values_[0], &rhs.values_[3], &this->values_[0]);
 }
+
 /**
   @brief destructor.
  */
@@ -255,6 +261,7 @@ template <hryky_template_param>
 hryky::rtiow::Vec3<hryky_template_arg>::~Vec3()
 {
 }
+
 /**
   @brief binary operator '=='.
  */
@@ -267,6 +274,7 @@ bool hryky::rtiow::Vec3<hryky_template_arg>::operator==(
 		&& (*this)[1] == rhs[1]
 		&& (*this)[2] == rhs[2]);
 }
+
 /**
   @brief retrieves an element.
  */
@@ -277,6 +285,7 @@ hryky::rtiow::Vec3<hryky_template_arg>::operator[](IndexT index) const
 {
 	return this->values_[index];
 }
+
 /**
   @brief retrieves the reference to an element.
  */
@@ -287,6 +296,7 @@ hryky::rtiow::Vec3<hryky_template_arg>::operator[](IndexT index)
 {
 	return this->values_[index];
 }
+
 /**
   @brief unary operator '+'.
  */
@@ -296,6 +306,7 @@ hryky::rtiow::Vec3<hryky_template_arg>::operator+() const
 {
 	return *this;
 }
+
 /**
   @brief unary operator '+' as mutable.
  */
@@ -305,6 +316,7 @@ hryky::rtiow::Vec3<hryky_template_arg>::operator+()
 {
 	return *this;
 }
+
 /**
   @brief unary operator '-'.
  */
@@ -317,6 +329,7 @@ hryky::rtiow::Vec3<hryky_template_arg>::operator-() const
 		-this->values_[1],
 		-this->values_[2]);
 }
+
 /**
   @brief operator '+='.
  */
@@ -330,6 +343,7 @@ hryky::rtiow::Vec3<hryky_template_arg>::operator+=(
 	this->values_[2] += rhs.values_[2];
 	return *this;
 }
+
 /**
   @brief operator '-='.
  */
@@ -343,6 +357,7 @@ hryky::rtiow::Vec3<hryky_template_arg>::operator-=(
 	this->values_[2] -= rhs.values_[2];
 	return *this;
 }
+
 /**
   @brief operator '*='.
  */
@@ -356,6 +371,7 @@ hryky::rtiow::Vec3<hryky_template_arg>::operator*=(
 	this->values_[2] *= rhs.values_[2];
 	return *this;
 }
+
 /**
   @brief operator '*=' with a scalar value.
  */
@@ -369,6 +385,7 @@ hryky::rtiow::Vec3<hryky_template_arg>::operator*=(RhsT rhs)
 	this->values_[2] *= rhs;
 	return *this;
 }
+
 /**
   @brief operator '/='.
  */
@@ -382,6 +399,7 @@ hryky::rtiow::Vec3<hryky_template_arg>::operator/=(
 	this->values_[2] /= rhs.values_[2];
 	return *this;
 }
+
 /**
   @brief operator '/=' with a scalar value.
  */
@@ -392,6 +410,7 @@ hryky::rtiow::Vec3<hryky_template_arg>::operator/=(RhsT rhs)
 {
 	return this->operator*=(value_type(1) / rhs);
 }
+
 /**
   @brief releases the internal resources.
  */
@@ -400,6 +419,7 @@ void hryky::rtiow::Vec3<hryky_template_arg>::clear()
 {
 	hryky::clear(this->values_);
 }
+
 /**
   @brief interchanges the each internal resources of two instances.
  */
@@ -408,6 +428,7 @@ void hryky::rtiow::Vec3<hryky_template_arg>::swap(this_type & src)
 {
 	hryky_swap_member(values);
 }
+
 /**
   @brief outputs the information through stream.
  */
@@ -419,6 +440,7 @@ hryky::rtiow::Vec3<hryky_template_arg>::write_to(StreamT & out) const
 	stream::map::Scope<StreamT> const map(out);
 	return out;
 }
+
 /**
   @brief retrieves the x element.
  */
@@ -427,6 +449,7 @@ ValueT hryky::rtiow::Vec3<hryky_template_arg>::x() const
 {
 	return this->values_[0];
 }
+
 /**
   @brief retrieves the y element.
  */
@@ -435,6 +458,7 @@ ValueT hryky::rtiow::Vec3<hryky_template_arg>::y() const
 {
 	return this->values_[1];
 }
+
 /**
   @brief retrieves the z element.
  */
@@ -443,6 +467,7 @@ ValueT hryky::rtiow::Vec3<hryky_template_arg>::z() const
 {
 	return this->values_[2];
 }
+
 /**
   @brief retrieves the length of this vector.
  */
@@ -452,6 +477,7 @@ hryky::rtiow::Vec3<hryky_template_arg>::length() const
 {
 	return ::std::sqrt(this->slength());
 }
+
 /**
   @brief the square of length.
  */
@@ -463,6 +489,7 @@ ValueT hryky::rtiow::Vec3<hryky_template_arg>::slength() const
 		+ (*this)[1] * (*this)[1]
 		+ (*this)[2] * (*this)[2]);
 }
+
 /**
   @brief binary operator '+'.
  */
@@ -476,6 +503,7 @@ hryky::rtiow::Vec3<hryky_template_arg>::operator+(
 		(*this)[1] + rhs[1],
 		(*this)[2] + rhs[2]);
 }
+
 /**
   @brief binary operator '+' with an arbitrary scalar.
  */
@@ -490,6 +518,7 @@ hryky::rtiow::Vec3<hryky_template_arg>::operator+(
 		(*this)[1] + rhs,
 		(*this)[2] + rhs);
 }
+
 /**
   @brief binary operator '-'.
  */
@@ -503,6 +532,7 @@ hryky::rtiow::Vec3<hryky_template_arg>::operator-(
 		(*this)[1] - rhs[1],
 		(*this)[2] - rhs[2]);
 }
+
 /**
   @brief binary operator '-' with an arbitrary scalar.
  */
@@ -517,6 +547,7 @@ hryky::rtiow::Vec3<hryky_template_arg>::operator-(
 		(*this)[1] - rhs,
 		(*this)[2] - rhs);
 }
+
 /**
   @brief binary operator '*'.
  */
@@ -530,6 +561,7 @@ hryky::rtiow::Vec3<hryky_template_arg>::operator*(
 		(*this)[1] * rhs[1],
 		(*this)[2] * rhs[2]);
 }
+
 /**
   @brief binary operator '*' with an arbitrary scalar.
  */
@@ -544,12 +576,15 @@ hryky::rtiow::Vec3<hryky_template_arg>::operator*(
 		(*this)[1] * rhs,
 		(*this)[2] * rhs);
 }
+
 //------------------------------------------------------------------------------
 // defines protected member functions
 //------------------------------------------------------------------------------
+
 //------------------------------------------------------------------------------
 // defines private member functions
 //------------------------------------------------------------------------------
+
 //------------------------------------------------------------------------------
 // declares global functions
 //------------------------------------------------------------------------------
@@ -624,6 +659,7 @@ hryky::rtiow::operator<<(
 {
 	return lhs << rhs[0] << " " << rhs[1] << " " << rhs[2];
 }
+
 /**
   @brief multiplies each element by a scalar.
  */
@@ -637,6 +673,7 @@ hryky::rtiow::Vec3<hryky_template_arg> hryky::rtiow::operator*(
 		lhs * rhs[1],
 		lhs * rhs[2]);
 }
+
 /**
   @brief divides each element by a scalar.
  */
@@ -651,6 +688,7 @@ hryky::rtiow::operator/(
 		lhs[1] / rhs,
 		lhs[2] / rhs);
 }
+
 /**
   @brief normalizes a vector.
  */
@@ -661,6 +699,7 @@ hryky::rtiow::normalize(
 {
 	return src / src.length();
 }
+
 /**
   @brief calculates dot product.
  */
@@ -674,6 +713,7 @@ ValueT hryky::rtiow::dot(
 		+ lhs[1] * rhs[1]
 		+ lhs[2] * rhs[2]);
 }
+
 /**
   @brief calculates cross product.
  */
@@ -688,6 +728,7 @@ hryky::rtiow::cross(
 		lhs[2] * rhs[0] - lhs[0] * rhs[2],
 		lhs[0] * rhs[1] - lhs[1] * rhs[0]);
 }
+
 /**
   @brief calculates square root of each element.
  */
@@ -701,6 +742,7 @@ hryky::rtiow::sqrt(
 		::std::sqrt(src[1]),
 		::std::sqrt(src[2]));
 }
+
 /**
   @brief calculates the reflected vector.
  */
@@ -709,6 +751,7 @@ InT hryky::rtiow::reflect(InT const & in, NormalT const & normal)
 {
 	return in - 2.0f * dot(in, normal) * normal;
 }
+
 /**
   @brief calculates the refracted vector.
  */
@@ -741,6 +784,7 @@ bool hryky::rtiow::refract(
 
 	return true;
 }
+
 //------------------------------------------------------------------------------
 // revokes the temporary macros
 //------------------------------------------------------------------------------
