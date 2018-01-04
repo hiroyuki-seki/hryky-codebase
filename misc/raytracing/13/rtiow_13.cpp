@@ -36,6 +36,10 @@ namespace
 		RandomizerT & randomizer,
 		uint32_t const depth);
 
+	/// appends objects.
+	template <typename ContainerT, typename RandomizerT >
+	bool scene(ContainerT & dest, RandomizerT & randomizer);
+
 } // namespace
 
 int main (int argc, char * argv[])
@@ -71,26 +75,7 @@ int main (int argc, char * argv[])
 		dist_to_focus);
 
 	container_type world;
-	world.get().emplace_back(new sphere_type(
-		fvec3(0.0f, 0.0f, -1.0f),
-		0.5f,
-		::std::make_shared<lambertian_type>(fvec3(0.1f, 0.2f, 0.5f))));
-	world.get().emplace_back(new sphere_type(
-		fvec3(0.0f, -100.5f, -1.0f),
-		100.0f,
-		::std::make_shared<lambertian_type>(fvec3(0.8f, 0.8f, 0.0f))));
-	world.get().emplace_back(new sphere_type(
-		fvec3(1.0f, 0.0f, -1.0f),
-		0.5f,
-		::std::make_shared<metal_type>(fvec3(0.8f, 0.6f, 0.2f), 1.0f)));
-	world.get().emplace_back(new sphere_type(
-		fvec3(-1.0f, 0.0f, -1.0f),
-		0.5f,
-		::std::make_shared<dielectric_type>(fvec3(1.0f, 1.0f, 1.0f), 1.5f)));
-	world.get().emplace_back(new sphere_type(
-			fvec3(-1.0f, 0.0f, -1.0f),
-			-0.45f,
-		::std::make_shared<dielectric_type>(fvec3(1.0f, 1.0f, 1.0f), 1.5f)));
+	(void)scene(world, randomizer);
 
 	uint32_t y = 0u;
 	for (; height != y; ++y) {
@@ -102,6 +87,11 @@ int main (int argc, char * argv[])
 			fvec3 fcolor;
 			uint32_t sample = 0u;
 			for (; samples != sample; ++sample) {
+				(::std::clog
+					<< "{x:" << x
+					<< ",y:" << y
+					<< ",sample:" << sample
+					<< "}" << ::std::endl);
 				auto const ratio_x
 					= (static_cast<float>(x) + randomizer()) / width;
 				auto const ratio_y
@@ -163,5 +153,84 @@ fvec3 color(
 	
 	return (1.0f - ratio) * white + ratio * blue;
 }
+
+/**
+  @brief appends objects.
+ */
+template <typename ContainerT, typename RandomizerT >
+bool
+scene(ContainerT & dest, RandomizerT & randomizer)
+{
+	dest.get().emplace_back(new sphere_type(
+		fvec3(0.0f, -1000.0f, 0.0f),
+		1000.0f,
+		::std::make_shared<lambertian_type>(fvec3(0.5f, 0.5f, 0.5f))));
+
+	auto x = -11;
+	for (; 11 > x; ++x) {
+		auto z = -11;
+		for (; 11 > z; ++z) {
+			fvec3 const center(
+				x + 0.9f * randomizer(),
+				0.2f,
+				z + 0.9f * randomizer());
+			if (0.9f >= (center - fvec3(4.0f, 0.2f, 0.0f)).length()) {
+				continue;
+			}
+
+			auto const material = randomizer();
+			if (0.8f > material) { // diffuse.
+				dest.get().emplace_back(new sphere_type(
+					center,
+					0.2f,
+					::std::make_shared<lambertian_type>(
+						fvec3(
+							randomizer() * randomizer(),
+							randomizer() * randomizer(),
+							randomizer() * randomizer()))));
+			}
+			else if (0.95f > material) { // metal
+				dest.get().emplace_back(new sphere_type(
+					center,
+					0.2f,
+					::std::make_shared<metal_type>(
+						fvec3(
+							0.5f * (1.0f + randomizer()),
+							0.5f * (1.0f + randomizer()),
+							0.5f * (1.0f + randomizer())),
+						0.5f * randomizer())));
+			}
+			else { // glass
+				dest.get().emplace_back(new sphere_type(
+					center,
+					0.2f,
+					::std::make_shared<dielectric_type>(
+						fvec3(1.0f, 1.0f, 1.0f),
+						1.5f)));
+			}
+		}
+	}
+
+	dest.get().emplace_back(new sphere_type(
+		fvec3(0.0f, 1.0f, 0.0f),
+		1.0f,
+		::std::make_shared<dielectric_type>(
+			fvec3(1.0f, 1.0f, 1.0f),
+			1.5f)));
+	dest.get().emplace_back(new sphere_type(
+		fvec3(-4.0f, 1.0f, 0.0f),
+		1.0f,
+		::std::make_shared<lambertian_type>(
+			fvec3(0.4f, 0.2f, 0.1f))));
+	dest.get().emplace_back(new sphere_type(
+		fvec3(4.0f, 1.0f, 0.0f),
+		1.0f,
+		::std::make_shared<metal_type>(
+			fvec3(0.7f, 0.6f, 0.5f),
+			0.0f)));
+
+	return true;
+}
+
 } // namespace
 
