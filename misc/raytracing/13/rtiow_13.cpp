@@ -1,6 +1,8 @@
 #include <iostream>
 #include <random>
 #include <sstream>
+#include <thread>
+#include <algorithm>
 
 #define RTIOW_DEBUG (0)
 
@@ -50,13 +52,6 @@ int main (int argc, char * argv[])
 	uint32_t const height = 100u;
 	uint32_t const samples = 100u;
 
-	::std::ostringstream output;
-
-	(output
-	 << "P3" << ::std::endl
-	 << width << " " << height << ::std::endl
-	 << 255 << ::std::endl);
-
 	auto const lookfrom = fvec3(3.0f, 3.0f, 2.0f);
 	auto const lookat = fvec3(0.0f, 0.0f, -1.0f);
 	auto const up = fvec3(0.0f, 1.0f, 0.0f);
@@ -81,31 +76,102 @@ int main (int argc, char * argv[])
 	container_type world;
 	(void)scene(world, randomizer);
 
-	uint32_t y = 0u;
-	for (; height != y; ++y) {
-		uint32_t x = 0u;
-		for (; width != x; ++x) {
-#if RTIOW_DEBUG
-			(output << "# (" << x << "," << y << ")" << ::std::endl);
-#endif
-			fvec3 fcolor;
-			uint32_t sample = 0u;
-			for (; samples != sample; ++sample) {
-				auto const ratio_x
-					= (static_cast<float>(x) + randomizer()) / width;
-				auto const ratio_y
-					= (static_cast<float>(height - (y + 1u)) + randomizer()) / height;
-				ray_type const ray = camera.ray(ratio_x, ratio_y, randomizer);
-				fcolor += color(output, ray, world, randomizer, 50u);
-			}
-			fcolor /= samples;
-			fcolor = sqrt(fcolor);
-			auto const icolor = ivec3(255.99f * fcolor);
-			(output << icolor << std::endl);
-		}
-	}
+	uint32_t const hardware_concurrency = ::std::max(
+		1u, std::thread::hardware_concurrency());
+	auto const units_size = (
+		height / hardware_concurrency
+		+ (0u != height % hardware_concurrency ? 1 : 0));
 
-	::std::cout << output.str();
+	typedef ::std::ostringstream output_type;
+	typedef ::std::vector<output_type> outputs_type;
+	outputs_type outputs;
+	outputs.resize(hardware_concurrency);
+
+	typedef ::std::thread thread_type;
+	typedef ::std::vector<thread_type> threads_type;
+	threads_type threads;
+
+	uint32_t y_itr = 0u;
+	::std::for_each(
+		::std::begin(outputs),
+		::std::end(outputs),
+		[&threads,
+		&y_itr,
+		width,
+		height,
+		samples,
+		units_size,
+		&rd,
+		&world,
+		&camera](output_type & output) -> void {
+
+		auto const y_end = ::std::min(height, y_itr + units_size);
+		auto const seed = rd();
+		threads.emplace_back([
+			&output,
+			y_itr,
+			y_end,
+			height,
+			width,
+			samples,
+			seed,
+			&world,
+			&camera]() -> void {
+
+			randomizer_type randomizer(seed);
+			auto y = y_itr;
+			for (; y_end != y; ++y) {
+
+				uint32_t x = 0u;
+				for (; width != x; ++x) {
+#if RTIOW_DEBUG
+					(output << "# (" << x << "," << y << ")" << ::std::endl);
+#endif
+
+					fvec3 fcolor;
+					uint32_t sample = 0u;
+					for (; samples != sample; ++sample) {
+						auto const ratio_x
+							= (static_cast<float>(x) + randomizer()) / width;
+						auto const ratio_y
+							= (static_cast<float>(height - (y + 1u))
+								+ randomizer()) / height;
+						ray_type const ray
+							= camera.ray(ratio_x, ratio_y, randomizer);
+						fcolor += color(output, ray, world, randomizer, 50u);
+					}
+
+					fcolor /= samples;
+					fcolor = sqrt(fcolor);
+					auto const icolor = ivec3(255.99f * fcolor);
+					(output << icolor << std::endl);
+				}
+			}
+		});
+
+		y_itr = y_end;
+	});
+
+	(::std::cout
+	<< "P3" << ::std::endl
+	<< width << " " << height << ::std::endl
+	<< 255 << ::std::endl
+	);
+
+	::std::for_each(
+		::std::begin(threads),
+		::std::end(threads),
+		[](thread_type & thread) -> void {
+			thread.join();
+		});
+
+	::std::for_each(
+		::std::begin(outputs),
+		::std::end(outputs),
+		[](output_type const & output) -> void {
+			::std::cout << output.str();
+		});
+
 	return 0;
 }
 
